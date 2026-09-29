@@ -1,0 +1,36 @@
+## Round-2 audit item 2 — generalized bridge: wfCoverage + state-generalized agreement
+## G8-G11: symbolic-state agreement claims, requires = wfCoverage (verbatim predicate)
+## X3: ground necessity witness (coverage premise cannot be dropped)
+## GEN theorem: stated in-source; NOT mechanized (symbolic-set induction boundary)
+## date: 2026-09-26T16:34:37Z
+
+--- kompile (SRW3-BRIDGE-GEN) ---
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+kompile exit: 0
+--- kprove (G8-G11 + X3) ---
+kprove exit: 0  (#Top count: 1)
+1:kore-exec: [1161511] Warning (WarnTrivialClaim):
+3:kore-exec: [1166918] Warning (WarnTrivialClaim):
+5:kore-exec: [1170824] Warning (WarnTrivialClaim):
+7:kore-exec: [1175921] Warning (WarnTrivialClaim):
+9:kore-exec: [1177878] Warning (WarnTrivialClaim):
+11:#Top
+
+=== done ===

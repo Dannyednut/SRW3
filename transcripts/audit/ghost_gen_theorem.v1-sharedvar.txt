@@ -1,0 +1,55 @@
+## SRW3 Phase 1B — generalized ghost theorem runs (CM2 / CM3 / generalized)
+## date: 2026-09-29T09:46:10Z
+## definition kompile exits: cm2=0 cm3=0 gen=0 (GHOST-OBS mains; claims excluded)
+
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-A] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-R] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-A1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-SOUND-I] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-SOUND-F] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GATE2-AGREE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-ISO] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-T1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-T2] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-M] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-NEG] kprove exit=1 verdict=FAILED #Top=0 WarnStuck=1
+
+## ---- per-claim verdicts: proofs/gen/cm3_auth.k ----
+[SRW3G3-GH3-BASE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-A] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-R] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-A1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-SOUND-I] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-SOUND-F] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GATE3-AGREE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-ISO] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G3-GH3-T1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+
+## RESUME note 2026-09-29: 09:46 run died at GH3-T2 (exit=124 = the 2400s
+## per-claim budget, genuine timeout) when the session ended; claims stage
+## resumed from GH3-T2 with the per-claim budget raised to 3600s.
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] already recorded, skipping
+[SRW3G2-GH2-A] already recorded, skipping
+[SRW3G2-GH2-R] already recorded, skipping
+[SRW3G2-GH2-A1] already recorded, skipping
+[SRW3G2-GH2-SOUND-I] already recorded, skipping
+[SRW3G2-GH2-SOUND-F] already recorded, skipping
+[SRW3G2-GATE2-AGREE] already recorded, skipping
+[SRW3G2-GH2-ISO] already recorded, skipping
+[SRW3G2-GH2-T1] already recorded, skipping
+[SRW3G2-GH2-T2] already recorded, skipping
+[SRW3G2-GH2-M] already recorded, skipping
+[SRW3G2-GH2-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/cm3_auth.k ----
+[SRW3G3-GH3-BASE] already recorded, skipping
+[SRW3G3-GH3-A] already recorded, skipping
+[SRW3G3-GH3-R] already recorded, skipping
+[SRW3G3-GH3-A1] already recorded, skipping
+[SRW3G3-GH3-SOUND-I] already recorded, skipping
+[SRW3G3-GH3-SOUND-F] already recorded, skipping
+[SRW3G3-GATE3-AGREE] already recorded, skipping
+[SRW3G3-GH3-ISO] already recorded, skipping
+[SRW3G3-GH3-T1] already recorded, skipping

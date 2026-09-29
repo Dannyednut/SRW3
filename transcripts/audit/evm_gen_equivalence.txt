@@ -1,0 +1,10 @@
+## SRW3 Phase 1B — generalized KEVM binding demos (k/kevm/srw3-gen-binding.k)
+## Extension module SRW3-GEN-EVM is ADDITIVE (frozen srw3-kevm.k untouched);
+## #w3GateG = same gate shape, extended evaluated conjunction #w3OblG =
+## IOL ∧ ILD ∧ IOLD ∧ IAliasG(CM2 alias-pair) ∧ IAggG(CM3 aggregate budget).
+## date: $(date -u +'%Y-%m-%dT%H:%M:%SZ')
+## carrier extraction (matrix-v3 convention; krun exit 1 = designed terminal
+## state of the threaded carrier):
+##   evm_gen_positive : COMMIT   n=1 h=0 s={4097:{0:100,2:100},4098:{0:100,1:5,2:30,3:7},4099:{0:4,1:100,2:40,3:7}} ln={0:w3lin(-1,0,100)}
+##   evm_gen_overflow : REJECT+RESTORE  n=0 h=-1 s={4097:.Map,4098:.Map,4099:.Map} ln=.Map
+## structural carrier comparison hs vs llvm: IDENTICAL (both demos)

@@ -1,0 +1,95 @@
+## P1 evidence — the ORIGINAL Phase 0-D scaffold (baseline v1.0, branch main,
+## compat patch applied only for K v7.1.337 module-resolution — see report §C)
+## date: 2026-09-26T12:00:02Z
+
+## (a) The scaffold's syntax admits NO programs: Tau ::= tau(AppId, TransitionId)
+##     but AppId and TransitionId have NO productions; gateOk/rootOk have NO
+##     defining equations and rootOk is referenced by NO rule.
+
+=== [a] kompile of the scaffold (patched branch) — succeeds ===
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(62,18,62,19)
+	62 |	         <k> tau(A, T) => .K </k>
+	   .	                 ^
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(62,21,62,22)
+	62 |	         <k> tau(A, T) => .K </k>
+	   .	                    ^
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(75,18,75,19)
+	75 |	         <k> tau(A, T) => .K </k>
+	   .	                 ^
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(75,21,75,22)
+	75 |	         <k> tau(A, T) => .K </k>
+	   .	                    ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(79,20,79,21)
+	79 |	         <lineage> L </lineage>
+	   .	                   ^
+kompile exit: 0
+
+=== [b] attempting to WRITE a tau program — no production exists for AppId ===
+krun tau(appA,t1) exit: 113
+[Error] Inner Parser: Scanner error: unexpected character sequence 'a'.
+	Source(/tmp/tau_probe.srw3)
+	Location(1,5,1,6)
+	1 |	tau(appA, t1)
+	  .	    ^
+[Error] kparse: /home/z/my-project/tools/k/usr/bin/kast --output kore 
+  ^ parse/rewrite behavior recorded: with no AppId production the term cannot
+    denote anything; the tau skeleton is uninhabitable as shipped.
+
+=== [c] the gateOk placeholder is STUCK: even the accept rule's requires cannot evaluate ===
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(62,18,62,19)
+	62 |	         <k> tau(A, T) => .K </k>
+	   .	                 ^
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(62,21,62,22)
+	62 |	         <k> tau(A, T) => .K </k>
+	   .	                    ^
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(75,18,75,19)
+	75 |	         <k> tau(A, T) => .K </k>
+	   .	                 ^
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(75,21,75,22)
+	75 |	         <k> tau(A, T) => .K </k>
+	   .	                    ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(79,20,79,21)
+	79 |	         <lineage> L </lineage>
+	   .	                   ^
+probe kompile exit: 0
+krun with inhabitable tau: exit: 0
+23:        tau ( appA , t1 ) ~> .K
+46:      <gate>
+76:      <gate>
+112:      <gate>
+  ^ the tau is NOT consumed: gateOk has no equations, so the accept rule's
+    requires gateOk(...) is stuck and NEITHER tau rule can fire. The skeleton
+    cannot execute a single transition, and even if it could, its rules never
+    update <committed>/<shadow> (C => C, S => S) and define no reject path.
+
+=== done ===

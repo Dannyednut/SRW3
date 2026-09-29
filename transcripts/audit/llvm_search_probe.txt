@@ -1,0 +1,58 @@
+{
+  Result:GeneratedTopCell
+#Equals
+  <srw3>
+    <k>
+      .Srw3Pgm ~> .K
+    </k>
+    <committed>
+      stK (... app: appA , slot: 0 ) |-> 7
+      stK (... app: appB , slot: 0 ) |-> 3
+    </committed>
+    <prospective>
+      .Map
+    </prospective>
+    <footprint-t>
+      .Set
+    </footprint-t>
+    <footprint-d>
+      .Set
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+      SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+      SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+    </registry>
+    <policy>
+      enforce
+    </policy>
+    <authorities>
+      SetItem ( appA )
+      SetItem ( appB )
+      SetItem ( appC )
+      SetItem ( lending )
+      SetItem ( liq )
+      SetItem ( oracle )
+    </authorities>
+    <polver>
+      1
+    </polver>
+    <actor>
+      appB
+    </actor>
+    <lineage>
+      .Map
+    </lineage>
+    <lineageNext>
+      0
+    </lineageNext>
+    <head>
+      rootC
+    </head>
+    <result>
+      "reject"
+    </result>
+  </srw3>
+}

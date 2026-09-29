@@ -1,0 +1,35 @@
+kore-exec: [304448] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/proofs/boundaries/b1_symbolic_map.k:28:5-29:39
+kore-exec: [310133] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/srw3-kevm/proofs/boundaries/b1_symbolic_map.k:34:5-34:44
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    S
+  #Equals
+    sum (... m: M )
+  } )
+#And
+  <k>
+    sum (... m: M ) ==Int S ~> .K
+  </k>
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/boundaries/b1_symbolic_map.k)
+	Location(19,12,19,13)
+	19 |	  rule sum(K:Int |-> V:Int M:Map) => V +Int sum(M) [owise]
+	   .	           ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/boundaries/b1_symbolic_map.k)
+	Location(34,13,34,14)
+	34 |	    <k> sum(M:Map) ==Int S:Int => true </k>
+	   .	            ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/boundaries/b1_symbolic_map.k)
+	Location(34,26,34,27)
+	34 |	    <k> sum(M:Map) ==Int S:Int => true </k>
+	   .	                         ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

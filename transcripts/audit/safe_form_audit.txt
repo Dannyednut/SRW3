@@ -1,0 +1,33 @@
+## Round-2 audit item 1 — 4a/4b premise-form equivalences
+## SF0 IC vacuous on two-key shape; SF1 inlined premise == named Safe predicate;
+## SF2 accept conjuncts == gate applicable-obligation conjunction; SF3 reject disjunction == negation
+## date: 2026-09-26T16:34:25Z
+
+--- kompile (SRW3-SAFE-FORM) ---
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+kompile exit: 0
+--- kprove (SF0-SF3, symbolic X Y V) ---
+kprove exit: 0  (#Top count: 1)
+1:kore-exec: [639779] Warning (WarnTrivialClaim):
+3:kore-exec: [647066] Warning (WarnTrivialClaim):
+5:kore-exec: [651928] Warning (WarnTrivialClaim):
+7:kore-exec: [656846] Warning (WarnTrivialClaim):
+9:#Top
+

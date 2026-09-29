@@ -1,0 +1,1 @@
+  syntax Ghost4 ::= "GG" "(" x1:Int "," x2:Int "," z3:Int "," z4:Int ","

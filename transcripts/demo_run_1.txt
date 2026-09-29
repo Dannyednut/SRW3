@@ -1,0 +1,121 @@
+===================================================================
+DEMO: D1 minimal (7,3)->(7,7), complete registry [expect reject, committed (7,3)]
+--- program:
+useRegistry(complete) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D2 negative registry (IAB missing) [expect accept -> committed (7,7) = CM1]
+--- program:
+useRegistry(negative) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7
+  head        : commit ( 0 )
+  lineageNext : 1
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appB ) , polver: 1 , child: commit ( 0 ) )
+  prospective : .Map
+===================================================================
+DEMO: D2b negative registry, second in-bounds step [expect accept, (7,2)]
+--- program:
+useRegistry(negative) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate , as(appB) , begin , w(appB,0,2) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appB ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( appB ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map
+===================================================================
+DEMO: D3 hidden write + trust policy [expect commit of VIOLATION: A:=4, B:=7 => CM7 unsound]
+--- program:
+useRegistry(complete) , setPolicy(trust) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wH(appA,0,4) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D4 hidden write + enforce policy [expect blocked-effect-incomplete]
+--- program:
+useRegistry(complete) , setPolicy(enforce) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wH(appA,0,4) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D5 no actor (unauthorized) [expect reject-auth, committed unchanged]
+--- program:
+useRegistry(complete) , init(appA,0,7) , init(appB,0,3) , begin , w(appB,0,2) , wfCheck , gate
+--- outcome:
+  result      : "reject-auth"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D6 chain: honest lending+settlement [expect 2 commits]
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,100) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( liq ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map
+===================================================================
+DEMO: D7 chain: lending uses stale/undeclared price 90 [expect reject via IOL]
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rdH(oracle) , w(lending,0,90) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D8 chain: settlement at price 90 != lending 100, 3-way lineage check [expect reject via IOLD]
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,90) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D9 chain: settlement at 99 with complete registry [expect reject via IOLD]
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,99) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: D10 CM6: pairwise contracts only, three-way edge missing [expect accept = violation committed]
+--- program:
+useRegistry(pairwiseOnly) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,99) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 99 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( liq ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map

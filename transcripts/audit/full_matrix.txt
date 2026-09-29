@@ -1,0 +1,128 @@
+## P7 — full verification matrix re-run (post-reconciliation)
+## Confirms the reconciliation/audit artifacts changed no previous result.
+## date: 2026-09-26T12:04:39Z
+
+=== [1] Baseline Python suite (canonical make test) — expect 15/15 ===
+python3 -m unittest discover -s tests -v
+test_closed_counterexample_has_complete_interaction_contract (test_closure.ClosureTests.test_closed_counterexample_has_complete_interaction_contract) ... ok
+test_hidden_dependency_breaks_effect_completeness (test_closure.ClosureTests.test_hidden_dependency_breaks_effect_completeness) ... ok
+test_local_only_composition_is_not_interaction_complete_when_edge_required (test_closure.ClosureTests.test_local_only_composition_is_not_interaction_complete_when_edge_required) ... ok
+test_hidden_dependency_is_detectable_as_effect_underapproximation (test_core.Phase0DTests.test_hidden_dependency_is_detectable_as_effect_underapproximation) ... ok
+test_local_invariants_can_miss_global_interaction_invariant (test_core.Phase0DTests.test_local_invariants_can_miss_global_interaction_invariant) ... ok
+test_oracle_lending_liquidator_interaction_contract_is_represented (test_core.Phase0DTests.test_oracle_lending_liquidator_interaction_contract_is_represented) ... ok
+test_refinement_is_monotone_in_finite_fragment (test_core.Phase0DTests.test_refinement_is_monotone_in_finite_fragment) ... ok
+test_authority_aggregation_pattern (test_countermodels.CountermodelTests.test_authority_aggregation_pattern) ... ok
+test_global_countermodel (test_countermodels.CountermodelTests.test_global_countermodel) ... ok
+test_resource_aliasing_pattern (test_countermodels.CountermodelTests.test_resource_aliasing_pattern) ... ok
+test_three_way_interaction_pattern (test_countermodels.CountermodelTests.test_three_way_interaction_pattern) ... ok
+test_closed_composition_gate_rejects_bad_noop (test_proof.ProofTests.test_closed_composition_gate_rejects_bad_noop) ... ok
+test_interaction_aware_model_proves_finite_safety (test_proof.ProofTests.test_interaction_aware_model_proves_finite_safety) ... ok
+test_local_only_model_cannot_claim_closed_composition (test_proof.ProofTests.test_local_only_model_cannot_claim_closed_composition) ... ok
+test_oracle_lending_liquidator_finite_safe_step (test_proof.ProofTests.test_oracle_lending_liquidator_finite_safe_step) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.008s
+
+OK
+[1] exit: 0
+
+=== [2] Abstract demo suite (13 demos) ===
+[2] exit: 0
+--- demo verdict lines ---
+2:DEMO: D1 minimal (7,3)->(7,7), complete registry [expect reject, committed (7,3)]
+6:  result      : "reject"
+7:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+8:  head        : rootC
+9:  lineageNext : 0
+13:DEMO: D2 negative registry (IAB missing) [expect accept -> committed (7,7) = CM1]
+17:  result      : "commit"
+18:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7
+19:  head        : commit ( 0 )
+20:  lineageNext : 1
+24:DEMO: D2b negative registry, second in-bounds step [expect accept, (7,2)]
+28:  result      : "commit"
+29:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+30:  head        : commit ( 1 )
+31:  lineageNext : 2
+35:DEMO: D3 CM7: hidden write to appC (outside declared foot) + trust [expect COMMIT of violation appC:=11]
+39:  result      : "commit"
+40:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 stK (... app: appC , slot: 0 ) |-> 11
+41:  head        : commit ( 0 )
+42:  lineageNext : 1
+46:DEMO: D3b hidden write to appA (co-edge with appB) + trust [expect reject via IAB: defense-in-depth]
+50:  result      : "reject"
+51:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+52:  head        : rootC
+53:  lineageNext : 0
+57:DEMO: D4 hidden write + enforce policy [expect blocked-effect-incomplete]
+61:  result      : "blocked-effect-incomplete"
+62:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 stK (... app: appC , slot: 0 ) |-> 3
+63:  head        : rootC
+64:  lineageNext : 0
+68:DEMO: D5 no actor (unauthorized) [expect reject-auth, committed unchanged]
+72:  result      : "reject-auth"
+73:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+74:  head        : rootC
+75:  lineageNext : 0
+79:DEMO: D6 chain: honest lending+settlement [expect 2 commits]
+83:  result      : "commit"
+84:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+85:  head        : commit ( 1 )
+86:  lineageNext : 2
+90:DEMO: D7 chain: lending uses stale/undeclared price 90 [expect reject via IOL]
+94:  result      : "blocked-effect-incomplete"
+95:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+96:  head        : rootC
+97:  lineageNext : 0
+101:DEMO: D8 chain: settlement at price 90 != lending 100, 3-way lineage check [expect reject via IOLD]
+105:  result      : "reject"
+106:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+107:  head        : commit ( 0 )
+108:  lineageNext : 1
+112:DEMO: D9 chain: settlement at 99 with complete registry [expect reject via IOLD]
+116:  result      : "reject"
+117:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+118:  head        : commit ( 0 )
+119:  lineageNext : 1
+123:DEMO: D10 CM6: pairwise contracts only, three-way edge missing [expect accept = violation committed]
+127:  result      : "commit"
+128:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 99 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+129:  head        : commit ( 1 )
+130:  lineageNext : 2
+134:DEMO: D7b chain: declared read, stale price write 90 [expect reject via IOL]
+138:  result      : "reject"
+139:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+140:  head        : rootC
+141:  lineageNext : 0
+
+=== [3] Claims 1,2,3,4a,4b (kprove, SRW3-CLAIMS) — expect #Top, no vacuity ===
+[3] exit: 0  (#Top count: 1)
+1:#Top
+
+=== [4] Negative control — expect FAILURE (non-zero exit) ===
+[4] exit: 113 (non-zero = correctly fails)
+
+=== [5] KEVM demos (real EVM execution) ===
+--- evm_positive: krun exit: 1
+    carrier: s=4097 |-> ( 0 |-> 100 1 |-> 1 ) 4098 |-> ( 0 |-> 100 1 |-> 5 ) 4099 |-> ( 0 |-> 4 1 |-> 100 ) ln=0 |-> w3lin (... parent: -1 , tid: 0 , price: 100 ) n=1 h=0
+    oracle  : 0 |-> 100 1 |-> 1
+    lending : 0 |-> 100 1 |-> 5
+    liq     : 0 |-> 4 1 |-> 100
+--- evm_negative_stale: krun exit: 1
+    carrier: s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+    oracle  : .Map
+    lending : .Map
+    liq     : .Map
+--- evm_minimal: krun exit: 1
+    carrier: (none)
+    oracle  : .Map
+    lending : .Map
+    liq     : .Map
+
+=== [6] New audit artifacts (already run; verdict summary) ===
+  bridge reconciliation (9 ground claims): kprove exit 0, #Top — see audit/bridge_reconciliation.txt
+  phantom defect demonstrations: see audit/phantom_defect.txt + phantom_defect_search.txt
+  induction attempts: record-4a/4b PROVED; full-theorem attempts stuck — see audit/induction_attempt.txt
+
+=== done ===
+--- evm_min2 (single segment + gate): oracle SSTORE only, gate rejects (IOL fails), restore ---

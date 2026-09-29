@@ -1,0 +1,14 @@
+out-*/
+hs-out/
+llvm-out/
+n/
+*hs-out/
+*llvm-out/
+gen-hs-out/
+gen-llvm-out/
+kevm-hs-out/
+kevm-llvm-out/
+gen-out/
+search-out/
+__pycache__/
+*.pyc

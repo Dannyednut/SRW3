@@ -1,0 +1,36 @@
+## Round-2 audit item 2 — necessity probe: agreement claims WITHOUT wfCoverage
+## A modified G8/G9 with the coverage premise dropped must FAIL (exit non-zero):
+##   - G8 over Z: counterexample X=15, V=-5 (IAB no longer entails IA)
+##   - G9 over Z: counterexample AU=0 (unauthenticated oracle)
+## date: 2026-09-29T15:42:03Z
+
+--- kprove (N1, N2 — expected FAILURE) ---
+kprove exit: 1  (non-zero = coverage premise is load-bearing; prover rejects the under-premised generalization)
+1:kore-exec: [771818] Warning (WarnStuckClaimState):
+kore-exec: [771818] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /tmp/genbridge_neg.k:6:5-13:9
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    true
+  #Equals
+    V <=Int 10 andBool ( X +Int V <=Int 10 andBool X <=Int 10 ) ==Bool V <=Int 10 andBool X +Int V <=Int 10
+  } )
+#And
+  <srw3>
+    <k>
+      V <=Int 10 andBool ( X +Int V <=Int 10 andBool X <=Int 10 ) ==Bool V <=Int 10 andBool X +Int V <=Int 10 ~> .K
+    </k>
+    <committed>
+      _Gen14
+    </committed>
+    <prospective>
+      _Gen15
+    </prospective>
+    <footprint-t>
+      _Gen16
+    </footprint-t>
+    <footprint-d>
+      _Gen17
+
+=== done ===

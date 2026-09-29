@@ -1,0 +1,251 @@
+## Theorem-closure pass — full verification matrix v3
+## [1] Python 15/15  [2] abstract demos 13/13  [3] Claims 1,2,3,4a,4b
+## [4] negative control  [5] bridge (9 ground claims)  [6] phantom-reject audit
+## [7] round-2 artifacts (SF0-SF3; G8-G11+X3; necessity probe)
+## [8] KEVM positive / stale reject+restore / minimal reject+restore
+## [9] theorem-closure ghost encoding (12 claims + faithfulness certificate + faith-run probe)
+## [10] tier-3 universal attempts (T3-U/T3-FD/T3-A)  [11] prior-art freeze evidence
+## date: 2026-09-29T15:40:21Z
+
+=== [1] Baseline Python suite (canonical make test) — expect 15/15 ===
+python3 -m unittest discover -s tests -v
+test_closed_counterexample_has_complete_interaction_contract (test_closure.ClosureTests.test_closed_counterexample_has_complete_interaction_contract) ... ok
+test_hidden_dependency_breaks_effect_completeness (test_closure.ClosureTests.test_hidden_dependency_breaks_effect_completeness) ... ok
+test_local_only_composition_is_not_interaction_complete_when_edge_required (test_closure.ClosureTests.test_local_only_composition_is_not_interaction_complete_when_edge_required) ... ok
+test_hidden_dependency_is_detectable_as_effect_underapproximation (test_core.Phase0DTests.test_hidden_dependency_is_detectable_as_effect_underapproximation) ... ok
+test_local_invariants_can_miss_global_interaction_invariant (test_core.Phase0DTests.test_local_invariants_can_miss_global_interaction_invariant) ... ok
+test_oracle_lending_liquidator_interaction_contract_is_represented (test_core.Phase0DTests.test_oracle_lending_liquidator_interaction_contract_is_represented) ... ok
+test_refinement_is_monotone_in_finite_fragment (test_core.Phase0DTests.test_refinement_is_monotone_in_finite_fragment) ... ok
+test_authority_aggregation_pattern (test_countermodels.CountermodelTests.test_authority_aggregation_pattern) ... ok
+test_global_countermodel (test_countermodels.CountermodelTests.test_global_countermodel) ... ok
+test_resource_aliasing_pattern (test_countermodels.CountermodelTests.test_resource_aliasing_pattern) ... ok
+test_three_way_interaction_pattern (test_countermodels.CountermodelTests.test_three_way_interaction_pattern) ... ok
+test_closed_composition_gate_rejects_bad_noop (test_proof.ProofTests.test_closed_composition_gate_rejects_bad_noop) ... ok
+test_interaction_aware_model_proves_finite_safety (test_proof.ProofTests.test_interaction_aware_model_proves_finite_safety) ... ok
+test_local_only_model_cannot_claim_closed_composition (test_proof.ProofTests.test_local_only_model_cannot_claim_closed_composition) ... ok
+test_oracle_lending_liquidator_finite_safe_step (test_proof.ProofTests.test_oracle_lending_liquidator_finite_safe_step) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.008s
+
+OK
+[1] exit: 0
+
+=== [2] Abstract demo suite (13 demos) ===
+[2] exit: 0
+2:DEMO: D1 minimal (7,3)->(7,7), complete registry [expect reject, committed (7,3)]
+6:  result      : "reject"
+7:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+8:  head        : rootC
+9:  lineageNext : 0
+13:DEMO: D2 negative registry (IAB missing) [expect accept -> committed (7,7) = CM1]
+17:  result      : "commit"
+18:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7
+19:  head        : commit ( 0 )
+20:  lineageNext : 1
+24:DEMO: D2b negative registry, second in-bounds step [expect accept, (7,2)]
+28:  result      : "commit"
+29:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+30:  head        : commit ( 1 )
+31:  lineageNext : 2
+35:DEMO: D3 CM7: hidden write to appC (outside declared foot) + trust [expect COMMIT of violation appC:=11]
+39:  result      : "commit"
+40:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 stK (... app: appC , slot: 0 ) |-> 11
+41:  head        : commit ( 0 )
+42:  lineageNext : 1
+46:DEMO: D3b hidden write to appA (co-edge with appB) + trust [expect reject via IAB: defense-in-depth]
+50:  result      : "reject"
+51:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+52:  head        : rootC
+53:  lineageNext : 0
+57:DEMO: D4 hidden write + enforce policy [expect blocked-effect-incomplete]
+61:  result      : "blocked-effect-incomplete"
+62:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 stK (... app: appC , slot: 0 ) |-> 3
+63:  head        : rootC
+64:  lineageNext : 0
+68:DEMO: D5 no actor (unauthorized) [expect reject-auth, committed unchanged]
+72:  result      : "reject-auth"
+73:  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+74:  head        : rootC
+75:  lineageNext : 0
+79:DEMO: D6 chain: honest lending+settlement [expect 2 commits]
+83:  result      : "commit"
+84:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+85:  head        : commit ( 1 )
+86:  lineageNext : 2
+90:DEMO: D7 chain: lending uses stale/undeclared price 90 [expect reject via IOL]
+94:  result      : "blocked-effect-incomplete"
+95:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+96:  head        : rootC
+97:  lineageNext : 0
+101:DEMO: D8 chain: settlement at price 90 != lending 100, 3-way lineage check [expect reject via IOLD]
+105:  result      : "reject"
+106:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+107:  head        : commit ( 0 )
+108:  lineageNext : 1
+112:DEMO: D9 chain: settlement at 99 with complete registry [expect reject via IOLD]
+116:  result      : "reject"
+117:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+118:  head        : commit ( 0 )
+119:  lineageNext : 1
+123:DEMO: D10 CM6: pairwise contracts only, three-way edge missing [expect accept = violation committed]
+127:  result      : "commit"
+128:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 99 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+129:  head        : commit ( 1 )
+130:  lineageNext : 2
+134:DEMO: D7b chain: declared read, stale price write 90 [expect reject via IOL]
+138:  result      : "reject"
+139:  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+140:  head        : rootC
+141:  lineageNext : 0
+
+=== [3] Claims 1,2,3,4a,4b (kprove, SRW3-CLAIMS) — expect #Top, no vacuity ===
+[3] exit: 0  (#Top count: 1)
+1:#Top
+
+=== [4] Negative control — expect FAILURE (non-zero exit) ===
+[4] exit: 113 (non-zero = correctly fails)
+
+=== [5] Reconciliation bridge (9 ground claims G1-G7,X1,X2) — fresh kompile ===
+[5-pre] bridge kompile exit: 0
+[5] exit: 0  (#Top count: 1; WarnTrivial: 9)
+
+=== [7] Round-2 artifacts — fresh kompile + kprove ===
+[7-pre] safe-form kompile exit: 0
+[7-pre] generalized-bridge kompile exit: 0
+[7a] safe-form (SF0-SF3) exit: 0  (#Top: 1)
+[7b] generalized bridge (G8-G11+X3) exit: 0  (#Top: 1)
+[7c] necessity probe exit recorded in generalized_bridge_negative.txt: 8:kprove exit: 1  (non-zero = coverage premise is load-bearing; prover rejects the under-premised generalization)
+
+=== [6] Phantom-reject defect audit (reconstruction + search demonstration) ===
+[6a] audit_defect.sh exit: 0
+[6b] audit_defect_search.sh exit: 0
+transcripts/audit/phantom_defect.txt:33:krun exit: 0
+transcripts/audit/phantom_defect.txt:34:  result      : "commit"
+transcripts/audit/phantom_defect.txt:40:krun exit: 0
+transcripts/audit/phantom_defect.txt:41:  result      : "commit"
+transcripts/audit/phantom_defect_search.txt:1:## P3 audit (part 2) — krun --search: honest transition outcome sets
+transcripts/audit/phantom_defect_search.txt:3:## spurious 'reject' outcome to an HONEST transition.
+transcripts/audit/phantom_defect_search.txt:53:    expected: exactly ONE outcome: commit
+transcripts/audit/phantom_defect_search.txt:54:krun exit: 0
+transcripts/audit/phantom_defect_search.txt:56:   outcome: result="commit"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+transcripts/audit/phantom_defect_search.txt:59:    expected: TWO outcomes -- commit AND spurious reject (phantom state)
+transcripts/audit/phantom_defect_search.txt:60:krun exit: 0
+transcripts/audit/phantom_defect_search.txt:62:   outcome: result="reject"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+transcripts/audit/phantom_defect_search.txt:63:   outcome: result="commit"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+
+=== [9] Theorem-closure ghost encoding (fresh kompile + all claims) ===
+[9-pre] ghost kompile exit: kompile exit: 0
+[9a] faithfulness certificate: faithfulness: 507/507 source lines matched in order: PASS
+46:[GH-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+47:[GH-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+48:[GH-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+49:[GH-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+50:[GH-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+51:[GATE-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+52:[GH-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+53:[GH-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+54:[GH-T] kprove exit=1 verdict=FAILED  #Top=0 WarnTrivial=0 WarnStuck=1
+55:[GH-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+56:[GH-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+57:[GH-T2-NEG] kprove exit=1 verdict=FAILED  #Top=0 WarnTrivial=0 WarnStuck=1
+
+=== [10] Tier-3 universal attempts (statement preserved; expected STUCK) ===
+28:[T3-U] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+55:[T3-FD] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+82:[T3-A] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+108:## CLASSIFICATION (mandated by the audit instruction):
+109:##   tier-3 universal reconciliation: STATEMENT FORMALIZED; NOT YET MECHANIZED
+
+=== [8] KEVM demos (real EVM execution) ===
+--- evm_positive: krun exit: 1 (1 = demo terminal exit-code cell; see state below) ---
+    carrier: s=4097 |-> ( 0 |-> 100 1 |-> 1 ) 4098 |-> ( 0 |-> 100 1 |-> 5 ) 4099 |-> ( 0 |-> 4 1 |-> 100 ) ln=0 |-> w3lin (... parent: -1 , tid: 0 , price: 100 ) n=1 h=0
+--- evm_negative_stale: krun exit: 1 (1 = demo terminal exit-code cell; see state below) ---
+    carrier: s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+--- evm_minimal: krun exit: 1 (1 = demo terminal exit-code cell; see state below) ---
+    carrier: (none)
+--- evm_min2: krun exit: 1 (1 = demo terminal exit-code cell; see state below) ---
+    carrier: s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+
+    expected: positive = s:{4097:{0:100,1:1},4098:{0:100,1:5},4099:{0:4,1:100}} ln:{0:w3lin(...price:100)} n=1 h=0  (COMMIT)
+    expected: stale/min2 = s:{4097:.Map,4098:.Map,4099:.Map} ln:.Map n=0 h=-1  (REJECT + restore)
+    expected: minimal = carrier (none) — setup-only smoke demo
+
+
+=== [GEN-1] generalized demo suite — haskell (expected table = Part IX contract) ===
+=== gen demos (haskell): PASS=10 FAIL=0 ===
+=== [GEN-2] generalized demo suite — llvm ===
+=== gen demos (llvm): PASS=10 FAIL=0 ===
+=== [GEN-3] hs <-> llvm semantic cell equivalence (10 demos) ===
+demos compared: 10
+SEMANTICALLY EQUIVALENT hs<->llvm
+
+
+=== [GEN-4] generalized ghost suites — live re-run (35 claims: 12+12+11; gen_full has no A1) ===
+cm2 (CM2 alias):
+[SRW3G2-GH2-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G2-GH2-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-A1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G2-GH2-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G2-GATE2-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G2-GH2-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G2-GH2-NEG] kprove exit=1 verdict=FAILED  #Top=0
+cm3 (CM3 aggregate authority):
+[SRW3G3-GH3-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G3-GH3-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-A1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G3-GH3-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G3-GATE3-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G3-GH3-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G3-GH3-NEG] kprove exit=1 verdict=FAILED  #Top=0
+gen_full (generalized):
+[SRW3G4-GH4-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G4-GH4-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G4-GH4-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G4-GATE4-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[SRW3G4-GH4-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+[SRW3G4-GH4-NEG] kprove exit=1 verdict=FAILED  #Top=0
+
+
+=== [GEN-5] Python generalized model (mirror oracle; 14 tests) ===
+..............                                                           [100%]
+14 passed in 0.14s
+
+=== [GEN-6] KEVM generalized binding (additive SRW3-GEN-EVM; frozen binding untouched) ===
+positive COMMIT (n=1,h=0, aliased+aggregate values committed): FAIL
+overflow REJECT+RESTORE (n=0,h=-1, storages restored):         PASS
+structural hs vs llvm: ## structural carrier comparison hs vs llvm: IDENTICAL (both demos)
+
+
+=== [GEN-5] Python generalized model (mirror oracle; 14 tests) ===
+..............                                                           [100%]
+14 passed in 0.13s
+
+=== [GEN-6] KEVM generalized binding (additive SRW3-GEN-EVM; frozen binding untouched) ===
+positive COMMIT (n=1,h=0, aliased+aggregate values committed): PASS
+overflow REJECT+RESTORE (n=0,h=-1, storages restored):         PASS
+structural hs vs llvm: ## structural carrier comparison hs vs llvm: IDENTICAL (both demos)
+
+
+=== [VERDICT v5] ===
+Phase-1A surface (stages 1-11 + LLVM-1..10): see matrix transcript above;
+Phase-1B additions: GEN-1..3 demos 10/10 hs + 10/10 llvm + equivalent;
+GEN-4 ghost suites 35 claims LIVE: 32 PROVED + GH2/GH3/GH4-NEG correctly FAIL (per suite: 11 PROVED + NEG; T2+M circular #Top);
+GEN-5 python model; GEN-6 KEVM generalized binding COMMIT/REJECT+RESTORE.
+
+genverdict done

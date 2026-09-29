@@ -1,0 +1,57 @@
+## Theorem-closure pass item 1 — ghost-state (invariant-as-data) encoding
+## Artifact: proofs/induction_ghost.k (byte-faithful copy of k/srw3.k:24-530
+## + 12 //GHOST:-marked lines; certificate scripts/audit_ghost_faithful.py)
+## Claims: GH-BASE/GH-A/GH-R (GhostMatches obligations), GH-SOUND-I/F
+## (certificate->real-state bridge), GATE-AGREE, GH-ISO/GH-T1 (non-circular
+## diagnostics), GH-T/GH-T2 (the forall-n theorem, circularity).
+## date: 2026-09-29T15:43:10Z
+
+--- kompile (SRW3-GHOST-OBS, haskell backend; claim modules stay out of the definition) ---
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_ghost.k)
+	Location(212,48,212,52)
+	212 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_ghost.k)
+	Location(213,42,213,43)
+	213 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_ghost.k)
+	Location(277,32,277,33)
+	277 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_ghost.k)
+	Location(641,18,641,19)
+	641 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_ghost.k)
+	Location(642,38,642,39)
+	642 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+kompile exit: 0
+
+## ---- per-claim verdicts (isolated kprove runs) ----
+## date: 2026-09-29T15:43:21Z
+[GH-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[GH-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[GH-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[GATE-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+[GH-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-T] kprove exit=1 verdict=FAILED  #Top=0 WarnTrivial=0 WarnStuck=1
+[GH-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0 WarnStuck=0
+[GH-T2-NEG] kprove exit=1 verdict=FAILED  #Top=0 WarnTrivial=0 WarnStuck=1

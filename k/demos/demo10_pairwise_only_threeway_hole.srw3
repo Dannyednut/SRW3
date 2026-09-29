@@ -1,0 +1,1 @@
+useRegistry(pairwiseOnly) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,99) , wfCheck , gate

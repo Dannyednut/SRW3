@@ -1,0 +1,84 @@
+## P4 audit — KEVM binding: inherited (KEVM) vs introduced (SRW3) rule census
+## date: 2026-09-26T11:59:16Z
+
+=== [1] KEVM sources used by the binding are UNMODIFIED vs the pristine v1.0.921 tarball ===
+pristine dir: /tmp/kevm-pristine/evm-semantics-1.0.921/kevm-pyk/src/kevm_pyk/kproj/evm-semantics
+  evm.md: IDENTICAL to pristine tarball
+  asm.md: IDENTICAL to pristine tarball
+  evm-types.md: IDENTICAL to pristine tarball
+  word.md: IDENTICAL to pristine tarball
+  data.md: IDENTICAL to pristine tarball
+  buf.md: IDENTICAL to pristine tarball
+  gas.md: IDENTICAL to pristine tarball
+  schedule.md: IDENTICAL to pristine tarball
+  serialization.md: IDENTICAL to pristine tarball
+  network.md: IDENTICAL to pristine tarball
+  hashed-locations.md: IDENTICAL to pristine tarball
+  state-utils.md: IDENTICAL to pristine tarball
+any-diff flag: 0 (0 = all checked KEVM sources byte-identical)
+
+=== [2] Rule census: what the binding ADDS vs what it INHERITS ===
+  rules in k/kevm/srw3-kevm.k (ALL SRW3-introduced):   syntax declarations introduced by the binding (all #w3*/W3* names):   of which non-#w3/non-SRW3 syntax:   rules in KEVM core evm.md (inherited, unmodified):   rules in KEVM asm.md (inherited, unmodified): 
+  introduced-rule inventory (k/kevm/srw3-kevm.k):
+    58:  rule w3Oracle  => 4097
+    59:  rule w3Lending => 4098
+    60:  rule w3Liq     => 4099
+    67:  rule [[ #w3read(ACCT, KEY) => {WS[KEY]}:>Int ]]
+    70:  rule [[ #w3read(ACCT, KEY) => 0 ]]
+    73:  rule #w3read(_ACCT, _KEY) => 0 [owise]
+    77:  rule [[ #w3allStorages() => 4097 |-> WS1  4098 |-> WS2  4099 |-> WS3 ]]
+    89:  rule #w3IOL()  => #w3read(w3Lending, 0) ==Int #w3read(w3Oracle, 0)
+    90:  rule #w3ILD()  => #w3read(w3Liq, 0) <=Int #w3read(w3Lending, 1)
+    91:  rule #w3IOLD() => ( #w3read(w3Liq, 1) ==Int #w3read(w3Lending, 0) )
+    97:  rule #w3OracleCode  => PUSH(1, 0) ; SLOAD ; PUSH(1, 0) ; MSTORE ; PUSH(1, 32) ; PUSH(1, 0) ; RETURN ; .OpCodes
+    98:  rule #w3LendingCode => PUSH(1, 0) ; SLOAD ; PUSH(1, 0) ; MSTORE ; PUSH(1, 32) ; PUSH(1, 0) ; RETURN ; .OpCodes
+    101:  rule <k> C:EthereumSimulation REST:EthereumSimulation => C ~> REST ... </k> requires C =/=K #w3Nil
+    102:  rule <k> #w3Nil => .K ... </k>
+    105:  rule <k> #w3Setup => .K ... </k>
+    140:  rule <k> #w3Run(A:Int, OPS:OpCodes)
+    143:  rule <k> #w3SetCtx(A:Int, CODE:Bytes) => #loadProgram CODE ~> #initVM ... </k>
+    151:  rule <k> #halt ~> (C:EthereumSimulation) => C ... </k>
+    152:  rule <k> #halt ~> #w3State(SG:Map, LN:Map, N:Int, H:Int)
+    157:  rule <k> #w3Snap0 => #w3State(#w3allStorages(), .Map, 0, -1) ... </k>
+    160:  rule <k> #w3State(SG:Map, LN:Map, N:Int, H:Int) ~> #w3Run(A:Int, OPS:OpCodes)
+    162:  rule <k> #w3State(SG:Map, LN:Map, N:Int, H:Int)
+    167:  rule <k> #w3State(SG:Map, LN:Map, N:Int, H:Int) ~> #w3Gate0
+    169:  rule <k> #w3State(SG:Map, LN:Map, N:Int, H:Int)
+    176:  rule <k> #w3Gate(SG:Map, LN:Map, N:Int, H:Int)
+    182:  rule <k> #w3Gate(SG:Map, LN:Map, N:Int, H:Int)
+    187:  rule <k> #w3RestoreAll(S:Map)
+    190:  rule <k> #w3RestoreOne(S:Map, A:Int) => .K ... </k>
+    194:  rule <k> #w3RestoreOne(S:Map, A:Int) => .K ... </k>
+
+  EVM opcode semantics rules touched by the binding: NONE (the binding only
+  adds #w3* driver/gate rules; SSTORE/SLOAD/CALL/RETURN/MSTORE/MLOAD/PUSH/STOP
+  execute through evm.md's own rules, verified unmodified in [1]).
+
+=== [3] Abstract layer: census of rules updating <committed> ===
+  rules matching '<committed>' with an update (=>) in k/srw3.k:
+    117:       <committed> M:Map => M[stK(I, S) <- V] </committed>
+    361:       <committed> _C:Map => P </committed>
+    423:    <committed> stK(appA, 0) |-> X:Int => stK(appA, 0) |-> V:Int </committed>
+  (exactly one: the gate ACCEPT rule — the structural commitment boundary)
+
+=== [4] KEVM layer: census of rules writing account storage outside EVM execution ===
+  SRW3-introduced rules that write <storage> (restore path):
+    48:                 | "#w3RestoreOne" "(" s:Map "," Int ")"
+    188:        => #w3RestoreOne(S, w3Oracle) ~> #w3RestoreOne(S, w3Lending) ~> #w3RestoreOne(S, w3Liq) ... </k>
+    190:  rule <k> #w3RestoreOne(S:Map, A:Int) => .K ... </k>
+    194:  rule <k> #w3RestoreOne(S:Map, A:Int) => .K ... </k>
+  (restore = the reject path of the modeled commitment gate; the commit path
+   re-snapshots via #w3allStorages — see rules at #w3Gate)
+
+=== done ===
+NOTE (census interpretation for [3]): two rules mention <committed> with an
+update: line 117 is `init(app,slot,v)` — STATE INITIALIZATION, which
+establishes sigma_0 before any transition executes (no lineage, no gate
+involvement); line 361 is the gate ACCEPT rule — the ONLY rule that updates
+<committed> as the result of a TRANSITION. The precise structural statement
+is therefore: apart from initialization, the committed state is reachable
+only through the guarded accept rule.
+
+NOTE (census counts, [2]): introduced rules in k/kevm/srw3-kevm.k: 29;
+introduced syntax declarations: 15 (all #w3*/W3*/SRW3 driver names);
+inherited rules: evm.md 778, asm.md 157 (byte-identical sources per [1]).

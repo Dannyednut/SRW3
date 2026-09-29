@@ -1,0 +1,8 @@
+[Error] Critical: Could not find file: srw3.k
+Lookup
+directories:[/home/z/my-project/tools/k/usr/lib/kframework/java/../../../include/kframework/builtin,
+/home/z/my-project/srw3-kevm/././proofs, ./proofs]
+	Source(/home/z/my-project/srw3-kevm/proofs/tier3_universal.k)
+	Location(33,1,33,18)
+	33 |	requires "srw3.k"
+	   .	^~~~~~~~~~~~~~~~~

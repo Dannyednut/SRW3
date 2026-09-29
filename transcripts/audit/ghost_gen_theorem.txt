@@ -1,0 +1,206 @@
+## SRW3 Phase 1B — generalized ghost theorem runs (CM2 / CM3 / generalized)
+## date: 2026-09-29T15:10:03Z
+##
+## RUN v2 (variable-correlation fix). v1 (ghost_gen_theorem.v1-sharedvar.txt,
+## run of 09:46) found: cm2 11 PROVED + GH2-NEG fails-as-designed, cm3 BASE..T1
+## PROVED, then GH3-T2 TIMEOUT (2400s) — diagnosed as an unintended variable
+## correlation: the circular claims shared N1 between the transition amount
+## tC(N1)/tG(V1,V2,N1) and <lineageNext> N1, blocking circular re-application
+## (stuck residual #Not(N = N1) under --depth 40; cm2's closed form uses V1 vs
+## N1 — separated). Fix: claims-module-only rename of the amount variable to
+## NA/NA1/NA2 in gen_fragments/cm3_frag.k and gen_frag.k; artifacts regenerated
+## via gen_ghost_proofs.py (theorem STATEMENTS unchanged — the amount was
+## already implicitly universally quantified independently of the counter).
+## Definitions untouched (claims are not in the definition; out-* stay valid).
+## cm2 verdicts below are CARRIED OVER from v1: cm2_alias.k sha256 unchanged
+## (be34807c...), so the v1 verdicts remain valid for these exact bytes.
+
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-A] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-R] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-A1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-SOUND-I] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-SOUND-F] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GATE2-AGREE] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-ISO] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-T1] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-T2] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-M] kprove exit=0 verdict=PROVED #Top=1 WarnStuck=0
+[SRW3G2-GH2-NEG] kprove exit=1 verdict=FAILED #Top=0 WarnStuck=1
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] already recorded, skipping
+[SRW3G2-GH2-A] already recorded, skipping
+[SRW3G2-GH2-R] already recorded, skipping
+[SRW3G2-GH2-A1] already recorded, skipping
+[SRW3G2-GH2-SOUND-I] already recorded, skipping
+[SRW3G2-GH2-SOUND-F] already recorded, skipping
+[SRW3G2-GATE2-AGREE] already recorded, skipping
+[SRW3G2-GH2-ISO] already recorded, skipping
+[SRW3G2-GH2-T1] already recorded, skipping
+[SRW3G2-GH2-T2] already recorded, skipping
+[SRW3G2-GH2-M] already recorded, skipping
+[SRW3G2-GH2-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/cm3_auth.k ----
+[SRW3G3-GH3-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G3-GH3-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-A1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G3-GH3-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G3-GATE3-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G3-GH3-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G3-GH3-NEG] kprove exit=1 verdict=FAILED  #Top=0
+0 WarnTrivial=0
+0 WarnStuck=1
+## ---- per-claim verdicts: proofs/gen/gen_full.k ----
+[SRW3G4-GH4-BASE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-SOUND-I] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G4-GH4-SOUND-F] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+0 WarnTrivial=0
+0 WarnStuck=0
+0
+per-claim done (2026-09-29T15:12:13Z)
+
+## G4 re-run: SRW3G4-GHOST-OBS was missing the concrete-input rules
+## rmPQ()/capG()/parentG() (every transition-touching GH4 claim stuck, exit=113,
+## incl. pure-evaluation GATE4-AGREE) — added to gen_frag.k (syntax + rules),
+## artifact regenerated (50253d37...), out-gen recompiled clean; G4 claims re-run.
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] already recorded, skipping
+[SRW3G2-GH2-A] already recorded, skipping
+[SRW3G2-GH2-R] already recorded, skipping
+[SRW3G2-GH2-A1] already recorded, skipping
+[SRW3G2-GH2-SOUND-I] already recorded, skipping
+[SRW3G2-GH2-SOUND-F] already recorded, skipping
+[SRW3G2-GATE2-AGREE] already recorded, skipping
+[SRW3G2-GH2-ISO] already recorded, skipping
+[SRW3G2-GH2-T1] already recorded, skipping
+[SRW3G2-GH2-T2] already recorded, skipping
+[SRW3G2-GH2-M] already recorded, skipping
+[SRW3G2-GH2-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/cm3_auth.k ----
+[SRW3G3-GH3-BASE] already recorded, skipping
+[SRW3G3-GH3-A] already recorded, skipping
+[SRW3G3-GH3-R] already recorded, skipping
+[SRW3G3-GH3-A1] already recorded, skipping
+[SRW3G3-GH3-SOUND-I] already recorded, skipping
+[SRW3G3-GH3-SOUND-F] already recorded, skipping
+[SRW3G3-GATE3-AGREE] already recorded, skipping
+[SRW3G3-GH3-ISO] already recorded, skipping
+[SRW3G3-GH3-T1] already recorded, skipping
+[SRW3G3-GH3-T2] already recorded, skipping
+[SRW3G3-GH3-M] already recorded, skipping
+[SRW3G3-GH3-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/gen_full.k ----
+[SRW3G4-GH4-BASE] already recorded, skipping
+[SRW3G4-GH4-A] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-R] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-SOUND-I] already recorded, skipping
+[SRW3G4-GH4-SOUND-F] already recorded, skipping
+[SRW3G4-GATE4-AGREE] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=1 WarnStuck=0
+0
+[SRW3G4-GH4-ISO] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-T1] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-T2] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-M] kprove exit=0 verdict=PROVED  #Top=1 WarnTrivial=0
+0 WarnStuck=0
+0
+[SRW3G4-GH4-NEG] kprove exit=1 verdict=FAILED  #Top=0
+0 WarnTrivial=0
+0 WarnStuck=1
+per-claim done (2026-09-29T15:16:01Z)
+## ---- per-claim verdicts: proofs/gen/cm2_alias.k ----
+[SRW3G2-GH2-BASE] already recorded, skipping
+[SRW3G2-GH2-A] already recorded, skipping
+[SRW3G2-GH2-R] already recorded, skipping
+[SRW3G2-GH2-A1] already recorded, skipping
+[SRW3G2-GH2-SOUND-I] already recorded, skipping
+[SRW3G2-GH2-SOUND-F] already recorded, skipping
+[SRW3G2-GATE2-AGREE] already recorded, skipping
+[SRW3G2-GH2-ISO] already recorded, skipping
+[SRW3G2-GH2-T1] already recorded, skipping
+[SRW3G2-GH2-T2] already recorded, skipping
+[SRW3G2-GH2-M] already recorded, skipping
+[SRW3G2-GH2-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/cm3_auth.k ----
+[SRW3G3-GH3-BASE] already recorded, skipping
+[SRW3G3-GH3-A] already recorded, skipping
+[SRW3G3-GH3-R] already recorded, skipping
+[SRW3G3-GH3-A1] already recorded, skipping
+[SRW3G3-GH3-SOUND-I] already recorded, skipping
+[SRW3G3-GH3-SOUND-F] already recorded, skipping
+[SRW3G3-GATE3-AGREE] already recorded, skipping
+[SRW3G3-GH3-ISO] already recorded, skipping
+[SRW3G3-GH3-T1] already recorded, skipping
+[SRW3G3-GH3-T2] already recorded, skipping
+[SRW3G3-GH3-M] already recorded, skipping
+[SRW3G3-GH3-NEG] already recorded, skipping
+## ---- per-claim verdicts: proofs/gen/gen_full.k ----
+[SRW3G4-GH4-BASE] already recorded, skipping
+[SRW3G4-GH4-A] already recorded, skipping
+[SRW3G4-GH4-R] already recorded, skipping
+[SRW3G4-GH4-SOUND-I] already recorded, skipping
+[SRW3G4-GH4-SOUND-F] already recorded, skipping
+[SRW3G4-GATE4-AGREE] already recorded, skipping
+[SRW3G4-GH4-ISO] already recorded, skipping
+[SRW3G4-GH4-T1] already recorded, skipping
+[SRW3G4-GH4-T2] already recorded, skipping
+[SRW3G4-GH4-M] already recorded, skipping
+[SRW3G4-GH4-NEG] already recorded, skipping
+per-claim done (2026-09-29T15:48:01Z)

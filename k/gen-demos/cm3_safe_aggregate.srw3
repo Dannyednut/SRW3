@@ -1,0 +1,1 @@
+grant(appB,appB,10) , grant(appC,appB,6) , grant(appD,appB,6) , useRegistryG(authOnly) , as(appC) , begin , consume(appC,4) , wfCheck , gate , as(appD) , begin , consume(appD,5) , wfCheck , gate

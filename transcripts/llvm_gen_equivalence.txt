@@ -1,0 +1,2 @@
+demos compared: 10
+SEMANTICALLY EQUIVALENT hs<->llvm

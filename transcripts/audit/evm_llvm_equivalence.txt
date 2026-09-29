@@ -1,0 +1,15 @@
+demo                       | backend | exit | <k> snapshot (normalized)
+----------------------------------------------------------------------------------------------------------------------
+evm_positive               | HS   | 1 | #w3State (... s: 4097 |-> ( 0 |-> 100 1 |-> 1 ) 4098 |-> ( 0 |-> 100 1
+                           | LLVM | 1 | #w3State (... s: 4097 |-> ( 0 |-> 100 1 |-> 1 ) 4098 |-> ( 0 |-> 100 1
+                           | verdict: STRUCTURALLY IDENTICAL   (k-cell byte-equal: True, exit equal: True)
+----------------------------------------------------------------------------------------------------------------------
+evm_negative_stale         | HS   | 1 | #w3State (... s: 4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map )
+                           | LLVM | 1 | #w3State (... s: 4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map )
+                           | verdict: STRUCTURALLY IDENTICAL   (k-cell byte-equal: True, exit equal: True)
+----------------------------------------------------------------------------------------------------------------------
+evm_min2                   | HS   | 1 | #w3State (... s: 4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map )
+                           | LLVM | 1 | #w3State (... s: 4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map )
+                           | verdict: STRUCTURALLY IDENTICAL   (k-cell byte-equal: True, exit equal: True)
+----------------------------------------------------------------------------------------------------------------------
+VERDICT: ALL THREE DEMOS STRUCTURALLY EQUIVALENT (hs == llvm)

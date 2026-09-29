@@ -1,0 +1,17 @@
+demo                                         verdict    detail
+----------------------------------------------------------------------------------------------------
+D1 minimal (7,3)->(7,7), complete regist     MATCH      result="reject" committed=stK (... app: appA , slot: 0
+D10 CM6: pairwise contracts only, three-     MATCH      result="commit" committed=stK (... app: lending , slot
+D2 negative registry (IAB missing) [expe     MATCH      result="commit" committed=stK (... app: appA , slot: 0
+D2b negative registry, second in-bounds      MATCH      result="commit" committed=stK (... app: appA , slot: 0
+D3 CM7: hidden write to appC (outside de     MATCH      result="commit" committed=stK (... app: appA , slot: 0
+D3b hidden write to appA (co-edge with a     MATCH      result="reject" committed=stK (... app: appA , slot: 0
+D4 hidden write + enforce policy [expect     MATCH      result="blocked-effect-incomplete" committed=stK (... app: appA , slot: 0
+D5 no actor (unauthorized) [expect rejec     MATCH      result="reject-auth" committed=stK (... app: appA , slot: 0
+D6 chain: honest lending+settlement [exp     MATCH      result="commit" committed=stK (... app: lending , slot
+D7 chain: lending uses stale/undeclared      MATCH      result="blocked-effect-incomplete" committed=stK (... app: lending , slot
+D7b chain: declared read, stale price wr     MATCH      result="reject" committed=stK (... app: lending , slot
+D8 chain: settlement at price 90 != lend     MATCH      result="reject" committed=stK (... app: lending , slot
+D9 chain: settlement at 99 with complete     MATCH      result="reject" committed=stK (... app: lending , slot
+----------------------------------------------------------------------------------------------------
+total demos: 13; verdict: SEMANTICALLY EQUIVALENT

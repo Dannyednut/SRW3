@@ -1,0 +1,64 @@
+## P3 audit (part 2) — krun --search: honest transition outcome sets
+## A gate decision must be deterministic; the phantom rule adds a
+## spurious 'reject' outcome to an HONEST transition.
+## date: 2026-09-29T15:42:40Z
+
+=== [0] search-enabled definitions ===
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/defects/phantom_reject.k)
+	Location(94,51,94,52)
+	94 |	    requires notBool allHold(applicable(R2, FD2), P)
+	   .	                                                  ^
+defective kompile exit: 0
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+corrected kompile exit: 0
+
+=== [1] krun --search HONEST transition under CORRECTED gate ===
+    expected: exactly ONE outcome: commit
+krun exit: 0
+  final states found: 1
+   outcome: result="commit"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+
+=== [2] krun --search SAME honest transition under DEFECTIVE gate ===
+    expected: TWO outcomes -- commit AND spurious reject (phantom state)
+krun exit: 0
+  final states found: 2
+   outcome: result="reject"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+   outcome: result="commit"  committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+

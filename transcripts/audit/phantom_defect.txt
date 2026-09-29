@@ -1,0 +1,64 @@
+## P3 audit — the phantom-reject defect: reconstruction + demonstrations
+## date: 2026-09-29T15:42:09Z
+
+=== [0] kompile the DEFECTIVE definition (SRW3-PHANTOM) ===
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/defects/phantom_reject.k)
+	Location(94,51,94,52)
+	94 |	    requires notBool allHold(applicable(R2, FD2), P)
+	   .	                                                  ^
+kompile exit: 0   (note: the unbound P in the defective rule yields a WARNING, not an error)
+
+=== [1] krun HONEST transition (7,3)->(7,2) under CORRECTED gate (hs-out) ===
+    expected: result = commit (deterministic)
+krun exit: 0
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+  prospective : .Map
+
+=== [2] krun SAME honest transition under DEFECTIVE gate (defects-out) ===
+    phantom reject rule fires with a phantom state -> spurious reject path
+krun exit: 0
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+  prospective : .Map
+
+=== [3] kprove D-FALSE-REJECT under DEFECTIVE gate ===
+    ('honest transition rejects' — FALSE of the intended model)
+kprove exit: 1  (0 = the false claim is PROVED / stuck = phantom path visible)
+kore-exec: [637440] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /home/z/my-project/srw3-kevm/proofs/defects/phantom_reject.k:119:5-131:64
+Context:
+
+=== [4] kprove verbatim Claim 4a (accept-side) under DEFECTIVE gate ===
+    PROVED under corrected gate; expected to FAIL here (accept-side collapse)
+kprove exit: 1
+kore-exec: [662222] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /home/z/my-project/srw3-kevm/proofs/defects/phantom_reject.k:161:5-179:80
+Context:
+
+=== [5] kprove same false claim under CORRECTED gate (control) ===
+kprove exit: 1  (expected non-zero: correctly fails)
+kore-exec: [637893] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /home/z/my-project/srw3-kevm/proofs/defects/phantom_reject.k:192:5-204:64
+Context:
+
