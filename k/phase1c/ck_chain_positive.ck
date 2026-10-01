@@ -1,0 +1,1 @@
+ckInit(0,5) , ckBegin , ckW(0,7) , ckGate(CkHex("d9e1dd8a17ed953bb01aa04d181813889e49d5b875cd2201c45dad1b674d33f5")) , ckBegin , ckW(0,9) , ckGate(CkHex("f9c13403927887403268eeb9bcf120b71c0d9fd600548396088e9ddf6253616b"))

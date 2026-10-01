@@ -1,0 +1,46 @@
+=== SRW3 Phase 1C — cryptographic commitment lineage demos (srw3ck.k, LLVM + krypto shim) ===
+=== gate obligations: ICK-PRESENT (recompute presented head) + ICK-CHAIN (re-derive lineage) ===
+=== commitments = REAL Keccak256raw (Ethereum keccak) via shim; H(p,slot,v) = keccak256(p || slot_4BE || v_4BE) ===
+
+### ck_chain_positive
+--- program:
+ckInit(0,5) , ckBegin , ckW(0,7) , ckGate(CkHex("d9e1dd8a17ed953bb01aa04d181813889e49d5b875cd2201c45dad1b674d33f5")) , ckBegin , ckW(0,9) , ckGate(CkHex("f9c13403927887403268eeb9bcf120b71c0d9fd600548396088e9ddf6253616b"))
+--- outcome:
+  <lineageNext>
+  <head>
+  <result>
+    "commit"
+
+### ck_tamper_reject
+--- program:
+ckInit(0,5) , ckBegin , ckW(0,7) , ckGate(CkHex("d9e1dd8a17ed953bb01aa04d181813889e49d5b875cd2201c45dad1b674d33f4")) , ckBegin , ckW(0,9) , ckGate(CkHex("f9c13403927887403268eeb9bcf120b71c0d9fd600548396088e9ddf6253616b"))
+--- outcome:
+  <lineageNext>
+  <head>
+  <result>
+    "reject"
+
+### ck_recover
+--- program:
+ckInit(0,5) , ckBegin , ckW(0,7) , ckGate(CkHex("d9e1dd8a17ed953bb01aa04d181813889e49d5b875cd2201c45dad1b674d33f4")) , ckBegin , ckW(0,7) , ckGate(CkHex("d9e1dd8a17ed953bb01aa04d181813889e49d5b875cd2201c45dad1b674d33f5"))
+--- outcome:
+  <lineageNext>
+  <head>
+  <result>
+    "commit"
+
+=== chain tail check (positive): lineage records re-derived, head == H2 ===
+
+=== positive-run final state: <head> (raw bytes of H2) and <lineageNext> ===
+  <head>
+    b"\xf9\xc14\x03\x92x\x87@2h\xee\xb9\xbc\xf1 \xb7\x1c\r\x9f\xd6\x00T\x83\x96\x08\x8e\x9d\xdfbSak"
+  </head>
+  <lineageNext>
+    2
+  </lineageNext>
+
+=== interpretation ===
+positive: result=commit, lineageNext=2, head=H2=f9c13403...616b (chain of 2 real keccak256 records)
+tamper  : result=reject (presented H1' != recomputed keccak256(root||0||7)); chain NOT advanced;
+          subsequent stale H2 also rejected (parent mismatch) - restoration semantics
+recover : result=commit (after reject, correct H1 accepted; pend/prospective restored cleanly)
