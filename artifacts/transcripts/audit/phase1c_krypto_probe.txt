@@ -1,0 +1,11 @@
+=== SRW3 Phase 1C — Part IV/X cryptographic availability probe (LLVM backend + krypto shim) ===
+=== shim: Keccak-f[1600] (own impl, vectors below) + libsecp256k1 0.5.0 ECDSA (plugin crypto.cpp code path) ===
+=== kompile: --backend llvm --hook-namespaces KRYPTO ; link: llvm-kompile ... -lkrypto-shim -lsecp256k1 -lgmp ===
+
+Thu Oct  1 05:56:23 UTC 2026
+
+<k>
+  #finish ( "IV-keccak256-empty ok=true\nIV-keccak256-abc ok=true\nIX-pubkey-of-one ok=true got=79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8\nIX-recover-roundtrip ok=true\nIX-wrong-v-neg ok=true\nIX-bad-sig-empty ok=true\nIVX-address-derivation ok=true got=7e5f4552091a69125d5dfcb7b8c2659029395bdf\nIV-keccak256-raw-hex ok=true" ) ~> .K
+</k>
+=== hs-backend control (same definition, NO shim possible on hs: KRYPTO hooks have no hs evaluators — recorded finding) ===
+0
