@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://papers.ssrn.com",
+    "name": "A Trust-Minimized Protocol for Audit-Gated Token Deployment",
+    "snippet": "Abstract. Token projects face a financing deadlock: a professional security audit is the single strongest pre -launch signal of contract safety, ...",
+    "host_name": "papers.ssrn.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://qaskills.sh",
+    "name": "Testing Database Unique-Constraint Race Conditions",
+    "snippet": "Test database unique-constraint race conditions with synchronized PostgreSQL inserts, SQLSTATE assertions, rollback checks, and recovery verification .",
+    "host_name": "qaskills.sh",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dorahacks.io",
+    "name": "noyeet | Buidls",
+    "snippet": "The invariant is expressed as a revert condition inside the transaction itself. A guard contract executes the agent's calls, then asserts post-state and ...",
+    "host_name": "dorahacks.io",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com",
+    "name": "[E67.14] The dependency predicate and dispatch marker are not",
+    "snippet": "The dependency predicate and dispatch marker are not atomic. A dependency sibling can be revived or otherwise leave succeeded after the guard's ListRuns ...",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.cube.exchange",
+    "name": "What is a Re-Entrancy Attack?",
+    "snippet": "Re-entrancy attack is the name for a smart contract bug where code hands control to an external contract before it has finished updating its own state,",
+    "host_name": "www.cube.exchange",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://research.oraclizer.io",
+    "name": "OIP v0.5: Notes from Integration Review",
+    "snippet": "Apr 26, 2026 — GUARANTEED follows the normal three-phase. PREPARE failure aborts with no resources reserved. Partial COMMIT failure transitions to the DIVERGED ... Read more",
+    "host_name": "research.oraclizer.io",
+    "rank": 5,
+    "date": "Apr 26, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://eprint.iacr.org",
+    "name": "Keeping Time-Release Secrets through Smart Contracts",
+    "snippet": "Nov 29, 2018 — Abstract. A time-release protocol enables one to send secrets into a future release time. The main technical challenge lies in incorporating ... Read more",
+    "host_name": "eprint.iacr.org",
+    "rank": 6,
+    "date": "Nov 29, 2018",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "SUDP: Secret-Use Delegation Protocol for Agentic Systems",
+    "snippet": "May 1, 2026 — A SUDP-enabled agentic system maintains six interface invariants beyond the abstract protocol contract. Commit -before-approval. All authority- ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 7,
+    "date": "May 1, 2026",
+    "favicon": ""
+  }
+]

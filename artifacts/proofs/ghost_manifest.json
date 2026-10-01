@@ -1,0 +1,160 @@
+{
+  "baseline": {
+    "path": "/home/z/my-project/srw3-kevm/k/srw3.k",
+    "slice_start": 24,
+    "slice_end": 530,
+    "sha256": "4586c1cbaaae74a34baeab1778bdf5a98a0cfff56606e63e29a1f5cd9b6b9d46"
+  },
+  "header": {
+    "line_count": 57,
+    "sha256": "563b54ec4f7112cf0b3a8192db63ccdd5b00fb7028b3dfbc6d7768c368534656"
+  },
+  "insertions": [
+    {
+      "anchor": "  syntax Srw3Pgm ::= List{Srw3Cmd,\",\"}",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "  // ---- invariant-as-data certificate + theorem program grammar (theorem-closure pass) ----",
+          "kind": "comment",
+          "marked": false
+        },
+        {
+          "text": "  // G(xa,xb)       certified values of stK(appA,0), stK(appB,0)",
+          "kind": "comment",
+          "marked": false
+        },
+        {
+          "text": "  // GW(I,S,prev,v) pending write of v to (I,S) over certificate prev",
+          "kind": "comment",
+          "marked": false
+        },
+        {
+          "text": "  // GateRun        chkG-terminated programs of one-write cycles; the ghost",
+          "kind": "comment",
+          "marked": false
+        },
+        {
+          "text": "  //                function EQUATIONS live in SRW3-GHOST-OBS below",
+          "kind": "comment",
+          "marked": false
+        },
+        {
+          "text": "  syntax Ghost ::= \"G\" \"(\" Int \",\" Int \")\" | \"GW\" \"(\" AppId \",\" Int \",\" Ghost \",\" Int \")\"   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax GateRun ::= \"chkG\" | \"chkM\" | \"tB\" \"(\" Int \")\" \":\" GateRun   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Bool ::= \"ghostSafe\" \"(\" Ghost \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Bool ::= \"ghostMatches\" \"(\" Ghost \",\" st:Map \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Ghost ::= \"ghostApply\" \"(\" Ghost \",\" st:Map \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Ghost ::= \"ghostUndo\" \"(\" Ghost \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Set ::= \"gAUTH\" \"(\" \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        },
+        {
+          "text": "  syntax Bool ::= \"safeMin\" \"(\" st:Map \")\" [function, total]   //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "                  <result> \"\" </result>",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "                  <ghost> G(0, 0) </ghost>   // invariant-as-data certificate  //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "       <footprint-d> FD:Set => FD |Set SetItem(I) </footprint-d>",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "       <ghost> Gh:Ghost => GW(I, S, Gh, V) </ghost>   // pending-write record  //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "       <result> _R:String => \"commit\" </result>",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "       <ghost> Gh:Ghost => ghostApply(Gh, P) </ghost>   // certificate apply at commit  //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "       <result> _R:String => \"reject\" </result>",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "       <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject  //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "       <result> _R:String => \"reject-auth\" </result>",
+      "occurrence": 1,
+      "lines": [
+        {
+          "text": "       <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject-auth  //GHOST:",
+          "kind": "code",
+          "marked": true
+        }
+      ]
+    },
+    {
+      "anchor": "endmodule",
+      "occurrence": 6,
+      "lines": [
+        {
+          "text": "",
+          "kind": "comment",
+          "marked": false
+        }
+      ]
+    }
+  ],
+  "extension": {
+    "anchor": "// GHOST EXTENSION MODULES — everything below is NEW (theorem-closure pass).",
+    "line_count": 290,
+    "sha256": "2622554e4353bd955bceee23c565e9f6ff6e891d9cd8f161e0b898170bc5518e"
+  },
+  "artifact": {
+    "path": "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k",
+    "sha256": "82d7d8b321d5d0cb6afd3d3fba820247cf389e9eb3011932eae20ada6f2a3e0e"
+  }
+}

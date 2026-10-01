@@ -1,0 +1,111 @@
+## Theorem-closure pass item 3 — tier-3 UNIVERSAL reconciliation theorem
+## Target: wfCoverage(H,FD,S) -> gateOk_faithful(H,S) = implementedGate(H,FD,S),
+## universal over H, FD, S (T3-U); incremental T3-FD (symbolic FD); authorization
+## lemma T3-A. Statement NOT weakened; tier-1/2 preserved.
+## date: 2026-09-29T15:44:37Z
+
+--- kompile (SRW3-TIER3-UNIV) ---
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+kompile exit: 0
+--- kprove (T3-U) ---
+[T3-U] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+--- verbatim residual head (T3-U) ---
+1:kore-exec: [713029] Warning (WarnStuckClaimState):
+2-    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /tmp/t3_T3-U.k:9:5-14:46
+3-Context:
+4-    (InfoReachability) while checking the implication
+5-  #Not ( {
+6-    true
+7-  #Equals
+8-    memberName (... n: appName (... a: Ac ) , as: Rt ) andBool allHold (... obls: universeObls (... edges: H ) , st: S ) ==Bool member ( Ac:AppId , Rt ) andBool allHold (... obls: applicable (... edges: H , foot: FD ) , st: S )
+9-  } )
+10-#And
+11-  <srw3>
+12-    <k>
+13-      memberName (... n: appName (... a: Ac ) , as: Rt ) andBool allHold (... obls: universeObls (... edges: H ) , st: S ) ==Bool member ( Ac:AppId , Rt ) andBool allHold (... obls: applicable (... edges: H , foot: FD ) , st: S ) ~> .K
+14-    </k>
+15-    <committed>
+16-      _Gen14
+17-    </committed>
+18-    <prospective>
+19-      _Gen15
+20-    </prospective>
+21-    <footprint-t>
+22-      _Gen16
+23-    </footprint-t>
+
+--- kprove (T3-FD) ---
+[T3-FD] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+--- verbatim residual head (T3-FD) ---
+1:kore-exec: [790296] Warning (WarnStuckClaimState):
+2-    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /tmp/t3_T3-FD.k:9:5-14:64
+3-Context:
+4-    (InfoReachability) while checking the implication
+5-  #Not ( {
+6-    true
+7-  #Equals
+8-    ( appName (... a: Ac ) ==String "appB" orBool ( appName (... a: Ac ) ==String "liq" orBool ( appName (... a: Ac ) ==String "oracle" orBool ( appName (... a: Ac ) ==String "appC" orBool ( appName (... a: Ac ) ==String "appA" orBool appName (... a: Ac ) ==String "lending" ) ) ) ) ) andBool ( lookupInt (... m: S , k: stK (... app: liq , slot: 1 ) ) ==Int lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) andBool lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) ==Int lookupInt (... m: S , k: stK (... app: oracle , slot: 0 ) ) andBool ( lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) ==Int lookupInt (... m: S , k: stK (... app: oracle , slot: 0 ) ) andBool ( lookupInt (... m: S , k: stK (... app: oracle , slot: 1 ) ) ==Int 1 andBool lookupInt (... m: S , k: stK (... app: liq , slot: 0 ) ) <=Int lookupInt (... m: S , k: stK (... app: lending , slot: 1 ) ) ) ) ) ==Bool ( ( Ac:AppId ~> .K ) ==K ( appB ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( liq ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( oracle ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( appC ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( appA ~> .K ) orBool ( Ac:AppId ~> .K ) ==K ( lending ~> .K ) ) ) ) ) ) andBool allHold (... obls: applicable (... edges: SetItem ( edge (... inv: ILD , apps: SetItem ( lending )
+9-    SetItem ( liq ) ) )
+10-    SetItem ( edge (... inv: IO , apps: SetItem ( oracle ) ) )
+11-    SetItem ( edge (... inv: IOL , apps: SetItem ( lending )
+12-    SetItem ( oracle ) ) )
+13-    SetItem ( edge (... inv: IOLD , apps: SetItem ( lending )
+14-    SetItem ( liq )
+15-    SetItem ( oracle ) ) ) , foot: FD ) , st: S )
+16-  } )
+17-#And
+18-  <srw3>
+19-    <k>
+20-      ( appName (... a: Ac ) ==String "appB" orBool ( appName (... a: Ac ) ==String "liq" orBool ( appName (... a: Ac ) ==String "oracle" orBool ( appName (... a: Ac ) ==String "appC" orBool ( appName (... a: Ac ) ==String "appA" orBool appName (... a: Ac ) ==String "lending" ) ) ) ) ) andBool ( lookupInt (... m: S , k: stK (... app: liq , slot: 1 ) ) ==Int lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) andBool lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) ==Int lookupInt (... m: S , k: stK (... app: oracle , slot: 0 ) ) andBool ( lookupInt (... m: S , k: stK (... app: lending , slot: 0 ) ) ==Int lookupInt (... m: S , k: stK (... app: oracle , slot: 0 ) ) andBool ( lookupInt (... m: S , k: stK (... app: oracle , slot: 1 ) ) ==Int 1 andBool lookupInt (... m: S , k: stK (... app: liq , slot: 0 ) ) <=Int lookupInt (... m: S , k: stK (... app: lending , slot: 1 ) ) ) ) ) ==Bool ( ( Ac:AppId ~> .K ) ==K ( appB ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( liq ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( oracle ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( appC ~> .K ) orBool ( ( Ac:AppId ~> .K ) ==K ( appA ~> .K ) orBool ( Ac:AppId ~> .K ) ==K ( lending ~> .K ) ) ) ) ) ) andBool allHold (... obls: applicable (... edges: SetItem ( edge (... inv: ILD , apps: SetItem ( lending )
+21-      SetItem ( liq ) ) )
+22-      SetItem ( edge (... inv: IO , apps: SetItem ( oracle ) ) )
+23-      SetItem ( edge (... inv: IOL , apps: SetItem ( lending )
+
+--- kprove (T3-A) ---
+[T3-A] kprove exit=1 verdict=STUCK-OR-FAILED  #Top=0 WarnStuck=1
+--- verbatim residual head (T3-A) ---
+1:kore-exec: [681948] Warning (WarnStuckClaimState):
+2-    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /tmp/t3_T3-A.k:9:5-10:57
+3-Context:
+4-    (InfoReachability) while checking the implication
+5-  #Not ( {
+6-    true
+7-  #Equals
+8-    memberName (... n: appName (... a: Ac ) , as: As ) ==Bool member ( Ac:AppId , As )
+9-  } )
+10-#And
+11-  <srw3>
+12-    <k>
+13-      memberName (... n: appName (... a: Ac ) , as: As ) ==Bool member ( Ac:AppId , As ) ~> .K
+14-    </k>
+15-    <committed>
+16-      _Gen14
+17-    </committed>
+18-    <prospective>
+19-      _Gen15
+20-    </prospective>
+21-    <footprint-t>
+22-      _Gen16
+23-    </footprint-t>
+
+## CLASSIFICATION (mandated by the audit instruction):
+##   tier-3 universal reconciliation: STATEMENT FORMALIZED; NOT YET MECHANIZED
+##   (symbolic-set induction boundary; tier-1/2 results preserved unchanged)
+=== done ===

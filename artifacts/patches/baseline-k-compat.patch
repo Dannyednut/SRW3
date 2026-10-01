@@ -1,0 +1,48 @@
+Recorded compatibility patch for the authoritative Phase 0-D baseline v1.0
+(SRW3_Phase_0D_Implementation_v1.0.zip, sha256 2db8669f8aeddc5bceff762bfd4a4901dd
+c9cb3f3e6387364e0abe2ac8e62955) against the pinned toolchain K v7.1.337.
+
+Purpose (handoff §6 protocol — every change recorded, pristine copy untouched):
+  1. K v7.1.337's prelude (domains.md) provides MAP/SET/LIST but no -SYNTAX
+     variants; the baseline's imports MAP-SYNTAX / SET-SYNTAX / LIST-SYNTAX do
+     not resolve. Substituted with the plain modules (syntax identical for the
+     constructs used: .Map/.Map keys, Set, List{Event,","}).
+  2. The claims overlay imports SRW3-SEMANTICS without a requires directive,
+     so it can never resolve across files; added requires "srw3.k"
+     (compile with -I k). Comment-only addition, no semantic content.
+  3. (Invocation-level, not patched) K v7.1.337 cannot infer the main module;
+     kompile requires explicit --main-module/--syntax-module flags. Recorded
+     in transcripts; the Makefile's canonical line is unchanged on main.
+
+Apply from srw3-work repo root:  git apply <this-file>
+Verify:
+  kompile k/srw3.k --backend haskell \
+    --main-module SRW3-SEMANTICS --syntax-module SRW3-SEMANTICS
+  kompile k/claims/srw3-closed-composition.k --backend haskell \
+    --main-module SRW3-CLOSED-COMPOSITION --syntax-module SRW3-CLOSED-COMPOSITION -I k
+diff --git a/k/srw3.k b/k/srw3.k
+--- a/k/srw3.k
++++ b/k/srw3.k
+@@ -2,9 +2,9 @@ module SRW3-SYNTAX
+   imports INT-SYNTAX
+   imports STRING-SYNTAX
+   imports BOOL-SYNTAX
+-  imports MAP-SYNTAX
+-  imports SET-SYNTAX
+-  imports LIST-SYNTAX
++  imports MAP
++  imports SET
++  imports LIST
+
+   syntax AppId
+   syntax RootId
+diff --git a/k/claims/srw3-closed-composition.k b/k/claims/srw3-closed-composition.k
+--- a/k/claims/srw3-closed-composition.k
++++ b/k/claims/srw3-closed-composition.k
+@@ -1,3 +1,6 @@
++// Compatibility (recorded): added requires so the claims overlay can resolve
++// SRW3-SEMANTICS from k/srw3.k; kompile with -I k. No semantic content changed.
++requires "srw3.k"
+ module SRW3-CLOSED-COMPOSITION
+   imports SRW3-SEMANTICS
+

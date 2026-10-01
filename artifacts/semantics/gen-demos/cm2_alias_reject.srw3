@@ -1,0 +1,1 @@
+useRegistryG(aliasOnly) , useResMap(rmPQ) , init(appA,7,5) , init(appB,3,0) , as(appB) , begin , w(appB,3,6) , wfCheck , gate

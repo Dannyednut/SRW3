@@ -1,0 +1,161 @@
+## P2 audit — Claim 4 split (4a/4b) + full lineage-length induction attempts
+## [B] proofs/induction_full.k   — Map encoding, symbolic committed state
+## [C] proofs/induction_record.k — record encoding of reachable states
+## date: 2026-09-26T11:57:36Z
+
+=== [B1] kompile SRW3-INDUCT-STEP definition (main SRW3-INDUCT-STEP) ===
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_full.k)
+	Location(53,21,53,22)
+	53 |	  rule isGateRun(tB(V:Int) , REST:Srw3Pgm) => isGateRun(REST)
+	   .	                    ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_full.k)
+	Location(58,18,58,19)
+	58 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	   .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/proofs/induction_full.k)
+	Location(59,38,59,39)
+	59 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	   .	                                     ^
+kompile exit: 0
+=== [B2] kprove --spec-module SRW3-INDUCT-FULL (full theorem, Map encoding) ===
+--- RESULT: STUCK (blocker captured verbatim below) ---
+kprove exit: 1
+kore-exec: [2802441] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /home/z/my-project/srw3-kevm/proofs/induction_full.k:73:5-79:71
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [2813045] Warning (WarnUnexploredBranches):
+    2 branches were still unexplored when the action failed.
+  #Not ( #Exists C . #Exists REST . {
+    PG
+  #Equals
+    C , REST
+  } )
+#And
+  <srw3>
+    <k>
+      PG:Srw3Pgm ~> .K
+    </k>
+    <committed>
+      M
+    </committed>
+    <prospective>
+      _Gen9
+    </prospective>
+    <footprint-t>
+      _Gen10
+    </footprint-t>
+    <footprint-d>
+      _Gen11
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+      SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+      SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+    </registry>
+    <policy>
+      enforce
+    </policy>
+    <authorities>
+      As
+    </authorities>
+    <polver>
+      _Gen12
+    </polver>
+    <actor>
+      appB
+    </actor>
+    <lineage>
+      _Gen13
+    </lineage>
+    <lineageNext>
+      _Gen14
+    </lineageNext>
+    <head>
+      _Gen15
+    </head>
+    <result>
+      _Gen16
+    </result>
+  </srw3>
+  ... [truncated]
+
+=== [C-P] kprove --spec-module SRW3-RECORD-CLAIMS-PROVED (4a/4b-shape, record encoding) ===
+record-4a kprove exit: 0  (#Top count: 1)
+record-4b kprove exit: 0  (#Top count: 1)
+
+=== [C-A] kprove --spec-module SRW3-RECORD-CLAIM-ATTEMPT (observer + circularity) ===
+--- RESULT: STUCK (residuals captured verbatim below) ---
+kprove exit: 1
+kore-exec: [499666] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/srw3-kevm/proofs/induction_record.k:112:5-116:58
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+      _Gen4
+    #Equals
+      0
+    }
+  #And
+    {
+      _Gen5
+    #Equals
+      0
+    }
+  #And
+    {
+      _Gen6
+    #Equals
+      "commit"
+    } )
+#And
+  <srw3r>
+    <k>
+      .K
+    </k>
+    <xa>
+      X
+    </xa>
+    <xb>
+      W
+    </xb>
+    <pa>
+      0
+    </pa>
+  ... [truncated]
+
+=== [C-ISO] isolation experiment: observer-free direct 4a-shape PROVES ===
+--- (the same cycle WITHOUT the chk observer closes with #Top, isolating the
+---  obstruction to destination-variable handling under observer/continuation
+---  composition, NOT to the induction logic itself) ---
+observer-free direct 4a: kprove exit: 0  (#Top count: 1)
+
+=== done ===

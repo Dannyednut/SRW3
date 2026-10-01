@@ -1,0 +1,32 @@
+=== SRW3 Phase 1B generalized demo suite (backend: haskell) ===
+  [cm2_counterexample] result=commit
+      committed=[('appA', 7, 5), ('appB', 3, 6)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 6)]  usage-c=[]  -> PASS
+  [cm2_alias_reject] result=reject
+      committed=[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]  -> PASS
+  [cm2_alias_accept] result=commit
+      committed=[('appA', 7, 5), ('appB', 3, 4)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 4)]  usage-c=[]  -> PASS
+  [cm3_overflow_counterexample] result=commit
+      committed=[]  usage-c=[('appC', None, 6), ('appD', None, 6)]
+      expected  =[]  usage-c=[('appC', None, 6), ('appD', None, 6)]  -> PASS
+  [cm3_auth_reject] result=reject
+      committed=[]  usage-c=[('appC', None, 6)]
+      expected  =[]  usage-c=[('appC', None, 6)]  -> PASS
+  [cm3_safe_aggregate] result=commit
+      committed=[]  usage-c=[('appC', None, 4), ('appD', None, 5)]
+      expected  =[]  usage-c=[('appC', None, 4), ('appD', None, 5)]  -> PASS
+  [gen_multiwrite_multiresource] result=commit
+      committed=[('appA', 7, 2), ('appB', 3, 3), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[('appC', None, 4)]
+      expected  =[('appA', 7, 2), ('appB', 3, 3), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[('appC', None, 4)]  -> PASS
+  [gen_hidden_trust] result=commit
+      committed=[('appA', 7, 5), ('appB', 3, 3), ('appC', 0, 1), ('appD', 0, 9)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 3), ('appC', 0, 1), ('appD', 0, 9)]  usage-c=[]  -> PASS
+  [gen_hidden_enforce] result=blocked-effect-incomplete
+      committed=[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]  -> PASS
+  [gen_alias_hidden_enforce] result=blocked-effect-incomplete
+      committed=[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]  -> PASS
+=== gen demos (haskell): PASS=10 FAIL=0 ===

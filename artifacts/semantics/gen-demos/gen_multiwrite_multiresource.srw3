@@ -1,0 +1,1 @@
+useRegistryG(full) , useResMap(rmPQ) , grant(appB,appB,10) , grant(appC,appB,6) , grant(appD,appB,6) , init(appA,7,5) , init(appB,3,0) , init(appC,0,1) , init(appD,0,1) , as(appB) , begin , w(appA,7,2) , w(appB,3,3) , w(appC,0,1) , w(appD,0,1) , consume(appC,4) , wfCheck , gate

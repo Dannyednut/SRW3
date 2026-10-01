@@ -1,0 +1,1 @@
+useRegistry(complete) , setPolicy(trust) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wH(appA,0,9) , wfCheck , gate

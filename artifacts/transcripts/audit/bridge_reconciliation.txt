@@ -1,0 +1,64 @@
+## SRW3 reconciliation bridge — gateOk/rootOk vs evaluated-obligation gate
+## step 1: kompile k/compat/srw3-bridge.k --main-module SRW3-BRIDGE --syntax-module SRW3-BRIDGE -o k/compat/bridge-out
+## step 2: kprove k/compat/srw3-bridge.k -d k/compat/bridge-out --spec-module SRW3-BRIDGE-CLAIMS
+## date: 2026-09-26T11:29:18Z
+
+--- kompile (bridge definition) ---
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+kompile exit: 0
+--- kprove (ground agreement/disagreement claims) ---
+kore-exec: [1382505] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:166:5-171:9
+kore-exec: [1384708] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:174:5-179:9
+kore-exec: [1386628] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:182:5-187:9
+kore-exec: [1388593] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:190:5-195:9
+kore-exec: [1390456] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:198:5-203:9
+kore-exec: [1392299] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:206:5-211:9
+kore-exec: [1394269] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:214:5-219:9
+kore-exec: [1396132] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:227:5-233:9
+kore-exec: [1398556] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-kevm/k/compat/srw3-bridge.k:238:5-245:9
+#Top
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+kprove exit: 0

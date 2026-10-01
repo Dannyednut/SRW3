@@ -1,0 +1,147 @@
+===================================================================
+DEMO: demo10_pairwise_only_threeway_hole
+--- program:
+useRegistry(pairwiseOnly) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,99) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 99 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( liq ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo1_min_reject
+--- program:
+useRegistry(complete) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo2_negmodel_accept
+--- program:
+useRegistry(negative) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7
+  head        : commit ( 0 )
+  lineageNext : 1
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appB ) , polver: 1 , child: commit ( 0 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo2b_negmodel_two_steps
+--- program:
+useRegistry(negative) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,7) , wfCheck , gate , as(appB) , begin , w(appB,0,2) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appB ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( appB ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo3_hidden_trust
+--- program:
+useRegistry(complete) , setPolicy(trust) , init(appA,0,7) , init(appB,0,3) , init(appC,0,3) , as(appB) , begin , w(appB,0,2) , wH(appC,0,11) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 stK (... app: appC , slot: 0 ) |-> 11
+  head        : commit ( 0 )
+  lineageNext : 1
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appB ) , polver: 1 , child: commit ( 0 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo3b_hidden_write_to_A_trust
+--- program:
+useRegistry(complete) , setPolicy(trust) , init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wH(appA,0,9) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo4_hidden_enforce
+--- program:
+useRegistry(complete) , setPolicy(enforce) , init(appA,0,7) , init(appB,0,3) , init(appC,0,3) , as(appB) , begin , w(appB,0,2) , wH(appC,0,11) , wfCheck , gate
+--- outcome:
+  result      : "blocked-effect-incomplete"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 stK (... app: appC , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo5_auth_reject
+--- program:
+useRegistry(complete) , init(appA,0,7) , init(appB,0,3) , begin , w(appB,0,2) , wfCheck , gate
+--- outcome:
+  result      : "reject-auth"
+  committed   : stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo6_chain_ok
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,100) , wfCheck , gate
+--- outcome:
+  result      : "commit"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 4 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 1 )
+  lineageNext : 2
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) ) 1 |-> lin (... parent: commit ( 0 ) , tid: 1 , auth: auth ( liq ) , polver: 1 , child: commit ( 1 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo7_chain_stale_price
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rdH(oracle) , w(lending,0,90) , wfCheck , gate
+--- outcome:
+  result      : "blocked-effect-incomplete"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo7b_chain_stale_declared
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,90) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : rootC
+  lineageNext : 0
+  lineage     : .Map
+  prospective : .Map
+===================================================================
+DEMO: demo8_chain_three_way_ok
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,90) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 0 )
+  lineageNext : 1
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) )
+  prospective : .Map
+===================================================================
+DEMO: demo9_chain_threeway_violation
+--- program:
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , wfCheck , gate , as(liq) , begin , rd(lending) , w(liq,0,4) , w(liq,1,99) , wfCheck , gate
+--- outcome:
+  result      : "reject"
+  committed   : stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: liq , slot: 0 ) |-> 0 stK (... app: liq , slot: 1 ) |-> 100 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1
+  head        : commit ( 0 )
+  lineageNext : 1
+  lineage     : 0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( lending ) , polver: 1 , child: commit ( 0 ) )
+  prospective : .Map
+SUITE-DONE
+$ bash /home/z/my-project/scripts/llvm_demo_suite.sh llvm-out /dev/null
+
+[timeit] exit=0 wall=28.18s peak_rss=192600KB (188.1MiB)

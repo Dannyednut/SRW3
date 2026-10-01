@@ -1,0 +1,49 @@
+## P5 audit — KEVM binding execution path: stale-price example
+## Method: command-granularity prefix programs of the negative stale demo.
+## Each stage runs the FULL KEVM pipeline (real EVM execution) for the
+## commands executed so far, then halts; storages/carrier extracted below.
+## date: 2026-09-26T12:01:27Z
+
+=== STAGE 1 — #w3Setup #w3Snap0 (accounts created; committed snapshot = empty storages) ===
+krun exit: 1
+  carrier : s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+  oracle  : storage = .Map
+  lending : storage = .Map
+  liq     : storage = .Map
+
+=== STAGE 2 — oracle segment: REAL SSTORE x2 (price=100, auth=1) ===
+krun exit: 1
+  carrier : s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+  oracle  : storage = 0 |-> 100 1 |-> 1
+  lending : storage = .Map
+  liq     : storage = .Map
+
+=== STAGE 3 — lending segment: REAL CALL(oracle) [return buffer ignored], SSTORE price=90 (STALE), debt=5 ===
+krun exit: 1
+  carrier : s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+  oracle  : storage = 0 |-> 100 1 |-> 1
+  lending : storage = 0 |-> 90 1 |-> 5
+  liq     : storage = .Map
+
+=== STAGE 4 — liquidator segment: REAL CALL(lending) -> returned stale price 90; SSTORE transfer=4, MLOAD->priceLineage=90 ===
+krun exit: 1
+  carrier : s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+  oracle  : storage = 0 |-> 100 1 |-> 1
+  lending : storage = 0 |-> 90 1 |-> 5
+  liq     : storage = 0 |-> 4 1 |-> 90
+
+=== STAGE 5 — SRW3 gate: IOL fails (lending 90 != oracle 100) -> REJECT + RESTORE all storages from snapshot ===
+krun exit: 1
+  carrier : s=4097 |-> ( .Map ) 4098 |-> ( .Map ) 4099 |-> ( .Map ) ln=.Map n=0 h=-1
+  oracle  : storage = .Map
+  lending : storage = .Map
+  liq     : storage = .Map
+
+=== SENSITIVITY PROBE — oracle writes 90; lending HONESTLY stores the CALL-returned value (MLOAD of return buffer) ===
+krun exit: 1
+  carrier : s=4097 |-> ( 0 |-> 90 1 |-> 1 ) 4098 |-> ( 0 |-> 90 1 |-> 5 ) 4099 |-> ( 0 |-> 4 1 |-> 90 ) ln=0 |-> w3lin (... parent: -1 , tid: 0 , price: 90 ) n=1 h=0
+  oracle  : storage = 0 |-> 90 1 |-> 1
+  lending : storage = 0 |-> 90 1 |-> 5
+  liq     : storage = 0 |-> 4 1 |-> 90
+
+=== done ===

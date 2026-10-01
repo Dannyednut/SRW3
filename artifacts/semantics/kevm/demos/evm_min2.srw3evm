@@ -1,0 +1,1 @@
+#w3Setup #w3Snap0 #w3Run(4097, PUSH(1,100) ; PUSH(1,0) ; SSTORE ; STOP ; .OpCodes) #w3Gate0 #w3Nil

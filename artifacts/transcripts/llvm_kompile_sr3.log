@@ -1,0 +1,65 @@
+[Warning] Compiler: Non exhaustive match detected:
+`lookupInt(_,_)_SRW3-INVAR_Int_Map_StKey`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(162,18,162,73)
+	162 |	  syntax Int ::= "lookupInt" "(" m:Map "," k:StKey ")" [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(163,48,163,52)
+	163 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(164,42,164,43)
+	164 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Non exhaustive match detected:
+`applicable(_,_)_SRW3-CLOSURE_Set_Set_Set`(`_Set_`(`SetItem`(_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(223,18,223,79)
+	223 |	  syntax Set ::= "applicable" "(" edges:Set "," foot:Set ")" [function,
+total]
+	    .	                
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(228,32,228,33)
+	228 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Non exhaustive match detected:
+`allHold(_,_)_SRW3-CLOSURE_Bool_Set_Map`(`_Set_`(`SetItem`(_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(235,19,235,74)
+	235 |	  syntax Bool ::= "allHold" "(" obls:Set "," st:Map ")" [function,
+total]
+	    .	                 
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`interactionComplete(_,_)_SRW3-CLOSURE_Bool_Set_Set`(_,`_Set_`(`SetItem`(_),_))
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(242,19,242,89)
+	242 |	  syntax Bool ::= "interactionComplete" "(" edges:Set "," rest:Set ")"
+[function, total]
+	    .	                 
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`hasCover(_,_)_SRW3-CLOSURE_Bool_Set_InvId`(`_Set_`(`SetItem`(_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(247,19,247,79)
+	247 |	  syntax Bool ::= "hasCover" "(" edges:Set "," inv:InvId ")" [function,
+total]
+	    .	                 
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`contractComplete(_)_SRW3-CLOSURE_Bool_Set`(`_Set_`(`SetItem`(_),_))
+	Source(/home/z/my-project/srw3-kevm/k/srw3.k)
+	Location(259,19,259,73)
+	259 |	  syntax Bool ::= "contractComplete" "(" edges:Set ")" [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$ kompile srw3.k --backend llvm --main-module SRW3-GATE --syntax-module SRW3-GATE -o llvm-out
+
+[timeit] exit=0 wall=12.60s peak_rss=386136KB (377.1MiB)

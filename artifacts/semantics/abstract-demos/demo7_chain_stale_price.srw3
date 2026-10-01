@@ -1,0 +1,1 @@
+useRegistry(chainComplete) , init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,5) , init(liq,0,0) , init(liq,1,100) , as(lending) , begin , rdH(oracle) , w(lending,0,90) , wfCheck , gate

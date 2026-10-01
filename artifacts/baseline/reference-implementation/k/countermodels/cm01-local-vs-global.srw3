@@ -1,0 +1,4 @@
+// Intended semantic countermodel:
+// x <= 10 and y <= 10 are locally true, while x + y <= 10 is false.
+// This is expected to be rejected by the interaction contract and accepted
+// by the local-only contract set.

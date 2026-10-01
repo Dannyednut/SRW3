@@ -1,0 +1,3 @@
+[Error] Critical: Backend llvm does not support execution. Supported backends
+are: [haskell]
+[Error] Critical: Invalid backend: llvm. It should be one of [kore, haskell]

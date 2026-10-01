@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://aclanthology.org/2026.acl-long.1836.pdf",
+    "name": "A Multi-Agent Framework with Lean-Based Verification",
+    "snippet": "In this work, we address the trust gap in LLM- based smart contract synthesis by proposing LeVer, a closed-loop multi-agent framework that inte- grates LLM ...",
+    "host_name": "aclanthology.org",
+    "rank": 0,
+    "date": "by B Zhang · 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://hal.science/hal-03492408/document",
+    "name": "Verification of smart contracts: A survey",
+    "snippet": "by M Almakhour · 2020 · Cited by 181 — In [43], a smart contract formal verification method based on K-Framework is proposed. K-Framework is one of the most robust and powerful ...",
+    "host_name": "hal.science",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2211.14585v3",
+    "name": "Safety Verification of Declarative Smart Contracts",
+    "snippet": "This paper presents an automated safety verification tool, DCV, that targets declarative smart contracts written in DeCon, a logic-based domain- ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "Aug 2, 2023",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com/science/article/am/pii/S1574119220300821",
+    "name": "Verification of smart contracts: A survey",
+    "snippet": "by M Almakhour · 2020 · Cited by 181 — In [43], a smart contract formal verification method based on K-Framework is proposed. K-Framework is one of the most robust and powerful ...",
+    "host_name": "www.sciencedirect.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ethereum.org/developers/docs/smart-contracts/formal-verification",
+    "name": "Formal verification of smart contracts",
+    "snippet": "It involves transforming the model of a contract's system and its specifications into mathematical formulas (logic statements). The objective of theorem proving ...",
+    "host_name": "ethereum.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://kframework.org/projects",
+    "name": "Projects using K | Runtime Verification Inc",
+    "snippet": "KAVM leverages the K Framework to empower Algorand smart contracts' developers with property-based testing and formal verification. KPlutus (2016 - Present).",
+    "host_name": "kframework.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://files.sri.inf.ethz.ch/website/papers/sp20-verx.pdf",
+    "name": "VerX: Safety Verification of Smart Contracts",
+    "snippet": "by A Permenev · Cited by 430 — Abstract—We present VERX, the first automated verifier able to prove functional properties of Ethereum smart contracts.",
+    "host_name": "files.sri.inf.ethz.ch",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/runtimeverification/verified-smart-contracts",
+    "name": "Formally Verified Smart Contracts",
+    "snippet": "The K framework takes a formal semantics of a language as trusted input (e.g., that of EVM or IELE), and then uses it to symbolically execute the smart contract ...",
+    "host_name": "github.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

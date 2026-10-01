@@ -1,0 +1,128 @@
+# Section C — Baseline ingest evidence (generated 2026-09-28T06:19:34+00:00)
+## Provenance
+- zip: `/home/z/my-project/upload/SRW3_Phase_0D_Implementation_v1.0.zip`
+- size: 18984 bytes
+- sha256: `2db8669f8aeddc5bceff762bfd4a4901ddc9cb3f3e6387364e0abe2ac8e62955`
+- integrity: OK (25 entries tested OK)
+
+- note: single top-level dir 'SRW3_Phase_0D_Implementation_v1.0' flattened to baseline root
+## Content inventory (verbatim zip listing)
+./Makefile
+./PHASE_0D_STATUS.md
+./README.md
+./demo.py
+./k/claims/srw3-closed-composition.k
+./k/countermodels/README.md
+./k/countermodels/cm01-local-vs-global.srw3
+./k/srw3.k
+./pyproject.toml
+./srw3/__init__.py
+./srw3/closure.py
+./srw3/examples.py
+./srw3/model.py
+./srw3/proof.py
+./tests/test_closure.py
+./tests/test_core.py
+./tests/test_countermodels.py
+./tests/test_proof.py
+
+## Baseline Python test suite (run FIRST, before any KEVM change)
+--- canonical: make test (from work repo root)
+python3 -m unittest discover -s tests -v
+test_closed_counterexample_has_complete_interaction_contract (test_closure.ClosureTests.test_closed_counterexample_has_complete_interaction_contract) ... ok
+test_hidden_dependency_breaks_effect_completeness (test_closure.ClosureTests.test_hidden_dependency_breaks_effect_completeness) ... ok
+test_local_only_composition_is_not_interaction_complete_when_edge_required (test_closure.ClosureTests.test_local_only_composition_is_not_interaction_complete_when_edge_required) ... ok
+test_hidden_dependency_is_detectable_as_effect_underapproximation (test_core.Phase0DTests.test_hidden_dependency_is_detectable_as_effect_underapproximation) ... ok
+test_local_invariants_can_miss_global_interaction_invariant (test_core.Phase0DTests.test_local_invariants_can_miss_global_interaction_invariant) ... ok
+test_oracle_lending_liquidator_interaction_contract_is_represented (test_core.Phase0DTests.test_oracle_lending_liquidator_interaction_contract_is_represented) ... ok
+test_refinement_is_monotone_in_finite_fragment (test_core.Phase0DTests.test_refinement_is_monotone_in_finite_fragment) ... ok
+test_authority_aggregation_pattern (test_countermodels.CountermodelTests.test_authority_aggregation_pattern) ... ok
+test_global_countermodel (test_countermodels.CountermodelTests.test_global_countermodel) ... ok
+test_resource_aliasing_pattern (test_countermodels.CountermodelTests.test_resource_aliasing_pattern) ... ok
+test_three_way_interaction_pattern (test_countermodels.CountermodelTests.test_three_way_interaction_pattern) ... ok
+test_closed_composition_gate_rejects_bad_noop (test_proof.ProofTests.test_closed_composition_gate_rejects_bad_noop) ... ok
+test_interaction_aware_model_proves_finite_safety (test_proof.ProofTests.test_interaction_aware_model_proves_finite_safety) ... ok
+test_local_only_model_cannot_claim_closed_composition (test_proof.ProofTests.test_local_only_model_cannot_claim_closed_composition) ... ok
+test_oracle_lending_liquidator_finite_safe_step (test_proof.ProofTests.test_oracle_lending_liquidator_finite_safe_step) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.008s
+
+OK
+--- make test exit code: 0
+
+### Verdict: PASSED=15 FAILED=0 (expected 15/15)
+BASELINE 15/15 CONFIRMED — authoritative baseline accepted; KEVM changes may proceed on top of it.
+
+## K scaffold compile (UNMODIFIED, canonical flags): k/srw3.k
+[Error] Compiler: Could not find module: SET-SYNTAX
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(6,3,6,21)
+	6 |	  imports SET-SYNTAX
+	  .	  ^~~~~~~~~~~~~~~~~~
+- kompile exit: 113
+
+## K overlay compile (UNMODIFIED, with -I k): k/claims/srw3-closed-composition.k
+[Error] Compiler: Could not find module: SRW3-SEMANTICS
+	Source(/home/z/my-project/srw3-work/k/claims/srw3-closed-composition.k)
+	Location(2,3,2,25)
+	2 |	  imports SRW3-SEMANTICS
+	  .	  ^~~~~~~~~~~~~~~~~~~~~~
+- kompile exit: 113
+
+## Recorded compatibility patch (branch kevm-changes ONLY; pristine untouched)
+- patch applied + committed on kevm-changes
+- recorded diff vs pristine main:
+diff --git a/k/claims/srw3-closed-composition.k b/k/claims/srw3-closed-composition.k
+index 8bf0c98..8c647ee 100644
+--- a/k/claims/srw3-closed-composition.k
++++ b/k/claims/srw3-closed-composition.k
+@@ -1,3 +1,6 @@
++// Compatibility (recorded): added requires so the claims overlay can resolve
++// SRW3-SEMANTICS from k/srw3.k; kompile with -I k. No semantic content changed.
++requires "srw3.k"
+ module SRW3-CLOSED-COMPOSITION
+   imports SRW3-SEMANTICS
+ 
+diff --git a/k/srw3.k b/k/srw3.k
+index c035499..383b596 100644
+--- a/k/srw3.k
++++ b/k/srw3.k
+@@ -2,9 +2,9 @@ module SRW3-SYNTAX
+   imports INT-SYNTAX
+   imports STRING-SYNTAX
+   imports BOOL-SYNTAX
+-  imports MAP-SYNTAX
+-  imports SET-SYNTAX
+-  imports LIST-SYNTAX
++  imports MAP
++  imports SET
++  imports LIST
+ 
+   syntax AppId
+   syntax RootId
+
+## K scaffold compile AFTER recorded patch
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(79,20,79,21)
+	79 |	         <lineage> L </lineage>
+	   .	                   ^
+- kompile k/srw3.k exit: 0
+	Source(/home/z/my-project/srw3-work/k/srw3.k)
+	Location(79,20,79,21)
+	79 |	         <lineage> L </lineage>
+	   .	                   ^
+- kompile claims exit: 0
+
+## Makefile k-tests note (recorded)
+Makefile k-tests references k/tests/cm01-local-vs-global.srw3; the zip ships k/countermodels/cm01-local-vs-global.srw3, which is COMMENT-ONLY documentation of the intended countermodel (executable countermodels live in the Python suite, e.g. test_local_invariants_can_miss_global_interaction_invariant). krun therefore not applicable to this artifact as shipped.
+
+## Baseline suite re-run on patched branch (sanity)
+----------------------------------------------------------------------
+Ran 15 tests in 0.008s
+
+OK
+- exit: 0
+

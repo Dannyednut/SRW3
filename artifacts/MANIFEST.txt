@@ -1,0 +1,240 @@
+SRW3 Artifact Bundle — Phase 0-D (Theorem-Closure) + Phase 1A (LLVM Retarget) + Phase 1B (Generalized State)
+Generated: 2026-09-29 16:01:02 UTC
+
+THEOREM STATUS
+--------------
+  Full lineage-length safety theorem (single-write ghost model) : MECHANIZED (#Top)
+  Alias-aware forall-n safety (CM2)                             : MECHANIZED (GH2-T2/GH2-M #Top)
+  Aggregate-authority forall-n safety (CM3)                     : MECHANIZED (GH3-T2/GH3-M #Top)
+  Generalized forall-n safety (multi-write+alias+authority)     : MECHANIZED (GH4-T2/GH4-M #Top)
+    All three non-vacuity negative controls FAIL as designed.
+    Encoding: proofs/gen/{cm2_alias,cm3_auth,gen_full}.k + ghost_manifest_gen.json.
+  Tier-3 universal reconciliation                               : STATEMENT FORMALIZED; NOT YET MECHANIZED
+  Cryptographic lineage                                         : NOT YET MECHANIZED
+  LLVM backend                                                  : execution portability only (proof layer haskell)
+
+CONTENTS
+--------
+  SRW3-Phase{0D,1A,1B}-*.md/pdf      Research reports (MD = source of truth)
+  semantics/srw3.k                   Phase-0 abstract semantics (ghost-instrumented)
+  semantics/srw3gen.k                Phase-1B generalized semantics
+  semantics/abstract-demos/          13 abstract demos
+  semantics/gen-demos/               10 generalized demos (CM2/CM3/generalized)
+  semantics/kevm/                    Frozen binding + additive generalized binding + demos
+  proofs/                            K proof sources incl. proofs/gen/ (35 ghost claims)
+  python-gen/                        Python mirror oracle (14/14)
+  scripts/                           Complete audit + generation pipeline + gen_fragments
+  transcripts/audit/                 Audit transcripts incl. full_matrix_v5.txt
+  git/                               srw3-work.bundle (pre-1B) + srw3b-work.bundle (1B state)
+  worklog.md                         Full multi-agent work log
+
+NOTE ON GIT PROVENANCE
+----------------------
+  A sandbox reset destroyed the pre-1B git objects (phase1a-final 88e4209).
+  Recovery was sha-verified at file level (k/srw3gen.k d583ef0c... vs
+  ghost_manifest_gen.json). srw3b-work.bundle is a fresh repository holding
+  the complete Phase-1B state; history before it is manifest-based.
+
+BASELINE PROVENANCE
+-------------------
+  SRW3_Phase_0D_Implementation_v1.0.zip sha256 (byte-identical copy in git bundle, commit a857618):
+  2db8669f8aeddc5bceff762bfd4a4901ddc9cb3f3e6387364e0abe2ac8e62955
+
+SHA-256 MANIFEST
+----------------
+01a4fad3b84a5510a06a8f2aa57128fcc01804f4ca9b65b14b3a3f1224efa927  ./SRW3-Phase0D-KEVM-Report.md
+7b49813f49f0c3e1852bb8f69db75bfb43620227f95b22b1b20e1ae3bdc2fb81  ./SRW3-Phase0D-KEVM-Report.pdf
+d91321fc1e554fcc41fe6fd7bd58df1fa938e63cd50a0cd5faa9562c2f0aa965  ./SRW3-Phase1A-LLVM-Report.md
+705bb71f113151e3ddc25910c373c7fa9bc158cf497e157ff8bb7ea7bd34c23e  ./SRW3-Phase1A-LLVM-Report.pdf
+85b8cfd60f62bb171e38c6b7e15ccbd665ce0fca9c2ae73e764079bfd1efcd47  ./SRW3-Phase1B-Gen-Report.md
+3e7da31b782429d0ac8844312b835407c0ab572d0987171e37d2319132411332  ./SRW3-Phase1B-Gen-Report.pdf
+40631d265969d7b2c86b452ab4f248f17e38b5c9d0f826c2c25aa7b4cbe2cb24  ./baseline/SRW3-Phase0D-baseline.sha256
+a0058517d0d05cf771af0ae3802923523f94a9989b9ba6eb5dd46d3e305af2c2  ./baseline/reference-implementation/Makefile
+59ed52ef8117177b2571bb4f2da2b86e7e0790eec57f438f0dcb513d6978c76e  ./baseline/reference-implementation/PHASE_0D_STATUS.md
+483a0091e34b878af61cb1767fc62eab289200c00cdc2551592780acb63d1919  ./baseline/reference-implementation/README.md
+69f20978842890e81c1931f5c5a4920c10ad766cfc5b000b6324554212b6a247  ./baseline/reference-implementation/demo.py
+9664376c6c9596001899355e811ba33297a4cfd8fab0073fef7fb50a1e5053ef  ./baseline/reference-implementation/k/claims/srw3-closed-composition.k
+2af9d34e09e600ba48e9d0272c5e1e2a5f20a3bfc56224e4aa801710b25df0cd  ./baseline/reference-implementation/k/countermodels/README.md
+e6ac63ea66e3dcf80b132e0cc087ca98f5731d06f195234adb458cb54d622e33  ./baseline/reference-implementation/k/countermodels/cm01-local-vs-global.srw3
+31d176ddb505171a23d922bb8772e5874dade887645eca2599bb51c8f41e415f  ./baseline/reference-implementation/k/srw3.k
+da33eaf02146b6c13968bc8527c4fd025c840c075c30e957d6aaf2d16350d78b  ./baseline/reference-implementation/pyproject.toml
+3e6e8b2ea6c1364adfdbef7dba323090806bf67341aa6bb08d79db9d57d0dadc  ./baseline/reference-implementation/srw3/__init__.py
+bc82e44458b384a0faab7b5800b78d4cebfcd913b0b954da4c1922a8c190785d  ./baseline/reference-implementation/srw3/closure.py
+5ff96154971d565faaf7975b2215f68f7ef4dd82f07f2515ed25380ccd0c88a5  ./baseline/reference-implementation/srw3/examples.py
+263e93fe8c001ebd392071b62bd6b7e8e5bc89d6462848d0f212c58e34558641  ./baseline/reference-implementation/srw3/model.py
+ac105c497855636ebf7663a9b4a79d8c1469249b4b51902633ed03bc12ef7364  ./baseline/reference-implementation/srw3/proof.py
+2bf9372651453f6ca3b63ace6f8c70d93f107683b06828bd9c6c11284263a58f  ./baseline/reference-implementation/tests/test_closure.py
+19e75bb943c40f3e137c923b4605380c2dab8779c32f46dd8b44c8e61df3cac6  ./baseline/reference-implementation/tests/test_core.py
+289a6f013828f0d6f01334e6d40d3fbd6643ca4af48311593e2cdcf4eaad06a9  ./baseline/reference-implementation/tests/test_countermodels.py
+e2f603d8b191ecd3175673e8d408eeec0ae23e1e71667a3c8fa066fa8e9566bd  ./baseline/reference-implementation/tests/test_proof.py
+92481f29d1fcb0cad0e6d73db9899c0c9eaf9d6f5b06676078b67ee6eb0d7021  ./git/srw3-work.bundle
+d9c65967000767fa7447d5ba51346665cb941001c5fbef043fd185f9b2238d5d  ./git/srw3b-work.bundle
+b9abc3a3fcd4ed4919ee2d0c29fbe4f8e15f17b4dc8748491c711afbcc75ffbe  ./patches/baseline-k-compat.patch
+7b276b43ad6476875bc80c7494f2a7da977432304aa7feb8b638cdaf862a4592  ./prior-art-freeze/SUMMARY.md
+d9fd9ae5bad945abdd51751eb24c8e7ca0226e9f43f7d72cfc84b7e07c2a26aa  ./prior-art-freeze/freeze_3eb27b52.json
+82a3787e05706fd2623c9831c4e3f46a249f7584f10b1a968f368e10aeb87318  ./prior-art-freeze/freeze_789e1e34.json
+a08acdc6b42784a31189b149a4109438865240a8393a35728b50eb1361209534  ./prior-art-freeze/freeze_a0b879b1.json
+7202c455a322f60276c475075cc7f76c08065b6ef12b4312181038a9f8cb2120  ./proof-build-outputs/bridgegen-out.README.md
+7202c455a322f60276c475075cc7f76c08065b6ef12b4312181038a9f8cb2120  ./proof-build-outputs/gen-out-cm2.README.md
+7202c455a322f60276c475075cc7f76c08065b6ef12b4312181038a9f8cb2120  ./proof-build-outputs/ghost-out.README.md
+7202c455a322f60276c475075cc7f76c08065b6ef12b4312181038a9f8cb2120  ./proof-build-outputs/safeform-out.README.md
+7202c455a322f60276c475075cc7f76c08065b6ef12b4312181038a9f8cb2120  ./proof-build-outputs/tier3-out.README.md
+7c31a96d1cec32901119ecc26182e5b91e5271bc9f94d63c8aca8deb6f5d6e7f  ./proofs/boundaries/b1_symbolic_map.k
+51e4d6be4f9d425f8cdc7dd880c0c571e6374ff48eb0c934063d641bc900e246  ./proofs/boundaries/b2_destination.k
+be34807ca38b0dda18d9a1d846622f64990e9acf302ca247b89b9e71505e6f80  ./proofs/gen/cm2_alias.k
+b9a94c83d832f1e72f5aa7d62e944c19946c3edf9eef566276ba2a9722c777a6  ./proofs/gen/cm3_auth.k
+d2ea107bb4f34681f6249d48f550faf3b346decaca895276bdf2076e31703a6d  ./proofs/gen/gen_full.k
+7c0dc661aa178f5ba434b773617ed7771a0790e1722de30181e3807b25085c3b  ./proofs/gen/ghost_manifest_gen.json
+ee0b7cfd9b74166c37352215636ef20e4c4a46e2fc962bae89fecbe155d2cbcb  ./proofs/generalized_bridge.k
+ff54e52b80f7dab713d3b141e4b8568eaa1d5401bc688baf98879753ebf1799f  ./proofs/ghost_manifest.json
+942575aa86a36e7cffa77567f4d26d1bc38b0e4231cfc3c4bc15a590f8f05767  ./proofs/induction_full.k
+82d7d8b321d5d0cb6afd3d3fba820247cf389e9eb3011932eae20ada6f2a3e0e  ./proofs/induction_ghost.k
+0fa4f988343f2397d52acb649ec8ea86247eece2d2e3015b99fb090e998b8350  ./proofs/induction_record.k
+e6f178ac5e0fb25e087c755ae1afc7df8679b4744f4508d62d71290bbabf8405  ./proofs/negative_control.k
+28c0a22091d7fd27047a182290860135e90faf56f2f2a35107176708f1eb7410  ./proofs/safe_form_audit.k
+43901ef7ba008f89d6337cf9348eda783195b3f2603d7b17e783439c616c7279  ./proofs/tier3_universal.k
+94166da04f785c616870f2b4ab24cf2fb082f8b18f95bbd6445420fd92fe3a32  ./python-gen/srw3gen_model.py
+6ca831fc1231a85ebc54ac5992bfbeb8bd8c7443f25cac49cd57ffc3e5ca5573  ./python-gen/test_gen.py
+65846ac2db2c725e7e7eb17083cbfbf907d706b265a8fee4ace218940f7d3258  ./scripts/.matrix_v4_stage.sh
+9358a402e0ce4e9b1f52858041c4ada1981f9a42d313e616f70b9e47d77e01e2  ./scripts/.matrix_v5_stage.sh
+35358797406fe97e92cfa54a2535003062ec3d73bec760bc5190a78b5bc1faf8  ./scripts/audit_boundary.sh
+dbfd9833573f92e1968d179f5659dcf75c898b02c499377010df5e6e6d1bfd89  ./scripts/audit_bridge.sh
+31f1f778fed84195945ec88fdbdd4a466300ca7b0dd39e5288650dab2a8051a1  ./scripts/audit_defect.sh
+24162cf82fc5a2b767f6065b2b25e3623a3be37c0eba730bb88c8dde20cf3ac7  ./scripts/audit_defect_search.sh
+f5628ef09c00755b2d76a024c0404a864d06bd5afc0f367d2b4e4772ccc677f3  ./scripts/audit_evm_trace.sh
+d01b8fc0c3ed2d55812b8eb03dedfa4e0331f22204752254470a10aece16d7f6  ./scripts/audit_ghost.sh
+7251d96b43bcc509f7ed224d99909348111d4d704da0c08484fc106f7f11feff  ./scripts/audit_ghost_exact.py
+4f5470faf11b3daae6de0b3ac37ac8629e6fc7edba09a4d1f4b22f4205ba17c3  ./scripts/audit_ghost_faithful.py
+affe13c9790c93f6fc0b78a2887e905e67d9377a178b989775ffcc68ac1eb2e7  ./scripts/audit_ghost_gen.sh
+de6c6f84b53a28567864fdd31b941f80b250093123cf92f4adf26e24bfdb7b75  ./scripts/audit_ghost_persample.sh
+fabfe48ba152f89363705dfa6050d479c3a42c20df1cae3ebeb30529a6cbee1d  ./scripts/audit_induction.sh
+f1e521b3128d32a225484583ae04ecd42d119388d54d640e08f4653dcb391a38  ./scripts/audit_matrix.sh
+1cb433b3a635f16a031016a596fddb2c361f17ec9de2a4d257c6800da779bfd1  ./scripts/audit_matrix_v2.sh
+78e6ddd720808a86b01e9bca6bed61677a7c04f10ac1890f9a2e6de101b9f611  ./scripts/audit_matrix_v3.sh
+43759a890f9927c1badb6f54192d274ad4b84c0bcc8c28ef584436402be4d44a  ./scripts/audit_matrix_v4.sh
+c31bdb772a1b9d03e7003098a7dde16e0525b915b9708e83d113fc1ba328a738  ./scripts/audit_matrix_v5.sh
+6928694c64923eca296ddda49fd2876667b66b953b2222ae091db0ccd61719d3  ./scripts/audit_round2.sh
+49a346c63349f563d12fd4ce3d6e4671bc2b760a0a452fdf12f2bf53f9f6dce0  ./scripts/audit_round2_neg.sh
+7d09f13bbd98ef3f12a06d03839b11fb12a85d09a749614e987f0ee40dcb7e3c  ./scripts/audit_scaffold.sh
+0b8428e48f2c9c7e0b6d929f7e4dedc78d4846c1fcbf52227f49e3ce63e5811f  ./scripts/audit_tier3.sh
+77a62d8fe18109d4bf3dd5c5166c354d253b63b88dc31b84a01bcd4ad83aff91  ./scripts/fetch_toolchain.sh
+c1315b43bb83c73e310f0053eebea5fc211396dd0aedebd26fd63aa490b395c6  ./scripts/gen_fragments/cm2_frag.k
+01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b  ./scripts/gen_fragments/cm2_frag.k.syntax
+251baaa0fc7bf7a4015a3eff364a4dbd8228c840f35e825c44c490178c501ace  ./scripts/gen_fragments/cm3_frag.k
+01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b  ./scripts/gen_fragments/cm3_frag.k.syntax
+49aa32a97a45d1b8c3ea3ad162c6ca84c9773cf6125d75edc9cb1fcf02a24ca2  ./scripts/gen_fragments/gen_frag.k
+730e07bf012d2d6d54c13edf7f19787a2d6d553f6cc1749e2441b4e8454a975d  ./scripts/gen_fragments/gen_frag.k.syntax
+9eac3510a5b040a5a253b02037161e2e5c30b4d1bfbfcb920585765d5a9c7c98  ./scripts/gen_ghost_artifact.py
+fd67ce66ca80b7c0a3bbf37e2af8a940699a278caa454e35db5550452667a3a6  ./scripts/gen_ghost_proofs.py
+5959c09757f679c1a6c30bc77dbd003b6a23c7e4cd6d7bd7ce7cbac4dda571d6  ./scripts/gen_phase1a_pdf.py
+c7d43fd0ddd8ac8a95977e468682937305c6559243b2c122f81fbed5fc03f6df  ./scripts/gen_phase1b_pdf.py
+b7bf44ff55f7ebe5213e4e14471f045edfbe1fb7c023534195e5e0efcbe0a386  ./scripts/gen_report_pdf.py
+73482969bbff10c3e3d31b0ac12c8d16c572abc9ab167d7b5c6a6c4ce24f9f86  ./scripts/ingest_baseline.sh
+9ec009c994c1bf4210dd4a261915850800cceb5fa8eb16463a552383340c7569  ./scripts/llvm_compare.py
+ea3165209bb0095a3ef62dfc6cdd79e688f2d1e09e754d9463922a0f6d6dbbce  ./scripts/llvm_demo_suite.sh
+8f719806117830a8bd1cceff0ffa7e43ffbb61cc7da41b326ae73f4f2467012f  ./scripts/package_artifacts.sh
+7c118716fdd89f74a916dca3380e7c59f733f641efc895e571441a71dbdd9019  ./scripts/package_artifacts_1b.sh
+0785de09bfec8558805642e81342d38b7b4fffa4eaab9ea31145edf2ed274bf9  ./scripts/package_git_1b.sh
+08a0b1fa6f5254c5938ca6380cada8216f72b923f8415d11c16b381a33da9a6e  ./scripts/phase1b_matrix_rerun.sh
+66a728ec6832ddf19ac7b1878e384c775320a7eed50a22e2b38f4a510c34dc51  ./scripts/phase1b_matrix_resume.sh
+63952e1f2211da76ac986ee1f5658f5a0b24c9ce6de395a7ce5f6759a93c56db  ./scripts/phase1b_part1_baseline.sh
+7f4501d7811a1fb5da53c8cb9130acc4509f3b9d4eb3d28d7e510984e855bf18  ./scripts/prior_art_search.sh
+e551477b2866d7f9a37aa1a6bb0641c12e6e51391801739828238dce91b69ad4  ./scripts/reinstall_toolchain_1b.sh
+243a9c7ccc7b714291298b68e8cf592fc79b26c1fe1ca7706c74ccced747c24e  ./scripts/run_gen_demos.sh
+2c8a48ec2720e3ed5f2576f438a8cb0b366034df46c6d34669baf0a2a9ee7a10  ./scripts/split_gen_claims.py
+f96608a57a2e030fb2f379f9617cf262dc9bcd3a2a6da45685e1eedb2fe89c39  ./scripts/split_ghost_claims.py
+fc4301a354d1272fcfc04c1ac8286aa79ce5bdc80f428ed829bb44068d514963  ./scripts/timeit.py
+45a0b47402b000b5141d9b433fae122c7b07f5ba66f700b74144788a2a05bc82  ./semantics/abstract-demos/demo10_pairwise_only_threeway_hole.srw3
+979c090e4cfa29f176e0842ffb6d8ffa1c5c5cac6770caf3d6a69b24ca35c882  ./semantics/abstract-demos/demo1_min_reject.srw3
+febe2b09bbc315ab92ec90b5831036739a75ea76cd198df9c3df2a362074e218  ./semantics/abstract-demos/demo2_negmodel_accept.srw3
+f782440e23ec496692724dae1d7b1ca79697d2e5c56edb25670c72554df5612f  ./semantics/abstract-demos/demo2b_negmodel_two_steps.srw3
+dbad8fbcf08f67b0a963574db45d04f8901cecaaf0cc52d49b2f2539bc7e1717  ./semantics/abstract-demos/demo3_hidden_trust.srw3
+15e0170e981e5a6e29598d80ed7cdd1632ab538b588a20d2cc704dd22d6f6a66  ./semantics/abstract-demos/demo3b_hidden_write_to_A_trust.srw3
+9dd1ac1291bdeb4b7a23f3e15848dc2365df6a3a6953258d165e5acb0cfab8b1  ./semantics/abstract-demos/demo4_hidden_enforce.srw3
+2d4e72578ab7fbc8f6f8e31cf0c53e24c189931143f68b96f3cac3e02563c874  ./semantics/abstract-demos/demo5_auth_reject.srw3
+58f0efc4416df2de00fd5c0db893249279f4166726b2cbe3ac474ec38b96124b  ./semantics/abstract-demos/demo6_chain_ok.srw3
+b96b0384dddfe6d18bbf249ca59e1602dd425c38385bbba1363fb68eb4e86099  ./semantics/abstract-demos/demo7_chain_stale_price.srw3
+dad742bcee3a81058d39cf1e084f8e402db0d86a79646013eb5a07d0bf1b2130  ./semantics/abstract-demos/demo7b_chain_stale_declared.srw3
+4303be4f710452573c39c70e6da9805881e05d91d813be8cc0ae730375d62e61  ./semantics/abstract-demos/demo8_chain_three_way_ok.srw3
+3224b75eaaf2ba798b65227e2449f89f0bb3db8eb7eeddd05d9544bc36a085b8  ./semantics/abstract-demos/demo9_chain_threeway_violation.srw3
+f099cf815cd70635232fd46bcb9a7fe0b166f8544b637f70cf50a114f0d9e99e  ./semantics/gen-demos/cm2_alias_accept.srw3
+0a58c13a4d591ac83da5c5a2c38a8c543622fc57c7ff9ef2531de78f9864cbdf  ./semantics/gen-demos/cm2_alias_reject.srw3
+09597d4c2fe02546f6f1e6a283a3546154f6e53f15963d8ded64f12070cc4ba6  ./semantics/gen-demos/cm2_counterexample.srw3
+a8bf4639be3dfb9f7b46c0450744aeb67dcd578297a14578e62c80d358ee4646  ./semantics/gen-demos/cm3_auth_reject.srw3
+2268bac289de333b3f86cfcee8a2c51058d6d5c919c4cc64ebfb78cb19152029  ./semantics/gen-demos/cm3_overflow_counterexample.srw3
+eb43a5293643919d6d2ef32288df165a4273d27d348b344578bca71355874c46  ./semantics/gen-demos/cm3_safe_aggregate.srw3
+d852a80f0a2735d3c4f1f8fdaa342e31add0224cd49abe179985c77320054435  ./semantics/gen-demos/gen_alias_hidden_enforce.srw3
+7998f5318fe8d6c01fd7e185e44678eb3188e3fbeb2b361fb192e17991fa7304  ./semantics/gen-demos/gen_hidden_enforce.srw3
+d76722c649328d7753616664b8e740b4eb85b46c9ae9d13ff1ccf25b54bf82fd  ./semantics/gen-demos/gen_hidden_trust.srw3
+585e5b308d3049cfb0a6bda04db7c37d6941919b1e6bc07e4b9281bbcc12a54e  ./semantics/gen-demos/gen_multiwrite_multiresource.srw3
+2fcc609e02251de58521ef34ec237a72a114bf52735674ef06f1f8f4ebebf3cd  ./semantics/kevm/demos/DEMO_NOTES.md
+cc52bb32b44a92eaa02780563cb6b3022d13fba1e2fcd414802b0b5b4815d108  ./semantics/kevm/demos/DEMO_NOTES_GEN.md
+d753955c7a676a5c9806c9f3e90743d4d324b3172ee6fb5e99ce1fb03073a762  ./semantics/kevm/demos/evm_gen_overflow.srw3evm
+36c409537a485d289db39f6fd3dd97855bd882a7391cc80fb4b377607277e43b  ./semantics/kevm/demos/evm_gen_positive.srw3evm
+3a81967cd2e69b02241b6d148283d436cf82a4d1fa48b7ff6318f03a679a169b  ./semantics/kevm/demos/evm_min2.srw3evm
+eacd9407d029362cbc6c9b34ae00d8d95029ebaea0deb1732f82351ab22bfdde  ./semantics/kevm/demos/evm_minimal.srw3evm
+13951d05256ca64546f3f925d715d521ae9cb86eac483948f828e43b0de82ec2  ./semantics/kevm/demos/evm_negative_stale.srw3evm
+c026b42f9d9d1d9025cff4765f28b342c8a594dc25f9235cb5b33ab797ea45f0  ./semantics/kevm/demos/evm_positive.srw3evm
+329b703db3a6f04244a97787c98349cd59c21c63b37c6291ab4dbcebabec5d0f  ./semantics/kevm/srw3-gen-binding.k
+7f55e2ef551faa2c610ce314977d52e2b9352af0900d9cd5f2fa4f22252572ab  ./semantics/kevm/srw3-kevm.k
+1b29e063e51aae9ab6f56ff2371dc4bf649b19918bccc77f678516d156c8818b  ./semantics/run_demos.sh
+243a9c7ccc7b714291298b68e8cf592fc79b26c1fe1ca7706c74ccced747c24e  ./semantics/run_gen_demos.sh
+da4a895b21d7989de48480e735fc19d9c8387b352a6f10c55f121da35bb9380d  ./semantics/srw3.k
+d583ef0c84ba4327ef238a8c4865dd14f7c170c707e1329d22e554f8c7710ce9  ./semantics/srw3gen.k
+306260c18c104ac302372159cdc5ab424535042712b15c20753fceb2c8c9f7ef  ./transcripts/audit/boundaries/b1_haskell.txt
+77484bbcd6f09648cb7f86f53beba27b015ec86694b6238929ad9df6d1a3969c  ./transcripts/audit/boundaries/b1_llvm.txt
+554095ec23fd2ff903730ddffa58383f109ce4b879a6fbb4bb47511ee6dfa09e  ./transcripts/audit/boundaries/b2_haskell.txt
+77484bbcd6f09648cb7f86f53beba27b015ec86694b6238929ad9df6d1a3969c  ./transcripts/audit/boundaries/b2_llvm.txt
+2662b388b30b5857a86ef96b68b9b1dbd5d6d9fb608f03c8920c2965e4094590  ./transcripts/audit/boundaries/b3_haskell.txt
+2662b388b30b5857a86ef96b68b9b1dbd5d6d9fb608f03c8920c2965e4094590  ./transcripts/audit/boundaries/b3_llvm.txt
+62c1bfa7842f88ed27f6b4e86111617f03ab80256675b173c639e22bbeee1229  ./transcripts/audit/boundary_census.txt
+fc469942881b5a446f919e86f6baa08e17384c18a7b3b40790e658a6307ef3d3  ./transcripts/audit/bridge_reconciliation.txt
+5d3ea9776b715409cff183fd5044137b3ed6d0446a03d42b81b0e4a847fafeee  ./transcripts/audit/evm_gen_equivalence.txt
+3bf49d78257ebed6e98d8f49ecbe4a6cc41aebcb469791c269a88d9d8501bcfd  ./transcripts/audit/evm_llvm_equivalence.txt
+fe84446059702fcc03bd1a02bda6eeaf5181e8a18c69c5d9a17062beee64df6f  ./transcripts/audit/evm_llvm_evm_min2.time
+5ffb7e2f79d439c86c0871437e1c4d85ad8e47f2aa568cc4a9436a9aa3490338  ./transcripts/audit/evm_llvm_evm_negative_stale.time
+0ec9a2d3f850aff26424ae034d38c043c38bf6cd5828b2b19cf73e7485ee0c3d  ./transcripts/audit/evm_llvm_evm_positive.time
+ac97f388c52a2e271b5d2f8ead9cbf1cff613e5ee40fb3bc0e1f51412c9eda4e  ./transcripts/audit/evm_trace_stale.txt
+4f4b51a7d0ecdeaedc4c205f9fdd4db7e7a25c78fa96958281f4ffc0ad48a8e6  ./transcripts/audit/full_matrix.txt
+14be2c5142e039c0d6c5dd37f5df32fef94903c3f15981ee842a16162cc19c0b  ./transcripts/audit/full_matrix_v2.txt
+0ae581e3d843ebd6861ea859cce4344cd34a5e7dbb814688edd57844ece956ee  ./transcripts/audit/full_matrix_v3.txt
+39f4351d4d12a757ceb849456975567afd7441f6bd2f71f6c49afbe4d2eccde1  ./transcripts/audit/full_matrix_v4.phase1a.txt
+15f7f6e86129bd9996ef8422439f8a41ea62c33e18410e6f8f2150f7d2a79a65  ./transcripts/audit/full_matrix_v4.txt
+fb5abfdbd82aba9f5802cebaea4843d1a1b7796729c5c5344e6103281834c470  ./transcripts/audit/full_matrix_v5.txt
+fb5c02ca8c46301156fba71b3b0601bdcee309956951527c142361ef20930590  ./transcripts/audit/full_matrix_v5_ghostgen.txt
+d983618a3577fa1806faa9d2bfd0e12f37564c5c2b70a87b377855e7c927f1cf  ./transcripts/audit/generalized_bridge.txt
+81df2e2e0bf2c5ab160c0295245b654316365eccd461d5413b7c6ac49a11421b  ./transcripts/audit/generalized_bridge_negative.txt
+af0f4778ce40f2b0cc0e40f46e334cf084bd496923b7acb42e8ac53bfcacc4c3  ./transcripts/audit/ghost_fidelity_exact.txt
+bca3949017a74ce384a989668bba097202f9bcf65ba11e6f7e38d821ee686277  ./transcripts/audit/ghost_gen_theorem.txt
+c4a036e2718ba7bcfdd2bbd5b78dcc532d1fa965546e435b07cf71a12e06a226  ./transcripts/audit/ghost_gen_theorem.v1-sharedvar.txt
+9253023650270b1208fb308598e01fc204c19c05c117723447c587962f8718a5  ./transcripts/audit/ghost_theorem.txt
+5c87312b4e8efef920dcf512880f2e78c3c9a1bc1b5bd7e298e692a41555531e  ./transcripts/audit/induction_attempt.txt
+34243949cb37c6108a077478e5fe1259dc5b155d26e40423e94f2837eef72623  ./transcripts/audit/llvm_demo_equivalence.txt
+77484bbcd6f09648cb7f86f53beba27b015ec86694b6238929ad9df6d1a3969c  ./transcripts/audit/llvm_kprove_probe1.txt
+720a3ef35a18376302e391c6b3b256020111a5865c727424afcfe678d759c81a  ./transcripts/audit/llvm_search_probe.txt
+03d505214ccc198ee1917af716e673b2e9d26d19336e582e96f190eb1339d236  ./transcripts/audit/original_scaffold_probe.txt
+5cb4255349c7625830e44a83fb73b9750fd83fda6d7ba6801deea2eb49c48404  ./transcripts/audit/phantom_defect.txt
+58032b3609ef316b75496705fbb9228753e73168bb4b9ccac1b50685312529f8  ./transcripts/audit/phantom_defect_search.txt
+88d68d3f03584f70ee1cdaca51759330f98a8b08dcb63e93092598f6d57e8d68  ./transcripts/audit/safe_form_audit.txt
+ae02d41fbac5515badfc9e60c27711bcbb3933a8149ebf8fdca5c008211142e8  ./transcripts/audit/tier3_universal.txt
+37f145211689c8f8faa3403428d4bc3b60512b77bf053717774b266348fc2824  ./transcripts/baseline_section_C.txt
+6350dd8b86388f36025b9f553e9afea88c3032dc252b8879ff659bd31ad99257  ./transcripts/demo_run_1.txt
+a176981b1b7e91e1f06eeaab924eafc95ca2b96de3f3a4e60048ad2613979f2e  ./transcripts/demo_run_final.txt
+17e19b77c52c21d57ba1ecc787416e6858302224c62b6473f09f8a9d85d3b598  ./transcripts/evm_minimal_reject.txt
+1d55ae70b9aec86820f20caeeca7c51ca412fe8f2cdcd011104184d3a306a5e4  ./transcripts/evm_negative_stale_final.txt
+86183fdd71c18bcc618155a3b848ccf09ae252285e564ebfe5b71a33802c39aa  ./transcripts/evm_positive_final.txt
+b9200b0582876897802d65665cf5600c33ec528402aaa1d66f076d46e91e878f  ./transcripts/kprove_claims_final.txt
+a176981b1b7e91e1f06eeaab924eafc95ca2b96de3f3a4e60048ad2613979f2e  ./transcripts/llvm_demos_hs.txt
+3bd17bcf98ad4927f60b0c893909588e7b27579dcf41e6f149a2187fa18f9986  ./transcripts/llvm_demos_llvm.txt
+c888807cc0b5b4cc66159647899492e24dd9a2e23d06cbf53b853bc2e7b2fce5  ./transcripts/llvm_gen_demos.txt
+7c3da0d657c85ed1594b3427c1eca35550285077cc9af20c024c95772ae54021  ./transcripts/llvm_gen_demos_hs.txt
+dfb9fc6c5675073c966c3f2ea159ad98a771b663de77b6b64752dbb89d64f1ae  ./transcripts/llvm_gen_equivalence.txt
+4c96fda1010e001af8c262303cbd7d83899a0ae4bbed182c3115b4b4eb13d2aa  ./transcripts/llvm_kompile_sr3.log
+8c9fdfb0f8d775f6a77083eb40498ca88d01aa25fd91f7ea87411ddd5aab0174  ./transcripts/llvm_suite_time.txt
+93c7e691035e3e40dc6030f75f2ef2b52e4bc9197af9102d11af832426a9ebb5  ./transcripts/provenance/PROVENANCE.md
+8bb32e093c5defcc07fb7b77df8dfa83e9dd4e862846fe2fe879106147f0e813  ./transcripts/provenance/bundle_sha256.txt
+bacf7e8164f2d98d491ca9c7cd9962fc55ba5467754feac5f9e4e148e4e32487  ./transcripts/provenance/git_diff_69859b1_phase1-start.patch
+4eac5fb57567fbfc222cd3a57ccf344204dd105f6cfda6872a837235f454d8f0  ./transcripts/provenance/git_diff_stat_69859b1_phase1-start.txt
+1a06d6975e9d6af5405b842b9ff617218d1dc265614c539a6a69580591b7b915  ./transcripts/provenance/git_status_phase1-start.txt
+af57c01e9dd772c799edb48454345a4b1f9fee9e05f966125b2efa1f0fc08b94  ./transcripts/provenance/phase1b_baseline.md
+92a6dff4b2acf87b155a67f7257c3bf6154371f8a35c65cafffa8390604460a6  ./worklog.md
