@@ -1,5 +1,5 @@
-SRW3 Artifact Bundle — Phase 0-D (Theorem-Closure) + Phase 1A (LLVM Retarget) + Phase 1B (Generalized State)
-Generated: 2026-09-29 16:01:02 UTC
+SRW3 Artifact Bundle — Phase 0-D + 1A + 1B + Phase 1C (Cryptographic Grounding)
+Generated: 2026-10-01 06:16:31 UTC
 
 THEOREM STATUS
 --------------
@@ -10,7 +10,11 @@ THEOREM STATUS
     All three non-vacuity negative controls FAIL as designed.
     Encoding: proofs/gen/{cm2_alias,cm3_auth,gen_full}.k + ghost_manifest_gen.json.
   Tier-3 universal reconciliation                               : STATEMENT FORMALIZED; NOT YET MECHANIZED
-  Cryptographic lineage                                         : NOT YET MECHANIZED
+  Cryptographic lineage                                         : DEMONSTRATED (execution layer)
+                                                                  real keccak256 commitments in the gate;
+                                                                  probe 8/8 + tamper/recover demos (LLVM+shim)
+  KRYPTO hooks availability                                     : LLVM-only (hs has no evaluators); requires
+                                                                  --hook-namespaces KRYPTO + krypto shim
   LLVM backend                                                  : execution portability only (proof layer haskell)
 
 CONTENTS
@@ -21,6 +25,7 @@ CONTENTS
   semantics/abstract-demos/          13 abstract demos
   semantics/gen-demos/               10 generalized demos (CM2/CM3/generalized)
   semantics/kevm/                    Frozen binding + additive generalized binding + demos
+  semantics/phase1c/                 Crypto lineage (srw3ck.k), probe, shim, keccak_ref oracle
   proofs/                            K proof sources incl. proofs/gen/ (35 ghost claims)
   python-gen/                        Python mirror oracle (14/14)
   scripts/                           Complete audit + generation pipeline + gen_fragments
@@ -48,6 +53,8 @@ d91321fc1e554fcc41fe6fd7bd58df1fa938e63cd50a0cd5faa9562c2f0aa965  ./SRW3-Phase1A
 705bb71f113151e3ddc25910c373c7fa9bc158cf497e157ff8bb7ea7bd34c23e  ./SRW3-Phase1A-LLVM-Report.pdf
 85b8cfd60f62bb171e38c6b7e15ccbd665ce0fca9c2ae73e764079bfd1efcd47  ./SRW3-Phase1B-Gen-Report.md
 3e7da31b782429d0ac8844312b835407c0ab572d0987171e37d2319132411332  ./SRW3-Phase1B-Gen-Report.pdf
+9e2289647a870fb333daba1c65deed1283b229fb2b16f9c74dba00a03f8566b1  ./SRW3-Phase1C-Crypto-Report.md
+ef97a63e6095a791c9dc7bfa2e58fb4c7e4f88dbc7d6bf5cfe9ee43f09b247b8  ./SRW3-Phase1C-Crypto-Report.pdf
 40631d265969d7b2c86b452ab4f248f17e38b5c9d0f826c2c25aa7b4cbe2cb24  ./baseline/SRW3-Phase0D-baseline.sha256
 a0058517d0d05cf771af0ae3802923523f94a9989b9ba6eb5dd46d3e305af2c2  ./baseline/reference-implementation/Makefile
 59ed52ef8117177b2571bb4f2da2b86e7e0790eec57f438f0dcb513d6978c76e  ./baseline/reference-implementation/PHASE_0D_STATUS.md
@@ -69,6 +76,7 @@ ac105c497855636ebf7663a9b4a79d8c1469249b4b51902633ed03bc12ef7364  ./baseline/ref
 e2f603d8b191ecd3175673e8d408eeec0ae23e1e71667a3c8fa066fa8e9566bd  ./baseline/reference-implementation/tests/test_proof.py
 92481f29d1fcb0cad0e6d73db9899c0c9eaf9d6f5b06676078b67ee6eb0d7021  ./git/srw3-work.bundle
 d9c65967000767fa7447d5ba51346665cb941001c5fbef043fd185f9b2238d5d  ./git/srw3b-work.bundle
+240e9fc5c03f5eb6da90f5d4d6894671d2dd2a46e069c31a6bfe19ab74b45fd7  ./git/srw3c-work.bundle
 b9abc3a3fcd4ed4919ee2d0c29fbe4f8e15f17b4dc8748491c711afbcc75ffbe  ./patches/baseline-k-compat.patch
 7b276b43ad6476875bc80c7494f2a7da977432304aa7feb8b638cdaf862a4592  ./prior-art-freeze/SUMMARY.md
 d9fd9ae5bad945abdd51751eb24c8e7ca0226e9f43f7d72cfc84b7e07c2a26aa  ./prior-art-freeze/freeze_3eb27b52.json
@@ -130,6 +138,7 @@ fd67ce66ca80b7c0a3bbf37e2af8a940699a278caa454e35db5550452667a3a6  ./scripts/gen_
 c7d43fd0ddd8ac8a95977e468682937305c6559243b2c122f81fbed5fc03f6df  ./scripts/gen_phase1b_pdf.py
 b7bf44ff55f7ebe5213e4e14471f045edfbe1fb7c023534195e5e0efcbe0a386  ./scripts/gen_report_pdf.py
 73482969bbff10c3e3d31b0ac12c8d16c572abc9ab167d7b5c6a6c4ce24f9f86  ./scripts/ingest_baseline.sh
+657b25b57e10415becaed2118422d1c6a15c44501dcf8c2e5ab1ca2f362e9142  ./scripts/keccak_ref.py
 9ec009c994c1bf4210dd4a261915850800cceb5fa8eb16463a552383340c7569  ./scripts/llvm_compare.py
 ea3165209bb0095a3ef62dfc6cdd79e688f2d1e09e754d9463922a0f6d6dbbce  ./scripts/llvm_demo_suite.sh
 8f719806117830a8bd1cceff0ffa7e43ffbb61cc7da41b326ae73f4f2467012f  ./scripts/package_artifacts.sh
@@ -177,6 +186,15 @@ eacd9407d029362cbc6c9b34ae00d8d95029ebaea0deb1732f82351ab22bfdde  ./semantics/ke
 c026b42f9d9d1d9025cff4765f28b342c8a594dc25f9235cb5b33ab797ea45f0  ./semantics/kevm/demos/evm_positive.srw3evm
 329b703db3a6f04244a97787c98349cd59c21c63b37c6291ab4dbcebabec5d0f  ./semantics/kevm/srw3-gen-binding.k
 7f55e2ef551faa2c610ce314977d52e2b9352af0900d9cd5f2fa4f22252572ab  ./semantics/kevm/srw3-kevm.k
+4251ee62603c1edb0f0ae7c252cf2973eab142651e8435d7d805e830f8627f4a  ./semantics/phase1c/ck_chain_positive.ck
+723b783556d470a3f50f178690ce51c941b04a12e0072a390406c9c8b8ce1399  ./semantics/phase1c/ck_recover.ck
+1d947845cecce5c7c8fb1aa34b6f3bb104e8c04ef5715066eb74c38188d95758  ./semantics/phase1c/ck_tamper_reject.ck
+657b25b57e10415becaed2118422d1c6a15c44501dcf8c2e5ab1ca2f362e9142  ./semantics/phase1c/keccak_ref.py
+8dc872eae7458cbf17db0022188b7090872907d4e67469069cd6eb5135c696a7  ./semantics/phase1c/krypto-probe.k
+1803deebe2039c3320c060406d6b123ccc5ae384472fb72126015a65802d5b21  ./semantics/phase1c/shim/krypto_shim.cpp
+e8aa72140ff027b168eb54b293d6a109d2051396656e89164eb0511ddf5a6ab1  ./semantics/phase1c/shim/plugin_util.cpp
+ef8a7f8e5d77a63086999099e9501c41cda4bf4bd55251c19eb2359d3ef316b8  ./semantics/phase1c/shim/plugin_util.h
+0d89e313fc343f2de966c280c27ab9ce8f85e4f9c2245681774f19c9dbf28d21  ./semantics/phase1c/srw3ck.k
 1b29e063e51aae9ab6f56ff2371dc4bf649b19918bccc77f678516d156c8818b  ./semantics/run_demos.sh
 243a9c7ccc7b714291298b68e8cf592fc79b26c1fe1ca7706c74ccced747c24e  ./semantics/run_gen_demos.sh
 da4a895b21d7989de48480e735fc19d9c8387b352a6f10c55f121da35bb9380d  ./semantics/srw3.k
@@ -215,6 +233,8 @@ c4a036e2718ba7bcfdd2bbd5b78dcc532d1fa965546e435b07cf71a12e06a226  ./transcripts/
 03d505214ccc198ee1917af716e673b2e9d26d19336e582e96f190eb1339d236  ./transcripts/audit/original_scaffold_probe.txt
 5cb4255349c7625830e44a83fb73b9750fd83fda6d7ba6801deea2eb49c48404  ./transcripts/audit/phantom_defect.txt
 58032b3609ef316b75496705fbb9228753e73168bb4b9ccac1b50685312529f8  ./transcripts/audit/phantom_defect_search.txt
+b8e7e208fd7937c6d5ce89ab2ef5fa858a3ec9223b999984fd1bc5145b0a315b  ./transcripts/audit/phase1c_ck_demos.txt
+5b2c03f1f0b642989af3e8f95217cc9d2733bb2bdbf0ce4b274737858d3e1d99  ./transcripts/audit/phase1c_krypto_probe.txt
 88d68d3f03584f70ee1cdaca51759330f98a8b08dcb63e93092598f6d57e8d68  ./transcripts/audit/safe_form_audit.txt
 ae02d41fbac5515badfc9e60c27711bcbb3933a8149ebf8fdca5c008211142e8  ./transcripts/audit/tier3_universal.txt
 37f145211689c8f8faa3403428d4bc3b60512b77bf053717774b266348fc2824  ./transcripts/baseline_section_C.txt
@@ -237,4 +257,4 @@ bacf7e8164f2d98d491ca9c7cd9962fc55ba5467754feac5f9e4e148e4e32487  ./transcripts/
 4eac5fb57567fbfc222cd3a57ccf344204dd105f6cfda6872a837235f454d8f0  ./transcripts/provenance/git_diff_stat_69859b1_phase1-start.txt
 1a06d6975e9d6af5405b842b9ff617218d1dc265614c539a6a69580591b7b915  ./transcripts/provenance/git_status_phase1-start.txt
 af57c01e9dd772c799edb48454345a4b1f9fee9e05f966125b2efa1f0fc08b94  ./transcripts/provenance/phase1b_baseline.md
-92a6dff4b2acf87b155a67f7257c3bf6154371f8a35c65cafffa8390604460a6  ./worklog.md
+9d47be0f77d96140b8a2919f7d2c9f3bd3362592f92b0ca0ed64e726ea10382e  ./worklog.md

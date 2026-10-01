@@ -669,3 +669,153 @@ Stage Summary:
   forall-n theorems, Python mirror, and REAL KEVM execution (identical across
   haskell/llvm backends) — all inside the unchanged one-gate architecture.
 - Next: Phase-1B report (MD+PDF), artifact bundle refresh, worklog close-out.
+
+---
+Task ID: 1B-4
+Agent: Super Z (main)
+Task: Phase 1B — report, artifact bundle, git provenance, close-out
+
+Work Log:
+- Report: download/SRW3-Phase1B-Gen-Report.{md,pdf} (scripts/gen_phase1b_pdf.py
+  renders the MD as single source of truth with the established Phase-0/1A
+  visual system; 7 pages, pdf_qa spot-checks OK). Sections: starting state,
+  sandbox-reset recovery, CM2 (Part II/III), CM3 (Part V/VI), ghost theorems
+  (Parts IV/VII incl. both proof-engineering defects), Python oracle, KEVM
+  generalized binding, LLVM portability, matrix v5, evidence-matrix upgrade
+  table, A5/A6 assumption classification, limitations, artifact index.
+- Git provenance: fresh repo srw3b-work/ (branch phase1b, tag
+  phase1b-complete, commit e132157) holding the complete Phase-1B state
+  (sources only); bundle srw3b-work.bundle (sha256 d9c65967...) staged into
+  the artifact bundle next to the historical srw3-work.bundle; MANIFEST
+  documents the reset + sha-verified recovery explicitly.
+- Bundle: scripts/package_artifacts_1b.sh -> download/SRW3-Phase1B-Artifact-
+  Bundle.zip (1.29MB) + .sha256 sidecar (verified OK) + browsable
+  download/srw3-artifacts/ (cumulative 0-D+1A+1B; 240-line MANIFEST sha256
+  chain). download/README.md rewritten to index 1B as current and 1A/0-D as
+  frozen snapshots.
+
+Stage Summary:
+- PHASE 1B COMPLETE: CM2+CM3 absorbed without ad hoc special cases; three new
+  forall-n theorems PROVED BY K; generalized layer demonstrated at abstract-K
+  (hs+llvm), KEVM (hs+llvm), and Python; matrix v5 zero regression on the
+  Phase-1A surface. Open items unchanged: tier-3 universal, cryptographic
+  lineage, resmap/cap derivation from on-chain facts (A5/A6 remain ASSUMED).
+
+---
+Task ID: GH-1
+Agent: Super Z (main)
+Task: Establish off-site backup at github.com/Dannyednut/SRW3 (user-supplied PAT)
+
+Work Log:
+- State survey: Phase 1C work from the previous session is NOT on disk (sandbox
+  reset); only Phase 0-D/1A/1B artifacts survive (download/, srw3b-work/,
+  srw3-kevm/, bundles). srw3b-work had 16 files with mode-only diffs (644->755,
+  tar extraction artifacts) — normalized and committed as abdfa62 on phase1b.
+- GitHub API: repo Dannyednut/SRW3 exists, EMPTY, token has push rights.
+- Push 1: srw3b-work history -> branch `phase1b` (HEAD abdfa62, includes
+  e132157 phase1b-complete).
+- Push 2: umbrella branch `main` (d8787bd) assembled at srw3-github/:
+  README.md (recovery procedure), reports/ (0-D/1A/1B md+pdf), bundles/
+  (3 phase zips + sha256 sidecars), artifacts/ (verbatim copy of
+  download/srw3-artifacts incl. MANIFEST sha256 chain + git/ bundles),
+  worklog.md, srw3-baseline.sha256. 5.8MB total.
+- Verification: API branch list matches local heads (main d8787bd,
+  phase1b abdfa62). Token stripped from both .git/config remotes; grep
+  confirms no token string in any pushed tree. NOTE: token must be
+  re-supplied by the user each session (deliberately not persisted).
+
+Stage Summary:
+- Backup convention established: session end => push phase1b (working repo)
+  + refresh main (artifacts/bundles/worklog). Recovery procedure documented
+  in the GitHub README (clone phase1b + reinstall_toolchain_1b.sh +
+  sha256sum -c MANIFEST.txt).
+- Next: Phase 1C redo (Part IV blockchain-k-plugin crypto defs, Part X
+  libsecp256k1/KEVM signatures) — lost bundle to be rebuilt from scratch.
+
+---
+Task ID: 1C-1
+Agent: Super Z (main)
+Task: Phase 1C Part IV+X — cryptographic availability probe (rebuild of lost session)
+
+Work Log:
+- Toolchain re-established from pinned recipe (tools/ was reset AGAIN): K v7.1.337,
+  z3 4.13.3, KEVM 1.0.921 src, libsecp256k1 0.5.0 (+dev headers), LLVM/clang-15
+  15.0.6-4+b1 chain (libllvm15 download in reinstall script fails on new +b1
+  pool naming — pattern fixed manually), syslibs shims, env.sh reconstructed.
+  Surviving compiled definitions reused: hs-out demos 10/10-style PASS, gen-hs
+  10/10 PASS, kevm-hs-out full EVM run OK.
+- blockchain-k-plugin re-fetched at pinned SHA 207ae5121e5178a09742ed746f2d15e34b1750cc
+  into $SRW3/kproj/plugin (K sources only, as before).
+- FINDING (crucial): kompile silently STRIPS hook attributes outside registered
+  namespaces — krypto.md's KRYPTO.* hooks never reached definition.kore in ANY
+  prior phase (root cause of §O). Fix = kompile flag --hook-namespaces KRYPTO
+  (the same flag kevm-pyk passes: HOOK_NAMESPACES=('JSON','KRYPTO')).
+- FINDING: the HASKELL backend has NO evaluators for ANY KRYPTO hook (kore-exec
+  warns "No evaluators" and leaves terms stuck) despite linking libsecp256k1.
+  => KRYPTO hooks are LLVM-backend-only + libkrypto.
+- Built minimal honest krypto shim (k/phase1c/shim/krypto_shim.cpp): OWN
+  Keccak-f[1600] impl + plugin crypto.cpp ECDSA code path verbatim (libsecp256k1
+  0.5.0) + abort stubs for hooks SRW3 never exercises (sha*/bn128/bls12/kzg/
+  p256/blake2/ed25519). Compiled with pinned clang-15; archive libkrypto-shim.a.
+- Link path: kompile --backend llvm --hook-namespaces KRYPTO (link fails by
+  design without the lib) -> manual llvm-kompile definition.kore dt main
+  -L<shim> -lkrypto-shim -lsecp256k1 -lgmp. (NIX_LLVM_KOMPILE_LIBS also works.)
+- Defects found+fixed during bring-up (report material): substrString(S,start,END)
+  semantics (probe slices), :=K is matching-only equality in K7 (illegal with
+  function calls on LHS; replaced by self-matching BytesEq helper), rotl64(x,0)
+  UB, rho table transpose, P5 negative control assumed recid=0 (fixed to flip).
+- RESULT (transcripts/audit/phase1c_krypto_probe.txt): probe 8/8 on LLVM:
+  keccak256("")=c5d24601...a470, keccak256("abc")=4e03657a...6c45 (canonical
+  external vectors), ECDSAPubKey(priv=1)=1*G, sign->recover roundtrip, flipped-
+  recid NEG control, malformed-sig NEG control, address bridge priv=1 ->
+  7e5f4552...9395bdf, raw/hex consistency. Part IV + Part X availability PROVEN.
+- GitHub backup (user directive): repo Dannyednut/SRW3 — branch phase1b
+  (abdfa62), NEW branch phase1c (402a3f9: probe + shim sources + transcript +
+  keccak_ref.py), main umbrella (d8787bd). Token stripped from remotes after
+  each push; token must be re-supplied each session by the user.
+
+Stage Summary:
+- Part IV (plugin crypto defs) + Part X (libsecp256k1 path) are now AVAILABLE
+  and vector-validated at the LLVM layer; §O limitation formally lifted for
+  the hooks SRW3 uses. Next: integrate keccak commitment lineage into the gen
+  gate (1C-2), then report/bundle (1C-3).
+
+---
+Task ID: 1C-2
+Agent: Super Z (main)
+Task: Phase 1C — cryptographic commitment lineage integrated into the gate (srw3ck.k)
+
+Work Log:
+- New definition k/phase1c/srw3ck.k (module SRW3CK; imports KRYPTO+DOMAINS+BYTES):
+  minimal faithful instance of the Phase-1B gate architecture where commitments
+  are REAL hashes. Transition presents the new head H:Bytes; gate obligations:
+  ICK-PRESENT (H == recomputed CkHash(head, slot, v)) + ICK-CHAIN (whole lineage
+  re-derived record-by-record from CkRoot=32 zero bytes). Encoding
+  H(p,slot,v) = Keccak256raw(p || slot_4BE || v_4BE) — Ethereum keccak via the
+  1C-1 shim. Single accept rule (committed:=prospective, lineage append,
+  head:=H); reject restores (commitment boundary). Same one-gate discipline:
+  no ad hoc branches, obligations are evaluated equations; pend accessors and
+  chain checker are total functions in the project's explicit-recursion style.
+- Demo commitments computed OFFLINE with scripts/keccak_ref.py (pure-Python
+  keccak-256, itself validated against the canonical vectors) — the model never
+  generates its own test data. H1=d9e1dd8a...33f5, H2=f9c13403...616b,
+  tamper H1'=...33f4 (last bit flipped).
+- Demos (LLVM + shim): ck_chain_positive -> commit (2-record real hash chain,
+  final head == H2 bytes, lineageNext=2); ck_tamper_reject -> reject (chain NOT
+  advanced; stale H2 in the same program also rejected — parent mismatch);
+  ck_recover -> commit (restore semantics: after a rejected transition the
+  correctly-derived commitment is accepted, pend/prospective clean).
+- Evidence: transcripts/audit/phase1c_ck_demos.txt (programs, outcomes, final
+  head/lineageNext cells, interpretation).
+- Recorded K-idiom findings for the report: DOMAINS does NOT include BYTES;
+  :=K is matching-only; ==K comes from K-EQUAL via DOMAINS; Bytes literals are
+  b"..." (0x-hex is not syntax); map lookup/choice need sort annotations or
+  pattern-matching accessors.
+
+Stage Summary:
+- Cryptographic lineage is now EXECUTABLE inside the unchanged gate
+  architecture: commitments are keccak256, the gate verifies presented
+  commitments by recomputation, tampering is rejected with restore.
+  A5/A6 retirement path is open: the on-chain fact layer can anchor the
+  resmap/cap derivation through verified commitments.
+- Next: Phase-1C report + bundle + git push (1C-3).

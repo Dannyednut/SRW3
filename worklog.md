@@ -779,3 +779,76 @@ Stage Summary:
   and vector-validated at the LLVM layer; §O limitation formally lifted for
   the hooks SRW3 uses. Next: integrate keccak commitment lineage into the gen
   gate (1C-2), then report/bundle (1C-3).
+
+---
+Task ID: 1C-2
+Agent: Super Z (main)
+Task: Phase 1C — cryptographic commitment lineage integrated into the gate (srw3ck.k)
+
+Work Log:
+- New definition k/phase1c/srw3ck.k (module SRW3CK; imports KRYPTO+DOMAINS+BYTES):
+  minimal faithful instance of the Phase-1B gate architecture where commitments
+  are REAL hashes. Transition presents the new head H:Bytes; gate obligations:
+  ICK-PRESENT (H == recomputed CkHash(head, slot, v)) + ICK-CHAIN (whole lineage
+  re-derived record-by-record from CkRoot=32 zero bytes). Encoding
+  H(p,slot,v) = Keccak256raw(p || slot_4BE || v_4BE) — Ethereum keccak via the
+  1C-1 shim. Single accept rule (committed:=prospective, lineage append,
+  head:=H); reject restores (commitment boundary). Same one-gate discipline:
+  no ad hoc branches, obligations are evaluated equations; pend accessors and
+  chain checker are total functions in the project's explicit-recursion style.
+- Demo commitments computed OFFLINE with scripts/keccak_ref.py (pure-Python
+  keccak-256, itself validated against the canonical vectors) — the model never
+  generates its own test data. H1=d9e1dd8a...33f5, H2=f9c13403...616b,
+  tamper H1'=...33f4 (last bit flipped).
+- Demos (LLVM + shim): ck_chain_positive -> commit (2-record real hash chain,
+  final head == H2 bytes, lineageNext=2); ck_tamper_reject -> reject (chain NOT
+  advanced; stale H2 in the same program also rejected — parent mismatch);
+  ck_recover -> commit (restore semantics: after a rejected transition the
+  correctly-derived commitment is accepted, pend/prospective clean).
+- Evidence: transcripts/audit/phase1c_ck_demos.txt (programs, outcomes, final
+  head/lineageNext cells, interpretation).
+- Recorded K-idiom findings for the report: DOMAINS does NOT include BYTES;
+  :=K is matching-only; ==K comes from K-EQUAL via DOMAINS; Bytes literals are
+  b"..." (0x-hex is not syntax); map lookup/choice need sort annotations or
+  pattern-matching accessors.
+
+Stage Summary:
+- Cryptographic lineage is now EXECUTABLE inside the unchanged gate
+  architecture: commitments are keccak256, the gate verifies presented
+  commitments by recomputation, tampering is rejected with restore.
+  A5/A6 retirement path is open: the on-chain fact layer can anchor the
+  resmap/cap derivation through verified commitments.
+- Next: Phase-1C report + bundle + git push (1C-3).
+
+---
+Task ID: 1C-3
+Agent: Super Z (main)
+Task: Phase 1C — report, artifact bundle, git close-out
+
+Work Log:
+- Report: download/SRW3-Phase1C-Crypto-Report.{md,pdf} (6pp; gen_phase1c_pdf.py
+  renders the MD with the established visual system; header metadata patched).
+  Sections: mandate (Part IV/X), third reset recovery, Findings 1C-1a (kompile
+  silently strips unregistered hook namespaces; fix --hook-namespaces KRYPTO,
+  the same flag kevm-pyk passes) and 1C-1b (hs backend has NO KRYPTO evaluators
+  => crypto is an LLVM-layer capability), shim design + stub policy, defect log
+  (==K/:=K, DOMAINS lacks BYTES, substrString semantics, rotl64 UB, rho
+  transpose, P5 recid assumption), probe table 8/8, srw3ck integration + demo
+  table, A5/A6 classification upgrade (A5 ASSUMED-CRYPTO-READY; A6 DEMONSTRATED
+  at execution layer), limitations, artifact index.
+- Bundle: scripts/package_artifacts_1c.sh -> download/SRW3-Phase1C-Artifact-
+  Bundle.zip (1.78MB) + .sha256 sidecar (cb857ed3...) + refreshed browsable
+  download/srw3-artifacts/ (cumulative 0-D..1C incl. semantics/phase1c/ +
+  srw3c-work.bundle; MANIFEST sha256 chain regenerated). Baseline unpacked dir
+  was lost in the reset; recovered from the 1B bundle zip before repackaging.
+- Git: phase1c branch commits 402a3f9 (probe+shim), 25b875b (integration),
+  + report/bundle close-out; bundle srw3c-work.bundle (branch phase1c).
+
+Stage Summary:
+- PHASE 1C COMPLETE: Part IV (plugin crypto definitions usable; keccak256
+  canonical vectors pass) and Part X (libsecp256k1 sign/recover/pubkey against
+  external vectors; negative controls correct) both PROVEN on the LLVM layer;
+  cryptographic commitment lineage EXECUTABLE in the gate (tamper rejected,
+  restore semantics verified). Evidence model recorded: abstract theorems on
+  hs; crypto executability on llvm+shim. Open: tier-3 universal; on-chain
+  anchoring data-plumbing for A5; KEVM-storage x crypto composition (Phase 2).

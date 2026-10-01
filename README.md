@@ -18,7 +18,7 @@ oracle. All toolchain versions are pinned; every artifact carries a SHA-256 chai
 | 0-D | Pinned toolchain, abstract SRW3 K model, one-gate architecture, Claims 1–4 | CLOSED |
 | 1A | LLVM retarget + proof-boundary experiment, baseline frozen (`88e4209`) | CLOSED |
 | 1B | Generalized semantics `srw3gen.k`: CM2 aliasing + CM3 aggregate authority absorbed; ∀n ghost theorems mechanized (35 claims: 32 PROVED + 3 designed-FAIL); KEVM generalized binding; matrix v5 zero regression | CLOSED |
-| 1C | Cryptographic grounding — Part IV: blockchain-k-plugin crypto definitions (keccak256 commitment lineage); Part X: libsecp256k1 / KEVM signature-verification path; retire ASSUMED A5/A6 | NEXT |
+| 1C | Cryptographic grounding — keccak256 commitment lineage executable in the gate (tamper rejected, restore verified); libsecp256k1 ECDSA path vector-validated; krypto probe 8/8; A6 → DEMONSTRATED (execution layer) | CLOSED |
 
 ## Repository layout
 
@@ -29,6 +29,7 @@ oracle. All toolchain versions are pinned; every artifact carries a SHA-256 chai
 | `artifacts/` | Browsable cumulative tree (0-D + 1A + 1B): semantics, proofs, scripts, transcripts, python-gen, patches, `MANIFEST.txt` sha256 chain, `git/` bundles |
 | `artifacts/git/srw3-work.bundle` | Historical git bundle (pre-1B lineage) |
 | `artifacts/git/srw3b-work.bundle` | Phase-1B git bundle |
+| `artifacts/git/srw3c-work.bundle` | Phase-1C git bundle |
 | `worklog.md` | Full multi-session work log (all task IDs, decisions, defect records) |
 
 Branches:
@@ -36,7 +37,8 @@ Branches:
 | Branch | Contents |
 |---|---|
 | `main` | This archive (browsable artifacts + bundles + reports) |
-| `phase1b` | Git history of the Phase-1B working repo (`srw3b-work`, tag `phase1b-complete` = `e132157`) |
+| `phase1b` | Git history of the Phase-1B working repo (tag `phase1b-complete` = `e132157`) |
+| `phase1c` | Phase-1C working history: crypto probe + krypto shim + `srw3ck.k` integration (HEAD `9dc90f0`) |
 
 ## Session-to-session recovery procedure
 
@@ -47,7 +49,8 @@ git clone https://github.com/Dannyednut/SRW3.git
 cd SRW3
 
 # 1) Working repo with full Phase-1B history (sources only):
-git clone --branch phase1b --single-branch . ../srw3b-work
+git clone --branch phase1c --single-branch . ../srw3b-work
+#    (phase1b = Phase-1B snapshot; from the bundle: git clone artifacts/git/srw3c-work.bundle ../srw3b-work)
 #    (or from the bundle: git clone artifacts/git/srw3b-work.bundle ../srw3b-work)
 
 # 2) Toolchain re-install (pinned recipe, ~no root needed):
