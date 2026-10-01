@@ -12,3 +12,7 @@ gen-out/
 search-out/
 __pycache__/
 *.pyc
+k/phase1c/*-out/
+k/phase1c/shim/*.o
+k/phase1c/shim/libkrypto-shim.a
+k/phase1c/shim/libsecp256k1.so
