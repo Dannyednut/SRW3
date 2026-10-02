@@ -1,0 +1,42 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 9: AUTHORIZED-DISHONEST PRODUCER ===
+=== generated: 2026-10-02 19:04:21 UTC ===
+
+producer powers (ALL exercised below):
+  valid private key SK1 = int 77 (secp256k1, libsecp256k1 path)
+  valid keccak256 (standard, multiblock-correct)
+  recomputes EVERY digest from the artifacts it presents
+  re-signs evidence + signature with the valid key
+  chooses the presented pre-state / effects / post-state freely
+
+attack scenario (identical artifacts to the Part-2 K suite):
+  PreState  (claimed) : {1: {0: 100, 1: 0}, 2: {0: 50, 1: 1}}
+  TrueEffects         : {1: {0: 25}, 2: {1: 7}}
+  honest Apply        : {1: {0: 25, 1: 0}, 2: {0: 50, 1: 7}}
+  presented PostState : {1: {0: 25, 1: 0}, 2: {0: 50, 1: 7, 9: 999}}   (extra entry (2,9):=999)
+  PostState != Apply(PreState, TrueEffects) — the ONLY falsehood;
+  every digest below is GENUINELY recomputed over the forged post.
+
+producer output (fully valid cryptography):
+  inputD  = d238e2c20c50f61a32754088c723f62d033333be41e7c7e1975249a34026db6c  = H(canon(PreState))    genuine
+  effectD = 8ad8511ac5f011ee0d5904a75df2548d4a1cdd48512d0c2474ddfa7919541386  = H(canon(TrueEffects)) genuine
+  stateD  = 9511106b9b9b8c5089b2415db347e1777c88016f7aa4c4e585b494126ff2fe48  = H(canon(ATTACK post)) genuine (over the FORGED post)
+  authority = c2aa6271409c10dee630e79df90c968989ccf2b7  = addr(SK1)
+  evidence  = 5481011e334c58867c129541...  valid RFC6979 sig over IntentHash
+  sig       = 5c47e80affd0da25952c89e6...  valid RFC6979 sig over CoreHash
+  child     = 3a48bc701a295f524886562e92ddfdbfa224bd901dc3e1e3721d063c391f5db2  = H(CanonFull incl. sig) genuine
+
+independent Python verifier verdict : L7-STATE
+  -> rejection layer: L7 (state-composition; canonical finite-map
+     equality post_map == composed_map). All L1..L6 pass — the
+     producer's cryptography is PERFECT; the state correspondence
+     is what fails.
+
+K-side counterpart (Part 2 final suite, neg1 = same construction
+built by LinBuildRec with genuine crypto; see
+part7_k_composition_suite_final.txt):
+  pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition
+  -> the K verifier rejects the same forgery at
+     invalid-state-composition (the 13th, composition-aware verdict).
+
+RESULT: PASS — rejection at the state-composition layer (L7-STATE / invalid-state-composition on the K side)
+PART9_THREAT_DONE

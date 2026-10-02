@@ -1,0 +1,48 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 7: REGRESSION, K demo stages ===
+=== generated: 2026-10-02 18:50:25 UTC ===
+source identity: sha256(srw3.k)  = da4a895b21d7989de48480e735fc19d9c8387b352a6f10c55f121da35bb9380d
+                 sha256(srw3gen.k)= d583ef0c84ba4327ef238a8c4865dd14f7c170c707e1329d22e554f8c7710ce9
+compiled definitions reused from the surviving pre-reset tree (sources
+byte-identical): /home/z/my-project/srw3-kevm/k/{hs-out,gen-hs-out,gen-llvm-out}
+
+--- [K1] Phase-0 abstract demo suite (13 demos, haskell backend) ---
+[K1] run_demos.sh exit=0
+--- verdict-sequence diff (new vs frozen v5 [2]) ---
+IDENTICAL — verdict sequence byte-identical to the frozen v5 record:
+  13 demos, 13 result lines
+  result      : "reject"
+  result      : "commit"
+  result      : "commit"
+  result      : "commit"
+  result      : "reject"
+  result      : "blocked-effect-incomplete"
+  result      : "reject-auth"
+  result      : "commit"
+  result      : "blocked-effect-incomplete"
+  result      : "reject"
+  result      : "reject"
+  result      : "commit"
+  result      : "reject"
+
+--- [K2] Phase-1B generalized demos, haskell backend ---
+      committed=[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]  -> PASS
+  [gen_alias_hidden_enforce] result=blocked-effect-incomplete
+      committed=[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]  -> PASS
+=== gen demos (hs): PASS=10 FAIL=0 ===
+[K2] exit=0; 
+      expected  =[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]  -> PASS
+      expected  =[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]  -> PASS
+=== gen demos (hs): PASS=10 FAIL=0 ===
+
+--- [K3] Phase-1B generalized demos, llvm backend ---
+      committed=[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0), ('appC', 0, 1), ('appD', 0, 1)]  usage-c=[]  -> PASS
+  [gen_alias_hidden_enforce] result=blocked-effect-incomplete
+      committed=[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]
+      expected  =[('appA', 7, 5), ('appB', 3, 0)]  usage-c=[]  -> PASS
+=== gen demos (llvm): PASS=10 FAIL=0 ===
+[K3] exit=0; 
+
+PART7_KDEMOS_DONE

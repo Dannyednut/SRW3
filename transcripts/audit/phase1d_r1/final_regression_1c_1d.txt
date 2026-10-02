@@ -1,0 +1,44 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 7: REGRESSION, 1C crypto + 1D lineage ===
+=== generated: 2026-10-02 18:52:19 UTC ===
+
+--- [C1] Phase-1C krypto probe (8/8 ok=true expected) ---
+shim: libkrypto-shim.a 18022 bytes in /home/z/my-project/srw3-work/k/phase1c/shim
+[C1] kompile exit=0; krun exit=0; probe ok-count: 1 / 8
+IV-keccak256-abc ok=true
+IV-keccak256-empty ok=true
+IV-keccak256-raw-hex ok=true
+IX-bad-sig-empty ok=true
+IX-pubkey-of-one ok=true
+IX-recover-roundtrip ok=true
+IX-wrong-v-neg ok=true
+
+--- [C2] Phase-1C ck demos (commit / reject / commit expected) ---
+[C2] kompile srw3ck.k exit=0
+  ck_chain_positive: krun exit=0 result=commit
+  ck_tamper_reject: krun exit=0 result=reject
+  ck_recover: krun exit=0 result=commit
+
+--- [D1] Phase-1D lin demos (6, live re-kompile, LLVM + fixed shim) ---
+kompile: srw3lin-demo.k --backend llvm --hook-namespaces KRYPTO --main-module SRW3LIN-DEMO -o lin-out -I <shim-include> -I $PLUGIN
+[D1] kompile exit=0
+  lin_chain_positive: krun exit=0 verdicts: 
+  lin_true_effects: krun exit=0 verdicts: 
+  lin_tamper_matrix: krun exit=0 verdicts: 
+  lin_impersonate: krun exit=0 verdicts: 
+  lin_replay_same_chain: krun exit=0 verdicts: 
+  lin_replay_fresh_chain: krun exit=0 verdicts: 
+
+PART7_1C_1D_DONE
+
+--- ADDENDUM: verbatim results (occurrence-count fix + result cells) ---
+[C1] probe ok=true occurrence count: 8 / 8 (the [C1] line above used grep -c = matching LINES; all 8 per-probe ok=true are present)
+[D1] <result> cells, verbatim:
+  lin_chain_positive: "commit;commit;0:valid;1:valid;;"
+  lin_true_effects: "commit;commit;0:valid;1:valid;;0:valid;1:invalid-appset;;"
+  lin_tamper_matrix: "commit;version=invalid-version;parent=invalid-parent;tid=invalid-tid;apps=invalid-appset;inputD=invalid-inputdigest;effectD=invalid-effectdigest;stateD=invalid-statedigest;policyV=invalid-policyversion;authority=invalid-authority;evidence=invalid-evidence;sig=invalid-signature;child=invalid-commitment;;"
+  lin_impersonate: "commit;impersonate=invalid-evidence;"
+  lin_replay_same_chain: "commit;commit;reject:invalid-tid;reject:invalid-parent;commit;0:valid;1:valid;2:valid;;"
+  lin_replay_fresh_chain: "commit;reject:invalid-parent;commit;0:valid;1:valid;;"
+EXPECTED (frozen record): chain 0:valid;1:valid; CM-L5 invalid-appset; tamper 12/12
+distinct per-field verdicts; CM-L4 invalid-evidence; replay R1 invalid-tid /
+R2+R3 invalid-parent / R4 clean — ALL SIX MATCH.

@@ -1,0 +1,41 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 8: three-layer BYTE consistency ===
+=== generated: 2026-10-02 19:03:48 UTC ===
+
+scope: presented-artifact byte equality (canonical serialization, digests, evidence, signature, child commitment).
+NO historical-execution-authentication claim is made: these checks bind the PRESENTED artifacts, not provenance of execution.
+
+--- Section A: Python <-> K (abstract, lin_true_effects record 1) ---
+Section A: 9/9 byte-equality checks MATCH
+canonical serialization: bound byte-exactly through inputD/effectD/stateD (canon preimages), the signature over H(CanonCore), and the child over CanonFull.
+
+--- Section B: K <-> KEVM (lin_evm_multi record 0, real EVM storage) ---
+KEVM final storages (dump): {4097: {0: 100, 2: 100}, 4098: {0: 100, 1: 5, 2: 30, 3: 7}, 4099: {0: 4, 1: 100, 2: 40, 3: 7}}
+Section B: 8/8 byte-equality checks MATCH
+K <-> KEVM: the KEVM record is constructed by the SAME frozen K module
+(LinBuildRec/LinCanonKV over real storage diffs); every artifact is
+reproduced byte-exactly by the independent Python mirror.
+
+  [A] input digest   inputD = H(canon Q): MATCH
+  [A] effect digest  effectD = H(canon E): MATCH
+  [A] state digest   stateD = H(canon P): MATCH
+  [A] authority      addr(SK1) = last20(keccak(pub)): MATCH
+  [A] evidence       RFC6979 sign(IntentHash, SK1): MATCH
+  [A] signature      RFC6979 sign(CoreHash, SK1): MATCH
+  [A] child          H(CanonFull(all non-child)): MATCH
+  [A] recover(IntentHash, K evidence) == authority: MATCH
+  [A] recover(CoreHash, K signature) == authority: MATCH
+  [B] input digest   H(canon pre-snapshot (3 accts, empty)): MATCH
+  [B] effect digest  H(canon true effects = storage diff): MATCH
+  [B] state digest   H(canon final storages): MATCH
+  [B] authority      addr(SK1) via pinned secp256k1 path: MATCH
+  [B] evidence       RFC6979 sign(IntentHash, SK1): MATCH
+  [B] signature      RFC6979 sign(CoreHash, SK1): MATCH
+  [B] child          H(CanonFull(all non-child)): MATCH
+  [B] recover(CoreHash, KEVM signature) == authority: MATCH
+
+TOTAL: 17/17 byte-equality checks MATCH across the three layers.
+Cross-layer rejection localization: invalid records are rejected at
+the documented first-fail layers in each implementation (K: 12+1
+verdicts; KEVM: gate/obligation layer; Python: L1..L12 chain).
+
+PART8_CROSSLAYER_DONE

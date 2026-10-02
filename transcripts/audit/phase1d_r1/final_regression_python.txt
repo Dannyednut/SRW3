@@ -1,0 +1,94 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 7: REGRESSION, python stages ===
+=== generated: 2026-10-02 18:48:42 UTC ===
+
+--- [P1] Phase-0 Python baseline (unittest discover) ---
+----------------------------------------------------------------------
+Ran 15 tests in 0.008s
+
+OK
+[P1] exit=0; Ran 15 tests; result-lines: 1
+
+--- [P2] L7 permanent adversarial suite (post-fix, 10 classes) ---
+=== SRW3 Phase 1D-R1 Part III — permanent L7 adversarial suite (POST-FIX) ===
+=== L7 = digest binding + canonical map equality post_map == composed_map ===
+
+[L7-A] verdict='VALID' expect='VALID' PASS
+[L7-B] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-C] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-D] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-E] verdict='VALID' expect='VALID' PASS
+[L7-F] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-G] verdict='VALID' expect='VALID' PASS
+[L7-H] verdict='VALID' expect='VALID' PASS
+[L7-I] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-J] verdict='L7-STATE' expect='L7-STATE' PASS
+
+=== L7 ADVERSARIAL SUITE: 10/10 PASS ===
+L7 establishes PresentedPost == Apply(PreState, TrueEffects).
+The Part-I extra-key forgery (L7-B) is REJECTED. Fixture and
+expectations are permanent regression baselines.
+[P2] exit=0 (0 = 10/10 PASS)
+
+--- [P3] historical evidence preserved (not re-run: pre-fix expectations) ---
+python-gen/test_lin_attack_L7.py: 8944 bytes, header declares PRE-FIX expectations
+transcripts/audit/phase1d_r1/l7_attack_prefix.txt: 1585 bytes (frozen pre-fix transcript)
+
+--- [P4] full comparison audit (Part IV, 33 probes) ---
+=== SRW3 Phase 1D-R1 Part IV — full comparison audit ===
+
+Check                        | intended relation                                    | implemented | probes | verdict
+--------------------------------------------------------------------------------------------------------------------------------------------
+L1 version                   | rec.version ==Int 1 (exact equality on Int)          | rec.version != 1 -> L1-VERSION           | OK=OK
+L2 tid                       | rec.tid ==Int expected position T (chain-position bi | rec.tid != T -> L2-TID                   | OK=OK
+L3 parent                    | rec.parent == expected HEAD (32B equality, chain-pos | rec.parent != HEAD -> L3-PARENT          | OK=OK
+L4 appset                    | rec.appset ==K ascending unique app ids of TRUE effe | tuple(appset) != sorted(unique apps) ->  | OK=OK
+L5 inputdigest               | rec.input_d == H(CanonKV(claimed pre-state)) (32B di | != -> L5-INPUTDIGEST                     | OK=OK
+L6 effectdigest              | rec.effect_d == H(CanonKV(TRUE effects)) — binds the | != -> L6-EFFECTDIGEST                    | OK=OK
+L7(a) stateD digest binding  | rec.state_d == H(CanonKV(presented post)) (32B diges | != -> L7-STATE                           | OK=OK
+L7(b) composition equality   | presented_post == Apply(pre, effects) by CANONICAL f | flat(post) != flat(apply(pre,eff)) -> L7 | OK=OK
+canonical serialization      | canon_kv / canon_appset are order-DETERMINISTIC (asc | sorted-key walk; count4 prefixes         | OK=OK
+L8 policyversion             | rec.policy_v in registry (membership; registry is th | not in -> L8-POLICYVERSION               | OK=OK
+L9 authority                 | rec.authority in auth-set (membership NECESSARY, nev | not in -> L9-AUTHORITY                   | OK=OK
+L10 evidence                 | recover_addr(IntentHash, evidence) == rec.authority  | recovered != authority -> L10-EVIDENCE   | OK=OK
+L11 signature                | recover_addr(CoreHash, sig) == rec.authority (record | recovered != authority -> L11-SIGNATURE  | OK=OK
+L12 child commitment         | rec.child == H(CanonFull(all 11 non-child fields INC | != -> L12-COMMITMENT                     | OK=OK
+
+live adversarial probes executed: 33
+DEMONSTRATED DEVIATIONS: none — implemented relations equal the intended relations at every comparison site.
+[P4] exit=0
+[P4] pass-marker lines: 14
+
+--- [P5] hostile-input mutation harness (Part VI, 21 classes) ---
+=== SRW3 Phase 1D-R1 Part VI — hostile-input mutation harness (21 classes) ===
+=== authorized-dishonest producer powers applied where applicable ===
+
+m01 version bump                                           first-fail: L1-VERSION         [OK]
+m02 tid bump                                               first-fail: L2-TID             [OK]
+m03 parent byte-flip                                       first-fail: L3-PARENT          [OK]
+m04 appset + foreign app                                   first-fail: L4-APPSET          [OK]
+m05 appset drop one                                        first-fail: L4-APPSET          [OK]
+m06 appset order swap                                      first-fail: L4-APPSET          [OK]
+m07 inputD byte-flip                                       first-fail: L5-INPUTDIGEST     [OK]
+m08 effectD byte-flip                                      first-fail: L6-EFFECTDIGEST    [OK]
+m09 stateD byte-flip                                       first-fail: L7-STATE           [OK]
+m10 policyV out of registry                                first-fail: L8-POLICYVERSION   [OK]
+m11 authority -> other IN-SET member (impersonation)       first-fail: L10-EVIDENCE       [OK]
+m12 authority -> out-of-set address                        first-fail: L9-AUTHORITY       [OK]
+m13 evidence byte-flip                                     first-fail: L10-EVIDENCE       [OK]
+m14 evidence from another record (different intent)        first-fail: L10-EVIDENCE       [OK]
+m15 sig byte-flip                                          first-fail: L11-SIGNATURE      [OK]
+m16 sig from another record (different core)               first-fail: L11-SIGNATURE      [OK]
+m17 child byte-flip                                        first-fail: L12-COMMITMENT     [OK]
+m18 ctx: claimed pre-state enriched (extra input entry)    first-fail: L5-INPUTDIGEST     [OK]
+m19 ctx: declared-only effects presentation (CM-L5)        first-fail: L4-APPSET          [OK]
+m20 ctx: extra post-state entry, fully re-signed (THE L7 attack) first-fail: L7-STATE           [OK]
+m21 ctx: registry shrunk (policyV no longer known)         first-fail: L8-POLICYVERSION   [OK]
+
+rejected: 21/21; accepted: 0
+
+No mutation passed. All 21 classes are caught at the documented first-fail layer.
+[P5] exit=0
+[P5] rejection-marker lines: 1
+UNRESOLVED marker present: 0 (0 = clean)
+
+PART7_PYTHON_DONE

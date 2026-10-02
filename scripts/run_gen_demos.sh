@@ -24,7 +24,11 @@ mkdir -p transcripts
 
 pass=0; fail=0
 check() { # name expected_result expected_committed(expected_usage)
-  local name="$1" er="$2" ec="$3" eu="$4" raw="/tmp/genkr_$name.txt"
+  # R1-FINAL fix: split local declaration — under `set -u`, referencing $name
+  # in the same `local` line that declares it is an unbound-variable error on
+  # current bash; behavior identical.
+  local name="$1" er="$2" ec="$3" eu="$4"
+  local raw="/tmp/genkr_$name.txt"
   krun "k/gen-demos/$name.srw3" -d "$DEF" > "$raw" 2>&1
   local rex=$?
   python3 - "$name" "$er" "$ec" "$eu" "$raw" "$rex" <<'PYEOF'

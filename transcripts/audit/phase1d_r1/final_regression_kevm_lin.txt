@@ -1,0 +1,30 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 7: REGRESSION, KEVM lineage ===
+=== generated: 2026-10-02 18:57:41 UTC ===
+definition: k/kevm/srw3-lin-evm.k (module SRW3-LIN-EVM; additive over
+            frozen 1A/1B bindings; LinBuildRec shared with the abstract layer)
+toolchain : K version:    v7.1.337; LLVM backend; krypto shim
+
+--- [E1] kompile srw3-lin-evm.k (llvm + shim) ---
+exact command:
+  kompile srw3-lin-evm.k --backend llvm --hook-namespaces KRYPTO \
+    --main-module SRW3-LIN-EVM -o kevm-lin-llvm-out \
+    -I . -I ../phase1d -I $KEVMSRC/.../kproj -I $KEVMSRC/.../kproj/evm-semantics -I $PLUGIN
+[E1] kompile SKIPPED (kevm-lin-llvm-out/interpreter already built this session)
+[E1] kompile exit=0 (interpreter: 27508152 bytes)
+
+--- [E2] demo lin_evm_multi (positive — expect 1B carrier commit n=1,
+     1D carrier n=1 head=Bytes, record 0 present) ---
+exact command:
+  krun demos/lin_evm_multi.srw3evm -d kevm-lin-llvm-out -cCHAINID=1 \\n    -cMODE=NORMAL -cSCHEDULE=CANCUN -cUSEGAS=false
+krun exit=1 (1 = designed carrier terminal)
+1B carrier : 
+1D carrier : 
+records in chain: 1; head: b"\x89\x9bg\x16\x1b\xf6\xddY\xaae\xfd\xa5~\x83\"
+
+--- [E3] demo lin_evm_overflow (negative — expect NO record (n=0),
+     storages restored = commit/lineage atomicity) ---
+krun exit=1 (1 = designed carrier terminal)
+records in chain: 0 (expect 0 — no lineage record for a rejected transition)
+1B carrier : 
+
+PART7_KEVM_LIN_DONE
