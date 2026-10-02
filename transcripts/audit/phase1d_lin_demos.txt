@@ -1,0 +1,65 @@
+=== SRW3 Phase 1D — verifiable lineage demonstration matrix (Fri Oct  2 08:42:05 UTC 2026) ===
+=== definition: k/phase1d/srw3lin{,-verify,-gate,-demo}.k | LLVM + krypto shim ===
+=== commitments: real Keccak256raw; signatures: secp256k1 (pinned libsecp256k1) ===
+=== kompile: --backend llvm --hook-namespaces KRYPTO --main-module SRW3LIN-DEMO ===
+
+--- lin_chain_positive
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linBegin , linW(1,0,25) , linHiddenW(2,1,7) , linGate , linVerifySelf(2)
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;commit;0:valid;1:valid;;"
+    </result>
+
+--- lin_true_effects
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linBegin , linW(1,0,25) , linHiddenW(2,1,7) , linGate , linVerifySelf(2) , linVerifyDeclaredOnly(2)
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;commit;0:valid;1:valid;;0:valid;1:invalid-appset;;"
+    </result>
+
+--- lin_tamper_matrix
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linTamperSelf
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;version=invalid-version;parent=invalid-parent;tid=invalid-tid;apps=invalid-appset;inputD=invalid-inputdigest;effectD=invalid-effectdigest;stateD=invalid-statedigest;policyV=invalid-policyversion;authority=invalid-authority;evidence=invalid-evidence;sig=invalid-signature;child=invalid-commitment;;"
+    </result>
+
+--- lin_impersonate
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linImpersonateSelf
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;impersonate=invalid-evidence;"
+    </result>
+
+--- lin_replay_same_chain
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linBegin , linW(1,0,25) , linHiddenW(2,1,7) , linGate , linGateReplay(0) , linGateReplayForged(1) , linBegin , linW(1,0,20) , linGate , linVerifySelf(3)
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;commit;reject:invalid-tid;reject:invalid-parent;commit;0:valid;1:valid;2:valid;;"
+    </result>
+
+--- lin_replay_fresh_chain
+program: linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linGateReplayForged(0) , linBegin , linW(1,0,25) , linHiddenW(2,1,7) , linGate , linVerifySelf(2)
+krun exit: 0 (0 = clean)
+    <result>
+      "commit;reject:invalid-parent;commit;0:valid;1:valid;;"
+    </result>
+
+=== interpretation ===
+chain_positive : commit;commit; 0:valid;1:valid;  — two-record real-keccak chain;
+                 independent verifier re-derives every digest/signature/commitment
+                 from the claimed artifacts alone (no execution state).
+true_effects   : record 1 (hidden side effect app2.slot1:=7) verifies against
+                 TRUE effects but FAILS against the declared-only presentation
+                 (invalid-appset) — declared-footprint divergence cannot hide (CM-L5).
+tamper_matrix  : 12/12 fields tampered, 12 DISTINCT verdicts, one per field:
+                 version/parent/tid/apps/inputD/effectD/stateD/policyV/
+                 authority/evidence/sig/child.
+impersonate    : authority swapped to the OTHER in-set member — membership holds
+                 but the evidence signature recovers to the true signer:
+                 invalid-evidence (cryptographic authorization ≠ set membership, CM-L4).
+replay R1      : verbatim replay of record 0 at position 2 → reject:invalid-tid
+replay R2      : tid forged to current position → reject:invalid-parent
+replay R3      : chain record forged into a fresh chain → reject:invalid-parent
+replay R4      : after all replays rejected, the honest transition commits and the
+                 full chain verifies 0:valid;1:valid;2:valid; (no corruption)

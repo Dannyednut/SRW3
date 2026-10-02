@@ -1,0 +1,104 @@
+args:
+- - &id001 ['1']
+  - MAP.Map
+next:
+  default:
+    next:
+      next:
+        default: null
+        specializations:
+        - - '0'
+          - fail
+          - [MAP.Map]
+        - - '1'
+          - args:
+            - - *id001
+              - MAP.Map
+            - - [key, '1']
+              - STRING.String
+            next:
+              args:
+              - - *id001
+                - MAP.Map
+              - - [key, '1']
+                - STRING.String
+              next:
+                default: fail
+                specializations:
+                - - inj{SortInt{}, SortKItem{}}
+                  - args:
+                    - - &id002 [rem, '1']
+                      - MAP.Map
+                    next:
+                      default: null
+                      specializations:
+                      - - '1'
+                        - action:
+                          - 3337
+                          - - - &id003 [val, '1']
+                              - STRING.String
+                            - - &id004 ['0', key, '1']
+                              - INT.Int
+                            - - *id002
+                              - MAP.Map
+                        - []
+                      - - '0'
+                        - args:
+                          - - *id002
+                            - MAP.Map
+                          next:
+                            default: fail
+                            specializations:
+                            - - '0'
+                              - action:
+                                - 3338
+                                - - - *id003
+                                    - STRING.String
+                                  - - *id004
+                                    - INT.Int
+                              - []
+                            bitwidth: 64
+                            sort: MINT.MInt 64
+                            occurrence: &id005 [size, rem, '1']
+                          function: hook_MAP_size_long
+                          sort: MINT.MInt 64
+                          occurrence: *id005
+                        - []
+                      bitwidth: 1
+                      sort: BOOL.Bool
+                      occurrence: &id006 [side_condition_3337]
+                    function: side_condition_3337
+                    sort: BOOL.Bool
+                    occurrence: *id006
+                  - [INT.Int]
+                sort: STRING.String
+                occurrence: [key, '1']
+              function: hook_MAP_remove
+              sort: MAP.Map
+              occurrence: [rem, '1']
+            function: hook_MAP_lookup
+            sort: STRING.String
+            occurrence: [val, '1']
+          - [STRING.String, STRING.String, MAP.Map]
+        isnull: true
+        sort: STRING.String
+        occurrence: [key, '1']
+      iterator: *id001
+      function: map_iterator_next
+      binding: [key, '1']
+      sort: STRING.String
+    function: map_iterator
+    collection: *id001
+    sort: MAP.Map
+  specializations:
+  - - '0'
+    - action:
+      - 3336
+      - []
+    - []
+  bitwidth: 64
+  sort: MINT.MInt 64
+  occurrence: &id007 [size, '1']
+function: hook_MAP_size_long
+sort: MINT.MInt 64
+occurrence: *id007

@@ -1,0 +1,178 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'srw3lin'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'result'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'policyV'-GT-'{}
+              - default: null
+                specializations:
+                - - Lbl'-LT-'authKey'-GT-'{}
+                  - default: null
+                    specializations:
+                    - - Lbl'-LT-'head'-GT-'{}
+                      - default: null
+                        specializations:
+                        - - Lbl'-LT-'lineageNext'-GT-'{}
+                          - default: null
+                            specializations:
+                            - - Lbl'-LT-'lineage'-GT-'{}
+                              - default: null
+                                specializations:
+                                - - Lbl'-LT-'hidden'-GT-'{}
+                                  - default: null
+                                    specializations:
+                                    - - Lbl'-LT-'pend'-GT-'{}
+                                      - default: null
+                                        specializations:
+                                        - - Lbl'-LT-'prospective'-GT-'{}
+                                          - default: null
+                                            specializations:
+                                            - - Lbl'-LT-'committed'-GT-'{}
+                                              - default: null
+                                                specializations:
+                                                - - Lbl'-LT-'k'-GT-'{}
+                                                  - default: fail
+                                                    specializations:
+                                                    - - kseq{}
+                                                      - default: fail
+                                                        specializations:
+                                                        - - inj{SortLinCmd{}, SortKItem{}}
+                                                          - default: fail
+                                                            specializations:
+                                                            - - LbllinGate'Unds'SRW3LIN-GATE'Unds'LinCmd{}
+                                                              - args:
+                                                                - - &id001 ['0', '4',
+                                                                    '0', '1']
+                                                                  - MAP.Map
+                                                                - - &id002 ['0', '7',
+                                                                    '0', '1']
+                                                                  - BYTES.Bytes
+                                                                - - &id003 ['0', '8',
+                                                                    '0', '1']
+                                                                  - BYTES.Bytes
+                                                                - - &id004 ['0', '6',
+                                                                    '0', '1']
+                                                                  - INT.Int
+                                                                - - &id005 ['0', '2',
+                                                                    '0', '1']
+                                                                  - MAP.Map
+                                                                - - &id006 ['0', '9',
+                                                                    '0', '1']
+                                                                  - INT.Int
+                                                                - - &id007 ['0', '3',
+                                                                    '0', '1']
+                                                                  - MAP.Map
+                                                                next:
+                                                                  default: null
+                                                                  specializations:
+                                                                  - - '1'
+                                                                    - action:
+                                                                      - 3205
+                                                                      - - - ['1',
+                                                                            '1']
+                                                                          - STRING.String
+                                                                        - - ['1',
+                                                                            '0', '0',
+                                                                            '0', '1']
+                                                                          - STRING.String
+                                                                        - - ['0',
+                                                                            '1', '0',
+                                                                            '1']
+                                                                          - MAP.Map
+                                                                        - - ['8',
+                                                                            '0', '1']
+                                                                          - STRING.String
+                                                                        - - ['9',
+                                                                            '0', '1']
+                                                                          - STRING.String
+                                                                        - - *id001
+                                                                          - MAP.Map
+                                                                        - - *id002
+                                                                          - BYTES.Bytes
+                                                                        - - *id003
+                                                                          - BYTES.Bytes
+                                                                        - - ['0',
+                                                                            '5', '0',
+                                                                            '1']
+                                                                          - MAP.Map
+                                                                        - - *id004
+                                                                          - INT.Int
+                                                                        - - *id005
+                                                                          - MAP.Map
+                                                                        - - *id006
+                                                                          - INT.Int
+                                                                        - - *id007
+                                                                          - MAP.Map
+                                                                        - - ['0',
+                                                                            '10',
+                                                                            '0', '1']
+                                                                          - STRING.String
+                                                                    - []
+                                                                  - - '0'
+                                                                    - fail
+                                                                    - []
+                                                                  bitwidth: 1
+                                                                  sort: BOOL.Bool
+                                                                  occurrence: &id008 [
+                                                                    side_condition_3205]
+                                                                function: side_condition_3205
+                                                                sort: BOOL.Bool
+                                                                occurrence: *id008
+                                                              - []
+                                                            sort: STRING.String
+                                                            occurrence: ['0', '0',
+                                                              '0', '0', '0', '1']
+                                                          - [STRING.String]
+                                                        sort: STRING.String
+                                                        occurrence: ['0', '0', '0',
+                                                          '0', '1']
+                                                      - [STRING.String, STRING.String]
+                                                    sort: STRING.String
+                                                    occurrence: ['0', '0', '0', '1']
+                                                  - [STRING.String]
+                                                sort: STRING.String
+                                                occurrence: ['0', '0', '1']
+                                              - [MAP.Map]
+                                            sort: STRING.String
+                                            occurrence: ['1', '0', '1']
+                                          - [MAP.Map]
+                                        sort: STRING.String
+                                        occurrence: ['2', '0', '1']
+                                      - [MAP.Map]
+                                    sort: STRING.String
+                                    occurrence: ['3', '0', '1']
+                                  - [MAP.Map]
+                                sort: STRING.String
+                                occurrence: ['4', '0', '1']
+                              - [MAP.Map]
+                            sort: STRING.String
+                            occurrence: ['5', '0', '1']
+                          - [INT.Int]
+                        sort: STRING.String
+                        occurrence: ['6', '0', '1']
+                      - [BYTES.Bytes]
+                    sort: STRING.String
+                    occurrence: ['7', '0', '1']
+                  - [BYTES.Bytes]
+                sort: STRING.String
+                occurrence: ['8', '0', '1']
+              - [INT.Int]
+            sort: STRING.String
+            occurrence: ['9', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['10', '0', '1']
+      - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+        STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+        STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

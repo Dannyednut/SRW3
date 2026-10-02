@@ -1,0 +1,1 @@
+linInit(1,0,100) , linInit(2,0,50) , linBegin , linW(1,0,30) , linGate , linBegin , linW(1,0,25) , linHiddenW(2,1,7) , linGate , linGateReplay(0) , linGateReplayForged(1) , linBegin , linW(1,0,20) , linGate , linVerifySelf(3)
