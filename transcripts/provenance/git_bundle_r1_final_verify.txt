@@ -1,0 +1,52 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 5: FINAL GIT BUNDLE VERIFICATION ===
+=== generated: 2026-10-02 19:09:50 UTC ===
+
+bundle: git/srw3-work-r1-final.bundle
+bundle size: 18326258 bytes
+bundle sha256: dd75715b01c2e47a4e2fc8c0704567030f413027d67ba7c197872cfc7c1e4db3
+
+--- 1. git bundle verify (in the source repository) ---
+/home/z/my-project/download/srw3-artifacts/git/srw3-work-r1-final.bundle is okay
+The bundle contains these 7 refs:
+66012427ed8a6423fe1a43399c6ee5e25f222ee1 refs/heads/main
+69859b1723b08fe56bcaa55a707b350bfc9d96e7 refs/heads/kevm-changes
+80448f22cd9f24e6598565992db1e447c71cd4db refs/heads/phase1-start
+abdfa62a2c7d570610c50ccd771bc16f7c7a2df1 refs/heads/phase1b
+b52427ac24c91554b02b47330b7bca4b8993ca5c refs/heads/phase1c
+b52427ac24c91554b02b47330b7bca4b8993ca5c refs/heads/phase1d-r1-complete
+624b5aa46f0c674971a650b5e03de743466c7cde refs/tags/phase1d-r1-complete
+The bundle records a complete history.
+The bundle uses this hash algorithm: sha1
+
+--- 2. bundle ref inventory ---
+66012427ed8a6423fe1a43399c6ee5e25f222ee1 refs/heads/main
+69859b1723b08fe56bcaa55a707b350bfc9d96e7 refs/heads/kevm-changes
+80448f22cd9f24e6598565992db1e447c71cd4db refs/heads/phase1-start
+abdfa62a2c7d570610c50ccd771bc16f7c7a2df1 refs/heads/phase1b
+b52427ac24c91554b02b47330b7bca4b8993ca5c refs/heads/phase1c
+b52427ac24c91554b02b47330b7bca4b8993ca5c refs/heads/phase1d-r1-complete
+624b5aa46f0c674971a650b5e03de743466c7cde refs/tags/phase1d-r1-complete
+refs recorded above: main, kevm-changes, phase1-start, phase1b, phase1c,
+phase1d-r1-complete (branch @ b52427a...), refs/tags/phase1d-r1-complete.
+
+--- 3. fresh empty repository reconstruction ---
+fetched refs: heads/phase1d-r1-complete kevm-changes main phase1-start phase1b phase1c tags/phase1d-r1-complete 
+checked out: phase1d-r1-complete @ b52427ac24c91554b02b47330b7bca4b8993ca5c
+commit parent: 5183a44562c6e2c232d5d6300616d391f37e5ce4
+commit subject: Phase 1D-R1-FINAL closure: FINAL report (MD+PDF) — closure blockers resolved (K composition FINAL transcript citing live re-kompile + committed definition; report §8/§13/§17 re-cited, stale failed transcript preserved); terminology locked (presented-effect consistency; cryptographically bound under stated assumptions); full regression + 17/17 cross-layer bytes + authorized-dishonest rejection recorded; preclosure bundle preserved
+
+--- 4. exact source-tree reconstruction check ---
+fresh repo  git archive sha256: e1a8b4d518e298e25dbbd7949e397d5aea87a92b4d13c19291a563785a2904e7
+source repo git archive sha256: e1a8b4d518e298e25dbbd7949e397d5aea87a92b4d13c19291a563785a2904e7
+TREE RECONSTRUCTION: EXACT MATCH — the fresh repository reconstructs
+the final R1 source tree byte-for-byte.
+
+--- 5. working-tree spot checks (final artifacts present) ---
+  present: SRW3-Phase1D-R1-FINAL-Report.md
+  present: k/phase1d/srw3lin-r1.k
+  present: k/phase1d/part7_k_composition_suite_final.txt
+  present: transcripts/audit/phase1d_r1/final_crosslayer_bytes.txt
+  present: python-gen/lin_verify.py
+  present: k/phase1c/shim/krypto_shim.cpp
+
+PART5_BUNDLE_VERIFY_DONE
