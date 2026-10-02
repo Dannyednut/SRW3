@@ -16,3 +16,20 @@ k/phase1c/*-out/
 k/phase1c/shim/*.o
 k/phase1c/shim/libkrypto-shim.a
 k/phase1c/shim/libsecp256k1.so
+# post-reset symlink shims (rebuild_env_1d.sh recreates these): compiled def
+# dirs live outside the repo; symlinks restore the $SRW3-relative layout
+hs-out
+gen-hs-out
+gen-llvm-out
+llvm-out
+llvm-search-out
+bridge-out
+kevm-hs-out
+kevm-llvm-out
+safeform-out
+tier3-out
+bridgegen-out
+ghost-out
+out-cm2
+out-cm3
+out-gen
