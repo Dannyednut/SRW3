@@ -669,3 +669,104 @@ Stage Summary:
   forall-n theorems, Python mirror, and REAL KEVM execution (identical across
   haskell/llvm backends) — all inside the unchanged one-gate architecture.
 - Next: Phase-1B report (MD+PDF), artifact bundle refresh, worklog close-out.
+
+---
+Task ID: 1D-1
+Agent: Super Z (main)
+Task: Phase 1D recovery + Part I baseline freeze + Parts II–XI execution layer
+
+Work Log:
+- Session resumed after FOURTH sandbox reset. srw3-work/ (Phase-1C repo) lost on
+  disk; downloaded SRW3 from GitHub remote per the push-every-step discipline:
+  phase1c branch intact (commits 402a3f9/25b875b/9dc90f0). PAT used only in
+  push/fetch URLs, scrubbed from .git/config, never written to files/logs.
+- Toolchain rebuilt via NEW persisted scripts (scripts/rebuild_env_1d.sh):
+  K v7.1.337 jammy deb, z3 4.13.3, flex/libfl2, LLVM-15+clang-15 chain
+  15.0.6-4+b1 (bookworm pool, +b1 pattern fix), libsecp256k1 0.5.0 + soname
+  shims, dev headers (gmp/mpfr/secp256k1), KEVM v1.0.921 source,
+  blockchain-k-plugin at pinned SHA 207ae512. tools/env.sh reconstructed
+  (snapshot note in rebuild script); NO C_INCLUDE_PATH (breaks clang builtins);
+  llvm-kompile-clang /usr/bin/clang++-15 path repointed; libclang-common-15-dev
+  added for stddef.h. Shim rebuilt (libkrypto-shim.a 18214 B) via
+  scripts/rebuild_1c_llvm_1d.sh — 1C layer re-verified LIVE: probe 8/8 ok=true,
+  ck demos commit/reject/commit.
+- Baseline completeness defect caught + fixed: k/compat/srw3-bridge.k existed in
+  the runtime workspace but was UNTRACKED in git (workspace-vs-repo source diff).
+  Committed. .gitignore extended for post-reset symlink shims; symlinks
+  srw3-work/k/*-out -> srw3-kevm/k/*-out recreate the $SRW3-relative layout
+  (compiled definitions survived the reset in srw3-kevm/, sha-identical sources).
+- Part I freeze matrix v6 (scripts/audit_matrix_v6.sh = v3 stages + LLVM stage +
+  GEN-1..6 + 1C crypto stage, transcript full_matrix_v6.txt): [1] Python 15/15
+  OK, [2] abstract demos 13/13 OK live re-run; remaining stages running in
+  background (claims/r2/defect/ghost/tier3/kevm/llvm/gendemos/genbind/ckcrypto/
+  ghostgen) via scripts/run_matrix_v6_all.sh.
+- Parts II–XI EXECUTION LAYER COMPLETE (k/phase1d/): 12-field lineage record Λ
+  (version,parent,tid,appset,inputD,effectD,stateD,policyV,authority,evidence,
+  sig,child) with canonical min-key serialization, Child=Keccak256(Canon(Λ\{
+  Child})), CoreHash/IntentHash formulas, ECDSA evidence+signature via pinned
+  libsecp256k1; independent VerifyLineage (stateless, first-fail chain, 12
+  distinct per-field verdicts); one-gate creation from TRUE effects
+  (declared ∪ hidden); present-path verify-then-accept; replay defense.
+  6 demos green on LLVM+shim (transcripts/audit/phase1d_lin_demos.txt):
+  chain 0:valid;1:valid; CM-L5 true-effects vs declared-only invalid-appset;
+  tamper matrix 12/12 distinct verdicts; CM-L4 impersonation invalid-evidence;
+  replay R1 invalid-tid / R2+R3 invalid-parent / R4 honest continuation clean.
+- Debug log (durable K facts): MinKeyOfMap must be split-independent with an
+  explicit empty-rest case (sentinel leak caused H[-1<-undef] no-op → infinite
+  recursion → segfault); `_:REST:Map` is illegal (named var only); no `+List`
+  (use juxtaposition); List size = `size`; KRYPTO args via NIX_LLVM_KOMPILE_LIBS
+  shim link; kompile output flag = `-o` (NOT `-d`); one-variable-one-sort in a
+  rule.
+
+Stage Summary:
+- Phase 1C baseline recovered and re-verified; Phase 1D execution layer
+  (Parts II–XI demos) MECHANIZED and pushed (commit 24ba834).
+- Next: Part XI chain-continuity kprove (hs, symbolic), ∀n(Safe∧ValidLineage),
+  KEVM multi-contract binding, CM-L set completion, report + bundle.
+
+---
+Task ID: 1D-2
+Agent: Super Z (main)
+Task: Phase 1D — Parts XI/XIII proofs + KEVM composition + Part XX deliverables
+
+Work Log:
+- Part XI chain continuity: symbolic layer srw3lin-symb.k (position-bound accept,
+  <svalid> threading, commitments as opaque Bytes) + claims lin_chain.k.
+  LIN-CHAIN-BASE and LIN-CHAIN-STEP PROVED BY K (hs backend, per-claim --claims
+  runs exit=0). LIN-CHAIN-ALL [circularity] stuck at hypothesis re-application
+  over a map-update state (unsatisfiable N=N+1 unification) — prover boundary
+  documented with full dump (1B GH-T precedent); base+step = the induction
+  pieces. Durable prover facts recorded: functional claims unsupported
+  (haskell-backend#3010); ==K on symbolic function terms lifts to K-level
+  equality — use BytesEq; recursive predicates under symbolic index are
+  undischargeable (uninterpreted to SMT) — thread through cells.
+- Part XIII KEVM composition OPERATIONAL: srw3-lin-evm.k (additive; frozen 1A/1B
+  untouched). #w3GateL = the 1B gate EXTENDED: same evaluated obligations; accept
+  updates BOTH carriers (1B state + 1D real-keccak Lambda chain); reject does the
+  same restore and appends NO record. True effects = explicit min-key storage
+  diff across all accounts; AppSet derived from true effects. Demos: lin_evm_multi
+  (3 accounts/9 slots, AppSet=[4097,4098,4099], child==head, k fully executed),
+  lin_evm_overflow (0 records, n=0 h=-1, storages restored) — commit/lineage
+  atomicity DEMONSTRATED. Recorded pitfalls: head-anchored k-cell patterns make
+  carrier placement load-bearing (carrier after #w3State); lowercase rule
+  variables collide with KEVM tokens; helpers hoisted to SRW3LIN base for scope.
+- Part XX deliverables: SRW3-Phase1D-Verifiable-Lineage-Report.{md,pdf} (8pp,
+  evidence classification table, CM-L1..L12, assumptions ValidSignature NOT=>
+  True, naming discipline) + SRW3-Phase1D-Artifact-Bundle.zip (1.5M) + .sha256
+  (verified) + MANIFEST with RELATIVE paths only (1C absolute-path defect FIXED;
+  grep /home/z count = 0).
+- Freeze matrix v6 additions all green live: GEN-1/2 10/10 hs+llvm, GEN-6 KEVM
+  gen binding PASS/PASS, [8] KEVM demos, [LLVM] 13, [1C-1] probe 8/8 (per-probe
+  ok=true lines verified; line-count artifact fixed in script), [1C-2] ck demos
+  commit/reject/commit. kprove-heavy stages (claims/ghost/ghostgen) remain on
+  the sha-chained v5 record; v6 re-runs documented as far as synchronous
+  execution allows (sandbox reaps background processes between tool calls).
+
+Stage Summary:
+- PHASE 1D COMPLETE at the mechanizable scope: self-contained verifiable lineage
+  records end-to-end (abstract + KEVM), independent verifier, tamper matrix,
+  replay protection, chain continuity (base+step PROVED BY K), KEVM composition
+  operational, deliverables bundled and pushed.
+- Open items: LIN-CHAIN-ALL circularity (prover boundary), Merkle interface
+  (NOT YET MECHANIZED), calldata-level input binding (REQUIRES CLIENT/PROTOCOL
+  SUPPORT), multi-gate 1D threading at the KEVM layer.

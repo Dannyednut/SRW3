@@ -113,7 +113,7 @@ ckcrypto)
   fi
   timeout 120 krun "$REPO/k/phase1c/probe.pgm" -d "$REPO/k/phase1c/probe-out" > /tmp/v6_probe.txt 2>&1
   grep -o 'IV-[a-z0-9-]* ok=true\|IX-[a-z0-9-]* ok=true\|IVX-[a-z0-9-]* ok=true' /tmp/v6_probe.txt | sort -u >> "$OUT"
-  echo "[1C-1] ok-count: $(grep -c 'ok=true' /tmp/v6_probe.txt) / 8" >> "$OUT"
+  echo "[1C-1] ok-count: $(grep -o 'ok=true' /tmp/v6_probe.txt | wc -l) / 8" >> "$OUT"
   echo "=== [1C-2] ck cryptographic-lineage gate demos — expect commit/reject/commit ===" >> "$OUT"
   for d in ck_chain_positive ck_tamper_reject ck_recover; do
     timeout 120 krun "$REPO/k/phase1c/$d.ck" -d "$REPO/k/phase1c/ck-out" > "/tmp/v6_$d.txt" 2>&1
