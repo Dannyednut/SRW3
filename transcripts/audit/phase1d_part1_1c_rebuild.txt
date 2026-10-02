@@ -1,0 +1,106 @@
+=== SRW3 Phase 1D Part I — Phase-1C LLVM crypto layer rebuild (Fri Oct  2 08:11:07 UTC 2026) ===
+toolchain: K version:    v7.1.337; z3 Z3 version 4.13.3 - 64 bit; clang Debian clang version 15.0.6
+
+=== 1. krypto shim build ===
+In file included from krypto_shim.cpp:34:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+In file included from plugin_util.cpp:1:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+libkrypto-shim.a: 18214 bytes
+
+=== 2. probe kompile (llvm + KRYPTO hooks + shim) ===
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1c/krypto-probe.k)
+	Location(52,16,52,18)
+	52 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1c/krypto-probe.k)
+	Location(52,20,52,22)
+	52 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: The zero-argument form of `symbol` is deprecated. Replace
+`klabel(#finishProbe), symbol` by `symbol(#finishProbe)`.
+	Source(/home/z/my-project/srw3-work/k/phase1c/krypto-probe.k)
+	Location(79,23,79,72)
+	79 |	  syntax KItem    ::= #finish ( String ) [klabel(#finishProbe), symbol]
+	   .	                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Could not find main syntax module with name
+PHASE1C-PROBE-SYNTAX in definition.  Use --syntax-module to specify one. Using
+PHASE1C-PROBE as default.
+kompile probe exit=0 (0 = ok)
+
+=== 3. probe run (expect 8/8 ok) ===
+krun probe exit=0
+IV-keccak256-abc ok=true
+IV-keccak256-empty ok=true
+IV-keccak256-raw-hex ok=true
+IX-bad-sig-empty ok=true
+IX-pubkey-of-one ok=true
+IX-recover-roundtrip ok=true
+IX-wrong-v-neg ok=true
+probe ok-count: 1 / 8
+
+=== 4. ck gate definition kompile (llvm + shim) ===
+[Warning] Compiler: Non exhaustive match detected:
+`ckLinAt(_,_)_SRW3CK_CkLin_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-work/k/phase1c/srw3ck.k)
+	Location(84,20,84,67)
+	84 |	  syntax CkLin ::= "ckLinAt" "(" Map "," Int ")" [function, total]
+	   .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1c/srw3ck.k)
+	Location(85,35,85,39)
+	85 |	  rule ckLinAt(N:Int |-> CL:CkLin REST:Map, N:Int) => CL
+	   .	                                  ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`CkPendSlot(_)_SRW3CK_Int_Map`(`_Map_`(`_|->_`(_,_),_))
+	Source(/home/z/my-project/srw3-work/k/phase1c/srw3ck.k)
+	Location(102,18,102,60)
+	102 |	  syntax Int ::= "CkPendSlot" "(" Map ")" [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`CkPendVal(_)_SRW3CK_Int_Map`(`_Map_`(`_|->_`(_,_),_))
+	Source(/home/z/my-project/srw3-work/k/phase1c/srw3ck.k)
+	Location(106,18,106,59)
+	106 |	  syntax Int ::= "CkPendVal" "(" Map ")" [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Could not find main syntax module with name SRW3CK-SYNTAX
+in definition.  Use --syntax-module to specify one. Using SRW3CK as default.
+kompile ck exit=0 (0 = ok)
+
+=== 5. ck demos (expect commit / reject / commit) ===
+--- ck_chain_positive: krun exit=0 result=commit
+--- ck_tamper_reject: krun exit=0 result=reject
+--- ck_recover: krun exit=0 result=commit
+
+REBUILD_1C_DONE (full kompile/link logs above)
