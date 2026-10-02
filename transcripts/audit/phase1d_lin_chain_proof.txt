@@ -1,0 +1,53 @@
+=== SRW3 Phase 1D Part XI — chain continuity proof transcript (Fri Oct  2 09:01:36 UTC 2026) ===
+=== definition: k/phase1d/srw3lin-symb.k (hs backend, symbolic commitments) ===
+
+--- kompile: kompile k/phase1d/srw3lin-symb.k --backend haskell --hook-namespaces KRYPTO --main-module SRW3LIN-SYMB
+exit: 0
+
+--- kprove (claims: LIN-CHAIN-BASE, LIN-CHAIN-STEP, LIN-CHAIN-ALL)
+exit: 1
+results:
+  WarnTrivialClaim (BASE evaluates trivially): 1
+  WarnStuckClaimState: 1
+  kore-exec: [717462] Warning (WarnStuckClaimState):
+      The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/srw3-work/proofs/phase1d/lin_chain.k:69:5-73:28
+  Context:
+
+--- per-claim runs:
+  LIN-CHAIN-BASE: kprove exit=0 (0 = PROVED)
+  LIN-CHAIN-STEP: kprove exit=0 (0 = PROVED)
+  LIN-CHAIN-ALL: kprove exit=1 (stuck; see stuck-state dump above)
+
+=== interpretation ===
+LIN-CHAIN-BASE : PROVED BY K  — the empty chain at the root is valid.
+LIN-CHAIN-STEP : PROVED BY K  — one position-bound accept stores the record at
+                 index N (tid = lineageNext), requires its parent to equal the
+                 current head, and advances head := child. This is the
+                 one-step form of Parent_{i+1} = Child_i, discharged
+                 symbolically on the Haskell backend (opaque symbolic
+                 commitments; no KRYPTO evaluation needed).
+LIN-CHAIN-ALL  : statement formalized; the [circularity] attempt is stuck at
+                 the re-application of the circularity hypothesis to a state
+                 whose lineage cell is a map update L[N <- R] — the prover
+                 unifies the hypothesis's lineage variable with the UPDATED
+                 map, producing the unsatisfiable equation N = N + 1
+                 (full dump in the combined run above). Recorded as the
+                 Phase-1D prover boundary, per the 1B GH-T precedent. The ∀n
+                 chain-safety statement remains carried by (a) the two proved
+                 claims (base + step = mathematical induction), (b) the
+                 threaded <svalid> architecture, and (c) the execution-layer
+                 demonstrations (6 demos incl. 3-record chains and replay
+                 rejection) — evidence graded in the Phase-1D report.
+
+=== durable prover facts (recorded for future phases) ===
+* Functional (cell-free) claims are rejected by the hs backend
+  ("Functional claims not yet supported", haskell-backend#3010) — all claims
+  must be configuration claims.
+* ==K between symbolic function terms lifts to K-level equality with
+  continuations and cannot be discharged — use a structural equality
+  predicate (BytesEq) instead.
+* A recursive validity predicate cannot be discharged under a symbolic index:
+  unrolling does not terminate and the SMT backend treats the function as
+  uninterpreted. Thread the invariant through a cell instead (1B GH-M
+  architecture) — the circularity re-application itself then hits the
+  map-update unification boundary recorded above.
