@@ -1,0 +1,18 @@
+=== SRW3 Phase 1D-R1 Part III — permanent L7 adversarial suite (POST-FIX) ===
+=== L7 = digest binding + canonical map equality post_map == composed_map ===
+
+[L7-A] verdict='VALID' expect='VALID' PASS
+[L7-B] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-C] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-D] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-E] verdict='VALID' expect='VALID' PASS
+[L7-F] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-G] verdict='VALID' expect='VALID' PASS
+[L7-H] verdict='VALID' expect='VALID' PASS
+[L7-I] verdict='L7-STATE' expect='L7-STATE' PASS
+[L7-J] verdict='L7-STATE' expect='L7-STATE' PASS
+
+=== L7 ADVERSARIAL SUITE: 10/10 PASS ===
+L7 establishes PresentedPost == Apply(PreState, TrueEffects).
+The Part-I extra-key forgery (L7-B) is REJECTED. Fixture and
+expectations are permanent regression baselines.

@@ -1,0 +1,5 @@
+[Error] krun: r1-out/interpreter 
+/tmp/.krun-2026-10-02-16-09-47-KZx2BNBw5J/tmp.in.DxKPG1yIsg -1 
+/tmp/.krun-2026-10-02-16-09-47-KZx2BNBw5J/result.kore
+LinMapAt ( 0 |-> 25
+1 |-> 0 , 0 )

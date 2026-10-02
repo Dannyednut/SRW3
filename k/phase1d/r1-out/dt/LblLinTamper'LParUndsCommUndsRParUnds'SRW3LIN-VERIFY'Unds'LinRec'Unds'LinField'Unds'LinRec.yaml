@@ -1,0 +1,76 @@
+default: null
+specializations:
+- - LblfApps'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 2995
+    - - - &id001 ['2']
+        - STRING.String
+  - []
+- - LblfAuthority'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 2996
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfChild'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 2997
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfEffectD'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 2998
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfEvidence'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 2999
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfInputD'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3000
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfParent'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3001
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfPolicyV'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3002
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfSig'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3003
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfStateD'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3004
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfTid'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3005
+    - - - *id001
+        - STRING.String
+  - []
+- - LblfVersion'Unds'SRW3LIN-VERIFY'Unds'LinField{}
+  - action:
+    - 3006
+    - - - *id001
+        - STRING.String
+  - []
+sort: STRING.String
+occurrence: ['1']

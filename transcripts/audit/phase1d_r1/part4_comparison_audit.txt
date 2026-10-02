@@ -1,0 +1,21 @@
+=== SRW3 Phase 1D-R1 Part IV — full comparison audit ===
+
+Check                        | intended relation                                    | implemented | probes | verdict
+--------------------------------------------------------------------------------------------------------------------------------------------
+L1 version                   | rec.version ==Int 1 (exact equality on Int)          | rec.version != 1 -> L1-VERSION           | OK=OK
+L2 tid                       | rec.tid ==Int expected position T (chain-position bi | rec.tid != T -> L2-TID                   | OK=OK
+L3 parent                    | rec.parent == expected HEAD (32B equality, chain-pos | rec.parent != HEAD -> L3-PARENT          | OK=OK
+L4 appset                    | rec.appset ==K ascending unique app ids of TRUE effe | tuple(appset) != sorted(unique apps) ->  | OK=OK
+L5 inputdigest               | rec.input_d == H(CanonKV(claimed pre-state)) (32B di | != -> L5-INPUTDIGEST                     | OK=OK
+L6 effectdigest              | rec.effect_d == H(CanonKV(TRUE effects)) — binds the | != -> L6-EFFECTDIGEST                    | OK=OK
+L7(a) stateD digest binding  | rec.state_d == H(CanonKV(presented post)) (32B diges | != -> L7-STATE                           | OK=OK
+L7(b) composition equality   | presented_post == Apply(pre, effects) by CANONICAL f | flat(post) != flat(apply(pre,eff)) -> L7 | OK=OK
+canonical serialization      | canon_kv / canon_appset are order-DETERMINISTIC (asc | sorted-key walk; count4 prefixes         | OK=OK
+L8 policyversion             | rec.policy_v in registry (membership; registry is th | not in -> L8-POLICYVERSION               | OK=OK
+L9 authority                 | rec.authority in auth-set (membership NECESSARY, nev | not in -> L9-AUTHORITY                   | OK=OK
+L10 evidence                 | recover_addr(IntentHash, evidence) == rec.authority  | recovered != authority -> L10-EVIDENCE   | OK=OK
+L11 signature                | recover_addr(CoreHash, sig) == rec.authority (record | recovered != authority -> L11-SIGNATURE  | OK=OK
+L12 child commitment         | rec.child == H(CanonFull(all 11 non-child fields INC | != -> L12-COMMITMENT                     | OK=OK
+
+live adversarial probes executed: 33
+DEMONSTRATED DEVIATIONS: none — implemented relations equal the intended relations at every comparison site.

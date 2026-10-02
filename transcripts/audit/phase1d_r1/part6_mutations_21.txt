@@ -1,0 +1,28 @@
+=== SRW3 Phase 1D-R1 Part VI — hostile-input mutation harness (21 classes) ===
+=== authorized-dishonest producer powers applied where applicable ===
+
+m01 version bump                                           first-fail: L1-VERSION         [OK]
+m02 tid bump                                               first-fail: L2-TID             [OK]
+m03 parent byte-flip                                       first-fail: L3-PARENT          [OK]
+m04 appset + foreign app                                   first-fail: L4-APPSET          [OK]
+m05 appset drop one                                        first-fail: L4-APPSET          [OK]
+m06 appset order swap                                      first-fail: L4-APPSET          [OK]
+m07 inputD byte-flip                                       first-fail: L5-INPUTDIGEST     [OK]
+m08 effectD byte-flip                                      first-fail: L6-EFFECTDIGEST    [OK]
+m09 stateD byte-flip                                       first-fail: L7-STATE           [OK]
+m10 policyV out of registry                                first-fail: L8-POLICYVERSION   [OK]
+m11 authority -> other IN-SET member (impersonation)       first-fail: L10-EVIDENCE       [OK]
+m12 authority -> out-of-set address                        first-fail: L9-AUTHORITY       [OK]
+m13 evidence byte-flip                                     first-fail: L10-EVIDENCE       [OK]
+m14 evidence from another record (different intent)        first-fail: L10-EVIDENCE       [OK]
+m15 sig byte-flip                                          first-fail: L11-SIGNATURE      [OK]
+m16 sig from another record (different core)               first-fail: L11-SIGNATURE      [OK]
+m17 child byte-flip                                        first-fail: L12-COMMITMENT     [OK]
+m18 ctx: claimed pre-state enriched (extra input entry)    first-fail: L5-INPUTDIGEST     [OK]
+m19 ctx: declared-only effects presentation (CM-L5)        first-fail: L4-APPSET          [OK]
+m20 ctx: extra post-state entry, fully re-signed (THE L7 attack) first-fail: L7-STATE           [OK]
+m21 ctx: registry shrunk (policyV no longer known)         first-fail: L8-POLICYVERSION   [OK]
+
+rejected: 21/21; accepted: 0
+
+No mutation passed. All 21 classes are caught at the documented first-fail layer.

@@ -1,0 +1,18 @@
+=== R1 Part VII — K-side composition equality: 1 positive + 3 negatives ===
+definition: k/phase1d/srw3lin-r1.k (additive; linCtxP + VerifyLineageP)
+run: krun r1suite -d r1-out (LLVM + fixed shim), 2026-10-02
+
+result:
+  pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition
+
+neg1 = the L7 extra-key attack: post carries extra entry (2,9):=999; the
+record is built by LinBuildRec over the forged artifacts — every digest,
+evidence, signature and the child commitment are GENUINE (authorized
+dishonest producer). Rejected by the new composition check.
+neg2 = missing composed entries (app 2 absent).
+neg3 = changed composed value ((2,1):=9 instead of 7).
+pos  = honest exact state (post == Apply(pre, effects)).
+
+The composition relation is established by canonical byte equality
+BytesEq(LinCanonKV(post), LinCanonKV(LinApplyEff(pre, effects))) — never by
+an asymmetric membership loop.

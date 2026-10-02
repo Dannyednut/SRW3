@@ -1,0 +1,33 @@
+default: null
+specializations:
+- - LbllinRec'LParUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsRParUnds'SRW3LIN'Unds'LinRec'Unds'Int'Unds'Bytes'Unds'Int'Unds'List'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Int'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes{}
+  - action:
+    - 3193
+    - - - ['0', '1']
+        - INT.Int
+      - - ['2', '1']
+        - INT.Int
+      - - ['11', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - LIST.List
+      - - ['4', '1']
+        - BYTES.Bytes
+      - - ['5', '1']
+        - BYTES.Bytes
+      - - ['6', '1']
+        - BYTES.Bytes
+      - - ['7', '1']
+        - INT.Int
+      - - ['8', '1']
+        - BYTES.Bytes
+      - - ['9', '1']
+        - BYTES.Bytes
+      - - ['10', '1']
+        - BYTES.Bytes
+      - - ['1', '1']
+        - BYTES.Bytes
+  - [INT.Int, BYTES.Bytes, INT.Int, LIST.List, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes,
+    INT.Int, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']
