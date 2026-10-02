@@ -1,0 +1,271 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 2: K COMPOSITION SUITE (FINAL RUN) ===
+=== generated: 2026-10-02 18:42:24 UTC ===
+
+definition : k/phase1d/srw3lin-r1.k  (module SRW3LIN-R1, additive;
+             linCtxP + VerifyLineageP; legacy linCtx/VerifyLineage untouched)
+suite      : k/phase1d/srw3lin-r1-demo.k  (module SRW3LIN-R1-DEMO, pgm r1suite)
+scenario   : Q={1:{0:100,1:0},2:{0:50,1:1}}  E={1:{0:25},2:{1:7}}
+             P=Apply(Q,E)={1:{0:25,1:0},2:{0:50,1:7}}
+             neg1=P+{(2,9):999} (EXTRA — the L7 attack)  neg2=missing app-2 entries
+             neg3=(2,1):=9 (CHANGED)   pos=P (honest exact post)
+             all four records built by LinBuildRec (crypto fully genuine;
+             authorized-dishonest-producer construction)
+
+--- toolchain ---
+backend: llvm (r1-out/backend.txt: llvm)
+K:      K version:    v7.1.337
+z3:     Z3 version 4.13.3 - 64 bit
+clang:  Debian clang version 15.0.6
+kevm:   v1.0.921 source; plugin @ 207ae512
+
+=== (A) LIVE RE-KOMPIle FROM SOURCE ===
+
+--- A.1 krypto shim rebuild (source: k/phase1d/shim/) ---
+exact command:
+  clang++-15 -std=c++20 -O2 -c krypto_shim.cpp -isystem <kllvm-clang-res> \
+    -nostdinc++ -isystem /usr/include/c++/14 -isystem /usr/include/x86_64-linux-gnu/c++/14 \
+    -I<kllvm-include> -I<k-include> -I<devheaders-include> -I.
+  (idem plugin_util.cpp; then ar rcs libkrypto-shim.a)
+clang++ krypto_shim.cpp exit=0
+clang++ plugin_util.cpp exit=0
+ar rcs libkrypto-shim.a exit=0
+libkrypto-shim.a: 18022 bytes
+shim keccak-multiblock fix present: 1 marker line(s)
+
+--- A.2 kompile srw3lin-r1-demo.k (fresh output dir r1-out-final) ---
+exact command:
+  kompile srw3lin-r1-demo.k --backend llvm --hook-namespaces KRYPTO \
+    --main-module SRW3LIN-R1-DEMO -o r1-out-final -I /home/z/my-project/tools/plugin-207ae512/plugin
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Non exhaustive match detected:
+`linRecAt(_,_)_SRW3LIN-VERIFY_LinRec_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(177,21,177,61)
+	177 |	  syntax LinRec ::= linRecAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`linCtxAt(_,_)_SRW3LIN-VERIFY_LinCtx_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(185,21,185,61)
+	185 |	  syntax LinCtx ::= linCtxAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Non exhaustive match detected:
+`LinTamperMatrix(_,_,_,_,_)_SRW3LIN-VERIFY_String_LinRec_LinCtx_Int_Bytes_List`(_,_,_,_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(239,21,239,95)
+	239 |	  syntax String ::= LinTamperMatrix ( LinRec , LinCtx , Int , Bytes ,
+List ) [function, total]
+	    .	                   
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Non exhaustive match detected:
+`MinKeyOfMap(_)_SRW3LIN_Int_Map`(`_Map_`(`_|->_`(_,_),_))
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(97,18,97,55)
+	97 |	  syntax Int ::= MinKeyOfMap ( Map ) [function, total]
+	   .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinMapAt(_,_)_SRW3LIN_Map_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(104,18,104,58)
+	104 |	  syntax Map ::= LinMapAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinIntAt(_,_)_SRW3LIN_Int_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(110,18,110,58)
+	110 |	  syntax Int ::= LinIntAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppsIter(_)_SRW3LIN_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(151,20,151,58)
+	151 |	  syntax Bytes ::= LinAppsIter ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppIns(_,_)_SRW3LIN_List_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-work/k/phase1d/srw3lin.k)
+	Location(170,19,170,61)
+	170 |	  syntax List ::= LinAppIns ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Could not find main syntax module with name
+SRW3LIN-R1-DEMO-SYNTAX in definition.  Use --syntax-module to specify one.
+Using SRW3LIN-R1-DEMO as default.
+kompile exit=0 (0 = ok)
+
+--- A.3 krun r1suite -d r1-out-final (fresh definition) ---
+exact command: krun r1suite.pgm -d r1-out-final
+krun exit=0
+--- verbatim krun output (A) ---
+<srw3linr1>
+  <k>
+    .K
+  </k>
+  <r1result>
+    "pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition"
+  </r1result>
+</srw3linr1>
+--- end verbatim output (A) ---
+FINAL FOUR VERDICTS (A): pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition
+
+=== (B) COMMITTED DEFINITION (k/phase1d/r1-out, interpreter as committed) ===
+exact command: krun r1suite.pgm -d r1-out
+krun exit=0
+--- verbatim krun output (B) ---
+<srw3linr1>
+  <k>
+    .K
+  </k>
+  <r1result>
+    "pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition"
+  </r1result>
+</srw3linr1>
+--- end verbatim output (B) ---
+FINAL FOUR VERDICTS (B): pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition
+
+=== PART 3 STRUCTURAL VERIFICATION (K-side exact composition) ===
+composition relation (k/phase1d/srw3lin-r1.k, rule LinCompositionOk):
+  BytesEq( LinCanonKV(linCtxPostP(CTX)),
+           LinCanonKV(LinApplyEff(linCtxPre(CTX), linCtxEffP(CTX))) )
+i.e. PresentedPost == Apply(PreState, TrueEffects) is established through
+byte equality of the canonical finite-map encodings — NEVER by an
+asymmetric membership loop.
+symmetry  : BytesEq(B,B)=>true / BytesEq(B1,B2)=>false [owise] (srw3lin.k)
+            compares its two arguments symmetrically; the compared terms
+            are canon(post) and canon(apply(pre,eff)).
+canonical : LinCanonKV(M) = I2B4(sizeMap(M)) + LinKVIter(M); LinKVIter
+            extracts MinKeyOfMap ascending, slots likewise — one unique
+            byte string per finite map (injective encoding).
+extra key : changes sizeMap prefix AND appends an ascending-key section
+            -> different bytes -> rejected (neg1, the L7 attack).
+missing key: smaller sizeMap, missing section -> rejected (neg2).
+changed value: same key layout, different slot int -> rejected (neg3).
+sha256(srw3lin-r1-demo.k):   dd5267aa98f6f9beb5b2262c64677e17e91f97688423547adb35cb60f4b84a6b
+source identity: live r1-out-final and committed r1-out produced the same
+four verdicts; the semantics were NOT weakened: the definition kompiled and run here is
+byte-identical to the committed srw3lin-r1.k (sha256 below).
+sha256(srw3lin-r1.k):        dc70e69d715c7553ee21dcd585250cb4b1a0a928c203ca64dd176f5412f9a5ae
+
+RESULT: PART7 K COMPOSITION SUITE FINAL = PASS (live re-kompile AND
+committed definition agree; pos=valid; neg1=neg2=neg3=invalid-state-composition)
+PART7_FINAL_DONE_OK

@@ -27,11 +27,12 @@ for p in z3 flex libfl2 libsecp256k1-2; do
 done
 
 echo "=== 3. LLVM-15 + clang-15 chain 15.0.6-4+b1 (bookworm pool) ==="
-# Phase-1C §2 pattern fix: pool publishes binary-suffixed names (15.0.6-4+b1);
+# Phase-1C §2 pattern fix + R1-FINAL: +libclang-common-15-dev provides the
+# clang builtin headers (stddef.h) needed by the krypto shim build;
 # '+' must be inside the character class.
 POOL=http://deb.debian.org/debian/pool/main/l/llvm-toolchain-15
 curl -sSL "$POOL/" -o pool.html
-for pkg in libllvm15 llvm-15 clang-15 libclang-cpp15 lld-15; do
+for pkg in libllvm15 llvm-15 clang-15 libclang-cpp15 lld-15 libclang-common-15-dev; do
   CAND=$(grep -o "${pkg}_[0-9][0-9.]*-[0-9~a-z.+]*_amd64\.deb" pool.html | grep -v "dbgsym" | sort -V | tail -1)
   echo "candidate $pkg: $CAND"
   [ -n "$CAND" ] && fetch "$POOL/$CAND" "$CAND"

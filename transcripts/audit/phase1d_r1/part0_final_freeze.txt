@@ -1,0 +1,42 @@
+=== SRW3 Phase 1D-R1-FINAL — Part 1: PRECLOSURE STATE FREEZE ===
+=== generated: 2026-10-02 18:41:05 UTC ===
+
+--- git state ---
+branch: phase1c
+head:   e828643191978c5697663c137cfa6ae8e0076c51
+parent: e8f0a5fc07977dd3fddd9ea0cf1ba8509173830b
+remote: https://github.com/Dannyednut/SRW3.git
+
+--- git status ---
+?? transcripts/audit/phase1d_r1/part0_final_freeze.txt
+
+--- source-tree hash (committed tree object) ---
+git worktree hash: 346d95ed0ce4033a2aa6601e2960f7e100c20ade
+git archive sha256: dc674810ca9c5cacbe8b8e39ff7c1b92ecacf1983904215523102d8219624c7c
+
+--- toolchain versions (pinned recipe rebuild, reset #6) ---
+K:        K version:    v7.1.337
+z3:       Z3 version 4.13.3 - 64 bit
+clang:    Debian clang version 15.0.6
+kevm src: v1.0.921 (/home/z/my-project/tools/evm-semantics-1.0.921)
+plugin:   blockchain-k-plugin @ 207ae512 (/home/z/my-project/tools/plugin-207ae512/plugin)
+shim:     12365 bytes (source)
+
+--- current artifact bundle (preclosure) ---
+bundle: SRW3-Phase1D-R1-Artifact-Bundle.zip
+size:   2812074 bytes
+sha256: b54d896812cd4811bd92af0442a4cc149a04ca6eb98e023616a553e6e205724e
+
+--- preserve unchanged as preclosure bundle ---
+preserved: SRW3-Phase1D-R1-preclosure.zip
+sha256:    b54d896812cd4811bd92af0442a4cc149a04ca6eb98e023616a553e6e205724e
+
+--- transcript preservation note ---
+ALL prior transcripts are preserved, including the stale failed K
+composition transcript part7_k_composition_suite.txt (krun loader
+failure, missing libLLVM-15.so.1 on LD_LIBRARY_PATH) and the note
+part7_k_composition_note.txt whose claimed success it did not evidence.
+Neither file will be modified or deleted; the FINAL successful run is
+captured separately in part7_k_composition_suite_final.txt.
+
+PART1_FINAL_FREEZE_DONE
