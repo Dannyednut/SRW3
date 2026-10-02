@@ -25,25 +25,27 @@
 #   L10 evidence | L11 signature | L12 commitment | VALID
 #
 # =============================================================================
-# !!! R1 Part I — KNOWN SOUNDNESS DEFECT, PRESERVED ON PURPOSE (do NOT delete):
+# !!! R1 Part II — L7 STATE COMPOSITION: FIXED TO EXACT MAP EQUALITY.
 #
-#   Layer L7 below checks the state relation
-#       Composed == PreState o Effects        (composition, via subset loop)
-#       stateD   == H(Canon(PresentedPost))   (digest binding)
-#   but the composition direction is implemented as an ASYMMETRIC MEMBERSHIP
-#   LOOP: every entry of Composed must be matched in the presented post-state,
-#   while EXTRA entries of the presented post-state that are not in Composed
-#   are silently accepted. L7 therefore establishes
+#   Layer L7 below establishes the EXACT equation
+#       PresentedPost == Apply(PreState, TrueEffects)   (canonical map eq)
+#   plus the digest binding stateD == H(Canon(PresentedPost)).
+#
+#   PRE-FIX STATE (the soundness defect) IS PRESERVED IN GIT HISTORY at
+#   commit 444672b ("Phase 1D-R1 Part I: baseline freeze") and its evidence
+#   transcript is frozen at transcripts/audit/phase1d_r1/
+#   l7_attack_prefix.txt: the pre-fix L7 composition direction was an
+#   ASYMMETRIC MEMBERSHIP LOOP over Composed, establishing only
 #       Composed ⊆ Post      (NOT  Composed == Post).
-#   A record whose presented post-state carries an extra entry — with stateD,
-#   evidence, sig and child recomputed by the (authorized) producer — passes
-#   all twelve layers. The attack reproduction lives in
-#   test_lin_attack_L7.py; the transcript is frozen at
-#   transcripts/audit/phase1d_r1_l7_attack_prefix.txt.
+#   A record whose presented post-state carried an extra entry — with
+#   stateD, evidence, sig and child recomputed by the (authorized)
+#   producer — passed all twelve layers. The attack reproduction lives in
+#   test_lin_attack_L7.py (pre-fix expectations); the POST-FIX adversarial
+#   suite is test_lin_verify_L7.py (Part III, permanent).
 #
-#   R1 Part II replaces the subset loop with canonical finite-map equality
-#   (post_map == composed_map). The subset form below must remain visible in
-#   git history as the recorded pre-fix state (regression provenance).
+#   Fix discipline (R1 Part II mandate): equality is established by
+#   canonical finite-map equality (post_map == composed_map); asymmetric
+#   membership loops are FORBIDDEN as equality proofs.
 # =============================================================================
 #
 # Threat model note (R1): the adversary INCLUDES the authorized-but-dishonest
@@ -288,12 +290,20 @@ def verify_lineage(rec: LinRec, ctx: LinCtx, tid: int, head: bytes) -> str:
 
 
 def _layer_L7_state(rec: LinRec, ctx: LinCtx) -> Optional[str]:
-    """L7 state layer — PRE-FIX BASELINE WITH THE FROZEN SUBSET DEFECT.
+    """L7 state layer — POST-FIX (R1 Part II): EXACT finite-map equality.
 
-    (a) digest binding : stateD == H(Canon(PresentedPost))         [exact]
-    (b) composition    : Composed == PreState o Effects, checked as
-                         an ASYMMETRIC membership loop over Composed —
-                         establishes Composed ⊆ Post, NOT Composed == Post.
+    (a) digest binding : stateD == H(Canon(PresentedPost))          [exact]
+    (b) composition    : PresentedPost == Apply(PreState, TrueEffects)
+                         established by CANONICAL MAP EQUALITY of the
+                         flattened finite maps —
+                             post_map == composed_map
+                         — never by an asymmetric membership loop.
+
+    Pre-fix defect (frozen at tag/commit 444672b, see git history and
+    transcripts/audit/phase1d_r1/l7_attack_prefix.txt): (b) was an
+    asymmetric membership loop over Composed, establishing only
+    Composed ⊆ Post; an extra post-state entry with recomputed stateD,
+    evidence, sig and child was ACCEPTED (the L7 extra-key attack).
 
     Returns None when the layer passes, else "L7-STATE".
     """
@@ -303,15 +313,12 @@ def _layer_L7_state(rec: LinRec, ctx: LinCtx) -> Optional[str]:
     if rec.state_d != H(canon_kv(presented)):
         return "L7-STATE"
 
-    # (b) every entry of Composed must appear in the presented post-state
-    composed = apply_effects(ctx.pre_state, ctx.true_effects)
-    flat_post = flat(presented)
-    for key, val in flat(composed).items():
-        if flat_post.get(key) != val:
-            return "L7-STATE"
+    # (b) canonical finite-map equality: post_map == composed_map.
+    #     Canonical equality is order-independent and symmetric: it rejects
+    #     missing keys, extra keys, and value divergences alike.
+    post_map = flat(presented)
+    composed_map = flat(apply_effects(ctx.pre_state, ctx.true_effects))
+    if post_map != composed_map:
+        return "L7-STATE"
 
-    # (c) R1 FROZEN DEFECT: the reverse direction is missing. Entries of the
-    #     presented post-state that are NOT in Composed are never rejected.
-    #     R1 Part II replaces this layer with canonical map equality
-    #     (post_map == composed_map).
     return None

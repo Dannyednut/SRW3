@@ -1,4 +1,4 @@
-=== SRW3 Phase 1D — verifiable lineage demonstration matrix (Fri Oct  2 15:22:55 UTC 2026) ===
+=== SRW3 Phase 1D — verifiable lineage demonstration matrix (Fri Oct  2 16:01:12 UTC 2026) ===
 === definition: k/phase1d/srw3lin{,-verify,-gate,-demo}.k | LLVM + krypto shim ===
 === commitments: real Keccak256raw; signatures: secp256k1 (pinned libsecp256k1) ===
 === kompile: --backend llvm --hook-namespaces KRYPTO --main-module SRW3LIN-DEMO ===

@@ -119,7 +119,12 @@ void keccak256(const unsigned char *in, size_t inlen, unsigned char out[32]) {
   }
 
   // final block + padding (original Keccak: 0x01 ... 0x80)
-  memset(block, 0, KECCAK_RATE);
+  // 1D-R1-KECCAK-MULTIBLOCK FIX: the previous `memset(block, 0, KECCAK_RATE)`
+  // zeroed lanes 0..16 of the LIVE state (block aliases st), destroying the
+  // contribution of every absorbed full block — correct only for inputs
+  // shorter than the rate, silently WRONG for inputs >= 136 bytes. The
+  // sponge never re-zeros between absorbs: XOR the final data and the
+  // 0x01/0x80 padding straight into the live state.
   for (size_t i = 0; i < inlen; ++i) {
     block[i] ^= in[i];
   }

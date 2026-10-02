@@ -1,0 +1,68 @@
+=== SRW3 Phase 1D-R1 — Part II FIX TRANSCRIPT (L7 exact equality + shim keccak) ===
+=== generated: 2026-10-02 (UTC) ===
+
+--- 1. Python L7 fix (python-gen/lin_verify.py) ---
+L7 (b) composition: asymmetric membership loop REPLACED by canonical
+finite-map equality  post_map == composed_map  (flat((app,slot)->val) dicts).
+Pre-fix state preserved in git (444672b) + l7_attack_prefix.txt.
+
+--- 2. Permanent L7 adversarial suite (Part III deliverable, run now) ---
+$ python3 python-gen/test_lin_verify_L7.py
+[L7-A] VALID       (honest exact state)                 PASS
+[L7-B] L7-STATE    (THE Part-I extra-key forgery)       PASS  <- now rejected
+[L7-C] L7-STATE    (missing composed key, re-signed)    PASS
+[L7-D] L7-STATE    (changed value, re-signed)           PASS
+[L7-E] VALID       (empty maps, honest empty)           PASS
+[L7-F] L7-STATE    (empty composition + extra entry)    PASS
+[L7-G] VALID       (multi-account multi-slot exact)     PASS
+[L7-H] VALID       (order-permuted presentation)        PASS
+[L7-I] L7-STATE    (extra key with value 0, re-signed)  PASS
+[L7-J] L7-STATE    (extra key, stale stateD, naive)     PASS
+=== L7 ADVERSARIAL SUITE: 10/10 PASS ===
+
+--- 3. Shim fix 1D-R1-KECCAK-MULTIBLOCK (k/phase1c/shim/krypto_shim.cpp) ---
+Removed `memset(block, 0, KECCAK_RATE)` before the final absorb (block aliases
+the 25-lane state; the memset destroyed absorbed-block state for inputs
+>= 136 B). libkrypto-shim.a rebuilt: 18022 bytes (was 18214).
+Hash probe suite (srw3lin-hashprobe.k, rebuilt definition):
+  h1 empty 0B    K==PY: True
+  h2 abc 3B      K==PY: True
+  h3 002F 2B     K==PY: True
+  h4 129B        K==PY: True
+  h5 135B        K==PY: True
+  h6 0x00..0x87 136B  K: 7ce759f1ab7f9ce437719970c26b0a66ff11fe3e38e17df89cf5d29c7d7f807e
+                      PY: 7ce759f1ab7f9ce437719970c26b0a66ff11fe3e38e17df89cf5d29c7d7f807e  MATCH
+  (pre-fix K at 136B was d6d2a509... — non-standard)
+
+--- 4. Affected definitions re-kompiled on the fixed shim ---
+probe-out (PHASE1C-PROBE), ck-out (SRW3CK), lin-out (SRW3LIN-DEMO),
+lin-llvm-out (SRW3-LIN-EVM). Abstract + 1A/1B KEVM definitions contain no
+KRYPTO hooks (grep-verified) — unaffected.
+
+--- 5. Regression re-run on the fixed stack (decision surface) ---
+[1C-1] krypto probe:      8/8 ok=true
+[1C-2] ck demos:          commit / reject / commit           (unchanged)
+[1D] lin demos 6/6: verdict strings diff vs pre-fix transcript: IDENTICAL
+     (chain 0:valid;1:valid; CM-L5 invalid-appset; tamper 12/12 distinct;
+      CM-L4 invalid-evidence; replay R1 invalid-tid / R2+R3 invalid-parent /
+      R4 clean). Commitment BYTE VALUES updated to standard keccak (expected;
+      the pre-fix bytes were non-standard digests, see FINDING doc).
+[1D-XIII] KEVM lin: multi n=1 (designed exit), new head
+     899b67161bf6dd59aa65fda57e83... (standard-keccak child);
+     overflow: 0 records, atomicity preserved (designed exit).
+     Pre-fix head was f3080d20... (non-standard-keccak child).
+
+--- 6. K <-> Python byte-level pre-validation (POST-FIX) ---
+record 1 of lin_true_effects (Q={1:{0:25}} E={1:{0:25},2:{1:7}} P={1:{0:25},2:{0:50,1:7}}):
+  inputD  = H(canon Q):                    MATCH
+  effectD = H(canon E):                    MATCH
+  stateD  = H(canon P):                    MATCH
+  authority = addr(SK1):                   MATCH
+  evidence = sign(intent, SK1) [RFC6979]:  MATCH
+  recover(core_hash(PY canon), K sig) == authority: MATCH
+  sig == sign(core_hash, SK1):             MATCH
+  child == H(canon_full):                  MATCH
+FULL K <-> PYTHON BYTE EQUALITY: OK
+
+--- 7. Python suites unaffected ---
+baseline 15/15, gen mirror 14/14 (pytest) — unchanged by Part II.

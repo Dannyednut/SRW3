@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 # =============================================================================
+# !!! HISTORICAL EVIDENCE — PRE-FIX EXPECTATIONS (Part I baseline, 444672b).
+# This script re-demonstrates the defect against the PRE-FIX verifier state.
+# After the Part II fix (commit history: "Part II"), T2 is rejected and this
+# script's T2 expectation no longer holds against the live lin_verify.py.
+# The POST-FIX permanent suite is test_lin_verify_L7.py (Part III); the
+# frozen pre-fix transcript is transcripts/audit/phase1d_r1/
+# l7_attack_prefix.txt. Do NOT delete this file: it is the recorded
+# reproduction recipe for the L7 extra-key attack.
+# =============================================================================
 # SRW3 Phase 1D-R1 Part I — L7 EXTRA-KEY ATTACK REPRODUCTION (PRE-FIX EVIDENCE)
 # (python-gen/test_lin_attack_L7.py)
 #
