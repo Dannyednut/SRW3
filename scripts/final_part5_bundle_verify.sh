@@ -53,7 +53,7 @@ fi
 log ""
 log "--- 5. working-tree spot checks (final artifacts present) ---"
 for f in SRW3-Phase1D-R1-FINAL-Report.md k/phase1d/srw3lin-r1.k \
-         k/phase1d/part7_k_composition_suite_final.txt \
+         transcripts/audit/phase1d_r1/part7_k_composition_suite_final.txt \
          transcripts/audit/phase1d_r1/final_crosslayer_bytes.txt \
          python-gen/lin_verify.py k/phase1c/shim/krypto_shim.cpp; do
   [ -f "$f" ] && log "  present: $f" || log "  MISSING: $f"
