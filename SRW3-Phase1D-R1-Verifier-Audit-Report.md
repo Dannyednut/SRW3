@@ -139,7 +139,7 @@ The same exact equality now exists in K (`k/phase1d/srw3lin-r1.k`, additive): `l
 
 — canonical byte equality, never a membership loop. The legacy `linCtx`/`VerifyLineage` are untouched (version-compatible: a new constructor, a new outer verdict `invalid-state-composition`).
 
-Suite (`r1suite`, transcript `part7_k_composition_suite.txt`), scenario identical to the Python L7 fixtures; **all four records built by `LinBuildRec` — every digest, evidence, signature and child genuine; only the post correspondence differs**:
+Suite (`r1suite`, FINAL transcript `part7_k_composition_suite_final.txt` — verbatim command, backend, toolchain, exit codes and all four verdicts, captured from BOTH a live re-kompile from source and the committed definition; the earlier file `part7_k_composition_suite.txt` recorded a toolchain-loader failure (missing `libLLVM-15.so.1` on the loader path) and is preserved unchanged as historical evidence of that failed run), scenario identical to the Python L7 fixtures; **all four records built by `LinBuildRec` — every digest, evidence, signature and child genuine; only the post correspondence differs**:
 
     pos=valid;neg1=invalid-state-composition;neg2=invalid-state-composition;neg3=invalid-state-composition
 
@@ -189,8 +189,8 @@ Re-run live on the post-fix stack (`transcripts/audit/phase1d_lin_demos.txt`, re
 
 ## 13. Three-layer consistency (Part XIII)
 
-* **Python ↔ K (byte level)**, record 1 of `lin_true_effects` (`Q={1:{0:25}}`, `E={1:{0:25},2:{1:7}}`, `P={1:{0:25},2:{0:50,1:7}}`): `inputD`, `effectD`, `stateD`, `authority`, evidence (RFC6979), signature (byte-equal and recovery-consistent), child — **8/8 MATCH** (post-fix; pre-fix the CoreHash/Child diverged, which is what exposed the shim defect).
-* **K ↔ KEVM**: the KEVM composition (`srw3-lin-evm.k`) constructs records with the *same* frozen K modules (`LinBuildRec`, `LinCanonKV`) over REAL EVM storage diffs; the lin demos run green on the rebuilt definition (`lin_evm_multi` n=1, head now standard-keccak `899b6716…`; overflow 0 records).
+* **Python ↔ K (byte level)** (FINAL re-run, transcript `phase1d_r1/final_crosslayer_bytes.txt`: 9/9 MATCH), record 1 of `lin_true_effects` (`Q={1:{0:25}}`, `E={1:{0:25},2:{1:7}}`, `P={1:{0:25},2:{0:50,1:7}}`): `inputD`, `effectD`, `stateD`, `authority`, evidence (RFC6979), signature (byte-equal and recovery-consistent), child — **8/8 MATCH** (post-fix; pre-fix the CoreHash/Child diverged, which is what exposed the shim defect).
+* **K ↔ KEVM** (FINAL re-run, transcript `phase1d_r1/final_crosslayer_bytes.txt`: 8/8 MATCH): the KEVM composition (`srw3-lin-evm.k`, live re-kompiled; interpreter 27,508,152 bytes) constructs records with the *same* frozen K modules (`LinBuildRec`, `LinCanonKV`) over REAL EVM storage diffs; every artifact of the `lin_evm_multi` record — digests, authority, evidence, signature, child — is reproduced byte-exactly by the Python mirror; the lin demos run green on the rebuilt definition (`lin_evm_multi` n=1, head `899b6716…` byte-identical to the frozen post-fix value; overflow 0 records).
 * **Invalid record across layers**: the overflow transition commits no record (gate/obligation layer, KEVM); the tamper matrix and the composition negatives localize the rejection layer (K + Python).
 
 ## 14. Regression freeze (Part XIV)
@@ -200,6 +200,8 @@ Live re-verification after recovery and again after the fixes: Python baseline 1
 ## 15. Evidence classification
 
 Used exclusively in this report: **PROVED BY K** (structural claims, e.g. chain-continuity base+step, 1D record), **DEMONSTRATED BY K** (concrete krun suites), **DEMONSTRATED BY KEVM** (real-EVM compositions), **VERIFIER-REJECTED** (concrete forgeries rejected by the fixed verifier), **ASSUMED** (keccak256 collision resistance; secp256k1 signature unforgeability without the key; RFC6979 nonce determinism equivalence across libsecp256k1 builds), **REQUIRES CLIENT/PROTOCOL SUPPORT** (cross-domain replay prevention via domain-anchored roots; calldata-level input binding), **NOT YET MECHANIZED** (Merkle/MPT authenticated state proofs — Phase 1E).
+
+Binding language: lineage records are **cryptographically bound under stated assumptions** (the §15 ASSUMED items: keccak256 collision resistance, secp256k1 unforgeability without the key, RFC6979 nonce determinism); no "cryptographically secure", "tamper-proof" or "provenance guaranteed" claim is made anywhere.
 
 Retired overclaims: "commitments = real Keccak256raw" (was false for ≥136-byte preimages — now true post-fix and probe-pinned); any implication that verifier acceptance establishes historically true effects (it establishes presented-effect consistency, §6). The phrase "the verifier is safe" is not used; the demonstrated statement is "the verifier rejects the demonstrated substitution and replay attacks, including fully re-signed ones".
 
@@ -223,7 +225,7 @@ Retired overclaims: "commitments = real Keccak256raw" (was false for ≥136-byte
 | L7 permanent suite | `python-gen/test_lin_verify_L7.py` + `phase1d_r1/part3_l7_suite_postfix.txt` |
 | Comparison audit | `python-gen/audit_comparisons.py` + `phase1d_r1/part4_comparison_audit.txt` |
 | 21-mutation harness | `python-gen/audit_mutations_21.py` + `phase1d_r1/part6_mutations_21.txt` |
-| K composition (additive) | `k/phase1d/srw3lin-r1.k`, `srw3lin-r1-demo.k` + `phase1d_r1/part7_k_composition_suite.txt` |
+| K composition (additive) | `k/phase1d/srw3lin-r1.k`, `srw3lin-r1-demo.k` + `phase1d_r1/part7_k_composition_suite_final.txt` (FINAL; failed run preserved as `part7_k_composition_suite.txt`) |
 | Hash probes (permanent) | `k/phase1d/srw3lin-hashprobe.k` + `phase1d_r1/keccak_multiblock_hash_probe.txt` |
 | Finding 1D-R1-KECCAK-MULTIBLOCK | `phase1d_r1/FINDING-keccak-multiblock.md` |
 | Shim (fixed) | `k/phase1c/shim/krypto_shim.cpp` |

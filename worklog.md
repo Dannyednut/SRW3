@@ -883,3 +883,30 @@ Stage Summary:
   limitations explicitly recorded: presented-effect consistency only (§6),
   cross-domain replay prevention REQUIRES CLIENT/PROTOCOL SUPPORT (§10),
   Merkle/MPT authenticated state proofs NOT YET MECHANIZED (Phase 1E opening).
+
+---
+Task ID: 1D-R1-FINAL
+Agent: Super Z (main)
+Task: Phase 1D-R1-FINAL — evidence and provenance closure (12-part mandate)
+
+Work Log:
+- Sixth toolchain rebuild from the pinned recipe (+libclang-common-15-dev for
+  the shim's stddef.h; kproj/plugin install recorded); env.sh reconstructed.
+- Part 1 preclosure freeze: part0_final_freeze.txt (tree 346d95ed, archive
+  dc674810..., bundle sha256 b54d8968...5724e preserved as
+  SRW3-Phase1D-R1-preclosure.zip; all historical transcripts preserved).
+- Part 2 K composition suite FINAL run: part7_k_composition_suite_final.txt —
+  live shim rebuild + fresh kompile (r1-out-final) AND committed r1-out both
+  yield pos=valid; neg1=neg2=neg3=invalid-state-composition, exit=0. The
+  stale failed transcript part7_k_composition_suite.txt preserved untouched
+  (root cause: kore-expand-macros could not load libLLVM-15.so.1 —
+  environmental, not semantic).
+- Part 3 semantics check: LinCompositionOk = BytesEq(LinCanonKV(post),
+  LinCanonKV(LinApplyEff(pre,eff))) — symmetric, injective-canonical;
+  extra/missing/changed keys all change the byte string. No weakening.
+- Parts 7-9 regression + cross-layer + threat: final_regression_*.txt,
+  final_crosslayer_bytes.txt (Python<->K 9/9, K<->KEVM 8/8 byte equality),
+  final_part9_threat.txt (L7-STATE / invalid-state-composition).
+- run_gen_demos.sh set -u local-declaration fix (bash version drift).
+- Part 10: report §8/§13/§17 cite the FINAL transcript; binding language
+  "cryptographically bound under stated assumptions" recorded in §15.
