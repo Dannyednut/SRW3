@@ -152,6 +152,20 @@ module SRW3LIN
   rule LinAppsIter(.List) => .Bytes
   rule LinAppsIter(ListItem(X:Int) REST:List) => I2B4(X) +Bytes LinAppsIter(REST)
 
+  // demo signing keys (Ethereum-style 32-byte secrets; authority = addr(key))
+  syntax Bytes ::= "LinDemoKey1" [function, total]
+  syntax Bytes ::= "LinDemoKey2" [function, total]
+  rule LinDemoKey1 => Int2Bytes(32, 77, BE)
+  rule LinDemoKey2 => Int2Bytes(32, 4242, BE)
+
+  // nested map write: m[a][s] := v (prototype state/effects shape)
+  syntax Map ::= LinSetKV ( Map , Int , Int , Int ) [function]
+  rule LinSetKV(M:Map, A:Int, S:Int, V:Int)
+    => M[A <- LinSetSlots(LinMapAt(M, A), S, V)]
+
+  syntax Map ::= LinSetSlots ( Map , Int , Int ) [function]
+  rule LinSetSlots(S:Map, K:Int, V:Int) => S[K <- V]
+
   // sorted, deduplicated insert (keeps the AppSet canonical by construction)
   syntax List ::= LinAppIns ( List , Int ) [function, total]
   rule LinAppIns(.List, X:Int) => ListItem(X)
@@ -268,4 +282,29 @@ module SRW3LIN
   rule linEvOf(linRec(_:Int, _:Bytes, _:Int, _:List, _:Bytes, _:Bytes, _:Bytes, _:Int, _:Bytes, Ev:Bytes, _:Bytes, _:Bytes)) => Ev
   rule linSigOf(linRec(_:Int, _:Bytes, _:Int, _:List, _:Bytes, _:Bytes, _:Bytes, _:Int, _:Bytes, _:Bytes, Sig:Bytes, _:Bytes)) => Sig
   rule linChildOf(linRec(_:Int, _:Bytes, _:Int, _:List, _:Bytes, _:Bytes, _:Bytes, _:Int, _:Bytes, _:Bytes, _:Bytes, C:Bytes)) => C
+  // Λ construction from a transition outcome (pre/true-effects/post artifacts)
+  syntax LinRec ::= LinBuildRec ( Int , Bytes , Map , Map , Map , Bytes , Int ) [function]
+  rule LinBuildRec(N:Int, HEADB:Bytes, Q:Map, E:Map, P:Map, KEY:Bytes, PV:Int)
+    => linRec(1, HEADB, N, LinAppsOfMap(E),
+              LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)), LinH(LinCanonKV(P)),
+              PV, LinAddrOf(KEY),
+              LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)),
+                              LinH(LinCanonKV(P))),
+              LinMakeSig(KEY, 1, HEADB, N, LinAppsOfMap(E), LinH(LinCanonKV(Q)),
+                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)), PV,
+                         LinAddrOf(KEY),
+                         LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
+                                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)))),
+              LinChildOf(1, HEADB, N, LinAppsOfMap(E), LinH(LinCanonKV(Q)),
+                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)), PV,
+                         LinAddrOf(KEY),
+                         LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
+                                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P))),
+                         LinMakeSig(KEY, 1, HEADB, N, LinAppsOfMap(E),
+                                    LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)),
+                                    LinH(LinCanonKV(P)), PV, LinAddrOf(KEY),
+                                    LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
+                                                    LinH(LinCanonKV(E)),
+                                                    LinH(LinCanonKV(P))))))
+
 endmodule

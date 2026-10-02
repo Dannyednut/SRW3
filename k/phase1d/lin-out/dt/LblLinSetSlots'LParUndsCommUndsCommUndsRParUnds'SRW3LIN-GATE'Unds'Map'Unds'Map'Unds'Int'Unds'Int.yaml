@@ -1,8 +1,0 @@
-action:
-- 3307
-- - - ['2']
-    - INT.Int
-  - - ['1']
-    - MAP.Map
-  - - ['3']
-    - INT.Int

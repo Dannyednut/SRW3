@@ -1,0 +1,19 @@
+=== SRW3 Phase 1D Part XIII — KEVM + cryptographic lineage composition (Fri Oct  2 09:31:28 UTC 2026) ===
+=== definition: k/kevm/srw3-lin-evm.k (additive over frozen 1A/1B bindings) ===
+=== LLVM backend + Phase-1C krypto shim; real storages -> real keccak256 Lambda records ===
+
+--- kompile: SRW3-LIN-EVM --backend llvm --hook-namespaces KRYPTO (NIX_LLVM_KOMPILE_LIBS shim link)
+exit: 0 (interpreter 27.5MB)
+
+--- demo lin_evm_multi (3 accounts x 4 slots, aliased+aggregate obligations, ONE gate):
+krun exit: 1 (1 = designed carrier terminal)
+  1B carrier: commit (ln updated, n=1, h=0)
+  linApps: ListItem ( 4097 )
+  ListItem ( 4099 )
+  1D carrier: , n: 1 , head: b"\xf3\x08\r \x80\x85\n) \xfe\x17\x9e\xfaK'\xb3\xda\x93\x08{UF\x85\xa1\xfc\xcbqW\xb6\x9cT\xa3" 
+
+--- demo lin_evm_overflow (designed REJECT: obligations fail on restored storages):
+krun exit: 1 (1 = designed carrier terminal)
+  linRec count: 0 (expect 0 — atomicity)
+  1B carrier: , n: 0 , h: -1
+  1D carrier: absent (no record for a rejected transition)

@@ -62,20 +62,7 @@ module SRW3LIN-GATE
                   <result> "" </result>
                 </srw3lin>
 
-  // demo signing keys (Ethereum-style 32-byte secrets; authority = addr(key))
-  syntax Bytes ::= "LinDemoKey1" [function, total]
-  syntax Bytes ::= "LinDemoKey2" [function, total]
-  rule LinDemoKey1 => Int2Bytes(32, 77, BE)
-  rule LinDemoKey2 => Int2Bytes(32, 4242, BE)
-
   // ---- helpers ---------------------------------------------------------------
-  syntax Map ::= LinSetKV ( Map , Int , Int , Int ) [function]   // m[a][s] := v
-  rule LinSetKV(M:Map, A:Int, S:Int, V:Int)
-    => M[A <- LinSetSlots(LinMapAt(M, A), S, V)]
-
-  syntax Map ::= LinSetSlots ( Map , Int , Int ) [function]
-  rule LinSetSlots(S:Map, K:Int, V:Int) => S[K <- V]
-
   // merge declared and hidden writes into the TRUE effects map (right-biased:
   // hidden side effects override — the actually-landed value wins)
   syntax Map ::= LinTrueEffects ( Map , Map ) [function, total]
@@ -145,31 +132,6 @@ module SRW3LIN-GATE
                                      LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
                                                      LinH(LinCanonKV(E)),
                                                      LinH(LinCanonKV(P))))))
-
-  // Λ construction from the actual outcome
-  syntax LinRec ::= LinBuildRec ( Int , Bytes , Map , Map , Map , Bytes , Int ) [function]
-  rule LinBuildRec(N:Int, HEADB:Bytes, Q:Map, E:Map, P:Map, KEY:Bytes, PV:Int)
-    => linRec(1, HEADB, N, LinAppsOfMap(E),
-              LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)), LinH(LinCanonKV(P)),
-              PV, LinAddrOf(KEY),
-              LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)),
-                              LinH(LinCanonKV(P))),
-              LinMakeSig(KEY, 1, HEADB, N, LinAppsOfMap(E), LinH(LinCanonKV(Q)),
-                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)), PV,
-                         LinAddrOf(KEY),
-                         LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
-                                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)))),
-              LinChildOf(1, HEADB, N, LinAppsOfMap(E), LinH(LinCanonKV(Q)),
-                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P)), PV,
-                         LinAddrOf(KEY),
-                         LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
-                                         LinH(LinCanonKV(E)), LinH(LinCanonKV(P))),
-                         LinMakeSig(KEY, 1, HEADB, N, LinAppsOfMap(E),
-                                    LinH(LinCanonKV(Q)), LinH(LinCanonKV(E)),
-                                    LinH(LinCanonKV(P)), PV, LinAddrOf(KEY),
-                                    LinMakeEvidence(KEY, N, LinH(LinCanonKV(Q)),
-                                                    LinH(LinCanonKV(E)),
-                                                    LinH(LinCanonKV(P))))))
 
   // ---- linGatePresent: presented-record path (verify-then-accept) ------------
   rule <k> linGatePresent(R:LinRec, CTX:LinCtx) => .K ... </k>
