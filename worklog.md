@@ -770,3 +770,60 @@ Stage Summary:
 - Open items: LIN-CHAIN-ALL circularity (prover boundary), Merkle interface
   (NOT YET MECHANIZED), calldata-level input binding (REQUIRES CLIENT/PROTOCOL
   SUPPORT), multi-gate 1D threading at the KEVM layer.
+
+---
+Task ID: 1D-R1 Part I
+Agent: Super Z (main)
+Task: Phase 1D-R1 — verifier soundness fix & close audit; Part I baseline freeze
+
+Work Log:
+- Fifth sandbox reset recovery: srw3-work/ rebuilt from GitHub (origin/phase1c
+  @ a2c2dcb, the 1D close-out commit; main/phase1b/phase1c branches; baseline
+  bundle srw3-work.bundle preserved with main=a857618, kevm-changes=69859b17).
+  Toolchain rebuilt from the pinned recipe (scripts/rebuild_env_1d.sh): K
+  v7.1.337, z3 4.13.3, clang/LLVM-15 15.0.6-4+b1 (+libclang-common-15-dev for
+  stddef.h), flex, libsecp256k1 0.5.0 + soname shims, dev headers, KEVM
+  1.0.921 source, plugin @207ae512 (krypto.md copied into kproj/plugin —
+  recorded gap). env.sh reconstructed; syslibs dev-symlink shims
+  (tinfo/jemalloc/unwind/mpfr) recreated; llvm-kompile-clang repointed.
+- Compiled-definition recovery: committed lin-out/probe-out/ck-out reused
+  (byte-identical paths); gen/hs/llvm outs re-symlinked from surviving
+  srw3-kevm/; SRW3-LIN-EVM re-kompiled live (interpreter 27.5 MB, matches the
+  1D record; kompile recipe: -I kproj -I kproj/evm-semantics -I plugin -I
+  phase1d).
+- Full live regression re-verification (zero drift): Python 15/15; abstract
+  demos 13/13 with verdict sequence byte-identical to frozen v5; gen demos
+  10/10 hs + 10/10 llvm; Python gen 14/14; KEVM gen COMMIT/REJECT+RESTORE;
+  1C probe 8/8 + ck commit/reject/commit; 1D lin demos 6/6 (chain valid;
+  CM-L5 invalid-appset; tamper 12/12 distinct; CM-L4 invalid-evidence; replay
+  R1-R4); KEVM lin multi n=1 head=f3080d20... byte-identical to the frozen
+  transcript, overflow 0 records. kprove-heavy stages: frozen v5/v6 records
+  stand (sources unchanged, git clean).
+- R1 INDEPENDENT PYTHON VERIFIER rebuilt (python-gen/lin_verify.py):
+  12-layer first-fail chain L1..L12 mirroring VerifyLineage, canonical
+  encodings byte-verified against K (canon_kv + keccak256 + RFC6979
+  secp256k1 via coincurve/libsecp256k1), with the PRE-FIX L7 subset defect
+  frozen per the R1 mandate (asymmetric membership loop = Composed ⊆ Post).
+- L7 EXTRA-KEY ATTACK REPRODUCED (transcripts/audit/phase1d_r1/
+  l7_attack_prefix.txt): fully re-signed forged record carrying extra
+  post-state entry (app2,slot9):=999 ACCEPTED (VALID) while missing-key and
+  changed-value forgeries are correctly rejected (L7-STATE) — exactly the
+  Composed ⊆ Post hole. Attack inputs frozen as permanent fixtures.
+- NEW FINDING 1D-R1-KECCAK-MULTIBLOCK (transcripts/audit/phase1d_r1/
+  FINDING-keccak-multiblock.md): the 1C krypto shim keccak256 is INCORRECT
+  for inputs >= 136 bytes (memset before the final block destroys absorbed
+  state; boundary confirmed live at exactly 136 B; 100 B IntentHash correct,
+  237 B CoreHash / 306 B Child NON-STANDARD). Within-K consistency unaffected
+  (frozen verdicts stand); cross-layer byte equality fails for CoreHash/
+  Child -> shim fix mandatory for R1 Part XIII. Python sim reproduces the K
+  output exactly (scripts/shim_keccak_sim.py). Hash probe suite (h1..h6)
+  becomes a permanent regression.
+- K<->Python byte-level pre-validation: canon bytes EQUAL (237 B), authority
+  EQUAL, evidence sig EQUAL (RFC6979), digests EQUAL for < 136 B preimages.
+
+Stage Summary:
+- Part I COMPLETE: pre-fix baseline frozen (commit a2c2dcb base + R1 evidence
+  files), L7 attack reproduced and preserved, regression matrix green with
+  zero drift, NEW keccak-multiblock finding recorded with mechanical proof.
+- Next: Part II — L7 exact map equality (Python) + shim one-line fix + K
+  verifier composition equality (Part VII prep) + rebuilds + re-freeze.

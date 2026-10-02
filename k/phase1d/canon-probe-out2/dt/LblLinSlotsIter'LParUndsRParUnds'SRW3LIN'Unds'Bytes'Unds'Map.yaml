@@ -1,0 +1,37 @@
+args:
+- - &id001 ['1']
+  - MAP.Map
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 2870
+      - - - *id001
+          - MAP.Map
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - MAP.Map
+      next:
+        default: fail
+        specializations:
+        - - '0'
+          - action:
+            - 2871
+            - []
+          - []
+        bitwidth: 64
+        sort: MINT.MInt 64
+        occurrence: &id002 [size, '1']
+      function: hook_MAP_size_long
+      sort: MINT.MInt 64
+      occurrence: *id002
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id003 [side_condition_2870]
+function: side_condition_2870
+sort: BOOL.Bool
+occurrence: *id003

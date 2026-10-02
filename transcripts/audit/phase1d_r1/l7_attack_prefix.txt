@@ -1,0 +1,27 @@
+=== SRW3 Phase 1D-R1 Part I — L7 extra-key attack reproduction (PRE-FIX baseline) ===
+=== verifier: python-gen/lin_verify.py (independent; keccak256 + libsecp256k1) ===
+=== threat model: AUTHORIZED dishonest producer (valid key SK1) ===
+
+[T1] honest record, post == Apply(Pre, Effects)
+     verdict: VALID  expect: VALID (sanity)
+
+[T2] L7 EXTRA-KEY ATTACK: presented post carries extra entry (app2, slot9) := 999
+     (extra slot in neither PreState nor TrueEffects); stateD, evidence, sig, child
+     recomputed with the AUTHORIZED key — every cryptographic field genuine.
+     presented post : {1: {0: 25, 1: 0}, 2: {0: 50, 1: 7, 9: 999}}
+     Apply(Pre,Eff) : {1: {0: 25, 1: 0}, 2: {0: 50, 1: 7}}
+     verdict: VALID  expect(PRE-FIX): VALID  <-- THE SOUNDNESS DEFECT (R1 Part II fixes to L7-STATE)
+
+[T3] extra key presented, stateD NOT recomputed (naive tamper)
+     verdict: L7-STATE  expect: L7-STATE (digest binding catches the naive variant)
+
+[T4] missing composed entry ((app2,slot1):=7 absent), fully re-signed
+     verdict: L7-STATE  expect: L7-STATE (subset loop catches)
+
+[T5] changed composed value ((app2,slot1):=9 instead of 7), fully re-signed
+     verdict: L7-STATE  expect: L7-STATE (subset loop catches)
+
+=== PRE-FIX SUMMARY ===
+REPRODUCED: the extra-key forgery (T2) is ACCEPTED by the pre-fix verifier while T4/T5 are correctly rejected —
+L7 establishes Composed ⊆ Post, not Composed == Post. Phase 1D stays open; R1 Part II (exact map equality) is mandatory before close.
+T2 inputs frozen as permanent regression fixture (post-fix expectation: L7-STATE).

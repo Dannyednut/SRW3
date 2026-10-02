@@ -1,0 +1,28 @@
+default: fail
+specializations:
+- - kseq{}
+  - default: fail
+    specializations:
+    - - dotk{}
+      - default: fail
+        specializations:
+        - - inj{SortH4CellOpt{}, SortKItem{}}
+          - action:
+            - 3085
+            - - - ['0', '0', '1']
+                - STRING.String
+          - [STRING.String]
+        - - inj{SortH4Cell{}, SortKItem{}}
+          - action:
+            - 3085
+            - - - &id001 ['0', '1']
+                - STRING.String
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: *id001
+      - []
+    sort: STRING.String
+    occurrence: ['1', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

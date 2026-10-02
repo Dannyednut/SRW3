@@ -1,0 +1,27 @@
+=== SRW3 Phase 1D-R1 — Part I BASELINE FREEZE (pre-fix state) ===
+=== generated: Fri Oct  2 15:54:15 UTC 2026 ===
+
+--- git state ---
+branch: phase1c
+head:   a2c2dcb9a2df9016a4ff305ee36df0db746eb9ac
+remote: https://github.com/Dannyednut/SRW3
+
+--- toolchain versions (pinned recipe rebuild, reset #5) ---
+K:        K version:    v7.1.337
+z3:       Z3 version 4.13.3 - 64 bit
+clang:    Debian clang version 15.0.6
+kevm src: v1.0.921
+plugin:   blockchain-k-plugin @ 207ae512
+shim:     libkrypto-shim.a 18214 bytes (1D record: 18214)
+
+--- live regression re-verification (post-recovery) ---
+[1] Python baseline:        15/15 PASS (pytest, reference-implementation)
+[2] Abstract demos hs:      13/13, verdict sequence byte-identical to frozen v5
+[GEN-1/2] gen demos:        10/10 hs + 10/10 llvm PASS
+[GEN-5] Python gen mirror:  14/14 PASS (pytest)
+[GEN-6] KEVM gen binding:   positive COMMIT (n=1,h=0) / overflow REJECT+RESTORE (n=0,h=-1) PASS
+[1C-1] krypto probe:        8/8 ok=true (rebuilt shim, 18214 B)
+[1C-2] ck demos:            commit / reject / commit PASS
+[1D] lin demos (6):         all verdicts identical to 1D close-out transcript
+[1D-XIII] KEVM lin:         multi n=1 head=f3080d20... byte-identical; overflow 0 records
+kprove-heavy stages:        frozen sha-chained v5/v6 records apply (git clean at a2c2dcb)
