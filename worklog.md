@@ -827,3 +827,59 @@ Stage Summary:
   zero drift, NEW keccak-multiblock finding recorded with mechanical proof.
 - Next: Part II — L7 exact map equality (Python) + shim one-line fix + K
   verifier composition equality (Part VII prep) + rebuilds + re-freeze.
+
+---
+Task ID: 1D-R1 Parts IV-XVII
+Agent: Super Z (main)
+Task: Phase 1D-R1 — audit parts IV-XVII + report + bundle close-out
+
+Work Log:
+- Part IV (comparison audit): audit_comparisons.py — every comparison site
+  exercised adversarially (33 probes); ZERO demonstrated deviations. Two
+  probe-expectation errors found and fixed during the audit (ctx semantics
+  for the L4 dupe case; first-fail chain order for the L12 case) — recorded,
+  not verifier defects.
+- Part V: presented-effect consistency vs historically true effects — scope
+  statement in report §6 (L7 does NOT establish historically true effects;
+  authenticated execution witness = Phase 1E / REQUIRES CLIENT SUPPORT).
+- Part VI (21-mutation harness): audit_mutations_21.py — 21 classes incl.
+  authorized-powers re-signing (m20 = THE L7 attack): 21/21 rejected at the
+  documented first-fail layers; zero "UNRESOLVED VERIFIER SOUNDNESS ISSUE".
+- Part VII (K correspondence): additive srw3lin-r1.k — linCtxP (claimed
+  pre-state) + VerifyLineageP with LinCompositionOk =
+  BytesEq(LinCanonKV(post), LinCanonKV(LinApplyEff(pre, effects)));
+  legacy linCtx/VerifyLineage untouched. Suite: pos=valid;
+  neg1/neg2/neg3=invalid-state-composition (records built by LinBuildRec —
+  all crypto genuine). Recorded prover fact: legacy projectors need rules
+  for new constructors (stuck linCtxEffects on linCtxP, fixed additively).
+- Parts VIII/IX: authorized-dishonest producer (valid key, all hashes
+  recomputed) cannot reach valid with PostState != Apply(PreState,Effects) —
+  by construction (rule structure) + concrete search (0 accepted).
+- Part X: replay threat defined (intra-chain positional / cross-domain);
+  explicit decision: schema UNCHANGED (no chain-id field); chain root must
+  be a domain-specific commitment supplied positionally — cross-domain
+  replay prevention classified REQUIRES CLIENT/PROTOCOL SUPPORT (no claim).
+- Part XI: 12-field integrity matrix (canon/signature/intent/child/independent
+  verify) — no field omitted; child covers sig+evidence; sig covers evidence.
+- Part XII: 15 substitution classes (12 field tamper + CM-L5 + R1-R3) all
+  fail at documented layers — live re-run on the post-fix stack.
+- Part XIII: three-layer consistency — Python<->K byte equality 8/8
+  (digests, authority, RFC6979 evidence, sig, child); K<->KEVM same-module
+  composition (LinBuildRec shared) + live demos; invalid-record rejection
+  localized per layer.
+- Part XIV: zero decision drift (documented in Part II transcript).
+- Part XVII: SRW3-Phase1D-R1-Verifier-Audit-Report.{md,pdf} (8pp, evidence
+  classification per the five-level vocabulary + ASSUMED +
+  REQUIRES CLIENT/PROTOCOL SUPPORT + NOT YET MECHANIZED); package script
+  package_artifacts_1d_r1.sh — bundle 2.7MB + sha256 sidecar, MANIFEST
+  492 lines RELATIVE paths only, portability check clean.
+
+Stage Summary:
+- PHASE 1D-R1 COMPLETE: L7 exact-equality fix (Python + K), keccak-multiblock
+  shim fix, permanent adversarial suites (L7 10/10, audit 33 probes,
+  mutations 21/21), K composition suite 1+3, three-layer byte equality,
+  zero regression drift, report + bundle delivered.
+- Phase 1D close criteria MET within the modeled verifier domain (report §16);
+  limitations explicitly recorded: presented-effect consistency only (§6),
+  cross-domain replay prevention REQUIRES CLIENT/PROTOCOL SUPPORT (§10),
+  Merkle/MPT authenticated state proofs NOT YET MECHANIZED (Phase 1E opening).
