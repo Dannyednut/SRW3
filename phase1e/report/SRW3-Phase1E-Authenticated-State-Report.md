@@ -267,12 +267,13 @@ What was refuted:                NC2 (acceptance slack) and NC3 (vacuity)
                                  fail as designed; the old-apply composition
                                  on a new-slot write demonstrated false
                                  (applyfix:old=false) — finding fixed additively
-Artifact SHA-256:                see SRW3-Phase1E-Artifact-Bundle.zip.sha256
-                                 and phase1e/provenance/ (MANIFEST, hashes)
+Artifact SHA-256:                a1f4f5650353d671494acfc7ffbc282a9404238e5a0db26a4eefceea34b619b1
+                                 (SRW3-Phase1E-Artifact-Bundle.zip; MANIFEST 310
+                                 entries, round-trip ALL OK; see phase1e/provenance/)
 Git branch:                      phase1e (derived from phase1d-r1-complete
                                  closure commit 668a6519…; no history rewrite)
-Git commit:                      recorded in phase1e/provenance/ after final
-                                 commit (see PROVENANCE block)
+Git commit:                      0d826c0f152fdea40683be9a6706c65e478f6ea3 (phase1e; parent = closure commit
+                                 668a6519b017de226b25a6b1d6bf8736a731970c)
 Phase 1E completion verdict:     COMPLETE — all completion criteria evaluated
                                  below; no criterion silently waived
 ```

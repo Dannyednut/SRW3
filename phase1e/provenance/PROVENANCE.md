@@ -35,6 +35,10 @@
 - phase1e/report/SRW3-Phase1E-Authenticated-State-Report.md: 1ee4dfc326cb29d7164aacd6d7a504346d563ebf777456878ffdb11df4ee7606
 - phase1e/report/SRW3-Phase1E-Authenticated-State-Report.pdf: 695799dd2edd1f945e1fa874df4dde3587aeb9e65836fa059a423c4c76d15127
 
+## Final commit
+- phase1e @ 0d826c0f152fdea40683be9a6706c65e478f6ea3
+- Artifact bundle SRW3-Phase1E-Artifact-Bundle.zip sha256 a1f4f5650353d671494acfc7ffbc282a9404238e5a0db26a4eefceea34b619b1
+
 ## Reproducibility
 1. source tools/env.sh (rebuilt via scripts/rebuild_env_1d.sh recipe; env.sh at /home/z/my-project/tools/env.sh)
 2. kompile phase1e/semantics/srw3auth.k --backend haskell -o auth-hs-out -I <plugin/plugin> -I k/phase1d
