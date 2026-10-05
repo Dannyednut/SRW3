@@ -1,0 +1,39 @@
+=== SRW3 Phase 1E — Part 1: PYTHON AUTHENTICATED-STATE SUITE (PERMANENT) ===
+=== generated: 2026-10-05 21:01:26 UTC ===
+model spec: phase1e/semantics/MODEL.md (FROZEN)
+sha256 auth_model.py:  4fe78e2e00d11671b2d7b137fcd01be44a169948909d7ada55a0f1d609152e46
+sha256 auth_verify.py: 1cb724fec247cb551f773231e5af2cc0dcce99d9fb202b1f1a7a6bd27a1659b6
+sha256 test suite:     4c0c720ea85e436c8df961f989e3a0067e5d3c7ca0a24b0b3d299e86339c5373
+
+=====================================================================
+SRW3 Phase 1E — authenticated-state adversarial suite (permanent)
+=====================================================================
+[E0 non-vacuity] verdict='VALID-A' expect='VALID-A' PASS
+[CM-E1 forged value] got=False expect=False PASS
+[CM-E1 honest value ] got=True expect=True PASS
+[CM-E2 tampered path] got=False expect=False PASS
+[CM-E3 extra key  ] verdict='L7-STATE' expect='L7-STATE' PASS
+[CM-E3 root diverges] got=True expect=True PASS
+[CM-E4 omitted key ] verdict='L7-STATE' expect='L7-STATE' PASS
+[CM-E4 root diverges] got=True expect=True PASS
+[CM-E5 changed val ] verdict='L7-STATE' expect='L7-STATE' PASS
+[CM-E5 root diverges] got=True expect=True PASS
+[CM-E6 foreign root] verdict='L13-STATEROOT' expect='L13-STATEROOT' PASS
+[CM-E6 forged != recomputed] got=True expect=True PASS
+[CM-E7 hidden write] verdict='L14-ANCHOR' expect='L14-ANCHOR' PASS
+[CM-E7b undeclared  ] verdict='L7-STATE' expect='L7-STATE' PASS
+[CM-E8 stale anchor] verdict='L14-ANCHOR' expect='L14-ANCHOR' PASS
+[CM-E9 subset proofs individually sound] got=True expect=True PASS
+[CM-E9 partial gate ] verdict='L7-STATE' expect='L7-STATE' PASS
+[U1  update equality] got=True expect=True PASS
+[U1  update changes root] got=True expect=True PASS
+[U1  forged old value] got=None expect=None PASS
+[C1  chain step 2  ] verdict='VALID-A' expect='VALID-A' PASS
+[C1  stale replay   ] verdict='L14-ANCHOR' expect='L14-ANCHOR' PASS
+[REFUSE capacity   ] verdict='AUTH-CAPACITY' expect='AUTH-CAPACITY' PASS
+[REFUSE pad key     ] verdict='AUTH-PADKEY' expect='AUTH-PADKEY' PASS
+---------------------------------------------------------------------
+AUTHENTICATED-STATE SUITE: 24/24 PASS
+E0 witness ACCEPTED (non-vacuity); CM-E1..E9 REJECTED at the
+documented layers; AUTH-UPDATE equality and AUTH-COMMIT chain
+threading hold. Fixtures are the permanent Phase 1E baseline.

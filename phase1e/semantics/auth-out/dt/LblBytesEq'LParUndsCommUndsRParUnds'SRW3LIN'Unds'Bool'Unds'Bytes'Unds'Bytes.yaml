@@ -1,0 +1,28 @@
+args:
+- - &id001 ['1']
+  - BYTES.Bytes
+- - &id002 ['2']
+  - BYTES.Bytes
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3139
+      - - - *id001
+          - BYTES.Bytes
+    - []
+  - - '0'
+    - action:
+      - 3140
+      - - - *id001
+          - BYTES.Bytes
+        - - *id002
+          - BYTES.Bytes
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: [eq, '1', and, '2']
+function: hook_KEQUAL_eq
+sort: BOOL.Bool
+occurrence: [eq, '1', and, '2']

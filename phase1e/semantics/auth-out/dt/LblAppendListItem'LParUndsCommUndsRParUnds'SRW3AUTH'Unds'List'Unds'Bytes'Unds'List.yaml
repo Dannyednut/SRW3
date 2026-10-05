@@ -1,0 +1,66 @@
+args:
+- - &id001 ['2']
+  - LIST.List
+next:
+  default: &id003
+    args:
+    - - *id001
+      - LIST.List
+    - - [lit, '0', MINT.MInt 64]
+      - MINT.MInt 64
+    next:
+      default: fail
+      specializations:
+      - - inj{SortBytes{}, SortKItem{}}
+        - args:
+          - - *id001
+            - LIST.List
+          - - [lit, '1', MINT.MInt 64]
+            - MINT.MInt 64
+          - - [lit, '0', MINT.MInt 64]
+            - MINT.MInt 64
+          next:
+            action:
+            - 3044
+            - - - &id002 ['1']
+                - BYTES.Bytes
+              - - ['1', '2']
+                - LIST.List
+              - - ['0', '0', '2']
+                - BYTES.Bytes
+          function: hook_LIST_range_long
+          sort: LIST.List
+          occurrence: ['1', '2']
+        - [BYTES.Bytes]
+      sort: STRING.String
+      occurrence: ['0', '2']
+    function: hook_LIST_get_long
+    sort: STRING.String
+    occurrence: ['0', '2']
+  specializations:
+  - - '0'
+    - args:
+      - - *id001
+        - LIST.List
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        action:
+        - 3043
+        - - - *id002
+            - BYTES.Bytes
+      function: hook_LIST_range_long
+      sort: LIST.List
+      occurrence: ['0', '2']
+    - []
+  - - '1'
+    - *id003
+    - [STRING.String]
+  bitwidth: 64
+  sort: MINT.MInt 64
+  occurrence: &id004 [size, '2']
+function: hook_LIST_size_long
+sort: MINT.MInt 64
+occurrence: *id004

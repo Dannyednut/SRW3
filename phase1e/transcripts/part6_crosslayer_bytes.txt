@@ -1,0 +1,44 @@
+=== SRW3 Phase 1E — Part 6: three-layer BYTE consistency ===
+=== generated: 2026-10-06 (Phase 1E session) ===
+
+scope: authenticated-state artifact byte equality (canonical tree
+encodings, Merkle root, stateRoot, childE, legacy child, proofs,
+record digests). Level-2 binding of the PRESENTED artifacts; no
+historical-execution-authentication claim is made.
+
+--- Section A: Python <-> K-abstract (llvm, asuite Int-encoded bytes) ---
+  [A] Merkle root over canonical universe: MATCH
+  [A] stateRoot (== anchor == root): MATCH
+  [A] childE = H(CanonCoreE incl stateRoot): MATCH
+  [A] legacy child = H(CanonFull): MATCH
+  [A] proof (260B, idx 4, key (2,1)): MATCH
+Section A: 5/5 byte-equality checks MATCH
+
+--- Section B: Python <-> KEVM (evm_auth_commit, real EVM storage) ---
+  [B] input digest  H(canon pre-snapshot): MATCH
+  [B] effect digest H(canon true effects): MATCH
+  [B] state digest  H(canon final storages): MATCH
+  [B] authority addr(SK1): MATCH
+  [B] evidence RFC6979 sign(IntentHash, SK1): MATCH
+  [B] signature RFC6979 sign(CoreHash, SK1): MATCH
+  [B] legacy child H(CanonFull): MATCH
+  [B] Merkle root over real storages: MATCH
+  [B] stateRoot == root: MATCH
+  [B] childE = H(CanonCoreE incl stateRoot): MATCH
+  [B] proof (260B, idx 4, key (4098,2)): MATCH
+  [B] verdict (anchored honest commit): MATCH
+Section B: 12/12 byte-equality checks MATCH
+
+--- Section C: embedded anchor vs Python-computed commitment ---
+  Python anchor (computed):        0a22556b9f074913e929db417297f15170204c20b3345e1888cf598d32b163c9
+  K demo constant AAnchorHonest:   0a22556b9f074913e929db417297f15170204c20b3345e1888cf598d32b163c9
+  Section C: 1/1 MATCH (the KEVM acceptance used this constant as
+  the anchor; acceptance therefore certifies Python<->KEVM root
+  equality by construction). The anchor PROVENANCE remains
+  REQUIRES CLIENT/PROTOCOL SUPPORT (assumption A-E3).
+
+TOTAL: 18/18 byte-equality checks MATCH across the three layers.
+Phase 1E additions (root, stateRoot, childE, proofs) are byte-exact
+across Python, K (llvm), and KEVM over REAL EVM storage.
+
+PART6_CROSSLAYER_DONE

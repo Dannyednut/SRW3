@@ -1,0 +1,24 @@
+=== SRW3 Phase 1E — Part 2: AUTH MUTATION HARNESS EXTENSION (12 classes) ===
+=== generated: 2026-10-05 21:02:44 UTC ===
+legacy 21-class harness: UNCHANGED (python-gen/audit_mutations_21.py)
+sha256 auth_mutations.py: be8962490c950aa7bc1043a87de4065d192ee37f3fa49a35826e0a7ffd2e969b
+
+=====================================================================
+SRW3 Phase 1E — authenticated mutation harness (extension classes)
+=====================================================================
+  m-E1  stateRoot byte flip -> L13                     verdict=L13-STATEROOT            OK
+  m-E2  stateRoot = root of PRE-content -> L13         verdict=L13-STATEROOT            OK
+  m-E3  genuine root but anchor byte-flipped -> L14    verdict=L14-ANCHOR               OK
+  m-E4  childE byte flip -> L15                        verdict=L15-CHILDE               OK
+  m-E5  childE = legacy child (not extended) -> L15    verdict=L15-CHILDE               OK
+  m-E6  producer root over shrunk universe -> L13      verdict=L13-STATEROOT            OK
+  m-E7  producer tree built from wrong post (PRE) -> L13 verdict=L13-STATEROOT            OK
+  m-E8  proof index off-by-one -> proof verify fails   verdict=False                    OK
+  m-E9  truncated proof -> proof verify fails          verdict=False                    OK
+  m-E10 treeBytes tampered -> root re-derivation diverges verdict=True                     OK
+  m-E11 update proof with forged old value -> None     verdict=None                     OK
+  m-E12 tree update of key outside universe -> None    verdict=None                     OK
+---------------------------------------------------------------------
+rejected: 12/12; accepted: 0
+No mutation passed. The authenticated-state layer holds under
+all extension classes; legacy 21-class harness unchanged.

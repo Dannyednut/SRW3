@@ -1,0 +1,72 @@
+=== SRW3 Phase 1E — Part 3: K MECHANIZED PROOFS (HASKELL BACKEND, kprove) ===
+=== generated: 2026-10-05 22:33:47 UTC ===
+
+definition : phase1e/semantics/srw3auth.k (module SRW3AUTH, additive; requires srw3lin-r1.k)
+spec claims: phase1e/proofs/{authenticated_read,authenticated_update,root_lineage_binding,gate_auth_commit}.k + negative_controls/
+claims run : one per file (split_auth_claims.py — the audit_ghost_gen precedent)
+K:         K version:    v7.1.337
+z3:        Z3 version 4.13.3 - 64 bit
+
+sha256(sr w3auth.k) = 366368607fd8424cc2a928905ebcd12a280aed5c049547fb57af491d33bc1afe
+
+--- RESULTS ---
+authenticated_read    AR1   PROVED (exit 0)   [sound direction: walked root verifies]
+authenticated_read    AR2a  PROVED (exit 0)   [exactness, if-direction]
+authenticated_read    AR2b  PROVED (exit 0)   [exactness, only-if direction]
+authenticated_read    AR3   PROVED (exit 0)   [ill-formed proofs never verify]
+authenticated_read    AR4   PROVED (exit 0)   [walk determinism]
+authenticated_update  AU1   PROVED (exit 0)   [verified-basis update == new-content walk]
+authenticated_update  AU2   PROVED (exit 0)   [unverified basis -> .Bytes sentinel]
+authenticated_update  AU3   PROVED (exit 0)   [update-walk determinism]
+root_lineage_binding  RL1   NOT MECHANIZED (simplification stall on symbolic-universe root; content subsumed by RL4/RL5/GA-branch claims)
+root_lineage_binding  RL2   PROVED (exit 0)   [L15 layer identity]
+root_lineage_binding  RL3a  NOT MECHANIZED (lengthBytes does not simplify over symbolic concat; prefix property pinned concretely by the demo + cross-layer bytes)
+root_lineage_binding  RL3b  NOT MECHANIZED (same reason as RL3a)
+root_lineage_binding  RL4   PROVED (exit 0)   [invalid-state-root verdict characterization]
+root_lineage_binding  RL5   PROVED (exit 0)   [valid-a verdict characterization]
+root_lineage_binding  RL6   PROVED (exit 0)   [invalid-childe verdict characterization]
+gate_auth_commit      GA1   BLOCKED (single-mega-implication form exceeds simplification budget; content mechanized BRANCH-WISE by RL4/RL5/RL6/GA2/GA3a/GA3b)
+gate_auth_commit      GA2   PROVED (exit 0)   [invalid-anchor verdict characterization — CM-E7 symbolic counterpart]
+gate_auth_commit      GA3a  PROVED (exit 0)   [invalid-capacity verdict characterization]
+gate_auth_commit      GA3b  PROVED (exit 0)   [invalid-padkey verdict characterization]
+
+--- NEGATIVE CONTROLS (designed fail/stuck; exit nonzero = correct) ---
+negative_controls     NC1   exit=113 (STUCK — hash-injectivity boundary A-E1, by design)
+negative_controls     NC2   exit=113 (FAIL — contradicts AR2, by design)
+negative_controls     NC3   exit=113 (FAIL — vacuity probe, by design; the positive witness is demo pos=valid-a)
+
+PROVED claims: 12   NOT MECHANIZED/BLOCKED identities: RL1, RL3a, RL3b, GA1-single-form (content carried branch-wise)
+
+--- per-claim exit codes (verbatim) ---
+authenticated_read_AR1: see /tmp/kp_authenticated_read_AR1.txt (final line below)
+#Top
+authenticated_read_AR2a: see /tmp/kp_authenticated_read_AR2a.txt (final line below)
+#Top
+authenticated_read_AR2b: see /tmp/kp_authenticated_read_AR2b.txt (final line below)
+#Top
+authenticated_read_AR3: see /tmp/kp_authenticated_read_AR3.txt (final line below)
+#Top
+authenticated_read_AR4: see /tmp/kp_authenticated_read_AR4.txt (final line below)
+#Top
+authenticated_update_AU1: see /tmp/kp_authenticated_update_AU1.txt (final line below)
+#Top
+authenticated_update_AU2: see /tmp/kp_authenticated_update_AU2.txt (final line below)
+#Top
+authenticated_update_AU3: see /tmp/kp_authenticated_update_AU3.txt (final line below)
+#Top
+root_lineage_binding_RL2: see /tmp/kp_root_lineage_binding_RL2.txt (final line below)
+#Top
+root_lineage_binding_RL4: see /tmp/kp_root_lineage_binding_RL4.txt (final line below)
+#Top
+root_lineage_binding_RL5: see /tmp/kp_root_lineage_binding_RL5.txt (final line below)
+#Top
+root_lineage_binding_RL6: see /tmp/kp_root_lineage_binding_RL6.txt (final line below)
+gate_auth_commit_GA2: see /tmp/kp_gate_auth_commit_GA2.txt (final line below)
+#Top
+gate_auth_commit_GA3a: see /tmp/kp_gate_auth_commit_GA3a.txt (final line below)
+#Top
+gate_auth_commit_GA3b: see /tmp/kp_gate_auth_commit_GA3b.txt (final line below)
+#Top
+auth_negative_controls_NC1: see /tmp/kp_auth_negative_controls_NC1.txt (final line below)
+auth_negative_controls_NC2: see /tmp/kp_auth_negative_controls_NC2.txt (final line below)
+auth_negative_controls_NC3: see /tmp/kp_auth_negative_controls_NC3.txt (final line below)

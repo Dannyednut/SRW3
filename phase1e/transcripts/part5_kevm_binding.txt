@@ -1,0 +1,28 @@
+=== SRW3 Phase 1E — Part 5: KEVM BINDING (REAL EVM STORAGE + REAL KRYPTO) ===
+=== generated: 2026-10-05 23:39:27 UTC ===
+
+definition : k/kevm/srw3-auth-evm.k (module SRW3-AUTH-EVM; ADDITIVE over frozen srw3-lin-evm.k)
+kompile    : kompile srw3-auth-evm.k --backend llvm --hook-namespaces KRYPTO --main-module SRW3-AUTH-EVM
+             -o auth-evm-llvm-out -I . -I ../phase1d -I <phase1e/semantics> -I <kproj-e1e> -I <kproj>/evm-semantics -I <kproj>/plugin
+kproj-e1e  : KEVM v1.0.921 kproj + blockchain-k-plugin krypto.md @ pinned SHA (assembled per 1D recipe)
+krun flags : -cCHAINID=1 -cMODE=NORMAL -cSCHEDULE=CANCUN -cUSEGAS=false (krun exit=1 = designed carrier terminal)
+
+--- demo evm_auth_commit (honest anchor embedded from Python reference) ---
+krun exit: 1 (designed)
+verdict   : "valid-a"
+committed storages: 4097|->{0:100,2:100} 4098|->{0:100,1:5,2:30,3:7} 4099|->{0:4,1:100,2:40,3:7} (COMMIT happened)
+carrier root  = 0a22556b9f074913e929db417297f15170204c20b3345e1888cf598d32b163c9 (= Python-computed anchor; real keccak tree over REAL EVM storage)
+carrier proof = 260B, leaf idx 4, key (4098,2) value 30 — verifies against the root
+
+--- demo evm_auth_stale (stale anchor: root over pre-state content) ---
+krun exit: 1 (designed)
+verdict   : "invalid-anchor"
+storages  : restored from snapshot (REJECT + restore; NO lineage record)
+
+--- boundary statement (E6) ---
+This demonstrates the Level-2 (anchored state) machinery on REAL EVM execution:
+the tree/proofs/verifier run over REAL storages with REAL keccak, and the
+true-effects diff feeds the canonical universe. It is NOT a Level-3 result:
+nothing here authenticates historically-true execution effects beyond the
+KEVM run itself; the anchor's provenance remains REQUIRES CLIENT/PROTOCOL
+SUPPORT (assumption A-E3 in MODEL.md §9).

@@ -1,0 +1,24 @@
+=== SRW3 Phase 1E — Part 4: K GATE DEMO SUITE (LLVM BACKEND, REAL KRYPTO) ===
+=== generated: 2026-10-05 22:34:15 UTC ===
+
+definition : phase1e/semantics/srw3auth-demo.k (module SRW3AUTH-DEMO) over srw3auth.k
+kompile    : kompile srw3auth-demo.k --backend llvm --hook-namespaces KRYPTO --main-module SRW3AUTH-DEMO -o auth-out -I <plugin> -I <phase1d>
+krypto shim: rebuilt from k/phase1d/shim (keccak-multiblock fix marker present: 1 line)
+toolchain  : K version:    v7.1.337 | Z3 version 4.13.3 - 64 bit | clang 15.0.6-4+b1 | KEVM v1.0.921 src | plugin @ 207ae512
+sha256(srw3auth.k)      = 366368607fd8424cc2a928905ebcd12a280aed5c049547fb57af491d33bc1afe
+sha256(srw3auth-demo.k) = 23af11bc4078f037da7a143fb08b97d5c6f4ff8a9a25cc4d6ce1c8b87c3ef8ca
+
+--- krun asuite (exit 0) — verdict string ---
+pos=valid-a;neg1=invalid-state-composition;neg2=invalid-state-root;neg3=invalid-anchor;neg4=invalid-anchor;neg5=invalid-childe;chain=valid-a;stale-replay=invalid-anchor|proofs:incl=true,forged=false,update-eq=true,nonmemb=true,forged-pres=false
+
+--- reading ---
+pos          = valid-a                    : NON-VACUITY WITNESS (honest record + honest anchor ACCEPTED; gate premise satisfiable; real keccak + secp256k1)
+neg1         = invalid-state-composition  : CM-E3 (extra key; the L7 attack) — legacy composition layer fires first (mirrors Python L7-STATE)
+neg2         = invalid-state-root         : CM-E6 (foreign stateRoot; all crypto genuine)
+neg3         = invalid-anchor             : CM-E7 (HIDDEN WRITE, L7-consistent, all digests genuine) — the ANCHOR layer rejects what the Level-1 surface cannot see
+neg4         = invalid-anchor             : CM-E8 (stale anchor)
+neg5         = invalid-childe             : extended child commitment tamper
+chain        = valid-a                    : E5 (two-transition chain with root threading ACCEPTED)
+stale-replay = invalid-anchor             : E5 (transition-1 anchor replayed at transition 2 REJECTED)
+proofs       : incl=true, forged=false, update-eq=true, nonmemb=true, forged-pres=false
+               (AUTH-READ honest/forged, AUTH-UPDATE proof-vs-tree equality, non-membership honest/forged — concrete, 260-byte proof format)
