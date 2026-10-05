@@ -12,17 +12,20 @@ STG=$DL/srw3-artifacts
 ZIP=$DL/SRW3-Phase1E-Artifact-Bundle.zip
 
 rm -rf "$ZIP" "$ZIP.sha256"
-mkdir -p "$STG"/{semantics,proofs,transcripts/audit,scripts,git,python,provenance}
-mkdir -p "$STG"/semantics/phase1d "$STG"/semantics/kevm/demos \
-         "$STG"/proofs/phase1e/negative_controls "$STG"/transcripts/audit/phase1e \
-         "$STG"/python-gen "$STG"/python "$STG"/phase1e/{report,semantics,proofs,python,transcripts,provenance}
+mkdir -p "$STG"/{semantics,proofs,transcripts/audit,scripts,git,python,provenance} \
+         "$STG"/semantics/phase1d "$STG"/semantics/kevm/demos \
+         "$STG"/proofs/phase1d "$STG"/proofs/phase1e/negative_controls \
+         "$STG"/transcripts/audit/phase1e \
+         "$STG"/python-gen "$STG"/python \
+         "$STG"/phase1e/report "$STG"/phase1e/semantics "$STG"/phase1e/proofs/negative_controls \
+         "$STG"/phase1e/python "$STG"/phase1e/transcripts "$STG"/phase1e/provenance
 
 # ---- 1. Reports ----
 cp "$SRC"/SRW3-Phase*.md "$SRC"/SRW3-Phase*.pdf "$STG/" 2>/dev/null || true
 
 # ---- 2. Phase 1E sources (the new artifact tree, §22 layout) ----
 cp "$SRC/phase1e/report/"* "$STG/phase1e/report/"
-cp "$SRC/phase1e/semantics/"* "$STG/phase1e/semantics/"
+cp "$SRC/phase1e/semantics/"*.md "$SRC/phase1e/semantics/"*.k "$STG/phase1e/semantics/"
 cp "$SRC/phase1e/proofs/"*.k "$STG/phase1e/proofs/"
 cp "$SRC/phase1e/proofs/negative_controls/"*.k "$STG/phase1e/proofs/negative_controls/"
 cp "$SRC/phase1e/python/"*.py "$STG/phase1e/python/"
