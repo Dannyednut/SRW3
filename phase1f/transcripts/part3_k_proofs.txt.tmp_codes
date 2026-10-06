@@ -1,0 +1,3 @@
+exec_negative_controls NC1 exit=1 time=7s
+exec_negative_controls NC2 exit=113 time=4s
+exec_negative_controls NC3 exit=113 time=3s

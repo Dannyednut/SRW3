@@ -1,0 +1,30 @@
+action:
+- 14046
+- - - ['12']
+    - BYTES.Bytes
+  - - ['4']
+    - MAP.Map
+  - - ['2']
+    - BYTES.Bytes
+  - - ['6']
+    - BYTES.Bytes
+  - - ['1']
+    - INT.Int
+  - - ['5']
+    - MAP.Map
+  - - ['9']
+    - BYTES.Bytes
+  - - ['14']
+    - BYTES.Bytes
+  - - ['7']
+    - INT.Int
+  - - ['3']
+    - MAP.Map
+  - - ['10']
+    - BYTES.Bytes
+  - - ['11']
+    - INT.Int
+  - - ['8']
+    - LIST.List
+  - - ['13']
+    - INT.Int

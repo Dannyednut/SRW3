@@ -1,0 +1,36 @@
+default: null
+specializations:
+- - Lbl'Stop'OpCodes'Unds'EVM-ASSEMBLY'Unds'OpCodes{}
+  - action:
+    - 12901
+    - - - &id001 ['2']
+        - BUFFER.StringBuffer
+  - []
+- - Lbl'UndsSClnUndsUnds'EVM-ASSEMBLY'Unds'OpCodes'Unds'OpCode'Unds'OpCodes{}
+  - default:
+      action:
+      - 12902
+      - - - &id002 ['1', '1']
+          - STRING.String
+        - - &id003 ['0', '1']
+          - STRING.String
+        - - *id001
+          - BUFFER.StringBuffer
+    specializations:
+    - - LblPUSHAsm{}
+      - action:
+        - 12903
+        - - - ['0', '0', '1']
+            - INT.Int
+          - - *id002
+            - STRING.String
+          - - *id001
+            - BUFFER.StringBuffer
+          - - ['1', '0', '1']
+            - INT.Int
+      - [INT.Int, INT.Int]
+    sort: STRING.String
+    occurrence: *id003
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

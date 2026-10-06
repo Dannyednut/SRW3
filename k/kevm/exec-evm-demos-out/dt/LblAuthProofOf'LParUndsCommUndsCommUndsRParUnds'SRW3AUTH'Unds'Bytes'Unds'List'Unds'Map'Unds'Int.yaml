@@ -1,0 +1,53 @@
+args:
+- - &id001 ['3']
+  - INT.Int
+- - &id002 ['1']
+  - LIST.List
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 13945
+      - - - *id001
+          - INT.Int
+        - - &id003 ['2']
+          - MAP.Map
+        - - *id002
+          - LIST.List
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - INT.Int
+      - - *id002
+        - LIST.List
+      next:
+        default: null
+        specializations:
+        - - '1'
+          - action:
+            - 13946
+            - - - *id003
+                - MAP.Map
+              - - *id001
+                - INT.Int
+              - - *id002
+                - LIST.List
+          - []
+        - - '0'
+          - fail
+          - []
+        bitwidth: 1
+        sort: BOOL.Bool
+        occurrence: &id004 [side_condition_13946]
+      function: side_condition_13946
+      sort: BOOL.Bool
+      occurrence: *id004
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id005 [side_condition_13945]
+function: side_condition_13945
+sort: BOOL.Bool
+occurrence: *id005

@@ -1,0 +1,128 @@
+args:
+- - &id001 ['1']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3449
+      - - - *id001
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - INT.Int
+      next:
+        default: fail
+        specializations:
+        - - '0'
+          - action:
+            - 3450
+            - []
+          - []
+        - - '1'
+          - args:
+            - - *id001
+              - INT.Int
+            - - [lit, '0', MINT.MInt 64]
+              - MINT.MInt 64
+            next:
+              default: fail
+              specializations:
+              - - '12'
+                - action:
+                  - 3454
+                  - []
+                - []
+              - - '8'
+                - action:
+                  - 3464
+                  - []
+                - []
+              - - '4'
+                - action:
+                  - 3460
+                  - []
+                - []
+              - - '13'
+                - action:
+                  - 3455
+                  - []
+                - []
+              - - '5'
+                - action:
+                  - 3461
+                  - []
+                - []
+              - - '10'
+                - action:
+                  - 3452
+                  - []
+                - []
+              - - '14'
+                - action:
+                  - 3456
+                  - []
+                - []
+              - - '2'
+                - action:
+                  - 3458
+                  - []
+                - []
+              - - '7'
+                - action:
+                  - 3463
+                  - []
+                - []
+              - - '3'
+                - action:
+                  - 3459
+                  - []
+                - []
+              - - '15'
+                - action:
+                  - 3457
+                  - []
+                - []
+              - - '11'
+                - action:
+                  - 3453
+                  - []
+                - []
+              - - '9'
+                - action:
+                  - 3465
+                  - []
+                - []
+              - - '6'
+                - action:
+                  - 3462
+                  - []
+                - []
+              - - '1'
+                - action:
+                  - 3451
+                  - []
+                - []
+              bitwidth: 64
+              sort: MINT.MInt 64
+              occurrence: &id002 ['0', '1']
+            function: hook_INT_limb
+            sort: MINT.MInt 64
+            occurrence: *id002
+          - []
+        bitwidth: 32
+        sort: MINT.MInt 32
+        occurrence: &id003 [size, '1']
+      function: hook_INT_size_int
+      sort: MINT.MInt 32
+      occurrence: *id003
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id004 [side_condition_3449]
+function: side_condition_3449
+sort: BOOL.Bool
+occurrence: *id004

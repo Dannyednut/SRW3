@@ -1,0 +1,29 @@
+=== SRW3 Phase 1F — Part 5: KEVM INSTRUMENTED-EXECUTION BINDING ===
+=== generated: 2026-10-06 17:06:12 UTC ===
+definition : k/kevm/srw3-exec-evm-demos.k (module SRW3-EXEC-EVM-DEMOS;
+             additive over the frozen srw3-auth-evm.k / srw3-lin-evm.k /
+             srw3-gen-binding.k / srw3-kevm.k chain)
+sha256(srw3-exec-evm.k)      = 988e3add1d368414395bc25100241c585265802ced6c78c19640ce06b96d8c97
+sha256(srw3-exec-evm-demos.k)= 65a6d96221816ad019ceba83564738e736161483b3ceee598b747364acc3d6d2
+krun flags : -cCHAINID=1 -cMODE=NORMAL -cSCHEDULE=CANCUN -cUSEGAS=false
+             (krun exit=1 = designed carrier terminal, the 1E precedent)
+
+--- evm_exec_commit (krun exit=1, 25s, carriers=1)
+    verdict(s): valid-f
+    EXPECTED MATCH: valid-f
+
+--- evm_exec_hidden (krun exit=1, 25s, carriers=1)
+    verdict(s): invalid-declared-exec
+    EXPECTED MATCH: invalid-declared-exec
+
+--- evm_exec_tamper (krun exit=1, 24s, carriers=1)
+    verdict(s): invalid-effdecl
+    EXPECTED MATCH: invalid-effdecl
+
+SUMMARY: PASS=3 FAIL=0
+carrier note: each #w3ExecState carries the record bound to the PRESENTED
+artifacts, the anchored state root over REAL storage, the EXECUTION-DERIVED
+trace, and the verdict; rejects show the same carrier shape with the
+failing verdict + full storage restore (commit/lineage atomicity).
+
+PART5_KEVM_DONE

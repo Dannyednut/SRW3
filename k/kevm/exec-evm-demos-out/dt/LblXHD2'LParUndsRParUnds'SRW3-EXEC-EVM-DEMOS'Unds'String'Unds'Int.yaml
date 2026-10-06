@@ -1,0 +1,108 @@
+args:
+- - &id001 ['1']
+  - INT.Int
+next:
+  default: fail
+  specializations:
+  - - '0'
+    - action:
+      - 14314
+      - []
+    - []
+  - - '1'
+    - args:
+      - - *id001
+        - INT.Int
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        default: fail
+        specializations:
+        - - '12'
+          - action:
+            - 14318
+            - []
+          - []
+        - - '8'
+          - action:
+            - 14328
+            - []
+          - []
+        - - '4'
+          - action:
+            - 14324
+            - []
+          - []
+        - - '13'
+          - action:
+            - 14319
+            - []
+          - []
+        - - '5'
+          - action:
+            - 14325
+            - []
+          - []
+        - - '10'
+          - action:
+            - 14316
+            - []
+          - []
+        - - '14'
+          - action:
+            - 14320
+            - []
+          - []
+        - - '2'
+          - action:
+            - 14322
+            - []
+          - []
+        - - '7'
+          - action:
+            - 14327
+            - []
+          - []
+        - - '3'
+          - action:
+            - 14323
+            - []
+          - []
+        - - '15'
+          - action:
+            - 14321
+            - []
+          - []
+        - - '11'
+          - action:
+            - 14317
+            - []
+          - []
+        - - '9'
+          - action:
+            - 14329
+            - []
+          - []
+        - - '6'
+          - action:
+            - 14326
+            - []
+          - []
+        - - '1'
+          - action:
+            - 14315
+            - []
+          - []
+        bitwidth: 64
+        sort: MINT.MInt 64
+        occurrence: &id002 ['0', '1']
+      function: hook_INT_limb
+      sort: MINT.MInt 64
+      occurrence: *id002
+    - []
+  bitwidth: 32
+  sort: MINT.MInt 32
+  occurrence: &id003 [size, '1']
+function: hook_INT_size_int
+sort: MINT.MInt 32
+occurrence: *id003

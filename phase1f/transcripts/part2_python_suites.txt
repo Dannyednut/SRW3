@@ -1,0 +1,51 @@
+=== SRW3 Phase 1F — Part 2: PYTHON PERMANENT SUITES ===
+=== generated: 2026-10-06 14:54:04 UTC ===
+sha256(exec_model.py)      = 12d77f62c80db4196997408bd44b95f1d44ff4271b32322b195076c2d3820e9e
+sha256(test_exec_verify.py)= c0ec739180684e48186172ad196763a69f2f6c2366f15c2c1a4b6b96d5e3fef3
+sha256(exec_mutations.py)  = b788560b61559d419b2012fee797985abc817f60bf8a533810116e4634d591d0
+
+--- [1] test_exec_verify.py (16 verdict cases + cross-layer bytes) ---
+[pos0] verdict=VALID-F expect=VALID-F PASS
+[pos1] verdict=VALID-F expect=VALID-F PASS
+[pos2] verdict=VALID-F expect=VALID-F PASS
+[f8a] verdict=VALID-F expect=VALID-F PASS
+[f8b] verdict=VALID-F expect=VALID-F PASS
+[f8diff] verdict=True expect=True PASS
+[neg1] verdict=L20-EFFDECL expect=L20-EFFDECL PASS
+[neg2] verdict=L19-EFFTRACE expect=L19-EFFTRACE PASS
+[neg3] verdict=L14-ANCHOR expect=L14-ANCHOR PASS
+[neg3x] verdict=VALID-F expect=VALID-F PASS
+[neg3xdiff] verdict=True expect=True PASS
+[neg4] verdict=L18-EXECID expect=L18-EXECID PASS
+[neg5] verdict=L17-EXECCONFIG expect=L17-EXECCONFIG PASS
+[neg6] verdict=L21-WITNESS expect=L21-WITNESS PASS
+[neg7] verdict=L16-EXECBOUNDS expect=L16-EXECBOUNDS PASS
+[neg8] verdict=L22-EFFBIND expect=L22-EFFBIND PASS
+
+--- cross-layer bytes (Python == K/llvm values from Part 4) ---
+[bytes:trace0] python=0300000001020000100100000000000000000000000000000064 k=0300000001020000100100000000000000000000000000000064 MATCH
+[bytes:execid0] python=c16e1bb5a8b54d3eb04482863d04498a2b17fef9f888009655ba586efea85366 k=c16e1bb5a8b54d3eb04482863d04498a2b17fef9f888009655ba586efea85366 MATCH
+[bytes:childf0] python=cc07b327ee7c659a7fd2f4bb12fcef206cd92397e36a50894091504171dfc6be k=cc07b327ee7c659a7fd2f4bb12fcef206cd92397e36a50894091504171dfc6be MATCH
+
+=== PHASE 1F PYTHON SUITE: 16/16 verdict cases PASS; 3/3 byte checks MATCH ===
+
+--- [2] exec_mutations.py (15 hostile mutations + 2 boundaries) ---
+[m01 traced byte-flip] first-fail=L19-EFFTRACE expect=L19-EFFTRACE OK
+[m02 execid byte-flip] first-fail=L18-EXECID expect=L18-EXECID OK
+[m03 witness version] first-fail=L21-WITNESS expect=L21-WITNESS OK
+[m04 witness parent stale] first-fail=L21-WITNESS expect=L21-WITNESS OK
+[m05 witness post root] first-fail=L21-WITNESS expect=L21-WITNESS OK
+[m06 witness declared foreign] first-fail=L21-WITNESS expect=L21-WITNESS OK
+[m07 declared enriched] first-fail=L6-EFFECTDIGEST expect=L6-EFFECTDIGEST OK
+[m08 trace drop last write] first-fail=L20-EFFDECL expect=L20-EFFDECL OK
+[m09 write value tampered] first-fail=L20-EFFDECL expect=L20-EFFDECL OK
+[m10 context payload swapped] first-fail=L18-EXECID expect=L18-EXECID OK
+[m11 caller replaced] first-fail=L18-EXECID expect=L18-EXECID OK
+[m12 context spec replaced] first-fail=L17-EXECCONFIG expect=L17-EXECCONFIG OK
+[m13 stale anchor] first-fail=L14-ANCHOR expect=L14-ANCHOR OK
+[b01 cross-slot order (BOUNDARY)] first-fail=VALID-F expect=VALID-F OK
+[b02 hidden write fully re-forged (L2 catch)] first-fail=L14-ANCHOR expect=L14-ANCHOR OK
+
+=== PHASE 1F MUTATIONS: 15/15 as expected (b01/b02 are documented boundaries) ===
+
+PART2_PYTHON_DONE

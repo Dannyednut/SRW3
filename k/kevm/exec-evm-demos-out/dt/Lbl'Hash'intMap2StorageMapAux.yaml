@@ -1,0 +1,128 @@
+args:
+- - &id001 ['3']
+  - LIST.List
+next:
+  default: &id008
+    args:
+    - - *id001
+      - LIST.List
+    - - [lit, '0', MINT.MInt 64]
+      - MINT.MInt 64
+    next:
+      args:
+      - - *id001
+        - LIST.List
+      - - [lit, '1', MINT.MInt 64]
+        - MINT.MInt 64
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        args:
+        - - &id002 ['2']
+          - MAP.Map
+        - - &id003 ['0', '3']
+          - STRING.String
+        next:
+          default: null
+          specializations:
+          - - '1'
+            - action:
+              - 13158
+              - - - *id002
+                  - MAP.Map
+                - - *id003
+                  - STRING.String
+                - - ['1', '3']
+                  - LIST.List
+                - - &id005 ['1']
+                  - MAP.Map
+            - []
+          - - '0'
+            - default: fail
+              specializations:
+              - - inj{SortInt{}, SortKItem{}}
+                - args:
+                  - - *id001
+                    - LIST.List
+                  - - [lit, '1', MINT.MInt 64]
+                    - MINT.MInt 64
+                  - - [lit, '0', MINT.MInt 64]
+                    - MINT.MInt 64
+                  next:
+                    args:
+                    - - *id002
+                      - MAP.Map
+                    - - &id004 ['0', '0', '3']
+                      - INT.Int
+                    next:
+                      default: null
+                      specializations:
+                      - - '1'
+                        - action:
+                          - 13159
+                          - - - *id002
+                              - MAP.Map
+                            - - *id004
+                              - INT.Int
+                            - - ['1', '3']
+                              - LIST.List
+                            - - *id005
+                              - MAP.Map
+                        - []
+                      - - '0'
+                        - fail
+                        - []
+                      bitwidth: 1
+                      sort: BOOL.Bool
+                      occurrence: &id006 [side_condition_13159]
+                    function: side_condition_13159
+                    sort: BOOL.Bool
+                    occurrence: *id006
+                  function: hook_LIST_range_long
+                  sort: LIST.List
+                  occurrence: ['1', '3']
+                - [INT.Int]
+              sort: STRING.String
+              occurrence: *id003
+            - []
+          bitwidth: 1
+          sort: BOOL.Bool
+          occurrence: &id007 [side_condition_13158]
+        function: side_condition_13158
+        sort: BOOL.Bool
+        occurrence: *id007
+      function: hook_LIST_range_long
+      sort: LIST.List
+      occurrence: ['1', '3']
+    function: hook_LIST_get_long
+    sort: STRING.String
+    occurrence: ['0', '3']
+  specializations:
+  - - '0'
+    - args:
+      - - *id001
+        - LIST.List
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        action:
+        - 13160
+        - - - *id002
+            - MAP.Map
+          - - *id005
+            - MAP.Map
+      function: hook_LIST_range_long
+      sort: LIST.List
+      occurrence: ['0', '3']
+    - []
+  - - '1'
+    - *id008
+    - [STRING.String]
+  bitwidth: 64
+  sort: MINT.MInt 64
+  occurrence: &id009 [size, '3']
+function: hook_LIST_size_long
+sort: MINT.MInt 64
+occurrence: *id009

@@ -1,0 +1,35 @@
+=== SRW3 Phase 1F — Part 4: K DEMO SUITE (LLVM, real krypto) ===
+=== generated: 2026-10-06 14:49:04 UTC ===
+definition: phase1f/semantics/srw3exec-demo.k (module SRW3EXEC-DEMO)
+sha256(srw3exec-demo.k) = bc98aaa8f7bbcc7061fc876d293a4fcd743cf5f67a67645d5ad26345ec610166
+sha256(srw3exec.k)      = 82b26e2f0216f6236b3d4b26b74d97ff7fd9bd866858becb9ea4461b7ada2a0f
+backend: llvm (real keccak256 + secp256k1 via the pinned krypto shim)
+memory note: the concatenated suite exceeds the 3 GB sandbox when held in
+one term; programs below partition the SAME cases (no case is skipped).
+
+--- xpos0 (krun exit=0, 3s)
+    got: valid-f
+    EXPECTED MATCH: valid-f
+
+--- xchain (krun exit=0, 3s)
+    got: pos1=valid-f;pos2=valid-f
+    EXPECTED MATCH: pos1=valid-f;pos2=valid-f
+
+--- xf8 (krun exit=0, 4s)
+    got: f8a=valid-f;f8b=valid-f;f8diff=true
+    EXPECTED MATCH: f8a=valid-f;f8b=valid-f;f8diff=true
+
+--- xnegs (krun exit=0, 5s)
+    got: neg1=invalid-effdecl;neg2=invalid-efftrace;neg3=invalid-anchor;neg4=invalid-execid;neg5=invalid-execconfig;neg6=invalid-witness;neg7=invalid-execbounds
+    EXPECTED MATCH: neg1=invalid-effdecl;neg2=invalid-efftrace;neg3=invalid-anchor;neg4=invalid-execid;neg5=invalid-execconfig;neg6=invalid-witness;neg7=invalid-execbounds
+
+--- xnegs2 (krun exit=0, 5s)
+    got: neg3x=valid-f;neg3xdiff=true;neg8=invalid-effbind
+    EXPECTED MATCH: neg3x=valid-f;neg3xdiff=true;neg8=invalid-effbind
+
+--- xbytes (cross-layer byte certificate source) ---
+trace0=0300000001020000100100000000000000000000000000000064,execid0=c16e1bb5a8b54d3eb04482863d04498a2b17fef9f888009655ba586efea85366,childf0=cc07b327ee7c659a7fd2f4bb12fcef206cd92397e36a50894091504171dfc6be
+trace0=0300000001020000100100000000000000000000000000000064,execid0=c16e1bb5a8b54d3eb04482863d04498a2b17fef9f888009655ba586efea85366,childf0=cc07b327ee7c659a7fd2f4bb12fcef206cd92397e36a50894091504171dfc6be
+
+SUMMARY: PASS=5 FAIL=0 (bytes program checked in Part 6)
+PART4_K_DEMO_DONE

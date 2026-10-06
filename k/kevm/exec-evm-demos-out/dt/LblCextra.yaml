@@ -1,0 +1,91 @@
+args:
+- - &id001 ['1']
+  - STRING.String
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 14019
+      - - - &id002 ['5']
+          - BOOL.Bool
+        - - &id004 ['2']
+          - BOOL.Bool
+        - - &id005 ['4']
+          - BOOL.Bool
+        - - &id003 ['6']
+          - BOOL.Bool
+        - - *id001
+          - STRING.String
+        - - &id006 ['3']
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - STRING.String
+      next:
+        default: null
+        specializations:
+        - - '1'
+          - action:
+            - 14020
+            - - - *id002
+                - BOOL.Bool
+              - - *id003
+                - BOOL.Bool
+              - - *id004
+                - BOOL.Bool
+              - - *id005
+                - BOOL.Bool
+              - - *id001
+                - STRING.String
+              - - *id006
+                - INT.Int
+          - []
+        - - '0'
+          - args:
+            - - *id001
+              - STRING.String
+            next:
+              default: null
+              specializations:
+              - - '1'
+                - action:
+                  - 14021
+                  - - - *id002
+                      - BOOL.Bool
+                    - - *id005
+                      - BOOL.Bool
+                    - - *id003
+                      - BOOL.Bool
+                    - - *id004
+                      - BOOL.Bool
+                    - - *id001
+                      - STRING.String
+                    - - *id006
+                      - INT.Int
+                - []
+              - - '0'
+                - fail
+                - []
+              bitwidth: 1
+              sort: BOOL.Bool
+              occurrence: &id007 [side_condition_14021]
+            function: side_condition_14021
+            sort: BOOL.Bool
+            occurrence: *id007
+          - []
+        bitwidth: 1
+        sort: BOOL.Bool
+        occurrence: &id008 [side_condition_14020]
+      function: side_condition_14020
+      sort: BOOL.Bool
+      occurrence: *id008
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id009 [side_condition_14019]
+function: side_condition_14019
+sort: BOOL.Bool
+occurrence: *id009

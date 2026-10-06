@@ -1,0 +1,241 @@
+default: null
+specializations:
+- - Lbl'Stop'MerkleTree'Unds'SERIALIZATION'Unds'MerkleTree{}
+  - action:
+    - 14228
+    - - - &id001 ['2']
+        - BYTES.Bytes
+      - - &id002 ['3']
+        - STRING.String
+  - []
+- - LblMerkleBranch{}
+  - args:
+    - - *id001
+      - BYTES.Bytes
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14229
+          - - - &id003 ['1', '1']
+              - STRING.String
+            - - &id004 ['0', '1']
+              - MAP.Map
+            - - *id001
+              - BYTES.Bytes
+            - - *id002
+              - STRING.String
+        - []
+      - - '0'
+        - args:
+          - - *id001
+            - BYTES.Bytes
+          next:
+            default: null
+            specializations:
+            - - '1'
+              - action:
+                - 14230
+                - - - *id003
+                    - STRING.String
+                  - - *id004
+                    - MAP.Map
+                  - - *id001
+                    - BYTES.Bytes
+                  - - *id002
+                    - STRING.String
+              - []
+            - - '0'
+              - fail
+              - []
+            bitwidth: 1
+            sort: BOOL.Bool
+            occurrence: &id005 [side_condition_14230]
+          function: side_condition_14230
+          sort: BOOL.Bool
+          occurrence: *id005
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id006 [side_condition_14229]
+    function: side_condition_14229
+    sort: BOOL.Bool
+    occurrence: *id006
+  - [MAP.Map, STRING.String]
+- - LblMerkleExtension{}
+  - args:
+    - - &id007 ['0', '1']
+      - BYTES.Bytes
+    - - *id001
+      - BYTES.Bytes
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14231
+          - - - *id007
+              - BYTES.Bytes
+            - - &id008 ['1', '1']
+              - STRING.String
+            - - *id001
+              - BYTES.Bytes
+            - - *id002
+              - STRING.String
+        - []
+      - - '0'
+        - args:
+          - - *id007
+            - BYTES.Bytes
+          - - *id001
+            - BYTES.Bytes
+          next:
+            default: null
+            specializations:
+            - - '1'
+              - action:
+                - 14232
+                - - - *id007
+                    - BYTES.Bytes
+                  - - *id008
+                    - STRING.String
+                  - - *id001
+                    - BYTES.Bytes
+                  - - *id002
+                    - STRING.String
+              - []
+            - - '0'
+              - args:
+                - - *id007
+                  - BYTES.Bytes
+                - - *id001
+                  - BYTES.Bytes
+                next:
+                  default: null
+                  specializations:
+                  - - '1'
+                    - action:
+                      - 14233
+                      - - - *id007
+                          - BYTES.Bytes
+                        - - *id008
+                          - STRING.String
+                        - - *id001
+                          - BYTES.Bytes
+                        - - *id002
+                          - STRING.String
+                    - []
+                  - - '0'
+                    - fail
+                    - []
+                  bitwidth: 1
+                  sort: BOOL.Bool
+                  occurrence: &id009 [side_condition_14233]
+                function: side_condition_14233
+                sort: BOOL.Bool
+                occurrence: *id009
+              - []
+            bitwidth: 1
+            sort: BOOL.Bool
+            occurrence: &id010 [side_condition_14232]
+          function: side_condition_14232
+          sort: BOOL.Bool
+          occurrence: *id010
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id011 [side_condition_14231]
+    function: side_condition_14231
+    sort: BOOL.Bool
+    occurrence: *id011
+  - [BYTES.Bytes, STRING.String]
+- - LblMerkleLeaf{}
+  - args:
+    - - &id012 ['0', '1']
+      - BYTES.Bytes
+    - - *id001
+      - BYTES.Bytes
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14234
+          - - - *id012
+              - BYTES.Bytes
+            - - &id013 ['1', '1']
+              - STRING.String
+            - - *id001
+              - BYTES.Bytes
+            - - *id002
+              - STRING.String
+        - []
+      - - '0'
+        - args:
+          - - *id012
+            - BYTES.Bytes
+          - - *id001
+            - BYTES.Bytes
+          next:
+            default: null
+            specializations:
+            - - '1'
+              - action:
+                - 14235
+                - - - *id012
+                    - BYTES.Bytes
+                  - - *id013
+                    - STRING.String
+                  - - *id001
+                    - BYTES.Bytes
+                  - - *id002
+                    - STRING.String
+              - []
+            - - '0'
+              - args:
+                - - *id012
+                  - BYTES.Bytes
+                - - *id001
+                  - BYTES.Bytes
+                next:
+                  default: null
+                  specializations:
+                  - - '1'
+                    - action:
+                      - 14236
+                      - - - *id013
+                          - STRING.String
+                        - - *id012
+                          - BYTES.Bytes
+                        - - *id001
+                          - BYTES.Bytes
+                        - - *id002
+                          - STRING.String
+                    - []
+                  - - '0'
+                    - fail
+                    - []
+                  bitwidth: 1
+                  sort: BOOL.Bool
+                  occurrence: &id014 [side_condition_14236]
+                function: side_condition_14236
+                sort: BOOL.Bool
+                occurrence: *id014
+              - []
+            bitwidth: 1
+            sort: BOOL.Bool
+            occurrence: &id015 [side_condition_14235]
+          function: side_condition_14235
+          sort: BOOL.Bool
+          occurrence: *id015
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id016 [side_condition_14234]
+    function: side_condition_14234
+    sort: BOOL.Bool
+    occurrence: *id016
+  - [BYTES.Bytes, STRING.String]
+sort: STRING.String
+occurrence: ['1']

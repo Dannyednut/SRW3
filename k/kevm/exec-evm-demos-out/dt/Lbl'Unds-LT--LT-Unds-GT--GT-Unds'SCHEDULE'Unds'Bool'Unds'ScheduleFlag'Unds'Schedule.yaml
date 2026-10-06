@@ -1,0 +1,710 @@
+default: null
+specializations:
+- - LblBERLIN'Unds'EVM{}
+  - args:
+    - - &id001 ['1']
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14358
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasaccesslist'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14375
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id002 [side_condition_14358]
+    function: side_condition_14358
+    sort: BOOL.Bool
+    occurrence: *id002
+  - []
+- - LblBYZANTIUM'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14359
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasreturndata'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14419
+              - []
+            - []
+          - - LblGhasrevert'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14421
+              - []
+            - []
+          - - LblGhasstaticcall'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14429
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id003 [side_condition_14359]
+    function: side_condition_14359
+    sort: BOOL.Bool
+    occurrence: *id003
+  - []
+- - LblCANCUN'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14360
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasbeaconroot'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14381
+              - []
+            - []
+          - - LblGhasblobbasefee'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14383
+              - []
+            - []
+          - - LblGhasblobhash'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14385
+              - []
+            - []
+          - - LblGhaseip6780'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14399
+              - []
+            - []
+          - - LblGhasmcopy'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14409
+              - []
+            - []
+          - - LblGhastransient'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14431
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id004 [side_condition_14360]
+    function: side_condition_14360
+    sort: BOOL.Bool
+    occurrence: *id004
+  - []
+- - LblCONSTANTINOPLE'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14361
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhascreate2'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14393
+              - []
+            - []
+          - - LblGhasdirtysstore'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14395
+              - []
+            - []
+          - - LblGhasextcodehash'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14401
+              - []
+            - []
+          - - LblGhasshift'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14425
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id005 [side_condition_14361]
+    function: side_condition_14361
+    sort: BOOL.Bool
+    occurrence: *id005
+  - []
+- - LblFRONTIER'Unds'EVM{}
+  - action:
+    - 14362
+    - - - *id001
+        - STRING.String
+  - []
+- - LblHOMESTEAD'Unds'EVM{}
+  - action:
+    - 14363
+    - - - *id001
+        - STRING.String
+  - []
+- - LblISTANBUL'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14364
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhaschainid'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14390
+              - []
+            - []
+          - - LblGhasdirtysstore'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14397
+              - []
+            - []
+          - - LblGhasselfbalance'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14424
+              - []
+            - []
+          - - LblGhassstorestipend'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14428
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id006 [side_condition_14364]
+    function: side_condition_14364
+    sort: BOOL.Bool
+    occurrence: *id006
+  - []
+- - LblLONDON'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14365
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasbasefee'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14380
+              - []
+            - []
+          - - LblGhasrejectedfirstbyte'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14416
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id007 [side_condition_14365]
+    function: side_condition_14365
+    sort: BOOL.Bool
+    occurrence: *id007
+  - []
+- - LblMERGE'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14366
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasprevrandao'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14412
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id008 [side_condition_14366]
+    function: side_condition_14366
+    sort: BOOL.Bool
+    occurrence: *id008
+  - []
+- - LblOSAKA'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14367
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasclz'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14392
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id009 [side_condition_14367]
+    function: side_condition_14367
+    sort: BOOL.Bool
+    occurrence: *id009
+  - []
+- - LblPETERSBURG'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14368
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasdirtysstore'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14398
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id010 [side_condition_14368]
+    function: side_condition_14368
+    sort: BOOL.Bool
+    occurrence: *id010
+  - []
+- - LblPRAGUE'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14369
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasauthority'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14378
+              - []
+            - []
+          - - LblGhasbls12msmdiscount'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14388
+              - []
+            - []
+          - - LblGhasfloorcost'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14404
+              - []
+            - []
+          - - LblGhashistory'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14406
+              - []
+            - []
+          - - LblGhasrequests'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14418
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id011 [side_condition_14369]
+    function: side_condition_14369
+    sort: BOOL.Bool
+    occurrence: *id011
+  - []
+- - LblSHANGHAI'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14370
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGhasmaxinitcodesize'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14408
+              - []
+            - []
+          - - LblGhaspushzero'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14414
+              - []
+            - []
+          - - LblGhaswarmcoinbase'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14434
+              - []
+            - []
+          - - LblGhaswithdrawals'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14436
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id012 [side_condition_14370]
+    function: side_condition_14370
+    sort: BOOL.Bool
+    occurrence: *id012
+  - []
+- - LblSPURIOUS'Unds'DRAGON'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14371
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGemptyisnonexistent'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14374
+              - []
+            - []
+          - - LblGzerovaluenewaccountgas'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14442
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id013 [side_condition_14371]
+    function: side_condition_14371
+    sort: BOOL.Bool
+    occurrence: *id013
+  - []
+- - LblTANGERINE'Unds'WHISTLE'Unds'EVM{}
+  - args:
+    - - *id001
+      - STRING.String
+    next:
+      default: null
+      specializations:
+      - - '1'
+        - action:
+          - 14372
+          - - - *id001
+              - STRING.String
+        - []
+      - - '0'
+        - default: fail
+          specializations:
+          - - LblGselfdestructnewaccount'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14438
+              - []
+            - []
+          - - LblGstaticcalldepth'Unds'SCHEDULE'Unds'ScheduleFlag{}
+            - action:
+              - 14440
+              - []
+            - []
+          sort: STRING.String
+          occurrence: *id001
+        - []
+      bitwidth: 1
+      sort: BOOL.Bool
+      occurrence: &id014 [side_condition_14372]
+    function: side_condition_14372
+    sort: BOOL.Bool
+    occurrence: *id014
+  - []
+- - LblDEFAULT'Unds'EVM{}
+  - default: null
+    specializations:
+    - - LblGemptyisnonexistent'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14373
+        - []
+      - []
+    - - LblGhasaccesslist'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14376
+        - []
+      - []
+    - - LblGhasauthority'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14377
+        - []
+      - []
+    - - LblGhasbasefee'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14379
+        - []
+      - []
+    - - LblGhasbeaconroot'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14382
+        - []
+      - []
+    - - LblGhasblobbasefee'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14384
+        - []
+      - []
+    - - LblGhasblobhash'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14386
+        - []
+      - []
+    - - LblGhasbls12msmdiscount'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14387
+        - []
+      - []
+    - - LblGhaschainid'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14389
+        - []
+      - []
+    - - LblGhasclz'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14391
+        - []
+      - []
+    - - LblGhascreate2'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14394
+        - []
+      - []
+    - - LblGhasdirtysstore'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14396
+        - []
+      - []
+    - - LblGhaseip6780'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14400
+        - []
+      - []
+    - - LblGhasextcodehash'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14402
+        - []
+      - []
+    - - LblGhasfloorcost'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14403
+        - []
+      - []
+    - - LblGhashistory'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14405
+        - []
+      - []
+    - - LblGhasmaxinitcodesize'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14407
+        - []
+      - []
+    - - LblGhasmcopy'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14410
+        - []
+      - []
+    - - LblGhasprevrandao'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14411
+        - []
+      - []
+    - - LblGhaspushzero'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14413
+        - []
+      - []
+    - - LblGhasrejectedfirstbyte'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14415
+        - []
+      - []
+    - - LblGhasrequests'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14417
+        - []
+      - []
+    - - LblGhasreturndata'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14420
+        - []
+      - []
+    - - LblGhasrevert'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14422
+        - []
+      - []
+    - - LblGhasselfbalance'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14423
+        - []
+      - []
+    - - LblGhasshift'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14426
+        - []
+      - []
+    - - LblGhassstorestipend'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14427
+        - []
+      - []
+    - - LblGhasstaticcall'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14430
+        - []
+      - []
+    - - LblGhastransient'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14432
+        - []
+      - []
+    - - LblGhaswarmcoinbase'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14433
+        - []
+      - []
+    - - LblGhaswithdrawals'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14435
+        - []
+      - []
+    - - LblGselfdestructnewaccount'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14437
+        - []
+      - []
+    - - LblGstaticcalldepth'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14439
+        - []
+      - []
+    - - LblGzerovaluenewaccountgas'Unds'SCHEDULE'Unds'ScheduleFlag{}
+      - action:
+        - 14441
+        - []
+      - []
+    sort: STRING.String
+    occurrence: *id001
+  - []
+sort: STRING.String
+occurrence: ['2']

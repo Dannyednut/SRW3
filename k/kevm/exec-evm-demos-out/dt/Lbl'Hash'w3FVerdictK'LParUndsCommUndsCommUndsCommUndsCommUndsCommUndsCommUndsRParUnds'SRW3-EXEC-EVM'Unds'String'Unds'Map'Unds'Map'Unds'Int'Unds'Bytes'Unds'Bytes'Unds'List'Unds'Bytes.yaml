@@ -1,0 +1,517 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'kevm'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'ethereum'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'network'-GT-'{}
+              - default: null
+                specializations:
+                - - Lbl'-LT-'accounts'-GT-'{}
+                  - next:
+                      next:
+                        default: null
+                        specializations:
+                        - - '0'
+                          - fail
+                          - [MAP.Map]
+                        - - '1'
+                          - args:
+                            - - &id001 ['0', '1', '1', '5', '0', '8']
+                              - MAP.Map
+                            - - [key, '0', '1', '1', '5', '0', '8']
+                              - STRING.String
+                            next:
+                              args:
+                              - - *id001
+                                - MAP.Map
+                              - - [key, '0', '1', '1', '5', '0', '8']
+                                - STRING.String
+                              next:
+                                default: null
+                                specializations:
+                                - - Lbl'-LT-'acctID'-GT-'{}
+                                  - default: null
+                                    specializations:
+                                    - - Lbl'-LT-'account'-GT-'{}
+                                      - default: null
+                                        specializations:
+                                        - - Lbl'-LT-'storage'-GT-'{}
+                                          - default: null
+                                            specializations:
+                                            - - Lbl'-LT-'acctID'-GT-'{}
+                                              - args:
+                                                - - &id002 ['0', key, '0', '1', '1',
+                                                    '5', '0', '8']
+                                                  - INT.Int
+                                                - - &id012 ['0', '0', val, '0', '1',
+                                                    '1', '5', '0', '8']
+                                                  - INT.Int
+                                                next:
+                                                  default: null
+                                                  specializations:
+                                                  - - '1'
+                                                    - args:
+                                                      - - &id003 ['8']
+                                                        - STRING.String
+                                                      - - &id004 ['7']
+                                                        - BYTES.Bytes
+                                                      - - &id005 ['2']
+                                                        - MAP.Map
+                                                      - - &id006 ['4']
+                                                        - BYTES.Bytes
+                                                      - - &id007 ['3']
+                                                        - INT.Int
+                                                      - - &id008 ['5']
+                                                        - BYTES.Bytes
+                                                      - - &id009 ['6']
+                                                        - LIST.List
+                                                      - - &id010 ['1']
+                                                        - MAP.Map
+                                                      - - &id011 ['0', '3', val, '0',
+                                                          '1', '1', '5', '0', '8']
+                                                        - MAP.Map
+                                                      - - *id002
+                                                        - INT.Int
+                                                      next:
+                                                        default: null
+                                                        specializations:
+                                                        - - '1'
+                                                          - action:
+                                                            - 13421
+                                                            - - - *id003
+                                                                - STRING.String
+                                                              - - &id013 ['1', '8']
+                                                                - STRING.String
+                                                              - - &id014 ['0', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id015 [rem, '0',
+                                                                  '1', '1', '5', '0',
+                                                                  '8']
+                                                                - MAP.Map
+                                                              - - &id016 ['1', val,
+                                                                  '0', '1', '1', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id017 ['2', val,
+                                                                  '0', '1', '1', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id018 ['6', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id019 ['7', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id020 ['8', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id021 ['0', '0',
+                                                                  '8']
+                                                                - STRING.String
+                                                              - - &id022 ['1', '0',
+                                                                  '8']
+                                                                - STRING.String
+                                                              - - &id023 ['2', '0',
+                                                                  '8']
+                                                                - STRING.String
+                                                              - - &id024 ['3', '0',
+                                                                  '8']
+                                                                - STRING.String
+                                                              - - &id025 ['4', '0',
+                                                                  '8']
+                                                                - STRING.String
+                                                              - - &id026 ['4', val,
+                                                                  '0', '1', '1', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id027 ['5', val,
+                                                                  '0', '1', '1', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id028 ['6', val,
+                                                                  '0', '1', '1', '5',
+                                                                  '0', '8']
+                                                                - STRING.String
+                                                              - - &id029 ['0', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id030 ['2', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id031 ['3', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id032 ['4', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - &id033 ['5', '1',
+                                                                  '5', '0', '8']
+                                                                - STRING.String
+                                                              - - *id004
+                                                                - BYTES.Bytes
+                                                              - - *id005
+                                                                - MAP.Map
+                                                              - - *id006
+                                                                - BYTES.Bytes
+                                                              - - *id007
+                                                                - INT.Int
+                                                              - - *id008
+                                                                - BYTES.Bytes
+                                                              - - *id009
+                                                                - LIST.List
+                                                              - - *id010
+                                                                - MAP.Map
+                                                              - - *id011
+                                                                - MAP.Map
+                                                              - - *id002
+                                                                - INT.Int
+                                                          - []
+                                                        - - '0'
+                                                          - &id038
+                                                            args:
+                                                            - - *id002
+                                                              - INT.Int
+                                                            - - *id012
+                                                              - INT.Int
+                                                            next:
+                                                              default: null
+                                                              specializations:
+                                                              - - '1'
+                                                                - args:
+                                                                  - - *id003
+                                                                    - STRING.String
+                                                                  - - *id004
+                                                                    - BYTES.Bytes
+                                                                  - - *id005
+                                                                    - MAP.Map
+                                                                  - - *id006
+                                                                    - BYTES.Bytes
+                                                                  - - *id007
+                                                                    - INT.Int
+                                                                  - - *id008
+                                                                    - BYTES.Bytes
+                                                                  - - *id009
+                                                                    - LIST.List
+                                                                  - - *id010
+                                                                    - MAP.Map
+                                                                  - - *id011
+                                                                    - MAP.Map
+                                                                  - - *id002
+                                                                    - INT.Int
+                                                                  next:
+                                                                    default: null
+                                                                    specializations:
+                                                                    - - '1'
+                                                                      - action:
+                                                                        - 13422
+                                                                        - - - *id003
+                                                                            - STRING.String
+                                                                          - - *id013
+                                                                            - STRING.String
+                                                                          - - *id014
+                                                                            - STRING.String
+                                                                          - - *id015
+                                                                            - MAP.Map
+                                                                          - - *id016
+                                                                            - STRING.String
+                                                                          - - *id017
+                                                                            - STRING.String
+                                                                          - - *id018
+                                                                            - STRING.String
+                                                                          - - *id019
+                                                                            - STRING.String
+                                                                          - - *id020
+                                                                            - STRING.String
+                                                                          - - *id021
+                                                                            - STRING.String
+                                                                          - - *id022
+                                                                            - STRING.String
+                                                                          - - *id023
+                                                                            - STRING.String
+                                                                          - - *id024
+                                                                            - STRING.String
+                                                                          - - *id025
+                                                                            - STRING.String
+                                                                          - - *id026
+                                                                            - STRING.String
+                                                                          - - *id027
+                                                                            - STRING.String
+                                                                          - - *id028
+                                                                            - STRING.String
+                                                                          - - *id029
+                                                                            - STRING.String
+                                                                          - - *id030
+                                                                            - STRING.String
+                                                                          - - *id031
+                                                                            - STRING.String
+                                                                          - - *id032
+                                                                            - STRING.String
+                                                                          - - *id033
+                                                                            - STRING.String
+                                                                          - - *id004
+                                                                            - BYTES.Bytes
+                                                                          - - *id005
+                                                                            - MAP.Map
+                                                                          - - *id006
+                                                                            - BYTES.Bytes
+                                                                          - - *id007
+                                                                            - INT.Int
+                                                                          - - *id008
+                                                                            - BYTES.Bytes
+                                                                          - - *id009
+                                                                            - LIST.List
+                                                                          - - *id010
+                                                                            - MAP.Map
+                                                                          - - *id011
+                                                                            - MAP.Map
+                                                                          - - *id002
+                                                                            - INT.Int
+                                                                      - []
+                                                                    - - '0'
+                                                                      - &id036
+                                                                        args:
+                                                                        - - *id002
+                                                                          - INT.Int
+                                                                        - - *id012
+                                                                          - INT.Int
+                                                                        next:
+                                                                          default: null
+                                                                          specializations:
+                                                                          - - '1'
+                                                                            - args:
+                                                                              - - *id003
+                                                                                - STRING.String
+                                                                              - - *id004
+                                                                                - BYTES.Bytes
+                                                                              - - *id005
+                                                                                - MAP.Map
+                                                                              - - *id006
+                                                                                - BYTES.Bytes
+                                                                              - - *id007
+                                                                                - INT.Int
+                                                                              - - *id008
+                                                                                - BYTES.Bytes
+                                                                              - - *id009
+                                                                                - LIST.List
+                                                                              - - *id010
+                                                                                - MAP.Map
+                                                                              - - *id011
+                                                                                - MAP.Map
+                                                                              - - *id002
+                                                                                - INT.Int
+                                                                              next:
+                                                                                default: null
+                                                                                specializations:
+                                                                                - - '1'
+                                                                                  - action:
+                                                                                    - 13423
+                                                                                    - - - *id003
+                                                                                        - STRING.String
+                                                                                      - - *id013
+                                                                                        - STRING.String
+                                                                                      - - *id014
+                                                                                        - STRING.String
+                                                                                      - - *id015
+                                                                                        - MAP.Map
+                                                                                      - - *id016
+                                                                                        - STRING.String
+                                                                                      - - *id017
+                                                                                        - STRING.String
+                                                                                      - - *id018
+                                                                                        - STRING.String
+                                                                                      - - *id019
+                                                                                        - STRING.String
+                                                                                      - - *id020
+                                                                                        - STRING.String
+                                                                                      - - *id021
+                                                                                        - STRING.String
+                                                                                      - - *id022
+                                                                                        - STRING.String
+                                                                                      - - *id023
+                                                                                        - STRING.String
+                                                                                      - - *id024
+                                                                                        - STRING.String
+                                                                                      - - *id025
+                                                                                        - STRING.String
+                                                                                      - - *id026
+                                                                                        - STRING.String
+                                                                                      - - *id027
+                                                                                        - STRING.String
+                                                                                      - - *id028
+                                                                                        - STRING.String
+                                                                                      - - *id029
+                                                                                        - STRING.String
+                                                                                      - - *id030
+                                                                                        - STRING.String
+                                                                                      - - *id031
+                                                                                        - STRING.String
+                                                                                      - - *id032
+                                                                                        - STRING.String
+                                                                                      - - *id033
+                                                                                        - STRING.String
+                                                                                      - - *id004
+                                                                                        - BYTES.Bytes
+                                                                                      - - *id005
+                                                                                        - MAP.Map
+                                                                                      - - *id006
+                                                                                        - BYTES.Bytes
+                                                                                      - - *id007
+                                                                                        - INT.Int
+                                                                                      - - *id008
+                                                                                        - BYTES.Bytes
+                                                                                      - - *id009
+                                                                                        - LIST.List
+                                                                                      - - *id010
+                                                                                        - MAP.Map
+                                                                                      - - *id011
+                                                                                        - MAP.Map
+                                                                                      - - *id002
+                                                                                        - INT.Int
+                                                                                  - []
+                                                                                - - '0'
+                                                                                  - fail
+                                                                                  - []
+                                                                                bitwidth: 1
+                                                                                sort: BOOL.Bool
+                                                                                occurrence: &id034 [
+                                                                                  side_condition_13423]
+                                                                              function: side_condition_13423
+                                                                              sort: BOOL.Bool
+                                                                              occurrence: *id034
+                                                                            - []
+                                                                          - - '0'
+                                                                            - fail
+                                                                            - []
+                                                                          bitwidth: 1
+                                                                          sort: BOOL.Bool
+                                                                          occurrence: [
+                                                                            eq, '0',
+                                                                            key, '0',
+                                                                            '1', '1',
+                                                                            '5', '0',
+                                                                            '8', and,
+                                                                            '0', '0',
+                                                                            val, '0',
+                                                                            '1', '1',
+                                                                            '5', '0',
+                                                                            '8']
+                                                                        function: hook_INT_eq
+                                                                        sort: BOOL.Bool
+                                                                        occurrence: [
+                                                                          eq, '0',
+                                                                          key, '0',
+                                                                          '1', '1',
+                                                                          '5', '0',
+                                                                          '8', and,
+                                                                          '0', '0',
+                                                                          val, '0',
+                                                                          '1', '1',
+                                                                          '5', '0',
+                                                                          '8']
+                                                                      - []
+                                                                    bitwidth: 1
+                                                                    sort: BOOL.Bool
+                                                                    occurrence: &id035 [
+                                                                      side_condition_13422]
+                                                                  function: side_condition_13422
+                                                                  sort: BOOL.Bool
+                                                                  occurrence: *id035
+                                                                - []
+                                                              - - '0'
+                                                                - *id036
+                                                                - []
+                                                              bitwidth: 1
+                                                              sort: BOOL.Bool
+                                                              occurrence: [eq, '0',
+                                                                key, '0', '1', '1',
+                                                                '5', '0', '8', and,
+                                                                '0', '0', val, '0',
+                                                                '1', '1', '5', '0',
+                                                                '8']
+                                                            function: hook_INT_eq
+                                                            sort: BOOL.Bool
+                                                            occurrence: [eq, '0',
+                                                              key, '0', '1', '1',
+                                                              '5', '0', '8', and,
+                                                              '0', '0', val, '0',
+                                                              '1', '1', '5', '0',
+                                                              '8']
+                                                          - []
+                                                        bitwidth: 1
+                                                        sort: BOOL.Bool
+                                                        occurrence: &id037 [side_condition_13421]
+                                                      function: side_condition_13421
+                                                      sort: BOOL.Bool
+                                                      occurrence: *id037
+                                                    - []
+                                                  - - '0'
+                                                    - *id038
+                                                    - []
+                                                  bitwidth: 1
+                                                  sort: BOOL.Bool
+                                                  occurrence: [eq, '0', key, '0',
+                                                    '1', '1', '5', '0', '8', and,
+                                                    '0', '0', val, '0', '1', '1',
+                                                    '5', '0', '8']
+                                                function: hook_INT_eq
+                                                sort: BOOL.Bool
+                                                occurrence: [eq, '0', key, '0', '1',
+                                                  '1', '5', '0', '8', and, '0', '0',
+                                                  val, '0', '1', '1', '5', '0', '8']
+                                              - [INT.Int]
+                                            sort: STRING.String
+                                            occurrence: ['0', val, '0', '1', '1',
+                                              '5', '0', '8']
+                                          - [MAP.Map]
+                                        sort: STRING.String
+                                        occurrence: ['3', val, '0', '1', '1', '5',
+                                          '0', '8']
+                                      - [STRING.String, STRING.String, STRING.String,
+                                        STRING.String, STRING.String, STRING.String,
+                                        STRING.String]
+                                    sort: STRING.String
+                                    occurrence: [val, '0', '1', '1', '5', '0', '8']
+                                  - [INT.Int]
+                                sort: STRING.String
+                                occurrence: [key, '0', '1', '1', '5', '0', '8']
+                              function: hook_MAP_remove
+                              sort: MAP.Map
+                              occurrence: [rem, '0', '1', '1', '5', '0', '8']
+                            function: hook_MAP_lookup
+                            sort: STRING.String
+                            occurrence: [val, '0', '1', '1', '5', '0', '8']
+                          - [STRING.String, STRING.String, MAP.Map]
+                        isnull: true
+                        sort: STRING.String
+                        occurrence: [key, '0', '1', '1', '5', '0', '8']
+                      iterator: *id001
+                      function: map_iterator_next
+                      binding: [key, '0', '1', '1', '5', '0', '8']
+                      sort: STRING.String
+                    function: map_iterator
+                    collection: *id001
+                    sort: MAP.Map
+                  - [MAP.Map]
+                sort: STRING.String
+                occurrence: ['1', '1', '5', '0', '8']
+              - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+                STRING.String, STRING.String, STRING.String, STRING.String]
+            sort: STRING.String
+            occurrence: ['1', '5', '0', '8']
+          - [STRING.String, STRING.String]
+        sort: STRING.String
+        occurrence: ['5', '0', '8']
+      - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+        STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '8']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: *id003

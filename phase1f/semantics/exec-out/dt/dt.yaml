@@ -1,0 +1,126 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'srw3exec'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'xresult'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'k'-GT-'{}
+              - next:
+                  args:
+                  - - &id003 ['0', '1', '0', '1']
+                    - STRING.String
+                  - - &id005 [lit, '', STRING.String]
+                    - STRING.String
+                  next:
+                    default: null
+                    specializations:
+                    - - '1'
+                      - default:
+                          default: fail
+                          specializations:
+                          - - kseq{}
+                            - default: fail
+                              specializations:
+                              - - inj{SortExecPgm{}, SortKItem{}}
+                                - default: null
+                                  specializations:
+                                  - - Lblexecsuite'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3135
+                                      - - - &id001 ['1', '1']
+                                          - STRING.String
+                                        - - &id002 ['1', '0', '0', '0', '1']
+                                          - STRING.String
+                                    - []
+                                  - - Lblxbytes'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3136
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxchain'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3137
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxf8'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3138
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxnegs2'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3139
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxnegs'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3140
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxpos0'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3141
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  sort: STRING.String
+                                  occurrence: ['0', '0', '0', '0', '0', '1']
+                                - [STRING.String]
+                              sort: STRING.String
+                              occurrence: ['0', '0', '0', '0', '1']
+                            - [STRING.String, STRING.String]
+                          sort: STRING.String
+                          occurrence: ['0', '0', '0', '1']
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: *id003
+                      - []
+                    - - '0'
+                      - default: fail
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: *id003
+                      - []
+                    bitwidth: 1
+                    sort: BOOL.Bool
+                    occurrence: &id004 [eq, '0', '1', '0', '1', and, lit, '', STRING.String]
+                  function: hook_KEQUAL_eq
+                  sort: BOOL.Bool
+                  occurrence: *id004
+                pattern: {hook: STRING.String, literal: ''}
+                occurrence: *id005
+                sort: STRING.String
+              - [STRING.String]
+            sort: STRING.String
+            occurrence: ['0', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['1', '0', '1']
+      - [STRING.String, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

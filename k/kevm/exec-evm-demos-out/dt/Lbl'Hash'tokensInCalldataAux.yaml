@@ -1,0 +1,36 @@
+args:
+- - &id001 ['2']
+  - INT.Int
+- - &id002 ['3']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 13377
+      - - - &id004 ['1']
+          - BYTES.Bytes
+        - - *id001
+          - INT.Int
+        - - &id003 ['4']
+          - INT.Int
+    - []
+  - - '0'
+    - action:
+      - 13376
+      - - - *id001
+          - INT.Int
+        - - *id002
+          - INT.Int
+        - - *id003
+          - INT.Int
+        - - *id004
+          - BYTES.Bytes
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: [eq, '2', and, '3']
+function: hook_INT_eq
+sort: BOOL.Bool
+occurrence: [eq, '2', and, '3']

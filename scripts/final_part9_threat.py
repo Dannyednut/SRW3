@@ -18,14 +18,14 @@
 # =============================================================================
 import sys
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/python-gen")
+sys.path.insert(0, "/home/z/my-project/srw3-kevm/python-gen")
 from lin_verify import (LinCtx, LinRec, H, addr_of, apply_effects, build_rec,
                         canon_kv, i2b4, verify_lineage)
 from coincurve import PrivateKey
 
 SK1 = (77).to_bytes(32, "big")
 ROOT = b"\x00" * 32
-OUT = "/home/z/my-project/srw3-work/transcripts/audit/phase1d_r1/final_part9_threat.txt"
+OUT = "/home/z/my-project/srw3-kevm/phase1f/transcripts/audit/phase1d_r1/final_part9_threat.txt"
 
 PRE = {1: {0: 100, 1: 0}, 2: {0: 50, 1: 1}}
 EFFECTS = {1: {0: 25}, 2: {1: 7}}

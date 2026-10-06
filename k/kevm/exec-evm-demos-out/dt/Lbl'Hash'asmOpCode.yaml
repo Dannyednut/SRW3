@@ -1,0 +1,944 @@
+default: fail
+specializations:
+- - inj{SortBinStackOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblADD'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12750
+        - []
+      - []
+    - - LblAND'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12751
+        - []
+      - []
+    - - LblBYTE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12752
+        - []
+      - []
+    - - LblDIV'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12753
+        - []
+      - []
+    - - LblEQ'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12754
+        - []
+      - []
+    - - LblEVMOR'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12755
+        - []
+      - []
+    - - LblEXP'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12756
+        - []
+      - []
+    - - LblGT'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12757
+        - []
+      - []
+    - - LblJUMPI'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12758
+        - []
+      - []
+    - - LblLT'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12759
+        - []
+      - []
+    - - LblMOD'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12760
+        - []
+      - []
+    - - LblMSTORE8'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12761
+        - []
+      - []
+    - - LblMSTORE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12762
+        - []
+      - []
+    - - LblMUL'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12763
+        - []
+      - []
+    - - LblRETURN'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12764
+        - []
+      - []
+    - - LblREVERT'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12765
+        - []
+      - []
+    - - LblSAR'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12766
+        - []
+      - []
+    - - LblSDIV'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12767
+        - []
+      - []
+    - - LblSGT'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12768
+        - []
+      - []
+    - - LblSHA3'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12769
+        - []
+      - []
+    - - LblSHL'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12770
+        - []
+      - []
+    - - LblSHR'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12771
+        - []
+      - []
+    - - LblSIGNEXTEND'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12772
+        - []
+      - []
+    - - LblSLT'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12773
+        - []
+      - []
+    - - LblSMOD'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12774
+        - []
+      - []
+    - - LblSSTORE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12775
+        - []
+      - []
+    - - LblSUB'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12776
+        - []
+      - []
+    - - LblTSTORE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12777
+        - []
+      - []
+    - - LblXOR'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12778
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortCallOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblCALLCODE'Unds'EVM'Unds'CallOp{}
+      - action:
+        - 12779
+        - []
+      - []
+    - - LblCALL'Unds'EVM'Unds'CallOp{}
+      - action:
+        - 12780
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortCallSixOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblDELEGATECALL'Unds'EVM'Unds'CallSixOp{}
+      - action:
+        - 12781
+        - []
+      - []
+    - - LblSTATICCALL'Unds'EVM'Unds'CallSixOp{}
+      - action:
+        - 12782
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortInvalidOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblINVALID'Unds'EVM'Unds'InvalidOp{}
+      - action:
+        - 12783
+        - []
+      - []
+    - - LblUNDEFINED'LParUndsRParUnds'EVM'Unds'InvalidOp'Unds'Int{}
+      - action:
+        - 12784
+        - - - ['0', '0', '1']
+            - INT.Int
+      - [INT.Int]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortLogOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblLOG{}
+      - args:
+        - - &id001 ['0', '0', '1']
+          - INT.Int
+        next:
+          default: fail
+          specializations:
+          - - '0'
+            - action:
+              - 12785
+              - []
+            - []
+          - - '1'
+            - args:
+              - - *id001
+                - INT.Int
+              - - [lit, '0', MINT.MInt 64]
+                - MINT.MInt 64
+              next:
+                default: fail
+                specializations:
+                - - '4'
+                  - action:
+                    - 12789
+                    - []
+                  - []
+                - - '1'
+                  - action:
+                    - 12786
+                    - []
+                  - []
+                - - '2'
+                  - action:
+                    - 12787
+                    - []
+                  - []
+                - - '3'
+                  - action:
+                    - 12788
+                    - []
+                  - []
+                bitwidth: 64
+                sort: MINT.MInt 64
+                occurrence: &id002 ['0', '0', '0', '1']
+              function: hook_INT_limb
+              sort: MINT.MInt 64
+              occurrence: *id002
+            - []
+          bitwidth: 32
+          sort: MINT.MInt 32
+          occurrence: &id003 [size, '0', '0', '1']
+        function: hook_INT_size_int
+        sort: MINT.MInt 32
+        occurrence: *id003
+      - [INT.Int]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortNullStackOp{}, SortOpCode{}}
+  - default: fail
+    specializations:
+    - - LblADDRESS'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12790
+        - []
+      - []
+    - - LblBASEFEE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12791
+        - []
+      - []
+    - - LblCALLDATASIZE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12792
+        - []
+      - []
+    - - LblCALLER'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12793
+        - []
+      - []
+    - - LblCALLVALUE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12794
+        - []
+      - []
+    - - LblCHAINID'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12795
+        - []
+      - []
+    - - LblCODESIZE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12796
+        - []
+      - []
+    - - LblCOINBASE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12797
+        - []
+      - []
+    - - LblDIFFICULTY'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12798
+        - []
+      - []
+    - - LblGASLIMIT'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12799
+        - []
+      - []
+    - - LblGASPRICE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12800
+        - []
+      - []
+    - - LblGAS'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12801
+        - []
+      - []
+    - - LblJUMPDEST'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12802
+        - []
+      - []
+    - - LblMSIZE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12803
+        - []
+      - []
+    - - LblNUMBER'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12804
+        - []
+      - []
+    - - LblORIGIN'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12805
+        - []
+      - []
+    - - LblPC'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12806
+        - []
+      - []
+    - - LblPREVRANDAO'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12807
+        - []
+      - []
+    - - LblRETURNDATASIZE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12808
+        - []
+      - []
+    - - LblSELFBALANCE'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12809
+        - []
+      - []
+    - - LblSTOP'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12810
+        - []
+      - []
+    - - LblTIMESTAMP'Unds'EVM'Unds'NullStackOp{}
+      - action:
+        - 12811
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortPushOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblPUSH{}
+      - args:
+        - - &id004 ['0', '0', '1']
+          - INT.Int
+        next:
+          default: fail
+          specializations:
+          - - '1'
+            - args:
+              - - *id004
+                - INT.Int
+              - - [lit, '0', MINT.MInt 64]
+                - MINT.MInt 64
+              next:
+                default: fail
+                specializations:
+                - - '12'
+                  - action:
+                    - 12815
+                    - []
+                  - []
+                - - '8'
+                  - action:
+                    - 12842
+                    - []
+                  - []
+                - - '4'
+                  - action:
+                    - 12838
+                    - []
+                  - []
+                - - '22'
+                  - action:
+                    - 12826
+                    - []
+                  - []
+                - - '26'
+                  - action:
+                    - 12830
+                    - []
+                  - []
+                - - '13'
+                  - action:
+                    - 12816
+                    - []
+                  - []
+                - - '5'
+                  - action:
+                    - 12839
+                    - []
+                  - []
+                - - '10'
+                  - action:
+                    - 12813
+                    - []
+                  - []
+                - - '21'
+                  - action:
+                    - 12825
+                    - []
+                  - []
+                - - '32'
+                  - action:
+                    - 12837
+                    - []
+                  - []
+                - - '31'
+                  - action:
+                    - 12836
+                    - []
+                  - []
+                - - '2'
+                  - action:
+                    - 12823
+                    - []
+                  - []
+                - - '18'
+                  - action:
+                    - 12821
+                    - []
+                  - []
+                - - '29'
+                  - action:
+                    - 12833
+                    - []
+                  - []
+                - - '3'
+                  - action:
+                    - 12834
+                    - []
+                  - []
+                - - '28'
+                  - action:
+                    - 12832
+                    - []
+                  - []
+                - - '19'
+                  - action:
+                    - 12822
+                    - []
+                  - []
+                - - '23'
+                  - action:
+                    - 12827
+                    - []
+                  - []
+                - - '15'
+                  - action:
+                    - 12818
+                    - []
+                  - []
+                - - '11'
+                  - action:
+                    - 12814
+                    - []
+                  - []
+                - - '9'
+                  - action:
+                    - 12843
+                    - []
+                  - []
+                - - '24'
+                  - action:
+                    - 12828
+                    - []
+                  - []
+                - - '16'
+                  - action:
+                    - 12819
+                    - []
+                  - []
+                - - '6'
+                  - action:
+                    - 12840
+                    - []
+                  - []
+                - - '1'
+                  - action:
+                    - 12812
+                    - []
+                  - []
+                - - '17'
+                  - action:
+                    - 12820
+                    - []
+                  - []
+                - - '25'
+                  - action:
+                    - 12829
+                    - []
+                  - []
+                - - '14'
+                  - action:
+                    - 12817
+                    - []
+                  - []
+                - - '20'
+                  - action:
+                    - 12824
+                    - []
+                  - []
+                - - '27'
+                  - action:
+                    - 12831
+                    - []
+                  - []
+                - - '30'
+                  - action:
+                    - 12835
+                    - []
+                  - []
+                - - '7'
+                  - action:
+                    - 12841
+                    - []
+                  - []
+                bitwidth: 64
+                sort: MINT.MInt 64
+                occurrence: &id005 ['0', '0', '0', '1']
+              function: hook_INT_limb
+              sort: MINT.MInt 64
+              occurrence: *id005
+            - []
+          bitwidth: 32
+          sort: MINT.MInt 32
+          occurrence: &id006 [size, '0', '0', '1']
+        function: hook_INT_size_int
+        sort: MINT.MInt 32
+        occurrence: *id006
+      - [INT.Int]
+    - - LblPUSHZERO'Unds'EVM'Unds'PushOp{}
+      - action:
+        - 12844
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortQuadStackOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblCREATE2'Unds'EVM'Unds'QuadStackOp{}
+      - action:
+        - 12845
+        - []
+      - []
+    - - LblEXTCODECOPY'Unds'EVM'Unds'QuadStackOp{}
+      - action:
+        - 12846
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortStackOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblDUP{}
+      - args:
+        - - &id007 ['0', '0', '1']
+          - INT.Int
+        next:
+          default: fail
+          specializations:
+          - - '1'
+            - args:
+              - - *id007
+                - INT.Int
+              - - [lit, '0', MINT.MInt 64]
+                - MINT.MInt 64
+              next:
+                default: fail
+                specializations:
+                - - '12'
+                  - action:
+                    - 12850
+                    - []
+                  - []
+                - - '8'
+                  - action:
+                    - 12861
+                    - []
+                  - []
+                - - '4'
+                  - action:
+                    - 12857
+                    - []
+                  - []
+                - - '13'
+                  - action:
+                    - 12851
+                    - []
+                  - []
+                - - '16'
+                  - action:
+                    - 12854
+                    - []
+                  - []
+                - - '5'
+                  - action:
+                    - 12858
+                    - []
+                  - []
+                - - '10'
+                  - action:
+                    - 12848
+                    - []
+                  - []
+                - - '14'
+                  - action:
+                    - 12852
+                    - []
+                  - []
+                - - '2'
+                  - action:
+                    - 12855
+                    - []
+                  - []
+                - - '7'
+                  - action:
+                    - 12860
+                    - []
+                  - []
+                - - '3'
+                  - action:
+                    - 12856
+                    - []
+                  - []
+                - - '15'
+                  - action:
+                    - 12853
+                    - []
+                  - []
+                - - '11'
+                  - action:
+                    - 12849
+                    - []
+                  - []
+                - - '9'
+                  - action:
+                    - 12862
+                    - []
+                  - []
+                - - '6'
+                  - action:
+                    - 12859
+                    - []
+                  - []
+                - - '1'
+                  - action:
+                    - 12847
+                    - []
+                  - []
+                bitwidth: 64
+                sort: MINT.MInt 64
+                occurrence: &id008 ['0', '0', '0', '1']
+              function: hook_INT_limb
+              sort: MINT.MInt 64
+              occurrence: *id008
+            - []
+          bitwidth: 32
+          sort: MINT.MInt 32
+          occurrence: &id009 [size, '0', '0', '1']
+        function: hook_INT_size_int
+        sort: MINT.MInt 32
+        occurrence: *id009
+      - [INT.Int]
+    - - LblSWAP{}
+      - args:
+        - - &id010 ['0', '0', '1']
+          - INT.Int
+        next:
+          default: fail
+          specializations:
+          - - '1'
+            - args:
+              - - *id010
+                - INT.Int
+              - - [lit, '0', MINT.MInt 64]
+                - MINT.MInt 64
+              next:
+                default: fail
+                specializations:
+                - - '12'
+                  - action:
+                    - 12866
+                    - []
+                  - []
+                - - '8'
+                  - action:
+                    - 12877
+                    - []
+                  - []
+                - - '4'
+                  - action:
+                    - 12873
+                    - []
+                  - []
+                - - '13'
+                  - action:
+                    - 12867
+                    - []
+                  - []
+                - - '16'
+                  - action:
+                    - 12870
+                    - []
+                  - []
+                - - '5'
+                  - action:
+                    - 12874
+                    - []
+                  - []
+                - - '10'
+                  - action:
+                    - 12864
+                    - []
+                  - []
+                - - '14'
+                  - action:
+                    - 12868
+                    - []
+                  - []
+                - - '2'
+                  - action:
+                    - 12871
+                    - []
+                  - []
+                - - '7'
+                  - action:
+                    - 12876
+                    - []
+                  - []
+                - - '3'
+                  - action:
+                    - 12872
+                    - []
+                  - []
+                - - '15'
+                  - action:
+                    - 12869
+                    - []
+                  - []
+                - - '11'
+                  - action:
+                    - 12865
+                    - []
+                  - []
+                - - '9'
+                  - action:
+                    - 12878
+                    - []
+                  - []
+                - - '6'
+                  - action:
+                    - 12875
+                    - []
+                  - []
+                - - '1'
+                  - action:
+                    - 12863
+                    - []
+                  - []
+                bitwidth: 64
+                sort: MINT.MInt 64
+                occurrence: &id011 ['0', '0', '0', '1']
+              function: hook_INT_limb
+              sort: MINT.MInt 64
+              occurrence: *id011
+            - []
+          bitwidth: 32
+          sort: MINT.MInt 32
+          occurrence: &id012 [size, '0', '0', '1']
+        function: hook_INT_size_int
+        sort: MINT.MInt 32
+        occurrence: *id012
+      - [INT.Int]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortTernStackOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblADDMOD'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12879
+        - []
+      - []
+    - - LblCALLDATACOPY'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12880
+        - []
+      - []
+    - - LblCODECOPY'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12881
+        - []
+      - []
+    - - LblCREATE'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12882
+        - []
+      - []
+    - - LblMCOPY'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12883
+        - []
+      - []
+    - - LblMULMOD'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12884
+        - []
+      - []
+    - - LblRETURNDATACOPY'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12885
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortUnStackOp{}, SortOpCode{}}
+  - default: fail
+    specializations:
+    - - LblBALANCE'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12886
+        - []
+      - []
+    - - LblBLOBHASH'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12887
+        - []
+      - []
+    - - LblBLOCKHASH'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12888
+        - []
+      - []
+    - - LblCALLDATALOAD'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12889
+        - []
+      - []
+    - - LblEXTCODEHASH'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12890
+        - []
+      - []
+    - - LblEXTCODESIZE'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12891
+        - []
+      - []
+    - - LblISZERO'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12892
+        - []
+      - []
+    - - LblJUMP'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12893
+        - []
+      - []
+    - - LblMLOAD'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12894
+        - []
+      - []
+    - - LblNOT'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12895
+        - []
+      - []
+    - - LblPOP'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12896
+        - []
+      - []
+    - - LblSELFDESTRUCT'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12897
+        - []
+      - []
+    - - LblSLOAD'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12898
+        - []
+      - []
+    - - LblTLOAD'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12899
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortPrecompiledOp{}, SortOpCode{}}
+  - fail
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['1']

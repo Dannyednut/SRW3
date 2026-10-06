@@ -1,0 +1,131 @@
+default: &id001
+  action:
+  - 12932
+  - - - &id005 ['1']
+      - STRING.String
+    - - &id002 ['2']
+      - STRING.String
+specializations:
+- - inj{SortBinStackOp{}, SortOpCode{}}
+  - default: *id001
+    specializations:
+    - - LblSSTORE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12933
+        - - - *id002
+            - STRING.String
+      - []
+    - - LblTSTORE'Unds'EVM'Unds'BinStackOp{}
+      - action:
+        - 12934
+        - - - *id002
+            - STRING.String
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortCallOp{}, SortOpCode{}}
+  - default: *id001
+    specializations:
+    - - LblCALL'Unds'EVM'Unds'CallOp{}
+      - default: *id001
+        specializations:
+        - - Lbl'UndsColnUndsUnds'EVM-TYPES'Unds'WordStack'Unds'Int'Unds'WordStack{}
+          - default: *id001
+            specializations:
+            - - Lbl'UndsColnUndsUnds'EVM-TYPES'Unds'WordStack'Unds'Int'Unds'WordStack{}
+              - default: *id001
+                specializations:
+                - - Lbl'UndsColnUndsUnds'EVM-TYPES'Unds'WordStack'Unds'Int'Unds'WordStack{}
+                  - args:
+                    - - &id003 ['0', '1', '1', '2']
+                      - INT.Int
+                    next:
+                      default: null
+                      specializations:
+                      - - '1'
+                        - action:
+                          - 12935
+                          - - - ['0', '2']
+                              - INT.Int
+                            - - ['0', '1', '2']
+                              - INT.Int
+                            - - ['1', '1', '1', '2']
+                              - STRING.String
+                            - - *id003
+                              - INT.Int
+                        - []
+                      - - '0'
+                        - *id001
+                        - []
+                      bitwidth: 1
+                      sort: BOOL.Bool
+                      occurrence: &id004 [side_condition_12935]
+                    function: side_condition_12935
+                    sort: BOOL.Bool
+                    occurrence: *id004
+                  - [INT.Int, STRING.String]
+                sort: STRING.String
+                occurrence: ['1', '1', '2']
+              - [INT.Int, STRING.String]
+            sort: STRING.String
+            occurrence: ['1', '2']
+          - [INT.Int, STRING.String]
+        sort: STRING.String
+        occurrence: *id002
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortLogOp{}, SortOpCode{}}
+  - default: null
+    specializations:
+    - - LblLOG{}
+      - action:
+        - 12936
+        - - - ['0', '0', '1']
+            - INT.Int
+          - - *id002
+            - STRING.String
+      - [INT.Int]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortQuadStackOp{}, SortOpCode{}}
+  - default: *id001
+    specializations:
+    - - LblCREATE2'Unds'EVM'Unds'QuadStackOp{}
+      - action:
+        - 12937
+        - - - *id002
+            - STRING.String
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortTernStackOp{}, SortOpCode{}}
+  - default: *id001
+    specializations:
+    - - LblCREATE'Unds'EVM'Unds'TernStackOp{}
+      - action:
+        - 12938
+        - - - *id002
+            - STRING.String
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortUnStackOp{}, SortOpCode{}}
+  - default: *id001
+    specializations:
+    - - LblSELFDESTRUCT'Unds'EVM'Unds'UnStackOp{}
+      - action:
+        - 12939
+        - - - *id002
+            - STRING.String
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+sort: STRING.String
+occurrence: *id005

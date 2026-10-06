@@ -1,0 +1,18 @@
+default: null
+specializations:
+- - LbllinRecF'LParUndsCommUndsCommUndsCommUndsCommUndsRParUnds'SRW3EXEC'Unds'LinRecF'Unds'LinRecE'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes{}
+  - action:
+    - 3795
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - BYTES.Bytes
+      - - ['2', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - BYTES.Bytes
+      - - ['4', '1']
+        - BYTES.Bytes
+  - [STRING.String, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']

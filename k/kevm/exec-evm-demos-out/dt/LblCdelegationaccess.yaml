@@ -1,0 +1,21 @@
+default:
+  action:
+  - 14010
+  - - - &id002 ['1']
+      - STRING.String
+    - - &id003 ['2']
+      - BOOL.Bool
+    - - &id001 ['3']
+      - BOOL.Bool
+specializations:
+- - '1'
+  - action:
+    - 14009
+    - - - *id001
+        - BOOL.Bool
+      - - *id002
+        - STRING.String
+  - []
+bitwidth: 1
+sort: BOOL.Bool
+occurrence: *id003

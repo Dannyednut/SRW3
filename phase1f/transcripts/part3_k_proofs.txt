@@ -1,0 +1,21 @@
+=== SRW3 Phase 1F — Part 3: K MECHANIZED PROOFS (HASKELL BACKEND, kprove) ===
+=== generated: 2026-10-06 14:46:46 UTC ===
+
+definition : phase1f/semantics/srw3exec.k (module SRW3EXEC, additive; requires srw3auth.k)
+sha256(srw3exec.k) = 82b26e2f0216f6236b3d4b26b74d97ff7fd9bd866858becb9ea4461b7ada2a0f
+K:         K version:    v7.1.337
+z3:        Z3 version 4.13.3 - 64 bit
+
+--- RESULTS ---
+exec_negative_controls NC1 NOT-PROVED(exit=1) time=7s
+exec_negative_controls NC2 NOT-PROVED(exit=113) time=4s
+exec_negative_controls NC3 NOT-PROVED(exit=113) time=3s
+
+--- per-claim exit codes (verbatim) ---
+exec_negative_controls NC1 exit=1 time=7s
+exec_negative_controls NC2 exit=113 time=4s
+exec_negative_controls NC3 exit=113 time=3s
+
+PROVED claims: 0 ; NOT-PROVED (incl. designed-fail controls): 3
+
+PART3_K_PROOFS_DONE

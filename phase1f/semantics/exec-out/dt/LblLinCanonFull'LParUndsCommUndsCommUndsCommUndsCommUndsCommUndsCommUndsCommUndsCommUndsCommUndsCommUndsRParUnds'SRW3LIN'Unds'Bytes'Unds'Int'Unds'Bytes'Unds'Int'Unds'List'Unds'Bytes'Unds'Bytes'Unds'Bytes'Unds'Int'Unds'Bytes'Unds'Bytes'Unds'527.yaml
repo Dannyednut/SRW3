@@ -1,0 +1,24 @@
+action:
+- 3314
+- - - ['4']
+    - LIST.List
+  - - ['9']
+    - BYTES.Bytes
+  - - ['6']
+    - BYTES.Bytes
+  - - ['10']
+    - BYTES.Bytes
+  - - ['5']
+    - BYTES.Bytes
+  - - ['2']
+    - BYTES.Bytes
+  - - ['8']
+    - INT.Int
+  - - ['11']
+    - BYTES.Bytes
+  - - ['7']
+    - BYTES.Bytes
+  - - ['3']
+    - INT.Int
+  - - ['1']
+    - INT.Int

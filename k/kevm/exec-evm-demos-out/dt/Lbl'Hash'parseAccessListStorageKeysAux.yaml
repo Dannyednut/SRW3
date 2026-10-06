@@ -1,0 +1,46 @@
+default: fail
+specializations:
+- - LblJSONs{}
+  - default: fail
+    specializations:
+    - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+      - default: fail
+        specializations:
+        - - LblJSONList{}
+          - default: null
+            specializations:
+            - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+              - action:
+                - 13230
+                - - - &id001 ['2']
+                    - LIST.List
+              - []
+            - - LblJSONs{}
+              - default: fail
+                specializations:
+                - - inj{SortBytes{}, SortJSON{}}
+                  - action:
+                    - 13231
+                    - - - &id002 ['1', '1']
+                        - STRING.String
+                      - - ['1', '0', '0', '1']
+                        - STRING.String
+                      - - *id001
+                        - LIST.List
+                      - - ['0', '0', '0', '0', '1']
+                        - BYTES.Bytes
+                  - [BYTES.Bytes]
+                sort: STRING.String
+                occurrence: ['0', '0', '0', '1']
+              - [STRING.String, STRING.String]
+            sort: STRING.String
+            occurrence: ['0', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['0', '1']
+      - []
+    sort: STRING.String
+    occurrence: *id002
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

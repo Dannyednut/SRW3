@@ -1,0 +1,8 @@
+action:
+- 14004
+- - - ['3']
+    - INT.Int
+  - - ['2']
+    - INT.Int
+  - - ['1']
+    - STRING.String

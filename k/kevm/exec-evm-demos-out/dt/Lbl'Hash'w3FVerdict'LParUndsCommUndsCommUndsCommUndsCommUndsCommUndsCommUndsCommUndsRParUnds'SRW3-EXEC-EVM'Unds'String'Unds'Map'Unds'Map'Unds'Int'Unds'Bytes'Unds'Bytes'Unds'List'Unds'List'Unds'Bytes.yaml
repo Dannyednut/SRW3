@@ -1,0 +1,20 @@
+action:
+- 13420
+- - - ['9']
+    - STRING.String
+  - - ['8']
+    - BYTES.Bytes
+  - - ['2']
+    - MAP.Map
+  - - ['7']
+    - LIST.List
+  - - ['4']
+    - BYTES.Bytes
+  - - ['3']
+    - INT.Int
+  - - ['5']
+    - BYTES.Bytes
+  - - ['6']
+    - LIST.List
+  - - ['1']
+    - MAP.Map

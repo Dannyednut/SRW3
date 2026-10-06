@@ -1,0 +1,7 @@
+[Error] Inner Parser: Parse error: unexpected token ',' following token
+'ExecSchedCANCUN'.
+	Source(/tmp/exec-claims-1f/exec_negative_controls_NC2.k)
+	Location(37,66,37,67)
+	37 |	                               , ExecConfigDigest(ExecSchedCANCUN, 1)
+	   .	                                                                 ^
+[Error] Compiler: Had 1 parsing errors.

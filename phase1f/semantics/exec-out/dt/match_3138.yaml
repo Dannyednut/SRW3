@@ -1,0 +1,78 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'srw3exec'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'xresult'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'k'-GT-'{}
+              - next:
+                  args:
+                  - - &id001 ['0', '1', '0', '1']
+                    - STRING.String
+                  - - &id003 [lit, '', STRING.String]
+                    - STRING.String
+                  next:
+                    default: null
+                    specializations:
+                    - - '1'
+                      - default:
+                          default: fail
+                          specializations:
+                          - - kseq{}
+                            - default: fail
+                              specializations:
+                              - - inj{SortExecPgm{}, SortKItem{}}
+                                - default: fail
+                                  specializations:
+                                  - - Lblxf8'Unds'SRW3EXEC-DEMO'Unds'ExecPgm{}
+                                    - action:
+                                      - 3138
+                                      - - - ['1', '1']
+                                          - STRING.String
+                                        - - ['1', '0', '0', '0', '1']
+                                          - STRING.String
+                                    - []
+                                  sort: STRING.String
+                                  occurrence: ['0', '0', '0', '0', '0', '1']
+                                - [STRING.String]
+                              sort: STRING.String
+                              occurrence: ['0', '0', '0', '0', '1']
+                            - [STRING.String, STRING.String]
+                          sort: STRING.String
+                          occurrence: ['0', '0', '0', '1']
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: *id001
+                      - []
+                    - - '0'
+                      - default: fail
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: ['0', '1', '0', '1']
+                      - []
+                    bitwidth: 1
+                    sort: BOOL.Bool
+                    occurrence: &id002 [eq, '0', '1', '0', '1', and, lit, '', STRING.String]
+                  function: hook_KEQUAL_eq
+                  sort: BOOL.Bool
+                  occurrence: *id002
+                pattern: {hook: STRING.String, literal: ''}
+                occurrence: *id003
+                sort: STRING.String
+              - [STRING.String]
+            sort: STRING.String
+            occurrence: ['0', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['1', '0', '1']
+      - [STRING.String, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

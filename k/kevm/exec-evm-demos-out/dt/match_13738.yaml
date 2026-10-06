@@ -1,0 +1,359 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'kevm'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'k'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'ethereum'-GT-'{}
+              - default: null
+                specializations:
+                - - Lbl'-LT-'evm'-GT-'{}
+                  - default: null
+                    specializations:
+                    - - Lbl'-LT-'callState'-GT-'{}
+                      - default: null
+                        specializations:
+                        - - Lbl'-LT-'static'-GT-'{}
+                          - default: null
+                            specializations:
+                            - - Lbl'-LT-'wordStack'-GT-'{}
+                              - default: fail
+                                specializations:
+                                - - kseq{}
+                                  - default: fail
+                                    specializations:
+                                    - - inj{SortInternalOp{}, SortKItem{}}
+                                      - default: fail
+                                        specializations:
+                                        - - Lbl'Hash'next'LSqBUndsRSqBUnds'EVM'Unds'InternalOp'Unds'MaybeOpCode{}
+                                          - default: fail
+                                            specializations:
+                                            - - inj{SortOpCode{}, SortMaybeOpCode{}}
+                                              - args:
+                                                - - &id001 ['0', '0', '0', '0', '0',
+                                                    '0', '0', '1']
+                                                  - STRING.String
+                                                - - &id002 ['0', '12', '5', '0', '5',
+                                                    '0', '1']
+                                                  - BOOL.Bool
+                                                - - &id003 ['0', '6', '5', '0', '5',
+                                                    '0', '1']
+                                                  - STRING.String
+                                                next:
+                                                  default: null
+                                                  specializations:
+                                                  - - '1'
+                                                    - action:
+                                                      - 13738
+                                                      - - - &id005 ['1', '1']
+                                                          - STRING.String
+                                                        - - &id006 ['1', '0', '0',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id007 ['1', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['0', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['1', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['11', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - ['13', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - ['14', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id008 ['0', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id009 ['1', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id010 ['2', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id011 ['3', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id012 ['4', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id013 ['6', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id014 ['7', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - ['2', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - &id015 ['8', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id016 ['9', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id017 ['10', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id018 ['11', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id019 ['12', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id020 ['13', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - &id021 ['1', '0', '1']
+                                                          - STRING.String
+                                                        - - &id022 ['2', '0', '1']
+                                                          - STRING.String
+                                                        - - &id023 ['3', '0', '1']
+                                                          - STRING.String
+                                                        - - &id024 ['4', '0', '1']
+                                                          - STRING.String
+                                                        - - ['3', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - &id025 ['5', '0', '1']
+                                                          - STRING.String
+                                                        - - ['4', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['5', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['7', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['8', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['9', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['10', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - *id001
+                                                          - STRING.String
+                                                        - - *id002
+                                                          - BOOL.Bool
+                                                        - - *id003
+                                                          - STRING.String
+                                                    - []
+                                                  - - '0'
+                                                    - fail
+                                                    - []
+                                                  bitwidth: 1
+                                                  sort: BOOL.Bool
+                                                  occurrence: &id004 [side_condition_13738]
+                                                function: side_condition_13738
+                                                sort: BOOL.Bool
+                                                occurrence: *id004
+                                              - [STRING.String]
+                                            - - inj{SortPrecompiledOp{}, SortMaybeOpCode{}}
+                                              - &id030
+                                                args:
+                                                - - &id026 ['0', '0', '0', '0', '0',
+                                                    '0', '1']
+                                                  - STRING.String
+                                                - - &id027 ['0', '12', '5', '0', '5',
+                                                    '0', '1']
+                                                  - BOOL.Bool
+                                                - - &id028 ['0', '6', '5', '0', '5',
+                                                    '0', '1']
+                                                  - STRING.String
+                                                next:
+                                                  default: null
+                                                  specializations:
+                                                  - - '1'
+                                                    - action:
+                                                      - 13738
+                                                      - - - *id005
+                                                          - STRING.String
+                                                        - - *id006
+                                                          - STRING.String
+                                                        - - *id007
+                                                          - STRING.String
+                                                        - - ['0', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['1', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['11', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - ['13', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - ['14', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - *id008
+                                                          - STRING.String
+                                                        - - *id009
+                                                          - STRING.String
+                                                        - - *id010
+                                                          - STRING.String
+                                                        - - *id011
+                                                          - STRING.String
+                                                        - - *id012
+                                                          - STRING.String
+                                                        - - *id013
+                                                          - STRING.String
+                                                        - - *id014
+                                                          - STRING.String
+                                                        - - ['2', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - *id015
+                                                          - STRING.String
+                                                        - - *id016
+                                                          - STRING.String
+                                                        - - *id017
+                                                          - STRING.String
+                                                        - - *id018
+                                                          - STRING.String
+                                                        - - *id019
+                                                          - STRING.String
+                                                        - - *id020
+                                                          - STRING.String
+                                                        - - *id021
+                                                          - STRING.String
+                                                        - - *id022
+                                                          - STRING.String
+                                                        - - *id023
+                                                          - STRING.String
+                                                        - - *id024
+                                                          - STRING.String
+                                                        - - ['3', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - *id025
+                                                          - STRING.String
+                                                        - - ['4', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['5', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['7', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['8', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['9', '5', '0', '5', '0',
+                                                            '1']
+                                                          - STRING.String
+                                                        - - ['10', '5', '0', '5',
+                                                            '0', '1']
+                                                          - STRING.String
+                                                        - - *id026
+                                                          - STRING.String
+                                                        - - *id027
+                                                          - BOOL.Bool
+                                                        - - *id028
+                                                          - STRING.String
+                                                    - []
+                                                  - - '0'
+                                                    - fail
+                                                    - []
+                                                  bitwidth: 1
+                                                  sort: BOOL.Bool
+                                                  occurrence: &id029 [side_condition_13738]
+                                                function: side_condition_13738
+                                                sort: BOOL.Bool
+                                                occurrence: *id029
+                                              - [STRING.String]
+                                            - - inj{SortCallOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortLogOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortUnStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortInvalidOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortNullStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortBinStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortInternalOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortTernStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortCallSixOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortQuadStackOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            - - inj{SortPushOp{}, SortMaybeOpCode{}}
+                                              - *id030
+                                              - [STRING.String]
+                                            sort: STRING.String
+                                            occurrence: ['0', '0', '0', '0', '0',
+                                              '0', '1']
+                                          - [STRING.String]
+                                        sort: STRING.String
+                                        occurrence: ['0', '0', '0', '0', '0', '1']
+                                      - [STRING.String]
+                                    sort: STRING.String
+                                    occurrence: ['0', '0', '0', '0', '1']
+                                  - [STRING.String, STRING.String]
+                                sort: STRING.String
+                                occurrence: ['0', '0', '0', '1']
+                              - [STRING.String]
+                            sort: STRING.String
+                            occurrence: ['6', '5', '0', '5', '0', '1']
+                          - [BOOL.Bool]
+                        sort: STRING.String
+                        occurrence: ['12', '5', '0', '5', '0', '1']
+                      - [STRING.String, STRING.String, STRING.String, STRING.String,
+                        STRING.String, STRING.String, STRING.String, STRING.String,
+                        STRING.String, STRING.String, STRING.String, STRING.String,
+                        STRING.String, STRING.String, STRING.String]
+                    sort: STRING.String
+                    occurrence: ['5', '0', '5', '0', '1']
+                  - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+                    STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+                    STRING.String, STRING.String, STRING.String, STRING.String]
+                sort: STRING.String
+                occurrence: ['0', '5', '0', '1']
+              - [STRING.String, STRING.String]
+            sort: STRING.String
+            occurrence: ['5', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['0', '0', '1']
+      - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+        STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']
