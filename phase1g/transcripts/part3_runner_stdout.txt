@@ -1,0 +1,126 @@
+=== SRW3 Phase 1G — Part 3: K MECHANIZED PROOFS (HASKELL BACKEND, kprove) ===
+=== generated: 2026-10-07 08:25:08 UTC ===
+
+definition : phase1g/semantics/srw3authz.k (module SRW3AUTHZ, additive; requires srw3exec.k)
+sha256(srw3authz.k) = 47e568acb58f5a0a1c5a00d82717086c1229086c6812aaea62621f6a6813944c
+K:         K version:    v7.1.337
+z3:        Z3 version 4.13.3 - 64 bit
+
+--- claim AZG1 (module SRW3AUTHZ-BIND-PROOFS)
+    file: proofs/az_binding_proofs.k
+    kprove exit=0 (155s)
+    PROVED
+
+--- claim AZG2 (module SRW3AUTHZ-BIND-PROOFS)
+    file: proofs/az_binding_proofs.k
+    kprove exit=0 (200s)
+    PROVED
+
+--- claim AZG3 (module SRW3AUTHZ-BIND-PROOFS)
+    file: proofs/az_binding_proofs.k
+    kprove exit=0 (157s)
+    PROVED
+
+--- claim AZG4 (module SRW3AUTHZ-BIND-PROOFS)
+    file: proofs/az_binding_proofs.k
+    kprove exit=0 (180s)
+    PROVED
+
+--- claim AZG5 (module SRW3AUTHZ-BIND-PROOFS)
+    file: proofs/az_binding_proofs.k
+    kprove exit=0 (160s)
+    PROVED
+
+--- claim AZB1 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (49s)
+    PROVED
+
+--- claim AZB2 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (61s)
+    PROVED
+
+--- claim AZB3 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (73s)
+    PROVED
+
+--- claim AZB4 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (105s)
+    PROVED
+
+--- claim AZB5 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (112s)
+    PROVED
+
+--- claim AZB6 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (131s)
+    PROVED
+
+--- claim AZB7 (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (154s)
+    PROVED
+
+--- claim AZBACC (module SRW3AUTHZ-GATE-PROOFS)
+    file: proofs/az_gate_proofs.k
+    kprove exit=0 (155s)
+    PROVED
+
+--- claim NCG1 (module SRW3AUTHZ-NEGATIVE-PROOFS)
+    file: proofs/az_negative_proofs.k
+    kprove exit=1 (145s)
+    NOT-PROVED (see the per-claim raw output; for the negative
+    controls this is the DESIGNED outcome)
+
+--- claim NCG2 (module SRW3AUTHZ-NEGATIVE-PROOFS)
+    file: proofs/az_negative_proofs.k
+    kprove exit=1 (165s)
+    NOT-PROVED (see the per-claim raw output; for the negative
+    controls this is the DESIGNED outcome)
+
+--- claim NCG3 (module SRW3AUTHZ-NEGATIVE-PROOFS)
+    file: proofs/az_negative_proofs.k
+    kprove exit=1 (213s)
+    NOT-PROVED (see the per-claim raw output; for the negative
+    controls this is the DESIGNED outcome)
+
+--- claim AZ (module SRW3AUTHZ-NONCIRC-PROOFS)
+    file: proofs/az_noncirc_proofs.k
+    kprove exit=1 (193s)
+    NOT-PROVED (see the per-claim raw output; for the negative
+    controls this is the DESIGNED outcome)
+
+--- claim AZR1 (module SRW3AUTHZ-RECBIND-PROOFS)
+    file: proofs/az_record_proofs.k
+    kprove exit=0 (6s)
+    PROVED
+
+--- claim AZR2 (module SRW3AUTHZ-RECBIND-PROOFS)
+    file: proofs/az_record_proofs.k
+    kprove exit=0 (7s)
+    PROVED
+
+--- claim AZR3 (module SRW3AUTHZ-RECBIND-PROOFS)
+    file: proofs/az_record_proofs.k
+    kprove exit=0 (6s)
+    PROVED
+
+--- claim AZR4 (module SRW3AUTHZ-RECBIND-PROOFS)
+    file: proofs/az_record_proofs.k
+    kprove exit=0 (7s)
+    PROVED
+
+--- claim AZR5 (module SRW3AUTHZ-RECBIND-PROOFS)
+    file: proofs/az_record_proofs.k
+    kprove exit=1 (7s)
+    NOT-PROVED (see the per-claim raw output; for the negative
+    controls this is the DESIGNED outcome)
+
+=== SUMMARY: PROVED=17  NOT-PROVED=5 (negative controls are
+    designed NOT-PROVED: az_negative_proofs.k) ===
+PART3_K_PROOFS_DONE

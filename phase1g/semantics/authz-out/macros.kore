@@ -1,0 +1,7 @@
+// macros
+// rule `BLS12_FIELD_MODULUS_KRYPTO_Int`(.KList)=>#token("4002409555221667393417789825735904156556882819939007885332058136124031650490837864442687629129015664037894272559787","Int") requires #token("true","Bool") ensures #token("true","Bool") [UNIQUE_ID(178c3ffce78f9fa09f35263f48096dc90d6fdb621c70bb47377a02be47093585), alias, org.kframework.attributes.Location(Location(161,10,161,148)), org.kframework.attributes.Source(Source(/home/z/my-project/tools/plugin-207ae512/plugin/krypto.md)), org.kframework.definition.Production(syntax #RuleContent ::= #RuleBody [symbol(#ruleNoConditions)])]
+  axiom{R} \equals{SortInt{},R} (
+    LblBLS12'Unds'FIELD'Unds'MODULUS'Unds'KRYPTO'Unds'Int{}(),
+    \dv{SortInt{}}("4002409555221667393417789825735904156556882819939007885332058136124031650490837864442687629129015664037894272559787"))
+  [UNIQUE'Unds'ID{}("178c3ffce78f9fa09f35263f48096dc90d6fdb621c70bb47377a02be47093585"), alias'Kywd'{}(), org'Stop'kframework'Stop'attributes'Stop'Location{}("Location(161,10,161,148)"), org'Stop'kframework'Stop'attributes'Stop'Source{}("Source(/home/z/my-project/tools/plugin-207ae512/plugin/krypto.md)"), priority{}("50")]
+

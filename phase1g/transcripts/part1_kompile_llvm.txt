@@ -1,0 +1,384 @@
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Non exhaustive match detected:
+`linRecAt(_,_)_SRW3LIN-VERIFY_LinRec_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(177,21,177,61)
+	177 |	  syntax LinRec ::= linRecAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`linCtxAt(_,_)_SRW3LIN-VERIFY_LinCtx_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(185,21,185,61)
+	185 |	  syntax LinCtx ::= linCtxAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Non exhaustive match detected:
+`LinTamperMatrix(_,_,_,_,_)_SRW3LIN-VERIFY_String_LinRec_LinCtx_Int_Bytes_List`(_,_,_,_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(239,21,239,95)
+	239 |	  syntax String ::= LinTamperMatrix ( LinRec , LinCtx , Int , Bytes ,
+List ) [function, total]
+	    .	                   
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Non exhaustive match detected:
+`MinKeyOfMap(_)_SRW3LIN_Int_Map`(`_Map_`(`_|->_`(_,_),_))
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(97,18,97,55)
+	97 |	  syntax Int ::= MinKeyOfMap ( Map ) [function, total]
+	   .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinMapAt(_,_)_SRW3LIN_Map_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(104,18,104,58)
+	104 |	  syntax Map ::= LinMapAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinIntAt(_,_)_SRW3LIN_Int_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(110,18,110,58)
+	110 |	  syntax Int ::= LinIntAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppsIter(_)_SRW3LIN_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(151,20,151,58)
+	151 |	  syntax Bytes ::= LinAppsIter ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppIns(_,_)_SRW3LIN_List_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/k/phase1d/srw3lin.k)
+	Location(170,19,170,61)
+	170 |	  syntax List ::= LinAppIns ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthKIns(_,_)_SRW3AUTH_List_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(126,19,126,60)
+	126 |	  syntax List ::= AuthKIns ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthInsList(_,_)_SRW3AUTH_List_List_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(151,19,151,64)
+	151 |	  syntax List ::= AuthInsList ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthListAt(_,_)_SRW3AUTH_Int_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(168,18,168,61)
+	168 |	  syntax Int ::= AuthListAt ( List , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthBListAt(_,_)_SRW3AUTH_Bytes_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(174,20,174,64)
+	174 |	  syntax Bytes ::= AuthBListAt ( List , Int ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthKeyInList(_,_)_SRW3AUTH_Bool_Int_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(180,19,180,65)
+	180 |	  syntax Bool ::= AuthKeyInList ( Int , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthLevelUp(_)_SRW3AUTH_List_List`(`_List_`(`_List_`(`.List`(.KList),`ListItem`(_)),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(232,19,232,57)
+	232 |	  syntax List ::= AuthLevelUp ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthIOAux(_,_,_)_SRW3AUTH_Int_List_Int_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_)
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(263,18,263,66)
+	263 |	  syntax Int ::= AuthIOAux ( List , Int , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AppendListItem(_,_)_SRW3AUTH_List_Bytes_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1e/semantics/srw3auth.k)
+	Location(542,19,542,68)
+	542 |	  syntax List ::= AppendListItem ( Bytes , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecBoundsOk(_)_SRW3EXEC_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(95,19,95,58)
+	95 |	  syntax Bool ::= ExecBoundsOk ( List ) [function, total]
+	   .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecEventsBytes(_)_SRW3EXEC_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(111,20,111,62)
+	111 |	  syntax Bytes ::= ExecEventsBytes ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecTW(_,_)_SRW3EXEC_Map_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(177,18,177,57)
+	177 |	  syntax Map ::= ExecTW ( List , Map ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecReplayMap(_,_)_SRW3EXEC_Map_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(184,18,184,64)
+	184 |	  syntax Map ::= ExecReplayMap ( List , Map ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecReadsOk(_,_)_SRW3EXEC_Bool_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(192,19,192,63)
+	192 |	  syntax Bool ::= ExecReadsOk ( List , Map ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecProj(_)_SRW3EXEC_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1f/semantics/srw3exec.k)
+	Location(220,19,220,54)
+	220 |	  syntax List ::= ExecProj ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Non exhaustive match detected:
+`AzChainBytes(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(186,20,186,59)
+	186 |	  syntax Bytes ::= AzChainBytes ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AzOwnInChain(_,_)_SRW3AUTHZ_Bool_List_Bytes`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(224,19,224,66)
+	224 |	  syntax Bool ::= AzOwnInChain ( List , Bytes ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AzChainOk(_,_,_,_,_,_,_)_SRW3AUTHZ_Bool_List_Int_ExecCtx_SecCtx_Int_Bytes_Bytes`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_,_,_,_,_)
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(234,19,235,56)
+	    .	                 
+v~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	234 |	  syntax Bool ::= AzChainOk ( List , Int , ExecCtx , SecCtx , Int ,
+Bytes ,
+	235 |	                              Bytes ) [function, total]
+	    .	                              ~~~~~~~~~~~~~~~~~~~~~~~~^
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Non exhaustive match detected:
+`BalCanon(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(555,20,555,55)
+	555 |	  syntax Bytes ::= BalCanon ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalListLen(_)_SRW3AUTHZ_Int_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(561,18,561,55)
+	561 |	  syntax Int ::= BalListLen ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalRestCanon(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(565,20,565,59)
+	565 |	  syntax Bytes ::= BalRestCanon ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalTouched(_)_SRW3AUTHZ_Map_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(571,18,571,55)
+	571 |	  syntax Map ::= BalTouched ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalKeyMap(_)_SRW3AUTHZ_Map_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(578,18,578,54)
+	578 |	  syntax Map ::= BalKeyMap ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalWritesOk(_,_,_)_SRW3AUTHZ_Bool_List_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_)
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(592,19,592,70)
+	592 |	  syntax Bool ::= BalWritesOk ( List , List , Map ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-kevm/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Could not find main syntax module with name
+SRW3AUTHZ-DEMO-SYNTAX in definition.  Use --syntax-module to specify one. Using
+SRW3AUTHZ-DEMO as default.
+LLVM_EXIT=0

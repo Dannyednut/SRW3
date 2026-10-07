@@ -1,0 +1,16 @@
+default: fail
+specializations:
+- - Lbl'Hash'w3ExecState'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3-EXEC-EVM'Unds'KItem'Unds'LinRecF'Unds'Bytes'Unds'List'Unds'String{}
+  - action:
+    - 15978
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - BYTES.Bytes
+      - - ['2', '1']
+        - LIST.List
+      - - ['3', '1']
+        - STRING.String
+  - [STRING.String, BYTES.Bytes, LIST.List, STRING.String]
+sort: STRING.String
+occurrence: ['1']

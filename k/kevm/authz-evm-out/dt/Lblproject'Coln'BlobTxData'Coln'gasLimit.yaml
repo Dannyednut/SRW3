@@ -1,0 +1,31 @@
+default: null
+specializations:
+- - LblBlobTxData{}
+  - action:
+    - 16054
+    - - - ['0', '1']
+        - INT.Int
+      - - ['1', '1']
+        - INT.Int
+      - - ['10', '1']
+        - LIST.List
+      - - ['2', '1']
+        - INT.Int
+      - - ['3', '1']
+        - INT.Int
+      - - ['4', '1']
+        - STRING.String
+      - - ['5', '1']
+        - INT.Int
+      - - ['6', '1']
+        - BYTES.Bytes
+      - - ['7', '1']
+        - INT.Int
+      - - ['8', '1']
+        - STRING.String
+      - - ['9', '1']
+        - INT.Int
+  - [INT.Int, INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes, INT.Int,
+    STRING.String, INT.Int, LIST.List]
+sort: STRING.String
+occurrence: ['1']

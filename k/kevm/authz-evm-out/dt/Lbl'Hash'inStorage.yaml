@@ -1,0 +1,34 @@
+args:
+- - &id001 ['2']
+  - STRING.String
+- - &id002 ['1']
+  - MAP.Map
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 13431
+      - - - *id001
+          - STRING.String
+        - - &id003 ['3']
+          - INT.Int
+        - - *id002
+          - MAP.Map
+    - []
+  - - '0'
+    - action:
+      - 13432
+      - - - *id002
+          - MAP.Map
+        - - *id001
+          - STRING.String
+        - - *id003
+          - INT.Int
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id004 [side_condition_13431]
+function: side_condition_13431
+sort: BOOL.Bool
+occurrence: *id004

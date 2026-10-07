@@ -1,0 +1,29 @@
+default: null
+specializations:
+- - LblazCert'LParUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'AuthzCert'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Int'Unds'AuthzSrc'Unds'List'Unds'Int'Unds'Bytes{}
+  - action:
+    - 3852
+    - - - ['0', '1']
+        - BYTES.Bytes
+      - - ['1', '1']
+        - BYTES.Bytes
+      - - ['2', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - BYTES.Bytes
+      - - ['4', '1']
+        - BYTES.Bytes
+      - - ['6', '1']
+        - STRING.String
+      - - ['7', '1']
+        - LIST.List
+      - - ['8', '1']
+        - INT.Int
+      - - ['9', '1']
+        - BYTES.Bytes
+      - - ['5', '1']
+        - INT.Int
+  - [BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, INT.Int, STRING.String,
+    LIST.List, INT.Int, BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']

@@ -1,0 +1,80 @@
+args:
+- - &id001 ['1']
+  - LIST.List
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3379
+      - - - *id001
+          - LIST.List
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - LIST.List
+      next:
+        default: fail
+        specializations:
+        - - '0'
+          - args:
+            - - *id001
+              - LIST.List
+            - - [lit, '0', MINT.MInt 64]
+              - MINT.MInt 64
+            - - [lit, '0', MINT.MInt 64]
+              - MINT.MInt 64
+            next:
+              action:
+              - 3380
+              - []
+            function: hook_LIST_range_long
+            sort: LIST.List
+            occurrence: ['0', '1']
+          - []
+        - - '1'
+          - args:
+            - - *id001
+              - LIST.List
+            - - [lit, '0', MINT.MInt 64]
+              - MINT.MInt 64
+            next:
+              default: fail
+              specializations:
+              - - inj{SortBytes{}, SortKItem{}}
+                - args:
+                  - - *id001
+                    - LIST.List
+                  - - [lit, '1', MINT.MInt 64]
+                    - MINT.MInt 64
+                  - - [lit, '0', MINT.MInt 64]
+                    - MINT.MInt 64
+                  next:
+                    action:
+                    - 3381
+                    - - - ['0', '0', '1']
+                        - BYTES.Bytes
+                  function: hook_LIST_range_long
+                  sort: LIST.List
+                  occurrence: ['1', '1']
+                - [BYTES.Bytes]
+              sort: STRING.String
+              occurrence: ['0', '1']
+            function: hook_LIST_get_long
+            sort: STRING.String
+            occurrence: ['0', '1']
+          - [STRING.String]
+        bitwidth: 64
+        sort: MINT.MInt 64
+        occurrence: &id002 [size, '1']
+      function: hook_LIST_size_long
+      sort: MINT.MInt 64
+      occurrence: *id002
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id003 [side_condition_3379]
+function: side_condition_3379
+sort: BOOL.Bool
+occurrence: *id003

@@ -1,0 +1,20 @@
+default: null
+specializations:
+- - LblazCtx'LParUndsCommUndsCommUndsCommUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'AzCtx'Unds'ExecCtx'Unds'SecCtx'Unds'AuthzCert'Unds'Int'Unds'Bytes'Unds'Bytes{}
+  - action:
+    - 16397
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - STRING.String
+      - - ['2', '1']
+        - STRING.String
+      - - ['3', '1']
+        - INT.Int
+      - - ['4', '1']
+        - BYTES.Bytes
+      - - ['5', '1']
+        - BYTES.Bytes
+  - [STRING.String, STRING.String, STRING.String, INT.Int, BYTES.Bytes, BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']

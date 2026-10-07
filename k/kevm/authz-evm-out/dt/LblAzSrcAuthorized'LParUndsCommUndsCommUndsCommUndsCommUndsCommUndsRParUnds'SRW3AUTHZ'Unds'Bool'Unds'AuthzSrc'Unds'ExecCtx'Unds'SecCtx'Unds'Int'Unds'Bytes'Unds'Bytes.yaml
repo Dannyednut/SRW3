@@ -1,0 +1,82 @@
+default: null
+specializations:
+- - LblazSrc'LParUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'AuthzSrc'Unds'AuthzDomain'Unds'Bytes'Unds'Int{}
+  - default: null
+    specializations:
+    - - LbldomConsensus'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+      - action:
+        - 14322
+        - - - &id001 ['2', '1']
+            - INT.Int
+          - - &id005 ['2']
+            - STRING.String
+          - - &id002 ['4']
+            - INT.Int
+          - - &id003 ['5']
+            - BYTES.Bytes
+          - - &id004 ['6']
+            - BYTES.Bytes
+          - - &id006 ['1', '1']
+            - BYTES.Bytes
+          - - &id007 ['3']
+            - STRING.String
+      - []
+    - - LbldomExecution'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+      - action:
+        - 14323
+        - - - *id001
+            - INT.Int
+          - - *id002
+            - INT.Int
+          - - *id003
+            - BYTES.Bytes
+          - - *id004
+            - BYTES.Bytes
+          - - *id005
+            - STRING.String
+          - - *id006
+            - BYTES.Bytes
+          - - *id007
+            - STRING.String
+      - []
+    - - LbldomPolicy'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+      - action:
+        - 14324
+        - - - *id001
+            - INT.Int
+          - - *id005
+            - STRING.String
+          - - *id002
+            - INT.Int
+          - - *id003
+            - BYTES.Bytes
+          - - *id004
+            - BYTES.Bytes
+          - - *id006
+            - BYTES.Bytes
+          - - *id007
+            - STRING.String
+      - []
+    - - LbldomProof'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+      - action:
+        - 14325
+        - - - *id001
+            - INT.Int
+          - - *id005
+            - STRING.String
+          - - *id007
+            - STRING.String
+          - - *id004
+            - BYTES.Bytes
+          - - *id003
+            - BYTES.Bytes
+          - - *id006
+            - BYTES.Bytes
+          - - *id002
+            - INT.Int
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, BYTES.Bytes, INT.Int]
+sort: STRING.String
+occurrence: ['1']

@@ -1,0 +1,84 @@
+args:
+- - &id001 ['5']
+  - LIST.List
+- - &id002 ['10']
+  - BYTES.Bytes
+- - &id003 ['7']
+  - BYTES.Bytes
+- - &id004 ['11']
+  - BYTES.Bytes
+- - &id005 ['6']
+  - BYTES.Bytes
+- - &id006 ['3']
+  - BYTES.Bytes
+- - &id007 ['9']
+  - INT.Int
+- - &id008 ['1']
+  - BYTES.Bytes
+- - &id009 ['8']
+  - BYTES.Bytes
+- - &id010 ['4']
+  - INT.Int
+- - &id011 ['2']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3595
+      - - - *id001
+          - LIST.List
+        - - *id002
+          - BYTES.Bytes
+        - - *id003
+          - BYTES.Bytes
+        - - *id004
+          - BYTES.Bytes
+        - - *id005
+          - BYTES.Bytes
+        - - *id006
+          - BYTES.Bytes
+        - - *id007
+          - INT.Int
+        - - *id008
+          - BYTES.Bytes
+        - - *id009
+          - BYTES.Bytes
+        - - *id010
+          - INT.Int
+        - - *id011
+          - INT.Int
+    - []
+  - - '0'
+    - action:
+      - 3596
+      - - - *id008
+          - BYTES.Bytes
+        - - *id011
+          - INT.Int
+        - - *id004
+          - BYTES.Bytes
+        - - *id006
+          - BYTES.Bytes
+        - - *id010
+          - INT.Int
+        - - *id001
+          - LIST.List
+        - - *id005
+          - BYTES.Bytes
+        - - *id003
+          - BYTES.Bytes
+        - - *id009
+          - BYTES.Bytes
+        - - *id007
+          - INT.Int
+        - - *id002
+          - BYTES.Bytes
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id012 [side_condition_3595]
+function: side_condition_3595
+sort: BOOL.Bool
+occurrence: *id012

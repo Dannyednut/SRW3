@@ -1,0 +1,50 @@
+=== 1. K framework v7.1.337 (pinned jammy deb) ===
+HAVE k.deb
+=== 2. z3 / flex / libfl2 / libsecp256k1 runtime (trixie) ===
+Fetched 8566 kB in 1s (8111 kB/s)
+Fetched 423 kB in 0s (11.9 MB/s)
+Fetched 84.3 kB in 0s (675 kB/s)
+Fetched 1133 kB in 0s (3785 kB/s)
+=== 3. LLVM-15 + clang-15 chain 15.0.6-4+b1 (bookworm pool) ===
+candidate libllvm15: libllvm15_15.0.6-4+b1_amd64.deb
+GET libllvm15_15.0.6-4+b1_amd64.deb exit=0
+candidate llvm-15: llvm-15_15.0.6-4+b1_amd64.deb
+GET llvm-15_15.0.6-4+b1_amd64.deb exit=0
+candidate clang-15: clang-15_15.0.6-4+b1_amd64.deb
+GET clang-15_15.0.6-4+b1_amd64.deb exit=0
+candidate libclang-cpp15: libclang-cpp15_15.0.6-4+b1_amd64.deb
+GET libclang-cpp15_15.0.6-4+b1_amd64.deb exit=0
+candidate lld-15: lld-15_15.0.6-4+b1_amd64.deb
+GET lld-15_15.0.6-4+b1_amd64.deb exit=0
+candidate libclang-common-15-dev: libclang-common-15-dev_15.0.6-4+b1_amd64.deb
+GET libclang-common-15-dev_15.0.6-4+b1_amd64.deb exit=0
+=== 4. dev headers for the krypto shim (gmp/mpfr/secp256k1) ===
+Fetched 642 kB in 0s (2832 kB/s)
+Fetched 268 kB in 0s (1280 kB/s)
+Fetched 1150 kB in 0s (4363 kB/s)
+=== EXTRACT ===
+dpkg-deb (subprocess): cannot copy archive member from '/home/z/my-project/tools/deb/k.deb' to decompressor pipe: unexpected end of file or stream
+tar: Unexpected EOF in archive
+tar: Unexpected EOF in archive
+tar: Error is not recoverable: exiting now
+dpkg-deb: error: tar subprocess returned error exit status 2
+z3 ok
+flex ok
+llvm chain ok
+secp ok
+devheaders ok
+=== soname compat symlinks (secp256k1, worklog: .0<->.2) ===
+-rw-r--r-- 1 z z 1206424 Oct 29  2024 secp/usr/lib/x86_64-linux-gnu/libsecp256k1.so.2.2.0
+lrwxrwxrwx 1 z z 17 Oct  7 07:48 secp/usr/lib/x86_64-linux-gnu/libsecp256k1.so.0 -> libsecp256k1.so.2
+lrwxrwxrwx 1 z z 21 Oct 29  2024 secp/usr/lib/x86_64-linux-gnu/libsecp256k1.so.2 -> libsecp256k1.so.2.2.0
+lrwxrwxrwx 1 z z 17 Oct  7 07:48 secp/usr/lib/x86_64-linux-gnu/libsecp256k1.so.1 -> libsecp256k1.so.2
+=== KEVM source unpack (K sources only) ===
+GET deb/kevm-1.0.921.tar.gz exit=0
+kevm src ok
+=== blockchain-k-plugin K sources at pinned SHA ===
+plugin ok: LICENSE Makefile README.md 
+=== locate layout ===
+find: ‘z3’: No such file or directory
+find: ‘llvm’: No such file or directory
+find: ‘secp’: No such file or directory
+REBUILD_ENV_1D_DONE

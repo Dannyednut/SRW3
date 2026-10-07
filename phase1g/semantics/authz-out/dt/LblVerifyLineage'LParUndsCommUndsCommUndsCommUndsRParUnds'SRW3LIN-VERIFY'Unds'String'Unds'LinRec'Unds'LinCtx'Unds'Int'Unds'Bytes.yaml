@@ -1,0 +1,384 @@
+args:
+- - &id001 ['2']
+  - STRING.String
+- - &id002 ['4']
+  - BYTES.Bytes
+- - &id003 ['1']
+  - STRING.String
+- - &id004 ['3']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3639
+      - - - *id001
+          - STRING.String
+        - - *id002
+          - BYTES.Bytes
+        - - *id003
+          - STRING.String
+        - - *id004
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - STRING.String
+      - - *id002
+        - BYTES.Bytes
+      - - *id003
+        - STRING.String
+      - - *id004
+        - INT.Int
+      next:
+        default: null
+        specializations:
+        - - '1'
+          - action:
+            - 3640
+            - - - *id001
+                - STRING.String
+              - - *id002
+                - BYTES.Bytes
+              - - *id003
+                - STRING.String
+              - - *id004
+                - INT.Int
+          - []
+        - - '0'
+          - args:
+            - - *id001
+              - STRING.String
+            - - *id002
+              - BYTES.Bytes
+            - - *id003
+              - STRING.String
+            - - *id004
+              - INT.Int
+            next:
+              default: null
+              specializations:
+              - - '1'
+                - action:
+                  - 3641
+                  - - - *id001
+                      - STRING.String
+                    - - *id002
+                      - BYTES.Bytes
+                    - - *id003
+                      - STRING.String
+                    - - *id004
+                      - INT.Int
+                - []
+              - - '0'
+                - args:
+                  - - *id001
+                    - STRING.String
+                  - - *id002
+                    - BYTES.Bytes
+                  - - *id003
+                    - STRING.String
+                  - - *id004
+                    - INT.Int
+                  next:
+                    default: null
+                    specializations:
+                    - - '1'
+                      - action:
+                        - 3642
+                        - - - *id001
+                            - STRING.String
+                          - - *id002
+                            - BYTES.Bytes
+                          - - *id003
+                            - STRING.String
+                          - - *id004
+                            - INT.Int
+                      - []
+                    - - '0'
+                      - args:
+                        - - *id001
+                          - STRING.String
+                        - - *id002
+                          - BYTES.Bytes
+                        - - *id003
+                          - STRING.String
+                        - - *id004
+                          - INT.Int
+                        next:
+                          default: null
+                          specializations:
+                          - - '1'
+                            - action:
+                              - 3643
+                              - - - *id001
+                                  - STRING.String
+                                - - *id002
+                                  - BYTES.Bytes
+                                - - *id003
+                                  - STRING.String
+                                - - *id004
+                                  - INT.Int
+                            - []
+                          - - '0'
+                            - args:
+                              - - *id001
+                                - STRING.String
+                              - - *id002
+                                - BYTES.Bytes
+                              - - *id003
+                                - STRING.String
+                              - - *id004
+                                - INT.Int
+                              next:
+                                default: null
+                                specializations:
+                                - - '1'
+                                  - action:
+                                    - 3644
+                                    - - - *id001
+                                        - STRING.String
+                                      - - *id002
+                                        - BYTES.Bytes
+                                      - - *id003
+                                        - STRING.String
+                                      - - *id004
+                                        - INT.Int
+                                  - []
+                                - - '0'
+                                  - args:
+                                    - - *id002
+                                      - BYTES.Bytes
+                                    - - *id003
+                                      - STRING.String
+                                    - - *id004
+                                      - INT.Int
+                                    next:
+                                      default: null
+                                      specializations:
+                                      - - '1'
+                                        - action:
+                                          - 3645
+                                          - - - *id001
+                                              - STRING.String
+                                            - - *id002
+                                              - BYTES.Bytes
+                                            - - *id003
+                                              - STRING.String
+                                            - - *id004
+                                              - INT.Int
+                                        - []
+                                      - - '0'
+                                        - args:
+                                          - - *id001
+                                            - STRING.String
+                                          - - *id002
+                                            - BYTES.Bytes
+                                          - - *id003
+                                            - STRING.String
+                                          - - *id004
+                                            - INT.Int
+                                          next:
+                                            default: null
+                                            specializations:
+                                            - - '1'
+                                              - action:
+                                                - 3646
+                                                - - - *id001
+                                                    - STRING.String
+                                                  - - *id002
+                                                    - BYTES.Bytes
+                                                  - - *id003
+                                                    - STRING.String
+                                                  - - *id004
+                                                    - INT.Int
+                                              - []
+                                            - - '0'
+                                              - args:
+                                                - - *id001
+                                                  - STRING.String
+                                                - - *id002
+                                                  - BYTES.Bytes
+                                                - - *id003
+                                                  - STRING.String
+                                                - - *id004
+                                                  - INT.Int
+                                                next:
+                                                  default: null
+                                                  specializations:
+                                                  - - '1'
+                                                    - action:
+                                                      - 3647
+                                                      - - - *id001
+                                                          - STRING.String
+                                                        - - *id002
+                                                          - BYTES.Bytes
+                                                        - - *id003
+                                                          - STRING.String
+                                                        - - *id004
+                                                          - INT.Int
+                                                    - []
+                                                  - - '0'
+                                                    - args:
+                                                      - - *id001
+                                                        - STRING.String
+                                                      - - *id002
+                                                        - BYTES.Bytes
+                                                      - - *id003
+                                                        - STRING.String
+                                                      - - *id004
+                                                        - INT.Int
+                                                      next:
+                                                        default: null
+                                                        specializations:
+                                                        - - '1'
+                                                          - action:
+                                                            - 3648
+                                                            - - - *id001
+                                                                - STRING.String
+                                                              - - *id002
+                                                                - BYTES.Bytes
+                                                              - - *id003
+                                                                - STRING.String
+                                                              - - *id004
+                                                                - INT.Int
+                                                          - []
+                                                        - - '0'
+                                                          - args:
+                                                            - - *id003
+                                                              - STRING.String
+                                                            - - *id004
+                                                              - INT.Int
+                                                            next:
+                                                              default: null
+                                                              specializations:
+                                                              - - '1'
+                                                                - action:
+                                                                  - 3649
+                                                                  - - - *id001
+                                                                      - STRING.String
+                                                                    - - *id002
+                                                                      - BYTES.Bytes
+                                                                    - - *id003
+                                                                      - STRING.String
+                                                                    - - *id004
+                                                                      - INT.Int
+                                                                - []
+                                                              - - '0'
+                                                                - args:
+                                                                  - - *id003
+                                                                    - STRING.String
+                                                                  next:
+                                                                    default: null
+                                                                    specializations:
+                                                                    - - '1'
+                                                                      - action:
+                                                                        - 3650
+                                                                        - - - *id001
+                                                                            - STRING.String
+                                                                          - - *id002
+                                                                            - BYTES.Bytes
+                                                                          - - *id003
+                                                                            - STRING.String
+                                                                          - - *id004
+                                                                            - INT.Int
+                                                                      - []
+                                                                    - - '0'
+                                                                      - action:
+                                                                        - 3651
+                                                                        - - - *id003
+                                                                            - STRING.String
+                                                                          - - *id001
+                                                                            - STRING.String
+                                                                          - - *id004
+                                                                            - INT.Int
+                                                                          - - *id002
+                                                                            - BYTES.Bytes
+                                                                      - []
+                                                                    bitwidth: 1
+                                                                    sort: BOOL.Bool
+                                                                    occurrence: &id005 [
+                                                                      side_condition_3650]
+                                                                  function: side_condition_3650
+                                                                  sort: BOOL.Bool
+                                                                  occurrence: *id005
+                                                                - []
+                                                              bitwidth: 1
+                                                              sort: BOOL.Bool
+                                                              occurrence: &id006 [
+                                                                side_condition_3649]
+                                                            function: side_condition_3649
+                                                            sort: BOOL.Bool
+                                                            occurrence: *id006
+                                                          - []
+                                                        bitwidth: 1
+                                                        sort: BOOL.Bool
+                                                        occurrence: &id007 [side_condition_3648]
+                                                      function: side_condition_3648
+                                                      sort: BOOL.Bool
+                                                      occurrence: *id007
+                                                    - []
+                                                  bitwidth: 1
+                                                  sort: BOOL.Bool
+                                                  occurrence: &id008 [side_condition_3647]
+                                                function: side_condition_3647
+                                                sort: BOOL.Bool
+                                                occurrence: *id008
+                                              - []
+                                            bitwidth: 1
+                                            sort: BOOL.Bool
+                                            occurrence: &id009 [side_condition_3646]
+                                          function: side_condition_3646
+                                          sort: BOOL.Bool
+                                          occurrence: *id009
+                                        - []
+                                      bitwidth: 1
+                                      sort: BOOL.Bool
+                                      occurrence: &id010 [side_condition_3645]
+                                    function: side_condition_3645
+                                    sort: BOOL.Bool
+                                    occurrence: *id010
+                                  - []
+                                bitwidth: 1
+                                sort: BOOL.Bool
+                                occurrence: &id011 [side_condition_3644]
+                              function: side_condition_3644
+                              sort: BOOL.Bool
+                              occurrence: *id011
+                            - []
+                          bitwidth: 1
+                          sort: BOOL.Bool
+                          occurrence: &id012 [side_condition_3643]
+                        function: side_condition_3643
+                        sort: BOOL.Bool
+                        occurrence: *id012
+                      - []
+                    bitwidth: 1
+                    sort: BOOL.Bool
+                    occurrence: &id013 [side_condition_3642]
+                  function: side_condition_3642
+                  sort: BOOL.Bool
+                  occurrence: *id013
+                - []
+              bitwidth: 1
+              sort: BOOL.Bool
+              occurrence: &id014 [side_condition_3641]
+            function: side_condition_3641
+            sort: BOOL.Bool
+            occurrence: *id014
+          - []
+        bitwidth: 1
+        sort: BOOL.Bool
+        occurrence: &id015 [side_condition_3640]
+      function: side_condition_3640
+      sort: BOOL.Bool
+      occurrence: *id015
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id016 [side_condition_3639]
+function: side_condition_3639
+sort: BOOL.Bool
+occurrence: *id016

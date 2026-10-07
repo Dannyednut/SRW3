@@ -1,0 +1,12 @@
+default: null
+specializations:
+- - LblauthCtx'LParUndsCommUndsRParUnds'SRW3AUTH'Unds'AuthCtx'Unds'LinCtx'Unds'Bytes{}
+  - action:
+    - 4089
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - BYTES.Bytes
+  - [STRING.String, BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']

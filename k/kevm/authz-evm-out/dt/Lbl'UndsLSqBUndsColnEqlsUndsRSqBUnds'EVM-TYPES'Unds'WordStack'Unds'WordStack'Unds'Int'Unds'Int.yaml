@@ -1,0 +1,93 @@
+args:
+- - &id001 ['2']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 14969
+      - - - &id003 ['3']
+          - INT.Int
+        - - *id001
+          - INT.Int
+        - - &id002 ['1']
+          - STRING.String
+    - []
+  - - '0'
+    - default: null
+      specializations:
+      - - Lbl'Stop'WordStack'Unds'EVM-TYPES'Unds'WordStack{}
+        - action:
+          - 14968
+          - - - *id002
+              - STRING.String
+            - - *id001
+              - INT.Int
+            - - *id003
+              - INT.Int
+        - []
+      - - Lbl'UndsColnUndsUnds'EVM-TYPES'Unds'WordStack'Unds'Int'Unds'WordStack{}
+        - args:
+          - - *id001
+            - INT.Int
+          next:
+            default: null
+            specializations:
+            - - '1'
+              - action:
+                - 14970
+                - - - *id001
+                    - INT.Int
+                  - - *id003
+                    - INT.Int
+                  - - &id004 ['0', '1']
+                    - INT.Int
+                  - - &id005 ['1', '1']
+                    - STRING.String
+              - []
+            - - '0'
+              - args:
+                - - *id001
+                  - INT.Int
+                next:
+                  default: null
+                  specializations:
+                  - - '1'
+                    - action:
+                      - 14971
+                      - - - *id004
+                          - INT.Int
+                        - - *id001
+                          - INT.Int
+                        - - *id003
+                          - INT.Int
+                        - - *id005
+                          - STRING.String
+                    - []
+                  - - '0'
+                    - fail
+                    - []
+                  bitwidth: 1
+                  sort: BOOL.Bool
+                  occurrence: &id006 [side_condition_14971]
+                function: side_condition_14971
+                sort: BOOL.Bool
+                occurrence: *id006
+              - []
+            bitwidth: 1
+            sort: BOOL.Bool
+            occurrence: &id007 [side_condition_14970]
+          function: side_condition_14970
+          sort: BOOL.Bool
+          occurrence: *id007
+        - [INT.Int, STRING.String]
+      sort: STRING.String
+      occurrence: *id002
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id008 [side_condition_14969]
+function: side_condition_14969
+sort: BOOL.Bool
+occurrence: *id008

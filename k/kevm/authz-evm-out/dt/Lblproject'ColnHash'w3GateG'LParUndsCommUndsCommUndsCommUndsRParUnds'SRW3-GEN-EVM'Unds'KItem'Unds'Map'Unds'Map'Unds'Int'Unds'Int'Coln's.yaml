@@ -1,0 +1,16 @@
+default: fail
+specializations:
+- - Lbl'Hash'w3GateG'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3-GEN-EVM'Unds'KItem'Unds'Map'Unds'Map'Unds'Int'Unds'Int{}
+  - action:
+    - 15993
+    - - - ['0', '1']
+        - MAP.Map
+      - - ['1', '1']
+        - MAP.Map
+      - - ['2', '1']
+        - INT.Int
+      - - ['3', '1']
+        - INT.Int
+  - [MAP.Map, MAP.Map, INT.Int, INT.Int]
+sort: STRING.String
+occurrence: ['1']

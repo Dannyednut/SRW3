@@ -1,0 +1,65 @@
+args:
+- - &id001 ['2']
+  - INT.Int
+- - &id002 ['1']
+  - MAP.Map
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 13651
+      - - - &id003 ['4']
+          - INT.Int
+        - - *id001
+          - INT.Int
+        - - &id004 ['3']
+          - INT.Int
+        - - *id002
+          - MAP.Map
+        - - &id005 ['5']
+          - INT.Int
+        - - &id006 ['6']
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - INT.Int
+      - - *id002
+        - MAP.Map
+      next:
+        default: null
+        specializations:
+        - - '1'
+          - action:
+            - 13652
+            - - - *id003
+                - INT.Int
+              - - *id001
+                - INT.Int
+              - - *id004
+                - INT.Int
+              - - *id002
+                - MAP.Map
+              - - *id005
+                - INT.Int
+              - - *id006
+                - INT.Int
+          - []
+        - - '0'
+          - fail
+          - []
+        bitwidth: 1
+        sort: BOOL.Bool
+        occurrence: &id007 [side_condition_13652]
+      function: side_condition_13652
+      sort: BOOL.Bool
+      occurrence: *id007
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id008 [side_condition_13651]
+function: side_condition_13651
+sort: BOOL.Bool
+occurrence: *id008

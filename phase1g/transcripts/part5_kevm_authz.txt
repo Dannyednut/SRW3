@@ -1,0 +1,24 @@
+=== SRW3 Phase 1G — Part 5: KEVM AUTHORITY ADAPTER (TIER G2) ===
+=== generated: 2026-10-07 10:24:21 UTC ===
+definition : k/kevm/srw3-authz-evm-demos.k (module SRW3-AUTHZ-EVM-DEMOS;
+             additive over the frozen srw3-exec-evm.k / srw3-auth-evm.k /
+             srw3-lin-evm.k / srw3-gen-binding.k / srw3-kevm.k chain)
+sha256(srw3-authz-evm.k)      = b11e25d0eae509c332f83292477730624718b53e5665453ed924d6dd907c7ae9
+sha256(srw3-authz-evm-demos.k)= 9d349448d883180876031353c7e570f9658be00307fb77518c4e528ef0db7b39
+krun flags : -cCHAINID=1 -cMODE=NORMAL -cSCHEDULE=CANCUN -cUSEGAS=false
+             (krun exit=1 = designed carrier terminal, the 1E/1F precedent)
+
+--- evm_authz_commit (krun exit=1, 25s, carriers=1)
+    verdict(s): valid-g
+    EXPECTED MATCH: valid-g
+
+--- evm_authz_selfauth (krun exit=1, 26s, carriers=1)
+    verdict(s): invalid-authlevel
+    EXPECTED MATCH: invalid-authlevel
+
+--- evm_authz_tamper (krun exit=1, 25s, carriers=1)
+    verdict(s): invalid-effdecl
+    EXPECTED MATCH: invalid-effdecl
+
+SUMMARY: PASS=3 FAIL=0
+PART5_KEVM_AUTHZ_DONE

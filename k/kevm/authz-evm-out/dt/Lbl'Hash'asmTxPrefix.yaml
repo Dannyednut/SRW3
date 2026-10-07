@@ -1,0 +1,53 @@
+args:
+- - &id001 ['1']
+  - INT.Int
+next:
+  default: fail
+  specializations:
+  - - '0'
+    - action:
+      - 13184
+      - []
+    - []
+  - - '1'
+    - args:
+      - - *id001
+        - INT.Int
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        default: fail
+        specializations:
+        - - '4'
+          - action:
+            - 13188
+            - []
+          - []
+        - - '1'
+          - action:
+            - 13185
+            - []
+          - []
+        - - '2'
+          - action:
+            - 13186
+            - []
+          - []
+        - - '3'
+          - action:
+            - 13187
+            - []
+          - []
+        bitwidth: 64
+        sort: MINT.MInt 64
+        occurrence: &id002 ['0', '1']
+      function: hook_INT_limb
+      sort: MINT.MInt 64
+      occurrence: *id002
+    - []
+  bitwidth: 32
+  sort: MINT.MInt 32
+  occurrence: &id003 [size, '1']
+function: hook_INT_size_int
+sort: MINT.MInt 32
+occurrence: *id003

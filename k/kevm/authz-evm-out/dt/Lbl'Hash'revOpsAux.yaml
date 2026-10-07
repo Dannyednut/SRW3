@@ -1,0 +1,20 @@
+default: null
+specializations:
+- - Lbl'Stop'OpCodes'Unds'EVM-ASSEMBLY'Unds'OpCodes{}
+  - action:
+    - 13573
+    - - - &id001 ['2']
+        - STRING.String
+  - []
+- - Lbl'UndsSClnUndsUnds'EVM-ASSEMBLY'Unds'OpCodes'Unds'OpCode'Unds'OpCodes{}
+  - action:
+    - 13574
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - STRING.String
+      - - *id001
+        - STRING.String
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

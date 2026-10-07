@@ -1,0 +1,108 @@
+args:
+- - &id001 ['1']
+  - LIST.List
+next:
+  default: &id005
+    args:
+    - - *id001
+      - LIST.List
+    - - [lit, '0', MINT.MInt 64]
+      - MINT.MInt 64
+    next:
+      default: fail
+      specializations:
+      - - inj{SortExecEvt{}, SortKItem{}}
+        - default: null
+          specializations:
+          - - LblexEvt'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3EXEC'Unds'ExecEvt'Unds'Int'Unds'Int'Unds'Int'Unds'Int{}
+            - args:
+              - - *id001
+                - LIST.List
+              - - [lit, '1', MINT.MInt 64]
+                - MINT.MInt 64
+              - - [lit, '0', MINT.MInt 64]
+                - MINT.MInt 64
+              next:
+                args:
+                - - &id002 ['0', '0', '0', '1']
+                  - INT.Int
+                next:
+                  default: null
+                  specializations:
+                  - - '1'
+                    - action:
+                      - 14345
+                      - - - ['3', '0', '0', '1']
+                          - INT.Int
+                        - - ['1', '0', '0', '1']
+                          - INT.Int
+                        - - *id002
+                          - INT.Int
+                        - - ['1', '1']
+                          - LIST.List
+                        - - ['2', '0', '0', '1']
+                          - INT.Int
+                    - []
+                  - - '0'
+                    - args:
+                      - - *id001
+                        - LIST.List
+                      - - [lit, '1', MINT.MInt 64]
+                        - MINT.MInt 64
+                      - - [lit, '0', MINT.MInt 64]
+                        - MINT.MInt 64
+                      next:
+                        action:
+                        - 14344
+                        - - - &id004 ['0', '0', '1']
+                            - STRING.String
+                          - - ['1', '1']
+                            - LIST.List
+                      function: hook_LIST_range_long
+                      sort: LIST.List
+                      occurrence: ['1', '1']
+                    - []
+                  bitwidth: 1
+                  sort: BOOL.Bool
+                  occurrence: &id003 [side_condition_14345]
+                function: side_condition_14345
+                sort: BOOL.Bool
+                occurrence: *id003
+              function: hook_LIST_range_long
+              sort: LIST.List
+              occurrence: ['1', '1']
+            - [INT.Int, INT.Int, INT.Int, INT.Int]
+          sort: STRING.String
+          occurrence: *id004
+        - [STRING.String]
+      sort: STRING.String
+      occurrence: ['0', '1']
+    function: hook_LIST_get_long
+    sort: STRING.String
+    occurrence: ['0', '1']
+  specializations:
+  - - '0'
+    - args:
+      - - *id001
+        - LIST.List
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        action:
+        - 14343
+        - []
+      function: hook_LIST_range_long
+      sort: LIST.List
+      occurrence: ['0', '1']
+    - []
+  - - '1'
+    - *id005
+    - [STRING.String]
+  bitwidth: 64
+  sort: MINT.MInt 64
+  occurrence: &id006 [size, '1']
+function: hook_LIST_size_long
+sort: MINT.MInt 64
+occurrence: *id006

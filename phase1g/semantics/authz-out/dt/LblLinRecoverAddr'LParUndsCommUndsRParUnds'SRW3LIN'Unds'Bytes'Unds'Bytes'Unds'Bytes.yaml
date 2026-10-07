@@ -1,0 +1,28 @@
+args:
+- - &id001 ['2']
+  - BYTES.Bytes
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 3603
+      - - - &id002 ['1']
+          - BYTES.Bytes
+        - - *id001
+          - BYTES.Bytes
+    - []
+  - - '0'
+    - action:
+      - 3604
+      - - - *id002
+          - BYTES.Bytes
+        - - *id001
+          - BYTES.Bytes
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id003 [side_condition_3603]
+function: side_condition_3603
+sort: BOOL.Bool
+occurrence: *id003

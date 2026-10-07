@@ -1,0 +1,12 @@
+default: fail
+specializations:
+- - Lbl'Hash'w3RestoreOne'LParUndsCommUndsRParUnds'SRW3-EVM'Unds'KItem'Unds'Map'Unds'Int{}
+  - action:
+    - 15999
+    - - - ['0', '1']
+        - MAP.Map
+      - - ['1', '1']
+        - INT.Int
+  - [MAP.Map, INT.Int]
+sort: STRING.String
+occurrence: ['1']

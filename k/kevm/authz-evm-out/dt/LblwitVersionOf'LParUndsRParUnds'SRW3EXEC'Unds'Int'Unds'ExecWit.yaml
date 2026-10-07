@@ -1,0 +1,25 @@
+default: null
+specializations:
+- - LblexecWit'LParUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsCommUndsRParUnds'SRW3EXEC'Unds'ExecWit'Unds'Int'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes'Unds'Bytes{}
+  - action:
+    - 16534
+    - - - ['1', '1']
+        - BYTES.Bytes
+      - - ['2', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - BYTES.Bytes
+      - - ['4', '1']
+        - BYTES.Bytes
+      - - ['5', '1']
+        - BYTES.Bytes
+      - - ['6', '1']
+        - BYTES.Bytes
+      - - ['7', '1']
+        - BYTES.Bytes
+      - - ['0', '1']
+        - INT.Int
+  - [INT.Int, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes, BYTES.Bytes,
+    BYTES.Bytes]
+sort: STRING.String
+occurrence: ['1']

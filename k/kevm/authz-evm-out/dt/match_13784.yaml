@@ -1,0 +1,23 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'kevm'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'k'-GT-'{}
+          - default: fail
+            specializations: []
+            sort: STRING.String
+            occurrence: ['0', '0', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['0', '0', '1']
+      - [STRING.String, STRING.String, STRING.String, STRING.String, STRING.String,
+        STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

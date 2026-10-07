@@ -1,0 +1,15 @@
+default: null
+specializations:
+- - Lbl'Stop'Account'Unds'EVM-TYPES'Unds'Account{}
+  - action:
+    - 13402
+    - []
+  - []
+- - inj{SortInt{}, SortAccount{}}
+  - action:
+    - 13403
+    - - - ['0', '1']
+        - INT.Int
+  - [INT.Int]
+sort: STRING.String
+occurrence: ['1']

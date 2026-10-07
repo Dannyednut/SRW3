@@ -1,0 +1,134 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'srw3authz'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'gresult'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'k'-GT-'{}
+              - next:
+                  args:
+                  - - &id003 ['0', '1', '0', '1']
+                    - STRING.String
+                  - - &id005 [lit, '', STRING.String]
+                    - STRING.String
+                  next:
+                    default: null
+                    specializations:
+                    - - '1'
+                      - default:
+                          default: fail
+                          specializations:
+                          - - kseq{}
+                            - default: fail
+                              specializations:
+                              - - inj{SortAzPgm{}, SortKItem{}}
+                                - default: null
+                                  specializations:
+                                  - - Lblxbal'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3317
+                                      - - - &id001 ['1', '1']
+                                          - STRING.String
+                                        - - &id002 ['1', '0', '0', '0', '1']
+                                          - STRING.String
+                                    - []
+                                  - - Lblxbytes'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3318
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxchain'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3319
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxcm1a'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3320
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxcm1b'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3321
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxcm2'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3322
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxcm3'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3323
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  - - Lblxpos0'Unds'SRW3AUTHZ-DEMO'Unds'AzPgm{}
+                                    - action:
+                                      - 3324
+                                      - - - *id001
+                                          - STRING.String
+                                        - - *id002
+                                          - STRING.String
+                                    - []
+                                  sort: STRING.String
+                                  occurrence: ['0', '0', '0', '0', '0', '1']
+                                - [STRING.String]
+                              sort: STRING.String
+                              occurrence: ['0', '0', '0', '0', '1']
+                            - [STRING.String, STRING.String]
+                          sort: STRING.String
+                          occurrence: ['0', '0', '0', '1']
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: *id003
+                      - []
+                    - - '0'
+                      - default: fail
+                        specializations: []
+                        sort: STRING.String
+                        occurrence: *id003
+                      - []
+                    bitwidth: 1
+                    sort: BOOL.Bool
+                    occurrence: &id004 [eq, '0', '1', '0', '1', and, lit, '', STRING.String]
+                  function: hook_KEQUAL_eq
+                  sort: BOOL.Bool
+                  occurrence: *id004
+                pattern: {hook: STRING.String, literal: ''}
+                occurrence: *id005
+                sort: STRING.String
+              - [STRING.String]
+            sort: STRING.String
+            occurrence: ['0', '0', '1']
+          - [STRING.String]
+        sort: STRING.String
+        occurrence: ['1', '0', '1']
+      - [STRING.String, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

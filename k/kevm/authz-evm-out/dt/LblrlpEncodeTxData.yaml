@@ -1,0 +1,248 @@
+default: null
+specializations:
+- - inj{SortAccessListTx{}, SortTxData{}}
+  - default: null
+    specializations:
+    - - LblAccessListTxData{}
+      - default: fail
+        specializations:
+        - - LblJSONs{}
+          - default: fail
+            specializations:
+            - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+              - default: fail
+                specializations:
+                - - LblJSONList{}
+                  - action:
+                    - 16482
+                    - - - &id001 ['7', '0', '1']
+                        - STRING.String
+                      - - ['0', '0', '7', '0', '1']
+                        - STRING.String
+                      - - ['6', '0', '1']
+                        - INT.Int
+                      - - ['5', '0', '1']
+                        - BYTES.Bytes
+                      - - ['2', '0', '1']
+                        - INT.Int
+                      - - ['0', '0', '1']
+                        - INT.Int
+                      - - ['1', '0', '1']
+                        - INT.Int
+                      - - ['3', '0', '1']
+                        - STRING.String
+                      - - ['4', '0', '1']
+                        - INT.Int
+                  - [STRING.String]
+                sort: STRING.String
+                occurrence: ['0', '7', '0', '1']
+              - []
+            sort: STRING.String
+            occurrence: ['1', '7', '0', '1']
+          - [STRING.String, STRING.String]
+        sort: STRING.String
+        occurrence: *id001
+      - [INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes, INT.Int,
+        STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortBlobTx{}, SortTxData{}}
+  - default: null
+    specializations:
+    - - LblBlobTxData{}
+      - default: fail
+        specializations:
+        - - LblJSONs{}
+          - default: fail
+            specializations:
+            - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+              - default: fail
+                specializations:
+                - - LblJSONList{}
+                  - action:
+                    - 16483
+                    - - - &id002 ['0', '8', '0', '1']
+                        - STRING.String
+                      - - &id003 ['1', '8', '0', '1']
+                        - STRING.String
+                      - - ['7', '0', '1']
+                        - INT.Int
+                      - - ['6', '0', '1']
+                        - BYTES.Bytes
+                      - - ['0', '0', '8', '0', '1']
+                        - STRING.String
+                      - - ['9', '0', '1']
+                        - INT.Int
+                      - - ['1', '0', '1']
+                        - INT.Int
+                      - - ['3', '0', '1']
+                        - INT.Int
+                      - - ['2', '0', '1']
+                        - INT.Int
+                      - - ['0', '0', '1']
+                        - INT.Int
+                      - - ['4', '0', '1']
+                        - STRING.String
+                      - - ['5', '0', '1']
+                        - INT.Int
+                      - - ['10', '0', '1']
+                        - LIST.List
+                  - [STRING.String]
+                sort: STRING.String
+                occurrence: *id002
+              - []
+            sort: STRING.String
+            occurrence: *id003
+          - [STRING.String, STRING.String]
+        sort: STRING.String
+        occurrence: ['8', '0', '1']
+      - [INT.Int, INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes,
+        INT.Int, STRING.String, INT.Int, LIST.List]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortDynamicFeeTx{}, SortTxData{}}
+  - default: null
+    specializations:
+    - - LblDynamicFeeTxData{}
+      - default: fail
+        specializations:
+        - - LblJSONs{}
+          - default: fail
+            specializations:
+            - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+              - default: fail
+                specializations:
+                - - LblJSONList{}
+                  - action:
+                    - 16484
+                    - - - &id004 ['8', '0', '1']
+                        - STRING.String
+                      - - ['6', '0', '1']
+                        - BYTES.Bytes
+                      - - ['0', '0', '8', '0', '1']
+                        - STRING.String
+                      - - ['7', '0', '1']
+                        - INT.Int
+                      - - ['1', '0', '1']
+                        - INT.Int
+                      - - ['3', '0', '1']
+                        - INT.Int
+                      - - ['2', '0', '1']
+                        - INT.Int
+                      - - ['0', '0', '1']
+                        - INT.Int
+                      - - ['4', '0', '1']
+                        - STRING.String
+                      - - ['5', '0', '1']
+                        - INT.Int
+                  - [STRING.String]
+                sort: STRING.String
+                occurrence: ['0', '8', '0', '1']
+              - []
+            sort: STRING.String
+            occurrence: ['1', '8', '0', '1']
+          - [STRING.String, STRING.String]
+        sort: STRING.String
+        occurrence: *id004
+      - [INT.Int, INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes,
+        INT.Int, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortLegacyTx{}, SortTxData{}}
+  - default: null
+    specializations:
+    - - LblLegacySignedTxData{}
+      - action:
+        - 16485
+        - - - ['6', '0', '1']
+            - INT.Int
+          - - ['5', '0', '1']
+            - BYTES.Bytes
+          - - ['2', '0', '1']
+            - INT.Int
+          - - ['0', '0', '1']
+            - INT.Int
+          - - ['1', '0', '1']
+            - INT.Int
+          - - ['3', '0', '1']
+            - STRING.String
+          - - ['4', '0', '1']
+            - INT.Int
+      - [INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes, INT.Int]
+    - - LblLegacyTxData{}
+      - action:
+        - 16486
+        - - - ['5', '0', '1']
+            - BYTES.Bytes
+          - - ['2', '0', '1']
+            - INT.Int
+          - - ['0', '0', '1']
+            - INT.Int
+          - - ['1', '0', '1']
+            - INT.Int
+          - - ['3', '0', '1']
+            - STRING.String
+          - - ['4', '0', '1']
+            - INT.Int
+      - [INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortSetCodeTx{}, SortTxData{}}
+  - default: null
+    specializations:
+    - - LblSetCodeTxData{}
+      - default: fail
+        specializations:
+        - - LblJSONs{}
+          - default: fail
+            specializations:
+            - - Lbl'Stop'List'LBraQuot'JSONs'QuotRBra'{}
+              - default: fail
+                specializations:
+                - - LblJSONList{}
+                  - action:
+                    - 16487
+                    - - - &id005 ['0', '8', '0', '1']
+                        - STRING.String
+                      - - &id006 ['1', '8', '0', '1']
+                        - STRING.String
+                      - - ['9', '0', '1']
+                        - LIST.List
+                      - - ['7', '0', '1']
+                        - INT.Int
+                      - - ['6', '0', '1']
+                        - BYTES.Bytes
+                      - - ['0', '0', '8', '0', '1']
+                        - STRING.String
+                      - - ['1', '0', '1']
+                        - INT.Int
+                      - - ['3', '0', '1']
+                        - INT.Int
+                      - - ['2', '0', '1']
+                        - INT.Int
+                      - - ['0', '0', '1']
+                        - INT.Int
+                      - - ['4', '0', '1']
+                        - STRING.String
+                      - - ['5', '0', '1']
+                        - INT.Int
+                  - [STRING.String]
+                sort: STRING.String
+                occurrence: *id005
+              - []
+            sort: STRING.String
+            occurrence: *id006
+          - [STRING.String, STRING.String]
+        sort: STRING.String
+        occurrence: ['8', '0', '1']
+      - [INT.Int, INT.Int, INT.Int, INT.Int, STRING.String, INT.Int, BYTES.Bytes,
+        INT.Int, STRING.String, LIST.List]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['1']

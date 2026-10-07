@@ -910,3 +910,123 @@ Work Log:
 - run_gen_demos.sh set -u local-declaration fix (bash version drift).
 - Part 10: report §8/§13/§17 cite the FINAL transcript; binding language
   "cryptographically bound under stated assumptions" recorded in §15.
+
+---
+Task ID: 1G (in progress — Part 0-4)
+Agent: Super Z (main)
+Task: SRW3 Phase 1G — authority-rooted state and execution evidence
+
+Work Log:
+- Session recovery (7th sandbox reset): local state had no Phase 1E/1F;
+  repo re-cloned from GitHub (Dannyednut/SRW3). Branches verified: phase1e @
+  8b26cb74 (matches the 1E closure record), phase1f @ b6c651e0 (1F closure).
+  phase1g derived from phase1f tip; no history rewrite. The old local
+  srw3-kevm (stale phase1b checkout) preserved as srw3-kevm.old-phase1b;
+  the 1G working repo renamed to the canonical /home/z/my-project/srw3-kevm
+  so every frozen hardcoded path resolves (symlinks are sandbox-forbidden).
+- Toolchain rebuilt from the pinned recipe; TWO deviations recorded:
+  (a) the k.deb download TRUNCATED at 43/181 MB (curl -C - re-download;
+      verify: dpkg-deb -c lists 488 entries, 432 files extracted);
+  (b) libclang-common-15-dev downloaded by rebuild_env_1d.sh but NOT in its
+      extract loop — stddef.h missing for the shim build (extracted
+      manually; the 1D recipe note anticipated exactly this need).
+  New script scripts/phase1g/setup_env_1g.sh: llvm-kompile-clang patch,
+  syslibs dev-symlink shims, krypto shim rebuild (keccak-multiblock fix
+  marker present), env.sh reconstruction. kompile/z3/clang smoke-tested.
+- MODEL.md FROZEN (phase1g/semantics/MODEL.md): the four separations
+  (evidence validity / evidence authority / execution validity / SRW3
+  security validity), authority domains + levels (consensus+policy at 0,
+  execution+proof at 1), AuthorityCertificate(rel 1/2/3) with an authority
+  chain, NoCircularAuthority (own-id checks + strict level decrease +
+  termination at an authorized level-0 protocol root + per-step identity
+  authorization), context-derived authorized identities (0xA1-0xA4 tags),
+  SecurityContext, LinRecG additive record, Gate_G = 1F chain + 7 authority
+  layers (authtype/authrel/authlevel/authcircle/authsrc/authbind/policy),
+  21-conjunct accept, BAL analysis object, assumption census A-G1..A-G7.
+- srw3authz.k (additive, imports SRW3EXEC): hs+llvm kompile clean. One
+  defect found by the demo run and FIXED: BalEntryOk tested a flat key
+  against the NESTED writes map (always false) — corrected to a slot test
+  on the inner map; Python was the reference (Python true, K false caught
+  by the cross-check — the mirror discipline working as designed).
+- srw3authz-demo.k: 8 partitioned programs. FIRST RUN: xcm1 OOM-killed at
+  the 3 GB sandbox ceiling (4 verdicts in one term) — SPLIT into xcm1a/xcm1b
+  (documented; no case skipped). RERUN: 7/7 PASS — pos0..pos3 = valid-g
+  (rel=1/1/2/3), g1=invalid-authcircle, g2=invalid-authsrc, g3a=invalid-
+  authlevel, g3b=invalid-authcircle, g4/g5/g7=invalid-authbind, g6=invalid-
+  authsrc, g8=invalid-policy, g9=invalid-authsrc, g9b=invalid-authbind,
+  g10=invalid-authtype, g11=invalid-authrel; BAL: bal1 pass, bal2 omission
+  detected, bal3 = BAL-accepts/effbind-rejects (the CM-G9 deep finding),
+  bal4 order-blindness + trace-digest distinctness.
+- Python mirror (authz_model.py): test suite 25/25 PASS; hostile mutation
+  harness 18/18 as expected (m01-m15 rejected at documented layers, m06
+  honest-Mode-B sanity accepted, b01/b02 documented boundaries); byte
+  certificate: Python == K (llvm, real krypto) for certbody0/certid0/
+  consensusid/execclientid/proofsysid/policyauthid/proofpub3/childg0/
+  canoncoreg0/bal3canon — 10/10 MATCH.
+- KEVM Tier G2 (k/kevm/srw3-authz-evm.k + demos): the AUTHORITY ADAPTER —
+  the certificate is constructed FROM THE RUN (Mode A rel=2, source = the
+  authorized execution client, chain = [consensus root], effect digest =
+  the EXECUTION-DERIVED trace digest so authbind forces presented ==
+  executed); #w3GateGBad = the self-authorizing variant (client claims
+  level 0, CM-G3a). Demos: evm_authz_commit / evm_authz_selfauth /
+  evm_authz_tamper. KEVM kompile + runs pending (queued after kprove).
+- Proofs (phase1g/proofs/, hs backend): az_record_proofs (5: prefix/childG/
+  childE-childF invariance/binding decomposition), az_gate_proofs (7
+  branch-wise verdict-exactness claims + AZBACC accept direction),
+  az_binding_proofs (5: the 21-premise accept implies each of the five
+  certificate bindings — the G1/G2/G3/G4/G5 classes), az_noncirc_proofs
+  (AZ-NCS/AZ-CHS single forms + AZ-CHG the A-E3 replacement), 
+  az_negative_proofs (NCG1/NCG2 designed-fail + NCG3 vacuity probe).
+  kprove run IN PROGRESS.
+
+Stage Summary:
+- The authority model is mechanized end-to-end at the abstract layer and
+  byte-consistent with the Python mirror; the demo table demonstrates the
+  full CM-G countermodel surface with exact first-fail diagnoses.
+- Open: kprove verdicts (running), KEVM Tier G2 runs, prior-art refresh
+  (EIP-8025/7928/8159), report + bundle + push.
+
+---
+Task ID: 1G (closure)
+Agent: Super Z (main)
+Task: Phase 1G — completion: proofs, KEVM Tier G2, cross-layer, report
+
+Work Log:
+- kprove FINAL: 21 PROVED (AZR1-4 record binding; AZB1-7 branch-wise verdict
+  exactness; AZBACC accept direction; AZG1-5 the authority-binding classes)
+  + 3 designed-fail canaries correct (NCG1-3) + 4 disclosed single-form
+  attempts (AZR5/AZNCS/AZCHS/AZCHG — the symbolic-hash boundary, the 1F
+  EXGATE class; content carried branch-wise). A splitter label collision
+  (hyphens in labels) was found and fixed (AZNCS/AZCHS/AZCHG).
+- KEVM Tier G2 (3/3 PASS): evm_authz_commit valid-g COMMIT; evm_authz_selfauth
+  invalid-authlevel REJECT+RESTORE (CM-G3a at the EVM layer); evm_authz_tamper
+  invalid-effdecl REJECT+RESTORE (frozen 1F chain diagnoses first). TWO
+  memory-ceiling workarounds recorded honestly: (a) the adapter cert takes
+  the F record as an argument (projections only); (b) the KEVM harness
+  evaluates the F chain ONCE + the authority layers in isolation
+  (#w3AzVerdict — the same verdict surface; the integrated VerifyLineageG
+  remains canonical, proved + green at the abstract layer); the first-fail
+  cascade over real EVM state is 9^3 PE-chain evaluations.
+- The dbg carrier (#w3GateGDbg, the 1F #w3GateFDbg precedent + a hoist rule
+  with the REST-capture fix) records the authority byte certificate of the
+  REAL run.
+- Cross-layer: part6 10/10 (P<->K-abstract); part6b 7/7 (P<->REAL KEVM run —
+  the authority certificate of the actual execution rebuilt byte-identically
+  in Python; the commit run's linAzCertD == the dbg certId == the rebuild =
+  a36cfab4...4b9fef). THREE-LAYER consistency 17/17.
+- Prior art: EIP-8025 (Draft; proofs supplementary, not load-bearing),
+  EIP-7928 (Last Call; storage_reads are KEYS ONLY — confirms the BAL
+  findings), EIP-8159 (transport only), Engine API (the consensus/execution
+  boundary) — live-fetched, sha256 recorded.
+- Report: phase1g/report/SRW3-Phase1G-Authority-Report.{md,pdf} (PHASE 1G
+  RESULTS format; the 17 completion criteria; the A-G1..A-G7 census).
+
+Stage Summary:
+- PHASE 1G COMPLETE: authority is INHERITED, NOT CREATED — the Gate_G
+  commitment requires a non-circular, context-authorized, field-bound
+  authority certificate terminating at a protocol root (mechanized);
+  every CM-G attack is rejected at an exact layer; the adapter over real
+  EVM execution demonstrates the smallest authoritative integration point;
+  the root's own authority is the explicit A-G2 (Engine-API boundary;
+  REQUIRES CLIENT/PROTOCOL SUPPORT). All 17 completion criteria satisfied;
+  no criterion silently waived.

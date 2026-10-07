@@ -1,0 +1,16 @@
+default: null
+specializations:
+- - LblbalEntry'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'BalEntry'Unds'Int'Unds'Int'Unds'Bool'Unds'Int{}
+  - action:
+    - 3863
+    - - - ['0', '1']
+        - INT.Int
+      - - ['1', '1']
+        - INT.Int
+      - - ['2', '1']
+        - BOOL.Bool
+      - - ['3', '1']
+        - INT.Int
+  - [INT.Int, INT.Int, BOOL.Bool, INT.Int]
+sort: STRING.String
+occurrence: ['1']

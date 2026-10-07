@@ -1,0 +1,16 @@
+default: fail
+specializations:
+- - Lbl'Hash'w3AuthState'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3-AUTH-EVM'Unds'KItem'Unds'LinRecE'Unds'Bytes'Unds'Bytes'Unds'String{}
+  - action:
+    - 15974
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - BYTES.Bytes
+      - - ['2', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - STRING.String
+  - [STRING.String, BYTES.Bytes, BYTES.Bytes, STRING.String]
+sort: STRING.String
+occurrence: ['1']

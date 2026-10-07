@@ -1,0 +1,84 @@
+=== SRW3 Phase 1G — Part 7: TARGETED CURRENT-PRIOR-ART REVIEW ===
+=== generated: 2026-10-07T08:28:30.816009Z ===
+
+## Sources (fetched live; sha256 verified below)
+  eip-8025.md: 46313 bytes  sha256=c358101a47c8be0c...  [Draft/Core]
+  eip-7928.md: 31164 bytes  sha256=abc475389f99e5e8...  [Last/Core]
+  eip-8159.md: 6111 bytes  sha256=317d7de4ec71af81...  [Last/Networking]
+  engine-api.md: 21987 bytes  sha256=ab679bb056aafd1b...  [live main branch]
+
+## 1. EIP-8025 Optional Execution Proofs (Draft, Core)
+   Provides: an opt-in consensus-layer path for STATELESS payload
+   verification. Public input binds the proof to a specific
+   NewPayloadRequest, chain ID, input schema, and validation result.
+   CRITICAL QUOTE (spec, Proof-verifying mode): verified proofs are
+   'a supplementary validity signal, not a replacement for
+   re-execution'; proof-verifying nodes STILL RE-EXECUTE payloads.
+   => 8025 does NOT make proof-checked authority load-bearing; no
+   security-policy binding, no lineage, no obligation gate, no
+   effect-trace binding. SRW3 delta (1G §6/§16): the ADDITIONAL
+   public inputs (policyV, appSetD, graphD, lineageHead), the
+   rel/level/chain authority structure, and the non-circularity
+   theorem. SRW3 Mode B's proof math remains REQUIRES EXTERNAL
+   PROOF SYSTEM (8025 is the natural host for it).
+
+## 2. EIP-7928 Block-Level Access Lists (Last Call, Core)
+   Provides: ENFORCED per-block lists of accounts/storage locations
+   accessed, with post-execution values; storage_changes carry
+   [block_access_index -> new_value] (tx-level write attribution);
+   storage_reads carry READ-ONLY KEYS ONLY (no observed values).
+   => Structurally confirms the 1G BAL findings (mechanized: bal1-4):
+      (a) BAL = footprint + post-values; (b) read OBSERVATIONS are
+      absent -> the oracle-staleness class (1F neg8 / 1G bal3) is
+      INVISIBLE to a BAL; (c) intra-transaction same-slot write
+      order is absent (one entry per (slot, tx)) -> the F4 class is
+      invisible; (d) BAL cannot detect what the ordered digest-bound
+      trace detects, so access list != complete security effect
+      trace. BAL CAN serve as an independent footprint CROSS-CHECK
+      against the digest-bound trace (1G bal2: omission detected).
+
+## 3. EIP-8159 eth/71 BAL Exchange (Last Call, Networking)
+   Provides: peer-to-peer exchange of BALs for sync workflows.
+   => Networking only: no authority model, no commitment mediation,
+   no obligation surface. Irrelevant to the authority boundary.
+
+## 4. Engine API (execution-apis, engine_newPayloadV1+)
+   Provides: the CONSENSUS/EXECUTION boundary. The consensus client
+   drives payload validation/execution; responses carry {status,
+   latestValidHash}. The root becomes AUTHORITATIVE through the
+   consensus process (fork-choice/finalization on top of the EL's
+   VALID response), not inside the EL alone.
+   => This is exactly the 1G modeled edge: the level-0 consensus
+   root authorizes the payload; the level-1 client derives the
+   state/effects. The smallest SRW3 insertion point that does NOT
+   violate the separation: a post-execution hook exposing (payload,
+   parentRoot, executionResult, childRoot, executionEvidence) to a
+   commitment-gate observer. Anything stronger (making the gate's
+   REJECT consensus-visible) is REQUIRES CLIENT/PROTOCOL SUPPORT
+   (the Tier G3 boundary; NOT attempted here).
+
+## 5. Statelessness / witness formats / zkEVM (carried from 1F,
+   unchanged by this session's fetches)
+   Verkle/state witnesses authenticate state PIECES (location +
+   value + proof) — no ordered effect stream, no execution identity,
+   no read-observation binding, no lineage. zkEVM provers prove
+   GENERIC execution validity — the frozen standing distinction
+   (generic execution validity != SRW3 security validity) applies
+   verbatim; complementary as a future Mode-B proof source.
+
+## 6. Net assessment for the Phase 1G research question
+   - No surveyed system models AUTHORITY as distinct from
+     authenticity with a non-circularity obligation; 8025/7928/8159
+     provide evidence TRANSPORT and supplementary signals only.
+   - The Engine API boundary is the real-deployment form of the
+     1G assumption A-G2 (consensus as the authorization root): the
+     model PROVES the adapter semantics; the deployment gap is
+     REQUIRES CLIENT/PROTOCOL SUPPORT, recorded, not hidden.
+   - 7928 BALs are a usable footprint CROSS-CHECK (SRW3's BalFoot-
+     printOk) but structurally cannot replace the ordered digest-
+     bound effect trace (mechanized in bal1-4 + CM-G9).
+   - 8025's public-input set lacks any security-policy/lineage
+     binding: SRW3's proofPub (MODEL.md §6) is the delta, and the
+     proof system itself remains abstract (A-G6).
+
+PART7_PRIOR_ART_DONE

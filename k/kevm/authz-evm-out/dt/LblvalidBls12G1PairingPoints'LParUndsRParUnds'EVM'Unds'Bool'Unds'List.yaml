@@ -1,0 +1,84 @@
+args:
+- - &id001 ['1']
+  - LIST.List
+next:
+  default: &id005
+    args:
+    - - *id001
+      - LIST.List
+    - - [lit, '0', MINT.MInt 64]
+      - MINT.MInt 64
+    next:
+      default: &id003
+        action:
+        - 16516
+        - - - *id001
+            - LIST.List
+      specializations:
+      - - inj{SortG1Point{}, SortKItem{}}
+        - args:
+          - - *id001
+            - LIST.List
+          - - [lit, '1', MINT.MInt 64]
+            - MINT.MInt 64
+          - - [lit, '0', MINT.MInt 64]
+            - MINT.MInt 64
+          next:
+            args:
+            - - &id002 ['0', '0', '1']
+              - STRING.String
+            next:
+              default: null
+              specializations:
+              - - '1'
+                - action:
+                  - 16518
+                  - - - ['1', '1']
+                      - LIST.List
+                    - - *id002
+                      - STRING.String
+                - []
+              - - '0'
+                - *id003
+                - []
+              bitwidth: 1
+              sort: BOOL.Bool
+              occurrence: &id004 [side_condition_16518]
+            function: side_condition_16518
+            sort: BOOL.Bool
+            occurrence: *id004
+          function: hook_LIST_range_long
+          sort: LIST.List
+          occurrence: ['1', '1']
+        - [STRING.String]
+      sort: STRING.String
+      occurrence: ['0', '1']
+    function: hook_LIST_get_long
+    sort: STRING.String
+    occurrence: ['0', '1']
+  specializations:
+  - - '0'
+    - args:
+      - - *id001
+        - LIST.List
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      - - [lit, '0', MINT.MInt 64]
+        - MINT.MInt 64
+      next:
+        action:
+        - 16517
+        - []
+      function: hook_LIST_range_long
+      sort: LIST.List
+      occurrence: ['0', '1']
+    - []
+  - - '1'
+    - *id005
+    - [STRING.String]
+  bitwidth: 64
+  sort: MINT.MInt 64
+  occurrence: &id006 [size, '1']
+function: hook_LIST_size_long
+sort: MINT.MInt 64
+occurrence: *id006

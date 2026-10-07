@@ -1,0 +1,14 @@
+default: null
+specializations:
+- - LbllinRecG'LParUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'LinRecG'Unds'LinRecF'Unds'Bytes'Unds'Int{}
+  - action:
+    - 3990
+    - - - ['0', '1']
+        - STRING.String
+      - - ['2', '1']
+        - INT.Int
+      - - ['1', '1']
+        - BYTES.Bytes
+  - [STRING.String, BYTES.Bytes, INT.Int]
+sort: STRING.String
+occurrence: ['1']

@@ -1,0 +1,48 @@
+args:
+- - &id001 ['3']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 13489
+      - - - &id002 ['1']
+          - INT.Int
+        - - &id004 ['4']
+          - BYTES.Bytes
+        - - &id003 ['2']
+          - INT.Int
+        - - *id001
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - INT.Int
+      next:
+        default: fail
+        specializations:
+        - - '0'
+          - action:
+            - 13490
+            - - - *id002
+                - INT.Int
+              - - *id003
+                - INT.Int
+              - - *id004
+                - BYTES.Bytes
+          - []
+        bitwidth: 32
+        sort: MINT.MInt 32
+        occurrence: &id005 [size, '3']
+      function: hook_INT_size_int
+      sort: MINT.MInt 32
+      occurrence: *id005
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id006 [side_condition_13489]
+function: side_condition_13489
+sort: BOOL.Bool
+occurrence: *id006

@@ -1,0 +1,16 @@
+default: fail
+specializations:
+- - Lbl'Hash'w3LinState'LParUndsCommUndsCommUndsCommUndsRParUnds'SRW3-LIN-EVM'Unds'KItem'Unds'Map'Unds'Int'Unds'Bytes'Unds'Map{}
+  - action:
+    - 15997
+    - - - ['0', '1']
+        - MAP.Map
+      - - ['1', '1']
+        - INT.Int
+      - - ['2', '1']
+        - BYTES.Bytes
+      - - ['3', '1']
+        - MAP.Map
+  - [MAP.Map, INT.Int, BYTES.Bytes, MAP.Map]
+sort: STRING.String
+occurrence: ['1']

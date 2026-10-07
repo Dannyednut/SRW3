@@ -1,0 +1,24 @@
+default: null
+specializations:
+- - LbldomConsensus'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+  - action:
+    - 14293
+    - []
+  - []
+- - LbldomExecution'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+  - action:
+    - 14294
+    - []
+  - []
+- - LbldomPolicy'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+  - action:
+    - 14295
+    - []
+  - []
+- - LbldomProof'Unds'SRW3AUTHZ'Unds'AuthzDomain{}
+  - action:
+    - 14296
+    - []
+  - []
+sort: STRING.String
+occurrence: ['1']

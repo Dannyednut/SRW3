@@ -1,0 +1,14 @@
+default: null
+specializations:
+- - LblazSrc'LParUndsCommUndsCommUndsRParUnds'SRW3AUTHZ'Unds'AuthzSrc'Unds'AuthzDomain'Unds'Bytes'Unds'Int{}
+  - action:
+    - 3855
+    - - - ['0', '1']
+        - STRING.String
+      - - ['2', '1']
+        - INT.Int
+      - - ['1', '1']
+        - BYTES.Bytes
+  - [STRING.String, BYTES.Bytes, INT.Int]
+sort: STRING.String
+occurrence: ['1']

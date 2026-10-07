@@ -1,0 +1,14 @@
+default: null
+specializations:
+- - Lblg1Point{}
+  - action:
+    - 16515
+    - - - &id001 ['1']
+        - STRING.String
+      - - ['0', '1']
+        - INT.Int
+      - - ['1', '1']
+        - INT.Int
+  - [INT.Int, INT.Int]
+sort: STRING.String
+occurrence: *id001

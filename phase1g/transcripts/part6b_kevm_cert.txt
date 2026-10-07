@@ -1,0 +1,33 @@
+=== SRW3 Phase 1G — Part 6b: KEVM-SIDE AUTHORITY CERTIFICATE ===
+layers: Python rebuild <-> the REAL KEVM run (dbg carrier +
+        the commit run's linAzCertD)
+
+[certid] python=a36cfab41935f70b0c264c7f8342e1302792c8e3af870e25eaae1af0284b9fef
+[certid] kevm  =a36cfab41935f70b0c264c7f8342e1302792c8e3af870e25eaae1af0284b9fef
+[certid] MATCH
+
+[effd] python=4a3a1f19d18a750657752fac5f83501c52c1f9da8698198cc2be0ea99c5622b9
+[effd] kevm  =4a3a1f19d18a750657752fac5f83501c52c1f9da8698198cc2be0ea99c5622b9
+[effd] MATCH
+
+[presentd] python=4a3a1f19d18a750657752fac5f83501c52c1f9da8698198cc2be0ea99c5622b9
+[presentd] kevm  =4a3a1f19d18a750657752fac5f83501c52c1f9da8698198cc2be0ea99c5622b9
+[presentd] MATCH
+
+[parentr] python=42a6d8070aacb56999b6a65ff327023b23b5c3f10ad3be9607b1e00f44cb802e
+[parentr] kevm  =42a6d8070aacb56999b6a65ff327023b23b5c3f10ad3be9607b1e00f44cb802e
+[parentr] MATCH
+
+[consensusid] python=cd738dfda785ba3b3211f602a46db2f9e0888db2ba63ca4ecc43d13b2c9624e6
+[consensusid] kevm  =cd738dfda785ba3b3211f602a46db2f9e0888db2ba63ca4ecc43d13b2c9624e6
+[consensusid] MATCH
+
+[execclientid] python=e83c4e1b7f20f0ecbd8217152e844de99d91b9101efd210fa9e317bae8fec028
+[execclientid] kevm  =e83c4e1b7f20f0ecbd8217152e844de99d91b9101efd210fa9e317bae8fec028
+[execclientid] MATCH
+
+[carrier-certd] kevm-commit=a36cfab41935f70b0c264c7f8342e1302792c8e3af870e25eaae1af0284b9fef
+[carrier-certd] python  =a36cfab41935f70b0c264c7f8342e1302792c8e3af870e25eaae1af0284b9fef
+[carrier-certd] MATCH
+
+=== PART 6B: 7/7 MATCH (Python rebuild <-> real KEVM run) ===

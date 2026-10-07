@@ -1,0 +1,116 @@
+default: null
+specializations:
+- - Lbl'Stop'StatusCode'Unds'NETWORK'Unds'StatusCode{}
+  - action:
+    - 14610
+    - []
+  - []
+- - LblEVMC'Unds'INTERNAL'Unds'ERROR'Unds'NETWORK'Unds'StatusCode{}
+  - action:
+    - 14611
+    - []
+  - []
+- - LblEVMC'Unds'REJECTED'Unds'NETWORK'Unds'StatusCode{}
+  - action:
+    - 14612
+    - []
+  - []
+- - inj{SortEndStatusCode{}, SortStatusCode{}}
+  - default: null
+    specializations:
+    - - LblEVMC'Unds'REVERT'Unds'NETWORK'Unds'EndStatusCode{}
+      - action:
+        - 14613
+        - []
+      - []
+    - - LblEVMC'Unds'SUCCESS'Unds'NETWORK'Unds'EndStatusCode{}
+      - action:
+        - 14614
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+- - inj{SortExceptionalStatusCode{}, SortStatusCode{}}
+  - default: null
+    specializations:
+    - - LblEVMC'Unds'ACCOUNT'Unds'ALREADY'Unds'EXISTS'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14615
+        - []
+      - []
+    - - LblEVMC'Unds'BAD'Unds'JUMP'Unds'DESTINATION'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14616
+        - []
+      - []
+    - - LblEVMC'Unds'BALANCE'Unds'UNDERFLOW'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14617
+        - []
+      - []
+    - - LblEVMC'Unds'CALL'Unds'DEPTH'Unds'EXCEEDED'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14618
+        - []
+      - []
+    - - LblEVMC'Unds'FAILURE'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14619
+        - []
+      - []
+    - - LblEVMC'Unds'INVALID'Unds'BLOCK'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14620
+        - []
+      - []
+    - - LblEVMC'Unds'INVALID'Unds'INSTRUCTION'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14621
+        - []
+      - []
+    - - LblEVMC'Unds'INVALID'Unds'MEMORY'Unds'ACCESS'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14622
+        - []
+      - []
+    - - LblEVMC'Unds'NONCE'Unds'EXCEEDED'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14623
+        - []
+      - []
+    - - LblEVMC'Unds'OUT'Unds'OF'Unds'GAS'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14624
+        - []
+      - []
+    - - LblEVMC'Unds'PRECOMPILE'Unds'FAILURE'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14625
+        - []
+      - []
+    - - LblEVMC'Unds'STACK'Unds'OVERFLOW'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14626
+        - []
+      - []
+    - - LblEVMC'Unds'STACK'Unds'UNDERFLOW'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14627
+        - []
+      - []
+    - - LblEVMC'Unds'STATIC'Unds'MODE'Unds'VIOLATION'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14628
+        - []
+      - []
+    - - LblEVMC'Unds'UNDEFINED'Unds'INSTRUCTION'Unds'NETWORK'Unds'ExceptionalStatusCode{}
+      - action:
+        - 14629
+        - []
+      - []
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['1']

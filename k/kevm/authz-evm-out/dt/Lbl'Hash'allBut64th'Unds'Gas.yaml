@@ -1,0 +1,10 @@
+default: null
+specializations:
+- - inj{SortInt{}, SortGas{}}
+  - action:
+    - 12716
+    - - - ['0', '1']
+        - INT.Int
+  - [INT.Int]
+sort: STRING.String
+occurrence: ['1']

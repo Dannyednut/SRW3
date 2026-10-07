@@ -1,0 +1,14 @@
+default: null
+specializations:
+- - Lblw3lin'LParUndsCommUndsCommUndsRParUnds'SRW3-EVM'Unds'W3LinRec'Unds'Int'Unds'Int'Unds'Int{}
+  - action:
+    - 16468
+    - - - ['0', '1']
+        - INT.Int
+      - - ['1', '1']
+        - INT.Int
+      - - ['2', '1']
+        - INT.Int
+  - [INT.Int, INT.Int, INT.Int]
+sort: STRING.String
+occurrence: ['1']

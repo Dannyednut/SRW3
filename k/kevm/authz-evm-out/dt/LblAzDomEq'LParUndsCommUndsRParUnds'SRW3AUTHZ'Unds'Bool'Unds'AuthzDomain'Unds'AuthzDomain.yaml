@@ -1,0 +1,28 @@
+args:
+- - &id001 ['1']
+  - STRING.String
+- - &id002 ['2']
+  - STRING.String
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 14311
+      - - - *id001
+          - STRING.String
+    - []
+  - - '0'
+    - action:
+      - 14312
+      - - - *id001
+          - STRING.String
+        - - *id002
+          - STRING.String
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: [eq, '1', and, '2']
+function: hook_KEQUAL_eq
+sort: BOOL.Bool
+occurrence: [eq, '1', and, '2']
