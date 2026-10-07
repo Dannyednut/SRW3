@@ -1030,3 +1030,75 @@ Stage Summary:
   the root's own authority is the explicit A-G2 (Engine-API boundary;
   REQUIRES CLIENT/PROTOCOL SUPPORT). All 17 completion criteria satisfied;
   no criterion silently waived.
+
+---
+Task ID: phase1h
+Agent: Super Z (main)
+Task: Phase 1H — Execution-Client Integration and Consensus-Boundary Pilot
+
+Work Log:
+- Sandbox had been reset (no repo, no toolchain): recovered origin (Dannyednut/SRW3),
+  created phase1h from phase1g @ a71ba645 (phase1g-complete); frozen branches untouched.
+- Spec baseline frozen: execution-apis @ 3b9944a07afb (2026-10-07) with copies+SHA-256
+  in phase1h/spec-baseline/; method versions recorded (newPayloadV5, getPayloadV6,
+  FCUv4, getPayloadBodiesByHashV2; Bogota V6 in spec but beyond Geth v1.17.7 surface).
+- Client selection: Geth v1.17.7-stable @ 3d858f85 (official prebuilt binary — client
+  behavior attributable to the REAL client; no Go toolchain in sandbox so the in-process
+  hook is provided as a patch and disclosed NOT BUILT); alternatives rejected against
+  the 7 criteria (client/CLIENT-SELECTION.md).
+- Insertion point (source-level): eth/catalyst/api.go NewPayloadV5:862 -> newPayload:905
+  -> InsertBlockWithoutSetHead (core/blockchain.go:2885) -> StateProcessor.Process
+  (core/state_processor.go:68) -> block_validator (state root + BAL hash, :183);
+  canonicalization = ForkchoiceUpdatedV4:223. Full diagram in client/INSERTION-POINT.md.
+- Devnet: private post-merge genesis with ALL forks at t=0 (ACTIVE FORK = Amsterdam),
+  ExecutionPayloadV4 with blockAccessList; system contracts extracted programmatically
+  from geth source into the genesis alloc; JWT Engine API; harness = CL simulator
+  (fcuV4 -> getPayloadV6 -> newPayloadV5 -> fcuV4) with deterministic attributes.
+- SRW3 adapter (python/, additive): ClientExecutionEvidence over REAL client data
+  (payload/headers, receipts, callTracer, prestateTracer diffMode, EIP-7928 BAL decoded
+  independently, admin_nodeInfo config — debug_chainConfig NOT EXPOSED BY CLIENT in
+  v1.17.7), ordered canonical effect encoding (SRW3-EFFECTS-V1), ExecutionId over
+  (parentRoot, payloadDigest, configDigest, envDigest); AuthorityCertificate chain
+  (L0 protocol root -> L1 client -> L2 evidence) with 1G NoCircularAuthority rules;
+  deployment-pinned policy (A-G7 preserved; self-digest + pin verification);
+  SecurityContext_H with per-field provenance; Gate_H L1-L6 layered verdicts; sidecar
+  lineage (crash-atomic, replay-idempotent, head follows forkchoice); shadow +
+  consensus-visible-sim modes; FailurePolicy: SRW3_ERROR third verdict class, fail-closed
+  in enforcing mode.
+- Scenarios H1-H10: ALL expected (H2/H3/H9 = Ethereum-VALID + SRW3-REJECT on real
+  execution; H10 non-invasiveness).  Adversarial H-A1..A16: ALL expected (incl. policy
+  fail-closed, cert forgery/self-citation loops, stale lineage, reorg replay of rejected
+  commitments, tampered evidence, timeout, restart, duplicate idempotency, forkchoice
+  transition).  Consensus-visible SIMULATION: CS1-CS5 (client says VALID on SRW3-REJECT;
+  build-on-rejected succeeds client-side; only the simulated CL rule prevents extension).
+- Determinism: independent builds byte-identical; payload replay on an independent
+  instance -> identical chain/evidence digests/execution IDs/verdicts; with/without SRW3
+  -> identical blocks (H10-D).  CL-side build-retry attribute degree of freedom detected,
+  documented (timestamp propagation into updatedAt/evidence).
+- Performance (real devnet path): evidence 7.6/7.5/17.5 ms, gate <=0.13 ms at 1/10/60
+  txs (~0.4-0.5% overhead), +4.2MB RSS.  Geth behavior findings documented: 40+
+  heavily-conflicting SSTOREs never committed into a payload; getPayloadV6 delivers-and-
+  closes the build job.
+- BAL analysis (EIP-7928 final as implemented by Geth v1.17.7): write set ==
+  execution-derived set (value-equal), per-tx write attribution (blockAccessIndex),
+  reads unattributed keys-only, no call structure, unchanged invariant bounds absent;
+  BAL execution-validated by the client (re-derived at import, tamper -> INVALID);
+  Phase 1G finding PRESERVED and STRENGTHENED (BAL != complete SRW3 security-effect
+  trace).
+- Artifacts: model/MODEL.md, client/ (selection+insertion-point+patch), policy/,
+  formal/ (claim spec + H1-H10 classification: frozen-K inherited vs demonstrated),
+  python/ (adapter, gate, lineage, harness, 6 runners), transcripts/ (engine, srw3,
+  adversarial, perf), report MD+PDF (9 pp), PROVENANCE.md, MANIFEST.txt (75 entries,
+  self-excluding), spec-baseline/ frozen.
+- Pushed phase1h @ b0f22a8 to origin; PAT used transiently in the push command only
+  (never written to any file/commit/log).  Disclosed incident: .git/config accidentally
+  deleted during a verification command and restored immediately (repo health verified).
+
+Stage Summary:
+- PHASE 1H COMPLETE: SRW3 embeds cleanly at the Engine-API boundary of a real client
+  (zero client modification, zero validity change, byte-identical determinism); an
+  Ethereum-valid payload can be SRW3-invalid (demonstrated); consensus-visible
+  enforcement REQUIRES A NEW PROTOCOL COMMITMENT RULE (fork-choice relevance + policy
+  authority + INVALID-semantics problem itemized in the report's boundary table).
+  Trust assumptions remain explicit: A-G2 (protocol root) and A-G7 (policy authority)
+  carried over unchanged; the adapter TCB is disclosed as unproved.
