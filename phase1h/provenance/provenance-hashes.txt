@@ -1,2 +1,7 @@
+# SRW3 Phase 1H — provenance file hashes (closure regeneration)
+# PROVENANCE.md — scientific record, unchanged since commit b0f22a8:
 5f9060d55c2e4b774e1fe342a9c936ed0986fdc5815fc32222944712cd237788  provenance/PROVENANCE.md
-6f1e61aa4710a13d1fbcb17e00b1915568c91610bff40c8655bcd8f72a25ba0f  provenance/MANIFEST.txt
+# MANIFEST.txt is intentionally NOT listed here: MANIFEST embeds this file's
+# hash, so a MANIFEST -> hashes -> MANIFEST cycle would have no fixed point.
+# MANIFEST.txt integrity is anchored one level up: by BUNDLE-MANIFEST.txt and
+# the .zip.sha256 sidecar of SRW3-Phase1H-Artifact-Bundle.zip.

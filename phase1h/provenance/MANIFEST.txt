@@ -6,7 +6,6 @@ e3f0106a61f7d189a020ed5236d40585949fd4ce6515dcce7a37151a36eccb21  ./client/INSER
 2fe30a2479b0ba4ad532c80f2cd93f23c10d3d4207c868418dd3577bbccad62e  ./contracts/SimpleOracle.sol
 b56854710c7442fd3a5962475fad02e31b095375cd530cc3ad6ea140d7448dae  ./devnet/gen_system_allocs.py
 d51ad22de18a431a82eef787bb02b0a22fe08a6cb15339f9acc99dd310636559  ./devnet/genesis.json
-d2b4e3a1af81a9e53cdd6d06af11c13290517f9ba8bad670d7e53f315ce3ad3b  ./devnet/geth.pid
 0d0831ba8c21513e5a3f981ca50e34d1a57dc55ee65947a2383ba925073b7a21  ./devnet/jwt.hex
 fa7399149049a9e5abb6f9284068adcce1fd5b24f1686d9ca298b5edbb93cf87  ./devnet/reset_devnet.sh
 2dc79aef3fcef71065fed37bb67e5cc9c4cbb1cc4b2194f7a8fb899575d5dee4  ./devnet/run_geth.sh
@@ -28,6 +27,8 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./fixtures/con
 3310316b4633b8e5af7d68b0c6ae392734e85ae00e91f239ba6ce1243be55f5d  ./model/MODEL.md
 dd14a5ed31e811be15ae5b98ac72bb4940dd655b0f7548a1811567988ea0270b  ./policy/deployment.json
 2e5a3a31b34e301400e3c26a757b9eebc942ddb8decaa89f95a23189ed78858f  ./policy/srw3_policy.json
+5f9060d55c2e4b774e1fe342a9c936ed0986fdc5815fc32222944712cd237788  ./provenance/PROVENANCE.md
+53a7dfa1e42274e85da57aca04548195cd0332b45482f1f1df06b17ea5fb39a8  ./provenance/provenance-hashes.txt
 4fbf216ba74ae446f814fe449d96d3fa098f642782e16e7111d6831c18ace233  ./python/authority.py
 fdf13f22a5faaf0f82cd45f354ce3a2f446eabbd9e262ac28fdb136d3cb91db3  ./python/bal_decode.py
 d4fb3f2232dd1bd8b5deebc5630bae799655d085fdbe35f1ea0592079de490d3  ./python/boot.py
@@ -66,7 +67,7 @@ f02740b2135048415fdf6ae19ead51336c47a5bb8f8a999a7810bd19e49d4c92  ./transcripts/
 932c9adc40f4843fda60513e77bd28f7f145b1ba25fdfd2f8a48f62f4f0f61c0  ./transcripts/client/geth-perf-large.log
 5d3a3fb2ef01c6ad592df5251115ae4a3584df99913a4060ab0ab7b31379d3cd  ./transcripts/client/geth-perf-medium.log
 945c258ab100873ae4a66252d0726b1d0475cf5ddec8ad13a2298c777d588764  ./transcripts/client/geth-perf-small.log
-1b24139bb266271d013bb2da27d1628ad7c62437b96ca2743d8e483579b536f7  ./transcripts/client/geth.log
+2c6d42ed213c5e3fd13b0633518eb5483458c230e86bc9bcf47a45ff4b210d60  ./transcripts/client/geth.log
 415b1d6caa033769b2533f65955fc4d979d907e4029c51b6e9a6e0072d341b89  ./transcripts/engine/smoke_engine.json
 ece72565386b9a355dd15a4d403416872e485c371a8f0cd2ab84307562280433  ./transcripts/perf/perf_results.json
 20b9ff89ea3b283b0fe918b60d5e8a48e049be78766ea3b48b927b0827918944  ./transcripts/srw3/bal_analysis.json
