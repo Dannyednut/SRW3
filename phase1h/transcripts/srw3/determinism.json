@@ -1,0 +1,227 @@
+{
+ "runA": {
+  "blocks": [
+   {
+    "number": 1,
+    "hash": "0xe3f49684c6a06a051557d11dfe5714714b2059a119e302a11852909e91c7b097",
+    "stateRoot": "0x5c7f1de7d59f7859e456ad757602827bc156757ee52ada9857171dcb0b73a6f9"
+   },
+   {
+    "number": 2,
+    "hash": "0xbf00f5f1428f4365db7a8d011ed4de8760b1d6e36cff7468d234cacc1c8d9435",
+    "stateRoot": "0x9ff8e2d0a9c8034c6bcef825a1f56b50727bdcecca48c33d2b6a2c843fd7cdf0"
+   },
+   {
+    "number": 3,
+    "hash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+    "stateRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4"
+   },
+   {
+    "number": 4,
+    "hash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "stateRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead"
+   },
+   {
+    "number": 5,
+    "hash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "stateRoot": "0x8c18a2d7478dcf181ae505b7abb834e4e211836f2aa5144f3773bbdea9718790"
+   }
+  ],
+  "srw3": [
+   {
+    "blockHash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0xc6c8cab5e8b65a5be02a3a4c8e8c647df990f93f7c9da973c410cff2aa5c01d5",
+    "cert": "0xca68374cc760e3e2823f49f4a17ca14e96515b28015b7ddedde82c1cce46615c"
+   },
+   {
+    "blockHash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "srw3": "SRW3_REJECT",
+    "evidenceDigest": "0x0a65b4c45811cd3bef36cf2c708b4e00f94cd322b3e145fef377ecdb0fca22e5",
+    "cert": "0xd77bce3c65c43dfb7111a9212faa6ae42e7fcfc8cc14a220f47140114e755a86"
+   }
+  ],
+  "rebuilt": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "evDigest": "0x0a65b4c45811cd3bef36cf2c708b4e00f94cd322b3e145fef377ecdb0fca22e5",
+  "evExecId": "0xe261bbdc4e567a8ad8d85e645414ce9a2badab4c30653533d1d423fdf28c043a",
+  "head": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca"
+ },
+ "runA2": {
+  "blocks": [
+   {
+    "number": 1,
+    "hash": "0xe3f49684c6a06a051557d11dfe5714714b2059a119e302a11852909e91c7b097",
+    "stateRoot": "0x5c7f1de7d59f7859e456ad757602827bc156757ee52ada9857171dcb0b73a6f9"
+   },
+   {
+    "number": 2,
+    "hash": "0xbf00f5f1428f4365db7a8d011ed4de8760b1d6e36cff7468d234cacc1c8d9435",
+    "stateRoot": "0x9ff8e2d0a9c8034c6bcef825a1f56b50727bdcecca48c33d2b6a2c843fd7cdf0"
+   },
+   {
+    "number": 3,
+    "hash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+    "stateRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4"
+   },
+   {
+    "number": 4,
+    "hash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "stateRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead"
+   },
+   {
+    "number": 5,
+    "hash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "stateRoot": "0x8c18a2d7478dcf181ae505b7abb834e4e211836f2aa5144f3773bbdea9718790"
+   }
+  ],
+  "srw3": [
+   {
+    "blockHash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0xc6c8cab5e8b65a5be02a3a4c8e8c647df990f93f7c9da973c410cff2aa5c01d5",
+    "cert": "0xca68374cc760e3e2823f49f4a17ca14e96515b28015b7ddedde82c1cce46615c"
+   },
+   {
+    "blockHash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "srw3": "SRW3_REJECT",
+    "evidenceDigest": "0x0a65b4c45811cd3bef36cf2c708b4e00f94cd322b3e145fef377ecdb0fca22e5",
+    "cert": "0xd77bce3c65c43dfb7111a9212faa6ae42e7fcfc8cc14a220f47140114e755a86"
+   }
+  ],
+  "rebuilt": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "evDigest": "0x0a65b4c45811cd3bef36cf2c708b4e00f94cd322b3e145fef377ecdb0fca22e5",
+  "evExecId": "0xe261bbdc4e567a8ad8d85e645414ce9a2badab4c30653533d1d423fdf28c043a",
+  "head": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca"
+ },
+ "runB_replay": {
+  "blocks": [
+   {
+    "number": 1,
+    "hash": "0xe3f49684c6a06a051557d11dfe5714714b2059a119e302a11852909e91c7b097",
+    "stateRoot": "0x5c7f1de7d59f7859e456ad757602827bc156757ee52ada9857171dcb0b73a6f9"
+   },
+   {
+    "number": 2,
+    "hash": "0xbf00f5f1428f4365db7a8d011ed4de8760b1d6e36cff7468d234cacc1c8d9435",
+    "stateRoot": "0x9ff8e2d0a9c8034c6bcef825a1f56b50727bdcecca48c33d2b6a2c843fd7cdf0"
+   },
+   {
+    "number": 3,
+    "hash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+    "stateRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4"
+   },
+   {
+    "number": 4,
+    "hash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "stateRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead"
+   },
+   {
+    "number": 5,
+    "hash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "stateRoot": "0x8c18a2d7478dcf181ae505b7abb834e4e211836f2aa5144f3773bbdea9718790"
+   }
+  ],
+  "srw3": [
+   {
+    "blockHash": "0xe3f49684c6a06a051557d11dfe5714714b2059a119e302a11852909e91c7b097",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0x9dcc2675d6e217da51fe11b5aa59442c6d6769e4cb2311a06739742f5d7d16be",
+    "cert": null,
+    "stateRoot": "0x5c7f1de7d59f7859e456ad757602827bc156757ee52ada9857171dcb0b73a6f9"
+   },
+   {
+    "blockHash": "0xbf00f5f1428f4365db7a8d011ed4de8760b1d6e36cff7468d234cacc1c8d9435",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0xca7bee455148bb43b4e030826eaea91f35168e33bbafa1199a4ea767cfc5ea1a",
+    "cert": null,
+    "stateRoot": "0x9ff8e2d0a9c8034c6bcef825a1f56b50727bdcecca48c33d2b6a2c843fd7cdf0"
+   },
+   {
+    "blockHash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0xd11b70e9cdcdbcb2a46fe07dea0d1be0fc6aca29b09dace5e9aa1b65a0cbf680",
+    "cert": null,
+    "stateRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4"
+   },
+   {
+    "blockHash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "srw3": "SRW3_VALID",
+    "evidenceDigest": "0xc6c8cab5e8b65a5be02a3a4c8e8c647df990f93f7c9da973c410cff2aa5c01d5",
+    "cert": null,
+    "stateRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead"
+   },
+   {
+    "blockHash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "srw3": "SRW3_REJECT",
+    "evidenceDigest": "0x0a65b4c45811cd3bef36cf2c708b4e00f94cd322b3e145fef377ecdb0fca22e5",
+    "cert": null,
+    "stateRoot": "0x8c18a2d7478dcf181ae505b7abb834e4e211836f2aa5144f3773bbdea9718790"
+   }
+  ],
+  "head": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca"
+ },
+ "runB_np": {
+  "blocks": [
+   {
+    "number": 1,
+    "hash": "0xe3f49684c6a06a051557d11dfe5714714b2059a119e302a11852909e91c7b097",
+    "stateRoot": "0x5c7f1de7d59f7859e456ad757602827bc156757ee52ada9857171dcb0b73a6f9"
+   },
+   {
+    "number": 2,
+    "hash": "0xbf00f5f1428f4365db7a8d011ed4de8760b1d6e36cff7468d234cacc1c8d9435",
+    "stateRoot": "0x9ff8e2d0a9c8034c6bcef825a1f56b50727bdcecca48c33d2b6a2c843fd7cdf0"
+   },
+   {
+    "number": 3,
+    "hash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+    "stateRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4"
+   },
+   {
+    "number": 4,
+    "hash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+    "stateRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead"
+   },
+   {
+    "number": 5,
+    "hash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "stateRoot": "0x8c18a2d7478dcf181ae505b7abb834e4e211836f2aa5144f3773bbdea9718790"
+   }
+  ],
+  "srw3": [],
+  "rebuilt": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "evDigest": null,
+  "evExecId": null,
+  "head": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca"
+ },
+ "payloadBytesIdentical_A1_vs_A2": true,
+ "determinism": {
+  "blockHashesIdentical_A1_vs_A2": true,
+  "blockHashesIdentical_A_vs_B_replay": true,
+  "evidenceDigestsIdentical_A_vs_B_replay": true,
+  "comparedPayloads": 2,
+  "execIdsIdentical": true,
+  "verdictsIdentical_A_vs_B_replay": true
+ },
+ "H10-D non-invasiveness": {
+  "blockHashesIdentical_policy_vs_noPolicy": true
+ }
+}

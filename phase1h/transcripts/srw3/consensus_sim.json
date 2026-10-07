@@ -1,0 +1,45 @@
+{
+ "CS1": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_VALID",
+  "canonicalized": true,
+  "head": "0x2db5667a7ec0"
+ },
+ "CS2": {
+  "clientSays": "VALID",
+  "latestValidHashFromClient": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+  "srw3": "SRW3_REJECT",
+  "layer": "invariant",
+  "simulatedResult": "INVALID(SRW3-sim)",
+  "canonicalized": false,
+  "rejectedBlockNotCanonical": true,
+  "head": "0xa70b2ec41f58"
+ },
+ "CS3": {
+  "buildOnRejected": {
+   "fcu": {
+    "status": "VALID",
+    "latestValidHash": "0xc2c3f0861e2f0410aff14013eff834338dcd80ad20ff4bd4453152c1609db3ca",
+    "validationError": null
+   },
+   "newPayload": "VALID"
+  },
+  "note": "the execution client has no notion of an SRW3-invalid block: it builds and VALIDates a child of the rejected payload; only the CL-side simulated rule prevents extension"
+ },
+ "CS4": {
+  "clientSays": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "invariant",
+  "lineageRecordStable": true
+ },
+ "CS5": {
+  "srw3": "SRW3_VALID",
+  "canonicalized": true,
+  "head": "0xb30de8122c7f"
+ },
+ "analysis": {
+  "latestValidHashSemantics": "client returns latestValidHash=parent for an execution-VALID payload; an SRW3-INVALID translation would overload INVALID with a NON-execution validity notion (see report section 15)",
+  "forkchoiceSemantics": "the CL must treat the SRW3-rejected head as nonexistent; forkchoice then never extends it; identical policy required across all clients or branches diverge",
+  "reorgConsequence": "if any client lacks the policy, it will extend the rejected branch, producing a persistent fork: SRW3 enforcement at this boundary is a fork-choice rule, not a validity rule"
+ }
+}

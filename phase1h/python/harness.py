@@ -1,0 +1,194 @@
+"""SRW3 Phase 1H — shadow-gate harness.
+
+Wires: ChainSim (CL role) + GateH (SRW3 gate) + LineageStore (sidecar).
+
+Modes (section 3 / section 15):
+  shadow                  — gate observes, records, NEVER changes Ethereum behavior
+  consensus-visible-sim   — SRW3_REJECT (or SRW3_ERROR, fail-closed) is
+                            TRANSLATED to Engine-API-INVALID by the CL
+                            simulator: the payload is NOT canonicalized;
+                            head remains at parent.  This is a SIMULATION of
+                            a protocol rule change, not an Ethereum change.
+
+Failure policy (section 24/25):
+  adapter/evidence failures produce verdict SRW3_ERROR(reason).  In shadow
+  mode SRW3_ERROR is recorded and non-enforcing (explicit non-enforcing
+  operation); in consensus-visible-sim mode SRW3_ERROR is FAIL-CLOSED.
+  SRW3 unavailable is therefore never an automatic security-valid
+  commitment.
+"""
+from __future__ import annotations
+
+import time
+from dataclasses import dataclass, field
+
+from cl_sim import BuildResult, ChainSim
+from evidence import collect_evidence
+from gate_h import GateH, GateVerdict, build_security_context
+from lineage import LineageStore
+from policy import Policy
+
+
+@dataclass
+class ProcessingRecord:
+    label: str
+    block_hash: str | None
+    parent_hash: str | None
+    ethereum_result: str          # VALID / INVALID / NOT-PROCESSED
+    srw3_result: str              # SRW3_VALID / SRW3_REJECT / SRW3_ERROR / DISABLED
+    srw3_layer: str | None = None
+    srw3_reason: str | None = None
+    evidence: dict | None = None
+    timings_ms: dict = field(default_factory=dict)
+    checks: dict = field(default_factory=dict)
+    canonicalized: bool = False
+
+
+class SRW3Harness:
+    def __init__(self, dn, sim: ChainSim, gate: GateH, policy: Policy,
+                 policy_digest: str, store: LineageStore,
+                 mode: str = "shadow", fail_policy: str = "record-error",
+                 collect_traces: bool = True):
+        gate.state_reader = self._state_reader
+        self.dn = dn
+        self.sim = sim
+        self.gate = gate
+        self.policy = policy
+        self.policy_digest = policy_digest
+        self.store = store
+        self.mode = mode
+        self.fail_policy = fail_policy
+        self.collect_traces = collect_traces
+        self.records: list[ProcessingRecord] = []
+        self.disabled = (policy is None)
+
+    # ------------------------------------------------------------------
+
+    def _security_context(self):
+        return build_security_context(
+            self.policy, self.policy_digest, self.dn.chain_id(),
+            lineage_head=self.store.head or self.sim.head,
+            client_config_digest=self._last_config_digest or "",
+            client_identity=self._last_identity or "")
+
+    _last_config_digest: str = ""
+    _last_identity: str = ""
+    last_ev = None
+    last_payload = None
+
+    def _state_reader(self, addr: str, slot: str, block_hash: str) -> str | None:
+        """Authoritative post-state read through the client."""
+        from eth_utils import to_checksum_address
+        try:
+            return self.dn.rpc.call("eth_getStorageAt",
+                                    [to_checksum_address(addr), slot, block_hash])
+        except Exception:
+            return None
+
+    def process(self, label: str, res: BuildResult,
+                presented_effects: dict | None = None,
+                context_override: dict | None = None,
+                skip_invariants: bool = False) -> ProcessingRecord:
+        """Collect evidence + run the gate on a produced payload (post
+        newPayload, pre/post canonicalization — shadow mode records regardless)."""
+        rec = ProcessingRecord(label=label,
+                               block_hash=res.payload["blockHash"] if res.payload else None,
+                               parent_hash=res.payload["parentHash"] if res.payload else None,
+                               ethereum_result="NOT-PROCESSED",
+                               srw3_result="DISABLED")
+        if self.disabled:
+            rec.ethereum_result = "VALID"  # client behaved normally
+            return rec
+        t0 = time.perf_counter()
+        try:
+            from cl_sim import beacon_root
+            ev = collect_evidence(self.dn, res.payload, res.slot,
+                                  beacon_root(res.slot))
+            self.last_ev = ev
+            self.last_payload = res.payload
+            t_collect = (time.perf_counter() - t0) * 1000
+
+            # security context (uses client-derived config digest)
+            self._last_config_digest = ev.execution_configuration["configDigest"]
+            self._last_identity = ev.execution_identity["client"]
+            sc = self._security_context()
+
+            t1 = time.perf_counter()
+            verdict, checks = self.gate.evaluate(
+                ev, presented_effects=presented_effects,
+                context_override=context_override, skip_invariants=skip_invariants)
+            t_gate = (time.perf_counter() - t1) * 1000
+
+            rec.srw3_result = verdict.verdict
+            rec.srw3_layer = verdict.layer
+            rec.srw3_reason = verdict.reason
+            rec.checks = checks
+            rec.evidence = {
+                "executionId": ev.execution_id,
+                "effectDigest": ev.effect_digest,
+                "parentRoot": ev.parent_root,
+                "childRoot": ev.child_state_root,
+                "authorityCertificate": checks.get("L3_authority"),
+                "policyVersion": self.policy.policy_version,
+                "balSummary": ev.bal_summary,
+            }
+            rec.timings_ms = {"evidence": round(t_collect, 3),
+                              "gate": round(t_gate, 3),
+                              **ev.timings_ms}
+            # persist lineage (sidecar, crash-atomic)
+            if rec.block_hash:
+                head_before = self.store.head
+                self.store.record(
+                    rec.block_hash, rec.parent_hash, verdict.verdict,
+                    ev.effect_digest, checks.get("L3_authority") or "-",
+                    self.policy.policy_version, ev.execution_id, head_before,
+                    extra={"srw3Layer": verdict.layer,
+                           "reason": verdict.reason,
+                           "slot": res.slot})
+                self.store.set_head(rec.block_hash)
+        except Exception as e:  # section 24: adapter failure
+            rec.srw3_result = "SRW3_ERROR"
+            rec.srw3_reason = f"adapter-failure: {type(e).__name__}: {e}"
+            rec.timings_ms = {"total": round((time.perf_counter() - t0) * 1000, 3)}
+        rec.ethereum_result = "VALID"
+        self.records.append(rec)
+        return rec
+
+    # ------------------------------------------------------------------
+
+    def run_payload(self, label: str, raw_txs: list[str],
+                    presented_effects: dict | None = None,
+                    context_override: dict | None = None,
+                    parent: str | None = None,
+                    skip_invariants: bool = False) -> tuple[BuildResult, ProcessingRecord]:
+        """Produce a payload through the real CL flow, then gate it.
+
+        shadow mode:             build -> submit(executed) -> canonicalize -> gate records
+        consensus-visible-sim:   build -> submit(executed) -> GATE -> canonicalize
+                                 only on SRW3_VALID (the gate sits between
+                                 execution and fork choice)"""
+        res = self.sim.produce(raw_txs, parent=parent,
+                               defer_canonicalize=(self.mode == "consensus-visible-sim"))
+        if res.payload is None:
+            rec = ProcessingRecord(label=label, block_hash=None,
+                                   parent_hash=None, ethereum_result="NOT-PROCESSED",
+                                   srw3_result="DISABLED")
+            self.records.append(rec)
+            return res, rec
+        rec = self.process(label, res, presented_effects, context_override,
+                           skip_invariants)
+        if self.mode == "shadow" or self.disabled:
+            # Ethereum canonical behavior unchanged: head advanced already.
+            rec.canonicalized = (self.sim.head == rec.block_hash)
+        elif self.mode == "consensus-visible-sim":
+            if rec.srw3_result in ("SRW3_REJECT", "SRW3_ERROR"):
+                # translated to INVALID: refuse canonicalization; the client's
+                # canonical head remains at the parent (fail-closed on ERROR)
+                rec.ethereum_result = "INVALID(SRW3-sim)"
+                rec.canonicalized = False
+                self.sim.fcu(self.sim.head)
+                self.sim.drain_pool()   # sweep txs re-injected by the refusal
+            else:
+                st = self.sim.canonicalize(rec.block_hash)
+                rec.canonicalized = (self.sim.head == rec.block_hash)
+        return res, rec

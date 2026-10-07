@@ -1,0 +1,6 @@
+{
+  "deploymentVersion": "srw3-1h-deployment-v1",
+  "chainId": 93471,
+  "genesisHash": "0x1bf4f00052a1a6cd2c6cde2fa467b5b1875c5a3bd2a465c4ba6f23b381444f01",
+  "pinnedPolicyDigest": "0xea751c9b8a096681895cb411d278a71666aea403e187091ea909aa81c8e21304"
+}

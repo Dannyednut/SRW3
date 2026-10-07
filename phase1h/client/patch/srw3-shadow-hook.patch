@@ -1,0 +1,116 @@
+# SRW3 Phase 1H — in-process shadow hook for Geth v1.17.7
+#
+# STATUS: NOT BUILT (disclosed).  This sandbox has no Go toolchain; the
+# reproducible Phase 1H experiment intentionally runs the OFFICIAL prebuilt
+# client binary UNMODIFIED (client/CLIENT-SELECTION.md).  This patch is the
+# SPECIFIED in-process variant of the same gate: it inserts a non-blocking
+# shadow observation at the exact source-level insertion point identified in
+# client/INSERTION-POINT.md (end of ConsensusAPI.newPayload, after
+# InsertBlockWithoutSetHead has succeeded and before the VALID status is
+# returned).  It NEVER changes the returned PayloadStatusV1 (shadow mode;
+# phase spec sections 3/6/15).
+#
+# To build (in an environment with Go >= 1.27):
+#   git clone --depth 1 --branch v1.17.7 https://github.com/ethereum/go-ethereum
+#   cd go-ethereum && git apply srw3-shadow-hook.patch
+#   make geth
+# The hook writes one JSON line per executed payload to SRW3_SHADOW_SOCK
+# (unix datagram, fire-and-forget) or, if unset, does nothing.  The SRW3
+# sidecar (phase1h/python/) evaluates the gate; a future consensus-visible
+# variant would additionally require the protocol change documented in the
+# Phase 1H report section 27 (it can NOT be done client-locally).
+diff --git a/eth/catalyst/api.go b/eth/catalyst/api.go
+index 0000000..0000001 100644
+--- a/eth/catalyst/api.go
++++ b/eth/catalyst/api.go
+@@ -1041,6 +1041,11 @@ func (api *ConsensusAPI) newPayload(ctx context.Context, params engine.Executabl
+ 		ProcessingTime: processingTime,
+ 	})
+ 
++	// SRW3 shadow gate (Phase 1H): observe the executed payload.  This is
++	// strictly NON-blocking and NEVER alters Ethereum validity: the status
++	// below remains VALID.  See client/INSERTION-POINT.md.
++	NotifySRW3Shadow(api.eth.BlockChain().Config(), block, processingTime)
++
+ 	// If witness collection was requested, inject that into the result too
+ 	var ow *hexutil.Bytes
+ 	if proofs != nil {
+diff --git a/eth/catalyst/srw3_shadow.go b/eth/catalyst/srw3_shadow.go
+new file mode 100644
+index 0000000..0000002
+--- /dev/null
++++ b/eth/catalyst/srw3_shadow.go
+@@ -0,0 +1,71 @@
++// Copyright 2026 The go-ethereum Authors
++// SRW3 Phase 1H shadow hook (spec artifact, see patch header).
++
++package catalyst
++
++import (
++	"encoding/json"
++	"net"
++	"os"
++	"time"
++
++	"github.com/ethereum/go-ethereum/common"
++	"github.com/ethereum/go-ethereum/core/types"
++	"github.com/ethereum/go-ethereum/params"
++)
++
++// srw3ShadowSocket is configured via the environment.  Empty = disabled.
++func srw3ShadowSocket() string { return os.Getenv("SRW3_SHADOW_SOCK") }
++
++// srw3ShadowObs is the observation record handed to the SRW3 sidecar.  It
++// carries exactly the fields the sidecar cannot obtain elsewhere: the
++// in-process chain config and the executed block's identity.
++type srw3ShadowObs struct {
++	Kind           string         `json:"kind"`
++	BlockHash      common.Hash    `json:"blockHash"`
++	ParentHash     common.Hash    `json:"parentHash"`
++	StateRoot      common.Hash    `json:"stateRoot"`
++	Number         uint64         `json:"number"`
++	Time           uint64         `json:"time"`
++	TxCount        int            `json:"txCount"`
++	GasUsed        uint64         `json:"gasUsed"`
++	BALHash        *common.Hash   `json:"balHash,omitempty"`
++	ProcessingTime float64        `json:"processingTimeMs"`
++	ChainID        uint64         `json:"chainId"`
++	ForkTimestamps map[string]any `json:"forkTimestamps,omitempty"`
++	Ts             int64          `json:"ts"`
++}
++
++// NotifySRW3Shadow emits a fire-and-forget observation for the SRW3
++// shadow gate.  Failures are logged once and never propagated: the SRW3
++// adapter being unavailable MUST NOT change client behavior in shadow
++// mode (phase spec section 25: unavailability is never an automatic
++// security-valid commitment - the sidecar records the gap explicitly).
++func NotifySRW3Shadow(cfg *params.ChainConfig, block *types.Block, pt time.Duration) {
++	sock := srw3ShadowSocket()
++	if sock == "" {
++		return
++	}
++	obs := srw3ShadowObs{
++		Kind:           "srw3-shadow-obs-v1",
++		BlockHash:      block.Hash(),
++		ParentHash:     block.ParentHash(),
++		StateRoot:      block.Root(),
++		Number:         block.NumberU64(),
++		Time:           block.Time(),
++		TxCount:        len(block.Transactions()),
++		GasUsed:        block.GasUsed(),
++		BALHash:        block.Header().BlockAccessListHash,
++		ProcessingTime: float64(pt.Microseconds()) / 1000.0,
++		ChainID:        cfg.ChainID.Uint64(),
++		Ts:             time.Now().UnixNano(),
++	}
++	b, err := json.Marshal(obs)
++	if err != nil {
++		return
++	}
++	conn, err := net.DialUnix("unixgram", nil, &net.UnixAddr{Name: sock, Net: "unixgram"})
++	if err != nil {
++		return
++	}
++	defer conn.Close()
++	_, _ = conn.Write(b)
++}

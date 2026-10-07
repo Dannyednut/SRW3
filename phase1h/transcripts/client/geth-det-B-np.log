@@ -1,0 +1,4 @@
+WARN [10-07|13:55:37.334] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|13:55:37.336] Disabled transaction unindexing for archive node
+WARN [10-07|13:55:37.337] Setting network ID with command-line flag id=93471
+WARN [10-07|13:55:37.349] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB

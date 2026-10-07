@@ -1,0 +1,3 @@
+3b9944a07afb53a327a3b5908a607f14b4e764d8
+2026-10-07 08:05:37 -0500
+engine: allow null result in engine_getBlobsV2 schema (#781)

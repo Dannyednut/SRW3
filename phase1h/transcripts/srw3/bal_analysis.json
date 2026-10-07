@@ -1,0 +1,41 @@
+{
+ "BAL_footprint": {
+  "balAccounts": 10,
+  "balStorageWrites_total": 5,
+  "balStorageReads_total": 18,
+  "balWrites_appSet": 2,
+  "derivedWrites_appSet": 2,
+  "writeSetsEqual": true,
+  "writeSetDiff": {
+   "balOnly": [],
+   "derivedOnly": []
+  },
+  "transport": "ExecutionPayloadV4.blockAccessList via engine_newPayloadV5/engine_getPayloadV6; retrievable via engine_getPayloadBodiesByHashV2"
+ },
+ "BAL_postStateValues": {
+  "borrowed_written_this_block": false,
+  "cap_written_this_block": false,
+  "invAGG_CAP_evaluable_from_BAL_alone": false,
+  "note": "unchanged bounds are NOT in the BAL (only touched slots are); post-state reads via eth_getStorageAt remain necessary for unchanged invariant bounds"
+ },
+ "BAL_attribution": {
+  "writeAttributionPresent": true,
+  "writeAttributionField": "blockAccessIndex per storage change (EIP-7928 final; Geth v1.17.7)",
+  "readAttributionPresent": false,
+  "readValuesPresent": false,
+  "eventOrderingOfWritesPresent": true,
+  "consequence": "WRITE-side ordering IS evaluable from the BAL; READ-side attribution is not (reads are keys only, unattributed). Obligations that key on WHAT A TRANSACTION READ (e.g. borrow must read the fresh price) remain NOT evaluable from the BAL alone; SRW3's ordered trace remains necessary for the read/observation layer",
+  "phase1G_finding": "PRESERVED and STRENGTHENED: the BAL is now execution-validated by the client (Geth re-derives it at import and requires equality with the header hash) and writes carry blockAccessIndex attribution - but reads remain unattributed keys without values, call/return structure is absent, and no ordered read observations exist: it is NOT a complete SRW3 security-effect trace"
+ },
+ "BAL_tamperDetection": {
+  "clientResponse": "INVALID",
+  "validationError": "blockhash mismatch, want b34cf57361a5973d7be924bc7d8f2cf90d32fc94a12bc1d1d9f87fc669b37c14, got 77f66bc0a600b81e4247515e5",
+  "conclusion": "the BAL is bound into the payload commitment (header BlockAccessListHash inside blockHash); any tampering yields INVALID - a presented BAL cannot hide or invent execution effects against the client"
+ },
+ "gateVerdict_on_this_block": {
+  "srw3": "SRW3_REJECT",
+  "layer": "interaction",
+  "reason": "IO-ORACLE-ORDER: oracle write (tx 1) ordered AFTER borrow (tx 0) in the same block",
+  "note": "borrow-before-setPrice violates IO-ORACLE-ORDER - the interaction layer REQUIRES the ordered, attributed trace that BAL cannot provide"
+ }
+}

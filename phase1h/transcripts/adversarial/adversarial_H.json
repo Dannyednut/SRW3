@@ -1,0 +1,112 @@
+{
+ "H-A1": {
+  "ethereum": "-",
+  "srw3": "SRW3_ERROR(fail-closed)",
+  "layer": "policy-authority",
+  "reason": "policy not authorized by deployment: PolicyError",
+  "note": "governance pin rejects the malicious policy before any evaluation; policy cannot define its own authority"
+ },
+ "H-A2": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "authroot",
+  "reason": "parent 0xc2e4a7947ddea01a unavailable"
+ },
+ "H-A3": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "invariant",
+  "reason": "cross-reference: H2 (aggregate-cap violation on real execution)"
+ },
+ "H-A4": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "effect-completeness",
+  "reason": "declared != executed: hidden=1 phantom=1 changed=0",
+  "hidden": 1,
+  "phantom": 1
+ },
+ "H-A5": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "policy-context",
+  "reason": "stale lineage head presented (H-A5)"
+ },
+ "H-A6": {
+  "ethereum": "VALID (duplicate accepted by client)",
+  "srw3": "SRW3_REJECT",
+  "layer": "invariant",
+  "reason": "rejected commitment persists on its branch after reorg; re-evaluation deterministically rejects again; no resurrection",
+  "duplicateNewPayload": "VALID",
+  "lineageRecordStable": true
+ },
+ "H-A7": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "policy-context",
+  "reason": "cross-reference: H6 (policy-version substitution)"
+ },
+ "H-A8": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "authsrc",
+  "reason": "evidence issuer is not the authorized client"
+ },
+ "H-A9": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "policy-context",
+  "reason": "cross-reference: H7 (execution-config substitution)"
+ },
+ "H-A10": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "authsrc",
+  "reason": "evidence issuer is not the authorized client"
+ },
+ "H-A11": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_ERROR (fail-closed in enforcing mode)",
+  "layer": "adapter-failure",
+  "reason": "AttributeError: 'BrokenDn' object has no attribute 'block_receipts'",
+  "shadowMode": "recorded non-enforcing; consensus-visible-sim would translate to INVALID"
+ },
+ "H-A12": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_REJECT",
+  "layer": "evidence-binding",
+  "reason": "tampered child state root (H-A12)"
+ },
+ "H-A13": {
+  "ethereum": "VALID",
+  "srw3": "SRW3_ERROR (fail-closed in enforcing mode)",
+  "layer": "timeout",
+  "reason": "simulated gate deadline exceeded -> FAIL-CLOSED; never auto-VALID",
+  "deadlinePolicy": "shadow: record; enforcing: INVALID"
+ },
+ "H-A14": {
+  "ethereum": "VALID (client restart)",
+  "srw3": "SRW3_VALID",
+  "layer": null,
+  "reason": "verdict and lineage record identical after restart+replay",
+  "headRestored": true,
+  "recordStable": true
+ },
+ "H-A15": {
+  "ethereum": "VALID/VALID (dup status: VALID,VALID)",
+  "srw3": "SRW3 lineage idempotent",
+  "layer": null,
+  "reason": "duplicate newPayload does not create a second lineage record",
+  "recordCount": 1
+ },
+ "H-A16": {
+  "ethereum": "reorg B->A completed",
+  "srw3": "SRW3 lineage follows forkchoice",
+  "layer": null,
+  "reason": "per-branch records persist; head follows canonical head",
+  "headFollowedB": true,
+  "recordOnB": "SRW3_VALID",
+  "recordOnA": "SRW3_VALID",
+  "headAfterReorgBack": true
+ }
+}
