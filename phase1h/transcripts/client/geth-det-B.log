@@ -47,3 +47,19 @@ WARN [10-07|13:56:32.826] Sanitizing cache to Go's GC limits       source=cgroup
 WARN [10-07|13:56:32.827] Disabled transaction unindexing for archive node
 WARN [10-07|13:56:32.828] Setting network ID with command-line flag id=93471
 WARN [10-07|13:56:32.834] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:30:22.205] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:30:22.208] Disabled transaction unindexing for archive node
+WARN [10-07|16:30:22.208] Setting network ID with command-line flag id=93471
+WARN [10-07|16:30:22.214] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:30:25.949] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:30:25.951] Disabled transaction unindexing for archive node
+WARN [10-07|16:30:25.952] Setting network ID with command-line flag id=93471
+WARN [10-07|16:30:25.964] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:32:36.492] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:32:36.493] Disabled transaction unindexing for archive node
+WARN [10-07|16:32:36.494] Setting network ID with command-line flag id=93471
+WARN [10-07|16:32:36.510] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:32:40.247] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:32:40.248] Disabled transaction unindexing for archive node
+WARN [10-07|16:32:40.249] Setting network ID with command-line flag id=93471
+WARN [10-07|16:32:40.254] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB

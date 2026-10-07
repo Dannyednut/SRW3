@@ -1,0 +1,27 @@
+# SRW3 Phase 1H-R1 — implementation file hashes (SHA-256)
+# base phase1h: 4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee
+# branch: phase1h-r1-fix
+
+## modified (12)
+7c8f84b82f84f9fe45eab35da361999bc8750ece38c2a7cefc8886d291ecf2ca  phase1h/python/lineage.py
+278cd2bea70d42f9d03e33120faf3dc97c04db3388efa36e733040f76cfb23fa  phase1h/python/gate_h.py
+60c8130021c1a3a1c42be1023a30e397fd275a00cbaa531c5ba23839a60a03c7  phase1h/python/harness.py
+6a45baa3d2bcec4ba04d227d5c265c49e66f0b6a70b5a342980da61b19a6005d  phase1h/python/cl_sim.py
+fcfc6992f571f95c41d3ed736ac1fb9c8fda47d30655a120d0e87792c43aecb3  phase1h/python/boot.py
+9c828a060ea46122f17d7c13578e019692f3bbf1447b915d8464c074b2ff4090  phase1h/python/run_h.py
+31b97bca1ae9972bf78f661c900cd35c316ce886809a9e3aaa0888cde3e22934  phase1h/python/run_adversarial.py
+0e57fa05312cbf958ffb77f0033f330fc5f533ca8354f3f808bdac1d52f94b02  phase1h/python/run_determinism.py
+178a1a0a9b2fa9cd989b18748f654be76d992cd9b3fd3bc3ee49e0c80d72835e  phase1h/python/run_consensus_sim.py
+233ee53ce23be7197ede93d8731ec86096aaed37063edf7d9c65aeb43227a292  phase1h/python/run_perf.py
+6fe79a6c9e2f12a8a09d43755ba3a44629283aca3cdacdc8a70fca8d9f2a79a5  phase1h/python/run_bal_analysis.py
+365f1aa9be796a11da2a77bd73dbec0358d7e2bcae7b6fbd994d8691cf738578  phase1h/python/smoke_engine.py
+
+## new (5)
+46e238f10381faf0bf05026077d926460163fd4d86dc09857d5ada4936816115  phase1h/python/r1_support.py
+d6e2230b06695a8565e2eecc4e48804058737fc83c2bae15b64837159b406bfd  phase1h/python/test_lineage_r1.py
+09b46d28577f18d20c014910a7cd4bc4ec907b40fef83f3fecd17026b1188364  phase1h/python/test_security_context_r1.py
+b90b02acc3684deeee50f4d73ceac4195b75381b21e6e2f9dff3bfc521096c55  phase1h/python/summarize_r1.py
+30fa7e3543291e72a6ec42eeb85437085aa3e09b9d473b158de1d3844f9ead17  scripts/gen_phase1h_r1_pdf.py
+
+## provenance self-hash anchor
+a3d3b8968a43c5168e4c8216e0f55c34a08201cc6ffb109854b13b7dbb2260c6  phase1h-r1-fix/provenance/PROVENANCE.md

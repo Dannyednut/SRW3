@@ -14,17 +14,20 @@ Methodology (payload-fixed):
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
 import time
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, HERE, CAP, DEPOSIT  # noqa: E402
 from cl_sim import ChainSim, beacon_root  # noqa: E402
 from engine_client import Devnet  # noqa: E402
-from gate_h import GateH  # noqa: E402
+from gate_h import GateH, build_security_context  # noqa: E402
 from harness import SRW3Harness  # noqa: E402
 from lineage import LineageStore  # noqa: E402
 from policy import load_policy, load_deployment  # noqa: E402
@@ -108,6 +111,7 @@ def build_sequence(node, run_tag: str, use_policy: bool, attempts=8) -> dict:
             srw3.append({"blockHash": rec.block_hash,
                          "srw3": rec.srw3_result,
                          "evidenceDigest": (rec.evidence or {}).get("effectDigest"),
+                         "securityContextDigest": rec.security_context_digest,
                          "cert": (rec.evidence or {}).get("authorityCertificate")})
             res, rec = h.run_payload("D2", b.txs(1, [
                 (b.lending, "borrow(uint256)", (500 * ETH,), 0)]).raws)
@@ -115,6 +119,7 @@ def build_sequence(node, run_tag: str, use_policy: bool, attempts=8) -> dict:
             srw3.append({"blockHash": rec.block_hash,
                          "srw3": rec.srw3_result,
                          "evidenceDigest": (rec.evidence or {}).get("effectDigest"),
+                         "securityContextDigest": rec.security_context_digest,
                          "cert": (rec.evidence or {}).get("authorityCertificate")})
             ev_last = h.last_ev
         else:
@@ -143,10 +148,21 @@ def build_sequence(node, run_tag: str, use_policy: bool, attempts=8) -> dict:
     raise RuntimeError(f"could not obtain a clean run on {run_tag}")
 
 
-def replay_sequence(node, payloads: list, pol_path: str, dep_path: str) -> dict:
-    """Replay captured payload bytes on an independent instance; then gate."""
+def replay_sequence(node, payloads: list, pol_path: str, dep_path: str,
+                    recorded_hashes: list[str] | None = None) -> dict:
+    """Replay captured payload bytes on an independent instance; then gate.
+
+    R1 section 13: the replay-side context construction mirrors the harness
+    rule EXACTLY so the context digests are comparable per payload:
+      lineage_head = shadow_store_head if a previously RECORDED payload set
+      it, else sim.head (post-canonicalize) — the same precedence the
+      harness uses (store.head or sim.head).  Only harness-recorded
+      payloads advance the shadow store head.
+    """
     dn = node["dn"]
     sim = ChainSim.create(dn, 93471)
+    recorded = set(recorded_hashes or [])
+    shadow_store_head: str | None = None
     gate = None
     policy = load_policy(pol_path)
     deployment = load_deployment(dep_path)
@@ -160,6 +176,10 @@ def replay_sequence(node, payloads: list, pol_path: str, dep_path: str) -> dict:
     gate = GateH(policy, pdigest, deployment["genesisHash"],
                  state_reader=state_reader)
     store = LineageStore(f"{HERE}/fixtures/lineage/det-replay")
+    # R1 (SC-8): the gate derives the applicable lineage head from the
+    # replay sidecar (falling back to the client head) — same rule the
+    # replay-side context construction uses below.
+    gate.lineage_head_provider = lambda: store.head or sim.head
     srw3 = []
     for p in payloads:
         if p is None:
@@ -169,9 +189,20 @@ def replay_sequence(node, payloads: list, pol_path: str, dep_path: str) -> dict:
         sim.canonicalize(p["blockHash"])
         ev = collect_evidence(dn, p, int(p["slotNumber"], 16),
                               beacon_root(int(p["slotNumber"], 16)))
-        v, _ = gate.evaluate(ev)
+        # R1: the CALLER constructs the SecurityContext_H; the lineage-head
+        # rule mirrors the harness (shadow store head if set, else the
+        # client head — post-canonicalize, exactly like the harness path).
+        sc = build_security_context(
+            policy, pdigest, dn.chain_id(),
+            lineage_head=shadow_store_head or sim.head,
+            client_config_digest=ev.execution_configuration["configDigest"],
+            client_identity=ev.execution_identity["client"])
+        v, _ = gate.evaluate(ev, security_context=sc)
+        if p["blockHash"] in recorded:
+            shadow_store_head = p["blockHash"]
         srw3.append({"blockHash": p["blockHash"], "srw3": v.verdict,
                      "evidenceDigest": ev.effect_digest,
+                     "securityContextDigest": sc.context_digest,
                      "cert": None, "stateRoot": p["stateRoot"]})
     blocks = []
     for n in (1, 2, 3, 4, 5):
@@ -194,11 +225,15 @@ def main() -> int:
         A2 = spawn_node("A", 8565, 8566)
         runA2 = build_sequence(A2, "A2", use_policy=True)
 
-        # replay the exact payload bytes on an independent instance B
+        # replay the exact payload bytes on an independent instance B;
+        # pass the harness-recorded payload hashes so the replay-side
+        # context rule mirrors the runA harness rule (R1 section 13)
         B = spawn_node("B", 8567, 8568)
         runB = replay_sequence(B, runA["payloads"],
                                f"{HERE}/policy/srw3_policy.json",
-                               f"{HERE}/policy/deployment.json")
+                               f"{HERE}/policy/deployment.json",
+                               recorded_hashes=[s["blockHash"]
+                                                for s in runA["srw3"]])
         stop_node(B)
 
         # H10-D: fresh no-policy build
@@ -214,6 +249,12 @@ def main() -> int:
         B_verdicts = [B_by_hash[h]["srw3"] for h in common]
         A_digests = [A_by_hash[h]["evidenceDigest"] for h in common]
         B_digests = [B_by_hash[h]["evidenceDigest"] for h in common]
+        A_ctx = [A_by_hash[h].get("securityContextDigest") for h in common]
+        B_ctx = [B_by_hash[h].get("securityContextDigest") for h in common]
+        A2_by_hash = {s["blockHash"]: s for s in runA2["srw3"]}
+        common12 = [h for h in A_by_hash if h in A2_by_hash]
+        A2_ctx = [A2_by_hash[h].get("securityContextDigest") for h in common12]
+        A1_ctx = [A_by_hash[h].get("securityContextDigest") for h in common12]
         R = {
             "runA": {k: v for k, v in runA.items() if k != "payloads"},
             "runA2": {k: v for k, v in runA2.items() if k != "payloads"},
@@ -233,14 +274,22 @@ def main() -> int:
                 "execIdsIdentical": runA["evExecId"] == runA2["evExecId"],
                 "verdictsIdentical_A_vs_B_replay":
                     A_verdicts == B_verdicts,
+                # R1 section 13: the SecurityContext digest is deterministic
+                # for identical canonical payloads across instances, replay
+                # and restart (no wall-clock contamination).
+                "securityContextDigestsIdentical_A1_vs_A2":
+                    A1_ctx == A2_ctx and all(A1_ctx),
+                "securityContextDigestsIdentical_A_vs_B_replay":
+                    A_ctx == B_ctx and all(A_ctx),
+                "comparedContextPayloads_A_vs_B": len(common),
             },
             "H10-D non-invasiveness": {
                 "blockHashesIdentical_policy_vs_noPolicy":
                     runA["blocks"] == runB_np["blocks"],
             },
         }
-        json.dump(R, open(f"{HERE}/transcripts/srw3/determinism.json", "w"),
-                  indent=1)
+        r1_support.attach_and_dump(
+            R, f"{HERE}/transcripts/srw3/determinism.json")
         print(json.dumps({"determinism": R["determinism"],
                           "payloadBytesIdentical": R["payloadBytesIdentical_A1_vs_A2"],
                           "H10-D": R["H10-D non-invasiveness"]}, indent=1))

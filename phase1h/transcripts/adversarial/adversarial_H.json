@@ -88,9 +88,15 @@
   "ethereum": "VALID (client restart)",
   "srw3": "SRW3_VALID",
   "layer": null,
-  "reason": "verdict and lineage record identical after restart+replay",
+  "reason": "restart+replay: same verdict, same evidence digest, same securityContextDigest, semantic record idempotent, bytes unchanged",
   "headRestored": true,
-  "recordStable": true
+  "recordStable": true,
+  "evidenceDigestStable": true,
+  "securityContextDigestStable": true,
+  "noDuplicateRecord": true,
+  "persistedBytesUnchanged": true,
+  "duplicateNewPayloadStatus": "VALID",
+  "contextDigestRecomputed": "0x1d4cf2a87fd3afeca3eac74245486bbe90ec7b9ec46ae1039e7b331ee4666908"
  },
  "H-A15": {
   "ethereum": "VALID/VALID (dup status: VALID,VALID)",
@@ -107,6 +113,15 @@
   "headFollowedB": true,
   "recordOnB": "SRW3_VALID",
   "recordOnA": "SRW3_VALID",
-  "headAfterReorgBack": true
+  "headAfterReorgBack": false
+ },
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390492.1416109,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
  }
 }

@@ -6,17 +6,43 @@
   "reason": null,
   "canonicalized": true,
   "evidence": {
-   "executionId": "0xd757ea1493746110890ba9e5c78b73791d40a67a3d8022afa5901dc9c3ad5387",
-   "effectDigest": "0xc6c8cab5e8b65a5be02a3a4c8e8c647df990f93f7c9da973c410cff2aa5c01d5",
-   "parentRoot": "0x25ef172af36c578234c7bb6fe8b8648305e30d26373e62fa6a8792ea389126a4",
-   "childRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead",
-   "authorityCertificate": "0xca68374cc760e3e2823f49f4a17ca14e96515b28015b7ddedde82c1cce46615c",
+   "executionId": "0x69f9d5329b23cc0be94f0c42fa270246ad7c4eea521df2ebbc338afce084de13",
+   "effectDigest": "0xe55dbb3d2b6e1ccdc71cbde0cd17f18190683899483576689cc9ea72d9dcee15",
+   "parentRoot": "0x588b8971d8a2baf59a353938ad18291911610bb9c427e0c2cf720ee99f24951c",
+   "childRoot": "0x44448b9311d72e8272f1db11e62793449319165ad5ae708f615e09e237f59bca",
+   "authorityCertificate": "0xec50942a3a0060265ff386d6158c77e9c18b932ccd62897880a7616b0e011917",
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0xb16a74856c7b28d7bbd7437a36c1a05522116913325317f3533545fcc9751262",
    "balSummary": {
     "accounts": 10,
-    "storage_writes": 0,
+    "storage_writes": 6,
     "storage_reads": 16,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x0e"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bc7"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bc6"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0x01"
+     ],
+     [
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
+      "0x"
+     ],
+     [
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
+      "0x01"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -93,17 +119,39 @@
   "reason": "IO-ORACLE-ORDER: oracle write (tx 1) ordered AFTER borrow (tx 0) in the same block",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0x454abbabca0281cfce212c633f5be305351368d1dd76a41710405f5f201073ab",
-   "effectDigest": "0xe31127398876cf14b2a00180d3d9d22df388982c74ff33d6dea336607c677e54",
-   "parentRoot": "0x5754bce3a073edc355e6284b12f06caca3ba790758ae7d7bbdb288d5be5ddead",
-   "childRoot": "0x4b34e00e6dd957bdd4407deca1c9d8bfacb8eb16d7334380f668a36ba0b847ec",
-   "authorityCertificate": "0xfe7ed1e8da78bbdbc6bee2aadc9ed6ca7ade7d1ac0d4f5741eaf195d401991e5",
+   "executionId": "0x3be974e1358d75f86de4d8b0f9671abfb459cbe3da667e4d22ebc15d394bac97",
+   "effectDigest": "0x16a0bdbc0cc1916c13af701e5366c26307f5e947ff0b933e4ecc7abd8413a0a2",
+   "parentRoot": "0x44448b9311d72e8272f1db11e62793449319165ad5ae708f615e09e237f59bca",
+   "childRoot": "0xff5b51fd838d9a4fc9fd1e8163cfe389f2f4870fde1c54dfd0072f97e99077a0",
+   "authorityCertificate": "0xd050a26ca5577a7957f12b086163c670a4ff94678c44f40ada99bfa3eda41cdb",
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0xb16a74856c7b28d7bbd7437a36c1a05522116913325317f3533545fcc9751262",
    "balSummary": {
     "accounts": 10,
-    "storage_writes": 0,
+    "storage_writes": 5,
     "storage_reads": 17,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x0f"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bc8"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bc7"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0x02"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0xdc7650c48de5cf00f484bb70bd6c7e289f258724008a4ca733979e35bcd7fb94"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -170,7 +218,7 @@
       "0x03"
      ],
      [
-      "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
       "0x01"
      ]
     ]
@@ -184,17 +232,39 @@
   "reason": "INV-AGG-CAP: totalBorrowed(0x1ba5abf9e779380000) > borrowCap(0x56bc75e2d63100000)",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0x6c0dacc62d9692dc79f0e558ab4bdd09277e728c07cc9b600c2e2675bb03d967",
-   "effectDigest": "0x27f6ff0459ca58cb4b06656f47fd15309f510901d2f766b24b1345dd2cde5a7a",
-   "parentRoot": "0x4b34e00e6dd957bdd4407deca1c9d8bfacb8eb16d7334380f668a36ba0b847ec",
-   "childRoot": "0xd663bc7de08eaca87ed81aa609838b1bde18a42f6cbee87424207ac7ae03df11",
-   "authorityCertificate": "0xca0412157ad1b36de651fdfe72d28948ed5ad7220774f36ff9423a5ef3488d95",
+   "executionId": "0xdb44905487a12ff96dce65d5179358f5e167b9c7898525927e2b77697d797637",
+   "effectDigest": "0x02c09a9a3e1b9892849d26c8946bf4b1bc5c856155d1daee5367e1886ebf8008",
+   "parentRoot": "0xff5b51fd838d9a4fc9fd1e8163cfe389f2f4870fde1c54dfd0072f97e99077a0",
+   "childRoot": "0x470e2555aa66a92b23a171badde7cc2a92fc160b618b9cf649046ec22eca605d",
+   "authorityCertificate": "0x855d07fc26545f1e6f8768ac6c75e096f89bb12a4cdc3ef52cfe968dd3a5c649",
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0x6e385db6b2592e5124de15b9d8664e38f15a95499a7a274e0b7dc0aad403db0c",
    "balSummary": {
     "accounts": 9,
-    "storage_writes": 0,
+    "storage_writes": 5,
     "storage_reads": 16,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x10"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bc9"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bc8"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0x02"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0x1b95c2407130663523b21599d646da3365e390741ac1000f74c45e9257f66b4b"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -271,17 +341,35 @@
   "reason": "declared != executed: hidden=1 phantom=0 changed=0",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0x2e7c940c02692586892528d4f49edac25a6877fceefd335f8018c199ec38ed30",
-   "effectDigest": "0x8ecbff0485d2684823be2f1a162ae57a3dd8abaf71ab5308bdeb552627df963a",
-   "parentRoot": "0xd663bc7de08eaca87ed81aa609838b1bde18a42f6cbee87424207ac7ae03df11",
-   "childRoot": "0x701d196ca01830cff4cbdfbc7430fb9ea34811edafdb4690b7982072388d94f4",
+   "executionId": "0xf52fa29d5f55693266ce4fd1655703a47803072462f07f55c5c314bafc70d040",
+   "effectDigest": "0x07ae3e67df7982f99ab949993834772b08eb2b4acd490d140fc4a4cb159df9f7",
+   "parentRoot": "0x470e2555aa66a92b23a171badde7cc2a92fc160b618b9cf649046ec22eca605d",
+   "childRoot": "0x96f87d36a0f82ca1519f9bdcbb1319f51d25fbda16045a3c840d8ff1f2073565",
    "authorityCertificate": null,
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0x034ad4ea9e2be3b78220571cbab4beb336881e4ef37cba2b59d51bbb255387ad",
    "balSummary": {
     "accounts": 9,
-    "storage_writes": 0,
+    "storage_writes": 4,
     "storage_reads": 16,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x11"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bca"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bc9"
+     ],
+     [
+      "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      "0x05"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -355,7 +443,8 @@
   "ethereum": "VALID (baseline evidence-valid)",
   "srw3": "SRW3_REJECT",
   "layer": "evidence-binding",
-  "reason": "stale or mismatched parent root (H4/H-A5)"
+  "reason": "stale or mismatched parent root (H4/H-A5)",
+  "securityContextDigest": "0xc43dd6af355ebc5bc2920180a6b7507c9ba816c4d0f066bc2f9a26c4a6e502d5"
  },
  "H5": {
   "ethereum": "VALID",
@@ -364,17 +453,31 @@
   "reason": "evidence issuer is not the authorized client",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0xbdc245ef7e125d5f237da437c44128c02e62f16ae1462732027614cc8a0d966d",
-   "effectDigest": "0x7b2cc2f176aa659fdaa2da9301f3a1eea3b3432807664abe1ef8518b534246b6",
-   "parentRoot": "0xe0c7bf6240774c548e12266490af89fd2bcb403e6f98f5cb17012947727e8e54",
-   "childRoot": "0xa7f28321d79312c57fb93b33e80cd37549971fd0dd2add6d78a58322f24af960",
+   "executionId": "0x7cafcd61ad376de4602702112a069493984bc2e82342fbba7503333266c917d8",
+   "effectDigest": "0x13d2899f81f96de97b67d6a517c19ad67a33dd9371f58ae54d6238a61f6f9d53",
+   "parentRoot": "0x49756c0bfeacc7d92afe5149e8823efd769ba33cb07b21918560b0ab31b9c197",
+   "childRoot": "0x4e736db80bac9406535d6efc97cc610ba04d646aacb54036f2bd3adb4532a8af",
    "authorityCertificate": null,
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0xc43dd6af355ebc5bc2920180a6b7507c9ba816c4d0f066bc2f9a26c4a6e502d5",
    "balSummary": {
     "accounts": 9,
-    "storage_writes": 0,
+    "storage_writes": 3,
     "storage_reads": 17,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x13"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bcc"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bcb"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -441,12 +544,13 @@
       "0x03"
      ],
      [
-      "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
       "0x01"
      ]
     ]
    }
-  }
+  },
+  "securityContextDigest": "0xc43dd6af355ebc5bc2920180a6b7507c9ba816c4d0f066bc2f9a26c4a6e502d5"
  },
  "H6": {
   "ethereum": "VALID",
@@ -455,17 +559,31 @@
   "reason": "presented policy version differs from authorized policy (H6/H-A7)",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0xcb574e579899934ee843c81c3da7b1560b7228ea7aaa254a1724a48bb0844458",
-   "effectDigest": "0xa585faa56c0c4e528a9b9ff1e6c6f250ebf847a0d6faa7b64446dc1b4dbbf463",
-   "parentRoot": "0xa7f28321d79312c57fb93b33e80cd37549971fd0dd2add6d78a58322f24af960",
-   "childRoot": "0x569cfe37f0c8b3633c5bb1793ccffe6895f93b2c315d022db4d802c637661da8",
-   "authorityCertificate": "0x1a4555fb1f302594c235a2661501e4a7b5b5e9c1e72b4b41f92605b2ceadae2e",
+   "executionId": "0x4d39118a65c961c18fe98293247a56a424508450546b2b6170f09315722e6adf",
+   "effectDigest": "0x0e373705de6c7cc32f700c358f857fe1159704fd9e27e2f2e1ae2106ec69d53f",
+   "parentRoot": "0x4e736db80bac9406535d6efc97cc610ba04d646aacb54036f2bd3adb4532a8af",
+   "childRoot": "0x454af182f634259069f524a3df2576592f393bf8fb01a3f2b1dfb805797841b8",
+   "authorityCertificate": "0x417a95faff7e6124f3fc5ec9726ec5bd68b88a655b2882b94166ef392d773245",
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0x9b0974077cb205905a37d59842453fc7a288214203e69f480005a80796023879",
    "balSummary": {
     "accounts": 9,
-    "storage_writes": 0,
+    "storage_writes": 3,
     "storage_reads": 17,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x14"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bcd"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bcc"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -532,12 +650,13 @@
       "0x03"
      ],
      [
-      "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
       "0x01"
      ]
     ]
    }
-  }
+  },
+  "securityContextDigest": "0x9b0974077cb205905a37d59842453fc7a288214203e69f480005a80796023879"
  },
  "H7": {
   "ethereum": "VALID",
@@ -546,17 +665,31 @@
   "reason": "execution configuration substitution (H7/H-A9)",
   "canonicalized": true,
   "evidence": {
-   "executionId": "0x5937bfa0b15e5504db5ecc326ac677ac2a9d79655c5edfd1689454adfe3c2270",
-   "effectDigest": "0xda4847e1738fd92c0f3fb09d1bf19bff2f623b08bf5a0caaa56caefc532b94c0",
-   "parentRoot": "0x569cfe37f0c8b3633c5bb1793ccffe6895f93b2c315d022db4d802c637661da8",
-   "childRoot": "0x507b2cbb197d6409c5c934dc026356865b3353786e232cb82c1663e3a97dab23",
-   "authorityCertificate": "0x5e94ce66b0aeb8b998b5f3d49e29ab7445a0ba5b1f2a95daff25d6130e6523fa",
+   "executionId": "0xc488c5c8c04487b7ad708e78989f57737a5d62db00eca3a4583873a187e1866a",
+   "effectDigest": "0x9691ebee4eb42d6360566e161518954a884a8dc8c01a2d39e207668fddc6daa7",
+   "parentRoot": "0x454af182f634259069f524a3df2576592f393bf8fb01a3f2b1dfb805797841b8",
+   "childRoot": "0x0ba3b2f21d9bb279f02e603cb2b81bec59e912d9c37ba82f66ec96f3452a1e03",
+   "authorityCertificate": "0xd42f612ca386307ab5b1fed3671caa7cb44332d0c829e0ec9ffb0e58e4afc127",
    "policyVersion": "srw3-policy-1h-v1",
+   "securityContextDigest": "0xe8017e251772108c4aaf35ed277e200d448840d084bca4154864597960ad67a3",
    "balSummary": {
     "accounts": 9,
-    "storage_writes": 0,
+    "storage_writes": 3,
     "storage_reads": 17,
-    "write_set": [],
+    "write_set": [
+     [
+      "0x0000f90827f1c53a10cb7a02335b175320002935",
+      "0x15"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x1bce"
+     ],
+     [
+      "0x000f3df6d732807ef1319fb7b8bb8522d0beac02",
+      "0x3bcd"
+     ]
+    ],
     "read_set": [
      [
       "0x00000961ef480eb55e80d19ad83579a64c007002",
@@ -623,12 +756,13 @@
       "0x03"
      ],
      [
-      "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
       "0x01"
      ]
     ]
    }
-  }
+  },
+  "securityContextDigest": "0xe8017e251772108c4aaf35ed277e200d448840d084bca4154864597960ad67a3"
  },
  "H8": {
   "ethereum": "VALID",
@@ -640,5 +774,14 @@
   "ethereum": "VALID",
   "srw3": "DISABLED",
   "note": "cross-chain comparison executed by run_determinism.py (H10-D): identical block hashes with and without SRW3"
+ },
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390365.2994807,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
  }
 }

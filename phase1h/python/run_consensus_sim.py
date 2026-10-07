@@ -9,13 +9,16 @@ consensus modification (the real client still returns VALID for the payload
 from __future__ import annotations
 
 import json
+import os
 import sys
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, boot_devnet, HERE, CAP, DEPOSIT  # noqa: E402
 from harness import SRW3Harness  # noqa: E402
-from gate_h import GateH  # noqa: E402
+from gate_h import GateH, build_security_context  # noqa: E402
 from lineage import LineageStore  # noqa: E402
 from policy import load_policy, load_deployment  # noqa: E402
 
@@ -80,15 +83,30 @@ def main() -> int:
     }
 
     # 4) re-presentation of the SAME rejected payload: the client accepts
-    # (already imported) but the SRW3 record is stable and idempotent
+    # (already imported) but the SRW3 record is stable and idempotent.
+    # R1: the re-evaluation uses the R1 replay recipe — the context is
+    # reconstructed from the persisted record's pre-payload lineage head.
     from evidence import collect_evidence
     from cl_sim import beacon_root
     dup2 = dn.new_payload_v5(res2.payload, [], beacon_root(res2.slot), [])
     ev2 = collect_evidence(dn, res2.payload, res2.slot, beacon_root(res2.slot))
-    v4, _ = gate.evaluate(ev2)
+    rec2_old = store.get(res2.payload["blockHash"])
+    sc_cs4 = build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=rec2_old["lineageHeadBefore"],
+        client_config_digest=ev2.execution_configuration["configDigest"],
+        client_identity=ev2.execution_identity["client"])
+    v4, _ = gate.evaluate(ev2, security_context=sc_cs4,
+                          lineage_head_expectation=rec2_old["lineageHeadBefore"])
     old2 = store.get(res2.payload["blockHash"])
     R["CS4"] = {"clientSays": dup2["status"], "srw3": v4.verdict,
-                "layer": v4.layer, "lineageRecordStable":
+                "layer": v4.layer,
+                "securityContextDigest": sc_cs4.context_digest,
+                "recordedSecurityContextDigest":
+                    old2.get("securityContextDigest"),
+                "contextDigestMatchesRecord":
+                    old2.get("securityContextDigest") == sc_cs4.context_digest,
+                "lineageRecordStable":
                     old2 is not None and old2["verdict"] == "SRW3_REJECT"}
     boot.sim.drain_pool()
 
@@ -114,8 +132,8 @@ def main() -> int:
             "boundary is a fork-choice rule, not a validity rule",
     }
 
-    json.dump(R, open(f"{HERE}/transcripts/srw3/consensus_sim.json", "w"),
-              indent=1)
+    r1_support.attach_and_dump(
+        R, f"{HERE}/transcripts/srw3/consensus_sim.json")
     print(json.dumps(R, indent=1)[:2200])
     return 0
 

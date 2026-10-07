@@ -15,9 +15,12 @@ security-effect trace.
 from __future__ import annotations
 
 import json
+import os
 import sys
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, boot_devnet, HERE, CAP, DEPOSIT  # noqa: E402
 from bal_decode import decode_bal, bal_summary  # noqa: E402
@@ -146,7 +149,7 @@ def main() -> int:
     }
 
     # ---- SRW3 still needs the trace: evaluate both layers ----
-    from gate_h import GateH
+    from gate_h import GateH, build_security_context
     from policy import load_policy, load_deployment
     import subprocess
     pol = load_policy(f"{HERE}/policy/srw3_policy.json")
@@ -156,7 +159,15 @@ def main() -> int:
         gate = GateH(pol, pd, dep["genesisHash"])
         gate.state_reader = lambda a, s, b: dn.rpc.call(
             "eth_getStorageAt", [a, s, b])
-        v, _ = gate.evaluate(ev)
+        # R1 (SC-8): no sidecar in this runner — applicable lineage head is
+        # the client head; the context is built by the CALLER (SC-10)
+        gate.lineage_head_provider = lambda: dn.head()["hash"]
+        sc_bal = build_security_context(
+            pol, pd, dn.chain_id(),
+            lineage_head=dn.head()["hash"],
+            client_config_digest=ev.execution_configuration["configDigest"],
+            client_identity=ev.execution_identity["client"])
+        v, _ = gate.evaluate(ev, security_context=sc_bal)
         R["gateVerdict_on_this_block"] = {
             "srw3": v.verdict, "layer": v.layer, "reason": v.reason,
             "note": "borrow-before-setPrice violates IO-ORACLE-ORDER - the "
@@ -166,8 +177,8 @@ def main() -> int:
     except Exception as e:
         R["gateVerdict_on_this_block"] = {"error": str(e)}
 
-    json.dump(R, open(f"{HERE}/transcripts/srw3/bal_analysis.json", "w"),
-              indent=1, default=str)
+    r1_support.attach_and_dump(
+        R, f"{HERE}/transcripts/srw3/bal_analysis.json")
     print(json.dumps(R, indent=1, default=str)[:2600])
     return 0
 

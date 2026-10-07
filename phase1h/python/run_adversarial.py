@@ -8,16 +8,19 @@ devnet.
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import time
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, boot_devnet, HERE, CAP, DEPOSIT  # noqa: E402
 from cl_sim import ChainSim, beacon_root  # noqa: E402
 from evidence import collect_evidence  # noqa: E402
-from gate_h import GateH  # noqa: E402
+from gate_h import GateH, build_security_context  # noqa: E402
 from harness import SRW3Harness  # noqa: E402
 from lineage import LineageStore  # noqa: E402
 from policy import load_policy, load_deployment  # noqa: E402
@@ -48,6 +51,16 @@ def gate_ctx(gate: GateH, cc, ec, ev, deployment, chain_id):
         "certsById": {gate.root_cert.cert_id: gate.root_cert,
                       cc.cert_id: cc, ec.cert_id: ec},
     }
+
+
+def caller_context(policy, pdigest, dn, ev, store, sim):
+    """R1: the CALLER (this runner) constructs the SecurityContext_H for
+    direct gate evaluations — the gate never builds one (SC-10)."""
+    return build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=store.head or sim.head,
+        client_config_digest=ev.execution_configuration["configDigest"],
+        client_identity=ev.execution_identity["client"])
 
 
 def main() -> int:
@@ -131,8 +144,8 @@ def main() -> int:
     # ---------------- H-A5: stale lineage ----------------
     res, rec = harness.run_payload("H-A5", boot.txs(3, [
         (boot.oracle, "setPrice(uint256)", (2200 * ETH,), 0)]).raws,
-        context_override={"presentedLineageHead": "0x" + "11" * 32,
-                          "expectedLineageHead": store.head})
+        presented_context={"presentedLineageHead": "0x" + "11" * 32},
+        expectations={"expectedLineageHead": store.head})
     out("H-A5", rec.ethereum_result, rec.srw3_result, rec.srw3_layer,
         rec.srw3_reason)
 
@@ -156,9 +169,17 @@ def main() -> int:
     # re-present A's payload on branch B (duplicate newPayload)
     dup = dn.new_payload_v5(resA.payload, [], beacon_root(resA.slot), [])
     old_rec = store.get(blockA)
-    # re-evaluate A's evidence deterministically
+    # re-evaluate A's evidence deterministically (R1: caller-built context;
+    # the applicable lineage head is the recorded pre-payload head of A's
+    # existing record — the lineage state applicable to THIS evaluation)
     evA = collect_evidence(dn, resA.payload, resA.slot, beacon_root(resA.slot))
-    vA, _ = gate.evaluate(evA)
+    scA = build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=old_rec["lineageHeadBefore"],
+        client_config_digest=evA.execution_configuration["configDigest"],
+        client_identity=evA.execution_identity["client"])
+    vA, _ = gate.evaluate(evA, security_context=scA,
+                          lineage_head_expectation=old_rec["lineageHeadBefore"])
     out("H-A6", "VALID (duplicate accepted by client)", vA.verdict,
         vA.layer,
         "rejected commitment persists on its branch after reorg; re-evaluation "
@@ -249,14 +270,15 @@ def main() -> int:
     ev_t = collect_evidence(dn, res.payload, res.slot, beacon_root(res.slot))
     tampered = ev_t.child_state_root
     ev_t.child_state_root = "0x" + "77" * 32
-    v, _ = gate.evaluate(ev_t, context_override={
+    sc12 = caller_context(policy, pdigest, dn, ev_t, store, boot.sim)
+    v, _ = gate.evaluate(ev_t, security_context=sc12, expectations={
         "expectedChildRoot": tampered})
     out("H-A12", "VALID", v.verdict, v.layer, v.reason)
 
     # ---------------- H-A13: SRW3 timeout ----------------
     import harness as harness_mod
     t0 = time.perf_counter()
-    slow = gate.evaluate(ev_t, skip_invariants=False)
+    slow = gate.evaluate(ev_t, security_context=sc12, skip_invariants=False)
     # simulate: gate evaluation exceeding the adapter deadline
     deadline_exceeded = True
     out("H-A13", "VALID", "SRW3_ERROR (fail-closed in enforcing mode)",
@@ -264,23 +286,75 @@ def main() -> int:
         "simulated gate deadline exceeded -> FAIL-CLOSED; never auto-VALID",
         {"deadlinePolicy": "shadow: record; enforcing: INVALID"})
 
-    # ---------------- H-A14: client restart ----------------
+    # ---------------- H-A14: client restart + R1 replay recipe -----------
+    # Strengthened per Phase 1H-R1 section 14: after restart the agent
+    #   1. re-reads the existing lineage record,
+    #   2. reconstructs the SAME SecurityContext from the recorded
+    #      pre-payload lineage head,
+    #   3. recomputes the same context digest,
+    #   4. replays the same payload (duplicate newPayload),
+    #   5. re-evaluates the same verdict,
+    #   6. re-calls lineage persistence with the same semantic record
+    # Expected: same verdict, same evidence digest, same
+    # securityContextDigest, no duplicate record, no inconsistency error,
+    # persisted bytes unchanged.
     head_before = boot.sim.head
-    rec_before = store.get(harness.last_payload["blockHash"])
+    target_hash = harness.last_payload["blockHash"]
+    rec_path = os.path.join(store.dir,
+                            f"rec-{target_hash.removeprefix('0x')}.json")
+    rec_before = store.get(target_hash)
+    bytes_before = open(rec_path, "rb").read()
     subprocess.run(["bash", f"{HERE}/devnet/run_geth.sh"], check=True,
                    capture_output=True)
     time.sleep(6)
     head_after = dn.head()["hash"]
     ev_r = collect_evidence(dn, harness.last_payload,
                             res.slot, beacon_root(res.slot))
-    v_r, _ = gate.evaluate(ev_r, context_override={
-        "expectedParentRoot": dn.block_by_hash(
+    # (1) re-read the persisted record
+    old14 = store.get(target_hash)
+    assert old14 is not None, "lineage record lost across restart"
+    # (2)+(3) reconstruct the same context; the digest is recomputed at
+    # construction and must equal the recorded securityContextDigest
+    sc_r = build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=old14["lineageHeadBefore"],
+        client_config_digest=ev_r.execution_configuration["configDigest"],
+        client_identity=ev_r.execution_identity["client"])
+    # (4) replay the exact payload bytes (duplicate newPayload)
+    dup14 = dn.new_payload_v5(harness.last_payload, [],
+                              beacon_root(res.slot), [])
+    # (5) evaluate the same verdict against the same context
+    v_r, checks_r = gate.evaluate(
+        ev_r, security_context=sc_r,
+        lineage_head_expectation=old14["lineageHeadBefore"],
+        expectations={"expectedParentRoot": dn.block_by_hash(
             harness.last_payload["parentHash"], full=False)["stateRoot"]})
-    rec_after = store.get(harness.last_payload["blockHash"])
+    # (6) lineage persistence again with the same semantic record
+    store.record(target_hash, harness.last_payload["parentHash"],
+                 v_r.verdict, ev_r.effect_digest,
+                 checks_r.get("L3_authority") or "-",
+                 policy.policy_version, ev_r.execution_id,
+                 old14["lineageHeadBefore"],
+                 extra={"srw3Layer": v_r.layer, "reason": v_r.reason,
+                        "slot": res.slot,
+                        "securityContextDigest": sc_r.context_digest})
+    rec_after = store.get(target_hash)
+    bytes_after = open(rec_path, "rb").read()
+    dup_records = [r for r in store.all_records()
+                   if r["blockHash"] == target_hash]
     out("H-A14", "VALID (client restart)", v_r.verdict, v_r.layer,
-        "verdict and lineage record identical after restart+replay",
+        "restart+replay: same verdict, same evidence digest, same "
+        "securityContextDigest, semantic record idempotent, bytes unchanged",
         {"headRestored": head_after == head_before,
-         "recordStable": rec_before == rec_after})
+         "recordStable": rec_before == rec_after,
+         "evidenceDigestStable": rec_before["evidenceDigest"] == ev_r.effect_digest,
+         "securityContextDigestStable":
+             rec_before.get("securityContextDigest") == sc_r.context_digest
+             == rec_after.get("securityContextDigest"),
+         "noDuplicateRecord": len(dup_records) == 1,
+         "persistedBytesUnchanged": bytes_before == bytes_after,
+         "duplicateNewPayloadStatus": dup14["status"],
+         "contextDigestRecomputed": sc_r.context_digest})
 
     # ---------------- H-A15: duplicate payload ----------------
     dup1 = dn.new_payload_v5(res.payload, [], beacon_root(res.slot), [])
@@ -315,8 +389,8 @@ def main() -> int:
          "recordOnA": recA2["verdict"],
          "headAfterReorgBack": boot.sim.head == headA2})
 
-    json.dump(R, open(f"{HERE}/transcripts/adversarial/adversarial_H.json", "w"),
-              indent=1)
+    r1_support.attach_and_dump(
+        R, f"{HERE}/transcripts/adversarial/adversarial_H.json")
     print("\nwrote transcripts/adversarial/adversarial_H.json")
     return 0
 

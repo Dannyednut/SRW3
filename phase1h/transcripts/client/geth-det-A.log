@@ -50,3 +50,21 @@ WARN [10-07|13:56:19.400] Sanitizing cache to Go's GC limits       source=cgroup
 WARN [10-07|13:56:19.401] Disabled transaction unindexing for archive node
 WARN [10-07|13:56:19.402] Setting network ID with command-line flag id=93471
 WARN [10-07|13:56:19.418] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:29:58.182] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:29:58.183] Disabled transaction unindexing for archive node
+WARN [10-07|16:29:58.184] Setting network ID with command-line flag id=93471
+WARN [10-07|16:29:58.189] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:30:10.192] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:30:10.193] Disabled transaction unindexing for archive node
+WARN [10-07|16:30:10.194] Setting network ID with command-line flag id=93471
+WARN [10-07|16:30:10.209] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:32:12.498] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:32:12.499] Disabled transaction unindexing for archive node
+WARN [10-07|16:32:12.500] Setting network ID with command-line flag id=93471
+WARN [10-07|16:32:12.506] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:32:24.522] Sanitizing cache to Go's GC limits       source=cgroup-v1 provided=4096 updated=1365
+WARN [10-07|16:32:24.523] Disabled transaction unindexing for archive node
+WARN [10-07|16:32:24.524] Setting network ID with command-line flag id=93471
+WARN [10-07|16:32:24.529] Sanitizing invalid node buffer size      provided=341.00MiB updated=256.00MiB
+WARN [10-07|16:34:39.693] Beacon client online, but no consensus updates received in a while. Please fix your beacon client to follow the chain!
+WARN [10-07|16:39:39.725] Beacon client online, but no consensus updates received in a while. Please fix your beacon client to follow the chain!

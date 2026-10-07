@@ -6,9 +6,12 @@ Engine API.  Writes results JSON to transcripts/srw3/scenarios_H.json.
 from __future__ import annotations
 
 import json
+import os
 import sys
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, boot_devnet, CAP, DEPOSIT, HERE  # noqa: E402
 from gate_h import GateH, build_security_context  # noqa: E402
@@ -101,31 +104,42 @@ def main() -> int:
                              ev_stale.execution_configuration["slotNumber"],
                              beacon_root(ev_stale.execution_configuration["slotNumber"]))
     parent_block = dn.block_by_hash(res_new.payload["parentHash"], full=False)
-    v, checks = gate.evaluate(stale, context_override={
+    # R1: the caller constructs the SecurityContext_H for this direct-gate
+    # evaluation; the gate validates it (SC-1..SC-9) and never rebuilds it.
+    sc4 = build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=store.head or boot.sim.head,
+        client_config_digest=stale.execution_configuration["configDigest"],
+        client_identity=stale.execution_identity["client"])
+    v, checks = gate.evaluate(stale, security_context=sc4, expectations={
         "expectedParentRoot": parent_block["stateRoot"]})
     R["H4"] = {"ethereum": "VALID (baseline evidence-valid)",
-               "srw3": v.verdict, "layer": v.layer, "reason": v.reason}
+               "srw3": v.verdict, "layer": v.layer, "reason": v.reason,
+               "securityContextDigest": sc4.context_digest}
 
     # ---------------- H5: authority substitution ----------------
     res, rec = harness.run_payload("H5", boot.txs(5, [
         (boot.oracle, "setPrice(uint256)", (2600 * ETH,), 0),
-    ]).raws, context_override={"authorizedClientSubject":
-                               "execution-client:EVIL-CLIENT-1.0"})
+    ]).raws, presented_context={"authorizedClientSubject":
+                                "execution-client:EVIL-CLIENT-1.0"})
     R["H5"] = summarize(rec)
+    R["H5"]["securityContextDigest"] = rec.security_context_digest
 
     # ---------------- H6: policy substitution ----------------
     res, rec = harness.run_payload("H6", boot.txs(6, [
         (boot.oracle, "setPrice(uint256)", (2700 * ETH,), 0),
-    ]).raws, context_override={"presentedPolicyVersion":
-                               "srw3-policy-1h-v1-EVIL"})
+    ]).raws, presented_context={"presentedPolicyVersion":
+                                "srw3-policy-1h-v1-EVIL"})
     R["H6"] = summarize(rec)
+    R["H6"]["securityContextDigest"] = rec.security_context_digest
 
     # ---------------- H7: execution-context substitution ----------------
     res, rec = harness.run_payload("H7", boot.txs(7, [
         (boot.oracle, "setPrice(uint256)", (2800 * ETH,), 0),
-    ]).raws, context_override={"presentedConfigDigest":
-                               "0x" + "de" * 32})
+    ]).raws, presented_context={"presentedConfigDigest":
+                                "0x" + "de" * 32})
     R["H7"] = summarize(rec)
+    R["H7"]["securityContextDigest"] = rec.security_context_digest
 
     # ---------------- H8: self-authorizing evidence ----------------
     ev = harness.last_ev
@@ -155,8 +169,8 @@ def main() -> int:
                 "note": "cross-chain comparison executed by run_determinism.py "
                         "(H10-D): identical block hashes with and without SRW3"}
 
-    json.dump(R, open(f"{HERE}/transcripts/srw3/scenarios_H.json", "w"),
-              indent=1)
+    r1_support.attach_and_dump(
+        R, f"{HERE}/transcripts/srw3/scenarios_H.json")
     print(json.dumps({k: {kk: vv for kk, vv in v.items() if kk in
                           ("ethereum", "srw3", "layer", "reason")}
                       for k, v in R.items()}, indent=1))

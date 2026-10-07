@@ -1,0 +1,309 @@
+{
+ "suite": "SRW3 Phase 1H-R1 SecurityContext binding (Fix B, SCT+AUTH+DET)",
+ "total": 26,
+ "passed": 26,
+ "failed": 0,
+ "tests": [
+  {
+   "test": "SCT-1",
+   "expected": "SRW3_VALID",
+   "observed": {
+    "verdict": "SRW3_VALID",
+    "layer": null,
+    "reason": null
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-2a",
+   "expected": "SRW3_REJECT @ SC-1",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-1 policy version binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' != authorized policy 'srw3-policy-1h-v1-unit'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-2b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-1",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-1 policy version binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' != authorized policy 'srw3-policy-1h-v1-unit'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-3a",
+   "expected": "SRW3_REJECT @ SC-2",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-2 policy digest binding violated: context 0xeeeeeeeeeeeeeeee... != deployment-pinned 0x3dbaa55b3aecaf04..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-3b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-2",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-2 policy digest binding violated: context 0xeeeeeeeeeeeeeeee... != deployment-pinned 0x3dbaa55b3aecaf04..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-4a",
+   "expected": "SRW3_REJECT @ SC-4",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-4 application-set binding violated: context applicationSetDigest != digest(authorized application set)"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-4b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-4",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-4 application-set binding violated: context applicationSetDigest != digest(authorized application set)"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-5a",
+   "expected": "SRW3_REJECT @ SC-5",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-5 interaction-graph binding violated: context interactionGraphDigest != digest(authorized interaction graph)"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-5b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-5",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-5 interaction-graph binding violated: context interactionGraphDigest != digest(authorized interaction graph)"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-6a",
+   "expected": "SRW3_REJECT @ SC-8",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-8 lineage-head binding violated: context 0xeeeeeeeeeeeeeeee... != applicable lineage head 0x2222222222222222..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-6b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-8",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-8 lineage-head binding violated: context 0xeeeeeeeeeeeeeeee... != applicable lineage head 0x2222222222222222..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-7a",
+   "expected": "SRW3_REJECT @ SC-6",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-6 client configuration binding violated: context clientExecutionConfig != execution evidence configuration digest"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-7b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-6",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-6 client configuration binding violated: context clientExecutionConfig != execution evidence configuration digest"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-8a",
+   "expected": "SRW3_REJECT @ SC-7",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-7 client identity binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' != execution evidence authorized client identity 'geth/v1.17.7-unittest/ethclient'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-8b (digest recomputed)",
+   "expected": "SRW3_REJECT @ SC-7",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-7 client identity binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' != execution evidence authorized client identity 'geth/v1.17.7-unittest/ethclient'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-9",
+   "expected": "SRW3_REJECT @ SC-9",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-9 context digest integrity violated: recorded 0x0000000000000000... != recomputed 0xaa26d0a51e559eb9..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "SCT-10",
+   "expected": "SRW3_REJECT @ SC-3",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-3 chain identity binding violated: context chainId 999999999 != client-derived 93471"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "AUTH-1",
+   "expected": "SRW3_REJECT @ SC-1",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-1 policy version binding violated: context 'srw3-policy-1h-v1-EVIL' != authorized policy 'srw3-policy-1h-v1-unit'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "AUTH-2",
+   "expected": "SRW3_REJECT @ SC-7",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "security-context",
+    "reason": "SC-7 client identity binding violated: context 'execution-client:EVIL-9.9' != execution evidence authorized client identity 'geth/v1.17.7-unittest/ethclient'"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "AUTH-3",
+   "expected": "SRW3_REJECT at authority layer (forged root); honest path unaffected",
+   "observed": {
+    "forgedChainOk": false,
+    "layer": "authroot",
+    "reason": "protocol root genesis mismatch (H-A2/H5)",
+    "honestContextStillValid": true
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "AUTH-4",
+   "expected": "SRW3_REJECT @ authsrc",
+   "observed": {
+    "verdict": "SRW3_REJECT",
+    "layer": "authority:authsrc",
+    "reason": "evidence issuer is not the authorized client"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "AUTH-5",
+   "expected": "no rebuild/substitution fallback exists; the gate never constructs a context",
+   "observed": {
+    "gateConstructsContext": 0,
+    "harnessConstructionSites": 1,
+    "explicitFallbackFound": false,
+    "note": "SC-10 is architectural: evaluate() validates the SUPPLIED context; no code path replaces it"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "DET-1",
+   "expected": "identical inputs -> identical digest",
+   "observed": {
+    "digest": "0xaa26d0a51e559eb96e..."
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "DET-2",
+   "expected": "no wall-clock contamination",
+   "observed": {
+    "digestAfterSleep": "0xaa26d0a51e559eb96e...",
+    "canonicalKeys": [
+     "applicationSetDigest",
+     "chainId",
+     "clientExecutionConfig",
+     "clientIdentity",
+     "interactionGraphDigest",
+     "lineageHead",
+     "policyDigest",
+     "policyVersion"
+    ]
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "DET-3",
+   "expected": "canonical normalization (chainId int vs str)",
+   "observed": {
+    "normalizedChainId": "93471"
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "DET-4",
+   "expected": "any field change changes the digest",
+   "observed": {
+    "mutated": "lineageHead"
+   },
+   "pass": true,
+   "detail": null
+  }
+ ],
+ "evidenceNote": "gate-level fixture evidence; client-derived evidence binding is established by the live H/H-A suites",
+ "classification": "R1: implementation-level SecurityContext consumption/binding, experimentally tested (not a K proof)",
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390212.0900729,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
+ }
+}

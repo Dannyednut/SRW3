@@ -1,0 +1,45 @@
+{
+ "audit": "Phase 1H-R1 section 15 — source-level call-site audit",
+ "scope": "every call site of GateH.evaluate(), LineageStore.record(), build_security_context() in the entire repository",
+ "method": "ripgrep over phase1h/python/ + compile check (python -m py_compile) + API-enforcement argumentation",
+ "callSites": {
+  "GateH.evaluate": [
+   {"file": "phase1h/python/harness.py", "line": 172, "context": "harness.process() — the production path", "securityContext": "SUPPLIED (required keyword; constructed by _security_context from client-derived evidence + sidecar head)"},
+   {"file": "phase1h/python/run_h.py", "line": 114, "context": "H4 stale-evidence scenario", "securityContext": "SUPPLIED (sc4 built by the runner)"},
+   {"file": "phase1h/python/run_adversarial.py", "line": 181, "context": "H-A6 rejected-commitment replay after reorg", "securityContext": "SUPPLIED (reconstructed from the persisted record, section 14 recipe)"},
+   {"file": "phase1h/python/run_adversarial.py", "line": 274, "context": "H-A12 tampered child root", "securityContext": "SUPPLIED (caller_context)"},
+   {"file": "phase1h/python/run_adversarial.py", "line": 281, "context": "H-A13 timeout surface", "securityContext": "SUPPLIED (sc12)"},
+   {"file": "phase1h/python/run_adversarial.py", "line": 327, "context": "H-A14 restart/replay recipe", "securityContext": "SUPPLIED (reconstructed from the persisted record)"},
+   {"file": "phase1h/python/run_consensus_sim.py", "line": 99, "context": "CS4 rejected-payload re-presentation", "securityContext": "SUPPLIED (reconstructed from the persisted record)"},
+   {"file": "phase1h/python/run_determinism.py", "line": 200, "context": "runB payload replay", "securityContext": "SUPPLIED (mirrors harness lineage-head rule)"},
+   {"file": "phase1h/python/run_perf.py", "line": 63, "context": "performance measurement", "securityContext": "SUPPLIED (caller-built)"},
+   {"file": "phase1h/python/run_bal_analysis.py", "line": 170, "context": "BAL gate verdict", "securityContext": "SUPPLIED (caller-built)"},
+   {"file": "phase1h/python/test_security_context_r1.py", "lines": "177,197,202,208,214,224,230,253,277", "context": "SCT/AUTH suite", "securityContext": "SUPPLIED (honest + mutated + attacker-controlled variants)"}
+  ],
+  "LineageStore.record": [
+   {"file": "phase1h/python/harness.py", "line": 206, "context": "production persistence path (now includes securityContextDigest in extra)"},
+   {"file": "phase1h/python/run_adversarial.py", "line": 333, "context": "H-A14 replay re-persistence (semantic idempotence exercised live)"},
+   {"file": "phase1h/python/test_lineage_r1.py", "lines": "79-214", "context": "LID suite (idempotent + mutation cases)"}
+  ],
+  "build_security_context": [
+   {"file": "phase1h/python/harness.py", "line": 102, "context": "harness._security_context() — the single production construction site"},
+   {"file": "phase1h/python/run_h.py", "line": 109, "context": "H4 direct-gate evaluation (caller-side)"},
+   {"file": "phase1h/python/run_adversarial.py", "lines": "59,176,318", "context": "caller_context + H-A6/H-A14 replay recipes (caller-side)"},
+   {"file": "phase1h/python/run_consensus_sim.py", "line": 94, "context": "CS4 replay recipe (caller-side)"},
+   {"file": "phase1h/python/run_determinism.py", "line": 195, "context": "replay-side contexts (caller-side)"},
+   {"file": "phase1h/python/run_perf.py", "line": 56, "context": "perf contexts (caller-side)"},
+   {"file": "phase1h/python/run_bal_analysis.py", "line": 165, "context": "BAL context (caller-side)"},
+   {"file": "phase1h/python/test_security_context_r1.py", "line": 151, "context": "SCT fixture builder (caller-side)"}
+  ]
+ },
+ "findings": [
+  {"id": "F1", "finding": "No production/test path constructs a SecurityContext_H and discards it: security_context is a REQUIRED keyword of GateH.evaluate, so any unevaluated-context call is a TypeError at call time (old-style calls fail loudly)."},
+  {"id": "F2", "finding": "The gate never constructs or substitutes a context: build_security_context is DEFINED once (gate_h.py) and CALLED only from caller-side construction sites; zero calls inside GateH (verified programmatically by SCT AUTH-5)."},
+  {"id": "F3", "finding": "No replay timestamp can change semantic equality: lineage.py compares semantic_record() projections that exclude recordedAt (and obs_/session_ keys) — verified by LID-1/2/9 and live by H-A14."},
+  {"id": "F4", "finding": "No duplicate record can overwrite an existing semantic record: record() returns the previously persisted record on identical semantics and raises LineageInconsistencyError on any semantic difference (verified by LID-3..8 and live by H-A14/CS4)."},
+  {"id": "F5", "finding": "Security-context data cannot bypass the authority checks: the context digest is an integrity/binding mechanism only; authority remains protocol root -> authorized client -> execution evidence (verified by AUTH-1..4, and unchanged H5/H-A2/H-A8 verdicts)."},
+  {"id": "F6", "finding": "Compile check: all Phase 1H/1H-R1 Python modules pass py_compile."},
+  {"id": "F7", "finding": "Repository-wide secret scan: no credential material present in any tracked or generated file."}
+ ],
+ "result": "AUDIT CLEAN — no unevaluated-context path, no substitution fallback, no timestamp-sensitive semantic equality, no record overwrite, no authority bypass"
+}

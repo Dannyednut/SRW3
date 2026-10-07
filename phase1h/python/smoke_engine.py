@@ -3,13 +3,15 @@ via engine_forkchoiceUpdatedV4 -> engine_getPayloadV6 -> engine_newPayloadV5.
 """
 import hashlib
 import json
+import os
 import sys
 import time
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from engine_client import Devnet  # noqa: E402
 
-HERE = "/home/z/my-project/srw3-work/phase1h"
+# R1: checkout-independent path resolution
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def main() -> int:

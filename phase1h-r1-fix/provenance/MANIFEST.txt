@@ -1,0 +1,13 @@
+# SRW3 Phase 1H-R1 repair artifact MANIFEST (self-excluding)
+# base phase1h: 4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee
+# branch: phase1h-r1-fix  |  bundle integrity: zip .sha256 sidecar
+# this file is excluded from its own hash set (no fixed point)
+#
+a3d3b8968a43c5168e4c8216e0f55c34a08201cc6ffb109854b13b7dbb2260c6  ./provenance/PROVENANCE.md
+22cc7f3867632a2006b4e7ca7445b741531b57780e730f95c1779b7b6087a824  ./provenance/provenance-hashes.txt
+f84ab53e65ee21128eee016e89777bf7428b5bddad204334bbf9fdb53acd258f  ./report/SRW3-Phase1H-R1-Repair-Report.md
+41906a01990b8301dfa49dd92df20c54936e90ff912cd526307b299e314e9eef  ./report/SRW3-Phase1H-R1-Repair-Report.pdf
+52ff02eb652d92b542a33081316160b43606d96b3b59e2002d6c9504e66ffc84  ./transcripts/repair/call_site_audit.json
+3328a2a652a837f9a6f08658b9e064395700ebdb174633a59cf8bb228b303627  ./transcripts/repair/lineage_idempotence.json
+902ac99b3882c2e5d0bd04d1c3b5c60906d8700da6c77c116ded37e537142f49  ./transcripts/repair/regression_summary.json
+75b8c39c8bc7f33602a73cd4c5ba417fa5ba1ab21d0cd5bca2c4f801bf51a236  ./transcripts/repair/security_context_binding.json

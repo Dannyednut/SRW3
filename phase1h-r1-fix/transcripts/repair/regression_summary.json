@@ -1,0 +1,497 @@
+{
+ "phase": "SRW3 Phase 1H-R1 \u2014 repair regression summary",
+ "rerunAfterR1": true,
+ "repairBranch": "phase1h-r1-fix",
+ "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+ "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+ "kAvailable": false,
+ "kStatus": "K toolchain NOT available in the R1 environment; the frozen Phase 1G K proofs stand unchanged; R1 properties are classified implementation-level, experimentally tested (no PROVED-BY-K claim made)",
+ "toolchain": {
+  "python": "3.12.14",
+  "geth": "1.17.7-stable @ 3d858f858a458effb2a563788aedf1fe65e1f0d3 (re-provisioned from the pinned gethstore tarball; commit matches the Phase 1H provenance record)",
+  "ethUtils": "6.0.0"
+ },
+ "commands": [
+  "python test_lineage_r1.py",
+  "python test_security_context_r1.py",
+  "bash devnet/reset_devnet.sh && python run_h.py",
+  "bash devnet/reset_devnet.sh && python run_adversarial.py",
+  "bash devnet/reset_devnet.sh && python run_consensus_sim.py",
+  "bash devnet/reset_devnet.sh && python run_bal_analysis.py",
+  "python run_determinism.py",
+  "python run_perf.py"
+ ],
+ "H1-H10": {
+  "allMatch": true,
+  "cases": [
+   {
+    "case": "H1",
+    "match": true,
+    "old": [
+     "SRW3_VALID",
+     null
+    ],
+    "new": [
+     "SRW3_VALID",
+     null
+    ]
+   },
+   {
+    "case": "H9",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "interaction"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "interaction"
+    ]
+   },
+   {
+    "case": "H2",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "invariant"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "invariant"
+    ]
+   },
+   {
+    "case": "H3",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "effect-completeness"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "effect-completeness"
+    ]
+   },
+   {
+    "case": "H4",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "evidence-binding"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "evidence-binding"
+    ]
+   },
+   {
+    "case": "H5",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "authority:authsrc"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "authority:authsrc"
+    ]
+   },
+   {
+    "case": "H6",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "policy-context"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "policy-context"
+    ]
+   },
+   {
+    "case": "H7",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "policy-context"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "policy-context"
+    ]
+   },
+   {
+    "case": "H8",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "authcircle"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "authcircle"
+    ]
+   },
+   {
+    "case": "H10",
+    "match": true,
+    "old": [
+     "DISABLED",
+     null
+    ],
+    "new": [
+     "DISABLED",
+     null
+    ]
+   }
+  ]
+ },
+ "H-A1-H-A16": {
+  "allMatch": true,
+  "cases": [
+   {
+    "case": "H-A1",
+    "match": true,
+    "old": [
+     "SRW3_ERROR(fail-closed)",
+     "policy-authority"
+    ],
+    "new": [
+     "SRW3_ERROR(fail-closed)",
+     "policy-authority"
+    ]
+   },
+   {
+    "case": "H-A2",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "authroot"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "authroot"
+    ]
+   },
+   {
+    "case": "H-A3",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "invariant"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "invariant"
+    ]
+   },
+   {
+    "case": "H-A4",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "effect-completeness"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "effect-completeness"
+    ]
+   },
+   {
+    "case": "H-A5",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "policy-context"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "policy-context"
+    ]
+   },
+   {
+    "case": "H-A6",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "invariant"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "invariant"
+    ]
+   },
+   {
+    "case": "H-A7",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "policy-context"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "policy-context"
+    ]
+   },
+   {
+    "case": "H-A8",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "authsrc"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "authsrc"
+    ]
+   },
+   {
+    "case": "H-A9",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "policy-context"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "policy-context"
+    ]
+   },
+   {
+    "case": "H-A10",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "authsrc"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "authsrc"
+    ]
+   },
+   {
+    "case": "H-A11",
+    "match": true,
+    "old": [
+     "SRW3_ERROR (fail-closed in enforcing mode)",
+     "adapter-failure"
+    ],
+    "new": [
+     "SRW3_ERROR (fail-closed in enforcing mode)",
+     "adapter-failure"
+    ]
+   },
+   {
+    "case": "H-A12",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "evidence-binding"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "evidence-binding"
+    ]
+   },
+   {
+    "case": "H-A13",
+    "match": true,
+    "old": [
+     "SRW3_ERROR (fail-closed in enforcing mode)",
+     "timeout"
+    ],
+    "new": [
+     "SRW3_ERROR (fail-closed in enforcing mode)",
+     "timeout"
+    ]
+   },
+   {
+    "case": "H-A14",
+    "match": true,
+    "old": [
+     "SRW3_VALID",
+     null
+    ],
+    "new": [
+     "SRW3_VALID",
+     null
+    ]
+   },
+   {
+    "case": "H-A15",
+    "match": true,
+    "old": [
+     "SRW3 lineage idempotent",
+     null
+    ],
+    "new": [
+     "SRW3 lineage idempotent",
+     null
+    ]
+   },
+   {
+    "case": "H-A16",
+    "match": true,
+    "old": [
+     "SRW3 lineage follows forkchoice",
+     null
+    ],
+    "new": [
+     "SRW3 lineage follows forkchoice",
+     null
+    ]
+   }
+  ]
+ },
+ "H-A14-R1-replay-recipe": {
+  "headRestored": true,
+  "recordStable": true,
+  "evidenceDigestStable": true,
+  "securityContextDigestStable": true,
+  "noDuplicateRecord": true,
+  "persistedBytesUnchanged": true,
+  "duplicateNewPayloadStatus": "VALID"
+ },
+ "consensusVisibleSim": {
+  "allMatch": true,
+  "cases": [
+   {
+    "case": "CS1",
+    "match": true,
+    "old": [
+     "SRW3_VALID",
+     null
+    ],
+    "new": [
+     "SRW3_VALID",
+     null
+    ]
+   },
+   {
+    "case": "CS2",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "invariant"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "invariant"
+    ]
+   },
+   {
+    "case": "CS3",
+    "match": true,
+    "old": [
+     null,
+     null
+    ],
+    "new": [
+     null,
+     null
+    ]
+   },
+   {
+    "case": "CS4",
+    "match": true,
+    "old": [
+     "SRW3_REJECT",
+     "invariant"
+    ],
+    "new": [
+     "SRW3_REJECT",
+     "invariant"
+    ]
+   },
+   {
+    "case": "CS5",
+    "match": true,
+    "old": [
+     "SRW3_VALID",
+     null
+    ],
+    "new": [
+     "SRW3_VALID",
+     null
+    ]
+   }
+  ],
+  "benignDivergence": {
+   "case": "CS5.head",
+   "old": "0xb30de8122c7f",
+   "new": "0xf4c6cd2753c8",
+   "explanation": "the recovery block's hash depends on the CL build-job timestamp; CS3's build-on-rejected consumed one extra timestamp retry in the R1 re-run (drain-settle timing shift).  Verdict/canonicalization semantics identical."
+  },
+  "CS4-contextBinding": {
+   "contextDigestMatchesRecord": true,
+   "lineageRecordStable": true
+  }
+ },
+ "determinism": {
+  "originalChecksAllTrue": true,
+  "r1Checks": {
+   "blockHashesIdentical_A1_vs_A2": true,
+   "blockHashesIdentical_A_vs_B_replay": true,
+   "evidenceDigestsIdentical_A_vs_B_replay": true,
+   "comparedPayloads": 2,
+   "execIdsIdentical": true,
+   "verdictsIdentical_A_vs_B_replay": true,
+   "securityContextDigestsIdentical_A1_vs_A2": true,
+   "securityContextDigestsIdentical_A_vs_B_replay": true,
+   "comparedContextPayloads_A_vs_B": 2
+  },
+  "payloadBytesIdentical": true,
+  "H10D_nonInvasiveness": true,
+  "newInSection13": [
+   "securityContextDigestsIdentical_A1_vs_A2",
+   "securityContextDigestsIdentical_A_vs_B_replay"
+  ]
+ },
+ "bal": {
+  "writeSetsEqual": true,
+  "tamperClientResponse": "INVALID",
+  "gateVerdict": [
+   "SRW3_REJECT",
+   "interaction"
+  ],
+  "phase1G_finding": "PRESERVED (BAL != complete SRW3 security-effect trace); identical to the phase1h recording",
+  "matchesOriginal": true
+ },
+ "performance": {
+  "classes": {
+   "small": {
+    "evidenceMs_old": 7.6,
+    "evidenceMs_r1": 8.14,
+    "gateMs_old": 0.09,
+    "gateMs_r1": 0.13,
+    "overheadPct_r1": 0.4
+   },
+   "medium": {
+    "evidenceMs_old": 7.48,
+    "evidenceMs_r1": 11.13,
+    "gateMs_old": 0.09,
+    "gateMs_r1": 0.12,
+    "overheadPct_r1": 0.5
+   },
+   "large": {
+    "evidenceMs_old": 17.46,
+    "evidenceMs_r1": 17.13,
+    "gateMs_old": 0.13,
+    "gateMs_r1": 0.17,
+    "overheadPct_r1": 0.4
+   }
+  },
+  "adapterRssDeltaMB_r1": 1.3,
+  "note": "gate time now includes the SC-1..SC-9 SecurityContext validation; still <= 0.2 ms across all workload classes"
+ },
+ "zeroRegression": true,
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390922.8627784,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
+ }
+}

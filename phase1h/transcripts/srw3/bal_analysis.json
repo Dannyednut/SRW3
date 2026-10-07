@@ -37,5 +37,14 @@
   "layer": "interaction",
   "reason": "IO-ORACLE-ORDER: oracle write (tx 1) ordered AFTER borrow (tx 0) in the same block",
   "note": "borrow-before-setPrice violates IO-ORACLE-ORDER - the interaction layer REQUIRES the ordered, attributed trace that BAL cannot provide"
+ },
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390590.5781002,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
  }
 }

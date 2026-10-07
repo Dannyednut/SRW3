@@ -2,15 +2,23 @@
 
 Layered verdict (Phase 1D-R1/1E/1F/1G discipline carried to a real client):
 
+  SC  security-context binding  SecurityContext_H is a FIRST-CLASS gate
+                              input (Phase 1H-R1): the supplied context is
+                              validated (SC-1..SC-9) against gate-local
+                              authoritative state BEFORE any substantive
+                              layer runs.  A mutated, substituted, stale or
+                              internally inconsistent context yields
+                              SRW3_REJECT at the security-context layer.
+                              SC-10 is architectural: the gate NEVER
+                              rebuilds/replaces an invalid context.
   L1  evidence binding        payload/parent/child/execution-id cross-checked
                               against client records (state-root binding, §9)
   L2  effect completeness     presented-vs-executed effect comparison (1F LEVEL-3
                               CORE: declared == execution-derived), H3/H-A4
   L3  authority               AuthorityCertificate chain (1G NoCircularAuthority),
                               H5/H8/H10 + adversarial A2/A8/A10
-  L4  policy context binding  SecurityContext_H fields (policy version, chain,
-                              application set, interaction graph, lineage head,
-                              execution config), H6/H7 + A7/A9
+  L4  policy context binding  presented (attacker-supplied) bindings vs
+                              authoritative state, H6/H7 + A7/A9
   L5  security invariants     policy invariants evaluated on the DERIVED
                               effect trace (H2)
   L6  interaction obligations policy interaction graph on the ordered trace
@@ -18,10 +26,20 @@ Layered verdict (Phase 1D-R1/1E/1F/1G discipline carried to a real client):
 
 Verdicts: SRW3_VALID | SRW3_REJECT(layer, reason).  This gate NEVER changes
 the Ethereum validity result (shadow mode, §3/§6).
+
+AUTHORITY NOTE (Phase 1H-R1, section 8): the security context does NOT
+become an authority source.  The context digest is an integrity/binding
+mechanism only — an attacker who recomputes a valid digest over mutated
+fields still fails the field bindings (SC-1..SC-8 compare the context
+against gate-local authoritative state: the deployment-pinned policy, the
+client-derived evidence, the lineage sidecar).  Authority remains exactly
+
+    protocol root -> authorized execution client -> execution evidence
 """
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import Callable
 
 from authority import (AuthorityCertificate, make_protocol_root,
                        make_client_cert, make_evidence_cert,
@@ -30,16 +48,178 @@ from evidence import ClientExecutionEvidence
 from policy import Policy
 
 
+# ---------------------------------------------------------------------------
+# SecurityContext_H — first-class gate input (Phase 1H-R1)
+# ---------------------------------------------------------------------------
+
+# Fixed security-relevant fields; the canonical context digest is computed
+# over exactly this field set (see canonical_context_fields /
+# compute_context_digest).  Order here is documentation; the digest uses
+# lexicographic key order for determinism.
+SECURITY_CONTEXT_FIELDS = (
+    "policyVersion",
+    "policyDigest",
+    "chainId",
+    "applicationSetDigest",
+    "interactionGraphDigest",
+    "lineageHead",
+    "clientExecutionConfig",
+    "clientIdentity",
+)
+
+# Domain tag for the canonical context serialization (R1): separates context
+# digests from every other SRW3 digest domain.
+CONTEXT_DIGEST_DOM = "SRW3-CONTEXT-H-V1"
+
+
 @dataclass
 class SecurityContext_H:
-    """Section 11 candidate — every field records source + authority."""
+    """Section 11 candidate, first-class as of Phase 1H-R1.
+
+    Every field records source + authority in field_provenance.  The
+    context_digest is computed over the canonical serialization of the
+    security-relevant fields only (no timestamps, no pids, no paths, no
+    dict-order dependence) and is re-verified by the gate (SC-9).
+
+    The context is an INPUT to the gate, never an authority root: the gate
+    validates each field against its own authoritative state and never
+    reconstructs or substitutes the context (SC-10).
+    """
     policy_version: str
+    policy_digest: str
     chain_id: int
     application_set_digest: str
     interaction_graph_digest: str
     lineage_head: str
     client_execution_config: str
+    client_identity: str
+    context_digest: str = ""
     field_provenance: dict = field(default_factory=dict)
+
+    def canonical_fields(self) -> dict:
+        """Canonical (deterministic) security-relevant field map."""
+        return canonical_context_fields(self)
+
+    def to_json(self) -> dict:
+        return {
+            **self.canonical_fields(),
+            "contextDigest": self.context_digest,
+            "fieldProvenance": self.field_provenance,
+        }
+
+
+def canonical_context_fields(sc_or_fields) -> dict:
+    """Canonical representation of the security-relevant context fields.
+
+    Normalizations (deterministic by construction):
+      * chainId -> decimal string of the integer value;
+      * all other fields -> verbatim strings;
+    Excluded by construction: timestamps, process ids, object addresses,
+    filesystem paths, dict-ordering (keys are fixed by
+    SECURITY_CONTEXT_FIELDS; the digest sorts them again).
+    """
+    get = (lambda k: getattr(sc_or_fields, k)) \
+        if hasattr(sc_or_fields, "policy_version") else (lambda k: sc_or_fields[k])
+    return {
+        "policyVersion": str(get("policy_version")),
+        "policyDigest": str(get("policy_digest")),
+        "chainId": str(int(get("chain_id"))),
+        "applicationSetDigest": str(get("application_set_digest")),
+        "interactionGraphDigest": str(get("interaction_graph_digest")),
+        "lineageHead": str(get("lineage_head")),
+        "clientExecutionConfig": str(get("client_execution_config")),
+        "clientIdentity": str(get("client_identity")),
+    }
+
+
+def compute_context_digest(fields: dict) -> str:
+    """keccak256 over the canonical context serialization (documented R1).
+
+    Canonical form: CONTEXT_DIGEST_DOM + "\\n" + "\\n".join("k=v" for the
+    fields in lexicographic key order).  Every value is a string produced
+    by canonical_context_fields; no floats, no wall-clock values, no
+    unordered serialization.
+    """
+    from eth_utils import keccak
+    can = CONTEXT_DIGEST_DOM + "\n" + "\n".join(
+        f"{k}={fields[k]}" for k in sorted(fields))
+    return "0x" + keccak(can.encode()).hex()
+
+
+def context_digest_of(sc: SecurityContext_H) -> str:
+    return compute_context_digest(canonical_context_fields(sc))
+
+
+def _application_set_digest(policy: Policy) -> str:
+    from eth_utils import keccak
+    app_can = "|".join(sorted(policy.application_set))
+    return "0x" + keccak(app_can.encode()).hex()
+
+
+def _interaction_graph_digest(policy: Policy) -> str:
+    from eth_utils import keccak
+    ig_can = "|".join(
+        o["id"] for o in policy.interaction_graph.get("obligations", []))
+    return "0x" + keccak(ig_can.encode()).hex()
+
+
+def build_security_context(policy: Policy, policy_digest: str, chain_id: int,
+                           lineage_head: str, client_config_digest: str,
+                           client_identity: str) -> SecurityContext_H:
+    """Construct the SecurityContext_H for one evaluation (caller-side).
+
+    The HARNESS (or test runner) constructs the context; the gate only
+    consumes and validates it.  All inputs are deterministic:
+    policy fields and the deployment-pinned digest, the client-derived
+    chain id and execution configuration/identity, and the applicable
+    lineage head from the SRW3 sidecar.  No wall-clock value enters the
+    context or its digest.
+    """
+    app_digest = _application_set_digest(policy)
+    ig_digest = _interaction_graph_digest(policy)
+    sc = SecurityContext_H(
+        policy_version=policy.policy_version,
+        policy_digest=policy_digest,
+        chain_id=chain_id,
+        application_set_digest=app_digest,
+        interaction_graph_digest=ig_digest,
+        lineage_head=lineage_head,
+        client_execution_config=client_config_digest,
+        client_identity=client_identity,
+        field_provenance={
+            "policyVersion": {"source": "srw3_policy.json",
+                              "authority": "deployment-pinned policy digest "
+                                           "(governance input, A-G7 preserved)",
+                              "verification": "SC-1 vs gate-local authorized policy"},
+            "policyDigest": {"source": "policy file",
+                             "authority": "deployment pin (outside the policy)",
+                             "verification": "SC-2 vs deployment-pinned digest"},
+            "chainId": {"source": "eth_chainId (client)",
+                        "authority": "protocol chain identity",
+                        "verification": "SC-3 vs client-derived evidence chainId"},
+            "applicationSetDigest": {"source": "policy applicationSet",
+                                     "authority": "policy (authorized above)",
+                                     "verification": "SC-4 digest recompute over sorted set"},
+            "interactionGraphDigest": {"source": "policy interactionGraph",
+                                       "authority": "policy (authorized above)",
+                                       "verification": "SC-5 digest recompute over obligation ids"},
+            "lineageHead": {"source": "SRW3 lineage sidecar",
+                            "authority": "SRW3 records only; never client state",
+                            "verification": "SC-8 vs gate lineage-head source"},
+            "clientExecutionConfig": {"source": "admin_nodeInfo chainConfig + clientVersion",
+                                      "authority": "execution client (L1 cert)",
+                                      "verification": "SC-6 vs evidence configuration digest"},
+            "clientIdentity": {"source": "web3_clientVersion (client)",
+                               "authority": "execution client (L1 cert subject)",
+                               "verification": "SC-7 vs evidence execution identity"},
+            "contextDigest": {"source": "canonical serialization of the fields above",
+                              "authority": "none (integrity/binding mechanism only; "
+                                           "the digest does not authorize anything)",
+                              "verification": "SC-9 recompute over canonical fields"},
+        },
+    )
+    sc.context_digest = context_digest_of(sc)
+    return sc
 
 
 @dataclass
@@ -50,61 +230,11 @@ class GateVerdict:
     checks: dict = field(default_factory=dict)
 
 
-def _digest_fields(ctx_fields: dict) -> str:
-    from eth_utils import keccak
-    can = "|".join(f"{k}={ctx_fields[k]}" for k in sorted(ctx_fields))
-    return "0x" + keccak(can.encode()).hex()
-
-
-def build_security_context(policy: Policy, policy_digest: str, chain_id: int,
-                           lineage_head: str, client_config_digest: str,
-                           client_identity: str) -> SecurityContext_H:
-    app_can = "|".join(sorted(policy.application_set))
-    from eth_utils import keccak
-    app_digest = "0x" + keccak(app_can.encode()).hex()
-    ig_can = "|".join(
-        o["id"] for o in policy.interaction_graph.get("obligations", []))
-    ig_digest = "0x" + keccak(ig_can.encode()).hex()
-    return SecurityContext_H(
-        policy_version=policy.policy_version,
-        chain_id=chain_id,
-        application_set_digest=app_digest,
-        interaction_graph_digest=ig_digest,
-        lineage_head=lineage_head,
-        client_execution_config=client_config_digest,
-        field_provenance={
-            "policyVersion": {"source": "srw3_policy.json",
-                              "authority": "deployment-pinned policy digest "
-                                           "(governance input, A-G7 preserved)",
-                              "verification": "digest recompute vs deployment pin"},
-            "chainId": {"source": "eth_chainId (client)",
-                        "authority": "protocol chain identity",
-                        "verification": "equality with deployment chainId"},
-            "applicationSetDigest": {"source": "policy applicationSet",
-                                     "authority": "policy (authorized above)",
-                                     "verification": "digest over sorted set"},
-            "interactionGraphDigest": {"source": "policy interactionGraph",
-                                       "authority": "policy (authorized above)",
-                                       "verification": "digest over obligation ids"},
-            "lineageHead": {"source": "SRW3 lineage sidecar",
-                            "authority": "SRW3 records only; never client state",
-                            "verification": "sidecar persistence + reorg rules"},
-            "clientExecutionConfig": {"source": "debug_chainConfig + clientVersion",
-                                      "authority": "execution client (L1 cert)",
-                                      "verification": "digest vs authority certificate"},
-            "policyDigest": {"source": "policy file", "authority": "deployment pin",
-                             "verification": "digest recompute"},
-            "_policyDigest": policy_digest,
-            "_clientIdentity": client_identity,
-        },
-    )
-
-
 class GateH:
     """The SRW3 gate (shadow mode by default)."""
 
     def __init__(self, policy: Policy, policy_digest: str, genesis_hash: str,
-                 state_reader=None):
+                 state_reader=None, lineage_head_provider: Callable[[], str | None] | None = None):
         self.policy = policy
         self.policy_digest = policy_digest
         self.genesis_hash = genesis_hash
@@ -114,6 +244,11 @@ class GateH:
         # eth_getStorageAt (recorded: the tx-diff alone does not expose
         # untouched invariant bounds - a Phase 1H boundary finding).
         self.state_reader = state_reader
+        # lineage_head_source() -> the applicable SRW3 lineage head (R1, SC-8).
+        # Wired by the harness to the sidecar head; if absent (and no
+        # explicit per-evaluation expectation is supplied) the gate FAILS
+        # CLOSED on SC-8 rather than evaluating with an unbound lineage head.
+        self.lineage_head_provider = lineage_head_provider
         self.root_cert = make_protocol_root(genesis_hash, policy.authority_config
                                             ["protocolRoot"]["chainId"])
 
@@ -131,23 +266,146 @@ class GateH:
                                   ev.parent_root, ev.child_state_root)
 
     # ----------------------------------------------------------
+    # SC layer (R1): validate the SUPPLIED SecurityContext_H against
+    # gate-local authoritative state.  No field of the context is taken
+    # as authority; every binding is an equality against an independent
+    # source.  SC-10 (no silent substitution) is architectural: there is
+    # no code path that rebuilds a context after a failed check.
+    # ----------------------------------------------------------
 
-    def evaluate(self, ev: ClientExecutionEvidence,
+    def _sc_reject(self, checks: dict, n: str, name: str, detail: str):
+        return GateVerdict(
+            "SRW3_REJECT", "security-context",
+            f"SC-{n} {name} binding violated: {detail}"), checks
+
+    def _validate_security_context(
+            self, sc: SecurityContext_H, ev: ClientExecutionEvidence,
+            lineage_head_expectation: str | None) -> GateVerdict | None:
+        """SC-1..SC-9.  Returns a reject verdict or None if all hold."""
+        if sc.policy_version != self.policy.policy_version:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-1 policy version binding violated: context "
+                               f"{sc.policy_version!r} != authorized policy "
+                               f"{self.policy.policy_version!r}")
+        if sc.policy_digest != self.policy_digest:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-2 policy digest binding violated: context "
+                               f"{sc.policy_digest[:18]}... != deployment-pinned "
+                               f"{self.policy_digest[:18]}...")
+        if int(sc.chain_id) != int(ev.execution_identity["chainId"]):
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-3 chain identity binding violated: context "
+                               f"chainId {sc.chain_id} != client-derived "
+                               f"{ev.execution_identity['chainId']}")
+        if sc.application_set_digest != _application_set_digest(self.policy):
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               "SC-4 application-set binding violated: context "
+                               "applicationSetDigest != digest(authorized "
+                               "application set)")
+        if sc.interaction_graph_digest != _interaction_graph_digest(self.policy):
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               "SC-5 interaction-graph binding violated: context "
+                               "interactionGraphDigest != digest(authorized "
+                               "interaction graph)")
+        if sc.client_execution_config != ev.execution_configuration["configDigest"]:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               "SC-6 client configuration binding violated: "
+                               "context clientExecutionConfig != execution "
+                               "evidence configuration digest")
+        if sc.client_identity != ev.execution_identity["client"]:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-7 client identity binding violated: context "
+                               f"{sc.client_identity!r} != execution evidence "
+                               f"authorized client identity "
+                               f"{ev.execution_identity['client']!r}")
+        # SC-8: the supplied context's lineage head must be the lineage
+        # state applicable to THIS evaluation.  The expectation comes from
+        # the gate's lineage-head source (sidecar) or, for authorized
+        # replay evaluation, from the persisted record being replayed —
+        # never from a reconstructed context.
+        if lineage_head_expectation is not None:
+            expected_head = lineage_head_expectation
+        elif self.lineage_head_provider is not None:
+            expected_head = self.lineage_head_provider()
+        else:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               "SC-8 lineage-head binding violated: no "
+                               "lineage-head source configured (fail-closed; "
+                               "wire GateH.lineage_head_provider or pass an "
+                               "explicit lineage_head_expectation)")
+        if sc.lineage_head != expected_head:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-8 lineage-head binding violated: context "
+                               f"{str(sc.lineage_head)[:18]}... != applicable "
+                               f"lineage head {str(expected_head)[:18]}...")
+        # SC-9: integrity of the supplied object itself.
+        recomputed = context_digest_of(sc)
+        if sc.context_digest != recomputed:
+            return GateVerdict("SRW3_REJECT", "security-context",
+                               f"SC-9 context digest integrity violated: "
+                               f"recorded {sc.context_digest[:18]}... != "
+                               f"recomputed {recomputed[:18]}...")
+        return None
+
+    # ----------------------------------------------------------
+
+    def evaluate(self, ev: ClientExecutionEvidence, *,
+                 security_context: SecurityContext_H,
                  presented_effects=None,
-                 context_override: dict | None = None,
-                 skip_invariants: bool = False) -> tuple[GateVerdict, dict]:
+                 presented_context: dict | None = None,
+                 expectations: dict | None = None,
+                 skip_invariants: bool = False,
+                 lineage_head_expectation: str | None = None
+                 ) -> tuple[GateVerdict, dict]:
+        """Evaluate one payload against the SRW3 layers.
+
+        security_context  — REQUIRED first-class input: the SecurityContext_H
+                            constructed for THIS evaluation by the caller
+                            (harness).  Validated (SC-1..SC-9) before any
+                            substantive layer; never rebuilt or substituted
+                            by the gate (SC-10).
+        presented_effects — attacker/producer-presented effect record
+                            (Mode H-B surface; compared vs execution-derived).
+        presented_context — attacker-PRESENTED bindings (substituted policy
+                            version / config digest / chain id / lineage
+                            head / authorized client subject); checked
+                            against authoritative state at L3/L4.
+        expectations      — evaluation-time expectation pins used by the
+                            stale-evidence tests (expectedParentRoot,
+                            expectedChildRoot, expectedLineageHead).
+        lineage_head_expectation — explicit applicable lineage head for
+                            authorized replay evaluation (from the
+                            persisted record); overrides the provider for
+                            this single evaluation (SC-8).
+        """
         checks: dict = {}
         if callable(presented_effects):
             presented_effects = presented_effects(ev)
+        pc = presented_context or {}
+        ex = expectations or {}
+
+        # ---- SC: SecurityContext_H validation (first-class, R1) ----
+        sc_fail = self._validate_security_context(security_context, ev,
+                                                  lineage_head_expectation)
+        if sc_fail is not None:
+            checks["SC_security_context"] = {
+                "status": "REJECTED",
+                "contextDigest": security_context.context_digest,
+            }
+            return sc_fail, checks
+        checks["SC_security_context"] = {
+            "status": "ok",
+            "contextDigest": security_context.context_digest,
+            "bindings": "SC-1..SC-9 ok (SC-10: no substitution path exists)",
+        }
 
         # ---- L1: evidence binding / state-root binding ----
-        sco = context_override or {}
-        if "expectedParentRoot" in sco and \
-                ev.parent_root.lower() != sco["expectedParentRoot"].lower():
+        if "expectedParentRoot" in ex and \
+                ev.parent_root.lower() != ex["expectedParentRoot"].lower():
             return GateVerdict("SRW3_REJECT", "evidence-binding",
                                "stale or mismatched parent root (H4/H-A5)"), checks
-        if "expectedChildRoot" in sco and \
-                ev.child_state_root.lower() != sco["expectedChildRoot"].lower():
+        if "expectedChildRoot" in ex and \
+                ev.child_state_root.lower() != ex["expectedChildRoot"].lower():
             return GateVerdict("SRW3_REJECT", "evidence-binding",
                                "tampered child state root (H-A12)"), checks
         if ev.parent_root == ev.child_state_root:
@@ -199,27 +457,27 @@ class GateH:
             "policyVersion": self.policy.policy_version,
             "certsById": certs_by_id,
         }
-        if context_override:
-            ctx.update(context_override)
+        if pc:
+            ctx.update(pc)
         av = verify_certificate_chain(ec, ctx)
         if not av.ok:
             checks["L3_authority_layer"] = av.layer
             return GateVerdict("SRW3_REJECT", f"authority:{av.layer}", av.reason), checks
         checks["L3_authority"] = ec.cert_id
 
-        # ---- L4: policy context binding (SecurityContext_H) ----
-        if sco.get("presentedPolicyVersion") not in (None, self.policy.policy_version):
+        # ---- L4: policy context binding (presented vs authoritative) ----
+        if pc.get("presentedPolicyVersion") not in (None, self.policy.policy_version):
             return GateVerdict("SRW3_REJECT", "policy-context",
                                "presented policy version differs from authorized "
                                "policy (H6/H-A7)"), checks
-        if sco.get("presentedConfigDigest") not in (None, ev.execution_configuration["configDigest"]):
+        if pc.get("presentedConfigDigest") not in (None, ev.execution_configuration["configDigest"]):
             return GateVerdict("SRW3_REJECT", "policy-context",
                                "execution configuration substitution (H7/H-A9)"), checks
-        if sco.get("presentedChainId") not in (None, ev.execution_identity["chainId"]):
+        if pc.get("presentedChainId") not in (None, ev.execution_identity["chainId"]):
             return GateVerdict("SRW3_REJECT", "policy-context",
                                "chain identity substitution"), checks
-        if "expectedLineageHead" in sco and \
-                sco.get("presentedLineageHead") not in (None, sco["expectedLineageHead"]):
+        if ex.get("expectedLineageHead") is not None and \
+                pc.get("presentedLineageHead") not in (None, ex["expectedLineageHead"]):
             return GateVerdict("SRW3_REJECT", "policy-context",
                                "stale lineage head presented (H-A5)"), checks
         checks["L4_policy_context"] = self.policy.policy_version

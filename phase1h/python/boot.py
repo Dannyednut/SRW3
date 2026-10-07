@@ -16,7 +16,9 @@ from txkit import TxPlan, acct, call_data, selector
 from cl_sim import ChainSim
 from engine_client import Devnet
 
-HERE = "/home/z/my-project/srw3-work/phase1h"
+# R1: checkout-independent path resolution (the Phase 1H scripts hardcoded
+# the original development checkout; the repair runs from any clone).
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BIN = f"{HERE}/fixtures/contracts"
 CHAIN_ID = 93471
 CAP = 100 * 10**18

@@ -30,16 +30,28 @@
   "clientSays": "VALID",
   "srw3": "SRW3_REJECT",
   "layer": "invariant",
+  "securityContextDigest": "0x8721a9c6c6d30aabb7c8df9797ea85bfc0b0c49519c6cbc0f4ef85c8392a9b0a",
+  "recordedSecurityContextDigest": "0x8721a9c6c6d30aabb7c8df9797ea85bfc0b0c49519c6cbc0f4ef85c8392a9b0a",
+  "contextDigestMatchesRecord": true,
   "lineageRecordStable": true
  },
  "CS5": {
   "srw3": "SRW3_VALID",
   "canonicalized": true,
-  "head": "0xb30de8122c7f"
+  "head": "0xf4c6cd2753c8"
  },
  "analysis": {
   "latestValidHashSemantics": "client returns latestValidHash=parent for an execution-VALID payload; an SRW3-INVALID translation would overload INVALID with a NON-execution validity notion (see report section 15)",
   "forkchoiceSemantics": "the CL must treat the SRW3-rejected head as nonexistent; forkchoice then never extends it; identical policy required across all clients or branches diverge",
   "reorgConsequence": "if any client lacks the policy, it will extend the rejected branch, producing a persistent fork: SRW3 enforcement at this boundary is a fork-choice rule, not a validity rule"
+ },
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390537.0479891,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
  }
 }

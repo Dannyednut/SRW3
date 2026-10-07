@@ -166,15 +166,27 @@ class ChainSim:
             self.head = block_hash
         return r
 
-    def drain_pool(self, max_blocks: int = 4) -> int:
+    def drain_pool(self, max_blocks: int = 8) -> int:
         """Mine empty blocks until the txpool is clean (used after reorgs:
         reverted branch txs are re-injected into the pool and would
-        contaminate later scenario payloads)."""
+        contaminate later scenario payloads).
+
+        R1 robustness (no semantic change): the re-injection of reverted
+        txs is asynchronous w.r.t. the fcu, so a single clean reading of
+        txpool_status can race the re-injection.  The pool must read clean
+        on two consecutive samples (separated by a settle wait) before the
+        drain concludes."""
         n = 0
-        for _ in range(max_blocks):
+        clean_seen = 0
+        while n < max_blocks:
             st = self.dn.rpc.call("txpool_status", [])
             if int(st["pending"], 16) + int(st["queued"], 16) == 0:
-                break
+                clean_seen += 1
+                if clean_seen >= 2:   # settled: clean across a re-check
+                    break
+                time.sleep(0.6)
+                continue
+            clean_seen = 0
             self.produce(None)
             n += 1
         return n

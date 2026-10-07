@@ -1,112 +1,22 @@
 {
- "adapterRssStartMB": 43.3,
+ "adapterRssStartMB": 53.5,
  "classes": {
   "small": {
    "runs": [
     {
      "txs": 1,
      "gasUsed": 17775,
-     "harnessProduceMs": 1657.48,
-     "evidenceExtractionMs": 5.58,
-     "gateMs": 0.16,
-     "evidenceSubMs": {
-      "state_root_binding": 3.078,
-      "receipts": 0.472,
-      "call_tracer": 0.67,
-      "prestate_diff": 0.559
-     },
-     "evidenceJsonBytes": 6187,
-     "serializeMs": 0.277,
-     "verdict": "SRW3_VALID",
-     "traceEvents": 2,
-     "balAccounts": 9
-    },
-    {
-     "txs": 1,
-     "gasUsed": 17787,
-     "harnessProduceMs": 1657.45,
-     "evidenceExtractionMs": 12.34,
-     "gateMs": 0.09,
-     "evidenceSubMs": {
-      "state_root_binding": 10.561,
-      "receipts": 0.526,
-      "call_tracer": 0.505,
-      "prestate_diff": 0.427
-     },
-     "evidenceJsonBytes": 6189,
-     "serializeMs": 0.236,
-     "verdict": "SRW3_VALID",
-     "traceEvents": 2,
-     "balAccounts": 9
-    },
-    {
-     "txs": 1,
-     "gasUsed": 17787,
-     "harnessProduceMs": 1657.21,
-     "evidenceExtractionMs": 4.95,
-     "gateMs": 0.07,
-     "evidenceSubMs": {
-      "state_root_binding": 2.896,
-      "receipts": 0.555,
-      "call_tracer": 0.613,
-      "prestate_diff": 0.601
-     },
-     "evidenceJsonBytes": 6188,
-     "serializeMs": 0.239,
-     "verdict": "SRW3_VALID",
-     "traceEvents": 2,
-     "balAccounts": 9
-    },
-    {
-     "txs": 1,
-     "gasUsed": 17787,
-     "harnessProduceMs": 1657.11,
-     "evidenceExtractionMs": 4.85,
-     "gateMs": 0.08,
-     "evidenceSubMs": {
-      "state_root_binding": 2.646,
-      "receipts": 0.653,
-      "call_tracer": 0.65,
-      "prestate_diff": 0.59
-     },
-     "evidenceJsonBytes": 6186,
-     "serializeMs": 0.259,
-     "verdict": "SRW3_VALID",
-     "traceEvents": 2,
-     "balAccounts": 9
-    },
-    {
-     "txs": 1,
-     "gasUsed": 17787,
-     "harnessProduceMs": 1658.74,
-     "evidenceExtractionMs": 11.61,
-     "gateMs": 0.09,
-     "evidenceSubMs": {
-      "state_root_binding": 9.297,
-      "receipts": 0.724,
-      "call_tracer": 0.763,
-      "prestate_diff": 0.501
-     },
-     "evidenceJsonBytes": 6188,
-     "serializeMs": 0.251,
-     "verdict": "SRW3_VALID",
-     "traceEvents": 2,
-     "balAccounts": 9
-    },
-    {
-     "txs": 1,
-     "gasUsed": 17787,
      "harnessProduceMs": 1657.94,
-     "evidenceExtractionMs": 7.6,
-     "gateMs": 0.09,
+     "evidenceExtractionMs": 9.97,
+     "gateMs": 0.13,
      "evidenceSubMs": {
-      "state_root_binding": 5.406,
-      "receipts": 0.594,
-      "call_tracer": 0.716,
-      "prestate_diff": 0.593
+      "state_root_binding": 2.902,
+      "receipts": 0.568,
+      "call_tracer": 5.071,
+      "prestate_diff": 0.988
      },
-     "evidenceJsonBytes": 6188,
-     "serializeMs": 0.261,
+     "evidenceJsonBytes": 6701,
+     "serializeMs": 0.326,
      "verdict": "SRW3_VALID",
      "traceEvents": 2,
      "balAccounts": 9
@@ -114,17 +24,89 @@
     {
      "txs": 1,
      "gasUsed": 17787,
-     "harnessProduceMs": 1659.78,
-     "evidenceExtractionMs": 6.09,
+     "harnessProduceMs": 1659.45,
+     "evidenceExtractionMs": 6.31,
+     "gateMs": 0.17,
+     "evidenceSubMs": {
+      "state_root_binding": 3.88,
+      "receipts": 0.503,
+      "call_tracer": 0.75,
+      "prestate_diff": 0.775
+     },
+     "evidenceJsonBytes": 6699,
+     "serializeMs": 0.614,
+     "verdict": "SRW3_VALID",
+     "traceEvents": 2,
+     "balAccounts": 9
+    },
+    {
+     "txs": 1,
+     "gasUsed": 17787,
+     "harnessProduceMs": 1661.6,
+     "evidenceExtractionMs": 5.47,
+     "gateMs": 0.15,
+     "evidenceSubMs": {
+      "state_root_binding": 2.639,
+      "receipts": 0.569,
+      "call_tracer": 0.985,
+      "prestate_diff": 0.875
+     },
+     "evidenceJsonBytes": 6701,
+     "serializeMs": 0.429,
+     "verdict": "SRW3_VALID",
+     "traceEvents": 2,
+     "balAccounts": 9
+    },
+    {
+     "txs": 1,
+     "gasUsed": 17787,
+     "harnessProduceMs": 1661.33,
+     "evidenceExtractionMs": 8.2,
+     "gateMs": 0.15,
+     "evidenceSubMs": {
+      "state_root_binding": 4.923,
+      "receipts": 0.836,
+      "call_tracer": 1.002,
+      "prestate_diff": 0.996
+     },
+     "evidenceJsonBytes": 6701,
+     "serializeMs": 0.39,
+     "verdict": "SRW3_VALID",
+     "traceEvents": 2,
+     "balAccounts": 9
+    },
+    {
+     "txs": 1,
+     "gasUsed": 17787,
+     "harnessProduceMs": 1657.73,
+     "evidenceExtractionMs": 6.84,
+     "gateMs": 0.11,
+     "evidenceSubMs": {
+      "state_root_binding": 5.092,
+      "receipts": 0.383,
+      "call_tracer": 0.575,
+      "prestate_diff": 0.435
+     },
+     "evidenceJsonBytes": 6701,
+     "serializeMs": 0.285,
+     "verdict": "SRW3_VALID",
+     "traceEvents": 2,
+     "balAccounts": 9
+    },
+    {
+     "txs": 1,
+     "gasUsed": 17787,
+     "harnessProduceMs": 1658.37,
+     "evidenceExtractionMs": 10.07,
      "gateMs": 0.1,
      "evidenceSubMs": {
-      "state_root_binding": 3.143,
-      "receipts": 0.746,
-      "call_tracer": 0.878,
-      "prestate_diff": 0.974
+      "state_root_binding": 4.949,
+      "receipts": 2.253,
+      "call_tracer": 0.882,
+      "prestate_diff": 1.627
      },
-     "evidenceJsonBytes": 6189,
-     "serializeMs": 0.243,
+     "evidenceJsonBytes": 6701,
+     "serializeMs": 0.317,
      "verdict": "SRW3_VALID",
      "traceEvents": 2,
      "balAccounts": 9
@@ -132,17 +114,35 @@
     {
      "txs": 1,
      "gasUsed": 17787,
-     "harnessProduceMs": 1658.17,
-     "evidenceExtractionMs": 15.08,
-     "gateMs": 0.07,
+     "harnessProduceMs": 1656.98,
+     "evidenceExtractionMs": 3.65,
+     "gateMs": 0.1,
      "evidenceSubMs": {
-      "state_root_binding": 12.997,
-      "receipts": 0.607,
-      "call_tracer": 0.577,
-      "prestate_diff": 0.605
+      "state_root_binding": 2.033,
+      "receipts": 0.361,
+      "call_tracer": 0.507,
+      "prestate_diff": 0.443
      },
-     "evidenceJsonBytes": 6190,
-     "serializeMs": 0.261,
+     "evidenceJsonBytes": 6702,
+     "serializeMs": 0.275,
+     "verdict": "SRW3_VALID",
+     "traceEvents": 2,
+     "balAccounts": 9
+    },
+    {
+     "txs": 1,
+     "gasUsed": 17787,
+     "harnessProduceMs": 1656.7,
+     "evidenceExtractionMs": 8.14,
+     "gateMs": 0.1,
+     "evidenceSubMs": {
+      "state_root_binding": 6.064,
+      "receipts": 0.607,
+      "call_tracer": 0.641,
+      "prestate_diff": 0.499
+     },
+     "evidenceJsonBytes": 6702,
+     "serializeMs": 0.291,
      "verdict": "SRW3_VALID",
      "traceEvents": 2,
      "balAccounts": 9
@@ -151,11 +151,11 @@
    "summary": {
     "txsPerPayload": 1,
     "gasUsed": 17775,
-    "evidenceExtractionMsMedian": 7.6,
-    "gateMsMedian": 0.09,
-    "evidenceJsonBytes": 6187,
+    "evidenceExtractionMsMedian": 8.14,
+    "gateMsMedian": 0.13,
+    "evidenceJsonBytes": 6701,
     "traceEvents": 2,
-    "overheadPct_ofProduce": 0.5
+    "overheadPct_ofProduce": 0.4
    }
   },
   "medium": {
@@ -163,17 +163,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2120.77,
-     "evidenceExtractionMs": 9.54,
-     "gateMs": 0.09,
+     "harnessProduceMs": 2114.56,
+     "evidenceExtractionMs": 6.53,
+     "gateMs": 0.11,
      "evidenceSubMs": {
-      "state_root_binding": 5.362,
-      "receipts": 0.955,
-      "call_tracer": 1.408,
-      "prestate_diff": 1.374
+      "state_root_binding": 3.054,
+      "receipts": 0.926,
+      "call_tracer": 1.159,
+      "prestate_diff": 0.953
      },
-     "evidenceJsonBytes": 14080,
-     "serializeMs": 0.429,
+     "evidenceJsonBytes": 14593,
+     "serializeMs": 0.451,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -181,17 +181,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2117.04,
-     "evidenceExtractionMs": 5.61,
-     "gateMs": 0.08,
+     "harnessProduceMs": 2114.15,
+     "evidenceExtractionMs": 12.11,
+     "gateMs": 0.12,
      "evidenceSubMs": {
-      "state_root_binding": 2.617,
-      "receipts": 0.779,
-      "call_tracer": 0.93,
-      "prestate_diff": 0.892
+      "state_root_binding": 8.315,
+      "receipts": 1.413,
+      "call_tracer": 0.994,
+      "prestate_diff": 0.965
      },
-     "evidenceJsonBytes": 14079,
-     "serializeMs": 0.416,
+     "evidenceJsonBytes": 14593,
+     "serializeMs": 0.449,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -199,17 +199,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2119.09,
-     "evidenceExtractionMs": 6.76,
-     "gateMs": 0.08,
+     "harnessProduceMs": 2114.35,
+     "evidenceExtractionMs": 5.68,
+     "gateMs": 0.12,
      "evidenceSubMs": {
-      "state_root_binding": 4.424,
-      "receipts": 0.491,
-      "call_tracer": 0.713,
-      "prestate_diff": 0.72
+      "state_root_binding": 3.116,
+      "receipts": 0.586,
+      "call_tracer": 0.74,
+      "prestate_diff": 0.823
      },
-     "evidenceJsonBytes": 14079,
-     "serializeMs": 0.525,
+     "evidenceJsonBytes": 14592,
+     "serializeMs": 0.59,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -217,17 +217,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2113.4,
-     "evidenceExtractionMs": 6.81,
-     "gateMs": 0.08,
+     "harnessProduceMs": 2115.41,
+     "evidenceExtractionMs": 11.13,
+     "gateMs": 0.11,
      "evidenceSubMs": {
-      "state_root_binding": 4.227,
-      "receipts": 0.607,
-      "call_tracer": 0.818,
-      "prestate_diff": 0.748
+      "state_root_binding": 7.883,
+      "receipts": 1.253,
+      "call_tracer": 0.798,
+      "prestate_diff": 0.775
      },
-     "evidenceJsonBytes": 14080,
-     "serializeMs": 0.432,
+     "evidenceJsonBytes": 14593,
+     "serializeMs": 0.483,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -235,17 +235,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2114.12,
-     "evidenceExtractionMs": 14.69,
-     "gateMs": 0.1,
+     "harnessProduceMs": 2111.86,
+     "evidenceExtractionMs": 9.01,
+     "gateMs": 0.11,
      "evidenceSubMs": {
-      "state_root_binding": 11.986,
-      "receipts": 0.619,
-      "call_tracer": 0.773,
-      "prestate_diff": 0.871
+      "state_root_binding": 5.757,
+      "receipts": 0.686,
+      "call_tracer": 0.995,
+      "prestate_diff": 1.095
      },
-     "evidenceJsonBytes": 14081,
-     "serializeMs": 0.446,
+     "evidenceJsonBytes": 14593,
+     "serializeMs": 0.474,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -253,17 +253,17 @@
     {
      "txs": 10,
      "gasUsed": 177858,
-     "harnessProduceMs": 2114.78,
-     "evidenceExtractionMs": 7.48,
-     "gateMs": 0.1,
+     "harnessProduceMs": 2113.91,
+     "evidenceExtractionMs": 14.56,
+     "gateMs": 0.12,
      "evidenceSubMs": {
-      "state_root_binding": 4.178,
-      "receipts": 0.87,
-      "call_tracer": 1.102,
-      "prestate_diff": 0.909
+      "state_root_binding": 8.943,
+      "receipts": 0.885,
+      "call_tracer": 2.215,
+      "prestate_diff": 2.053
      },
-     "evidenceJsonBytes": 14079,
-     "serializeMs": 0.505,
+     "evidenceJsonBytes": 14593,
+     "serializeMs": 0.536,
      "verdict": "SRW3_VALID",
      "traceEvents": 20,
      "balAccounts": 9
@@ -272,11 +272,11 @@
    "summary": {
     "txsPerPayload": 10,
     "gasUsed": 177858,
-    "evidenceExtractionMsMedian": 7.48,
-    "gateMsMedian": 0.09,
-    "evidenceJsonBytes": 14080,
+    "evidenceExtractionMsMedian": 11.13,
+    "gateMsMedian": 0.12,
+    "evidenceJsonBytes": 14593,
     "traceEvents": 20,
-    "overheadPct_ofProduce": 0.4
+    "overheadPct_ofProduce": 0.5
    }
   },
   "large": {
@@ -284,17 +284,17 @@
     {
      "txs": 60,
      "gasUsed": 1425576,
-     "harnessProduceMs": 4238.11,
-     "evidenceExtractionMs": 18.69,
-     "gateMs": 0.1,
+     "harnessProduceMs": 4243.67,
+     "evidenceExtractionMs": 15.27,
+     "gateMs": 0.17,
      "evidenceSubMs": {
-      "state_root_binding": 5.651,
-      "receipts": 2.365,
-      "call_tracer": 3.706,
-      "prestate_diff": 3.956
+      "state_root_binding": 5.336,
+      "receipts": 2.125,
+      "call_tracer": 2.631,
+      "prestate_diff": 3.551
      },
-     "evidenceJsonBytes": 91840,
-     "serializeMs": 1.87,
+     "evidenceJsonBytes": 93461,
+     "serializeMs": 2.197,
      "verdict": "SRW3_VALID",
      "traceEvents": 206,
      "balAccounts": 12
@@ -302,17 +302,17 @@
     {
      "txs": 60,
      "gasUsed": 1425576,
-     "harnessProduceMs": 4244.07,
-     "evidenceExtractionMs": 17.46,
-     "gateMs": 0.13,
+     "harnessProduceMs": 4240.66,
+     "evidenceExtractionMs": 17.13,
+     "gateMs": 0.15,
      "evidenceSubMs": {
-      "state_root_binding": 9.398,
-      "receipts": 1.725,
-      "call_tracer": 2.01,
-      "prestate_diff": 2.945
+      "state_root_binding": 4.803,
+      "receipts": 2.323,
+      "call_tracer": 2.835,
+      "prestate_diff": 4.402
      },
-     "evidenceJsonBytes": 92089,
-     "serializeMs": 1.862,
+     "evidenceJsonBytes": 93711,
+     "serializeMs": 18.525,
      "verdict": "SRW3_VALID",
      "traceEvents": 208,
      "balAccounts": 12
@@ -320,17 +320,17 @@
     {
      "txs": 60,
      "gasUsed": 1425576,
-     "harnessProduceMs": 4251.52,
-     "evidenceExtractionMs": 13.27,
-     "gateMs": 0.13,
+     "harnessProduceMs": 4251.17,
+     "evidenceExtractionMs": 14.43,
+     "gateMs": 0.17,
      "evidenceSubMs": {
-      "state_root_binding": 5.341,
-      "receipts": 1.588,
-      "call_tracer": 2.021,
-      "prestate_diff": 2.926
+      "state_root_binding": 4.306,
+      "receipts": 2.571,
+      "call_tracer": 2.469,
+      "prestate_diff": 3.572
      },
-     "evidenceJsonBytes": 92198,
-     "serializeMs": 1.912,
+     "evidenceJsonBytes": 93819,
+     "serializeMs": 2.117,
      "verdict": "SRW3_VALID",
      "traceEvents": 208,
      "balAccounts": 12
@@ -338,17 +338,17 @@
     {
      "txs": 60,
      "gasUsed": 1425576,
-     "harnessProduceMs": 4246.03,
-     "evidenceExtractionMs": 16.44,
-     "gateMs": 0.14,
+     "harnessProduceMs": 4247.67,
+     "evidenceExtractionMs": 19.74,
+     "gateMs": 0.16,
      "evidenceSubMs": {
-      "state_root_binding": 4.666,
-      "receipts": 2.739,
-      "call_tracer": 3.518,
-      "prestate_diff": 4.098
+      "state_root_binding": 11.206,
+      "receipts": 1.75,
+      "call_tracer": 2.236,
+      "prestate_diff": 3.124
      },
-     "evidenceJsonBytes": 92228,
-     "serializeMs": 2.586,
+     "evidenceJsonBytes": 93849,
+     "serializeMs": 2.087,
      "verdict": "SRW3_VALID",
      "traceEvents": 208,
      "balAccounts": 12
@@ -357,18 +357,27 @@
    "summary": {
     "txsPerPayload": 60,
     "gasUsed": 1425576,
-    "evidenceExtractionMsMedian": 17.46,
-    "gateMsMedian": 0.13,
-    "evidenceJsonBytes": 91840,
+    "evidenceExtractionMsMedian": 17.13,
+    "gateMsMedian": 0.17,
+    "evidenceJsonBytes": 93461,
     "traceEvents": 206,
     "overheadPct_ofProduce": 0.4
    }
   }
  },
- "adapterRssEndMB": 47.4,
- "adapterRssDeltaMB": 4.2,
+ "adapterRssEndMB": 54.8,
+ "adapterRssDeltaMB": 1.3,
  "notes": {
   "baseline": "harnessProduceMs includes txpool admission wait + fcu/getPayload build + newPayload execution (client-side execution dominates it)",
   "scaling": "evidence extraction scales with trace volume (callTracer + prestateTracer); gate time is dominated by the canonical effect encoding"
+ },
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390851.657484,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
  }
 }

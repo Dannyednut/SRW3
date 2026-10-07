@@ -14,15 +14,18 @@ No synthetic microbenchmarks: every number comes from the devnet path.
 from __future__ import annotations
 
 import json
+import os
 import resource
 import sys
 import time
 
-sys.path.insert(0, "/home/z/my-project/srw3-work/phase1h/python")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import r1_support  # noqa: E402
 
 from boot import Boot, boot_devnet, HERE, CAP, DEPOSIT  # noqa: E402
 from engine_client import Devnet  # noqa: E402
-from gate_h import GateH  # noqa: E402
+from gate_h import GateH, build_security_context  # noqa: E402
 from harness import SRW3Harness  # noqa: E402
 from lineage import LineageStore  # noqa: E402
 from policy import load_policy, load_deployment  # noqa: E402
@@ -36,7 +39,8 @@ def rss_mb() -> float:
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0
 
 
-def measure_payload(dn, sim, gate, raw_txs: list[str]) -> dict:
+def measure_payload(dn, sim, gate, raw_txs: list[str], policy=None,
+                    pdigest: str = "") -> dict:
     # baseline: client execution (newPayload performs the execution)
     t0 = time.perf_counter()
     res = sim.produce(raw_txs)
@@ -46,8 +50,17 @@ def measure_payload(dn, sim, gate, raw_txs: list[str]) -> dict:
     ev = collect_evidence(dn, res.payload, res.slot, beacon_root(res.slot))
     t_evidence = (time.perf_counter() - t0) * 1000
 
+    # R1: caller-built SecurityContext_H (deterministic inputs; the perf
+    # runner has no lineage sidecar, so the applicable lineage head is the
+    # client head — the same value the gate's SC-8 provider derives)
+    sc = build_security_context(
+        policy, pdigest, dn.chain_id(),
+        lineage_head=sim.head,
+        client_config_digest=ev.execution_configuration["configDigest"],
+        client_identity=ev.execution_identity["client"])
+
     t0 = time.perf_counter()
-    verdict, checks = gate.evaluate(ev)
+    verdict, checks = gate.evaluate(ev, security_context=sc)
     t_gate = (time.perf_counter() - t0) * 1000
 
     t0 = time.perf_counter()
@@ -172,11 +185,15 @@ def main() -> int:
         gate = GateH(policy, pdigest, deployment["genesisHash"])
         gate.state_reader = lambda a, s, b, _dn=dn: _dn.rpc.call(
             "eth_getStorageAt", [a, s, b])
+        # R1 (SC-8): no sidecar in the perf runner — the applicable lineage
+        # head is the client head
+        gate.lineage_head_provider = lambda _sim=boot.sim: _sim.head
         runs = []
         for i in range(reps):
             if name == "small":
                 small.n = i
-            runs.append(measure_payload(dn, boot.sim, gate, builder()))
+            runs.append(measure_payload(dn, boot.sim, gate, builder(),
+                                        policy=policy, pdigest=pdigest))
         med = lambda k: round(
             sum(r[k] for r in runs) / len(runs), 2)
         classes[name] = {
@@ -207,8 +224,8 @@ def main() -> int:
                    "(callTracer + prestateTracer); gate time is dominated by "
                    "the canonical effect encoding",
     }
-    json.dump(R, open(f"{HERE}/transcripts/perf/perf_results.json", "w"),
-              indent=1, default=str)
+    r1_support.attach_and_dump(
+        R, f"{HERE}/transcripts/perf/perf_results.json")
     for k, v in classes.items():
         print(k, json.dumps(v["summary"]))
     print("adapter RSS delta MB:", R["adapterRssDeltaMB"])

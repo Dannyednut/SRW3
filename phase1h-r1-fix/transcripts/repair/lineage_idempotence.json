@@ -1,0 +1,108 @@
+{
+ "suite": "SRW3 Phase 1H-R1 lineage semantic-idempotence (Fix A, LID)",
+ "total": 11,
+ "passed": 11,
+ "failed": 0,
+ "tests": [
+  {
+   "test": "LID-1",
+   "expected": "same persisted record returned; file bytes unchanged; no second record",
+   "observed": {
+    "returnsPersisted": true,
+    "recordedAtUnchanged": true,
+    "bytesUnchanged": true,
+    "recordCount": 1
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "LID-2",
+   "expected": "IDEMPOTENT (recordedAt is non-semantic)",
+   "observed": {
+    "semanticProjectionIgnoresRecordedAt": true,
+    "recordedAtClassifiedObservation": true
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "LID-3",
+   "expected": "REJECT / lineage inconsistency",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": "SRW3 lineage inconsistency: 0x0000000000000000000000000000000000000000000000000000000000000003 recorded twice with different security-semantic content (old verd"
+  },
+  {
+   "test": "LID-4",
+   "expected": "REJECT / lineage inconsistency",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": "SRW3 lineage inconsistency: 0x0000000000000000000000000000000000000000000000000000000000000003 recorded twice with different security-semantic content (old verd"
+  },
+  {
+   "test": "LID-5",
+   "expected": "REJECT / lineage inconsistency",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": "SRW3 lineage inconsistency: 0x0000000000000000000000000000000000000000000000000000000000000003 recorded twice with different security-semantic content (old verd"
+  },
+  {
+   "test": "LID-6",
+   "expected": "REJECT / lineage inconsistency",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": "SRW3 lineage inconsistency: 0x0000000000000000000000000000000000000000000000000000000000000003 recorded twice with different security-semantic content (old verd"
+  },
+  {
+   "test": "LID-7",
+   "expected": "REJECT / lineage inconsistency",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": "SRW3 lineage inconsistency: 0x0000000000000000000000000000000000000000000000000000000000000004 recorded twice with different security-semantic content (old verd"
+  },
+  {
+   "test": "LID-8",
+   "expected": "REJECT / lineage inconsistency (semantic extra)",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "LID-9",
+   "expected": "REJECT / lineage inconsistency (metadata cannot mask semantic difference)",
+   "observed": "LineageInconsistencyError",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "LID-10",
+   "expected": "restart: same record returned, bytes unchanged, no duplicate, head preserved",
+   "observed": {
+    "returnsPersisted": true,
+    "bytesUnchanged": true,
+    "recordCount": 1,
+    "headRestored": true
+   },
+   "pass": true,
+   "detail": null
+  },
+  {
+   "test": "LID-MSG",
+   "expected": "deterministic inconsistency message",
+   "observed": "message stable and names the differing semantic field",
+   "pass": true,
+   "detail": null
+  }
+ ],
+ "classification": "R1: implementation-level semantic idempotence, experimentally tested (not a K proof)",
+ "_r1": {
+  "repairPhase": "1H-R1",
+  "repairBranch": "phase1h-r1-fix",
+  "repairCommit": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "basePhase1hSha": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee",
+  "rerunAfterR1": true,
+  "recordedAt": 1791390212.1854687,
+  "note": "transcript regenerated after the Phase 1H-R1 repair (lineage semantic idempotence + first-class SecurityContext_H binding)"
+ }
+}
