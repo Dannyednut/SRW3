@@ -3,3 +3,4 @@ phase1h/devnet/chain-*/
 phase1h/devnet/geth.pid
 __pycache__/
 *.pyc
+phase1h/fixtures/lineage/

@@ -1,0 +1,406 @@
+{
+ "phase": "1I",
+ "prototype": "protocol-level commitment simulation over a real execution-client boundary (Geth unmodified, shadow mode; NOT Ethereum consensus enforcement)",
+ "client": {
+  "name": "geth",
+  "version": "1.17.7-stable",
+  "commit": "3d858f858a458effb2a563788aedf1fe65e1f0d3",
+  "unmodified": true
+ },
+ "requiredExperiment": {
+  "B": {
+   "label": "EXP-B-violating",
+   "ethereum": "VALID",
+   "srw3": "SRW3_REJECT",
+   "srw3Layer": "invariant",
+   "srw3Reason": "INV-AGG-CAP: totalBorrowed(0x1ba5abf9e779380000) > borrowCap(0x56bc75e2d63100000)",
+   "blockHash": "0x9868e06cd1a4620acf34fa73c8dce313278482b50f050eef3397bcf38e27e65c",
+   "evidenceDigest": "0x27f6ff0459ca58cb4b06656f47fd15309f510901d2f766b24b1345dd2cde5a7a",
+   "securityContextDigest": "0xa7eedd879f8421fd882fb104d5abb8cceb6ac5e398799d3473a3084221c04b12",
+   "lineageHeadBefore": "0x83f36f14151d55c389db0a2c701cae071250e6712abddc3cdb690afd2c134d5c",
+   "protocolCommitment": "REFUSED",
+   "protocolFailed": [
+    "Valid_SRW3"
+   ],
+   "protocolChecks": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": false,
+     "why": "gate decision SRW3_REJECT (INV-AGG-CAP: totalBorrowed(0x1ba5abf9e779380000) > borrowCap(0x56bc75e2d63100000))"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "blockCommitment": "0x001de52a9efeded6a4558f0c861af395ed653d6cb2b2f6fbf5dd5ef5ce53765a",
+   "forkChoiceModels": {
+    "A": "REFUSED",
+    "B": "NON-CANONICAL",
+    "C": "REFUSED"
+   },
+   "timingsMs": {
+    "evidence": 5.242,
+    "gate": 0.58,
+    "state_root_binding": 3.063,
+    "receipts": 0.525,
+    "call_tracer": 0.656,
+    "prestate_diff": 0.554,
+    "commitment": 0.162,
+    "totalPipeline": 1669.576
+   }
+  },
+  "Bp": {
+   "label": "EXP-Bp-respecting",
+   "ethereum": "VALID",
+   "srw3": "SRW3_VALID",
+   "srw3Layer": null,
+   "srw3Reason": null,
+   "blockHash": "0x83f36f14151d55c389db0a2c701cae071250e6712abddc3cdb690afd2c134d5c",
+   "evidenceDigest": "0x56ba7c79d1a652b23cc53e46bb8e1d90497f43b54002183e37dea677f494282b",
+   "securityContextDigest": "0x8721a9c6c6d30aabb7c8df9797ea85bfc0b0c49519c6cbc0f4ef85c8392a9b0a",
+   "lineageHeadBefore": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+   "protocolCommitment": "COMMIT",
+   "protocolFailed": [],
+   "protocolChecks": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": true,
+     "why": "SRW3-valid under validated security context"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "blockCommitment": "0xa6c311e2d33d85e82e04e505197987917edc04214914360eefd090953c650f51",
+   "forkChoiceModels": {
+    "A": "COMMIT",
+    "B": "COMMIT",
+    "C": "COMMIT"
+   },
+   "timingsMs": {
+    "evidence": 8.589,
+    "gate": 0.665,
+    "state_root_binding": 5.809,
+    "receipts": 0.723,
+    "call_tracer": 0.802,
+    "prestate_diff": 0.627,
+    "commitment": 0.187,
+    "totalPipeline": 1668.198
+   }
+  },
+  "checks": {
+   "B_ethValid": true,
+   "B_srw3Reject": true,
+   "B_protocolRefused": true,
+   "Bp_ethValid": true,
+   "Bp_srw3Valid": true,
+   "Bp_protocolCommit": true,
+   "sameTxKind": true,
+   "differOnlyInSecurityCondition": true
+  },
+  "pass": true,
+  "note": "B and B' are the same transaction kind (single borrow on the same deployed stack, both Ethereum-valid); they differ only in the security-relevant condition (aggregate-cap invariant violated vs respected)"
+ },
+ "records": [
+  {
+   "label": "EXP-BASE",
+   "ethereum": "VALID",
+   "srw3": "SRW3_VALID",
+   "srw3Layer": null,
+   "srw3Reason": null,
+   "blockHash": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+   "evidenceDigest": "0xc6c8cab5e8b65a5be02a3a4c8e8c647df990f93f7c9da973c410cff2aa5c01d5",
+   "securityContextDigest": "0x8721a9c6c6d30aabb7c8df9797ea85bfc0b0c49519c6cbc0f4ef85c8392a9b0a",
+   "lineageHeadBefore": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+   "protocolCommitment": "COMMIT",
+   "protocolFailed": [],
+   "protocolChecks": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": true,
+     "why": "SRW3-valid under validated security context"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "blockCommitment": "0x0a8b06d0fd84a45f35401ec048c9490636325f5e0fc8b03cf5e83cc5735a625d",
+   "forkChoiceModels": {
+    "A": "COMMIT",
+    "B": "COMMIT",
+    "C": "COMMIT"
+   },
+   "timingsMs": {
+    "evidence": 8.938,
+    "gate": 0.134,
+    "state_root_binding": 5.626,
+    "receipts": 0.675,
+    "call_tracer": 1.134,
+    "prestate_diff": 1.019,
+    "commitment": 0.172,
+    "totalPipeline": 1719.344
+   }
+  },
+  {
+   "label": "EXP-Bp-respecting",
+   "ethereum": "VALID",
+   "srw3": "SRW3_VALID",
+   "srw3Layer": null,
+   "srw3Reason": null,
+   "blockHash": "0x83f36f14151d55c389db0a2c701cae071250e6712abddc3cdb690afd2c134d5c",
+   "evidenceDigest": "0x56ba7c79d1a652b23cc53e46bb8e1d90497f43b54002183e37dea677f494282b",
+   "securityContextDigest": "0x8721a9c6c6d30aabb7c8df9797ea85bfc0b0c49519c6cbc0f4ef85c8392a9b0a",
+   "lineageHeadBefore": "0x2db5667a7ec0d047f23bc7c6e8c1b76f085a0386de0503f03145de8038b10197",
+   "protocolCommitment": "COMMIT",
+   "protocolFailed": [],
+   "protocolChecks": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": true,
+     "why": "SRW3-valid under validated security context"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "blockCommitment": "0xa6c311e2d33d85e82e04e505197987917edc04214914360eefd090953c650f51",
+   "forkChoiceModels": {
+    "A": "COMMIT",
+    "B": "COMMIT",
+    "C": "COMMIT"
+   },
+   "timingsMs": {
+    "evidence": 8.589,
+    "gate": 0.665,
+    "state_root_binding": 5.809,
+    "receipts": 0.723,
+    "call_tracer": 0.802,
+    "prestate_diff": 0.627,
+    "commitment": 0.187,
+    "totalPipeline": 1668.198
+   }
+  },
+  {
+   "label": "EXP-B-violating",
+   "ethereum": "VALID",
+   "srw3": "SRW3_REJECT",
+   "srw3Layer": "invariant",
+   "srw3Reason": "INV-AGG-CAP: totalBorrowed(0x1ba5abf9e779380000) > borrowCap(0x56bc75e2d63100000)",
+   "blockHash": "0x9868e06cd1a4620acf34fa73c8dce313278482b50f050eef3397bcf38e27e65c",
+   "evidenceDigest": "0x27f6ff0459ca58cb4b06656f47fd15309f510901d2f766b24b1345dd2cde5a7a",
+   "securityContextDigest": "0xa7eedd879f8421fd882fb104d5abb8cceb6ac5e398799d3473a3084221c04b12",
+   "lineageHeadBefore": "0x83f36f14151d55c389db0a2c701cae071250e6712abddc3cdb690afd2c134d5c",
+   "protocolCommitment": "REFUSED",
+   "protocolFailed": [
+    "Valid_SRW3"
+   ],
+   "protocolChecks": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": false,
+     "why": "gate decision SRW3_REJECT (INV-AGG-CAP: totalBorrowed(0x1ba5abf9e779380000) > borrowCap(0x56bc75e2d63100000))"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "blockCommitment": "0x001de52a9efeded6a4558f0c861af395ed653d6cb2b2f6fbf5dd5ef5ce53765a",
+   "forkChoiceModels": {
+    "A": "REFUSED",
+    "B": "NON-CANONICAL",
+    "C": "REFUSED"
+   },
+   "timingsMs": {
+    "evidence": 5.242,
+    "gate": 0.58,
+    "state_root_binding": 3.063,
+    "receipts": 0.525,
+    "call_tracer": 0.656,
+    "prestate_diff": 0.554,
+    "commitment": 0.162,
+    "totalPipeline": 1669.576
+   }
+  }
+ ],
+ "performance": {
+  "method": "5 repetitions per class, median/min/max; phases measured separately (execution = real Geth payload build+submit; evidence; srw3 = real gate incl. SC; commitment = Level-III predicate)",
+  "classes": {
+   "small": {
+    "reps": 5,
+    "txCount": 1,
+    "median": {
+     "execution_ms": 1675.619,
+     "evidence_ms": 7.701,
+     "srw3_ms": 0.109,
+     "commitment_ms": 0.153,
+     "total_ms": 1683.219
+    },
+    "min": {
+     "execution_ms": 1674.398,
+     "evidence_ms": 4.346,
+     "srw3_ms": 0.1,
+     "commitment_ms": 0.113,
+     "total_ms": 1681.567
+    },
+    "max": {
+     "execution_ms": 1683.01,
+     "evidence_ms": 12.175,
+     "srw3_ms": 0.131,
+     "commitment_ms": 0.185,
+     "total_ms": 1688.016
+    }
+   },
+   "medium": {
+    "reps": 5,
+    "txCount": 5,
+    "median": {
+     "execution_ms": 1881.88,
+     "evidence_ms": 6.371,
+     "srw3_ms": 0.112,
+     "commitment_ms": 0.179,
+     "total_ms": 1894.379
+    },
+    "min": {
+     "execution_ms": 1881.581,
+     "evidence_ms": 4.072,
+     "srw3_ms": 0.104,
+     "commitment_ms": 0.104,
+     "total_ms": 1886.241
+    },
+    "max": {
+     "execution_ms": 1895.209,
+     "evidence_ms": 12.46,
+     "srw3_ms": 0.127,
+     "commitment_ms": 0.223,
+     "total_ms": 1902.967
+    }
+   },
+   "large": {
+    "reps": 5,
+    "txCount": 20,
+    "median": {
+     "execution_ms": 2700.389,
+     "evidence_ms": 11.096,
+     "srw3_ms": 0.119,
+     "commitment_ms": 0.119,
+     "total_ms": 2710.256
+    },
+    "min": {
+     "execution_ms": 2698.637,
+     "evidence_ms": 5.414,
+     "srw3_ms": 0.106,
+     "commitment_ms": 0.108,
+     "total_ms": 2706.728
+    },
+    "max": {
+     "execution_ms": 2703.355,
+     "evidence_ms": 20.822,
+     "srw3_ms": 0.139,
+     "commitment_ms": 0.169,
+     "total_ms": 2721.503
+    }
+   }
+  }
+ },
+ "wallClockSeconds": 41.6
+}

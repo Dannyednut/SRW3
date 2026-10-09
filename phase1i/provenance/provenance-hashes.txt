@@ -1,0 +1,2 @@
+sha256(PROVENANCE.md) = 4ce7004c30259f71024a84d0f6c1c389d165b0a246ae4f088b6aa660ba1649f0
+(MANIFEST integrity anchored at bundle level: zip .sha256 sidecar)

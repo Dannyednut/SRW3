@@ -1,0 +1,237 @@
+{
+ "suite": "FC-1..7 + CM-I1..I8",
+ "results": [
+  {
+   "case": "FC-1 security-invalid non-committable under A/B/C",
+   "expected": [
+    "REFUSED",
+    "NON-CANONICAL",
+    "REFUSED"
+   ],
+   "observed": [
+    "REFUSED",
+    "NON-CANONICAL",
+    "REFUSED"
+   ],
+   "pass": true,
+   "detail": {
+    "A": "REFUSED",
+    "B": "NON-CANONICAL",
+    "C": "REFUSED"
+   }
+  },
+  {
+   "case": "FC-2 honest proposal commits under A/B/C",
+   "expected": [
+    "COMMIT",
+    "COMMIT",
+    "COMMIT"
+   ],
+   "observed": [
+    "COMMIT",
+    "COMMIT",
+    "COMMIT"
+   ],
+   "pass": true,
+   "detail": {
+    "A": "COMMIT",
+    "B": "COMMIT",
+    "C": "COMMIT"
+   }
+  },
+  {
+   "case": "FC-3 evidence outage: A/B REFUSED, C DEFERRED; progress stops in all models (CM-I8)",
+   "expected": [
+    "REFUSED",
+    "NON-CANONICAL",
+    "DEFERRED"
+   ],
+   "observed": [
+    "REFUSED",
+    "NON-CANONICAL",
+    "DEFERRED"
+   ],
+   "pass": true,
+   "detail": {
+    "A": "REFUSED",
+    "B": "NON-CANONICAL",
+    "C": "DEFERRED"
+   }
+  },
+  {
+   "case": "FC-4 honest participants derive the same head commitment",
+   "expected": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "observed": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "FC-5 Model C exposes the deferral reason explicitly",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "FC-6 Model B alone gives no commitment safety (the rule lives in Commit_P; the fork filter is only an enforcement surface)",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "forkChoice": "NON-CANONICAL",
+    "commitmentPredicate": "REFUSED",
+    "conclusion": "minimal rule = SRW3-validity inside Commit_P"
+   }
+  },
+  {
+   "case": "FC-7 minimal protocol rule identified",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "minimalRule": "Commit_P(B) := Valid_Exec(B) AND Valid_SRW3(B) AND ParentCommitted(B) AND ContextValid(B) AND PolicyValid(B) AND EvidenceAvailable(B) AND SlotAvailable(B), fail-closed on evidence availability; fork-choice Models A/B/C are enforcement surfaces of the SAME rule"
+   }
+  },
+  {
+   "case": "CM-I1 two authorities -> different commitments; the protocol pin (CFG) decides",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "CM-I2 unequipped participant NEVER falsely accepts (fail-closed: refused/deferred, never SRW3-valid)",
+   "expected": [
+    "COMMIT",
+    "DEFERRED"
+   ],
+   "observed": [
+    "COMMIT",
+    "DEFERRED"
+   ],
+   "pass": true,
+   "detail": {
+    "neverValid": true
+   }
+  },
+  {
+   "case": "CM-I3a equivalent execution -> equivalent evidence -> same SRW3 decision",
+   "expected": [
+    true,
+    "0x8970ec5470eb1d8bab5e46860169e5d19210ab9935db9ea7e4306cb21772f505"
+   ],
+   "observed": [
+    true,
+    "0x8970ec5470eb1d8bab5e46860169e5d19210ab9935db9ea7e4306cb21772f505"
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "CM-I3b divergent post-state -> Ethereum-invalid BEFORE SRW3 (post-state binding)",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "failed": [
+     "Valid_Exec"
+    ]
+   }
+  },
+  {
+   "case": "CM-I4 committed blocks remain committed under policy upgrade (retroactive re-validation REFUTED as a requirement)",
+   "expected": {
+    "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+     "parentCommitment": null,
+     "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "slot": 0
+    },
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+     "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+     "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+     "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+     "evidenceSemantic": {
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+      "status": "present",
+      "decision": "SRW3_VALID"
+     },
+     "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+     "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+     "srw3Decision": "SRW3_VALID",
+     "slot": 1
+    }
+   },
+   "observed": {
+    "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+     "parentCommitment": null,
+     "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "slot": 0
+    },
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+     "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+     "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+     "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+     "evidenceSemantic": {
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+      "status": "present",
+      "decision": "SRW3_VALID"
+     },
+     "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+     "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+     "srw3Decision": "SRW3_VALID",
+     "slot": 1
+    }
+   },
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "CM-I5 different policy versions -> different heads; prevented only by the protocol-distributed single commitment",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "note": "the protocol config is the SINGLE source; a participant with a stale config is by definition not following the protocol (fork is a governance-failure mode, disclosed)"
+   }
+  },
+  {
+   "case": "CM-I6 application invariant-set capture caught (SC-4/SC-9)",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "why": "SC-9 context digest integrity violated: recorded 0xbb20732ffab50e04... != recomputed 0x8623767dd129de47..."
+   }
+  },
+  {
+   "case": "CM-I7 SRW3Root is constructible only from fixed protocol fields (self-reference impossible); root changes with content",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "honest": "0xef70a3bc9a74",
+    "tampered": "0x0d23d21a1592"
+   }
+  },
+  {
+   "case": "CM-I8 evidence-infrastructure failure stalls commitment under all models (disclosed deployment cost of fail-closed SRW3)",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "see": "FC-3"
+   }
+  }
+ ],
+ "passed": 16,
+ "total": 16,
+ "allPass": true
+}

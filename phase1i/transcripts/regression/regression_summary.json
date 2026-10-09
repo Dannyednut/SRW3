@@ -1,0 +1,115 @@
+{
+ "phase": "1I",
+ "regressionAgainst": "phase1h-r1-fix @ bf78b8c034f7bcab83cda2862be288d8524f824c (tag phase1h-r1-complete)",
+ "suites": [
+  {
+   "name": "LID lineage idempotence (phase1h/python/test_lineage_r1.py)",
+   "result": "11/11 PASS",
+   "regression": false
+  },
+  {
+   "name": "SCT/AUTH/DET security-context (phase1h/python/test_security_context_r1.py)",
+   "result": "26/26 PASS",
+   "regression": false
+  },
+  {
+   "name": "H1-H10 scenario suite (live Geth devnet re-run from phase1i)",
+   "result": "10/10 verdict+layer exact match vs the phase1h-r1-fix transcript",
+   "regression": false
+  }
+ ],
+ "hSuiteComparison": {
+  "rerun": {
+   "H1": [
+    "SRW3_VALID",
+    null
+   ],
+   "H9": [
+    "SRW3_REJECT",
+    "interaction"
+   ],
+   "H2": [
+    "SRW3_REJECT",
+    "invariant"
+   ],
+   "H3": [
+    "SRW3_REJECT",
+    "effect-completeness"
+   ],
+   "H4": [
+    "SRW3_REJECT",
+    "evidence-binding"
+   ],
+   "H5": [
+    "SRW3_REJECT",
+    "authority:authsrc"
+   ],
+   "H6": [
+    "SRW3_REJECT",
+    "policy-context"
+   ],
+   "H7": [
+    "SRW3_REJECT",
+    "policy-context"
+   ],
+   "H8": [
+    "SRW3_REJECT",
+    "authcircle"
+   ],
+   "H10": [
+    "DISABLED",
+    null
+   ]
+  },
+  "committed": {
+   "H1": [
+    "SRW3_VALID",
+    null
+   ],
+   "H9": [
+    "SRW3_REJECT",
+    "interaction"
+   ],
+   "H2": [
+    "SRW3_REJECT",
+    "invariant"
+   ],
+   "H3": [
+    "SRW3_REJECT",
+    "effect-completeness"
+   ],
+   "H4": [
+    "SRW3_REJECT",
+    "evidence-binding"
+   ],
+   "H5": [
+    "SRW3_REJECT",
+    "authority:authsrc"
+   ],
+   "H6": [
+    "SRW3_REJECT",
+    "policy-context"
+   ],
+   "H7": [
+    "SRW3_REJECT",
+    "policy-context"
+   ],
+   "H8": [
+    "SRW3_REJECT",
+    "authcircle"
+   ],
+   "H10": [
+    "DISABLED",
+    null
+   ]
+  },
+  "exactMatch": true
+ },
+ "frozenBranches": {
+  "phase1g": "a71ba645fa7347a422ea968db4bc96d0f4ea75b7 (untouched)",
+  "phase1g-complete": "a71ba645fa7347a422ea968db4bc96d0f4ea75b7 (untouched)",
+  "phase1h": "4cb9ab7be39e8d88945d8d6ea7876b819b7b87ee (untouched)",
+  "phase1h-r1-fix": "bf78b8c034f7bcab83cda2862be288d8524f824c (untouched)"
+ },
+ "zeroRegression": true
+}

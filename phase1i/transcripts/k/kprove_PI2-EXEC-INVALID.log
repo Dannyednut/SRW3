@@ -1,0 +1,574 @@
+kore-exec: [1092557] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1093978] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1098496] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1100905] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1103373] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1105929] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1108511] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1111112] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1113684] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1116273] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1123914] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1125878] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1126423] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1126934] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1136046] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1136823] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1140715] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1144616] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1148790] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1153108] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1156271] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1161158] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1164114] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1169308] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1174533] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1175098] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1175881] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1176430] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1177948] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1178480] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1179254] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1179789] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-repo/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [1184098] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k:128:5-130:68
+#Top
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(88,31,88,34)
+	88 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                              ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(88,42,88,45)
+	88 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                         ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(88,53,88,54)
+	88 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(88,65,88,67)
+	88 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                                                ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(94,31,94,34)
+	94 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                              ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(94,42,94,45)
+	94 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                         ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(94,53,94,54)
+	94 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(94,65,94,67)
+	94 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg, LH:Bytes)
+	   .	                                                                ^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(128,53,128,54)
+	128 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(128,65,128,67)
+	128 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                                ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(146,31,146,34)
+	146 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                              ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(146,42,146,45)
+	146 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                         ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(146,53,146,54)
+	146 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(146,65,146,67)
+	146 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                                ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(152,31,152,34)
+	152 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                              ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(152,42,152,45)
+	152 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                         ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(152,53,152,54)
+	152 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(152,65,152,67)
+	152 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                                ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(158,31,158,34)
+	158 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                              ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(158,42,158,45)
+	158 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                         ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(158,53,158,54)
+	158 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                    ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(158,65,158,67)
+	158 |	    <k> CommitP(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+LH:Bytes)
+	    .	                                                                ^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(193,36,193,37)
+	193 |	    <k> CommitChainLinked(.Map, 0, C:ProtoCfg) => true </k>
+	    .	                                   ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(219,17,219,18)
+	219 |	    <k> pAccept(B:ProtoBlock, _:Bytes, _:Bytes, _:ProtoCfg, SRW3OK:Bool)
+	    .	                ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(221,16,221,17)
+	221 |	    <plineage> L:Map </plineage>
+	    .	               ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(222,13,222,14)
+	222 |	    <pnext> N:Int </pnext>
+	    .	            ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(223,13,223,14)
+	223 |	    <phead> H:Bytes </phead>
+	    .	            ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/proofs/pi_proofs.k)
+	Location(224,14,224,15)
+	224 |	    <pvalid> V:Bool </pvalid>
+	    .	             ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(154,28,154,29)
+	154 |	  rule ProtoDecisionOfGate(S:String)  => pdecReject [owise]
+	    .	                           ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(281,39,281,43)
+	281 |	  rule blockAt(T:Int |-> B:ProtoBlock REST:Map, T2:Int) => B requires T
+==Int T2
+	    .	                                      ^~~~
+[Warning] Compiler: Variable 'H0' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(335,16,335,18)
+	335 |	       <phead> H0:Bytes => ProtoRoot(C) </phead>
+	    .	               ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(340,34,340,37)
+	340 |	  rule <k> pAccept(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+SRW3OK:Bool)
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(340,45,340,48)
+	340 |	  rule <k> pAccept(B:ProtoBlock, ERC:Bytes, ERP:Bytes, C:ProtoCfg,
+SRW3OK:Bool)
+	    .	                                            ^~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(354,19,354,20)
+	354 |	       <plineage> L:Map </plineage>
+	    .	                  ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(355,16,355,17)
+	355 |	       <pnext> N:Int </pnext>
+	    .	               ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(356,16,356,17)
+	356 |	       <phead> H:Bytes </phead>
+	    .	               ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1i/semantics/srw3proto.k)
+	Location(357,17,357,18)
+	357 |	       <pvalid> V:Bool </pvalid>
+	    .	                ^

@@ -1,0 +1,42 @@
+SRW3 Phase 1I — generated-artifact MANIFEST (self-excluding:
+provenance/ files are NOT listed; integrity anchored at bundle
+level per the Phase 1H/1H-R1 disclosure pattern).
+
+1bc056ac4001f230f9d4b87e1df423e9f9916bc5172dd49036aced05c2ec03a3       4311  phase1i/proofs/pi7all_only.k
+268cc40c8baaf4a98ea8ed4796959136a85b17d16a3e9d01e25271672007320d      13764  phase1i/proofs/pi_proofs.k
+d601e7ed61b1c8cbf3a90bacc252006b404df995ff04ce261ccc0701bd3bde51       2102  phase1i/proofs/run_pi_proofs.sh
+9b8610f66379ae913f5df42547993ee52f3f01f0dec1460f4d8a9a34b05be420       8818  phase1i/python/pi_authority.py
+757549c3399a6050f8919372a6259f610d93afdc14e37f9bd221229f6cc689e4       4586  phase1i/python/pi_canonical.py
+b04179f0f7e0652fcbb9c1542c4e5224f21305433e2302009dfa1b2f8f93bfb0       4038  phase1i/python/pi_multiclient.py
+26fcfceca3393badc419c27c8dd3b0104824f311026f7ffbf276c963c77574aa      28314  phase1i/python/pi_protocol.py
+b3768b9ea9e5ecae0d0db397328b2434cd36ebf23e7eea5feec8b8df41a9f387      22359  phase1i/python/run_attack_matrix.py
+3232d2d99d24de7fb76a33228d245b6897b95425a10cea8d673381f56c047b3f      13545  phase1i/python/run_determinism_i.py
+fd9226b02f0e734b4552360057c1a28754a2a8eb016ab6a9173af13b76556f9a      16110  phase1i/python/run_experiment.py
+eb4d1c893514ad8321f1c86b8f797c11aecfdee33f9e6c202d01d226774e0d90      19271  phase1i/python/run_forkchoice_compare.py
+b52cf80e32cc499ec2344df6cd87748649d92c211d50b25ff79ea98a0de55fe4      15177  phase1i/python/run_reorg_replay.py
+a98dd99323cf1db6726742ae5b77c2363fc95bee35bdfe93db9cb8c783601d73      30293  phase1i/report/SRW3-Phase1I-Protocol-Commitment-Report.md
+efc5854fd803f3ffbbd79a0efec2817808dca87301424dcc4c25d0a1d72cb07d      99145  phase1i/report/SRW3-Phase1I-Protocol-Commitment-Report.pdf
+1ec79f572acb60d6afe694224ee939e883756355cf8dc707579580e639a36fb4      19412  phase1i/semantics/srw3proto.k
+84349f40721312b63ea44f86cb594348ef12f797b9e38cb44e0905e711da21ad       8780  phase1i/transcripts/attacks/attack_matrix.json
+c6fbef93983c6b12bdc7cde43d70b5625ca0b7cd302942a922f3301cd1e76e81       8323  phase1i/transcripts/determinism/determinism_I.json
+c06b5b17d901979b273cb3d475422955297b9bd9768058e11742fbbfd0689ce2      11494  phase1i/transcripts/experiment/experiment_I.json
+915cace06b85e0fdc375d9af7c2e575acd6e5d9efb18f601c87821ea5964dff3       7454  phase1i/transcripts/forkchoice/forkchoice_countermodels.json
+cf0ccd3fc7ec184120f00a7c22252183cde7bfd3fc42b1db29e8f5b1475e1bb6      94402  phase1i/transcripts/k/kprove_PI1-COMMIT-SAFETY.log
+57536b5bdbd30d5df7bf87f72a552e8040c2739ed045495ccd89550a063ac0ed     249050  phase1i/transcripts/k/kprove_PI2-CTX-SUB.log
+df14617dcfecb8483104338df4a1312d4458d91d41adc7269db4ab088bf4a176      30740  phase1i/transcripts/k/kprove_PI2-DECISION-REJECT.log
+503988aab09f70af5b2b31ebfdfeba2ad56855de237c3bd1ec5cb69350346915      30740  phase1i/transcripts/k/kprove_PI2-DECISION-UNKNOWN.log
+70c37be08ebc3e53e40d4e0d93698324e46c020a23e24f139ed32aa95a870fb4      30742  phase1i/transcripts/k/kprove_PI2-EXEC-INVALID.log
+885e0a07bdeb86d277e338623d5af5f82b99542b0b62ff181765b9a6a4880c61    1552511  phase1i/transcripts/k/kprove_PI2-POLICY-SUB.log
+d7544b6765edff5af3c823864dc66baec93b2a20328648da2c4a5969fe2a9dab      27482  phase1i/transcripts/k/kprove_PI5-AUTHORITY-DESCENT.log
+841ad31e091af67c6cb4abb078cb7c3fd9465ebbaba7f644347d5f53fe2eaf44      94581  phase1i/transcripts/k/kprove_PI7-ALL.log
+1581147bc326ddcde04db80a19be9f74c315637a80ddd97459602a73fb1e5297      21366  phase1i/transcripts/k/kprove_PI7-BASE.log
+171f3e38d18aad2d1bd7ee08eaf37fa81ed01118dc37b6664b40006d65e9683a      21209  phase1i/transcripts/k/kprove_PI7-REJECT.log
+3ecf5c5fbd25be23de7ff20f0688c4822d36279607acbb5bc788ab7d8f3909e6      80757  phase1i/transcripts/k/kprove_PI7-STEP.log
+26d267bd77efcbec29086d27c8ea236ba38959abb20becffe7139a91c6796310      30742  phase1i/transcripts/k/kprove_PIB-GATELINK-REJECT1.log
+084bfebb072d2803e8ef43727cc2cb99be6ebbb3884777724b13969007060fd0      30742  phase1i/transcripts/k/kprove_PIB-GATELINK-REJECT2.log
+62c3d588a77ef441d80d375f402f6313c082ace19d0fa94b01e609c5eed026a3      30742  phase1i/transcripts/k/kprove_PIB-GATELINK-REJECT3.log
+38ef5ced4a8907868d976418ec771b9486eae496ad2b9905b026d4ca32ae4917      21366  phase1i/transcripts/k/kprove_PIB-GATELINK-VALID.log
+409f503e6c66e66048abac6fbc002a4c196158e9a0915629047ac76c00d65add          5  phase1i/transcripts/k/score.txt
+3d0e8e4911315e2a8c9ac060657adb7f98d72527a8737505b7439eb4fe1fa717       1735  phase1i/transcripts/performance/performance_I.json
+d438569a962659ec7c8ebbc04c3f3bb687c949a08979ee9017af9da1e48b5fac       2121  phase1i/transcripts/regression/regression_summary.json
+9606d3b57e567609f7fdb24d78c19029b4154252bd6f5f7fd6214d10144850ee       7024  phase1i/transcripts/reorg_replay/reorg_replay_governance.json

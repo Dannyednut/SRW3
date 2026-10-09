@@ -1,0 +1,260 @@
+{
+ "suite": "DET-I1..I9 + DET-K1..K3 (keccak mirror)",
+ "results": [
+  {
+   "case": "DET-I1 field-order-invariance of context digest",
+   "expected": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+   "observed": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I2 no wall-clock/process/order dependence",
+   "expected": [
+    "COMMIT",
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8"
+   ],
+   "observed": [
+    "COMMIT",
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8"
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I3 integer-encoding canonicalization (0x input normalized)",
+   "expected": "0x9f3542edbc5ef653a4d146602f745024ff80e6f6481e0dceba5333ee797630e1",
+   "observed": "0x9f3542edbc5ef653a4d146602f745024ff80e6f6481e0dceba5333ee797630e1",
+   "pass": true,
+   "detail": {
+    "normalized": {
+     "chainId": 93471,
+     "slot": 255,
+     "policyVersion": "v1"
+    }
+   }
+  },
+  {
+   "case": "DET-I4 JSON field-order invariance of the canonical digest",
+   "expected": "0x5daa7b02723421f10315fc37f1ff3073efe9564b36886b9c5343efe64e8d27c0",
+   "observed": "0x5daa7b02723421f10315fc37f1ff3073efe9564b36886b9c5343efe64e8d27c0",
+   "pass": true,
+   "detail": {
+    "jsonVariants": [
+     "{\"a\": \"1\", \"b\": \"2\",",
+     "{\"a\": \"1\", \"b\": \"2\","
+    ]
+   }
+  },
+  {
+   "case": "DET-I5 duplicate-key raw serialization is malformed/detected",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "raw": "{\"a\": \"1\",\"b\": \"2\",\"a\": \"DUP\" }",
+    "parsed": {
+     "a": "DUP",
+     "b": "2"
+    }
+   }
+  },
+  {
+   "case": "DET-I6 missing optional fields keep the semantic digest",
+   "expected": "0x7c8e279a4a684f6e6d9b8b1ded05848c522f872506a0e9fe0fabb50659bfe347",
+   "observed": "0x7c8e279a4a684f6e6d9b8b1ded05848c522f872506a0e9fe0fabb50659bfe347",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I7 policy version mismatch changes the commitment",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I8 context digest mismatch detected (SC-9 analog)",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "why": "SC-9 context digest integrity violated: recorded 0xbb20732ffab50e04... != recomputed 0xeab3cc6b1eec4c2d..."
+   }
+  },
+  {
+   "case": "DET-I9 same decision",
+   "expected": "COMMIT",
+   "observed": "COMMIT",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I9 same protocol validity",
+   "expected": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": true,
+     "why": "SRW3-valid under validated security context"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "observed": {
+    "Valid_Exec": {
+     "ok": true,
+     "why": "execution-valid with post-state binding"
+    },
+    "Valid_SRW3": {
+     "ok": true,
+     "why": "SRW3-valid under validated security context"
+    },
+    "ParentCommitted": {
+     "ok": true,
+     "why": "parent is the committed head"
+    },
+    "ContextValid": {
+     "ok": true,
+     "why": "SC-1..SC-9 ok (SC-10: no substitution path exists)"
+    },
+    "PolicyValid": {
+     "ok": true,
+     "why": "protocol-authorized policy commitment"
+    },
+    "EvidenceAvailable": {
+     "ok": true,
+     "why": "evidence status: present"
+    },
+    "SlotAvailable": {
+     "ok": true,
+     "why": "slot available on the canonical chain"
+    }
+   },
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I9 same commitment",
+   "expected": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "observed": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-I9 same post-commit state (lineage/head/height/records)",
+   "expected": [
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+    "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    1,
+    {
+     "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+      "parentCommitment": null,
+      "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "slot": 0
+     },
+     "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+      "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+      "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "evidenceSemantic": {
+       "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+       "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+       "status": "present",
+       "decision": "SRW3_VALID"
+      },
+      "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+      "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+      "srw3Decision": "SRW3_VALID",
+      "slot": 1
+     }
+    }
+   ],
+   "observed": [
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+    "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    1,
+    {
+     "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+      "parentCommitment": null,
+      "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "slot": 0
+     },
+     "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+      "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+      "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "evidenceSemantic": {
+       "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+       "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+       "status": "present",
+       "decision": "SRW3_VALID"
+      },
+      "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+      "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+      "srw3Decision": "SRW3_VALID",
+      "slot": 1
+     }
+    }
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "DET-K1 ProtoRoot construction (0x9C, real keccak) computes",
+   "expected": 66,
+   "observed": 66,
+   "pass": true,
+   "detail": {
+    "protoRoot": "0xfbf0b37fd14b6f7b..."
+   }
+  },
+  {
+   "case": "DET-K2 PolicyCommitmentI construction (0x9D+0xA5) computes and binds the config-derived authority id",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "policyCommitment": "0x79ad63101a76a83a..."
+   }
+  },
+  {
+   "case": "DET-K3 CtxDigestI construction (0xA6) mirrors the 1H-R1 SRW3-CONTEXT-H-V1 discipline (domain-separated, no wall-clock)",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "pythonCtxDigest": "0xbb20732ffab50e04..."
+   }
+  }
+ ],
+ "passed": 15,
+ "total": 15,
+ "allPass": true
+}

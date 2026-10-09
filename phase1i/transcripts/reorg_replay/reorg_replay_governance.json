@@ -1,0 +1,242 @@
+{
+ "suite": "RR-1..6 + RP-1..4 + GOV-1..5",
+ "results": [
+  {
+   "case": "RR-1 competing branches both commit on their own branch",
+   "expected": [
+    "COMMIT",
+    "COMMIT"
+   ],
+   "observed": [
+    "COMMIT",
+    "COMMIT"
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RR-2 reorg moves the head; displaced record byte-stable",
+   "expected": [
+    true,
+    true
+   ],
+   "observed": [
+    true,
+    true
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RR-5 lineage head follows the new canonical tip",
+   "expected": "0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+   "observed": "0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RR-3 stale evidence refused on the new branch",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "failed": [
+     "Valid_Exec",
+     "Valid_SRW3",
+     "ParentCommitted",
+     "ContextValid"
+    ]
+   }
+  },
+  {
+   "case": "RR-4 cached decision not reused (parentCommitment binding)",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RR-6 honest continuation on the new branch commits",
+   "expected": "COMMIT",
+   "observed": "COMMIT",
+   "pass": true,
+   "detail": {
+    "failed": []
+   }
+  },
+  {
+   "case": "RP-1 Evaluate idempotent (same verdict + commitment)",
+   "expected": [
+    "COMMIT",
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8"
+   ],
+   "observed": [
+    "COMMIT",
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8"
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RP-2 replay post-commit: same commitment, one record",
+   "expected": [
+    true,
+    true
+   ],
+   "observed": [
+    true,
+    true
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RP-3 replay independent of construction order",
+   "expected": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "observed": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "RP-4 replay of a displaced block post-reorg is refused",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "failed": [
+     "SlotAvailable"
+    ]
+   }
+  },
+  {
+   "case": "GOV-2 committed history immutable under upgrade",
+   "expected": {
+    "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+     "parentCommitment": null,
+     "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "slot": 0
+    },
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+     "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+     "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+     "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+     "evidenceSemantic": {
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+      "status": "present",
+      "decision": "SRW3_VALID"
+     },
+     "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+     "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+     "srw3Decision": "SRW3_VALID",
+     "slot": 1
+    }
+   },
+   "observed": {
+    "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+     "parentCommitment": null,
+     "postStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "slot": 0
+    },
+    "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8": {
+     "blockCommitment": "0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8",
+     "parentCommitment": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "payloadDigest": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+     "parentStateRoot": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "postStateRoot": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+     "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+     "evidenceSemantic": {
+      "evidenceDigest": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "issuerIdentity": "execution-client:geth-1.17.7@3d858f85",
+      "status": "present",
+      "decision": "SRW3_VALID"
+     },
+     "contextDigest": "0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99",
+     "policyCommitment": "0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c",
+     "srw3Decision": "SRW3_VALID",
+     "slot": 1
+    }
+   },
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "GOV-1a new block under the upgraded policy commits",
+   "expected": "COMMIT",
+   "observed": "COMMIT",
+   "pass": true,
+   "detail": {
+    "failed": []
+   }
+  },
+  {
+   "case": "GOV-1b block still presenting the superseded commitment refuses",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "failed": [
+     "Valid_SRW3",
+     "ContextValid",
+     "PolicyValid"
+    ]
+   }
+  },
+  {
+   "case": "GOV-3a rollback-by-presentation of the superseded policy refuses",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "failed": [
+     "Valid_SRW3",
+     "ContextValid",
+     "PolicyValid"
+    ]
+   }
+  },
+  {
+   "case": "GOV-3b activation history append-only (length only grows)",
+   "expected": [
+    [
+     1,
+     "0x6f239bbd1f294ccf01592890499ac47b55c9066bc90b88d4d072b5abf4c0f0a5"
+    ]
+   ],
+   "observed": [
+    [
+     1,
+     "0x6f239bbd1f294ccf01592890499ac47b55c9066bc90b88d4d072b5abf4c0f0a5"
+    ]
+   ],
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "case": "GOV-4 application invariant-set change is caught (SC-4/SC-9)",
+   "expected": "REFUSED",
+   "observed": "REFUSED",
+   "pass": true,
+   "detail": {
+    "why": "SC-9 context digest integrity violated: recorded 0xbb20732ffab50e04... != recomputed 0x8623767dd129de47..."
+   }
+  },
+  {
+   "case": "GOV-5 negative model: two app-chosen policy commitments diverge (no protocol pin) \u2014 the reason the protocol MUST pin the policy",
+   "expected": true,
+   "observed": true,
+   "pass": true,
+   "detail": {
+    "a": "0xcd26e023960f",
+    "b": "0x6f239bbd1f29",
+    "note": "under PolicyAuthority=Application both are 'valid'; honest participants following different applications select different heads (CM-I1/CM-I5)"
+   }
+  }
+ ],
+ "passed": 17,
+ "total": 17,
+ "allPass": true
+}

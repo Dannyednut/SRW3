@@ -1,0 +1,87 @@
+{
+ "phase": "1I",
+ "classes": {
+  "small": {
+   "reps": 5,
+   "txCount": 1,
+   "median": {
+    "execution_ms": 1675.619,
+    "evidence_ms": 7.701,
+    "srw3_ms": 0.109,
+    "commitment_ms": 0.153,
+    "total_ms": 1683.219
+   },
+   "min": {
+    "execution_ms": 1674.398,
+    "evidence_ms": 4.346,
+    "srw3_ms": 0.1,
+    "commitment_ms": 0.113,
+    "total_ms": 1681.567
+   },
+   "max": {
+    "execution_ms": 1683.01,
+    "evidence_ms": 12.175,
+    "srw3_ms": 0.131,
+    "commitment_ms": 0.185,
+    "total_ms": 1688.016
+   }
+  },
+  "medium": {
+   "reps": 5,
+   "txCount": 5,
+   "median": {
+    "execution_ms": 1881.88,
+    "evidence_ms": 6.371,
+    "srw3_ms": 0.112,
+    "commitment_ms": 0.179,
+    "total_ms": 1894.379
+   },
+   "min": {
+    "execution_ms": 1881.581,
+    "evidence_ms": 4.072,
+    "srw3_ms": 0.104,
+    "commitment_ms": 0.104,
+    "total_ms": 1886.241
+   },
+   "max": {
+    "execution_ms": 1895.209,
+    "evidence_ms": 12.46,
+    "srw3_ms": 0.127,
+    "commitment_ms": 0.223,
+    "total_ms": 1902.967
+   }
+  },
+  "large": {
+   "reps": 5,
+   "txCount": 20,
+   "median": {
+    "execution_ms": 2700.389,
+    "evidence_ms": 11.096,
+    "srw3_ms": 0.119,
+    "commitment_ms": 0.119,
+    "total_ms": 2710.256
+   },
+   "min": {
+    "execution_ms": 2698.637,
+    "evidence_ms": 5.414,
+    "srw3_ms": 0.106,
+    "commitment_ms": 0.108,
+    "total_ms": 2706.728
+   },
+   "max": {
+    "execution_ms": 2703.355,
+    "evidence_ms": 20.822,
+    "srw3_ms": 0.139,
+    "commitment_ms": 0.169,
+    "total_ms": 2721.503
+   }
+  }
+ },
+ "hardware": "containerized sandbox, 2 vCPU (see provenance)",
+ "client": {
+  "name": "geth",
+  "version": "1.17.7-stable",
+  "commit": "3d858f858a458effb2a563788aedf1fe65e1f0d3",
+  "unmodified": true
+ }
+}
