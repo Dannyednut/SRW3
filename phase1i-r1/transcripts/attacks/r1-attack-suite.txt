@@ -1,0 +1,94 @@
+============================================================================
+SRW3 Phase 1I-R1 adversarial suite (real keccak-256 digests)
+frozen logic: frozen(pAccept/SRW3OK) | repaired logic: repaired(pInitR1/pGateEval/pAcceptR1)
+============================================================================
+
+--- CM1 forged-true (gate says invalid-policy; caller says accept) ---
+[PASS] CM1-BEFORE frozen accepts forged verdict (vulnerability witnessed)
+       frozen pAccept checks only parent-link, slot, SRW3OK — the gate's actual verdict never enters the transition
+[PASS] CM1-AFTER repaired rejects forged verdict
+       no matching valid receipt
+[PASS] CM1-AFTER state unchanged on reject
+       head, counter, committed chain, pinned configuration and receipt pool all unchanged; the recorded receipt REMAINS (unconsumed)
+[PASS] CM1 field predicate satisfied by the consistently-forged block (the frozen model's blind spot)
+       CommitP is a function of the block's fields; a fully-forged block satisfies it — the receipt binding is the security source
+[PASS] CM1 CommitP false for the honestly-rendered rejected block (decision=0)
+
+--- CM2 forged-true-context (stale SecurityContext digest) ---
+[PASS] CM2-BEFORE frozen accepts substituted context
+[PASS] CM2-AFTER repaired rejects substituted context
+       context digest mismatch
+[PASS] CM2-AFTER state unchanged
+[PASS] CM2 CommitP false (ctx != authorized projection for LH=0x33)
+
+--- CM3 forged-true-execution (execution binding failure) ---
+[PASS] CM3-AFTER repaired rejects mismatched execution results
+       no matching valid receipt
+[PASS] CM3-AFTER state unchanged
+[PASS] CM3-BEFORE frozen accepts mismatched execution
+
+--- CM4 config-substitution (init under C1, commit under C2) ---
+[PASS] CM4-BEFORE frozen commits under caller-chosen config (head = BlockCommitI(B2, C2))
+[PASS] CM4-BEFORE frozen head really is the C2-commitment
+[PASS] CM4-AFTER repaired rejects config substitution (CV 8 != pinned 7)
+       policy commitment mismatch
+[PASS] CM4-AFTER repaired rejects C2-bound policy commitment even with CV=7 (keccak inequality, boundary D.2)
+       policy commitment mismatch
+[PASS] CM4-AFTER state unchanged
+[PASS] CM4 distinct configs have distinct commitments (collision-resistance instance)
+
+--- CM5 forged-receipt / replay ---
+[PASS] CM5-AFTER receipt for a different block does not authorize
+       no matching valid receipt
+[PASS] CM5-AFTER state unchanged
+[PASS] CM5 honest accept commits once
+[PASS] CM5 replayed accept rejects (receipt consumed)
+       no matching valid receipt
+[PASS] CM5 replay leaves state unchanged
+
+--- CM6 honest (valid block still commits) ---
+[PASS] CM6 init/gate/accept all succeed
+       committed at slot 0
+[PASS] CM6 block committed at slot 0
+[PASS] CM6 counter advanced
+[PASS] CM6 head == BlockCommitI(B, CFG1) (real keccak)
+[PASS] CM6 receipt consumed (pool empty)
+[PASS] CM6 CommitP true for the honest block
+[PASS] CM6 second honest block chains at slot 1
+[PASS] CM6 two-block chain is CommitP-valid at every slot
+
+--- CM7 unknown-evidence / unknown verdict ---
+[PASS] CM7-AFTER no gate evaluation -> reject
+       no matching valid receipt
+[PASS] CM7-AFTER state unchanged (empty pool)
+       no receipt exists to consume; nothing changed
+[PASS] CM7-AFTER unknown verdict -> reject
+       no matching valid receipt
+[PASS] CM7-AFTER state unchanged
+[PASS] CM7 ProtoDecisionOfGate('unknown-garbage') == pdecReject
+
+--- CM8 stale-reorg (receipt from a displaced head) ---
+[PASS] CM8 B1 commits honestly at slot 0
+[PASS] CM8 stale receipt does not authorize (no matching receipt at the current head/slot)
+       no matching valid receipt
+[PASS] CM8 state unchanged
+
+--- DET determinism (independent evaluations agree) ---
+[PASS] DET identical state snapshots across independent runs
+[PASS] DET digest functions are pure (same input -> same digest)
+
+--- KX K cross-check (byte encodings vs krun transcripts) ---
+[PASS] KX T2 records the ProtoRoot preimage
+[PASS] KX ProtoRoot preimage == Python ProtoCfgCanon(CFG1)
+       K side: 9cc100000007d1a191cceef1 | Python side: 9cc100000007d1a191cceef1
+[PASS] KX ProtoRoot digest matches real keccak
+[PASS] KX T5 records a BlockCommit preimage
+[PASS] KX all K-side BlockCommit preimages share the Python canonical prefix (0x9E || block fields) and suffix (decision || slot)
+       4 preimage(s) found
+       NOTE: the krun output is a symbolic disjunction over the undecidable digest equalities.  In the collision-conditional branch the policy-commitment position carries the block's CLAIMED field (0x88); the real-keccak branch (decided by the Python mirror, CM6) carries the genuine PolicyCommitmentI(CFG1)=edc714b99690f5e405ee3cf7757d22902ba206e5035e9b2d9e14a09f2886dc06.  exact-match branch present: False
+[PASS] KX T2 receipt binds grHead to the protocol root
+[PASS] KX receipt grHead preimage == ProtoCfgCanon(CFG1)
+
+============================================================================
+TOTAL: 48/48 PASS
+DECISIVE TEST: an invalid block with a caller-supplied accepting verdict is rejected with state unchanged (CM1-AFTER); a valid block still commits (CM6).

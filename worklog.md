@@ -1139,3 +1139,80 @@ Work Log:
 
 Stage Summary:
 - PHASE 1I COMPLETE — Outcome B (qualified positive): the protocol-authoritative commitment rule Commit_P is formally specified AND mechanized in the bounded model (deterministic, authority-safe, reorg/replay-safe) and demonstrated end-to-end over a real unmodified Geth boundary; the central implication's exclusion direction is PROVED at the decision/gate-linkage/execution levels with the policy/context-digest branches and forall-closure honestly disclosed as not mechanized and demonstrated instead. NO consensus modification, NO client modification, Level IV explicitly out of scope. Frozen branches untouched. Final SHA: tip of phase1i at push (tag phase1i-complete).
+
+---
+Task ID: 1I-R1
+Agent: Super Z (main)
+Task: SRW3 Phase 1I-R1 — formal commitment/gate binding audit and repair
+
+Work Log:
+- Branch phase1i-r1-formal-binding created from phase1i @ e04fbb6 (tag
+  phase1i-complete; verified in a fresh clone); frozen trees untouched —
+  the working tree contains zero modifications outside phase1i-r1/ (+ this
+  worklog + scripts/gen_phase1i_r1_pdf.py); two transient frozen-tree
+  dirt events (draft PDF generator path bug; 1H-R1 suites regenerating
+  their transcript JSONs on run) were caught and restored from git before
+  any commit, and are recorded in the R1 provenance.
+- Audit (phase1i-r1/audit/FORMAL-BINDING-AUDIT.md): F1 CommitP never
+  consulted by the transition; F2 the verdict is a freely caller-supplied
+  Bool (invalid blocks operationally committed); F3 PI7-STEP conditions
+  the THEOREM on CommitP (premise-as-result); F4 no pinned configuration —
+  pAccept receives a caller-chosen C. F2/F4 witnessed on the UNMODIFIED
+  frozen module (kprove claims OLD-ACCEPTS-FORGED / -INVALID-DECISION /
+  -UNKNOWN-DECISION proved by the frozen rule itself) and by krun T1.
+- Repair (phase1i-r1/semantics/srw3proto-r1.k, additive over the frozen
+  srw3proto.k): verdict argument REMOVED from the command surface;
+  machine-created gate receipts (only pGateEval creates; consumed exactly
+  once; head/slot freshness) bind the frozen VerifyLineageG verdict to the
+  exact candidate; the decision is DERIVED by the transition
+  (ProtoDecisionOfGate, only "valid-g" valid, fail-closed); the accept
+  guard checks every CommitP conjunct directly against the PINNED
+  configuration; configuration pinned at pInitR1, immutable thereafter
+  (no in-model upgrade transition — deferred, documented). K architecture:
+  one <k> cell per definition — the state lives in a reserved negative-key
+  region of the lineage map (-1 pin, -2 receipt pool), documented against
+  the handoff's "equivalent immutable protocol-root object" clause.
+- K ladder (phase1i-r1/proofs/, hs backend, kprove): 31 PROVED — headline
+  R1-ACCEPT-IMPLIES-COMMITP (guard verbatim => CommitP with the pinned C;
+  CommitP ONLY in the destination, no premise), non-vacuity
+  R1-VALID-ACCEPT + R1-PIPELINE-HONEST, forged-verdict/no-pool/empty-pool/
+  wrong-candidate/stale-head/wrong-slot/config-substitution rejections all
+  state-unchanged, receipt single-use, config immutability/frames, and
+  the 10 frozen predicate claims ported verbatim. R1-ALL (forall-closure)
+  retried: NOT MECHANIZED — same kore circularity implication-check
+  blocker as the frozen PI7-ALL, log retained. OLD-ACCEPTS-CALLER-CONFIG
+  NOT MECHANIZED (nested-keccak #Ceil blocker; attempt + log retained).
+- krun transcripts (hs backend): T1 BEFORE forged-verdict ACCEPTS (the
+  vulnerability live); T2 forged REJECTS (receipt records invalid-policy,
+  chain unchanged, receipt remains); T3 no-receipt reject; T4 config
+  substitution reject; T5 honest path = symbolic disjunction (disclosed hs
+  boundary; decided by Python).
+- Python mirror (phase1i-r1/python/, real keccak-256): pi_r1_model.py
+  (frozen + repaired logics, byte-identical canonical encodings) and
+  run_r1_attacks.py 48/48 PASS — CM1..CM8 on BOTH logics (frozen accepts
+  forged/context/execution/config-substitution/unknown/stale attacks;
+  repaired rejects all with state unchanged; honest path commits and
+  chains), determinism, and K cross-checks (ProtoRoot/BlockCommit/receipt
+  preimages match the krun transcripts byte-for-byte).
+- Zero regression from this branch: LID 11/11, SCT 26/26, PI attack
+  matrix 30/30, determinism 15/15, reorg/replay 17/17, fork-choice 16/16 —
+  all exact; frozen definition kompiles unmodified.
+- Report phase1i-r1/report/SRW3-Phase1I-R1-Formal-Binding-Report.{md,pdf}
+  (8pp, established visual system), provenance/ (PROVENANCE.md,
+  MANIFEST.txt 58 entries, provenance-hashes.txt); toolchain re-provisioned
+  and verified (K v7.1.337 matching the 1I record, z3 4.13.3 official,
+  flex, libsecp256k1, libLLVM-15 for kore-expand-macros; LLVM-tier demo
+  NOT RUN — same disclosure as 1I); KEVM not used.
+
+Stage Summary:
+- PHASE 1I-R1 COMPLETE — verdict PARTIALLY CLOSED: the repaired operational
+  rule is PROVED to enforce CommitP under the pinned configuration
+  (R1-ACCEPT-IMPLIES-COMMITP without its conclusion; non-vacuity proved;
+  decisive test passed mechanically and concretely — an invalid block
+  remains uncommittable under a caller-supplied accepting verdict while a
+  valid block still commits); PARTIALLY CLOSED because the forall-closure
+  remains open (inherited kore blocker) and soundness rests on the two
+  named boundaries: gate-verdict provenance (the frozen 1G module as the
+  only "valid-g" producer) and keccak collision resistance (hs backend
+  cannot evaluate digests). No consensus-integration claim; prior-art
+  novelty audit NOT started (next task per the handoff).

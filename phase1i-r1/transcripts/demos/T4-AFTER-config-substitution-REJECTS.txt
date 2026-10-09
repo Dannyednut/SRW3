@@ -1,0 +1,1042 @@
+### T4 AFTER: the candidate declares config version 8 while the pinned configuration has policy version 7 — a policy upgrade that was never activated. Fail-closed (R1-CM4, decidable witness); the receipt also remains.
+# definition: /tmp/r1-hs  (krun, Haskell backend, K v7.1.337)
+# program:
+#   pCons(pInitR1(protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc", b"\xee", b"\xf1")), pCons(pGateEval(protoBlock(b"\x11", b"\x22", b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 1, 0), b"\x44", b"\x22", "valid-g"), pCons(pAcceptR1(protoBlock(b"\x11", b"\x22", b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 1, 0), b"\x44", b"\x22", 8), runNil)))
+# --- krun output ---
+kore-exec: [503839] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [532372] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [533225] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [535436] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [537523] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [539508] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [541732] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [543889] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [546065] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [548067] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [550153] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [552603] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [553053] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [557256] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [560769] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [561221] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [561616] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [565298] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [565716] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [566111] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [571947] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [572468] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [575385] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [576089] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [577708] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [579284] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [580769] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [582299] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [583483] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [584419] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [586609] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [587288] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [589628] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [591999] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [594258] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [596583] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [598912] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [601303] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [603580] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [605971] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [608318] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [610331] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [612325] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [614270] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [616287] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [618307] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [620361] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [622365] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [624369] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [626323] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [627008] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [629428] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [631751] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [633982] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [636506] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [638829] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [641270] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [643605] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [646094] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [648481] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [650567] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [652576] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [654551] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [656542] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [658516] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [660520] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [662472] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [664547] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [666470] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [667116] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [669411] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [671738] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [674031] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [676446] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [678764] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [681155] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [683442] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [685790] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [688210] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [690192] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [692318] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [694246] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [696283] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [698269] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [700318] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [702328] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [704332] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [706233] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [706856] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [709152] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [712012] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [714271] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [716634] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [718926] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [721253] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [723552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [725863] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [728229] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [730349] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [732515] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [734545] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [736572] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [738582] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [740603] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [764776] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [768512] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [772280] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [772939] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [775131] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [777468] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [779926] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [782249] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [784509] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [786820] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [789201] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [791534] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [793856] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [795870] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [797926] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [799880] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [801924] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [803853] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [805909] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [808083] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [810254] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [812294] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [812954] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [815157] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [817411] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [819594] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [821850] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [824088] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [826335] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [828667] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [831016] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [833309] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [835213] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [837215] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [839251] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [841219] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [843130] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [845089] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [847278] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [849290] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [851252] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [851858] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [854134] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [856395] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [858681] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [861301] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [863551] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [866007] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [868272] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [870649] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [873026] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [874987] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [876943] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [878872] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [881130] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [883123] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [885115] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [887117] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [889095] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [891096] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [891701] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [893891] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [896115] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [898240] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [900480] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [902646] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [905009] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [907534] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [909936] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [912249] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [914153] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [916265] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [918187] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [920311] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [922474] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [924499] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [926709] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [928771] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [930842] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [931480] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [933776] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [936089] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [938342] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [940675] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [942966] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [945271] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [947574] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [949995] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [952337] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [954356] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [956449] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [958454] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [960495] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [962450] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [964499] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [966539] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [968650] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [970705] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [971341] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [973634] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [975952] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [978288] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [980821] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [983151] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [985517] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1008650] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1012531] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1014878] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1016854] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1018823] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1020770] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1022733] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1024732] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1026804] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1028837] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1030843] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1032844] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1033460] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1035619] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1037953] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1040165] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1042521] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1044770] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1047056] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1049471] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1051816] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1054100] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1056039] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1058099] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1059995] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1061990] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1063995] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1066090] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1068086] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1070099] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1072088] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1072702] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1074871] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1077125] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1079292] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1081602] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1083808] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1086066] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1088303] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1090617] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+    #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+  #And
+    <srw3proto>
+      <k>
+        .K
+      </k>
+      <plineage>
+        -1 |-> protoCfg (... pcChainId: b"\xc1" , pcPolicyV: 7 , pcPolicyD: b"\xd1" , pcAppSetD: b"\xa1" , pcGraphD: b"\x91" , pcClientCfgD: b"\xcc" , pcExecClientD: b"\xee" , pcFork: b"\xf1" )
+        -2 |-> SetItem ( gateReceipt (... grBlock: protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 1 , pbSlot: 0 ) , grErc: b"D" , grErp: b"\"" , grVerdict: "valid-g" , grHead: Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) , grSlot: 0 ) )
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+#Or
+    #Not ( #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) ) )
+  #And
+    <srw3proto>
+      <k>
+        pCons ( pGateEval ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 1 , pbSlot: 0 ) , b"D" , b"\"" , "valid-g" ) , pCons ( pAcceptR1 ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 1 , pbSlot: 0 ) , b"D" , b"\"" , 8 ) , runNil ) ) ~> .K
+      </k>
+      <plineage>
+        -1 |-> protoCfg (... pcChainId: b"\xc1" , pcPolicyV: 7 , pcPolicyD: b"\xd1" , pcAppSetD: b"\xa1" , pcGraphD: b"\x91" , pcClientCfgD: b"\xcc" , pcExecClientD: b"\xee" , pcFork: b"\xf1" )
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+# --- krun exit: 0 ---

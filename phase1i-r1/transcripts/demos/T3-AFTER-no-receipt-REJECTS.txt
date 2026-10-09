@@ -1,0 +1,49 @@
+### T3 AFTER: accept attempt with NO gate evaluation (empty receipt pool). Fail-closed: state unchanged (R1-CM7).
+# definition: /tmp/r1-hs  (krun, Haskell backend, K v7.1.337)
+# program:
+#   pCons(pInitR1(protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc", b"\xee", b"\xf1")), pCons(pAcceptR1(protoBlock(b"\x11", b"\x22", b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 1, 0), b"\x44", b"\x22", 7), runNil))
+# --- krun output ---
+kore-exec: [493772] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+    #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+  #And
+    <srw3proto>
+      <k>
+        .K
+      </k>
+      <plineage>
+        -1 |-> protoCfg (... pcChainId: b"\xc1" , pcPolicyV: 7 , pcPolicyD: b"\xd1" , pcAppSetD: b"\xa1" , pcGraphD: b"\x91" , pcClientCfgD: b"\xcc" , pcExecClientD: b"\xee" , pcFork: b"\xf1" )
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+#Or
+    #Not ( #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) ) )
+  #And
+    <srw3proto>
+      <k>
+        pCons ( pAcceptR1 ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 1 , pbSlot: 0 ) , b"D" , b"\"" , 7 ) , runNil ) ~> .K
+      </k>
+      <plineage>
+        -1 |-> protoCfg (... pcChainId: b"\xc1" , pcPolicyV: 7 , pcPolicyD: b"\xd1" , pcAppSetD: b"\xa1" , pcGraphD: b"\x91" , pcClientCfgD: b"\xcc" , pcExecClientD: b"\xee" , pcFork: b"\xf1" )
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+# --- krun exit: 0 ---

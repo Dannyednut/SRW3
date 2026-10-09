@@ -1,0 +1,227 @@
+### T1 BEFORE (frozen phase1i model): caller supplies SRW3OK=true for a block whose decision field is pdecReject (0). The frozen pAccept checks only parent-link, slot, and the caller Boolean: the chain EXTENDS (slot 0 committed, counter 1).
+# definition: /tmp/proto-hs  (krun, Haskell backend, K v7.1.337)
+# program:
+#   pCons(pInit(protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc", b"\xee", b"\xf1")), pCons(pAccept(protoBlock(b"\x11", b"\x22", b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 0, 0), b"\x44", b"\x22", protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc", b"\xee", b"\xf1"), true), runNil))
+# --- krun output ---
+kore-exec: [495035] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [523289] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [524132] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [526327] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [528609] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [530733] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [533051] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [535195] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [537573] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [539763] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [542039] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [544627] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [545086] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [548128] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [548608] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [561272] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [563754] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [566258] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [568710] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [571250] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [573698] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [576260] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [578745] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [581552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [584855] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [585315] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [589555] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [590006] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1ir1/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+    #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+  #And
+    #Ceil ( Keccak256raw ( b"\xa5\xc1\xf1" ) )
+  #And
+    #Ceil ( LinH ( BlockCommitCanon ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 ) , LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) ) ) )
+  #And
+    #Ceil ( LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) )
+  #And
+    <srw3proto>
+      <k>
+        .K
+      </k>
+      <plineage>
+        0 |-> protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 )
+      </plineage>
+      <pnext>
+        1
+      </pnext>
+      <phead>
+        LinH ( BlockCommitCanon ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 ) , LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) ) )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+  #And
+    {
+      true
+    #Equals
+      BytesEq ( b"\x11" , Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+    }
+#Or
+    #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+  #And
+    #Not ( #Ceil ( Keccak256raw ( b"\xa5\xc1\xf1" ) )
+    #And
+      #Ceil ( LinH ( BlockCommitCanon ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 ) , LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) ) ) )
+    #And
+      #Ceil ( LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) ) )
+  #And
+    <srw3proto>
+      <k>
+        runNil ~> .K
+      </k>
+      <plineage>
+        0 |-> protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 )
+      </plineage>
+      <pnext>
+        1
+      </pnext>
+      <phead>
+        LinH ( BlockCommitCanon ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 ) , LinH ( b"\x9d" +Bytes b"\x00\x00\x00\x07" +Bytes b"\xd1" +Bytes b"\xa1" +Bytes b"\x91" +Bytes Keccak256raw ( b"\xa5\xc1\xf1" ) ) ) )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+  #And
+    {
+      true
+    #Equals
+      BytesEq ( b"\x11" , Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+    }
+#Or
+    #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+  #And
+    #Not ( {
+      true
+    #Equals
+      BytesEq ( b"\x11" , Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) )
+    } )
+  #And
+    <srw3proto>
+      <k>
+        .K
+      </k>
+      <plineage>
+        .Map
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+#Or
+    #Not ( #Ceil ( Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" ) ) )
+  #And
+    <srw3proto>
+      <k>
+        pCons ( pAccept ( protoBlock (... pbParentCommit: b"\x11" , pbPayloadD: b"\"" , pbParentRoot: b"3" , pbChildRoot: b"D" , pbEffectD: b"U" , pbEvidenceD: b"f" , pbCtxD: b"w" , pbPolCommit: b"\x88" , pbDecision: 0 , pbSlot: 0 ) , b"D" , b"\"" , protoCfg (... pcChainId: b"\xc1" , pcPolicyV: 7 , pcPolicyD: b"\xd1" , pcAppSetD: b"\xa1" , pcGraphD: b"\x91" , pcClientCfgD: b"\xcc" , pcExecClientD: b"\xee" , pcFork: b"\xf1" ) , true ) , runNil ) ~> .K
+      </k>
+      <plineage>
+        .Map
+      </plineage>
+      <pnext>
+        0
+      </pnext>
+      <phead>
+        Keccak256raw ( b"\x9c\xc1\x00\x00\x00\x07\xd1\xa1\x91\xcc\xee\xf1" )
+      </phead>
+      <pvalid>
+        true
+      </pvalid>
+    </srw3proto>
+# --- krun exit: 0 ---
