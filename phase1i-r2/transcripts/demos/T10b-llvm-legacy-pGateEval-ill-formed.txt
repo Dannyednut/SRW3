@@ -1,0 +1,17 @@
+### T10b [LLVM] the R1 pGateEval injection command — ILL-FORMED in the R2 machine
+# definition: /tmp/r2demo-llvm  (krun, K v7.1.337)
+# program:
+#   pConsR2(pInitR2(XCfgR2), pConsR2(pGateEval(protoBlock(b"\x11", b"\x22", b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 1, 0), b"\x44", b"\x22", "valid-g"), runNil))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pGateEval' following token
+'('.
+	Source(/tmp/tmp.WBI0XRpBKZ/pgm.k)
+	Location(1,34,1,43)
+	1 |	pConsR2(pInitR2(XCfgR2), pConsR2(pGateEval(protoBlock(b"\x11", b"\x22",
+b"\x33", b"\x44", b"\x55", b"\x66", b"\x77", b"\x88", 1, 0), b"\x44", b"\x22",
+"valid-g"), runNil))
+	  .	                                 ^~~~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+[Error] krun: kparse --definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+# --- krun exit: 113 ---

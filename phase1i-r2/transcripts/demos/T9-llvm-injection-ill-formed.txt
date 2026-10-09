@@ -1,0 +1,17 @@
+### T9 [LLVM] THE R1 INJECTION: pGateEvalR2 with a trailing verdict string — ILL-FORMED (no such production; the R2 command language has no verdict parameter)
+# definition: /tmp/r2demo-llvm  (krun, K v7.1.337)
+# program:
+#   pConsR2(pInitR2(XCfgR2), pConsR2(pGateEvalR2(XB0, XCtx0, XRG0, XCert0, XSR0, ExecPayloadDigest(XPld0)), "valid-g"), runNilR2))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token '"valid-g"' following token
+','.
+	Source(/tmp/tmp.WBI0XRpBKZ/pgm.k)
+	Location(1,105,1,114)
+	1 |	pConsR2(pInitR2(XCfgR2), pConsR2(pGateEvalR2(XB0, XCtx0, XRG0, XCert0,
+XSR0, ExecPayloadDigest(XPld0)), "valid-g"), runNilR2))
+	  .	                                                                          
+                             ^~~~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+[Error] krun: kparse --definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+# --- krun exit: 113 ---

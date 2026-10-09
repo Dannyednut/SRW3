@@ -1,0 +1,18 @@
+PASS FC-1 security-invalid non-committable under A/B/C -> ('REFUSED', 'NON-CANONICAL', 'REFUSED')
+PASS FC-2 honest proposal commits under A/B/C -> ('COMMIT', 'COMMIT', 'COMMIT')
+PASS FC-3 evidence outage: A/B REFUSED, C DEFERRED; progress stops in all models (CM-I8) -> ('REFUSED', 'NON-CANONICAL', 'DEFERRED')
+PASS FC-4 honest participants derive the same head commitment -> 0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8
+PASS FC-5 Model C exposes the deferral reason explicitly -> True
+PASS FC-6 Model B alone gives no commitment safety (the rule lives in Commit_P; the fork filter is only an enforcement surface) -> True
+PASS FC-7 minimal protocol rule identified -> True
+PASS CM-I1 two authorities -> different commitments; the protocol pin (CFG) decides -> True
+PASS CM-I2 unequipped participant NEVER falsely accepts (fail-closed: refused/deferred, never SRW3-valid) -> ('COMMIT', 'DEFERRED')
+PASS CM-I3a equivalent execution -> equivalent evidence -> same SRW3 decision -> (True, '0x8970ec5470eb1d8bab5e46860169e5d19210ab9935db9ea7e4306cb21772f505')
+PASS CM-I3b divergent post-state -> Ethereum-invalid BEFORE SRW3 (post-state binding) -> REFUSED
+PASS CM-I4 committed blocks remain committed under policy upgrade (retroactive re-validation REFUTED as a requirement) -> {'0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa': {'parentCommitment': None, 'postStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'slot': 0}, '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8': {'blockCommitment': '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8', 'parentCommitment': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'payloadDigest': '0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', 'parentStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'postStateRoot': '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'evidenceSemantic': {'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'issuerIdentity': 'execution-client:geth-1.17.7@3d858f85', 'status': 'present', 'decision': 'SRW3_VALID'}, 'contextDigest': '0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99', 'policyCommitment': '0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c', 'srw3Decision': 'SRW3_VALID', 'slot': 1}}
+PASS CM-I5 different policy versions -> different heads; prevented only by the protocol-distributed single commitment -> True
+PASS CM-I6 application invariant-set capture caught (SC-4/SC-9) -> REFUSED
+PASS CM-I7 SRW3Root is constructible only from fixed protocol fields (self-reference impossible); root changes with content -> True
+PASS CM-I8 evidence-infrastructure failure stalls commitment under all models (disclosed deployment cost of fail-closed SRW3) -> True
+
+PI fork-choice+countermodels suite: 16/16 PASS

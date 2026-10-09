@@ -1,0 +1,11 @@
+cfgr2root: 
+policycommitr2: 
+ctxdigest0: 
+blockcommit0: 
+srw3root0: 
+certid0: 
+certid1: 
+recchild0: 
+verdict0: "0"
+verdict1: "1"
+cfgpolicv: 

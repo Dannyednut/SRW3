@@ -1,0 +1,42 @@
+SRW3 Phase 1I-R2 — Gate-Verdict Provenance Binding — MANIFEST
+Branch: phase1i-r2-gate-provenance
+Base:   0b667af79659b783f813a416aad84d641b168034 (phase1i-r1-complete)
+Tip:    recorded in the delivery record + repository worklog (a file cannot
+        contain its own commit hash; integrity anchored at git-commit level)
+
+phase1i-r2/
+  semantics/srw3proto-r2.k          the isolated R2 machine (imports ONLY
+                                    SRW3AUTHZ; computed gate verdicts;
+                                    GateInputMatchesBlockR2; pinned config;
+                                    R2GateReceipt; pInitR2/pGateEvalR2/pAcceptR2)
+  semantics/srw3proto-r2-demo.k     honest-evidence demo fragments (copied from
+                                    the frozen 1G demo discipline) + R2 candidate
+                                    derivation + xCertR2 byte-certificate program
+  proofs/r2_proofs.k                the R2 proof ladder (37 claims + R2-ALL)
+  proofs/run_r2_proofs.sh           resumable/chunked kprove runner
+  proofs/old_r1_witness.k           the BEFORE side: 3 witness claims over the
+                                    UNMODIFIED R1 module
+  python/r2_model.py                Python mirror (imports the FROZEN 1G gate;
+                                    verdict_k normalization disclosed)
+  python/run_r2_attacks.py          87-case adversarial suite (87/87 PASS)
+  audit/GATE-PROVENANCE-AUDIT.md    defect R2-F1 record; surface isolation;
+                                    producer exhaustiveness; correspondence
+                                    discipline; section-F binding map
+  transcripts/demos/                T1-T12 krun transcripts (LLVM primary;
+                                    T11/T12 the disclosed hs boundary)
+  transcripts/k/                    kompile + kprove logs (score: 37 PROVED /
+                                    3 NOT MECHANIZED); 5 oversized logs gzipped
+  transcripts/legacy/               R1-definition injection witness runs
+  transcripts/attacks/              r2-attack-suite.txt (87/87)
+  transcripts/regression/           7 regression transcripts (exact baselines)
+  transcripts/crosslayer/           r2_byte_certificate_k_raw.txt (K LLVM,
+                                    real keccak) — reproduced digit-for-digit
+                                    by the Python KX group
+  report/SRW3-Phase1I-R2-Gate-Provenance-Report.{md,pdf}  report (MD source
+                                    of truth; PDF 8pp, same visual system)
+  provenance/PROVENANCE.md          lineage, toolchain, commands, failed runs
+  provenance/MANIFEST.txt           this file
+  provenance/provenance-hashes.txt  sha256 over every file in phase1i-r2/
+scripts/r2_rebuild_toolchain.sh     pinned toolchain rebuild (K/z3/LLVM-15 chain)
+scripts/r2_build_llvm.sh            krypto shim build + LLVM kompile + probe
+scripts/gen_phase1i_r2_pdf.py       PDF renderer (MD = single source of truth)

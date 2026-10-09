@@ -1,0 +1,16 @@
+### T11 [HS boundary] the same mint on the Haskell backend: the computed verdict is retained as the unevaluated VerifyLineageG(...) application (no Keccak evaluators — finding 1C-1); the receipt STRUCTURE is concrete.  The concrete decision is T1 (LLVM) and the Python mirror.
+# definition: /tmp/r2demo-hs  (krun, K v7.1.337)
+# program:
+#   pConsR2(pInitR2(XCfgR2), pConsR2(pGateEvalR2(XB0, XCtx0, XRG0, XCert0, XSR0, ExecPayloadDigest(XPld0)), runNilR2))
+# --- krun output ---
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+    defined at: /home/z/my-project/srw3b-work/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+Terminated
+[Error] krun: Backend crashed during rewriting with exit code 143
+# --- krun exit: 124 ---

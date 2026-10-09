@@ -1,0 +1,16 @@
+### T10d [LLVM] the R1 pInitR1 command — ILL-FORMED in the R2 machine
+# definition: /tmp/r2demo-llvm  (krun, K v7.1.337)
+# program:
+#   pConsR2(pInitR1(protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc", b"\xee", b"\xf1")), runNilR2)
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pInitR1' following token
+'('.
+	Source(/tmp/tmp.WBI0XRpBKZ/pgm.k)
+	Location(1,9,1,16)
+	1 |	pConsR2(pInitR1(protoCfg(b"\xc1", 7, b"\xd1", b"\xa1", b"\x91", b"\xcc",
+b"\xee", b"\xf1")), runNilR2)
+	  .	        ^~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+[Error] krun: kparse --definition /tmp/r2demo-llvm /tmp/tmp.WBI0XRpBKZ/pgm.k
+# --- krun exit: 113 ---

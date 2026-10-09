@@ -1,0 +1,32 @@
+PASS PI-A1 eth-valid+srw3-valid -> COMMIT -> COMMIT
+PASS PI-A2 eth-valid+srw3-invalid -> refused -> REFUSED
+PASS PI-A3 eth-invalid+srw3-valid -> refused -> REFUSED
+PASS PI-A4 eth-invalid+srw3-invalid -> refused -> REFUSED
+PASS PI-A5 policy substitution -> refused -> REFUSED
+PASS PI-A6 policy digest substitution -> refused -> REFUSED
+PASS PI-A6 re-recorded substitution -> SC-2 still refuses -> REFUSED
+PASS PI-A7 stale context (lineage head) -> refused -> REFUSED
+PASS PI-A8 stale parent root -> refused -> REFUSED
+PASS PI-A9 evidence substitution -> refused -> REFUSED
+PASS PI-A10 self-authorizing evidence -> refused -> REFUSED
+PASS PI-A11 missing evidence -> not committable (never SRW3-valid) -> DEFERRED
+PASS PI-A11/Model A missing evidence -> REFUSED (fail-closed) -> REFUSED
+PASS PI-A11/Model B missing evidence -> NON-CANONICAL (ineligible) -> NON-CANONICAL
+PASS PI-A11/Model C missing evidence -> DEFERRED (cannot finalize) -> DEFERRED
+PASS PI-A12 reordered encoding -> identical commitment -> 0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8
+PASS PI-A12 identical decision across evaluation -> COMMIT
+PASS PI-A13 replay -> identical commitment semantics -> 0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8
+PASS PI-A13 replay -> identical verdict -> COMMIT
+PASS PI-A13 no duplicate commitment record -> 1
+PASS PI-A14 reorg + stale evidence -> refused -> REFUSED
+PASS PI-A14 displaced record byte-stable -> {'blockCommitment': '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8', 'parentCommitment': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'payloadDigest': '0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', 'parentStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'postStateRoot': '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'evidenceSemantic': {'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'issuerIdentity': 'execution-client:geth-1.17.7@3d858f85', 'status': 'present', 'decision': 'SRW3_VALID'}, 'contextDigest': '0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99', 'policyCommitment': '0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c', 'srw3Decision': 'SRW3_VALID', 'slot': 1}
+PASS PI-A14 honest new-branch continuation -> COMMIT -> COMMIT
+PASS PI-A15 EquivalentEvidence(A,B) holds -> True
+PASS PI-A15 identical post-state roots -> 0x19e80c7ab1acb8982c82b971c3c77210c6bcff23d09aaef0fc942266f7725a41
+PASS PI-A15 identical SRW3 result and commitment -> ('COMMIT', '0x8e20f9749bf7b53899b277ef25d4daf91b75f291b12440f2d963617e2da1d5c3')
+PASS PI-A16 three-way interaction violation -> refused -> REFUSED
+PASS PI-FC eth-valid+srw3-invalid under Model A -> REFUSED -> REFUSED
+PASS PI-FC eth-valid+srw3-invalid under Model B -> NON-CANONICAL -> NON-CANONICAL
+PASS PI-FC eth-valid+srw3-REJECT under Model C -> REFUSED (only UNKNOWN/ERROR defers) -> REFUSED
+
+PI attack matrix: 30/30 PASS
