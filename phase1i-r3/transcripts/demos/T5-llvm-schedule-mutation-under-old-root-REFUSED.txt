@@ -1,0 +1,30 @@
+### T5: a schedule-mutated configuration (field 9 — the R2 alias class) re-presented under the authorized root of the honest config is REFUSED: the computed R3 root differs (real keccak)
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# anchor (SRW3R3ANCHOR): 207799d4800e6048606189de14198ba95cfd738d5a58e3ada85132fe71f87c12
+# program:
+#   pConsR3(pInitR3(XCfgR3SchedB), runNilR3)
+# --- krun output ---
+<srw3protoR3>
+  <k>
+    .K
+  </k>
+  <r3lineage>
+    .Map
+  </r3lineage>
+  <r3next>
+    0
+  </r3next>
+  <r3head>
+    b"\x00"
+  </r3head>
+  <r3linhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </r3linhead>
+  <r3anchor>
+    b" w\x99\xd4\x80\x0e`H`a\x89\xde\x14\x19\x8b\xa9\\\xfds\x8dZX\xe3\xad\xa8Q2\xfeq\xf8|\x12"
+  </r3anchor>
+  <r3valid>
+    true
+  </r3valid>
+</srw3protoR3>
+# --- krun exit: 0 ---

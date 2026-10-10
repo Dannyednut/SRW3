@@ -1,0 +1,16 @@
+### T11b: frozen-1I pGateEval(…, verdict) is ILL-FORMED
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsR3(pGateEval(XB0, XSR0, ExecPayloadDigest(XPld0), "valid-g"), runNilR3)
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pGateEval' following token
+'('.
+	Source(/tmp/tmp.me4X3penbc/pgm.k)
+	Location(1,9,1,18)
+	1 |	pConsR3(pGateEval(XB0, XSR0, ExecPayloadDigest(XPld0), "valid-g"),
+runNilR3)
+	  .	        ^~~~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+[Error] krun: kparse --definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+# --- krun exit: 113 ---

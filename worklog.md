@@ -1216,3 +1216,53 @@ Stage Summary:
   only "valid-g" producer) and keccak collision resistance (hs backend
   cannot evaluate digests). No consensus-integration claim; prior-art
   novelty audit NOT started (next task per the handoff).
+
+## Phase 1I-R3 — Full Configuration-Root Binding (phase1i-r3-config-root-binding)
+
+- Base 82f0675 (phase1i-r2-complete, frozen); additive tree phase1i-r3/ only;
+  `git diff 82f0675 HEAD -- phase1g phase1h phase1h-r1-fix phase1i phase1i-r1
+  phase1i-r2 k python-gen` EMPTY; the two in-place-regenerated 1H-R1
+  transcript JSONs + kore-exec.tar.gz restored byte-exact (the disclosed R2
+  behavior); k/phase1d/shim/libkrypto-shim.a rebuilt byte-identical.
+- Repair: NEW domain-separated, versioned, length-delimited 13-field root
+  (ProtoCfgCanonR3/ProtoRootR3, "SRW3/ProtoCfg/R3"||0x00 || U32BE(1) || LP32
+  ...); the five R2 pin-internal authority fields (schedule, spec version,
+  auth proof type, guest digest, proof-config digest) are now root-bound;
+  immutable <r3anchor> cell filled by explicit authenticated external input
+  $SRW3R3ANCHOR (no command takes/writes it); pInitR3 REQUIRES
+  ProtoRootR3(C) == anchor; receipts bind the computed root + anchor;
+  pAcceptR3 re-checks anchor/root/policy/ctx against the live machine;
+  fail-closed [owise] restores; NO upgrade/root-update transition.
+- K ladder (hs, definition compiled from proofs/r3_fixtures.k — K proof
+  modules admit only claims; fixture module adds inert constants only):
+  50 claims -> 47 PROVED / 3 NOT MECHANIZED (retained: PIPELINE-HONEST/
+  FORGED = ErrorBottomTotalFunction stuck-term class as R2; ALL = the kore
+  circularity blocker as PI7-ALL/R1-ALL/R2-ALL) + 1 STRUCTURAL
+  (ANCHOR-IMMUTABLE: mechanical anchor-cell scan; first kprove attempt
+  retained). Headline R3-ACCEPT-IMPLIES-COMMITP PROVED with the guard
+  verbatim incl. the anchor/root re-checks; R3-R2-ALIAS-WITNESS PROVED
+  (legacy 0x9C projection unchanged by schedule mutation, R3 preimage
+  changes); R3-CANON-FIELD-ORDER PROVED over the 349-byte golden preimage.
+  NEW disclosed hs boundary: the honest R3 pipeline cannot execute on hs at
+  all (the init root equality is real-keccak; T12 transcript) — concrete
+  pipeline evidence is LLVM/Python.
+- LLVM demos (krypto shim, real keccak): T0 cross-layer certificate (incl.
+  full canonical preimage + root 207799d4...; certid0 anchors to the frozen
+  1G value), T1 honest two-block pipeline (head 53d8cc75... = Python),
+  T2-T9 (gate-only/no-receipt/re-init/schedule-mutation-under-old-root
+  REFUSED/wrong-anchor REFUSED/config-sub/position-sub/evidence-mismatch),
+  T10-T11f kparse ill-formed (injection + all legacy names).
+- Python: pack encoder integrated VERBATIM (input hashes recorded);
+  unittests 21/21; adversarial suite 181/181 (INITROOT decisive group:
+  every field-1..13 mutation refuses under the old root; caller root param
+  inexpressible; CROSSROOT replay refused at every layer; DET
+  determinism). Vectors file golden 349-byte preimage + 13 mutation
+  vectors + alias witness + invalid-input table.
+- Regression zero drift: 11/11 26/26 30/30 15/15 17/17 16/16 48/48(R1)
+  87/87(R2). Score convention fixed (1 claim = 1 invocation = 1 log;
+  claims-status.csv + claim-classification.csv). Report MD+PDF 6pp,
+  audit A-H, provenance (MANIFEST 107 hashes), transcripts/runners.
+- Verdict: CLOSED for complete configuration commitment (Level-III,
+  relative to the explicit authenticated anchor); protocol-root authority
+  REMAINS AN EXPLICIT ASSUMPTION (governance out of scope); not
+  end-to-end security closed; no consensus-integration claim.

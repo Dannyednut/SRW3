@@ -1,0 +1,76 @@
+# R3-ANCHOR-IMMUTABLE — mechanical anchor-immutability scan
+# claim class: STRUCTURAL (audit-verified)
+# evidence: every occurrence of <r3anchor> in semantics/srw3proto-r3.k
+#           is READ-ONLY (no '=>' inside the cell); the anchor is a parameter of
+#           no command (PCmdR3I = pInitR3(Cfg) / pGateEvalR3(B,FC,RG,CERT,ERC,ERP) /
+#           pAcceptR3(B,ERC,ERP,CV) — none takes or returns an anchor).
+# file: /home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k
+
+## all <r3anchor> occurrences with 2 lines of context:
+63://      carries a DEDICATED IMMUTABLE CELL <r3anchor> holding the protocol's
+64-//      trusted configuration-root anchor, initialized from an EXPLICIT
+65-//      AUTHENTICATED INPUT ($SRW3R3ANCHOR, a krun configuration variable —
+--
+69://      takes or returns an anchor, and no rule writes <r3anchor> (immutability
+70-//      by construction; R3-ANCHOR-IMMUTABLE).  Initialization must CHECK
+71://      ProtoRootR3(C) ==K <r3anchor> before pinning (R3-INIT-REQUIRES-
+72-//      AUTHORIZED-ROOT); a configuration whose computed root differs from the
+73-//      anchor is refused with state unchanged, even if the caller also
+--
+88://        - the immutable protocol-authorized root anchor (<r3anchor> cell);
+89-//        - a mutable protocol chain head <r3head> anchored AT INITIALIZATION
+90-//          to ProtoRootR3(C) (== the authorized anchor, by the init check);
+--
+101://      matches the trusted <r3anchor> (defense in depth — the anchor and pin
+102-//      are immutable, so a mismatch can only arise from a machine built under
+103-//      a different anchor/config, i.e. the cross-machine replay R3 excludes).
+--
+132:// <r3next> <r3head> <r3linhead> <r3anchor> <r3valid>).  The reserved-
+133-// negative-key discipline of R1/R2 is retained: pinned configuration = key
+134-// -1, receipt pool = key -2 (negative keys can never collide with block
+--
+431:  //     init-time check against <r3anchor> (§9) — the predicate itself is the
+432-  //     frozen composition, unchanged.
+433-  // ===========================================================================
+--
+556:  //       gr3Anchor  — the trusted protocol root anchor (<r3anchor>) under
+557-  //                    which the verdict was derived.
+558-  //     Acceptance re-checks BOTH against the live machine state (the pinned
+--
+698:  //     THE ANCHOR IS NOT A COMMAND INPUT (handoff §4): <r3anchor> is filled
+699-  //     by the AUTHENTICATED EXTERNAL INPUT $SRW3R3ANCHOR at machine
+700-  //     instantiation.  No command takes an anchor, no command takes a root,
+--
+733:                  <r3anchor> $SRW3R3ANCHOR:Bytes </r3anchor>
+734-                  <r3valid> true </r3valid>
+735-                </srw3protoR3>
+--
+761:       <r3anchor> A:Bytes </r3anchor>
+762-    requires notBool cfgPinnedR3(L:Map)
+763-         andBool BytesEq(ProtoRootR3(C), A:Bytes)
+--
+776:       <r3anchor> A:Bytes </r3anchor>
+777-       <r3valid> V:Bool </r3valid>
+778-    [owise]
+--
+805:       <r3anchor> A:Bytes </r3anchor>
+806-       <r3lineage> ( -1:Int |-> C:ProtoCfgR3 )
+807-                  ( -2:Int |-> PS:Set )
+--
+850:       <r3anchor> A:Bytes </r3anchor>
+851-       <r3lineage> ( -1:Int |-> C:ProtoCfgR3 ) L3:Map
+852-               => ( -1:Int |-> C:ProtoCfgR3 )
+--
+903:       <r3anchor> A:Bytes </r3anchor>
+904-       <r3lineage> ( -1:Int |-> C:ProtoCfgR3 )
+905-                  ( -2:Int |-> SetItem(R:R3GateReceipt) RS:Set )
+--
+951:       <r3anchor> A:Bytes </r3anchor>
+952-       <r3valid> V:Bool </r3valid>
+953-    [owise]
+
+## rewrite arrows inside an anchor cell (must be EMPTY):
+(none — the anchor cell is never rewritten)
+
+## rules that write the pin (key -1) — only pInitR3's positive rule:
+760:       <r3lineage> L:Map => L[-1 <- C] </r3lineage>

@@ -1,0 +1,22 @@
+### regression: run_determinism_i
+# command: python3 phase1i/python/run_determinism_i.py
+# host: x86_64, python Python 3.12.14
+# --- output ---
+PASS DET-I1 field-order-invariance of context digest -> 0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99
+PASS DET-I2 no wall-clock/process/order dependence -> ('COMMIT', '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8')
+PASS DET-I3 integer-encoding canonicalization (0x input normalized) -> 0x9f3542edbc5ef653a4d146602f745024ff80e6f6481e0dceba5333ee797630e1
+PASS DET-I4 JSON field-order invariance of the canonical digest -> 0x5daa7b02723421f10315fc37f1ff3073efe9564b36886b9c5343efe64e8d27c0
+PASS DET-I5 duplicate-key raw serialization is malformed/detected -> True
+PASS DET-I6 missing optional fields keep the semantic digest -> 0x7c8e279a4a684f6e6d9b8b1ded05848c522f872506a0e9fe0fabb50659bfe347
+PASS DET-I7 policy version mismatch changes the commitment -> True
+PASS DET-I8 context digest mismatch detected (SC-9 analog) -> True
+PASS DET-I9 same decision -> COMMIT
+PASS DET-I9 same protocol validity -> {'Valid_Exec': {'ok': True, 'why': 'execution-valid with post-state binding'}, 'Valid_SRW3': {'ok': True, 'why': 'SRW3-valid under validated security context'}, 'ParentCommitted': {'ok': True, 'why': 'parent is the committed head'}, 'ContextValid': {'ok': True, 'why': 'SC-1..SC-9 ok (SC-10: no substitution path exists)'}, 'PolicyValid': {'ok': True, 'why': 'protocol-authorized policy commitment'}, 'EvidenceAvailable': {'ok': True, 'why': 'evidence status: present'}, 'SlotAvailable': {'ok': True, 'why': 'slot available on the canonical chain'}}
+PASS DET-I9 same commitment -> 0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8
+PASS DET-I9 same post-commit state (lineage/head/height/records) -> ('0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8', '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 1, {'0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa': {'parentCommitment': None, 'postStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'slot': 0}, '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8': {'blockCommitment': '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8', 'parentCommitment': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'payloadDigest': '0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', 'parentStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'postStateRoot': '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'evidenceSemantic': {'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'issuerIdentity': 'execution-client:geth-1.17.7@3d858f85', 'status': 'present', 'decision': 'SRW3_VALID'}, 'contextDigest': '0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99', 'policyCommitment': '0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c', 'srw3Decision': 'SRW3_VALID', 'slot': 1}})
+PASS DET-K1 ProtoRoot construction (0x9C, real keccak) computes -> 66
+PASS DET-K2 PolicyCommitmentI construction (0x9D+0xA5) computes and binds the config-derived authority id -> True
+PASS DET-K3 CtxDigestI construction (0xA6) mirrors the 1H-R1 SRW3-CONTEXT-H-V1 discipline (domain-separated, no wall-clock) -> True
+
+PI determinism suite: 15/15 PASS
+# --- exit: 0 ---

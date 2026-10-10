@@ -1,0 +1,2983 @@
+kore-exec: [1263548] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1267077] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1269043] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1270968] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1277495] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1278306] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1280355] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1282777] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1284996] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1287197] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1289466] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1291792] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1293954] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1296255] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [1303369] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3600508] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3605182] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3608319] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3611408] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3649353] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3652723] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3654716] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3656790] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3779940] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3783887] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3786318] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3788797] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3806268] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3806865] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3809677] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3810381] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3811895] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3813552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3815368] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3838322] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3840743] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3841599] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3842292] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3843713] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3845252] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3847035] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3848910] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3849917] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3851302] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3852086] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3853578] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3855268] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3857035] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3859020] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3860117] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3860982] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3861713] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3863149] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3864961] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3866771] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3868680] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3869693] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3873035] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3873544] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [3874242] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4047326] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4051928] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4054969] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4058000] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4081513] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4088042] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4101863] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4108838] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4116110] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4121998] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4122907] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4123362] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4123918] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4125078] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4125654] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4126302] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4127162] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4127644] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4128200] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4129334] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4129877] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4130510] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4133872] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4134336] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4134958] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4136108] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4136625] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4137298] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4138223] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4138751] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4139286] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4140421] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4140975] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4141622] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4145021] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4145748] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4146692] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4148552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4149068] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4149677] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4254837] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4258770] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4261240] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4263771] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4281257] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4284467] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4284998] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4285570] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4286388] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4286879] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4287444] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4288879] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4289388] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4289982] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4290829] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4291302] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4291889] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4294047] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4294552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4295502] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4296130] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4498028] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4502672] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4505768] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4508883] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4555269] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4555755] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4556313] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4557498] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4558034] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4558693] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4559592] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4560059] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4560612] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4561802] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4562291] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4562948] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4564542] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4565038] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4565548] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4566786] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4567290] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4567976] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4568830] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4569261] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4569796] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4570947] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4571468] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4572146] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4574818] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4575470] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4576412] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4578058] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4578509] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4579307] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4579868] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4690935] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4700878] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4703425] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4705994] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4727142] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4727646] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4728188] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4729033] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4729475] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4730059] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4732100] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4732600] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4733177] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4733999] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4734464] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4735041] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4737000] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4737505] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4738078] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4738913] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4739375] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4739971] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4741705] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4742213] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4742823] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4743693] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4744175] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4744783] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4748452] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4748995] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4749528] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4750413] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4750886] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4751396] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4753051] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4753521] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4754106] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4754922] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4755386] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4755972] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4758001] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4758485] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4759059] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4759888] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4760328] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4760898] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4762583] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4763082] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4763628] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4764464] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4764951] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4765524] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4768057] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4768627] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4769754] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [4770422] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5800866] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5806090] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5809766] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5813258] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5887999] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5888433] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5888950] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5890208] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5890780] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5891430] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5892382] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5892836] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5893323] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5894552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5895080] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5895774] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5898132] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5898552] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5899062] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5900283] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5900805] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5901433] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5902312] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5902753] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5903274] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5904490] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5905014] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5905679] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+kore-exec: [5925901] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [5926467] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [5927364] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [5927976] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6016929] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6020825] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6023297] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6025825] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6039302] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6040577] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6041164] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6042082] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6042991] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6043547] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6046390] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6046993] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6048006] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6048742] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6226175] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6230957] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6234133] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6237805] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6259585] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6260703] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6261275] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6262314] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6263388] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6264022] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6273141] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6274100] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6274709] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6275847] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6276775] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6277374] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6278986] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6279927] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6280477] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6283096] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6286471] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6302738] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6303763] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6304700] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6305280] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6327836] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6333214] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6334852] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6335991] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6336549] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6337367] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6339289] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6340309] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6340905] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6342066] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6343065] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6343662] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6345068] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6346072] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6346662] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6349277] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6352687] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6369322] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6370422] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6371469] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6372113] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6392509] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6401963] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6402524] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6403314] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6403984] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6464229] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6467993] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6470119] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6472245] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6483178] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6483743] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6484603] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6485231] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6602461] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6605429] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6618066] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6637462] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6641527] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6642134] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6643013] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6643655] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6809870] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6814227] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6817105] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6820007] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6840916] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6842596] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6843825] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6844388] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6845226] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6850280] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6854437] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6870403] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6893725] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while simplifying the claim
+kore-exec: [6928420] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6929596] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6930453] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6930987] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6931646] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6932711] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6933202] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6934006] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6934592] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6937381] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6938371] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6939167] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6939694] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6940294] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6941034] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6941506] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6942212] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6942755] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6945107] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6946203] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6947125] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6947674] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [6948313] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7038116] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7041872] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7044257] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7046645] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7061337] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7062812] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7063887] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7064427] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7065157] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7066378] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7067028] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7068011] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [7068679] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblKeccak256raw'LParUndsRParUnds'KRYPTO'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/work/SRW3/k/kevm/kproj-e1e/plugin/krypto.md:50:22-50:104
+Context:
+    (InfoReachability) while checking the implication
+#Top
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(313,17,313,18)
+	313 |	    <r3lineage> L:Map </r3lineage>
+	    .	                ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(314,14,314,15)
+	314 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(315,14,315,15)
+	315 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(316,17,316,19)
+	316 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(318,15,318,16)
+	318 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'C1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(326,30,326,32)
+	326 |	    <r3lineage> ( -1:Int |-> C1:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                             ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(326,46,326,48)
+	326 |	    <r3lineage> ( -1:Int |-> C1:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                                             ^~
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(327,14,327,15)
+	327 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(328,14,328,15)
+	328 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(329,17,329,19)
+	329 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(330,16,330,17)
+	330 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(331,15,331,16)
+	331 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'V2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(476,15,476,17)
+	476 |	    <r3valid> V2:Bool </r3valid>
+	    .	              ^~
+[Warning] Compiler: Variable 'LH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(499,52,499,55)
+	499 |	         andBool gr3LinHeadOf(R:R3GateReceipt) ==K LH2:Bytes
+	    .	                                                   ^~~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(501,56,501,57)
+	501 |	         andBool BytesEq(gr3AnchorOf(R:R3GateReceipt), A:Bytes)
+	    .	                                                       ^
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(517,18,517,20)
+	517 |	         andBool CV:Int ==Int qcrPolicyVOf(C:ProtoCfgR3)
+	    .	                 ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(638,35,638,38)
+	638 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(638,46,638,49)
+	638 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(638,57,638,58)
+	638 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(638,71,638,73)
+	638 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(645,35,645,38)
+	645 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(645,46,645,49)
+	645 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(645,57,645,58)
+	645 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(645,71,645,73)
+	645 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(652,35,652,38)
+	652 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(652,46,652,49)
+	652 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(652,57,652,58)
+	652 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(652,71,652,73)
+	652 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(668,16,668,17)
+	668 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(671,16,671,18)
+	671 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(675,15,675,16)
+	675 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(691,16,691,17)
+	691 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(694,16,694,18)
+	694 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(698,15,698,16)
+	698 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(718,19,718,20)
+	718 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                  ^
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(718,35,718,38)
+	718 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(718,46,718,49)
+	718 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(718,57,718,59)
+	718 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                                        ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(719,16,719,17)
+	719 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(720,30,720,31)
+	720 |	    <r3lineage> ( -1:Int |-> C:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                             ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(721,14,721,15)
+	721 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(722,14,722,15)
+	722 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(723,17,723,19)
+	723 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(724,15,724,16)
+	724 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(729,19,729,20)
+	729 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                  ^
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(729,35,729,38)
+	729 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(729,46,729,49)
+	729 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(729,57,729,59)
+	729 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                                        ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(730,16,730,17)
+	730 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(731,30,731,31)
+	731 |	    <r3lineage> ( -1:Int |-> C:ProtoCfgR3 )
+	    .	                             ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(733,16,733,18)
+	733 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(734,14,734,15)
+	734 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(735,14,735,15)
+	735 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(736,17,736,19)
+	736 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(737,15,737,16)
+	737 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(751,20,751,22)
+	751 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(751,32,751,34)
+	751 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(751,44,751,48)
+	751 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(751,60,751,62)
+	751 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(754,16,754,18)
+	754 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(758,15,758,16)
+	758 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(773,20,773,22)
+	773 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(773,32,773,34)
+	773 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(773,44,773,48)
+	773 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(773,60,773,62)
+	773 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(776,16,776,18)
+	776 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(780,15,780,16)
+	780 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(793,20,793,22)
+	793 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(793,32,793,34)
+	793 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(793,44,793,48)
+	793 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(793,60,793,62)
+	793 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(796,16,796,18)
+	796 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(800,15,800,16)
+	800 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(813,20,813,22)
+	813 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(813,32,813,34)
+	813 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(813,44,813,48)
+	813 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(813,60,813,62)
+	813 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(816,16,816,18)
+	816 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(820,15,820,16)
+	820 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(835,20,835,22)
+	835 |	                   FC:ExecCtx, RG:LinRecG,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(835,32,835,34)
+	835 |	                   FC:ExecCtx, RG:LinRecG,
+	    .	                               ^~
+[Warning] Compiler: Variable 'PR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(836,48,836,50)
+	836 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                               ^~
+[Warning] Compiler: Variable 'EI' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(836,58,836,60)
+	836 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                                         ^~
+[Warning] Compiler: Variable 'CR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(836,68,836,70)
+	836 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                                                   ^~
+[Warning] Compiler: Variable 'ED' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(837,27,837,29)
+	837 |	                          ED:Bytes, 1,
+	    .	                          ^~
+[Warning] Compiler: Variable 'I' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(838,47,838,48)
+	838 |	                          azSrc(domConsensus, I:Bytes, 0), .List, 1,
+PP:Bytes),
+	    .	                                              ^
+[Warning] Compiler: Variable 'PP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(838,70,838,72)
+	838 |	                          azSrc(domConsensus, I:Bytes, 0), .List, 1,
+PP:Bytes),
+	    .	                                                                     ^~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(839,20,839,22)
+	839 |	                   AC:AzCtx, "valid-g", H:Bytes, N:Int, LH:Bytes,
+	    .	                   ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(841,16,841,18)
+	841 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(845,15,845,16)
+	845 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(867,20,867,22)
+	867 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(867,32,867,34)
+	867 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(867,44,867,48)
+	867 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(867,60,867,62)
+	867 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(876,16,876,18)
+	876 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(880,15,880,16)
+	880 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(895,20,895,22)
+	895 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(895,32,895,34)
+	895 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(895,44,895,48)
+	895 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(895,60,895,62)
+	895 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(898,16,898,18)
+	898 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(902,15,902,16)
+	902 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'CH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(979,33,979,35)
+	979 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                ^~
+[Warning] Compiler: Variable 'PD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(979,50,979,52)
+	979 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                 ^~
+[Warning] Compiler: Variable 'AS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(979,60,979,62)
+	979 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'GR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(979,70,979,72)
+	979 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                                     ^~
+[Warning] Compiler: Variable 'CC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,33,980,35)
+	980 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                ^~
+[Warning] Compiler: Variable 'EC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,43,980,45)
+	980 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                          ^~
+[Warning] Compiler: Variable 'FK' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,53,980,55)
+	980 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                                    ^~
+[Warning] Compiler: Variable 'SC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,63,980,65)
+	980 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                                              ^~
+[Warning] Compiler: Variable 'SP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,33,981,35)
+	981 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                ^~
+[Warning] Compiler: Variable 'PT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,41,981,43)
+	981 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                        ^~
+[Warning] Compiler: Variable 'GD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,49,981,51)
+	981 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                                ^~
+[Warning] Compiler: Variable 'CD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,59,981,61)
+	981 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                                          ^~
+[Warning] Compiler: Variable 'CH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1045,33,1045,35)
+	1045 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                ^~
+[Warning] Compiler: Variable 'PD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1045,50,1045,52)
+	1045 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                 ^~
+[Warning] Compiler: Variable 'AS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1045,60,1045,62)
+	1045 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                           ^~
+[Warning] Compiler: Variable 'GR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1045,70,1045,72)
+	1045 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                                     ^~
+[Warning] Compiler: Variable 'CC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,33,1046,35)
+	1046 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                ^~
+[Warning] Compiler: Variable 'EC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,43,1046,45)
+	1046 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                          ^~
+[Warning] Compiler: Variable 'FK' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,53,1046,55)
+	1046 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                                    ^~
+[Warning] Compiler: Variable 'SC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,63,1046,65)
+	1046 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                                              ^~
+[Warning] Compiler: Variable 'SP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,33,1047,35)
+	1047 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                ^~
+[Warning] Compiler: Variable 'PT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,41,1047,43)
+	1047 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                        ^~
+[Warning] Compiler: Variable 'GD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,49,1047,51)
+	1047 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                                ^~
+[Warning] Compiler: Variable 'CD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,59,1047,61)
+	1047 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                                          ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1087,35,1087,38)
+	1087 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1087,46,1087,49)
+	1087 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1087,57,1087,58)
+	1087 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1087,71,1087,73)
+	1087 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1093,35,1093,38)
+	1093 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1093,46,1093,49)
+	1093 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1093,57,1093,58)
+	1093 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1093,71,1093,73)
+	1093 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1099,57,1099,58)
+	1099 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1099,71,1099,73)
+	1099 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1120,38,1120,39)
+	1120 |	    <k> CommitChainLinkedR3(.Map, 0, C:ProtoCfgR3) => true </k>
+	     .	                                     ^
+[Warning] Compiler: Variable 'CI' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1209,17,1209,19)
+	1209 |	    <k> pConsR3(CI:PCmdR3I, RUN:PProgR3I) => .K </k>
+	     .	                ^~
+[Warning] Compiler: Variable 'RUN' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1209,29,1209,32)
+	1209 |	    <k> pConsR3(CI:PCmdR3I, RUN:PProgR3I) => .K </k>
+	     .	                            ^~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1210,17,1210,18)
+	1210 |	    <r3lineage> L:Map </r3lineage>
+	     .	                ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1211,14,1211,15)
+	1211 |	    <r3next> N:Int </r3next>
+	     .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1212,14,1212,15)
+	1212 |	    <r3head> H:Bytes </r3head>
+	     .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1213,17,1213,19)
+	1213 |	    <r3linhead> LH:Bytes </r3linhead>
+	     .	                ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1214,16,1214,17)
+	1214 |	    <r3anchor> A:Bytes </r3anchor>
+	     .	               ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(345,30,345,31)
+	345 |	  rule ProtoDecisionOfGateR3(S:String)  => pdecRejectR3 [owise]
+	    .	                             ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(459,43,459,47)
+	459 |	  rule blockAtR3(T:Int |-> B:ProtoBlockR3 REST:Map, T2:Int) => B
+	    .	                                          ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(675,42,675,46)
+	675 |	  rule storedCfgR3Of(-1 |-> C:ProtoCfgR3 REST:Map) => C:ProtoCfgR3
+	    .	                                         ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(676,22,676,26)
+	676 |	  rule storedCfgR3Of(REST:Map) => noCfgR3 [owise]
+	    .	                     ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(679,34,679,38)
+	679 |	  rule receiptsR3Of(-2 |-> S:Set REST:Map) => S:Set
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(680,21,680,25)
+	680 |	  rule receiptsR3Of(REST:Map) => .Set [owise]
+	    .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(683,40,683,44)
+	683 |	  rule cfgPinnedR3(-1 |-> _:ProtoCfgR3 REST:Map) => true
+	    .	                                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(684,20,684,24)
+	684 |	  rule cfgPinnedR3(REST:Map) => false [owise]
+	    .	                   ^~~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(772,20,772,21)
+	772 |	       <r3lineage> L:Map </r3lineage>
+	    .	                   ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(773,17,773,18)
+	773 |	       <r3next> N:Int </r3next>
+	    .	                ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(774,17,774,18)
+	774 |	       <r3head> H:Bytes </r3head>
+	    .	                ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(775,20,775,22)
+	775 |	       <r3linhead> LH:Bytes </r3linhead>
+	    .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(776,19,776,20)
+	776 |	       <r3anchor> A:Bytes </r3anchor>
+	    .	                  ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(777,18,777,19)
+	777 |	       <r3valid> V:Bool </r3valid>
+	    .	                 ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(947,20,947,21)
+	947 |	       <r3lineage> L:Map </r3lineage>
+	    .	                   ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(948,17,948,18)
+	948 |	       <r3next> N:Int </r3next>
+	    .	                ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(949,17,949,18)
+	949 |	       <r3head> H:Bytes </r3head>
+	    .	                ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(950,20,950,22)
+	950 |	       <r3linhead> LH:Bytes </r3linhead>
+	    .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(951,19,951,20)
+	951 |	       <r3anchor> A:Bytes </r3anchor>
+	    .	                  ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(952,18,952,19)
+	952 |	       <r3valid> V:Bool </r3valid>
+	    .	                 ^

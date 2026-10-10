@@ -1,0 +1,10 @@
+### regression: r3_unittest_tests
+# command: python3 -m unittest discover -s phase1i-r3/tests
+# host: x86_64, python Python 3.12.14
+# --- output ---
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 0.008s
+
+OK
+# --- exit: 0 ---

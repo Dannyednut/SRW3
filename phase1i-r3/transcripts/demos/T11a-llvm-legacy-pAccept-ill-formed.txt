@@ -1,0 +1,16 @@
+### T11a: frozen-1I pAccept(…, SRW3OK) is ILL-FORMED
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsR3(pInitR3(XCfgR3), pConsR3(pAccept(XB0, XSR0, ExecPayloadDigest(XPld0), true), runNilR3))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pAccept' following token
+'('.
+	Source(/tmp/tmp.me4X3penbc/pgm.k)
+	Location(1,34,1,41)
+	1 |	pConsR3(pInitR3(XCfgR3), pConsR3(pAccept(XB0, XSR0,
+ExecPayloadDigest(XPld0), true), runNilR3))
+	  .	                                 ^~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+[Error] krun: kparse --definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+# --- krun exit: 113 ---

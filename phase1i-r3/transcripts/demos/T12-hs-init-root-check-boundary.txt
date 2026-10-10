@@ -1,0 +1,21 @@
+### T12 (hs boundary): the R3 INIT root check — BytesEq(ProtoRootR3(C), <r3anchor>) —
+    is a REAL-KECCAK equality and therefore does NOT decide on the Haskell backend
+    (finding 1C-1: hash hooks are uninterpreted there).  The honest R3 pipeline
+    (authorized init -> computed verdict -> commit) can only be EXECUTED concretely
+    on the LLVM backend (krypto shim, T1) and in the Python mirror (suite 181/181).
+    The mechanized Haskell content is the proof ladder with the equality carried as
+    a HYPOTHESIS (R3-INIT-PINS-AUTHORIZED, R3-MINT-SHAPE-*, R3-ACCEPT-IMPLIES-COMMITP,
+    R3-VALID-ACCEPT — all PROVED); R2 had no such boundary at init because its root
+    preimage omitted fields 9..13 and its init performed NO root check (the defect
+    R3 closes).  This transcript is the disclosed structural boundary evidence.
+# definition: /tmp/r3demo-hs  (krun, K v7.1.337, Haskell backend)
+# anchor (SRW3R3ANCHOR): 207799d4800e6048606189de14198ba95cfd738d5a58e3ada85132fe71f87c12
+# program: pConsR3(pInitR3(XCfgR3), runNilR3)
+# --- evidence ---
+# unevaluated keccak terms in the run: True
+# run did not terminate within the budget (stuck at the init equality): True
+# observed warnings (excerpt, deduplicated): WarnFunctionWithoutEvaluators for
+#   LblKeccak256raw (krypto.md:50) — the hash hook has no Haskell evaluator.
+# --- krun exit: 124 (timeout; the configuration is stuck at the init root check) ---
+# --- concrete substitutes: T1-llvm-honest-two-block-pipeline.txt (REAL keccak), ---
+# --- Python suite 181/181 (r3-attack-suite.txt) ------------------------------

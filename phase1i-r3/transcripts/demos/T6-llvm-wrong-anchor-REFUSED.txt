@@ -1,0 +1,30 @@
+### T6: the honest configuration on a machine anchored at a DIFFERENT protocol root is REFUSED (the anchor is authenticated protocol input, not caller data)
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# anchor (SRW3R3ANCHOR): abab..ab (a DIFFERENT protocol root)
+# program:
+#   pConsR3(pInitR3(XCfgR3), runNilR3)
+# --- krun output ---
+<srw3protoR3>
+  <k>
+    .K
+  </k>
+  <r3lineage>
+    .Map
+  </r3lineage>
+  <r3next>
+    0
+  </r3next>
+  <r3head>
+    b"\x00"
+  </r3head>
+  <r3linhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </r3linhead>
+  <r3anchor>
+    b"\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab\xab"
+  </r3anchor>
+  <r3valid>
+    true
+  </r3valid>
+</srw3protoR3>
+# --- krun exit: 0 ---

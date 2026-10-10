@@ -1,0 +1,15 @@
+### T10: THE R1 INJECTION SHAPE (7 args, verdict string) IS ILL-FORMED in the R3 command language
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsR3(pInitR3(XCfgR3), pConsR3(pGateEvalR3(XB0, XCtx0, XRG0, XCert0, XSR0, ExecPayloadDigest(XPld0), "valid-g"), runNilR3))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token ',' following token ')'.
+	Source(/tmp/tmp.me4X3penbc/pgm.k)
+	Location(1,102,1,103)
+	1 |	pConsR3(pInitR3(XCfgR3), pConsR3(pGateEvalR3(XB0, XCtx0, XRG0, XCert0,
+XSR0, ExecPayloadDigest(XPld0), "valid-g"), runNilR3))
+	  .	                                                                          
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+[Error] krun: kparse --definition /tmp/r3demo-llvm /tmp/tmp.me4X3penbc/pgm.k
+# --- krun exit: 113 ---

@@ -1,0 +1,18 @@
+### regression: test_lineage_r1
+# command: python3 phase1h/python/test_lineage_r1.py
+# host: x86_64, python Python 3.12.14
+# --- output ---
+PASS LID-1 -> {'returnsPersisted': True, 'recordedAtUnchanged': True, 'bytesUnchanged': True, 'recordCount': 1}
+PASS LID-2 -> {'semanticProjectionIgnoresRecordedAt': True, 'recordedAtClassifiedObservation': True}
+PASS LID-3 -> LineageInconsistencyError
+PASS LID-4 -> LineageInconsistencyError
+PASS LID-5 -> LineageInconsistencyError
+PASS LID-6 -> LineageInconsistencyError
+PASS LID-7 -> LineageInconsistencyError
+PASS LID-8 -> LineageInconsistencyError
+PASS LID-9 -> LineageInconsistencyError
+PASS LID-10 -> {'returnsPersisted': True, 'bytesUnchanged': True, 'recordCount': 1, 'headRestored': True}
+PASS LID-MSG -> message stable and names the differing semantic field
+
+LID suite: 11/11 PASS
+# --- exit: 0 ---

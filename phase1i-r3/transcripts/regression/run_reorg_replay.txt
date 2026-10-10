@@ -1,0 +1,24 @@
+### regression: run_reorg_replay
+# command: python3 phase1i/python/run_reorg_replay.py
+# host: x86_64, python Python 3.12.14
+# --- output ---
+PASS RR-1 competing branches both commit on their own branch -> ('COMMIT', 'COMMIT')
+PASS RR-2 reorg moves the head; displaced record byte-stable -> (True, True)
+PASS RR-5 lineage head follows the new canonical tip -> 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2
+PASS RR-3 stale evidence refused on the new branch -> REFUSED
+PASS RR-4 cached decision not reused (parentCommitment binding) -> True
+PASS RR-6 honest continuation on the new branch commits -> COMMIT
+PASS RP-1 Evaluate idempotent (same verdict + commitment) -> ('COMMIT', '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8')
+PASS RP-2 replay post-commit: same commitment, one record -> (True, True)
+PASS RP-3 replay independent of construction order -> 0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8
+PASS RP-4 replay of a displaced block post-reorg is refused -> REFUSED
+PASS GOV-2 committed history immutable under upgrade -> {'0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa': {'parentCommitment': None, 'postStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'slot': 0}, '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8': {'blockCommitment': '0x1de3a25a7be3c70e4bfbdb0510d5bba4009a31a1c3590c2c01968d8f2aea72f8', 'parentCommitment': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'payloadDigest': '0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', 'parentStateRoot': '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'postStateRoot': '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'evidenceSemantic': {'evidenceDigest': '0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'issuerIdentity': 'execution-client:geth-1.17.7@3d858f85', 'status': 'present', 'decision': 'SRW3_VALID'}, 'contextDigest': '0xbb20732ffab50e04b8c284369ddedad08522e28ca70efe21e0ab26d52d223d99', 'policyCommitment': '0xcd26e023960f99d458a3b2d21bf784843e22fb9549548a9b6fa2f594fdde0b5c', 'srw3Decision': 'SRW3_VALID', 'slot': 1}}
+PASS GOV-1a new block under the upgraded policy commits -> COMMIT
+PASS GOV-1b block still presenting the superseded commitment refuses -> REFUSED
+PASS GOV-3a rollback-by-presentation of the superseded policy refuses -> REFUSED
+PASS GOV-3b activation history append-only (length only grows) -> [(1, '0x6f239bbd1f294ccf01592890499ac47b55c9066bc90b88d4d072b5abf4c0f0a5')]
+PASS GOV-4 application invariant-set change is caught (SC-4/SC-9) -> REFUSED
+PASS GOV-5 negative model: two app-chosen policy commitments diverge (no protocol pin) — the reason the protocol MUST pin the policy -> True
+
+PI reorg/replay+governance suite: 17/17 PASS
+# --- exit: 0 ---

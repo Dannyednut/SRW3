@@ -1,0 +1,33 @@
+### regression: test_security_context_r1
+# command: python3 phase1h/python/test_security_context_r1.py
+# host: x86_64, python Python 3.12.14
+# --- output ---
+PASS SCT-1 -> {'verdict': 'SRW3_VALID', 'layer': None, 'reason': None}
+PASS SCT-2a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-1 policy version binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+PASS SCT-2b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-1 policy version binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+PASS SCT-3a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-2 policy digest binding violated: context 0xeeeeeeeeeeeeeeee... != deployment-pi
+PASS SCT-3b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-2 policy digest binding violated: context 0xeeeeeeeeeeeeeeee... != deployment-pi
+PASS SCT-4a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-4 application-set binding violated: context applicationSetDigest != digest(autho
+PASS SCT-4b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-4 application-set binding violated: context applicationSetDigest != digest(autho
+PASS SCT-5a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-5 interaction-graph binding violated: context interactionGraphDigest != digest(a
+PASS SCT-5b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-5 interaction-graph binding violated: context interactionGraphDigest != digest(a
+PASS SCT-6a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-8 lineage-head binding violated: context 0xeeeeeeeeeeeeeeee... != applicable lin
+PASS SCT-6b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-8 lineage-head binding violated: context 0xeeeeeeeeeeeeeeee... != applicable lin
+PASS SCT-7a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-6 client configuration binding violated: context clientExecutionConfig != execut
+PASS SCT-7b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-6 client configuration binding violated: context clientExecutionConfig != execut
+PASS SCT-8a -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-7 client identity binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+PASS SCT-8b (digest recomputed) -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-7 client identity binding violated: context '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+PASS SCT-9 -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-9 context digest integrity violated: recorded 0x0000000000000000... != recompute
+PASS SCT-10 -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': 'SC-3 chain identity binding violated: context chainId 999999999 != client-derived 9
+PASS AUTH-1 -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-1 policy version binding violated: context 'srw3-policy-1h-v1-EVIL' != authorize
+PASS AUTH-2 -> {'verdict': 'SRW3_REJECT', 'layer': 'security-context', 'reason': "SC-7 client identity binding violated: context 'execution-client:EVIL-9.9' != execu
+PASS AUTH-3 -> {'forgedChainOk': False, 'layer': 'authroot', 'reason': 'protocol root genesis mismatch (H-A2/H5)', 'honestContextStillValid': True}
+PASS AUTH-4 -> {'verdict': 'SRW3_REJECT', 'layer': 'authority:authsrc', 'reason': 'evidence issuer is not the authorized client'}
+PASS AUTH-5 -> {'gateConstructsContext': 0, 'harnessConstructionSites': 1, 'explicitFallbackFound': False, 'note': 'SC-10 is architectural: evaluate() validates the 
+PASS DET-1 -> {'digest': '0xaa26d0a51e559eb96e...'}
+PASS DET-2 -> {'digestAfterSleep': '0xaa26d0a51e559eb96e...', 'canonicalKeys': ['applicationSetDigest', 'chainId', 'clientExecutionConfig', 'clientIdentity', 'inter
+PASS DET-3 -> {'normalizedChainId': '93471'}
+PASS DET-4 -> {'mutated': 'lineageHead'}
+
+SCT suite: 26/26 PASS
+# --- exit: 0 ---

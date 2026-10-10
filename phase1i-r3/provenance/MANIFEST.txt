@@ -1,0 +1,89 @@
+SRW3 Phase 1I-R3 — Configuration-Root Binding — MANIFEST
+Branch: phase1i-r3-config-root-binding
+Base:   82f06757db560545e0c844c6196c842426a760d8 (phase1i-r2-complete)
+Tip:    recorded in the delivery record + repository worklog (a file cannot
+        contain its own commit hash; integrity anchored at git-commit level)
+
+phase1i-r3/
+  semantics/srw3proto-r3.k          the isolated R3 machine (imports ONLY
+                                    SRW3AUTHZ; 13-field pin; NEW domain-
+                                    separated 13-field canonical root
+                                    ProtoCfgCanonR3/ProtoRootR3; immutable
+                                    <r3anchor> cell filled by $SRW3R3ANCHOR;
+                                    init REQUIRES ProtoRootR3(C) == anchor;
+                                    receipts bind the computed root+anchor;
+                                    pInitR3/pGateEvalR3/pAcceptR3 — no
+                                    verdict/config/root/anchor parameters)
+  semantics/srw3proto-r3-demo.k     honest-evidence demo fragments (frozen 1G
+                                    discipline) + XCfgR3/XCfgR3SchedB + R3
+                                    candidate derivation + xCertR3 byte-
+                                    certificate program (incl. the full
+                                    canonical preimage + real-Keccak root)
+  proofs/r3_fixtures.k              proof DEFINITION module: the all-concrete
+                                    13-field canon fixture (+5 single-field
+                                    mutations) and LegacyR2ProjectionR3W
+                                    (the frozen 0x9C shape as a REGRESSION
+                                    WITNESS oracle only)
+  proofs/r3_proofs.k                the R3 proof ladder (50 kprove claims)
+  proofs/run_r3_proofs.sh           runner (resumable; unambiguous score
+                                    convention: 1 claim = 1 invocation = 1 log)
+  proofs/summarize_r3_status.py     claims-status.csv + score.txt +
+                                    claim-classification.csv assembler
+  python/srw3_r3_config_commitment.py  the handoff pack's reference encoder,
+                                    integrated VERBATIM (provenance header)
+  python/r3_model.py                Python executable mirror of the R3
+                                    machine (real keccak via lin_verify.H;
+                                    anchor set OUTSIDE the command API)
+  python/run_r3_attacks.py          adversarial/regression suite (181 checks:
+                                    KX/HONEST/INITROOT/ROOTBIND/INTS/INJ/
+                                    VERDICT/BIND/ALT/CFG/STALE/CROSSROOT/
+                                    POOL/MAL/LEG/DET)
+  tests/test_config_root_binding.py 21 unittests: the pack's 11 reference
+                                    tests (Part 1) + golden-vector
+                                    conformance + machine-level root-binding
+                                    discipline (Part 2)
+  vectors/gen_vectors.py            golden-vector generator (real keccak)
+  vectors/config-root-r3.json       golden 349-byte preimage + root; 13
+                                    mutation vectors; length ambiguity; R2
+                                    alias witness; domain separation;
+                                    invalid-input table
+  transcripts/k/                    kompile logs; kprove_*.log for every
+                                    inventory claim (incl. the three retained
+                                    NOT-MECHANIZED logs and the retained
+                                    first ANCHOR-IMMUTABLE attempt);
+                                    claims-status.csv; score.txt;
+                                    claim-classification.csv;
+                                    r3_llvm_shim_build.log; r3_llvm_build.log
+  transcripts/demos/                T0 cross-layer byte certificate; T1 honest
+                                    two-block pipeline (REAL keccak); T2
+                                    gate-only; T3 no-receipt reject; T4
+                                    re-init refused; T5 schedule mutation
+                                    under old root REFUSED; T6 wrong anchor
+                                    REFUSED; T7 config-sub reject; T8
+                                    position-sub reject; T9 evidence
+                                    mismatch reject; T10-T11f kparse
+                                    ill-formed (injection + every legacy
+                                    command); T12 hs init-check boundary
+  transcripts/crosslayer/           r3_byte_certificate_k_raw.txt (the K-side
+                                    certificate; Python recomputes every
+                                    value byte-for-byte in the KX group)
+  transcripts/attacks/              r3-attack-suite.txt (181/181)
+  transcripts/regression/           the 10 regression transcripts (frozen
+                                    baselines all PASS + the R3 suites)
+  transcripts/legacy/               anchor-immutability-scan.txt (the
+                                    structural R3-ANCHOR-IMMUTABLE evidence)
+  transcripts/run_demos_r3.sh       demo runner (LLVM primary + T12 boundary)
+  transcripts/run_regressions_r3.sh regression runner (baselines + R3 suites)
+  audit/CONFIG-ROOT-BINDING-AUDIT.md  sections A-H: rule-set enumeration,
+                                    producer exhaustiveness, frozen-formula
+                                    correspondence, the two questions (§D),
+                                    cross-layer artifacts, score
+                                    reconciliation, byte stability,
+                                    assumption register
+  report/SRW3-Phase1I-R3-Config-Root-Binding-Report.md   the delivery report
+  report/SRW3-Phase1I-R3-Config-Root-Binding-Report.pdf  (same content, PDF)
+  provenance/PROVENANCE.md          this lineage + toolchain + commands +
+                                    retained failures (with the input-pack
+                                    hashes)
+  provenance/MANIFEST.txt           this manifest
+  provenance/provenance-hashes.txt  sha256 of every delivered file

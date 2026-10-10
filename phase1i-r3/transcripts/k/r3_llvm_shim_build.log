@@ -1,0 +1,36 @@
+=== SRW3 Phase 1I-R3 — krypto shim build (Sat Oct 10 10:04:00 UTC 2026) ===
+toolchain: K version:    v7.1.337
+In file included from krypto_shim.cpp:34:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+In file included from plugin_util.cpp:1:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+shim objects: krypto_shim.o=0 plugin_util.o=0
+libkrypto-shim.a: 18022 bytes
+multiblock-fix marker: 3 occurrences of the 136-byte block bound
+R3_SHIM_BUILD_DONE

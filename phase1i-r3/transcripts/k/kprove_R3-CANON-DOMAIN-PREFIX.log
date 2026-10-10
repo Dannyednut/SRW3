@@ -1,0 +1,1227 @@
+kore-exec: [1325883] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k:92:5-96:21
+#Top
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(313,17,313,18)
+	313 |	    <r3lineage> L:Map </r3lineage>
+	    .	                ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(314,14,314,15)
+	314 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(315,14,315,15)
+	315 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(316,17,316,19)
+	316 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(318,15,318,16)
+	318 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'C1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(326,30,326,32)
+	326 |	    <r3lineage> ( -1:Int |-> C1:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                             ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(326,46,326,48)
+	326 |	    <r3lineage> ( -1:Int |-> C1:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                                             ^~
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(327,14,327,15)
+	327 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(328,14,328,15)
+	328 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(329,17,329,19)
+	329 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(330,16,330,17)
+	330 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(331,15,331,16)
+	331 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'CMD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(338,9,338,12)
+	338 |	    <k> CMD:PCmdR3I => .K </k>
+	    .	        ^~~
+[Warning] Compiler: Variable 'V2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(477,15,477,17)
+	477 |	    <r3valid> V2:Bool </r3valid>
+	    .	              ^~
+[Warning] Compiler: Variable 'LH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(500,52,500,55)
+	500 |	         andBool gr3LinHeadOf(R:R3GateReceipt) ==K LH2:Bytes
+	    .	                                                   ^~~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(502,56,502,57)
+	502 |	         andBool BytesEq(gr3AnchorOf(R:R3GateReceipt), A:Bytes)
+	    .	                                                       ^
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(518,18,518,20)
+	518 |	         andBool CV:Int ==Int qcrPolicyVOf(C:ProtoCfgR3)
+	    .	                 ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(639,35,639,38)
+	639 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(639,46,639,49)
+	639 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(639,57,639,58)
+	639 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(639,71,639,73)
+	639 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(646,35,646,38)
+	646 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(646,46,646,49)
+	646 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(646,57,646,58)
+	646 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(646,71,646,73)
+	646 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(653,35,653,38)
+	653 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(653,46,653,49)
+	653 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(653,57,653,58)
+	653 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(653,71,653,73)
+	653 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	    .	                                                                      ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(669,16,669,17)
+	669 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(672,16,672,18)
+	672 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(676,15,676,16)
+	676 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(692,16,692,17)
+	692 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(695,16,695,18)
+	695 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(699,15,699,16)
+	699 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(719,19,719,20)
+	719 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                  ^
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(719,35,719,38)
+	719 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(719,46,719,49)
+	719 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(719,57,719,59)
+	719 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                                        ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(720,16,720,17)
+	720 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(721,30,721,31)
+	721 |	    <r3lineage> ( -1:Int |-> C:ProtoCfgR3 ) L3:Map </r3lineage>
+	    .	                             ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(722,14,722,15)
+	722 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(723,14,723,15)
+	723 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(724,17,724,19)
+	724 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(725,15,725,16)
+	725 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(730,19,730,20)
+	730 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                  ^
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(730,35,730,38)
+	730 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(730,46,730,49)
+	730 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                             ^~~
+[Warning] Compiler: Variable 'CV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(730,57,730,59)
+	730 |	    <k> pAcceptR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, CV:Int) => .K
+</k>
+	    .	                                                        ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(731,16,731,17)
+	731 |	    <r3anchor> A:Bytes </r3anchor>
+	    .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(732,30,732,31)
+	732 |	    <r3lineage> ( -1:Int |-> C:ProtoCfgR3 )
+	    .	                             ^
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(734,16,734,18)
+	734 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(735,14,735,15)
+	735 |	    <r3next> N:Int </r3next>
+	    .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(736,14,736,15)
+	736 |	    <r3head> H:Bytes </r3head>
+	    .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(737,17,737,19)
+	737 |	    <r3linhead> LH:Bytes </r3linhead>
+	    .	                ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(738,15,738,16)
+	738 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(752,20,752,22)
+	752 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(752,32,752,34)
+	752 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(752,44,752,48)
+	752 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(752,60,752,62)
+	752 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(755,16,755,18)
+	755 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(759,15,759,16)
+	759 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(774,20,774,22)
+	774 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(774,32,774,34)
+	774 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(774,44,774,48)
+	774 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(774,60,774,62)
+	774 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(777,16,777,18)
+	777 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(781,15,781,16)
+	781 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(794,20,794,22)
+	794 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(794,32,794,34)
+	794 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(794,44,794,48)
+	794 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(794,60,794,62)
+	794 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(797,16,797,18)
+	797 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(801,15,801,16)
+	801 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(814,20,814,22)
+	814 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(814,32,814,34)
+	814 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(814,44,814,48)
+	814 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(814,60,814,62)
+	814 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(817,16,817,18)
+	817 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(821,15,821,16)
+	821 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(836,20,836,22)
+	836 |	                   FC:ExecCtx, RG:LinRecG,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(836,32,836,34)
+	836 |	                   FC:ExecCtx, RG:LinRecG,
+	    .	                               ^~
+[Warning] Compiler: Variable 'PR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(837,48,837,50)
+	837 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                               ^~
+[Warning] Compiler: Variable 'EI' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(837,58,837,60)
+	837 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                                         ^~
+[Warning] Compiler: Variable 'CR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(837,68,837,70)
+	837 |	                   azCert(Int2Bytes(1, 1, BE), PR:Bytes, EI:Bytes,
+CR:Bytes,
+	    .	                                                                   ^~
+[Warning] Compiler: Variable 'ED' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(838,27,838,29)
+	838 |	                          ED:Bytes, 1,
+	    .	                          ^~
+[Warning] Compiler: Variable 'I' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(839,47,839,48)
+	839 |	                          azSrc(domConsensus, I:Bytes, 0), .List, 1,
+PP:Bytes),
+	    .	                                              ^
+[Warning] Compiler: Variable 'PP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(839,70,839,72)
+	839 |	                          azSrc(domConsensus, I:Bytes, 0), .List, 1,
+PP:Bytes),
+	    .	                                                                     ^~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(840,20,840,22)
+	840 |	                   AC:AzCtx, "valid-g", H:Bytes, N:Int, LH:Bytes,
+	    .	                   ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(842,16,842,18)
+	842 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(846,15,846,16)
+	846 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(868,20,868,22)
+	868 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(868,32,868,34)
+	868 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(868,44,868,48)
+	868 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(868,60,868,62)
+	868 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(877,16,877,18)
+	877 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(881,15,881,16)
+	881 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(896,20,896,22)
+	896 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                   ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(896,32,896,34)
+	896 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                               ^~
+[Warning] Compiler: Variable 'CERT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(896,44,896,48)
+	896 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                           ^~~~
+[Warning] Compiler: Variable 'AC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(896,60,896,62)
+	896 |	                   FC:ExecCtx, RG:LinRecG, CERT:AuthzCert, AC:AzCtx,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(899,16,899,18)
+	899 |	               L3:Map </r3lineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(903,15,903,16)
+	903 |	    <r3valid> V:Bool </r3valid>
+	    .	              ^
+[Warning] Compiler: Variable 'CH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,33,980,35)
+	980 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                ^~
+[Warning] Compiler: Variable 'PD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,50,980,52)
+	980 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                 ^~
+[Warning] Compiler: Variable 'AS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,60,980,62)
+	980 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                           ^~
+[Warning] Compiler: Variable 'GR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(980,70,980,72)
+	980 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	    .	                                                                     ^~
+[Warning] Compiler: Variable 'CC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,33,981,35)
+	981 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                ^~
+[Warning] Compiler: Variable 'EC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,43,981,45)
+	981 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                          ^~
+[Warning] Compiler: Variable 'FK' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,53,981,55)
+	981 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                                    ^~
+[Warning] Compiler: Variable 'SC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(981,63,981,65)
+	981 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	    .	                                                              ^~
+[Warning] Compiler: Variable 'SP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(982,33,982,35)
+	982 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                ^~
+[Warning] Compiler: Variable 'PT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(982,41,982,43)
+	982 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                        ^~
+[Warning] Compiler: Variable 'GD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(982,49,982,51)
+	982 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                                ^~
+[Warning] Compiler: Variable 'CD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(982,59,982,61)
+	982 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	    .	                                                          ^~
+[Warning] Compiler: Variable 'CH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,33,1046,35)
+	1046 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                ^~
+[Warning] Compiler: Variable 'PD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,50,1046,52)
+	1046 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                 ^~
+[Warning] Compiler: Variable 'AS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,60,1046,62)
+	1046 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                           ^~
+[Warning] Compiler: Variable 'GR' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1046,70,1046,72)
+	1046 |	    requires CFG ==K protoCfgR3(CH:Bytes, 1:Int, PD:Bytes, AS:Bytes,
+GR:Bytes,
+	     .	                                                                     ^~
+[Warning] Compiler: Variable 'CC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,33,1047,35)
+	1047 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                ^~
+[Warning] Compiler: Variable 'EC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,43,1047,45)
+	1047 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                          ^~
+[Warning] Compiler: Variable 'FK' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,53,1047,55)
+	1047 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                                    ^~
+[Warning] Compiler: Variable 'SC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1047,63,1047,65)
+	1047 |	                                CC:Bytes, EC:Bytes, FK:Bytes, SC:Bytes,
+	     .	                                                              ^~
+[Warning] Compiler: Variable 'SP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1048,33,1048,35)
+	1048 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                ^~
+[Warning] Compiler: Variable 'PT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1048,41,1048,43)
+	1048 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                        ^~
+[Warning] Compiler: Variable 'GD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1048,49,1048,51)
+	1048 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                                ^~
+[Warning] Compiler: Variable 'CD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1048,59,1048,61)
+	1048 |	                                SP:Int, PT:Int, GD:Bytes, CD:Bytes)
+	     .	                                                          ^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1088,35,1088,38)
+	1088 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1088,46,1088,49)
+	1088 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1088,57,1088,58)
+	1088 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1088,71,1088,73)
+	1088 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1094,35,1094,38)
+	1094 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                  ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1094,46,1094,49)
+	1094 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                             ^~~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1094,57,1094,58)
+	1094 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1094,71,1094,73)
+	1094 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1100,57,1100,58)
+	1100 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                        ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1100,71,1100,73)
+	1100 |	    <k> CommitPR3(B:ProtoBlockR3, ERC:Bytes, ERP:Bytes, C:ProtoCfgR3,
+LH:Bytes)
+	     .	                                                                     
+^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1121,38,1121,39)
+	1121 |	    <k> CommitChainLinkedR3(.Map, 0, C:ProtoCfgR3) => true </k>
+	     .	                                     ^
+[Warning] Compiler: Variable 'CI' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1210,17,1210,19)
+	1210 |	    <k> pConsR3(CI:PCmdR3I, RUN:PProgR3I) => .K </k>
+	     .	                ^~
+[Warning] Compiler: Variable 'RUN' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1210,29,1210,32)
+	1210 |	    <k> pConsR3(CI:PCmdR3I, RUN:PProgR3I) => .K </k>
+	     .	                            ^~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1211,17,1211,18)
+	1211 |	    <r3lineage> L:Map </r3lineage>
+	     .	                ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1212,14,1212,15)
+	1212 |	    <r3next> N:Int </r3next>
+	     .	             ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1213,14,1213,15)
+	1213 |	    <r3head> H:Bytes </r3head>
+	     .	             ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1214,17,1214,19)
+	1214 |	    <r3linhead> LH:Bytes </r3linhead>
+	     .	                ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/proofs/r3_proofs.k)
+	Location(1215,16,1215,17)
+	1215 |	    <r3anchor> A:Bytes </r3anchor>
+	     .	               ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(345,30,345,31)
+	345 |	  rule ProtoDecisionOfGateR3(S:String)  => pdecRejectR3 [owise]
+	    .	                             ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(459,43,459,47)
+	459 |	  rule blockAtR3(T:Int |-> B:ProtoBlockR3 REST:Map, T2:Int) => B
+	    .	                                          ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(675,42,675,46)
+	675 |	  rule storedCfgR3Of(-1 |-> C:ProtoCfgR3 REST:Map) => C:ProtoCfgR3
+	    .	                                         ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(676,22,676,26)
+	676 |	  rule storedCfgR3Of(REST:Map) => noCfgR3 [owise]
+	    .	                     ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(679,34,679,38)
+	679 |	  rule receiptsR3Of(-2 |-> S:Set REST:Map) => S:Set
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(680,21,680,25)
+	680 |	  rule receiptsR3Of(REST:Map) => .Set [owise]
+	    .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(683,40,683,44)
+	683 |	  rule cfgPinnedR3(-1 |-> _:ProtoCfgR3 REST:Map) => true
+	    .	                                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(684,20,684,24)
+	684 |	  rule cfgPinnedR3(REST:Map) => false [owise]
+	    .	                   ^~~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(772,20,772,21)
+	772 |	       <r3lineage> L:Map </r3lineage>
+	    .	                   ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(773,17,773,18)
+	773 |	       <r3next> N:Int </r3next>
+	    .	                ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(774,17,774,18)
+	774 |	       <r3head> H:Bytes </r3head>
+	    .	                ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(775,20,775,22)
+	775 |	       <r3linhead> LH:Bytes </r3linhead>
+	    .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(776,19,776,20)
+	776 |	       <r3anchor> A:Bytes </r3anchor>
+	    .	                  ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(777,18,777,19)
+	777 |	       <r3valid> V:Bool </r3valid>
+	    .	                 ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(947,20,947,21)
+	947 |	       <r3lineage> L:Map </r3lineage>
+	    .	                   ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(948,17,948,18)
+	948 |	       <r3next> N:Int </r3next>
+	    .	                ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(949,17,949,18)
+	949 |	       <r3head> H:Bytes </r3head>
+	    .	                ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(950,20,950,22)
+	950 |	       <r3linhead> LH:Bytes </r3linhead>
+	    .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(951,19,951,20)
+	951 |	       <r3anchor> A:Bytes </r3anchor>
+	    .	                  ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/work/SRW3/phase1i-r3/semantics/srw3proto-r3.k)
+	Location(952,18,952,19)
+	952 |	       <r3valid> V:Bool </r3valid>
+	    .	                 ^

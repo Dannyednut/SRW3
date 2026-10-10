@@ -1,0 +1,30 @@
+### T0: cross-layer byte certificate (the K half of the golden-vector conformance; includes the 13-field canonical preimage and its real-Keccak root)
+# definition: /tmp/r3demo-llvm  (krun, K v7.1.337)
+# anchor (SRW3R3ANCHOR): 207799d4800e6048606189de14198ba95cfd738d5a58e3ada85132fe71f87c12
+# program:
+#   pConsR3(xCertR3, runNilR3)
+# --- krun output ---
+<srw3protoR3>
+  <k>
+    "cfgr3canonlen=282,cfgr3canon=535257332f50726f746f4366672f5233000000000100000004000000010000000100000003504f4c000000208f2263aed4cbdc23ebab5f53b0c6f750ee7a150de61bc5fd4a001fc5dd4e1d7a0000002081601163803c5bfae9acb68548311f18c5cb689d18cc7f02756cc715540c6e4d0000002092b55dc16f7c3198d7528a4505061c54e5131deddcf55724c1a305a859f742a300000020e83c4e1b7f20f0ecbd8217152e844de99d91b9101efd210fa9e317bae8fec0280000000246310000000843414e43554e0000000000010000000100000020f59741c3bc54ee615ccce84900c4de51e5cd7799ed00b91b371848df066c2f490000002092b55dc16f7c3198d7528a4505061c54e5131deddcf55724c1a305a859f742a3,cfgr3root=207799d4800e6048606189de14198ba95cfd738d5a58e3ada85132fe71f87c12,cfgr3canonlenS=284,cfgr3rootS=cddb33d409515eb851c5db5b6de62e8b007ecd56e088d0cb1240251636f0a60f,policycommitr3=e1c78257e6d8ac4eb7237a5d29e0b86402f4b74c149a3c4bbedd165d82d812d5,ctxdigest0=e5710efafdb41bba55011c39f7e1d2d38ca76ab736370562037f8f1309a85be7,blockcommit0=b346c1b04e597049a434c7dc356b9318e22583fa3611d35038d259a179a470b2,srw3root0=9686afe9d9edbb95e2086b2384b6e10145902721030306623158d33099f3e30d,certid0=89ffea587b63cc787989fe232899c98b6967eeed2e483247d17880dc8da68e95,certid1=837a5ba44f3d76bb86467d2040ffd06dda215ccf3380eba4b64aa2a5d9fbedfd,recchild0=cc07b327ee7c659a7fd2f4bb12fcef206cd92397e36a50894091504171dfc6be,verdict0=valid-g,verdict1=valid-g" ~> runNilR3 ~> .K
+  </k>
+  <r3lineage>
+    .Map
+  </r3lineage>
+  <r3next>
+    0
+  </r3next>
+  <r3head>
+    b"\x00"
+  </r3head>
+  <r3linhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </r3linhead>
+  <r3anchor>
+    b" w\x99\xd4\x80\x0e`H`a\x89\xde\x14\x19\x8b\xa9\\\xfds\x8dZX\xe3\xad\xa8Q2\xfeq\xf8|\x12"
+  </r3anchor>
+  <r3valid>
+    true
+  </r3valid>
+</srw3protoR3>
+# --- krun exit: 0 ---
