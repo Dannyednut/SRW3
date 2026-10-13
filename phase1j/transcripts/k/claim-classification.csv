@@ -1,0 +1,43 @@
+claim,kprove_result,scientific_label,evidence_pointer
+J-CATALOG-CANON-FIXTURE,PROVED,PROVED (decidable byte equality vs the golden vector; cross-language conformance),transcripts/k/kprove_J-CATALOG-CANON-FIXTURE.log + vectors/j_golden.json + transcripts/llvm/T0
+J-CATALOG-DOMAIN-PREFIX,PROVED,PROVED (domain/version prefix; no frozen tag),transcripts/k/kprove_J-CATALOG-DOMAIN-PREFIX.log
+J-CATALOG-BINDS-APPS,PROVED,PROVED (preimage inequality under an app-name mutation),transcripts/k/kprove_J-CATALOG-BINDS-APPS.log
+J-CATALOG-BINDS-RESOURCES,PROVED,PROVED (preimage inequality under an owner mutation),transcripts/k/kprove_J-CATALOG-BINDS-RESOURCES.log
+J-CATALOG-BINDS-GRAPH,PROVED,PROVED (missing 3-app hyperedge changes the preimage),transcripts/k/kprove_J-CATALOG-BINDS-GRAPH.log
+J-CATALOG-BINDS-POLICY,PROVED,PROVED (preimage inequality under a bound mutation),transcripts/k/kprove_J-CATALOG-BINDS-POLICY.log
+J-CATALOG-KEYS-64BIT,PROVED,PROVED (64-bit flat-key encoding),transcripts/k/kprove_J-CATALOG-KEYS-64BIT.log
+J-CATALOG-WF-OK,PROVED,PROVED,transcripts/k/kprove_J-CATALOG-WF-OK.log
+J-CATALOG-WF-BAD-OWNER,PROVED,PROVED (fail-closed well-formedness),transcripts/k/kprove_J-CATALOG-WF-BAD-OWNER.log
+J-CATALOG-WF-DUP,PROVED,PROVED (duplicate-key refusal),transcripts/k/kprove_J-CATALOG-WF-DUP.log
+J-CATALOG-WF-DANGLING-HE,PROVED,PROVED (dangling-hyperedge invariant refusal),transcripts/k/kprove_J-CATALOG-WF-DANGLING-HE.log
+J-CORRESPONDENCE-R3-CANON-PREFIX,PROVED,PROVED (the frozen R3 domain preserved),transcripts/k/kprove_J-CORRESPONDENCE-R3-CANON-PREFIX.log
+J-CORRESPONDENCE-CTX-TAG,PROVED,PROVED (the frozen 0xA6 tag preserved),transcripts/k/kprove_J-CORRESPONDENCE-CTX-TAG.log
+J-INIT-SAFE-BASE,PROVED,PROVED (the J-INITIAL-SAFE base for the fixture),transcripts/k/kprove_J-INIT-SAFE-BASE.log
+J-INIT-REFUSES-UNSAFE-GENESIS,PROVED,PROVED (unsafe genesis refused at the pin),transcripts/k/kprove_J-INIT-REFUSES-UNSAFE-GENESIS.log
+J-INIT-PINS-AUTHORIZED,PROVED,PROVED (pin only under the authorized anchor; root equality carried as the documented hs hypothesis),transcripts/k/kprove_J-INIT-PINS-AUTHORIZED.log
+J-INIT-ROOT-MISMATCH-REJECTS,PROVED,PROVED (state-unchanged on the anchor negation),transcripts/k/kprove_J-INIT-ROOT-MISMATCH-REJECTS.log
+J-INIT-REFUSES-GRAPH-MISMATCH,PROVED,PROVED (missing-hyperedge catalog refused at the pin),transcripts/k/kprove_J-INIT-REFUSES-GRAPH-MISMATCH.log
+J-INIT-REFUSES-BAD-CATALOG,PROVED,PROVED,transcripts/k/kprove_J-INIT-REFUSES-BAD-CATALOG.log
+J-FRAG-TRACE-WRITE,PROVED,PROVED (the trace is emitted by the semantics),transcripts/k/kprove_J-FRAG-TRACE-WRITE.log
+J-FRAG-TRACE-ORDER,PROVED,PROVED (execution order; reorder changes the canon — J-A03),transcripts/k/kprove_J-FRAG-TRACE-ORDER.log
+J-FRAG-READ-AFTER-WRITE,PROVED,PROVED (reads observe the threaded state),transcripts/k/kprove_J-FRAG-READ-AFTER-WRITE.log
+J-FRAG-UNSUPPORTED,PROVED,PROVED (explicit refusal class),transcripts/k/kprove_J-FRAG-UNSUPPORTED.log
+J-FRAG-UNSUPPORTED-MIDPROGRAM,PROVED,PROVED (no post-state on refusal),transcripts/k/kprove_J-FRAG-UNSUPPORTED-MIDPROGRAM.log
+J-FRAG-BOUNDS,PROVED,PROVED (the bounds refusal class),transcripts/k/kprove_J-FRAG-BOUNDS.log
+J-FOOTPRINT-PROJECTION,PROVED,PROVED (first-occurrence footprint derivation),transcripts/k/kprove_J-FOOTPRINT-PROJECTION.log
+J-EVIDENCE-STATE-CORRESPONDENCE,FAILED(rc=124 retained),NOT MECHANIZED on the hs backend (the keccak hook has no evaluator over the fixture digests/records — the R3 PIPELINE-HONEST boundary class); DEMONSTRATED on LLVM (T1/T3: the mint FIRES, which requires ExecReceiptMatchesBlockJ/RecordJ with real keccak) and CHECKED in Python (exec_receipt_matches_*),transcripts/k/kprove_J-EVIDENCE-STATE-CORRESPONDENCE.log + transcripts/llvm/T1 + transcripts/attacks/run_j_attacks.txt
+J-CLOSURE-FIXTURE,PROVED,PROVED (the bounded closure fixed point incl. the 2-app edge pulled in via the 3-app edge),transcripts/k/kprove_J-CLOSURE-FIXTURE.log
+J-CLOSURE-EXHAUSTED,PROVED,PROVED (exhaustion is refusal, never 'no more interactions'),transcripts/k/kprove_J-CLOSURE-EXHAUSTED.log
+J-FOOTPRINT-REGISTERED-OK,PROVED,PROVED,transcripts/k/kprove_J-FOOTPRINT-REGISTERED-OK.log
+J-FOOTPRINT-REGISTERED-UNKNOWN,PROVED,PROVED (J-A11),transcripts/k/kprove_J-FOOTPRINT-REGISTERED-UNKNOWN.log
+J-SAFE-HONEST,PROVED,PROVED (the honest derived post-states are safe),transcripts/k/kprove_J-SAFE-HONEST.log
+J-SAFE-UNSAFE-COMPOSITION,PROVED,PROVED (THE 3-APP COUNTERMODEL: locals+pairwise pass, the 3-app hyperedge invariant fails; SafeJ false),transcripts/k/kprove_J-SAFE-UNSAFE-COMPOSITION.log
+J-SAFE-GLOBAL-FAIL,PROVED,PROVED (the global class: locals+hyperedge pass, global fails),transcripts/k/kprove_J-SAFE-GLOBAL-FAIL.log
+J-FRAME-PRESERVATION,PROVED,PROVED (untouched resources unchanged under a write elsewhere),transcripts/k/kprove_J-FRAME-PRESERVATION.log
+J-GATELINK-VALID,PROVED,PROVED (the derived-decision mapping + receipt link; the CONCRETE gate evaluation is verdict0/1 on LLVM),transcripts/k/kprove_J-GATELINK-VALID.log + transcripts/llvm/T0
+J-DECISION-BOUND,PROVED,PROVED (fail-closed mapping),transcripts/k/kprove_J-DECISION-BOUND.log
+J-FORGED-VERDICT-REJECT,PROVED,PROVED (a non-valid-g computed verdict cannot commit; state unchanged),transcripts/k/kprove_J-FORGED-VERDICT-REJECT.log
+J-COMMIT-NO-RECEIPT-REJECTS,PROVED,PROVED (commit without receipts fails closed),transcripts/k/kprove_J-COMMIT-NO-RECEIPT-REJECTS.log
+J-COMMIT-UNSAFE-COMPOSITION-REJECTS,FAILED(rc=124 retained),NOT MECHANIZED on the hs backend (the full-pipeline claim exceeds the hs budget under the keccak boundary); DEMONSTRATED on LLVM (T6: the unsafe commit REJECTS with state/head/counter unchanged, receipts unconsumed) and CHECKED in Python (J-A13 group),transcripts/k/kprove_J-COMMIT-UNSAFE-COMPOSITION-REJECTS.log + transcripts/llvm/T6 + transcripts/attacks/run_j_attacks.txt
+J-COMMIT-IMPLIES-SAFE-DESTINATION,FAILED(rc=124 retained),NOT MECHANIZED on the hs backend (the honest-pipeline claim — the R3 PIPELINE-HONEST class; the destination carries SafeJ and the state move but the hs budget is exceeded under the keccak boundary); DEMONSTRATED on LLVM (T1/T2: commit moves the state to the DERIVED post-state) and CHECKED in Python (HONEST-1BLOCK/2BLOCK),transcripts/k/kprove_J-COMMIT-IMPLIES-SAFE-DESTINATION.log + transcripts/llvm/T1,T2 + transcripts/attacks/run_j_attacks.txt
+J-REACHABLE-COMMITTED-SAFE,FAILED(rc=1 retained),NOT MECHANIZED (the kore stuck-configuration/circularity blocker — the frozen PI7-ALL/R1-ALL/R2-ALL/R3-ALL class; log retained).  Closure evidence: the PROVED component lemmas (base J-INIT-SAFE-BASE; step = the guard-computed SafeJ conjunct with J-SAFE-HONEST/J-SAFE-UNSAFE-COMPOSITION; frame J-FRAME-PRESERVATION) + the Python exhaustive sequence enumeration (3474 committed prefixes, 386 unsafe derived states caught by Safe_P, 0 committed unsafe) + the LLVM T2 two-block pipeline,transcripts/k/kprove_J-REACHABLE-COMMITTED-SAFE.log + transcripts/attacks/run_j_attacks.txt + transcripts/llvm/T2

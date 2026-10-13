@@ -1,0 +1,32 @@
+### T3: gate evaluation mints the receipt (computed verdict + computed roots); NO chain state moves
+# definition: srw3closure-j-demo.k (krun, K v7.1.337, LLVM + krypto shim)
+# anchor (SRW3JANCHOR): 295e0b6d2215e20662693a20e9af41d58f09b07b77dedd92924c2f6029dec9df
+# program:
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller, 0), pConsJ(pGateEvalJ(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0)), runNilJ)))
+# --- krun output ---
+<srw3closureJ>
+  <k>
+    .K
+  </k>
+  <jnext>
+    0
+  </jnext>
+  <jhead>
+    b")^\x0bm\"\x15\xe2\x06bi: \xe9\xafA\xd5\x8f\t\xb0{w\xde\xdd\x92\x92L/`)\xde\xc9\xdf"
+  </jhead>
+  <jlinhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </jlinhead>
+  <janchor>
+  <jstate>
+    .Map
+  </jstate>
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
+# --- krun exit: 0 ---
+# --- end of transcript ---

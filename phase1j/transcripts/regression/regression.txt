@@ -1,0 +1,38 @@
+=== SRW3 Phase 1J — zero-regression verification (Tue Oct 13 14:44:04 UTC 2026) ===
+
+-- frozen-tree byte stability vs the R3 base (git diff from 8a520fd, phase1j/ excluded) --
+diff-empty-check: FROZEN TREES BYTE-IDENTICAL
+
+-- frozen Python suites --
+--- phase1g/python/test_authz_verify.py
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'lin_verify'
+--- phase1f/python/test_exec_verify.py
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'lin_verify'
+--- phase1e/python/test_auth_verify.py
+    from lin_verify import (LinCtx, LinRec, H, addr_of, apply_effects, build_rec,
+ModuleNotFoundError: No module named 'lin_verify'
+--- phase1i-r3/tests/test_config_root_binding.py
+
+OK
+
+-- frozen Python suites (with the project python paths) --
+--- phase1e/python/test_auth_verify.py
+documented layers; AUTH-UPDATE equality and AUTH-COMMIT chain
+threading hold. Fixtures are the permanent Phase 1E baseline.
+--- phase1f/python/test_exec_verify.py
+
+=== PHASE 1F PYTHON SUITE: 16/16 verdict cases PASS; 3/3 byte checks MATCH ===
+--- phase1g/python/test_authz_verify.py
+
+=== PHASE 1G PYTHON SUITE: 25/25 verdict cases PASS; 0/0 byte checks MATCH ===
+
+-- frozen attack runners (R1/R2/R3) + the 1J unittests --
+--- phase1i-r1/python/run_r1_attacks.py
+--- phase1i-r2/python/run_r2_attacks.py
+R2 adversarial suite: 87 PASS / 0 FAIL (total 87)
+--- phase1i-r3/python/run_r3_attacks.py
+R3 adversarial suite: 181 PASS / 0 FAIL (total 181)
+--- phase1j/tests/test_security_closure.py
+OK

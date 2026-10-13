@@ -1,0 +1,492 @@
+kore-exec: [1727758] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k:263:5-268:21
+#Top
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(183,15,183,16)
+	183 |	    <janchor> A:Bytes </janchor>
+	    .	              ^
+[Warning] Compiler: Variable 'PCAT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(391,29,391,33)
+	391 |	               ( -3:Int |-> PCAT:JCatalog )
+	    .	                            ^~~~
+[Warning] Compiler: Variable 'L3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(393,16,393,18)
+	393 |	               L3:Map </jlineage>
+	    .	               ^~
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(397,14,397,15)
+	397 |	    <jstate> S:Map </jstate>
+	    .	             ^
+[Warning] Compiler: Variable 'RF' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(398,15,398,17)
+	398 |	    <jrefuse> RF:JRefuse </jrefuse>
+	    .	              ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(399,14,399,15)
+	399 |	    <jvalid> V:Bool </jvalid>
+	    .	             ^
+[Warning] Compiler: Variable 'B' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(414,18,414,19)
+	414 |	    <k> pCommitJ(B:JBlockJ, ERC:Bytes, ERP:Bytes, 1) => .K </k>
+	    .	                 ^
+[Warning] Compiler: Variable 'ERC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(414,29,414,32)
+	414 |	    <k> pCommitJ(B:JBlockJ, ERC:Bytes, ERP:Bytes, 1) => .K </k>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'ERP' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(414,40,414,43)
+	414 |	    <k> pCommitJ(B:JBlockJ, ERC:Bytes, ERP:Bytes, 1) => .K </k>
+	    .	                                       ^~~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(502,33,502,35)
+	502 |	        ~> pExecJ(XExecClientD, PG:List, XCaller, 0)
+	    .	                                ^~
+[Warning] Compiler: Variable 'FC' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(503,35,503,37)
+	503 |	        ~> pGateEvalJ( B:JBlockJ, FC:ExecCtx, RG:LinRecG, CT:AuthzCert
+	    .	                                  ^~
+[Warning] Compiler: Variable 'RG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(503,47,503,49)
+	503 |	        ~> pGateEvalJ( B:JBlockJ, FC:ExecCtx, RG:LinRecG, CT:AuthzCert
+	    .	                                              ^~
+[Warning] Compiler: Variable 'CT' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/proofs/j_proofs.k)
+	Location(503,59,503,61)
+	503 |	        ~> pGateEvalJ( B:JBlockJ, FC:ExecCtx, RG:LinRecG, CT:AuthzCert
+	    .	                                                          ^~
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(363,29,363,30)
+	363 |	  rule ProtoDecisionOfGateJ(S:String)  => pdecRejectJ [owise]
+	    .	                            ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(549,49,549,53)
+	549 |	  rule JResOwnerOf(ListItem(jRes(K:Int, O:Int)) REST:List, K2:Int) =>
+O:Int
+	    .	                                                ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(558,36,558,40)
+	558 |	  rule JHyperAt(ListItem(H:JHyper) REST:List, I:Int) => H:JHyper
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(566,40,566,44)
+	566 |	  rule JAppRegistered(ListItem(A:JApp) REST:List, I:Int) => true
+	    .	                                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(574,45,574,49)
+	574 |	  rule JKeyRegistered(ListItem(R:JResource) REST:List, K:Int) => true
+	    .	                                            ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(588,41,588,45)
+	588 |	  rule JHeRegistered(ListItem(H:JHyper) REST:List, I:Int) => true
+	    .	                                        ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(617,35,617,39)
+	617 |	  rule JIdInInvs(ListItem(V:JInv) REST:List, I:Int) => true
+	    .	                                  ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(913,43,913,47)
+	913 |	  rule JKeyInList(K:Int, ListItem(K2:Int) REST:List) => true
+	    .	                                          ^~~~
+[Warning] Compiler: Variable 'HS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1080,42,1080,44)
+	1080 |	  rule JClosureRound(AFF:List, INC:List, HS:List, 0)
+	     .	                                         ^~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1603,41,1603,45)
+	1603 |	  rule storedCfgJOf(-1 |-> C:ProtoCfgR3 REST:Map) => C:ProtoCfgR3
+	     .	                                        ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1604,21,1604,25)
+	1604 |	  rule storedCfgJOf(REST:Map) => noCfgR3 [owise]
+	     .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1608,39,1608,43)
+	1608 |	  rule storedCatJOf(-3 |-> P:JCatalog REST:Map) => P:JCatalog
+	     .	                                      ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1609,21,1609,25)
+	1609 |	  rule storedCatJOf(REST:Map) => noCatalogJ [owise]
+	     .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1612,37,1612,41)
+	1612 |	  rule gateReceiptsJOf(-2 |-> S:Set REST:Map) => S:Set
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1613,24,1613,28)
+	1613 |	  rule gateReceiptsJOf(REST:Map) => .Set [owise]
+	     .	                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1616,37,1616,41)
+	1616 |	  rule execReceiptsJOf(-4 |-> S:Set REST:Map) => S:Set
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1617,24,1617,28)
+	1617 |	  rule execReceiptsJOf(REST:Map) => .Set [owise]
+	     .	                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1620,39,1620,43)
+	1620 |	  rule cfgPinnedJ(-1 |-> _:ProtoCfgR3 REST:Map) => true
+	     .	                                      ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1621,19,1621,23)
+	1621 |	  rule cfgPinnedJ(REST:Map) => false [owise]
+	     .	                  ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1624,37,1624,41)
+	1624 |	  rule catPinnedJ(-3 |-> _:JCatalog REST:Map) => true
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1625,19,1625,23)
+	1625 |	  rule catPinnedJ(REST:Map) => false [owise]
+	     .	                  ^~~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1712,19,1712,20)
+	1712 |	       <jlineage> L:Map </jlineage>
+	     .	                  ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1713,16,1713,17)
+	1713 |	       <jnext> N:Int </jnext>
+	     .	               ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1714,16,1714,17)
+	1714 |	       <jhead> H:Bytes </jhead>
+	     .	               ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1715,19,1715,21)
+	1715 |	       <jlinhead> LH:Bytes </jlinhead>
+	     .	                  ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1716,18,1716,19)
+	1716 |	       <janchor> A:Bytes </janchor>
+	     .	                 ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1717,17,1717,18)
+	1717 |	       <jstate> S:Map </jstate>
+	     .	                ^
+[Warning] Compiler: Variable 'RF' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1718,18,1718,20)
+	1718 |	       <jrefuse> RF:JRefuse </jrefuse>
+	     .	                 ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(1719,17,1719,18)
+	1719 |	       <jvalid> V:Bool </jvalid>
+	     .	                ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2059,19,2059,20)
+	2059 |	       <jlineage> L:Map </jlineage>
+	     .	                  ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2060,16,2060,17)
+	2060 |	       <jnext> N:Int </jnext>
+	     .	               ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2061,16,2061,17)
+	2061 |	       <jhead> H:Bytes </jhead>
+	     .	               ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2062,19,2062,21)
+	2062 |	       <jlinhead> LH:Bytes </jlinhead>
+	     .	                  ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2063,18,2063,19)
+	2063 |	       <janchor> A:Bytes </janchor>
+	     .	                 ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2064,17,2064,18)
+	2064 |	       <jstate> S:Map </jstate>
+	     .	                ^
+[Warning] Compiler: Variable 'RF' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2065,18,2065,20)
+	2065 |	       <jrefuse> RF:JRefuse </jrefuse>
+	     .	                 ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-repo/phase1j/semantics/srw3closure-j.k)
+	Location(2066,17,2066,18)
+	2066 |	       <jvalid> V:Bool </jvalid>
+	     .	                ^

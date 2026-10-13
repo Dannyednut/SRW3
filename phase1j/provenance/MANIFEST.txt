@@ -1,0 +1,9 @@
+SRW3 Phase 1J — provenance manifest (the phase1j/ tree at packaging time)
+entries: 86
+base: 8a520fd8a3d4651b0884a59e8db8aec1d3eb7670 (phase1i-r3-complete)
+branch: phase1j-security-closure
+toolchain: K v7.1.337 (hs + LLVM backends), z3 4.13.3, clang/LLVM 15.0.6,
+  krypto shim (the 1D-R1 multiblock-fix recipe), Python 3.12 (real keccak-256
+  via the frozen lin_verify.H — sha3_256 is never substituted)
+scoring: score.txt 38 4 (1:1 over the 42-claim inventory; the 4 retained
+  failures are classified in claim-classification.csv with their substitutes)
