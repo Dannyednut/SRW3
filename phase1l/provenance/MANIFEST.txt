@@ -1,0 +1,26 @@
+# SRW3 Phase 1L — Universal Induction Mechanization provenance
+# branch: phase1l-universal-induction  base: phase1k-implementation-package @ b1dbe90 (phase1k-r1-complete)
+# generated: 2026-10-15 16:38:22 UTC
+
+## Scope
+- additive tree phase1l/ only; git diff b1dbe90 HEAD outside phase1l/ is EMPTY (frozen trees byte-stable)
+- the frozen 1J machine UNCHANGED (the 1L definition adds [function,total] definitions only — rule-inventory.md)
+
+## Toolchain of record (this rebuild)
+- K v7.1.337 (pinned jammy deb; sha256 111385b834c19571fbcfe8e60ddacd392e64ab3ebbe353bc5c8fc2299c179eaf)
+- z3 4.13.3 | flex 2.6.4 | clang/LLVM-15 15.0.6-4+b1 (+libclang-common-15-dev, lld-15) | libsecp256k1 0.5.0 (+dev headers) | libmpfr-dev
+- recorded fixes: libclang-common-15-dev extraction; flex on PATH; pristine llvm-kompile-clang driver (R2 patch reverted; one path substitution)
+- environment repairs: java heap wrapper (frozen -Xmx6g OOMs on 4GiB); LIBRARY_PATH default; libmpfr/secp dev headers for the shim build
+
+## Reproduction
+- K ladder: REKOMPILE=1 bash phase1l/proofs/run_l_proofs.sh <outdir>  (per-claim budget LCLAIM_TIMEOUT=<s>; canonical pass used 400)
+- L attacks: python3 phase1l/python/run_l_attacks.py
+- LLVM tier: bash phase1j/proofs/j_build_llvm.sh; bash phase1j/transcripts/run_demos_j.sh <outdir> (transient in-place + byte-exact restore)
+- fresh 1J suites: python3 phase1j/tests/test_security_closure.py; PYTHONPATH=<1J+deps> python3 phase1j/python/run_j_attacks.py
+
+## Evidence chain
+- corrected 1K base: b1dbe90 (verification repaired; fresh install/run/verify transcript committed; phase1k-complete preserved at d32ad13)
+- 1L ladder: 30/30 claims invoked, 14 PROVED, 16 retained (blockers B1-B4), 0 gate alarms — transcripts/k/
+- frozen 1J kprove ladder fresh: 38/38 proved-class reproduced; 4 retained-class bounded re-runs (frozen logs of record stand)
+- fresh LLVM T-series byte-identical to frozen (T0/T2/T6 + anchor, modulo headers)
+- L attacks 56/56; fresh 1J unittests 27/27; fresh 1J attacks 48/48

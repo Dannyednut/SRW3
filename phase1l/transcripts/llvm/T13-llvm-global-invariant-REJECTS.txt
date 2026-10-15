@@ -1,0 +1,32 @@
+### T13: the global-invariant class (J-A15): locals + hyperedge invariants pass, the GLOBAL invariant fails -> commit refused
+# definition: srw3closure-j-demo.k (krun, K v7.1.337, LLVM + krypto shim)
+# anchor (SRW3JANCHOR): 295e0b6d2215e20662693a20e9af41d58f09b07b77dedd92924c2f6029dec9df
+# program:
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller, 0), pConsJ(pGateEvalJ(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0)), pConsJ(pCommitJ(XB0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), 1), pConsJ(pExecJ(XExecClientD, XProgGlobal, XCaller, 0), pConsJ(pGateEvalJ(XBG, XCtxG, XRG0, XCert0, StateRootJ(XPostG), JPayloadDigestJ(XProgGlobal)), pConsJ(pCommitJ(XBG, StateRootJ(XPostG), JPayloadDigestJ(XProgGlobal), 1), runNilJ)))))))
+# --- krun output ---
+<srw3closureJ>
+  <k>
+    pGateEvalJ ( jBlockJ (... jbParentCommit: b"\x02\x8a\x17\xeb\xc1y\xc7s/\x9eF1g\x88\xa1o\xd3\xcfp\xfb\xf3\xef\x8d\xb8\xfe\xbfc\x11\xd1\x8d\x8a\xe8" , jbPayloadD: b"\x92\xeaC\x10\x8e\xc4\xc5\x93\x04.\xc6f;\x97!\x86\xb8\f\xac\xfb\xf7\xfa\xcf\x04\x92\xda\xd5\xbe).\x80\xd2" , jbParentRoot: b"d\xc6\x1a\xdbB\xb4\x16\x80\xdf\xb4\xae\xc3\xf6m\xa7\x9eKs$n\xc2\xad\x83I\x0e\x84\xcaf\xb4\x9e -" , jbPostRoot: b"oW\xda?<4\xe5G\xdd\x80R'\xc1hZ\xd2&\xe5\xff\xa5\xd6\xcdBtC\x96\xcdM\xf9\xb4pV" , jbTraceD: b"4\x1c\x9b\xfc\x17\xf63I\x11\x9aQB`\x88\xcf\xccYL\x9f\xb8\xd87\xab\xbf\x07\xec\xb6\x07\xb6\x92\x10\xc9" , jbFootD: b"\x8f\xcf^F{\x00|\x1a\xeb\xb0!R\x838\x94:`\xdf\xb5RQ\xd7\x91\xef\xe0r54\xcfn\xbe2" , jbEvidenceId: b"+@x#\xae\xd1\xc0\xc9\xa3\xff\xc6\xde\xfd\x8d\xde\xf7\x1e\xe9c\xc1\xe6\"\x10\xb5JF\xf5\x15nKQ\x90" , jbCatalogRoot: b"\xb3\xc1\\\x87i\xe1\x84\f\xfe>\xc4d\x0e\xdeZ\x9b\x9a\xcd\x9b\x99<v\xedp*g\xfcE\x9c\x9b/\x14" , jbConfigRoot: b")^\x0bm\"\x15\xe2\x06bi: \xe9\xafA\xd5\x8f\t\xb0{w\xde\xdd\x92\x92L/`)\xde\xc9\xdf" , jbExecSrc: b"\xe8<N\x1b\x7f \xf0\xec\xbd\x82\x17\x15.\x84M\xe9\x9d\x91\xb9\x10\x1e\xfd!\x0f\xa9\xe3\x17\xba\xe8\xfe\xc0(" , jbDecision: 1 , jbSlot: 2 ) , execCtx (... ectx: authCtx (... ctx: linCtxP ( 4097 |-> ( 0 |-> 100 )
+    4098 |-> ( 0 |-> 100
+  <jnext>
+    1
+  </jnext>
+  <jhead>
+    b"\x964<\xaa\x9c\xa5\fHNf\x9d\xe3\xe7\x19\xe1\x0et@\xac\xdd\x91\x8f\x1c\x9b,\xab\xad\x7fP\xacyv"
+  </jhead>
+  <jlinhead>
+    b"\xda\xe7\xf1\xf0f\xc5\xc5\xdb\xd4\x829\xc0G,1<}\x8e\xee\t[\xd2]\xad\x08/\xf8\xd6KK^\xcd"
+  </jlinhead>
+  <janchor>
+  <jstate>
+    4097 |-> ( 0 |-> 100 )
+  </jstate>
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
+# --- krun exit: 0 ---
+# --- end of transcript ---

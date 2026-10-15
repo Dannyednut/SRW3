@@ -1,0 +1,32 @@
+### T8: the honest configuration on a machine anchored at a DIFFERENT protocol root is REFUSED (the anchor is authenticated protocol input, not caller data — J-A21)
+# definition: srw3closure-j-demo.k (krun, K v7.1.337, LLVM + krypto shim)
+# anchor (SRW3JANCHOR): abab..ab (a DIFFERENT protocol root)
+# program:
+#   pConsJ(pInitJ(XCfgJ, XCatJ), runNilJ)
+# --- krun output ---
+<srw3closureJ>
+  <k>
+    .K
+  </k>
+  <jnext>
+    0
+  </jnext>
+  <jhead>
+    b"\x00"
+  </jhead>
+  <jlinhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </jlinhead>
+  <janchor>
+  <jstate>
+    .Map
+  </jstate>
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
+# --- krun exit: 0 ---
+# --- end of transcript ---

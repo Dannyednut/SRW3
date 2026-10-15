@@ -1,0 +1,14 @@
+### T14b: a caller-supplied coverage Boolean on pCommitJ IS ILL-FORMED (J-A16/J-A01 — no command accepts a policy/coverage/authenticity Boolean)
+# definition: srw3closure-j-demo.k (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pCommitJ(XB0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), 1, true), runNilJ))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token ',' following token '1'.
+	Source(/tmp/tmp.WrE45gcCLl/pgm.k)
+	Location(1,98,1,99)
+	1 |	pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pCommitJ(XB0, StateRootJ(XPost0D),
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/j-llvm /tmp/tmp.WrE45gcCLl/pgm.k
+[Error] krun: kparse --definition /tmp/j-llvm /tmp/tmp.WrE45gcCLl/pgm.k
+# --- krun exit: 113 ---
+# --- end of transcript ---
