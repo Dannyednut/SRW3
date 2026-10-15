@@ -1,0 +1,15 @@
+# ARCHIVED: the verify_all.sh transcript as committed at d32ad13 (tag phase1k-complete).
+# This is the FAILING fresh-run transcript that triggered audit finding K1:
+# the d32ad13 verifier required byte equality of the REGENERATED j_golden.json,
+# which is environment-dependent; the corrective protocol (semantic compare + restore)
+# replaces it.  Body kept verbatim as the retained negative evidence.
+#
+#ORIG: === SRW3 Implementation Package — verify_all ===
+#ORIG: --- manifest self-check (sha256 -c MANIFEST.sha256) ---
+#ORIG: verify_all.sh: FAILED
+#ORIG: sha256sum: WARNING: 1 computed checksum did NOT match
+#ORIG: FAIL: manifest mismatch (see the sha256sum output above)
+#ORIG: --- manifest fingerprint ---
+#ORIG: 507766bef64c34a133b77c0fefb8d4c9acaa3f440eac1ece6a57d7451c2f4875  MANIFEST.sha256
+#ORIG: --- golden vector spot check ---
+#ORIG: j_golden.json: 23 fields present, parse OK

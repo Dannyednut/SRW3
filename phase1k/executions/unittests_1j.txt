@@ -27,6 +27,6 @@ test_honest_posts_safe (__main__.TestSafety.test_honest_posts_safe) ... ok
 test_three_app_countermodel (__main__.TestSafety.test_three_app_countermodel) ... ok
 
 ----------------------------------------------------------------------
-Ran 27 tests in 0.117s
+Ran 27 tests in 0.111s
 
 OK

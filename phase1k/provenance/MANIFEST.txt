@@ -16,3 +16,15 @@
 - repo re-cloned from Dannyednut/SRW3 (PAT) after sandbox reset; 1J verified at phase1j-complete
 - stale pre-reset trees quarantined by install.sh --adopt-quarantine (srw3-kevm, srw3b-work -> *.phase1k-quarantined.*)
 - coincurve installed into the python3.12 venv (frozen lin_verify.py dependency)
+
+## Corrective verification (Phase 1K verification repair)
+- trigger: independent audit findings K1-K4 (Phase 1L handoff pack, PHASE1K_AUDIT_FINDINGS.md)
+- repair: semantic-compare + trap-guarded restore wrapper (run_all.sh); exit-relevant
+  golden-vector required-field check + failing-path disclosure (verify_all.sh);
+  README count reconciled (48/48 + 7 additive, convention stated); archived failing
+  d32ad13 transcript (executions/archive/verify_all_d32ad13_FAILED.txt)
+- fresh corrective evidence: install_corrective.txt (exit 0, --adopt-quarantine),
+  all tier transcripts regenerated (byte-identical to d32ad13 except the timing line
+  in unittests_1j.txt), vector_semantics.txt (23/23 fields equal), verify_all.txt
+  (55/55 stable post-restoration, PASS)
+- tag phase1k-complete preserved at d32ad13; this repair is a separate commit

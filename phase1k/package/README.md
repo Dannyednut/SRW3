@@ -9,8 +9,25 @@ conformance vectors, the test and adversarial suites, and the K proof-tier
 sources — into one self-contained, byte-identity-certified tree.  Every
 packaged artifact is a byte-identical copy of a file committed in the frozen
 phase trees (`phase1e` … `phase1j`); the certificate is
-`executions/byte-identity.txt` (45/45 identical at packaging time) and the
+`executions/byte-identity.txt` (48/48 copied artifacts sha256-identical to
+their frozen git-blob sources; 7 additive entry-point/doc artifacts carry no
+frozen source — count convention: "identical" = a packaged copy whose sha256
+equals the sha256 of the corresponding git blob at the frozen base `a91dbcc`;
+"additive" = a Phase-1K-authored artifact with no frozen counterpart) and the
 self-integrity manifest is `MANIFEST.sha256`.
+
+**Phase 1K corrective verification note.**  The saved `d32ad13` verifier
+transcript (`executions/archive/verify_all_d32ad13_FAILED.txt`) shows a
+manifest mismatch on a fresh run: byte-level stability of the REGENERATED
+`j_golden.json` is environment-dependent, and that run conflated the two
+properties.  The corrected protocol separates them: `run_all.sh` saves the
+committed vector bytes, lets the frozen runner regenerate the vector,
+checks SEMANTIC equivalence (parsed key/value equality — the reproducible
+property) with the committed object, restores the committed bytes in a
+trap-guarded cleanup, and only then runs `verify_all.sh`, whose manifest
+check asserts byte stability over the tree AS COMMITTED
+(`executions/vector_semantics.txt` + `executions/verify_all.txt` are the
+corrective transcripts of record).
 
 ## What this is (and is not)
 
@@ -30,8 +47,9 @@ self-integrity manifest is `MANIFEST.sha256`.
 
 ```sh
 ./install.sh                      # self-integrity + path-compat layer
-./run_all.sh   [OUT-DIR]          # full Python verification tier
-./verify_all.sh                   # MANIFEST byte-stability (incl. regenerated vectors)
+./run_all.sh   [OUT-DIR]          # full Python verification tier + vector
+                                  # semantic check + post-restore verify_all
+./verify_all.sh                   # MANIFEST byte-stability (tree as committed)
 ```
 
 Expected results at the content base (all fresh-run reproducible):
@@ -46,6 +64,8 @@ Expected results at the content base (all fresh-run reproducible):
 | regression | 1G Python suite | 25/25 PASS |
 | regression | 1F Python suite | 16/16 PASS (+3/3 byte checks) |
 | regression | 1E Python suite | all PASS |
+| vector semantics | regenerated vs committed `j_golden.json` | SEMANTICALLY IDENTICAL (bytes restored) |
+| byte-stability oracle | `verify_all.sh` post-restoration | manifest matches (exit 0) |
 
 ## Layout
 
@@ -57,7 +77,8 @@ package/
   CLAIMS-INDEX.md          reconciled proof inventory across 1E..1J with statuses
   install.sh               self-integrity + the disclosed path-compat layer
   run_all.sh               the Python verification tier from THIS tree
-  verify_all.sh            manifest byte-stability (vectors included)
+  verify_all.sh            manifest byte-stability (tree as committed) + exit-
+                           relevant golden-vector required-field check
   MANIFEST.sha256          sha256 of every packaged file (byte-stability oracle)
   python-gen/              the lineage verifier core (lin_verify.py)
   phase1e/python/          authenticated state model + suite

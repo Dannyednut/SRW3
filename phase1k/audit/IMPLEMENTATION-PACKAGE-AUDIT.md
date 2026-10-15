@@ -150,3 +150,31 @@ carries the runner's own labels and exit code.
   paths (they are disclosed frozen behavior).
 - Level III only.  Everything in the frozen non-claim registers
   (INTEGRATION-GUIDE §6) applies verbatim to the package.
+
+## H. Corrective disposition (post-independent-audit, verification repair)
+
+The independent audit of the `d32ad13` completion state (findings K1-K4,
+`PHASE1K_AUDIT_FINDINGS.md` in the Phase 1L handoff pack) established that
+this audit's completion-gate row "verify_all.txt 55/55 byte-stable" was NOT
+supported by the committed evidence: the saved transcript records the
+manifest check FAILING on a fresh run (the regenerated `j_golden.json`
+byte-compared against the committed copy — an environment-dependent
+requirement).  Disposition:
+
+- K1 REPAIRED: the wrapper now separates the two properties — semantic
+  equivalence of the regenerated vector (checked key/value-for-key; result
+  `executions/vector_semantics.txt`) and byte stability of the tree AS
+  COMMITTED (`verify_all.sh` post-restoration; transcript
+  `executions/verify_all.txt`, PASS).  The failing `d32ad13` transcript is
+  archived at `executions/archive/verify_all_d32ad13_FAILED.txt`.
+- K2 REPAIRED: the golden-vector spot check is exit-relevant (malformed
+  vector or missing required field fails `verify_all.sh`); failing manifest
+  paths are printed.
+- K3 REPAIRED: README reconciled to the certificate (48 identical copied
+  artifacts / 7 additive) with the count convention stated.
+- K4 PRESERVED: fresh LLVM demonstrations remain demonstrations; the
+  Haskell kprove ladders were not re-run fresh and their frozen logs stand;
+  no unmechanized claim is reclassified.
+- Tag `phase1k-complete` preserved at `d32ad13`; the repair is a NEW commit
+  on this branch.  Completion gate item "byte-stability oracle" is now
+  supported by fresh, reproducible, committed evidence.

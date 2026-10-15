@@ -6,6 +6,70 @@ base `phase1j-security-closure` @ `a91dbcc` (`phase1j-complete`)
 
 ---
 
+## 0. Corrective verification (Phase 1K verification repair, post-audit)
+
+An independent audit of the `d32ad13` completion state (tag
+`phase1k-complete`, preserved — not moved) found the package's saved
+verifier evidence inconsistent (finding **K1**): the committed transcript
+`executions/verify_all.txt` showed `verify_all.sh: FAILED — 1 computed
+checksum did NOT match / FAIL: manifest mismatch`, while the report text
+claimed 55/55 manifest entries stable.  Both cannot describe the same final
+run, and the transcript is the direct executable evidence, so the Phase 1K
+verification gate was NOT clean as committed.  The prime suspect was the
+regenerated `j_golden.json`: the frozen `run_j_attacks.py` rewrites it in
+place (`json.dump(..., indent=1, sort_keys=True)`), and byte-level stability
+of that regenerated file is environment-dependent, while the `d32ad13`
+verifier required byte equality with the committed copy.
+
+Additional audit findings, all repaired here: **K2** — the `verify_all.sh`
+golden-vector spot check printed a `missing` list but its result never
+affected the exit status; **K3** — the package README said `45/45 identical`
+while the certificate records 48 identical copied artifacts + 7 additive
+artifacts; **K4** — summaries must keep distinguishing freshly rebuilt LLVM
+demonstrations from the NOT re-run Haskell kprove ladders (preserved: fresh
+concrete executions do not mechanize any unmechanized proof claim).
+
+The repair, exactly as prescribed by the audit:
+
+1. `run_all.sh` saves the committed vector's original bytes before the 1J
+   attack tier;
+2. the frozen J attack script runs and regenerates the vector in place (a
+   frozen byte is never edited by the package; the regeneration is the
+   script's own documented write-back, whose lifecycle the wrapper owns);
+3. the regenerated object is parsed and compared key/value-for-key against
+   the committed object — any semantic difference fails the run;
+4. the committed bytes are restored by a trap-guarded cleanup, whether the
+   runner succeeds or fails;
+5. `verify_all.sh` runs only after restoration: its manifest check now
+   asserts byte stability over the package tree AS COMMITTED;
+6. the semantic-equivalence result is recorded separately
+   (`executions/vector_semantics.txt`) while the package retains the frozen
+   vector's exact committed bytes.
+
+Also fixed per audit: the missing-field/malformed spot check is now
+exit-relevant in `verify_all.sh` (K2), and a failing manifest check prints
+the failing paths; the README count is reconciled to the certificate with
+the count convention stated (K3); the archived failing `d32ad13` transcript
+is preserved at `executions/archive/verify_all_d32ad13_FAILED.txt`.
+
+**Corrective fresh-run evidence (this commit's completion gate):** clean
+checkout of the corrected tree; `install.sh --adopt-quarantine` exit 0
+(pre-existing stale shadowing trees quarantined — the recorded environment
+repair; transcript `executions/install_corrective.txt`); `run_all.sh` exit 0
+with every tier green (unittests 27/27; 1J attacks 48/48 incl. the
+reachability enumeration 3474/386/0; R1 48/48, R2 87/87, R3 181/181 with K↔Python
+cross-checks; 1E/1F/1G suites green) — and the regenerated vector
+SEMANTICALLY IDENTICAL to the committed object (23/23 fields), committed
+bytes restored, `verify_all.sh` PASS post-restoration (55/55 manifest
+entries stable; fingerprint recorded in the transcript).  All tier
+transcripts from the fresh run are byte-identical to the `d32ad13` records
+except `unittests_1j.txt` (interpreter timing line only) and
+`verify_all.txt` itself (the corrected protocol's output).  The diff
+outside `phase1k/` remains empty; the tag `phase1k-complete` still points
+at `d32ad13`.
+
+---
+
 ## 1. Objective and outcome
 
 Phase 1K packages the verified SRW3 deliverable surface — the executable

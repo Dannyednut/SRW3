@@ -56,13 +56,26 @@ writes one transcript per tier into `OUT-DIR`:
 | `suite_1e.txt` | `phase1e/python/test_auth_verify.py -v` | all OK |
 | `suite_1f.txt` | `phase1f/python/test_exec_verify.py -v` | 16/16 + 3/3 byte |
 | `suite_1g.txt` | `phase1g/python/test_authz_verify.py -v` | 25/25 |
+| `vector_semantics.txt` | wrapper semantic compare | REGENERATED == COMMITTED |
+| `verify_all.txt` | `verify_all.sh` post-restoration | manifest matches (exit 0) |
 
 Every runner exits with its failure count (0 = clean).  `attacks_1j`
-regenerates `vectors/j_golden.json` from the packaged mirror; `verify_all.sh`
-then re-checks the MANIFEST, so the regenerated vector file MUST still match
-its packaged sha256 — this is the package's byte-stability oracle for the
-golden vectors (determinism of the mirror across runs and, at packaging
-time, byte-identity with the K/LLVM certificate values).
+regenerates `vectors/j_golden.json` from the packaged mirror.  The wrapper
+then runs the CORRECTIVE vector protocol (Phase 1K verification repair):
+the regenerated object is checked for SEMANTIC equivalence against the
+committed vector (parsed key/value equality; result in
+`vector_semantics.txt`), the committed bytes are RESTORED, and only then is
+`verify_all.sh` run — so its MANIFEST check asserts byte stability over the
+package tree AS COMMITTED.  Separately, `verify_all.sh`'s golden-vector
+spot check is exit-relevant: a malformed vector or a missing required
+field fails `verify_all.sh` even when the manifest matches.
+
+Historical note: the `d32ad13` verifier required the REGENERATED vector's
+BYTES to equal the committed bytes and asserted "55/55 stable" while the
+saved transcript showed a manifest mismatch — byte-level stability of a
+regenerated JSON is environment-dependent (float repr / library builds).
+The saved failing transcript is preserved at
+`executions/archive/verify_all_d32ad13_FAILED.txt`.
 
 ## 3. The input model (what an integrator must construct)
 

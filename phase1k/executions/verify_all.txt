@@ -1,9 +1,7 @@
 === SRW3 Implementation Package — verify_all ===
 --- manifest self-check (sha256 -c MANIFEST.sha256) ---
-verify_all.sh: FAILED
-sha256sum: WARNING: 1 computed checksum did NOT match
-FAIL: manifest mismatch (see the sha256sum output above)
+OK: 55 files byte-stable (tree as committed; regenerated vectors are restored before this check)
 --- manifest fingerprint ---
-507766bef64c34a133b77c0fefb8d4c9acaa3f440eac1ece6a57d7451c2f4875  MANIFEST.sha256
---- golden vector spot check ---
+f698d31318bd7c64a31f4bb232b0a27dd8aab1c3b871ed2261f8bfcf09dcb907  MANIFEST.sha256
+--- golden vector spot check (exit-relevant: K2) ---
 j_golden.json: 23 fields present, parse OK

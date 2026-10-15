@@ -1,0 +1,11 @@
+=== SRW3 Phase 1K corrective — fresh install transcript ===
+$ ./install.sh --adopt-quarantine   # pre-existing stale shadowing trees moved aside (recorded env repair)
+=== SRW3 Implementation Package install (v1.0.0, Phase 1K) ===
+package root: /home/z/my-project/srw3-repo/phase1k/package
+python3 3.12 OK
+coincurve OK
+compat:      /home/z/my-project/srw3-kevm adopted (pre-existing tree moved to /home/z/my-project/srw3-kevm.phase1k-quarantined.1792061866)
+compat:      /home/z/my-project/srw3b-work adopted (pre-existing tree moved to /home/z/my-project/srw3b-work.phase1k-quarantined.1792061866)
+self-integrity OK: 55 files match MANIFEST.sha256
+install complete
+install exit=0

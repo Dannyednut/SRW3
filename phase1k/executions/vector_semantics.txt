@@ -1,0 +1,5 @@
+=== golden-vector semantic equivalence (corrective K1 protocol) ===
+committed object : /tmp/j_golden_committed.i6A2ZY.json
+regenerated object: /home/z/my-project/srw3-repo/phase1k/package/phase1j/vectors/j_golden.json
+SEMANTICALLY IDENTICAL: all 23 fields equal key/value-for-key
+committed bytes restored by the wrapper (trap-guarded); byte stability is asserted by verify_all.sh over the committed tree

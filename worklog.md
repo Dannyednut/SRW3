@@ -1359,3 +1359,54 @@ Stage Summary:
   theorem, no semantic change, frozen history untouched; kprove hs ladders
   not re-run fresh (disclosed; frozen logs of record stand); no
   consensus-integration claim.
+
+---
+Task ID: 1K-R1
+Agent: Super Z (main)
+Task: Phase 1K verification repair (corrective commit per independent audit K1-K4)
+
+Work Log:
+- Environment: sandbox reset again; repo re-cloned from Dannyednut/SRW3 at
+  d32ad13 (tag phase1k-complete); pinned toolchain rebuilt from the recipe of
+  record (K v7.1.337, z3 4.13.3, flex 2.6.4, LLVM/clang-15 15.0.6-4+b1,
+  libsecp256k1 0.5.0; libclang-common-15-dev extraction; flex on PATH;
+  PRISTINE llvm-kompile-clang driver with one path substitution — the R2
+  patch NOT applied).
+- Reproduced the audit context: in THIS environment the regenerated
+  j_golden.json is byte-identical to the committed copy (the d32ad13-era
+  failure was environment-dependent); the committed verify_all.txt FAILED
+  transcript stands as the retained negative evidence (archived verbatim at
+  executions/archive/verify_all_d32ad13_FAILED.txt).
+- K1 REPAIR (run_all.sh): save committed vector bytes -> run frozen J attack
+  tier (its own documented write-back regenerates the vector) -> semantic
+  compare regenerated vs committed, key/value-for-key (vector_semantics.txt)
+  -> trap-guarded restore of the committed bytes -> verify_all.sh AFTER
+  restoration -> semantic result recorded separately; any semantic
+  difference fails the run.
+- K2 REPAIR (verify_all.sh): golden-vector spot check is exit-relevant
+  (malformed JSON or missing required field -> nonzero exit); failing
+  manifest paths are printed on mismatch.
+- K3 REPAIR (README.md): 45/45 -> 48/48 copied artifacts identical + 7
+  additive, count convention stated; verification protocol description
+  updated; INTEGRATION-GUIDE + CLAIMS-INDEX reconciled to the corrective
+  protocol; MANIFEST.sha256 regenerated (same 55 paths, 5 content changes).
+- K4 PRESERVED: fresh LLVM demos ≠ mechanized proofs — the distinction is
+  restated in the report erratum; no unmechanized claim reclassified.
+- Fresh corrective evidence: install_corrective.txt (exit 0,
+  --adopt-quarantine), all tier transcripts regenerated (unittests 27/27,
+  attacks 48/48 incl. enumeration 3474/386/0, R1 48/48, R2 87/87, R3 181/181,
+  1E/1F/1G green), vector_semantics.txt (23/23 fields equal, bytes restored),
+  verify_all.txt PASS post-restoration (55/55; fingerprint in transcript).
+- Report: §0 erratum added (audit findings, repair protocol, fresh evidence);
+  PDF regenerated (gen_phase1k_pdf.py); audit doc §H corrective disposition;
+  provenance MANIFEST.txt + provenance-hashes.txt regenerated (106 files,
+  self-hash excluded per 1K convention).
+- Frozen trees: git diff outside phase1k/ EMPTY; tag phase1k-complete
+  preserved at d32ad13; the repair is a separate commit (new tag).
+
+Stage Summary:
+- PHASE 1K VERIFICATION REPAIRED: the package verification is now
+  reproducible (semantic-equivalence + restore protocol), the K2 exit
+  semantics are fixed, the stale count is reconciled, and a fresh
+  install -> run -> verify transcript is committed.  Phase 1L branches from
+  this corrective commit per the handoff sequencing rule.

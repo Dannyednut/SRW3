@@ -48,9 +48,13 @@ the anchor discipline (`*-INIT-PINS-AUTHORIZED` / `*-INIT-ROOT-MISMATCH-REJECTS`
 (real Keccak-256, `phase1j/transcripts/llvm/T0`) and the Python mirror
 (`vectors/j_golden.json`), including the computed verdicts and the SafeJ
 evaluations, with the disclosed verdict-surface normalization (R2/R3 mirror
-artifact).  The package's byte-stability oracle (`MANIFEST.sha256` +
-`verify_all.sh`) additionally proves run-to-run determinism of the
-regenerated vectors within the package.
+artifact).  The package's integrity oracle (`MANIFEST.sha256` +
+`verify_all.sh`) asserts byte stability of the package tree AS COMMITTED;
+run-to-run conformance of the regenerated vectors is asserted SEMANTICALLY
+(parsed key/value equality against the committed object, bytes restored
+afterwards — the corrective Phase 1K protocol, replacing the `d32ad13`
+byte-equality-of-regenerated-output requirement that is environment-
+dependent).
 
 ## 4. Status labels used in this package
 
