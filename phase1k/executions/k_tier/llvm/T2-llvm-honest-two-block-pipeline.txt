@@ -1,0 +1,33 @@
+### T2: honest two-block continuation under the SAME full config root (the J-A24 reorg-stale class's positive control)
+# definition: srw3closure-j-demo.k (krun, K v7.1.337, LLVM + krypto shim)
+# anchor (SRW3JANCHOR): 295e0b6d2215e20662693a20e9af41d58f09b07b77dedd92924c2f6029dec9df
+# program:
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller, 0), pConsJ(pGateEvalJ(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0)), pConsJ(pCommitJ(XB0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), 1), pConsJ(pExecJ(XExecClientD, XProg1, XCaller, 0), pConsJ(pGateEvalJ(XB1, XCtx1, XRG1, XCert1, StateRootJ(XPost1D), JPayloadDigestJ(XProg1)), pConsJ(pCommitJ(XB1, StateRootJ(XPost1D), JPayloadDigestJ(XProg1), 1), runNilJ)))))))
+# --- krun output ---
+<srw3closureJ>
+  <k>
+    .K
+  </k>
+  <jnext>
+    2
+  </jnext>
+  <jhead>
+    b"\x02\x8a\x17\xeb\xc1y\xc7s/\x9eF1g\x88\xa1o\xd3\xcfp\xfb\xf3\xef\x8d\xb8\xfe\xbfc\x11\xd1\x8d\x8a\xe8"
+  </jhead>
+  <jlinhead>
+    b"\xf4\xc0\xca\xcf\xcd\x8c\x16^\xfd!\xc0AO\xf8\xf6w5\x90t<\x8a+\xb6\xda\xfb\x97\xf7d\x1d\xcc\x8a\xde"
+  </jlinhead>
+  <janchor>
+  <jstate>
+    4097 |-> ( 0 |-> 100 )
+    4098 |-> ( 0 |-> 100
+    1 |-> 100 )
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
+# --- krun exit: 0 ---
+# --- end of transcript ---

@@ -1,0 +1,14 @@
+### T14a: THE INJECTION SHAPE (a verdict string on pGateEvalJ) IS ILL-FORMED in the J command language
+# definition: srw3closure-j-demo.k (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller, 0), pConsJ(pGateEvalJ(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), "valid-g"), runNilJ)))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token ',' following token ')'.
+	Source(/tmp/tmp.1w1XcgundT/pgm.k)
+	Location(1,167,1,168)
+	1 |	pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller,
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+[Error] krun: kparse --definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+# --- krun exit: 113 ---
+# --- end of transcript ---

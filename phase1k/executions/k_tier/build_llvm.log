@@ -1,0 +1,887 @@
+=== SRW3 Phase 1K — LLVM + krypto shim rebuild from the PACKAGE sources (Thu Oct 15 08:46:47 UTC 2026) ===
+toolchain: K version:    v7.1.337; clang Debian clang version 15.0.6
+
+=== 1. krypto shim build (k/phase1d/shim — the multiblock-fix shim) ===
+In file included from krypto_shim.cpp:34:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+In file included from plugin_util.cpp:1:
+In file included from ./plugin_util.h:8:
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:176:38: warning: 'term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+std::shared_ptr<kllvm::kore_pattern> term_to_kore_pattern(block *);
+                                     ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:178:1: warning: 'sorted_term_to_kore_pattern' has C-linkage specified, but returns user-defined type 'std::shared_ptr<kllvm::kore_pattern>' which is incompatible with C [-Wreturn-type-c-linkage]
+sorted_term_to_kore_pattern(block *, char const *);
+^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:322:9: warning: 'set_iterator' has C-linkage specified, but returns user-defined type 'setiter' which is incompatible with C [-Wreturn-type-c-linkage]
+setiter set_iterator(set *);
+        ^
+/home/z/my-project/tools/extract/k/usr/include/kllvm/runtime/header.h:324:9: warning: 'map_iterator' has C-linkage specified, but returns user-defined type 'mapiter' which is incompatible with C [-Wreturn-type-c-linkage]
+mapiter map_iterator(map *);
+        ^
+4 warnings generated.
+shim objects: krypto_shim.o=0 plugin_util.o=0
+libkrypto-shim.a: 18022 bytes
+multiblock-fix marker: 3 occurrences of the 136-byte block bound
+syslibs: libjemalloc.so libmpfr.so libtinfo.so libunwind.so 
+
+=== 2. J demo definition kompile (llvm + KRYPTO hooks + shim) ===
+NOTE: the phase1j sources come from the PACKAGE (/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics)
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(113,32,113,35)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(113,44,113,45)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                           ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(113,51,113,55)
+	113 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-version"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(115,32,115,35)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                               ^~~
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(115,51,115,55)
+	115 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-tid"
+	    .	                                                  ^~~~
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(117,32,117,35)
+	117 |	  rule VerifyLineage(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes) =>
+"invalid-parent"
+	    .	                               ^~~
+[Warning] Compiler: Non exhaustive match detected:
+`linRecAt(_,_)_SRW3LIN-VERIFY_LinRec_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(177,21,177,61)
+	177 |	  syntax LinRec ::= linRecAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(178,36,178,40)
+	178 |	  rule linRecAt(T:Int |-> R:LinRec REST:Map, T2:Int) => R requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`linCtxAt(_,_)_SRW3LIN-VERIFY_LinCtx_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(185,21,185,61)
+	185 |	  syntax LinCtx ::= linCtxAt ( Map , Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(186,36,186,40)
+	186 |	  rule linCtxAt(T:Int |-> C:LinCtx REST:Map, T2:Int) => C requires T
+==Int T2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'F' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(196,20,196,21)
+	196 |	  rule LinFieldTag(F:LinField) => "f?" [owise]
+	    .	                   ^
+[Warning] Compiler: Non exhaustive match detected:
+`LinTamperMatrix(_,_,_,_,_)_SRW3LIN-VERIFY_String_LinRec_LinCtx_Int_Bytes_List`(_,_,_,_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(239,21,239,95)
+	239 |	  syntax String ::= LinTamperMatrix ( LinRec , LinCtx , Int , Bytes ,
+List ) [function, total]
+	    .	                   
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(241,24,241,25)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                       ^
+[Warning] Compiler: Variable 'CTX' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(241,34,241,37)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                 ^~~
+[Warning] Compiler: Variable 'T' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(241,46,241,47)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                             ^
+[Warning] Compiler: Variable 'HEAD' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin-verify.k)
+	Location(241,53,241,57)
+	241 |	  rule LinTamperMatrix(R:LinRec, CTX:LinCtx, T:Int, HEAD:Bytes, .List)
+=> ""
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'B1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(70,16,70,18)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'B2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(70,20,70,22)
+	70 |	  rule BytesEq(B1, B2) => false [owise]
+	   .	                   ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(93,13,93,14)
+	93 |	  rule MinI(A:Int, B:Int) => B [owise]
+	   .	            ^
+[Warning] Compiler: Non exhaustive match detected:
+`MinKeyOfMap(_)_SRW3LIN_Int_Map`(`_Map_`(`_|->_`(_,_),_))
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(97,18,97,55)
+	97 |	  syntax Int ::= MinKeyOfMap ( Map ) [function, total]
+	   .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinMapAt(_,_)_SRW3LIN_Map_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(104,18,104,58)
+	104 |	  syntax Map ::= LinMapAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(105,33,105,37)
+	105 |	  rule LinMapAt(K:Int |-> V:Map REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinIntAt(_,_)_SRW3LIN_Int_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(110,18,110,58)
+	110 |	  syntax Int ::= LinIntAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(111,33,111,37)
+	111 |	  rule LinIntAt(K:Int |-> V:Int REST:Map, K2:Int) => V requires K ==Int
+K2
+	    .	                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppsIter(_)_SRW3LIN_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(151,20,151,58)
+	151 |	  syntax Bytes ::= LinAppsIter ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`LinAppIns(_,_)_SRW3LIN_List_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/k/phase1d/srw3lin.k)
+	Location(170,19,170,61)
+	170 |	  syntax List ::= LinAppIns ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthKIns(_,_)_SRW3AUTH_List_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(126,19,126,60)
+	126 |	  syntax List ::= AuthKIns ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthInsList(_,_)_SRW3AUTH_List_List_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(151,19,151,64)
+	151 |	  syntax List ::= AuthInsList ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthListAt(_,_)_SRW3AUTH_Int_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(168,18,168,61)
+	168 |	  syntax Int ::= AuthListAt ( List , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthBListAt(_,_)_SRW3AUTH_Bytes_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(174,20,174,64)
+	174 |	  syntax Bytes ::= AuthBListAt ( List , Int ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthKeyInList(_,_)_SRW3AUTH_Bool_Int_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(180,19,180,65)
+	180 |	  syntax Bool ::= AuthKeyInList ( Int , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthLevelUp(_)_SRW3AUTH_List_List`(`_List_`(`_List_`(`.List`(.KList),`ListItem`(_)),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(232,19,232,57)
+	232 |	  syntax List ::= AuthLevelUp ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AuthIOAux(_,_,_)_SRW3AUTH_Int_List_Int_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_)
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(263,18,263,66)
+	263 |	  syntax Int ::= AuthIOAux ( List , Int , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(323,23,323,24)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                      ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(323,32,323,33)
+	323 |	  rule AuthVerifyIncl(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+PR:Bytes)
+	    .	                               ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(332,56,332,60)
+	332 |	  rule AuthUpdateRoot(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, PR:Bytes)
+	    .	                                                       ^~~~
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(512,27,512,28)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                          ^
+[Warning] Compiler: Variable 'K' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(512,36,512,37)
+	512 |	  rule AuthVerifyInclList(R:Bytes, K:Int, PRES:Int, V:Int, IDX:Int,
+SIBS:List)
+	    .	                                   ^
+[Warning] Compiler: Variable 'VNEW' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(520,60,520,64)
+	520 |	  rule AuthUpdateRootList(R:Bytes, K:Int, PRES:Int, V:Int, VNEW:Int,
+IDX:Int, SIBS:List)
+	    .	                                                           ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AppendListItem(_,_)_SRW3AUTH_List_Bytes_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1e/semantics/srw3auth.k)
+	Location(542,19,542,68)
+	542 |	  syntax List ::= AppendListItem ( Bytes , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecBoundsOk(_)_SRW3EXEC_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(95,19,95,58)
+	95 |	  syntax Bool ::= ExecBoundsOk ( List ) [function, total]
+	   .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecEventsBytes(_)_SRW3EXEC_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(111,20,111,62)
+	111 |	  syntax Bytes ::= ExecEventsBytes ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecTW(_,_)_SRW3EXEC_Map_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(177,18,177,57)
+	177 |	  syntax Map ::= ExecTW ( List , Map ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecReplayMap(_,_)_SRW3EXEC_Map_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(184,18,184,64)
+	184 |	  syntax Map ::= ExecReplayMap ( List , Map ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecReadsOk(_,_)_SRW3EXEC_Bool_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(192,19,192,63)
+	192 |	  syntax Bool ::= ExecReadsOk ( List , Map ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecProj(_)_SRW3EXEC_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1f/semantics/srw3exec.k)
+	Location(220,19,220,54)
+	220 |	  syntax List ::= ExecProj ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'D1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(75,16,75,18)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	               ^~
+[Warning] Compiler: Variable 'D2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(75,32,75,34)
+	75 |	  rule AzDomEq(D1:AuthzDomain, D2:AuthzDomain) => false [owise]
+	   .	                               ^~
+[Warning] Compiler: Non exhaustive match detected:
+`AzChainBytes(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(186,20,186,59)
+	186 |	  syntax Bytes ::= AzChainBytes ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AzOwnInChain(_,_)_SRW3AUTHZ_Bool_List_Bytes`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(224,19,224,66)
+	224 |	  syntax Bool ::= AzOwnInChain ( List , Bytes ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AzChainOk(_,_,_,_,_,_,_)_SRW3AUTHZ_Bool_List_Int_ExecCtx_SecCtx_Int_Bytes_Bytes`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_,_,_,_,_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(234,19,235,56)
+	    .	                 
+v~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	234 |	  syntax Bool ::= AzChainOk ( List , Int , ExecCtx , SecCtx , Int ,
+Bytes ,
+	235 |	                              Bytes ) [function, total]
+	    .	                              ~~~~~~~~~~~~~~~~~~~~~~~~^
+[Warning] Compiler: Variable 'D' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(277,30,277,31)
+	277 |	  rule AzSrcAuthorized(azSrc(D:AuthzDomain, _:Bytes, _:Int), _:ExecCtx,
+	    .	                             ^
+[Warning] Compiler: Non exhaustive match detected:
+`BalCanon(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(555,20,555,55)
+	555 |	  syntax Bytes ::= BalCanon ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalListLen(_)_SRW3AUTHZ_Int_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(561,18,561,55)
+	561 |	  syntax Int ::= BalListLen ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalRestCanon(_)_SRW3AUTHZ_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(565,20,565,59)
+	565 |	  syntax Bytes ::= BalRestCanon ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalTouched(_)_SRW3AUTHZ_Map_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(571,18,571,55)
+	571 |	  syntax Map ::= BalTouched ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalKeyMap(_)_SRW3AUTHZ_Map_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(578,18,578,54)
+	578 |	  syntax Map ::= BalKeyMap ( List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`BalWritesOk(_,_,_)_SRW3AUTHZ_Bool_List_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_,_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(592,19,592,70)
+	592 |	  syntax Bool ::= BalWritesOk ( List , List , Map ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'PRE' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1g/semantics/srw3authz.k)
+	Location(598,39,598,42)
+	598 |	  rule BalEntryOk(E:BalEntry, T:List, PRE:Map)
+	    .	                                      ^~~
+[Warning] Compiler: Non exhaustive match detected:
+`XHexDigit(_)_SRW3CLOSURE-J-DEMO_String_Int`(#token("16","Int"))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j-demo.k)
+	Location(466,21,466,56)
+	466 |	  syntax String ::= XHexDigit ( Int ) [function, total]
+	    .	                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(363,29,363,30)
+	363 |	  rule ProtoDecisionOfGateJ(S:String)  => pdecRejectJ [owise]
+	    .	                            ^
+[Warning] Compiler: Non exhaustive match detected:
+`JCanonApps(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(457,20,457,57)
+	457 |	  syntax Bytes ::= JCanonApps ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JCanonResources(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(462,20,462,62)
+	462 |	  syntax Bytes ::= JCanonResources ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JCanonHypers(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(468,20,468,59)
+	468 |	  syntax Bytes ::= JCanonHypers ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JCanonKeys(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(476,20,476,57)
+	476 |	  syntax Bytes ::= JCanonKeys ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JCanonInvs(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(501,20,501,57)
+	501 |	  syntax Bytes ::= JCanonInvs ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JResOwnerOf(_,_)_SRW3CLOSURE-J_Int_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(547,18,547,62)
+	547 |	  syntax Int ::= JResOwnerOf ( List , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(549,49,549,53)
+	549 |	  rule JResOwnerOf(ListItem(jRes(K:Int, O:Int)) REST:List, K2:Int) =>
+O:Int
+	    .	                                                ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JHyperAt(_,_)_SRW3CLOSURE-J_JHyperOrNone_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(556,27,556,68)
+	556 |	  syntax JHyperOrNone ::= JHyperAt ( List , Int ) [function, total]
+	    .	                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(558,36,558,40)
+	558 |	  rule JHyperAt(ListItem(H:JHyper) REST:List, I:Int) => H:JHyper
+	    .	                                   ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JAppRegistered(_,_)_SRW3CLOSURE-J_Bool_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(564,19,564,66)
+	564 |	  syntax Bool ::= JAppRegistered ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(566,40,566,44)
+	566 |	  rule JAppRegistered(ListItem(A:JApp) REST:List, I:Int) => true
+	    .	                                       ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JKeyRegistered(_,_)_SRW3CLOSURE-J_Bool_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(572,19,572,66)
+	572 |	  syntax Bool ::= JKeyRegistered ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(574,45,574,49)
+	574 |	  rule JKeyRegistered(ListItem(R:JResource) REST:List, K:Int) => true
+	    .	                                            ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JKeysRegistered(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(580,19,580,68)
+	580 |	  syntax Bool ::= JKeysRegistered ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JHeRegistered(_,_)_SRW3CLOSURE-J_Bool_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(586,19,586,65)
+	586 |	  syntax Bool ::= JHeRegistered ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(588,41,588,45)
+	588 |	  rule JHeRegistered(ListItem(H:JHyper) REST:List, I:Int) => true
+	    .	                                        ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JNoDupApps(_)_SRW3CLOSURE-J_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(595,19,595,56)
+	595 |	  syntax Bool ::= JNoDupApps ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JNoDupRes(_)_SRW3CLOSURE-J_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(600,19,600,55)
+	600 |	  syntax Bool ::= JNoDupRes ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JNoDupHypers(_)_SRW3CLOSURE-J_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(605,19,605,58)
+	605 |	  syntax Bool ::= JNoDupHypers ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JNoDupInvs(_)_SRW3CLOSURE-J_Bool_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(610,19,610,56)
+	610 |	  syntax Bool ::= JNoDupInvs ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JIdInInvs(_,_)_SRW3CLOSURE-J_Bool_List_Int`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(615,19,615,61)
+	615 |	  syntax Bool ::= JIdInInvs ( List , Int ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(617,35,617,39)
+	617 |	  rule JIdInInvs(ListItem(V:JInv) REST:List, I:Int) => true
+	    .	                                  ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JResAllOwned(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(639,19,639,65)
+	639 |	  syntax Bool ::= JResAllOwned ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JHyperAllNodesReg(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(645,19,645,70)
+	645 |	  syntax Bool ::= JHyperAllNodesReg ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JInvsAllNodesReg(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(651,19,651,69)
+	651 |	  syntax Bool ::= JInvsAllNodesReg ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JInvsAllHesReg(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(665,19,665,67)
+	665 |	  syntax Bool ::= JInvsAllHesReg ( List , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JInnerAt(_,_)_SRW3CLOSURE-J_Map_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(718,18,718,58)
+	718 |	  syntax Map ::= JInnerAt ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JSlotGet(_,_)_SRW3CLOSURE-J_Int_Map_Int`(`_Map_`(`_|->_`(_,_),_),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(725,18,725,58)
+	725 |	  syntax Int ::= JSlotGet ( Map , Int ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecFragmentJ(_,_)_SRW3CLOSURE-J_JExecResult_Map_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(749,26,749,72)
+	749 |	  syntax JExecResult ::= ExecFragmentJ ( Map , List ) [function, total]
+	    .	                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`ExecFragmentStep(_,_,_)_SRW3CLOSURE-J_JExecResult_Map_JOp_JExecResult`(_,`jUnsupported(_)_SRW3CLOSURE-J_JOp_Int`(_),`jExecOk(_,_,_)_SRW3CLOSURE-J_JExecResult_Map_Map_List`(_,_,_))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(795,26,796,42)
+	    .	                         v~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	795 |	  syntax JExecResult ::= ExecFragmentStep ( Map , JOp , JExecResult )
+	796 |	                        [function, total]
+	    .	                        ~~~~~~~~~~~~~~~~^
+[Warning] Compiler: Non exhaustive match detected:
+`JProgCanonJ(_)_SRW3CLOSURE-J_Bytes_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(845,20,845,58)
+	845 |	  syntax Bytes ::= JProgCanonJ ( List ) [function, total]
+	    .	                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JFootprintKeysOf(_)_SRW3CLOSURE-J_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(892,19,892,62)
+	892 |	  syntax List ::= JFootprintKeysOf ( List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JFPAppend(_,_)_SRW3CLOSURE-J_List_Int_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(899,19,899,61)
+	899 |	  syntax List ::= JFPAppend ( Int , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JKeyInList(_,_)_SRW3CLOSURE-J_Bool_Int_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(911,19,911,62)
+	911 |	  syntax Bool ::= JKeyInList ( Int , List ) [function, total]
+	    .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(913,43,913,47)
+	913 |	  rule JKeyInList(K:Int, ListItem(K2:Int) REST:List) => true
+	    .	                                          ^~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JSumOf(_,_)_SRW3CLOSURE-J_Int_Map_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(995,18,995,57)
+	995 |	  syntax Int ::= JSumOf ( Map , List ) [function, total]
+	    .	                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JAllEqOf(_,_)_SRW3CLOSURE-J_Bool_Map_List`(_,`_List_`(`_List_`(`.List`(.KList),`ListItem`(_)),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1001,19,1001,60)
+	1001 |	  syntax Bool ::= JAllEqOf ( Map , List ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AllLocalJ(_,_)_SRW3CLOSURE-J_Bool_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1009,19,1009,61)
+	1009 |	  syntax Bool ::= AllLocalJ ( List , Map ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AllHyperJ(_,_)_SRW3CLOSURE-J_Bool_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1014,19,1014,61)
+	1014 |	  syntax Bool ::= AllHyperJ ( List , Map ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`AllGlobalJ(_,_)_SRW3CLOSURE-J_Bool_List_Map`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1019,19,1019,62)
+	1019 |	  syntax Bool ::= AllGlobalJ ( List , Map ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JIncidentUnion(_,_)_SRW3CLOSURE-J_List_List_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1057,19,1057,67)
+	1057 |	  syntax List ::= JIncidentUnion ( List , List ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JHeTouches(_,_)_SRW3CLOSURE-J_Bool_JHyper_List`(_,`_List_`(`.List`(.KList),`ListItem`(_)))
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1063,19,1063,65)
+	1063 |	  syntax Bool ::= JHeTouches ( JHyper , List ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'HS' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1080,42,1080,44)
+	1080 |	  rule JClosureRound(AFF:List, INC:List, HS:List, 0)
+	     .	                                         ^~
+[Warning] Compiler: Non exhaustive match detected:
+`JNoNewKeys(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1087,19,1087,63)
+	1087 |	  syntax Bool ::= JNoNewKeys ( List , List ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JListUnion(_,_)_SRW3CLOSURE-J_List_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1092,19,1092,63)
+	1092 |	  syntax List ::= JListUnion ( List , List ) [function, total]
+	     .	                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Non exhaustive match detected:
+`JFootprintRegistered(_,_)_SRW3CLOSURE-J_Bool_List_List`(`_List_`(`.List`(.KList),`ListItem`(_)),_)
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1099,19,1099,73)
+	1099 |	  syntax Bool ::= JFootprintRegistered ( List , List ) [function,
+total]
+	     .	                 
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1603,41,1603,45)
+	1603 |	  rule storedCfgJOf(-1 |-> C:ProtoCfgR3 REST:Map) => C:ProtoCfgR3
+	     .	                                        ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1604,21,1604,25)
+	1604 |	  rule storedCfgJOf(REST:Map) => noCfgR3 [owise]
+	     .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1608,39,1608,43)
+	1608 |	  rule storedCatJOf(-3 |-> P:JCatalog REST:Map) => P:JCatalog
+	     .	                                      ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1609,21,1609,25)
+	1609 |	  rule storedCatJOf(REST:Map) => noCatalogJ [owise]
+	     .	                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1612,37,1612,41)
+	1612 |	  rule gateReceiptsJOf(-2 |-> S:Set REST:Map) => S:Set
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1613,24,1613,28)
+	1613 |	  rule gateReceiptsJOf(REST:Map) => .Set [owise]
+	     .	                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1616,37,1616,41)
+	1616 |	  rule execReceiptsJOf(-4 |-> S:Set REST:Map) => S:Set
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1617,24,1617,28)
+	1617 |	  rule execReceiptsJOf(REST:Map) => .Set [owise]
+	     .	                       ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1620,39,1620,43)
+	1620 |	  rule cfgPinnedJ(-1 |-> _:ProtoCfgR3 REST:Map) => true
+	     .	                                      ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1621,19,1621,23)
+	1621 |	  rule cfgPinnedJ(REST:Map) => false [owise]
+	     .	                  ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1624,37,1624,41)
+	1624 |	  rule catPinnedJ(-3 |-> _:JCatalog REST:Map) => true
+	     .	                                    ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1625,19,1625,23)
+	1625 |	  rule catPinnedJ(REST:Map) => false [owise]
+	     .	                  ^~~~
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1712,19,1712,20)
+	1712 |	       <jlineage> L:Map </jlineage>
+	     .	                  ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1713,16,1713,17)
+	1713 |	       <jnext> N:Int </jnext>
+	     .	               ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1714,16,1714,17)
+	1714 |	       <jhead> H:Bytes </jhead>
+	     .	               ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1715,19,1715,21)
+	1715 |	       <jlinhead> LH:Bytes </jlinhead>
+	     .	                  ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1716,18,1716,19)
+	1716 |	       <janchor> A:Bytes </janchor>
+	     .	                 ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1717,17,1717,18)
+	1717 |	       <jstate> S:Map </jstate>
+	     .	                ^
+[Warning] Compiler: Variable 'RF' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1718,18,1718,20)
+	1718 |	       <jrefuse> RF:JRefuse </jrefuse>
+	     .	                 ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(1719,17,1719,18)
+	1719 |	       <jvalid> V:Bool </jvalid>
+	     .	                ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2059,19,2059,20)
+	2059 |	       <jlineage> L:Map </jlineage>
+	     .	                  ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2060,16,2060,17)
+	2060 |	       <jnext> N:Int </jnext>
+	     .	               ^
+[Warning] Compiler: Variable 'H' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2061,16,2061,17)
+	2061 |	       <jhead> H:Bytes </jhead>
+	     .	               ^
+[Warning] Compiler: Variable 'LH' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2062,19,2062,21)
+	2062 |	       <jlinhead> LH:Bytes </jlinhead>
+	     .	                  ^~
+[Warning] Compiler: Variable 'A' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2063,18,2063,19)
+	2063 |	       <janchor> A:Bytes </janchor>
+	     .	                 ^
+[Warning] Compiler: Variable 'S' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2064,17,2064,18)
+	2064 |	       <jstate> S:Map </jstate>
+	     .	                ^
+[Warning] Compiler: Variable 'RF' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2065,18,2065,20)
+	2065 |	       <jrefuse> RF:JRefuse </jrefuse>
+	     .	                 ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3/phase1k/package/semantics/phase1j/semantics/srw3closure-j.k)
+	Location(2066,17,2066,18)
+	2066 |	       <jvalid> V:Bool </jvalid>
+	     .	                ^
+[Warning] Compiler: Could not find main syntax module with name
+SRW3CLOSURE-J-DEMO-SYNTAX in definition.  Use --syntax-module to specify one.
+Using SRW3CLOSURE-J-DEMO as default.
+kompile jdemo-llvm exit=0 (0 = ok; nonzero = see log tail)
+J LLVM INTERPRETER READY: /tmp/j-llvm-1k/interpreter

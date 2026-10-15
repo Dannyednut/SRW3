@@ -1,0 +1,61 @@
+=== SRW3 Phase 1J — Python attack matrix + golden vectors ===
+
+-- golden vectors (byte-identical to the K certificate) --
+vectors/j_golden.json written (23 fields)
+
+-- honest pipelines --
+PASS  HONEST-1BLOCK
+PASS  HONEST-2BLOCK
+
+-- attack matrix --
+PASS  J-A01 forged trace rejected at mint
+PASS  J-A02 omitted write rejected
+PASS  J-A03 reorder changes trace digest
+PASS  J-A03 reorder changes footprint canon
+PASS  J-A04 read observes derived value
+PASS  J-A05 wrong post root rejected
+PASS  J-A06 unsupported op 8 refuses
+PASS  J-A06 unsupported op 9 refuses
+PASS  J-A06 unsupported op 240 refuses
+PASS  J-A06 unsupported op 254 refuses
+PASS  J-A06 mid-program unsupported refuses
+PASS  J-A07 wrong-parent witness rejected by frozen gate
+PASS  J-A08 unauthorized source refused
+PASS  J-A08 no receipt minted
+PASS  J-A09 cross-payload replay rejected
+PASS  J-A09 cross-config replay rejected
+PASS  J-A10 catalog mutation changes graph root
+PASS  J-A10 mutated catalog refused at init
+PASS  J-A11 unknown key: closure returns the key itself
+PASS  J-A11 unregistered footprint rejected
+PASS  J-A11 bad-owner catalog malformed
+PASS  J-A11 duplicate-resource catalog malformed
+PASS  J-A12 missing edge changes graph root
+PASS  J-A12 missing-edge catalog refused under old config
+PASS  J-A13 locals pass on unsafe state
+PASS  J-A13 pairwise (he2) invariant passes on unsafe state
+PASS  J-A13 3-app hyperedge invariant FAILS on unsafe state
+PASS  J-A13 SafeJ false on unsafe state
+PASS  J-A13 gate ACCEPTS the unsafe record (gate != policy)
+PASS  J-A13 unsafe commit REJECTED
+PASS  J-A13 unsafe commit state unchanged
+PASS  J-A14 global invariant fails on global-attack state
+PASS  J-A14 locals+hyperedge pass on global-attack state
+PASS  J-A15 commit API has no verdict/coverage parameter
+PASS  J-A15 gate API has no verdict parameter
+PASS  J-A17 receipt reuse rejected
+PASS  J-A17 reuse leaves state unchanged
+PASS  J-A18 zero-fuel closure refuses
+PASS  J-A19 commit before init refused
+PASS  J-A20 no legacy commit method
+PASS  J-A20 no legacy gate method
+PASS  J-A21 wrong-anchor init refused
+PASS  J-A23 exec+gate-after-commit do not move chain
+PASS  J-A24 slot-1 commit requires its own head
+PASS  J-A24 state unchanged after stale attempt
+
+-- reachability concrete substitute (sequence enumeration) --
+enumerated committed prefixes checked: 3474; unsafe derived states caught by Safe_P: 386
+PASS  REACH-ENUM coverage (prefixes checked, unsafe caught)
+
+TOTAL: 48 PASS / 0 FAIL

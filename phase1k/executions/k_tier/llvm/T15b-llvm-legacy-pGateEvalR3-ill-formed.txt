@@ -1,0 +1,14 @@
+### T15b: the frozen R3 command pGateEvalR3 IS ILL-FORMED
+# definition: srw3closure-j-demo.k (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsJ(pGateEvalR3(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0)), runNilJ)
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pGateEvalR3' following
+token '('.
+	Source(/tmp/tmp.1w1XcgundT/pgm.k)
+	Location(1,8,1,19)
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+[Error] krun: kparse --definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+# --- krun exit: 113 ---
+# --- end of transcript ---

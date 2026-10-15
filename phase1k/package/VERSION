@@ -1,0 +1,16 @@
+SRW3 Implementation Package
+===========================
+package-name:    srw3-implementation-package
+package-version: 1.0.0
+packaging-phase: 1K (implementation package)
+content-base:    phase1j-security-closure @ a91dbcc
+                 (tag phase1j-complete)
+content-lineage: phase1e -> phase1f -> phase1g (frozen gate) ->
+                 phase1i (R1 0b667af, R2 82f0675, R3 8a520fd) -> phase1j a91dbcc
+frozen-base-of-record: phase1i-r3-complete @ 8a520fd
+claims-level:    III (model-level; NO consensus-integration claim)
+python:          >= 3.10, hashlib (stdlib), pycryptodome optional
+runtime-surface: Python (real Keccak-256)
+proof-surface:   K definitions + kprove ladders (logs retained in the
+                 frozen trees; sources packaged byte-identically under
+                 semantics/)

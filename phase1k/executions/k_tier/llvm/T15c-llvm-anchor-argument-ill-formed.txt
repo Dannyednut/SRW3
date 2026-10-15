@@ -1,0 +1,14 @@
+### T15c: an anchor/root ARGUMENT on pInitJ IS ILL-FORMED (the anchor is protocol input, never caller data)
+# definition: srw3closure-j-demo.k (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsJ(pInitJ(XCfgJ, XCatJ, 1), runNilJ)
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token ',' following token
+'XCatJ'.
+	Source(/tmp/tmp.1w1XcgundT/pgm.k)
+	Location(1,27,1,28)
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+[Error] krun: kparse --definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+# --- krun exit: 113 ---
+# --- end of transcript ---

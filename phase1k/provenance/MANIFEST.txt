@@ -1,0 +1,18 @@
+# SRW3 Phase 1K — Implementation Package provenance
+# branch: phase1k-implementation-package  base: phase1j-security-closure @ a91dbcc (phase1j-complete)
+# generated: 2026-10-15 08:53:22 UTC
+
+## Scope
+- additive tree phase1k/ only; git diff a91dbcc HEAD outside phase1k/ is EMPTY (frozen trees byte-stable)
+- package: 48 copied artifacts sha256-identical to frozen sources (executions/byte-identity.txt) + 7 additive + MANIFEST.sha256
+- fresh executions: package Python tier (8 tiers, exit 0), frozen-tree tier (exit 0), K/LLVM tier (build + full T-series, T0/T2/T6 + anchor byte-identical to frozen)
+
+## Toolchain of record (this rebuild)
+- K v7.1.337 (pinned jammy deb; sha256 111385b834c19571fbcfe8e60ddacd392e64ab3ebbe353bc5c8fc2299c179eaf)
+- z3 4.13.3 | flex 2.6.4 | clang/LLVM-15 15.0.6-4+b1 | libsecp256k1 0.5.0 | KEVM v1.0.921 sources | blockchain-k-plugin @ 207ae512
+- recorded fixes: libclang-common-15-dev extraction; flex on PATH; pristine llvm-kompile-clang driver (R2 patch reverted; one path substitution)
+
+## Environment repairs (no repo content affected)
+- repo re-cloned from Dannyednut/SRW3 (PAT) after sandbox reset; 1J verified at phase1j-complete
+- stale pre-reset trees quarantined by install.sh --adopt-quarantine (srw3-kevm, srw3b-work -> *.phase1k-quarantined.*)
+- coincurve installed into the python3.12 venv (frozen lin_verify.py dependency)

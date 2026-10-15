@@ -1,0 +1,9 @@
+=== SRW3 Implementation Package — verify_all ===
+--- manifest self-check (sha256 -c MANIFEST.sha256) ---
+verify_all.sh: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+FAIL: manifest mismatch (see the sha256sum output above)
+--- manifest fingerprint ---
+507766bef64c34a133b77c0fefb8d4c9acaa3f440eac1ece6a57d7451c2f4875  MANIFEST.sha256
+--- golden vector spot check ---
+j_golden.json: 23 fields present, parse OK

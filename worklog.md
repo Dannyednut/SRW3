@@ -1266,3 +1266,96 @@ Stage Summary:
   relative to the explicit authenticated anchor); protocol-root authority
   REMAINS AN EXPLICIT ASSUMPTION (governance out of scope); not
   end-to-end security closed; no consensus-integration claim.
+
+## Phase 1J — Security Closure (phase1j-security-closure) [BACKFILL]
+
+- NOTE (appended by Phase 1K): the 1J session closed without appending its
+  worklog section; this section is backfilled verbatim-in-substance from the
+  1J commit message and the 1J report of record (phase1j/report/), with no
+  new claims.
+- Base 8a520fd (phase1i-r3-complete, frozen); additive tree phase1j/ only.
+- Built the isolated J machine (SRW3CLOSURE-J, imports ONLY the frozen 1G
+  gate): the concrete policy catalog (apps/resources/hyperedges + the
+  declared finite typed invariant fragment; 'SRW3/PolicyCat/J' canon with
+  content-class sub-roots 0xB1/0xB2/0xB3 bound to the R3-rooted config
+  fields 3/4/5 — catalog CONTENTS authenticated by the same R3 anchor), the
+  CLOSED execution fragment EVM_F (the 4-op 1F vocabulary; trace/effective-
+  delta/post-state DERIVED by the semantics; excluded effect classes and
+  out-of-range operands are EXPLICIT refusals), StateRootJ (0xB4), the
+  EvidenceIDJ identity ('SRW3/Evidence/J'), two single-producer receipts
+  (exec + gate, verdict COMPUTED by VerifyLineageG, both consumed exactly
+  once), the BOUNDED hypergraph closure (exhaustion and unknown keys
+  REFUSE), Safe_P computed independently of the gate (SafeJ at the pin and
+  on the DERIVED post-state at the commit), and ONE chain-extending rule
+  (pCommitJ, nine requirement classes in the R3 guard order; rejections
+  leave every cell unchanged).
+- K ladder 38 PROVED / 4 retained (logs kept; claim-classification.csv):
+  the 3-app countermodel PROVED at the K level (J-SAFE-UNSAFE-COMPOSITION),
+  catalog canon PROVED byte-for-byte against the golden vector (451-byte
+  canon), the missing-hyperedge refusal PROVED both directions, frame
+  preservation PROVED; the 4 retained = hs keccak-hook boundary over the
+  fixture digests/pipelines (DEMONSTRATED on LLVM T1/T2/T3/T6 with real
+  keccak; CHECKED in Python) + J-REACHABLE-COMMITTED-SAFE (the kore
+  stuck-configuration/circularity class; closure evidence: proved component
+  lemmas + the Python exhaustive sequence enumeration 3474/386/0 + LLVM T2).
+- Python mirror 48/48 (J-A01..A24 + honest pipelines + determinism; the
+  mirror drives the REAL frozen gate — the gate ACCEPTS the unsafe record
+  'valid-g' and the commit boundary still refuses) + 27/27 unittests;
+  LLVM suite 14 executed demos + 5 kparse ill-formedness rejections;
+  cross-layer 22/22 byte-identical; zero regression (frozen trees
+  byte-identical to 8a520fd; 1E OK, 1F 16/16, 1G 25/25, R1 48/48, R2 87/87,
+  R3 181/181); report MD+PDF, audit A-G, provenance (MANIFEST + 86 hashes).
+- Disposition: CLOSED FOR THE DECLARED FINITE EFFECT/POLICY FRAGMENT,
+  conditional on the listed anchor/source assumptions (Option A; Option B
+  full-EVM evidence remains OPEN; the universal reachability induction NOT
+  MECHANIZED with its concrete substitutes; arbitrary-policy closure NOT
+  mechanized; NOT end-to-end Ethereum security; no consensus-integration
+  claim).
+
+## Phase 1K — Implementation Package (phase1k-implementation-package)
+
+- Sandbox-reset recovery: this container held NO Phase 1E-1J state (no
+  srw3-1j/, no toolchain, no remotes).  Repo re-cloned from
+  Dannyednut/SRW3 (PAT); 1J verified at phase1j-security-closure @ a91dbcc
+  (phase1j-complete).  No written 1K spec found anywhere in the repo
+  (git grep over all history) — the 1K definition is ASSUMED per the
+  established phase pattern and labeled as such in the report/audit.
+- Branch phase1k-implementation-package from a91dbcc; additive tree
+  phase1k/ only (git diff a91dbcc HEAD outside phase1k/ EMPTY; frozen
+  worktree clean; the 1J tree left byte-stable).
+- phase1k/package/ (55 files): the Python runtime surface byte-identical
+  (python-gen, phase1e..phase1j python, 1J tests+vectors, R3 vectors), the
+  three K krun transcripts the runners' KX groups consume, the K proof-tier
+  sources (1G gate+proofs, R3 machine+ladder, J machine+ladder), and 7
+  additive artifacts (VERSION, README, INTEGRATION-GUIDE, CLAIMS-INDEX,
+  install.sh, run_all.sh, verify_all.sh, + MANIFEST.sha256).  Byte-identity
+  certificate: 48/48 copied artifacts IDENTICAL, 0 mismatches
+  (executions/byte-identity.txt).
+- Fresh package tier (run_all.sh, exit 0 on all 8): 1J unittests 27/27;
+  1J attacks 48/48 (regenerated j_golden.json in place); R1 48/48 (KX vs
+  packaged transcripts); R2 87/87; R3 181/181 (KX); 1E OK; 1F 16/16+3/3;
+  1G 25/25.  verify_all.sh byte-stability oracle: 55/55 manifest entries
+  stable INCLUDING the regenerated vectors (mirror determinism + vector
+  byte-identity with the K certificate).
+- Fresh K/LLVM tier from the PACKAGE sources (executions/k_tier/): pinned
+  toolchain rebuilt (K v7.1.337, z3 4.13.3, LLVM-15 15.0.6-4+b1,
+  libsecp256k1 0.5.0; fixes recorded: libclang-common-15-dev extraction,
+  flex on PATH, pristine llvm-kompile-clang driver restored — the R2
+  recipe's patch breaks K v7.1.337); kompile of the PACKAGE's
+  srw3closure-j-demo.k exit 0; the FULL 1J LLVM suite re-run with REAL
+  keccak (14 executed + 5 kparse rejects, runner exit 0); T0/T2/T6 and the
+  self-computed anchor BYTE-IDENTICAL to the frozen 1J transcripts.
+- Frozen-tree regression tier (in-repo): all suites green, identical
+  counts; 1J vector regeneration in the frozen tree reproduced
+  byte-identically (git saw no change).
+- Environment repairs (no repo content affected): stale pre-reset trees
+  quarantined by install.sh --adopt-quarantine; coincurve installed into
+  the python3.12 venv (frozen lin_verify.py dependency).
+- Report MD+PDF (scripts/gen_phase1k_pdf.py, established visual system),
+  audit A-G (ASSUMED 1K definition stated first; completion gate
+  item-by-item; assumption register; environment deviations; NOT-claimed
+  list), provenance (MANIFEST + provenance-hashes.txt, 102 files).
+- Disposition: implementation package DELIVERED at Level III — no new
+  theorem, no semantic change, frozen history untouched; kprove hs ladders
+  not re-run fresh (disclosed; frozen logs of record stand); no
+  consensus-integration claim.

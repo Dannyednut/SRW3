@@ -1,0 +1,32 @@
+test_canon_len (__main__.TestCatalogCanon.test_canon_len) ... ok
+test_catalog_root_binds_contents (__main__.TestCatalogCanon.test_catalog_root_binds_contents) ... ok
+test_cfg_root_matches_python (__main__.TestCatalogCanon.test_cfg_root_matches_python) ... ok
+test_subroots_differ (__main__.TestCatalogCanon.test_subroots_differ) ... ok
+test_wf_ok_and_failures (__main__.TestCatalogCanon.test_wf_ok_and_failures) ... ok
+test_bounds_refuse (__main__.TestFragment.test_bounds_refuse) ... ok
+test_derived_pipeline (__main__.TestFragment.test_derived_pipeline) ... ok
+test_footprint_first_occurrence (__main__.TestFragment.test_footprint_first_occurrence) ... ok
+test_read_observes_threaded_state (__main__.TestFragment.test_read_observes_threaded_state) ... ok
+test_reorder_changes_digests (__main__.TestFragment.test_reorder_changes_digests) ... ok
+test_unsupported_refuses (__main__.TestFragment.test_unsupported_refuses) ... ok
+test_canon_and_roots (__main__.TestGoldenVectors.test_canon_and_roots) ... ok
+test_digests (__main__.TestGoldenVectors.test_digests) ... ok
+test_state_roots (__main__.TestGoldenVectors.test_state_roots) ... ok
+test_anchor_immutable_no_api (__main__.TestMachine.test_anchor_immutable_no_api) ... ok
+test_determinism (__main__.TestMachine.test_determinism) ... ok
+test_honest_two_blocks (__main__.TestMachine.test_honest_two_blocks) ... ok
+test_init_refuses_mutations (__main__.TestMachine.test_init_refuses_mutations) ... ok
+test_receipt_single_use (__main__.TestMachine.test_receipt_single_use) ... ok
+test_unauthorized_source (__main__.TestMachine.test_unauthorized_source) ... ok
+test_unsafe_composition_rejected (__main__.TestMachine.test_unsafe_composition_rejected) ... ok
+test_closure_fixture (__main__.TestSafety.test_closure_fixture) ... ok
+test_frame_preservation (__main__.TestSafety.test_frame_preservation) ... ok
+test_genesis_safe (__main__.TestSafety.test_genesis_safe) ... ok
+test_global_countermodel (__main__.TestSafety.test_global_countermodel) ... ok
+test_honest_posts_safe (__main__.TestSafety.test_honest_posts_safe) ... ok
+test_three_app_countermodel (__main__.TestSafety.test_three_app_countermodel) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.117s
+
+OK

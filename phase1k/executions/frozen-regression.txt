@@ -1,0 +1,31 @@
+=== SRW3 Phase 1K — frozen-tree regression (in-repo trees @ a91dbcc) ===
+=== 2026-10-15 08:33:53 UTC ===
+--- unittests_1j
+    exit=0 -> frozen_unittests_1j.txt
+--- attacks_1j
+    exit=0 -> frozen_attacks_1j.txt
+--- regression_r1 (cwd=phase1i-r1/python) exit=0
+--- regression_r2
+    exit=0 -> frozen_regression_r2.txt
+--- regression_r3
+    exit=0 -> frozen_regression_r3.txt
+--- suite_1e
+    exit=0 -> frozen_suite_1e.txt
+--- suite_1f
+    exit=0 -> frozen_suite_1f.txt
+--- suite_1g
+    exit=0 -> frozen_suite_1g.txt
+
+=== frozen-tree results ===
+  TOTAL: 48 PASS / 0 FAIL
+  TOTAL: 48/48 PASS
+  R2 adversarial suite: 87 PASS / 0 FAIL (total 87)
+  R3 adversarial suite: 181 PASS / 0 FAIL (total 181)
+  === PHASE 1F PYTHON SUITE: 16/16 verdict cases PASS; 3/3 byte checks MATCH ===
+  === PHASE 1G PYTHON SUITE: 25/25 verdict cases PASS; 0/0 byte checks MATCH ===
+  Ran 27 tests in 0.106s
+  OK
+tiers with nonzero exit: 0 (expected 0)
+=== frozen-tree byte stability ===
+git diff a91dbcc HEAD outside phase1k/: EMPTY (frozen trees byte-identical)
+worktree (frozen trees): CLEAN

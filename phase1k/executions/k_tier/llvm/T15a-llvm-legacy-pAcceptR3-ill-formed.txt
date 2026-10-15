@@ -1,0 +1,14 @@
+### T15a: the frozen R3 command pAcceptR3 IS ILL-FORMED in the J command language (J-LEGACY-SURFACE-EXCLUDED)
+# definition: srw3closure-j-demo.k (krun, K v7.1.337)
+# program (EXPECTED: kparse rejection — the command is ILL-FORMED):
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pAcceptR3(XB0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), 1), runNilJ))
+# --- krun output ---
+[Error] Inner Parser: Parse error: unexpected token 'pAcceptR3' following token
+'('.
+	Source(/tmp/tmp.1w1XcgundT/pgm.k)
+	Location(1,37,1,46)
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+[Error] krun: kparse --definition /tmp/j-llvm-1k /tmp/tmp.1w1XcgundT/pgm.k
+# --- krun exit: 113 ---
+# --- end of transcript ---
