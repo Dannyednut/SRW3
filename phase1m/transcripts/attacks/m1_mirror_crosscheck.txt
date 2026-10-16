@@ -1,0 +1,11 @@
+PASS  A1 unauthorized source -> (False, ('source',))
+PASS  A2 no receipt minted
+PASS  A3 no movement (state/head/linhead/slot/anchor/pools)
+PASS  A4 authorized source still mints
+PASS  B1 unauthorized source -> (False, ('source',))
+PASS  B2 no receipt minted
+PASS  B3 no movement (state/head/linhead/slot/anchor/pools)
+PASS  B4 authorized source still mints
+
+M1 mirror crosscheck: 8 PASS / 0 FAIL (of 8)
+CROSS-LAYER AGREEMENT: YES — the mirror's refusal on both fully-pinned shapes, no receipt, no movement; authorized sources still mint (the M1 K claims agree 1:1)

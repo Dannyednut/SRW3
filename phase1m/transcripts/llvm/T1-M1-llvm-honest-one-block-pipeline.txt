@@ -1,0 +1,32 @@
+### T1-M1 (no-regression continuity): the honest one-block pipeline COMMITS on the repaired machine.
+# definition: srw3closure-j-m1-demo.k (krun, K v7.1.337, LLVM + krypto shim — the M1 REPAIRED machine)
+# anchor (SRW3JANCHOR): 295e0b6d2215e20662693a20e9af41d58f09b07b77dedd92924c2f6029dec9df
+# program:
+#   pConsJ(pInitJ(XCfgJ, XCatJ), pConsJ(pExecJ(XExecClientD, XProg0, XCaller, 0), pConsJ(pGateEvalJ(XB0, XCtx0, XRG0, XCert0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0)), pConsJ(pCommitJ(XB0, StateRootJ(XPost0D), JPayloadDigestJ(XProg0), 1), runNilJ))))
+# --- krun output ---
+<srw3closureJ>
+  <k>
+    .K
+  </k>
+  <jnext>
+    1
+  </jnext>
+  <jhead>
+    b"\x964<\xaa\x9c\xa5\fHNf\x9d\xe3\xe7\x19\xe1\x0et@\xac\xdd\x91\x8f\x1c\x9b,\xab\xad\x7fP\xacyv"
+  </jhead>
+  <jlinhead>
+    b"\xda\xe7\xf1\xf0f\xc5\xc5\xdb\xd4\x829\xc0G,1<}\x8e\xee\t[\xd2]\xad\x08/\xf8\xd6KK^\xcd"
+  </jlinhead>
+  <janchor>
+  <jstate>
+    4097 |-> ( 0 |-> 100 )
+  </jstate>
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
+# --- krun exit: 0 ---
+# --- end of transcript ---

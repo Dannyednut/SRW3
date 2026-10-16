@@ -1,0 +1,100 @@
+=== SRW3 Phase 1L — adversarial tier L-A01..L-A20 (frozen mirror) ===
+
+-- L-A01: unsafe genesis catalog refused at pInitJ --
+PASS  L-A01 init refused
+PASS  L-A01 no pins/chain movement
+PASS  L-A01 unsafe-genesis is well-formed but UNSAFE at genesis
+
+-- L-A02/L-A04/L-A16: unsafe 3-app composition (gate accepts, commit refuses) --
+PASS  L-A02 unsafe exec mints receipt
+PASS  L-A16 gate ACCEPTS the unsafe record (authority layer)
+PASS  L-A02 commit refused
+PASS  L-A02 state/head/counter unchanged
+PASS  L-A04 locals pass on the unsafe post-state
+PASS  L-A04 pairwise edge (he 2) passes
+PASS  L-A04 the 3-app hyperedge (he 1) FAILS
+PASS  L-A04 SafeJ false on the unsafe post-state
+
+-- L-A03: global invariant violation refused (locals+hyperedge pass) --
+PASS  L-A03 global-attack exec mints receipt
+PASS  L-A03 gate accepts the global-attack record
+PASS  L-A03 commit refused without mutation
+PASS  L-A03 state/head/counter unchanged
+PASS  L-A03 locals+hyperedge pass, global FAILS
+
+-- L-A05: unsupported-effect executions mint no usable receipt --
+PASS  L-A05 unsupported-before refused
+PASS  L-A05 unsupported-before no receipt, no state movement
+PASS  L-A05 unsupported-between refused
+PASS  L-A05 unsupported-between no receipt, no state movement
+PASS  L-A05 unsupported-after refused
+PASS  L-A05 unsupported-after no receipt, no state movement
+
+-- L-A06: out-of-range operand refused, committed state preserved --
+PASS  L-A06 bounds refused
+PASS  L-A06 committed state unchanged
+
+-- L-A07: unregistered footprint key refuses the commit --
+PASS  L-A07 unregistered-key exec mints receipt (interp is total)
+PASS  L-A07 the unregistered key is NOT in the registered footprint
+PASS  L-A07 the K-level refusal of the class is PROVED (J-FOOTPRINT-REGISTERED-UNKNOWN, frozen 1J ladder)
+
+-- L-A08: closure-fuel exhaustion refuses the commit --
+PASS  L-A08 exec+gate succeed with fuel=0
+PASS  L-A08 commit refused (exhaustion is NEVER complete)
+
+-- L-A09: an exec receipt minted at a prior head cannot commit --
+PASS  L-A09 fresh exec for block 1 mints
+PASS  L-A09 the stale receipt's head differs from the current head
+PASS  L-A09 gate mints for the FRESH receipt
+PASS  L-A09 honest block-1 commit succeeds (control)
+PASS  L-A09 stale receipt consumed/unusable
+
+-- L-A10: a gate receipt for a previous slot cannot commit --
+PASS  L-A10 commit with the WRONG candidate refused
+PASS  L-A10 no mutation
+PASS  L-A10 stale-slot receipt cannot commit
+PASS  L-A10 no mutation under the stale slot
+
+-- L-A11: a consumed receipt cannot commit a second time --
+PASS  L-A11 second commit with the consumed receipts refused
+PASS  L-A11 no mutation
+
+-- L-A12: the command surface has NO verdict/decision parameter --
+PASS  L-A12 exec signature clean
+PASS  L-A12 gate signature clean
+PASS  L-A12 commit signature clean
+PASS  L-A12 the derived decision is fail-closed
+
+-- L-A13: rejected commits leave every committed field unchanged --
+PASS  L-A13 all committed fields unchanged after rejections
+
+-- L-A14: arbitrary command mixes preserve SafeJ at every prefix --
+PASS  L-A14 invariant holds at every reached prefix
+    (prefixes checked: 430)
+
+-- L-A15: negative control — the SafeJ guard is load-bearing --
+PASS  L-A15 the mutant COMMITS the unsafe state (guard is load-bearing)
+PASS  L-A15 the frozen mirror is restored (the honest commit refuses)
+PASS  L-A15 scratch-only: the committed tree's j_model is untouched
+
+-- L-A17: anchor/config substitution refused at init --
+PASS  L-A17 wrong anchor -> init refused
+PASS  L-A17 state remains pre-init
+PASS  L-A17 changed config under the old anchor -> refused
+
+-- L-A18: no legacy 1I/R1/R2/R3 command exists on the machine --
+PASS  L-A18 no legacy command method
+
+-- L-A19: unmet gate-mint preconditions are non-committing --
+PASS  L-A19 gate mint refused (no receipt)
+PASS  L-A19 no chain extension, no state mutation
+
+-- L-A20: the frozen regression tier --
+    executed separately from the corrected Phase 1K base:
+    the 1K package install/run/verify (exit 0), the 1J unittests
+    (27/27), the 1J attack matrix (48/48), R1 48/48, R2 87/87,
+    R3 181/181, 1E/1F/1G suites — see phase1l/transcripts/attacks/
+PASS  L-A20 regression tier referenced
+
+TOTAL: 56 PASS / 0 FAIL
