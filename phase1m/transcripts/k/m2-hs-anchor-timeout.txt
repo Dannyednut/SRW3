@@ -1,0 +1,26 @@
+kore-exec: [749859859] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSAPubKey'LParUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+kore-exec: [749865787] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSAPubKey'LParUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:88:23-88:104
+kore-exec: [788664946] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSASign'LParUndsCommUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+kore-exec: [794227657] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSASign'LParUndsCommUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+kore-exec: [827455988] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSASign'LParUndsCommUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+kore-exec: [827460387] Warning (WarnFunctionWithoutEvaluators):
+    No evaluators for function symbol:
+        LblECDSASign'LParUndsCommUndsRParUnds'KRYPTO'Unds'String'Unds'Bytes'Unds'Bytes{} (<no label>)
+    defined at: /home/z/my-project/srw3-1m/k/kevm/kproj-e1e/plugin/krypto.md:87:23-87:102
+Terminated
+[Error] krun: Backend crashed during rewriting with exit code 143

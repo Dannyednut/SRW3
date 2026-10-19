@@ -1478,3 +1478,56 @@ Stage Summary:
   tag (the task rule: completion requires the universal theorem actually
   mechanized).  Branch phase1l-universal-induction from b1dbe90; additive
   phase1l/ only; Level III; no consensus-integration claim.
+
+---
+Task ID: 1M-B2 (Workstream B close-out)
+Agent: Super Z (main)
+Task: Phase 1M Workstream B — the KB ladder canonical record, M2 LLVM demos, commit
+
+Work Log:
+- KB ladder canonical record (claims-status-kb.csv + score-kb.txt): 16
+  claims — PASS-expected 3/3 PROVED (KB-VEC-ABC, KB-VEC-TWOBLOCK — the
+  vector pins INSIDE kprove; KB-INIT-BASE-HEAD — the head advance the 1L
+  claim had to omit), FAIL-expected 5/5 failed as designed (the two bare-
+  probe mechanics experiments, KB-NEG-INJ, KB-NEG-WEAKSAFEJ — the
+  weakened-SafeJ control keeps failing over M2, and the two OLD witnesses),
+  ATTEMPT 6 over M2 (KB-INIT-BASE: FAILED(rc=1) with NO Ceil — the state
+  carries the evaluator's own defined cascade; the pool-mint/commit
+  re-attempts: FAILED(rc=124) — the search-grind boundary, residuals
+  retained), ATTEMPT 1 over M1 (KB-OLD-INIT-BASE-HEAD: PROVED — the
+  mechanics observation that the bare head-advance shape does not surface
+  the hook Ceil on the un-redirected machine either).  GATE: GREEN, 0
+  alarms.  The PROVED-class claims re-certified with captured exit codes
+  (recert_kb_proved.sh, all rc=0).
+- THE B1 DISCRIMINATING PAIR (the Workstream-B headline): KB-OLD-INIT-BASE
+  (M1, no redirect) FAILED with #Ceil(Keccak256raw(b"SRW3/ProtoCfg/R3" ...))
+  — the exact 1L frozen-machine residual class — while KB-INIT-BASE (M2)
+  fails with NO Ceil.  The hash-definedness blocker is REMOVED AND MEASURED.
+- M2 LLVM demos (run_demos_m2.sh, the attribute-PRESENT kompile + shim):
+  anchor BYTE-IDENTICAL to the frozen record; T11-M2 (the corrected refusal
+  on M2: jrefusedSource(), exit 0); T1-M2 (the honest pipeline COMMITS on
+  M2 — every machine hash computed by the total evaluator).  The
+  attribute-dropped LLVM kompile of the redirect machine SEGFAULTS (heap
+  corruption; gdb backtrace of record; tiny-definition counter-evidence
+  isolates it to the attribute-dropped compilation) — disclosed in
+  audit/m2-hash-redirect.md §6; the M2-hs krun of the full certificate
+  exceeds 50 min (retained as m2-hs-anchor-timeout.txt).
+- The failed first attempt (Map encoding) preserved at
+  audit/failed-attempts/ with its disposition; the three defect classes of
+  record (padding count, ^Int-is-exponentiation, the absorb slice) are in
+  the generator's docstring and the audit.
+- Frozen trees byte-stable (git diff over the frozen trees EMPTY); the M1
+  .done markers restored byte-exact after the accidental cleanup; the
+  shim build artifacts (k/phase1c/shim/*.o/.a/.so) stay untracked.
+
+Stage Summary:
+- WORKSTREAM B COMPLETE at the claim level: the total evaluator is real
+  (7/7+7/7 vectors both backends), the redirect is sound and byte-preserving
+  (anchor equality), B1 is removed AND measured (the discriminating
+  #Ceil OLD/NEW pair), no hash property is assumed or derived (the
+  negative controls keep failing), the remaining boundaries are named
+  (B5 condition-equivalence, B5' search-grind) with residuals retained.
+  The universal theorem remains NOT MECHANIZED (Workstream D).
+- Next: Workstream C (the explicit gate refusal + domain coverage),
+  Workstream D (the universal induction attempt), Workstream E
+  (accounting/report/provenance), tag, push.

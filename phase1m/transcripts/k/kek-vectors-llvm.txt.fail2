@@ -1,0 +1,5 @@
+/home/z/my-project/tools/extract/k/usr/bin/../lib/kframework/k-util.sh: line 105: /tmp/ktest2/llvm-full/kfull-kompiled/interpreter: No such file or directory
+[Error] krun: /tmp/ktest2/llvm-full/kfull-kompiled/interpreter 
+/tmp/.krun-2026-10-19-15-24-53-CI3uBiw5Ck/tmp.in.YVEHHb0r4E -1 
+/tmp/.krun-2026-10-19-15-24-53-CI3uBiw5Ck/result.kore
+[Error] krun: Backend crashed during rewriting with exit code 127

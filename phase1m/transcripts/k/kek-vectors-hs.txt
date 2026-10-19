@@ -1,0 +1,27 @@
+# Keccak256T vector validation — Haskell backend (proof backend), packed-Int Keccak256T (post-reset regeneration)
+# definition dir: /tmp/ktest2/llvm-full/kfull-kompiled
+# date: 2026-10-19T15:26:39Z
+# 7 vectors: empty, abc, 135/136/137-byte boundaries, 43-byte, 215-byte (two-block)
+# reference digests cross-checked: kek_ref.py == pycryptodome
+[PASS] vector 1 (len=0, krun rc=0)
+  want: c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+  got : c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+[PASS] vector 2 (len=3, krun rc=0)
+  want: 4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45
+  got : 4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45
+[PASS] vector 3 (len=135, krun rc=0)
+  want: 16570bdb055e663ea1cb57ac6f09194f4bc7b7070847971fc0b86710366dc34f
+  got : 16570bdb055e663ea1cb57ac6f09194f4bc7b7070847971fc0b86710366dc34f
+[PASS] vector 4 (len=136, krun rc=0)
+  want: 50da8ef3747b7a7f01d08563aa11c72a2a668563fb928adc6e8d2a1ab4e36096
+  got : 50da8ef3747b7a7f01d08563aa11c72a2a668563fb928adc6e8d2a1ab4e36096
+[PASS] vector 5 (len=137, krun rc=0)
+  want: 01e0852c139fa337a5d3f746ab3b2d3400442195225e2f10c34702f8f37ae8d3
+  got : 01e0852c139fa337a5d3f746ab3b2d3400442195225e2f10c34702f8f37ae8d3
+[PASS] vector 6 (len=43, krun rc=0)
+  want: 4d741b6f1eb29cb2a9b9911c82f56fa8d73b04959d3d9d222895df6c0b28aa15
+  got : 4d741b6f1eb29cb2a9b9911c82f56fa8d73b04959d3d9d222895df6c0b28aa15
+[PASS] vector 7 (len=215, krun rc=0)
+  want: 2bca465790fbe952f1e3768e10357fe439df1a1253d3dbfaf2a2a583911c68d8
+  got : 2bca465790fbe952f1e3768e10357fe439df1a1253d3dbfaf2a2a583911c68d8
+# RESULT: 7 PASS / 0 FAIL over 7 vectors (Haskell backend (proof backend), packed-Int Keccak256T (post-reset regeneration))

@@ -1,0 +1,34 @@
+# KB ladder score — the Workstream-B proof-backend measurement
+# assembled: 2026-10-19 (the canonical record; every claim invoked against
+# the definitions of record — /tmp/kb-m2-hs (j_invariant_m2.k, the M2
+# hash-redirect machine + the UNCHANGED 1L JInv definitions) and
+# /tmp/kb-old-m1-hs (the M1 machine) — with its raw exit code and retained
+# log; the chunked-session convention of the 1L/M1 ladders (.done markers)
+# applies; the PROVED-class claims were re-certified with captured exit
+# codes by phase1m/proofs/recert_kb_proved.sh — all rc=0).
+#
+# PASS-expected proved : 3  (KB-VEC-ABC, KB-VEC-TWOBLOCK, KB-INIT-BASE-HEAD)
+# FAIL-expected failed : 5  (KB-EXP-NO-RULE-STUCK, KB-EXP-NESTED-STUCK,
+#                             KB-NEG-INJ, KB-NEG-WEAKSAFEJ,
+#                             KB-OLD-CEIL-SYMBOLIC, KB-OLD-INIT-BASE)
+# GATE ALARMS          : 0  (a proved negative control would be an alarm)
+# ATTEMPT claims       : 7 attempted (6 over M2 + 1 mechanics over M1),
+#                          1 PROVED (KB-OLD-INIT-BASE-HEAD — the mechanics
+#                          observation that the bare head-advance shape does
+#                          not surface the hook Ceil on M1 either), the rest
+#                          FAILED with NON-Ceil residuals/timeouts (recorded)
+# GATE                 : GREEN
+#
+# THE B1 DISCRIMINATING PAIR (the Workstream-B headline):
+#   OLD: kprove_KB-OLD-INIT-BASE.log   (M1, no redirect) — FAILED(rc=1) with
+#        the residual #Ceil(Keccak256raw(b"SRW3/ProtoCfg/R3\x00..." +Bytes
+#        ...)) — the exact 1L frozen-machine residual class of record
+#        (phase1l/transcripts/k/kprove_L-INV-INIT-BASE.log).
+#   NEW: kprove_KB-INIT-BASE.log       (M2, the redirect) — FAILED(rc=1) with
+#        NO Ceil: the state's head holds the evaluator's own defined cascade
+#        (Int2Bytes(8, KAbsorbAllT(0, KPadFrom(...)))) — the hash-definedness
+#        blocker is GONE; the remaining failure is the condition-equivalence
+#        boundary (audit/m2-hash-redirect.md §5), not a definedness blocker.
+#
+# Raw exit codes are never relabeled.  Level III only; no consensus-
+# integration claim.
