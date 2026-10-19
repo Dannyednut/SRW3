@@ -1580,3 +1580,55 @@ Stage Summary:
   The all-branch coverage claim remains an ATTEMPT (B5' grind, retained).
 - Next: Workstream D (the universal induction attempt), Workstream E
   (accounting/report/provenance), tag, push.
+
+---
+Task ID: 1M-D + 1M-E (Workstreams D and E; session close-out)
+Agent: Super Z (main)
+Task: Phase 1M Workstream D (the genuine universal-induction attempt) + Workstream E (accounting/report); the phase disposition
+
+Work Log:
+- Built j_invariant_m3.k (make_j_invariant_m3.py, roundtrip-verified = the
+  UNCHANGED 1L JInv definitions over the M3 machine).
+- THE MD LADDER (md_proofs.k + run_md_proofs.sh; 11 claims): THE STEP
+  PARTITION OVER M3 IS COMPLETE — 7/7 PROVED (the anchor/catalog frames;
+  the pre-init refusals; the exec source-refusal class; the commit-
+  rejection staleness — ported EXACTLY after my reduced paraphrase FAILED
+  (the CONCRETE single-receipt pool shape is load-bearing; the failed
+  paraphrase's log retained); MD-INV-GATE-REFUSAL-PRESERVES — the NEW
+  Workstream-C transition class).  THE ATTEMPTS: MD-INV-INIT-BASE
+  FAILED(rc=1) with NO Ceil (B5); MD-INV-ALLPATH-REACHABILITY FAILED(rc=1)
+  (the universal composition); MD-INV-COMMITTED-PREFIX-SAFE FAILED(rc=1);
+  MD-NEG-CONTROL-SAFEJ FAILED(rc=124) as required (no vacuity).
+- THE PHASE DISPOSITION (the completion gate, applied): the universal
+  reachable-committed-state theorem is NOT MECHANIZED — PHASE 1M IS NOT
+  COMPLETE under its own gate; the strongest theorems truly proved are
+  stated (the step-partition family, the refusal non-commitment family,
+  the hash-redirect soundness surface); the exact blockers are named
+  (B5 condition-equivalence, B5' search cost, B2, the circularity class).
+  NO completion tag (the 1L precedent); the branch records the honest
+  state.
+- Workstream E: the consolidated rollup claims-status-1m.csv (41 claims
+  across the four ladders — 17 PROVED / 24 not-proved / 0 ALARMS; every
+  non-timeout claim 1:1 with a non-empty log); the phase report
+  SRW3-Phase1M-Proof-Backend-Closure-Report.{md,pdf} (gen_phase1m_pdf.py,
+  the established visual system); the audit set (m2-hash-redirect.md,
+  mc-gate-refusal.md, md-universal-induction.md, failed-attempts/); the
+  provenance (PROVENANCE.md WS A + PROVENANCE-WSB.md).
+- Runner robustness notes of record: the kprove-at-timeout leaves a 0-size
+  log (documented in transcripts/k/README.md; the exit code is the raw
+  result); the claims-status csv is rewritten per runner invocation — the
+  canonical rollup is assembled from the retained per-claim logs with the
+  recert/exit-code discipline.
+- Frozen trees byte-stable (git diff over the frozen trees EMPTY).
+
+Stage Summary:
+- PHASE 1M EXECUTED END-TO-END AT LEVEL III WITH THE HONEST DISPOSITION:
+  L-FINDING-1 repaired and cross-layer-agreed; the hash-definedness
+  blocker REMOVED AND MEASURED (a real total evaluator, no axioms, the
+  discriminating OLD/NEW pair); the gate failure EXPLICIT and
+  NON-COMMITTING (the decidable OLD/NEW pair; the mirror 10/10); the
+  step-partition family complete over the repaired machine (7/7); the
+  universal theorem NOT MECHANIZED with the exact blockers named and the
+  failed proofs retained.  The phase is NOT complete under its own gate —
+  the record says exactly that, with nothing relabeled.
+- Next: push the branch; the phase report is the deliverable of record.

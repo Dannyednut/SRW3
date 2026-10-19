@@ -1,0 +1,50 @@
+# MD ladder score — the Workstream-D universal-induction attempt over M3
+# assembled: 2026-10-19 (the canonical record; the definition of record:
+# /tmp/md-m3-hs = j_invariant_m3.k — the UNCHANGED 1L JInv definitions over
+# the M3 machine; every claim's raw exit code and retained log is the
+# evidence; a 0-size log with FAILED(rc=124) is a runner-timeout witness).
+#
+# PASS-expected proved : 7  (THE STEP PARTITION over M3, complete):
+#   MD-INV-ANCHOR-FRAME-EXEC, MD-INV-CATALOG-FRAME-EXEC,
+#   MD-INV-PREINIT-INIT-REFUSES, MD-INV-PREINIT-COMMIT-REFUSES,
+#   MD-INV-EXEC-REFUSAL-SOURCE, MD-INV-COMMIT-REJECT-STALE-SLOT
+#   (the 1L claim ported EXACTLY — the CONCRETE single-receipt pool shape),
+#   MD-INV-GATE-REFUSAL-PRESERVES (the NEW Workstream-C transition class —
+#   the [owise] gate refusal preserves every invariant cell).
+# FAIL-expected failed : 1  (MD-NEG-CONTROL-SAFEJ — the vacuity control does
+#   not prove over M3 either; the safety conclusion still depends on the
+#   actual SafeJ guard)
+# ATTEMPT claims       : 3 attempted, 0 PROVED:
+#   MD-INV-INIT-BASE            — FAILED(rc=1) "cannot be rewritten further"
+#                                 (the B5 condition-equivalence boundary;
+#                                 NO Ceil — the B1 blocker stays removed)
+#   MD-INV-ALLPATH-REACHABILITY — FAILED(rc=1) (the arbitrary-continuation
+#                                 composition — THE UNIVERSAL THEOREM)
+#   MD-INV-COMMITTED-PREFIX-SAFE— FAILED(rc=1) (the prefix corollary)
+# GATE ALARMS          : 0
+# GATE                 : GREEN
+#
+# ═══ THE PHASE COMPLETION GATE (the execution order's rule) ═══
+# "The phase is complete only if the universal reachable-committed-state
+#  theorem is actually mechanized and the proof reports match the retained
+#  logs."
+# VERDICT: MD-INV-ALLPATH-REACHABILITY and MD-INV-COMMITTED-PREFIX-SAFE are
+# NOT PROVED — the universal reachable-committed-state theorem is
+# **NOT MECHANIZED**.  PHASE 1M IS THEREFORE **NOT COMPLETE** under its own
+# completion gate; this record IS the honest disposition: the strongest
+# theorems truly proved are the step-partition family above (base-frame,
+# pre-init, refusal, commit-rejection, and the new gate-refusal classes —
+# all over the M3 machine whose rule set is the frozen 1J rules + the two
+# separately justified repairs), with the remaining blockers named:
+#   B5  — the implication check cannot equate stuck-DEFINED hash-class
+#         terms across pattern/rule expansion (a checker-capability
+#         boundary, NOT definedness — the M2/M3 residuals carry the
+#         evaluator's own cascade with NO Ceil);
+#   B5' — the evaluator's symbolic search cost (the mint/commit rewrites
+#         expand the cascade; the step claims close, the composition
+#         grinds);
+#   B2  — the destination-constraint idiom (unchanged from 1L);
+#   the circularity/vacuity class — SafeJ is a stuck term over symbolic
+#         maps; a circular closure would be vacuous (the control enforces).
+# Raw exit codes never relabeled; Level III only; no consensus-integration
+# claim.
