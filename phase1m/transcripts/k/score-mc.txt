@@ -1,0 +1,38 @@
+# MC ladder score — the Workstream-C proof-backend measurement
+# assembled: 2026-10-19 (the canonical record; definitions of record:
+# /tmp/mc-m3-hs (srw3closure-j-m3.k — the M3 machine: M2 + the ONE [owise]
+# gate-failure transition) and /tmp/mc-old-m2-hs (srw3closure-j-m2.k); the
+# chunked-session convention applies; every claim's raw exit code and
+# retained log is the evidence).
+#
+# PASS-expected proved : 3  (MC-GATE-REFUSE-NOCOMMIT, MC-GATE-REFUSE-
+#                             WITNESS-EMPTYPOOL, MC-GATE-REFUSE-WRONGSLOT —
+#                             the explicit refusal is NON-COMMITTING and
+#                             fires on the concretely-refused mint shapes)
+# FAIL-expected failed : 3  (MC-NEG-REFUSE-ON-MINT — the refusal does NOT
+#                             over-apply onto the mint path; MC-OLD-GATE-
+#                             COVERAGE and MC-OLD-GATE-COVERAGE-WRONGSLOT —
+#                             the M2 stuck path)
+# ATTEMPT claims       : 2 (MC-GATE-COVERAGE-GATEPOOL/FRESH — the all-branch
+#                          domain-coverage claims; both grind to their time
+#                          budgets: the mint branch's rewrite now EXPANDS the
+#                          evaluator cascade inside the receipt (the B5'
+#                          search-cost boundary); recorded, not relabeled)
+# GATE ALARMS          : 0
+# GATE                 : GREEN
+#
+# THE B4 OLD/NEW PAIR (the Workstream-C headline, DECIDABLE):
+#   OLD: kprove_MC-OLD-GATE-COVERAGE-WRONGSLOT.log (M2, no refusal rule) —
+#        FAILED(rc=1) "the configuration cannot be rewritten further": the
+#        concretely-refused gate command (slot 7 vs counter 5) matches NO
+#        rule and is NEVER consumed — the 1L B4 stuck path, concretely
+#        witnessed.
+#   NEW: kprove_MC-GATE-REFUSE-WRONGSLOT.log (M3, the [owise] refusal) —
+#        PROVED: the SAME command is explicitly consumed with ONLY the
+#        jrefusedGate() diagnostic written; every committed cell framed
+#        unchanged.
+#
+# CROSS-LAYER: python/run_mc_crosscheck.py — 10/10 (the mirror returns None
+# with NO movement on every unmet-precondition class and mints on the honest
+# class; the machine and the mirror agree on every well-formed gate command
+# class).  Raw exit codes never relabeled; Level III only.

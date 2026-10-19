@@ -1,0 +1,13 @@
+PASS  C1 wrong-slot block -> None (the explicit-refusal class)
+PASS  C2 wrong-slot: no movement
+PASS  C3 wrong-parent block -> None
+PASS  C4 wrong-parent: no movement
+PASS  C5 non-matching record -> None
+PASS  C6 non-matching record: no movement
+PASS  C7 uninitialized -> None
+PASS  C8 uninitialized: no movement
+PASS  C9 the honest record still MINTS
+PASS  C10 the mint is the only pool movement
+
+MC mirror crosscheck: 10 PASS / 0 FAIL (of 10)
+CROSS-LAYER AGREEMENT: YES — the mirror returns None with NO movement on every unmet-precondition class (the M3 jrefusedGate() classes) and mints on the honest class (the M3 mint branch agrees)

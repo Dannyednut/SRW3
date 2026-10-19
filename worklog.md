@@ -1531,3 +1531,52 @@ Stage Summary:
 - Next: Workstream C (the explicit gate refusal + domain coverage),
   Workstream D (the universal induction attempt), Workstream E
   (accounting/report/provenance), tag, push.
+
+---
+Task ID: 1M-C (Workstream C)
+Agent: Super Z (main)
+Task: Phase 1M Workstream C — the explicit, non-committing gate-failure transition (the B4 removal, measured)
+
+Work Log:
+- Built M3 (scripts/make_m3.py, roundtrip-verified = M2 + exactly 4
+  disclosed edits): the jrefusedGate() diagnostic + ONE [owise] rule after
+  the two gate-mint rules — fires IFF neither mint matches, consumes the
+  command, writes ONLY the diagnostic.  The partition of well-formed gate
+  commands is EXHAUSTIVE BY CONSTRUCTION (K's [owise] semantics) and
+  NON-OVERLAPPING (mechanized as the negative control).
+- THE MC LADDER (mc_proofs.k + mc_old_proofs.k + run_mc_proofs.sh; GATE
+  GREEN, 0 alarms): MC-GATE-REFUSE-NOCOMMIT PROVED (the just-initialized
+  shape — the CONCRETE .Map tail refutes both mints syntactically);
+  MC-GATE-REFUSE-WITNESS-EMPTYPOOL PROVED (the CONCRETE .Set refutes the
+  fresh mint); MC-GATE-REFUSE-WRONGSLOT PROVED (the CONCRETE wrong-slot
+  block — the mint guard DECIDABLY false).  THE B4 OLD/NEW PAIR
+  (decidable): MC-OLD-GATE-COVERAGE-WRONGSLOT over M2 FAILED(rc=1) with
+  the stuck-configuration residual (the command is NEVER consumed — the 1L
+  B4 stuck path, concretely witnessed) vs MC-GATE-REFUSE-WRONGSLOT over M3
+  PROVED (the SAME command explicitly consumed, only the diagnostic
+  written).  MC-NEG-REFUSE-ON-MINT FAILED as required (no over-application).
+  MC-GATE-COVERAGE-GATEPOOL/FRESH ATTEMPT: the all-branch coverage claims
+  grind to their budgets (rc=124) — the mint branch's rewrite now EXPANDS
+  the evaluator cascade inside the receipt (the B5' search-cost boundary);
+  recorded, not relabeled; the coverage statement is carried by the
+  [owise] exhaustion-by-construction + the PROVED refusal-path claims +
+  the retained residuals.
+- THE MIRROR CROSSCHECK (python/run_mc_crosscheck.py — 10/10, transcript
+  attacks/mc_mirror_crosscheck.txt): the REAL frozen mirror's gate_eval
+  returns None with NO movement on every unmet-precondition class and
+  mints on the honest class — the machine and the mirror agree on every
+  well-formed gate command class (the handoff §4 model-and-mirror promise
+  kept by BOTH layers).  Two crosscheck construction fixes of record: the
+  record-matching key is rg.base.eff_trace_d (frozen dataclass — mutated
+  via object.__setattr__); coincurve installed for the frozen import chain.
+- Frozen trees byte-stable.
+
+Stage Summary:
+- WORKSTREAM C COMPLETE at the claim level: the gate failure is EXPLICIT
+  (jrefusedGate()), NON-COMMITTING (the framed-cell claims PROVED on the
+  concrete-refuted shapes), the partition is exhaustive-by-construction
+  with the non-overlap control, the B4 stuck path is REMOVED AND MEASURED
+  (the decidable OLD/NEW pair), and the cross-layer agreement is 10/10.
+  The all-branch coverage claim remains an ATTEMPT (B5' grind, retained).
+- Next: Workstream D (the universal induction attempt), Workstream E
+  (accounting/report/provenance), tag, push.
