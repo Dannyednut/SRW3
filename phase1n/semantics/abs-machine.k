@@ -243,6 +243,17 @@ module SRW3N-ABS
   rule absRunF(aConsJ(AC:ACmd, R:APProg), AX:AState)
     => absRunF(R, absStepJ(AX, AC))
 
+  // the STRUCTURAL projection of an abstract state: the safe bookkeeping
+  // component is deliberately cleared.  simJ cannot READ the concrete
+  // safe bit (SafeJ over symbolic concrete maps is the 1L stuck class —
+  // the declared boundary), so the simulation algebra is stated as
+  // simJ(post) == absStructOf(absStepJ(simJ(pre), cmd)) — the structural
+  // agreement — while the SAFE component's agreement is carried by the
+  // command-bit witnesses (the concrete guards) in the SIM shape claims.
+  syntax AState ::= absStructOf ( AState ) [function, total]
+  rule absStructOf(absSt(C:Bool, T:Bool, G:Int, E:Int, N:Int, _:Bool, D:ADiag))
+    => absSt(C, T, G, E, N, false, D)
+
   // the initialized-shaped projection (the committed-prefix corollary's
   // conclusion): the run ENDS in the initialized branch with the safety
   // bookkeeping held.

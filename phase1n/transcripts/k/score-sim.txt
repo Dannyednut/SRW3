@@ -1,0 +1,6 @@
+# SIM ladder score — 2026-10-21T14:03:26Z
+# PASS-expected proved (non-trivial): 0
+# FAIL-expected failed              : 2 (the negative controls)
+# GATE ALARMS (incl. TRIVIAL)       : 0
+# ATTEMPT claims                    : 1 attempted, 0 PROVED non-trivially
+# GATE                 : RED

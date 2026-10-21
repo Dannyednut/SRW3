@@ -1,0 +1,32 @@
+<srw3closureJ>
+  <absjshadow>
+    absSt (... cfgP: false , catP: false , cntG: 0 , cntE: 0 , nSlot: 0 , safe: false , diag: adNone ) ~> .K
+  </absjshadow>
+  <k>
+    .K
+  </k>
+  <jlineage>
+    .Map
+  </jlineage>
+  <jnext>
+    0
+  </jnext>
+  <jhead>
+    b"\x00"
+  </jhead>
+  <jlinhead>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+  </jlinhead>
+  <janchor>
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x07"
+  </janchor>
+  <jstate>
+    .Map
+  </jstate>
+  <jrefuse>
+    jrefuseNoneJ
+  </jrefuse>
+  <jvalid>
+    true
+  </jvalid>
+</srw3closureJ>
