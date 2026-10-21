@@ -1,0 +1,10 @@
+# ABS ladder score — 2026-10-21T12:01:05Z
+# PASS-expected proved (non-trivial): 1  (base + step partition + preservation)
+# FAIL-expected failed              : 0 (the negative controls)
+# GATE ALARMS (incl. TRIVIAL)       : 0
+# ATTEMPT claims                    : 0 attempted, 0 PROVED non-trivially
+# GATE                 : GREEN
+#
+# The ABSTRACT universal theorem is MECHANIZED IFF ABS-UNIV-STEP is
+# PROVED non-trivially (WarnTrivialClaim guard enforced).  Whatever
+# this score says, the phase disposition follows the raw results.
