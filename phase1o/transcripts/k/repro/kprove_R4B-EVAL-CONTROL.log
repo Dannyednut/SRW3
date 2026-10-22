@@ -1,0 +1,33 @@
+kore-exec: [141525] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k:135:5-135:61
+#Top
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(90,19,90,20)
+	90 |	    <k> invS(runF(L:L, st(I:Int))) => true </k>
+	   .	                  ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(101,10,101,11)
+	101 |	    <k> (L:L => .K) ... </k>
+	    .	         ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(114,16,114,17)
+	114 |	    <k> (consL(C:Cmd, R:L) => .K) ... </k>
+	    .	               ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(114,23,114,24)
+	114 |	    <k> (consL(C:Cmd, R:L) => .K) ... </k>
+	    .	                      ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(128,11,128,12)
+	128 |	    <k> f(C:Cmd) >=Int 0 => true </k>
+	    .	          ^

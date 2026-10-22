@@ -1,0 +1,107 @@
+kore-exec: [323588] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k:177:5-180:25
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [326423] Warning (WarnUnexploredBranches):
+    4 branches were still unexplored when the action failed.
+  #Not ( {
+    true
+  #Equals
+    S0 +Int -2 >=Int 0
+  } )
+#And
+  <univrepro>
+    <k>
+      _DotVar2
+    </k>
+    <s>
+      st ( S0 +Int -2 )
+    </s>
+  </univrepro>
+#And
+  {
+    C
+  #Equals
+    dec2
+  }
+#And
+  {
+    L
+  #Equals
+    consL ( dec2 , nilL )
+  }
+#And
+  {
+    R
+  #Equals
+    nilL
+  }
+#And
+  {
+    true
+  #Equals
+    S0 >=Int 0
+  }
+[Warning] Compiler: Variable 'I' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(51,16,51,17)
+	51 |	  rule step(st(I:Int), bad)  => st(0)         [owise]   // bad at 0
+saturates
+	   .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(102,20,102,21)
+	102 |	  rule okRun(consP(C:Cmd, R:Prg)) => false [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(102,27,102,28)
+	102 |	  rule okRun(consP(C:Cmd, R:Prg)) => false [owise]
+	    .	                          ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(108,21,108,22)
+	108 |	  rule okRunF(consF(C:Cmd, R:PrgF)) => false [owise]
+	    .	                    ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(108,28,108,29)
+	108 |	  rule okRunF(consF(C:Cmd, R:PrgF)) => false [owise]
+	    .	                           ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(121,19,121,20)
+	121 |	    <k> invS(runF(L:L, st(I:Int))) => true </k>
+	    .	                  ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(132,9,132,10)
+	132 |	    <k> P:Prg => .K ... </k>
+	    .	        ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(159,11,159,12)
+	159 |	    <k> f(C:Cmd) >=Int 0 => true </k>
+	    .	          ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(177,9,177,10)
+	177 |	    <k> L:L => .K ... </k>
+	    .	        ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(209,9,209,10)
+	209 |	    <k> P:PrgF => .K ... </k>
+	    .	        ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

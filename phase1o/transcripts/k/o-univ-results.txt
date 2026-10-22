@@ -1,0 +1,7 @@
+1O-UNIV-MACHINE rc=1 elapsed=11s trivial=0
+1O-UNIV-PREFIX rc=1 elapsed=12s trivial=0
+1O-NEG-DEST rc=1 elapsed=10s trivial=0
+1O-UNIV-PREFIX-R rc=1 elapsed=11s trivial=0
+1O-NEG-DEST-R rc=1 elapsed=10s trivial=0
+1O-UNIV-PREFIX-RL rc=1 elapsed=12s trivial=0
+1O-NEG-DEST-RL rc=1 elapsed=11s trivial=0

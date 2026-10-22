@@ -1,0 +1,50 @@
+kore-exec: [194717] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k:128:5-128:38
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    true
+  #Equals
+    f ( C ) >=Int 0
+  } )
+#And
+  <univrepro>
+    <k>
+      f ( C ) >=Int 0 ~> .K
+    </k>
+    <s>
+      st ( _DotVar2 )
+    </s>
+  </univrepro>
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(90,19,90,20)
+	90 |	    <k> invS(runF(L:L, st(I:Int))) => true </k>
+	   .	                  ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(101,10,101,11)
+	101 |	    <k> (L:L => .K) ... </k>
+	    .	         ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(114,16,114,17)
+	114 |	    <k> (consL(C:Cmd, R:L) => .K) ... </k>
+	    .	               ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(114,23,114,24)
+	114 |	    <k> (consL(C:Cmd, R:L) => .K) ... </k>
+	    .	                      ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(128,11,128,12)
+	128 |	    <k> f(C:Cmd) >=Int 0 => true </k>
+	    .	          ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

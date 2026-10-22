@@ -1,0 +1,9 @@
+[Error] Inner Parser: Parse error: unexpected token '<srw3closureJ>'.
+	Source(/tmp/o-krun/honest.o)
+	Location(1,1,1,15)
+	1 |	<srw3closureJ>
+	  .	^~~~~~~~~~~~~~
+[Error] kparse: /home/z/my-project/tools/extract/k/usr/bin/kast --output kore 
+--definition /tmp/o-r-def --module SRW3N-ABS-R /tmp/o-krun/honest.o
+[Error] krun: kparse --definition /tmp/o-r-def --module SRW3N-ABS-R 
+/tmp/o-krun/honest.o

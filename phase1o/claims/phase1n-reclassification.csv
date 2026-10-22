@@ -1,0 +1,6 @@
+claim,classification_1N,classification_1O,rationale
+SIM-NEG-MINT-ON-FORBIDDEN-SOURCE,refuted,timed-out-expected-fail,budget exhausted on a FAIL-expected control: the design expectation is met (not proved) but NO counterexample was constructed — weaker than refuted
+SIM-NEG-COMMIT-ON-STALE-SLOT,refuted,timed-out-expected-fail,budget exhausted on a FAIL-expected control: the design expectation is met (not proved) but NO counterexample was constructed — weaker than refuted
+ABS-PREFIX-SAFE,(absent),unattempted-in-bundle,declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle
+ABS-UNIV-STEP,(absent),unattempted-in-bundle,declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle
+ABS-UNIV-TAIL,(absent),unattempted-in-bundle,declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle

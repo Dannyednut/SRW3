@@ -1,0 +1,15 @@
+R1-UNIV-FOLD rc=1 elapsed=4s
+R2-UNIV-MACHINE rc=113 elapsed=3s
+R3-UNIV-CONS rc=113 elapsed=3s
+R4-CMD-SPLIT rc=1 elapsed=3s
+R4B-EVAL-CONTROL rc=0 elapsed=4s
+R2-UNIV-MACHINE rc=0 elapsed=4s
+R3-UNIV-CONS rc=0 elapsed=3s
+R5-SOUNDNESS-MUST-FAIL rc=113 elapsed=3s trivial=0
+R6-DOMAIN-RESTRICTED rc=113 elapsed=2s trivial=0
+R7-DOMAIN-CONTROL rc=113 elapsed=3s trivial=0
+R5-SOUNDNESS-MUST-FAIL rc=1 elapsed=3s trivial=0
+R6-DOMAIN-RESTRICTED rc=0 elapsed=4s trivial=0
+R7-DOMAIN-CONTROL rc=0 elapsed=4s trivial=1
+R9-FUNC-DISPATCH-MUST-FAIL rc=1 elapsed=4s trivial=0
+R10-FUNC-DISPATCH-DOMAIN rc=1 elapsed=4s trivial=0

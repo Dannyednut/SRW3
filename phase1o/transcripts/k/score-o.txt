@@ -1,0 +1,10 @@
+# 1O K-ladder score — 2026-10-22T15:33:49Z
+# PASS-expected proved      : 27
+# FAIL-expected not-proved  : 6
+# ATTEMPT claims (recorded) : 8
+# GATE ALARMS               : 0
+# GATE                 : GREEN
+#
+# THE UNIVERSAL THEOREM IS MECHANIZED IFF 1O-UNIV-MACHINE-RL (or
+# 1O-UNIV-MACHINE-R) IS PROVED NON-TRIVIALLY.  Whatever this file
+# says, the phase disposition follows the raw results and the logs.

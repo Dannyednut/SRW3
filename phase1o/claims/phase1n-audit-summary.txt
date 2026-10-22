@@ -1,0 +1,20 @@
+Phase 1N claims inventoried: 86
+declared in proof files but absent from the ladder CSVs: 3 ['ABS-PREFIX-SAFE', 'ABS-UNIV-STEP', 'ABS-UNIV-TAIL']
+  failed-budget: 1
+  proved-by-evaluation: 58
+  proved-nontrivial: 16
+  refuted-by-proof-failure: 2
+  timed-out: 4
+  timed-out-expected-fail: 2
+  unattempted-in-bundle: 3
+1N-vs-1O classification disagreements: 5
+  SIM-NEG-MINT-ON-FORBIDDEN-SOURCE: 1N=refuted  1O=timed-out-expected-fail
+    budget exhausted on a FAIL-expected control: the design expectation is met (not proved) but NO counterexample was constructed — weaker than refuted
+  SIM-NEG-COMMIT-ON-STALE-SLOT: 1N=refuted  1O=timed-out-expected-fail
+    budget exhausted on a FAIL-expected control: the design expectation is met (not proved) but NO counterexample was constructed — weaker than refuted
+  ABS-PREFIX-SAFE: 1N=(absent)  1O=unattempted-in-bundle
+    declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle
+  ABS-UNIV-STEP: 1N=(absent)  1O=unattempted-in-bundle
+    declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle
+  ABS-UNIV-TAIL: 1N=(absent)  1O=unattempted-in-bundle
+    declared in the proof file but absent from the retained runner's CLAIMS list; no retained log; the universal proposition has NO raw evidence in the bundle

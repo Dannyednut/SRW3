@@ -1,0 +1,5 @@
+# sweep: 864 states x 12 command bit-valuations
+# S3 domain: stall classes = [('aExecJ', 'aOkF', 'aSrcAuth'), ('aExecJ', 'aOkF', 'aSrcOther'), ('aExecJ', 'aOkT', 'aSrcAuth'), ('aExecJ', 'aOkT', 'aSrcOther')]
+# S1/S3 checks done: 0 mismatches so far
+# S4 weak-machine control: 48 invariant-breaking accepts (>0 required — the guard is load-bearing)
+# PASS: S1 preservation (exhaustive over the grid), S2 K-agreement, S3 domain, S4 weak-machine control — all hold

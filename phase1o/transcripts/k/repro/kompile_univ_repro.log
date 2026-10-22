@@ -1,0 +1,34 @@
+[Warning] Compiler: Variable 'I' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(51,16,51,17)
+	51 |	  rule step(st(I:Int), bad)  => st(0)         [owise]   // bad at 0
+saturates
+	   .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(102,20,102,21)
+	102 |	  rule okRun(consP(C:Cmd, R:Prg)) => false [owise]
+	    .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(102,27,102,28)
+	102 |	  rule okRun(consP(C:Cmd, R:Prg)) => false [owise]
+	    .	                          ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(108,21,108,22)
+	108 |	  rule okRunF(consF(C:Cmd, R:PrgF)) => false [owise]
+	    .	                    ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(108,28,108,29)
+	108 |	  rule okRunF(consF(C:Cmd, R:PrgF)) => false [owise]
+	    .	                           ^
+[Warning] Compiler: Could not find main syntax module with name
+UNIV-REPRO-SYNTAX in definition.  Use --syntax-module to specify one. Using
+UNIV-REPRO as default.

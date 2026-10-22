@@ -1,0 +1,39 @@
+# SRW3 Phase 1O — source hashes (sha256) of record
+# Generated: 2026-10-22T15:36:44Z
+# Base: f2ee43dc57e879155b7de68399e09a3ca220333e (phase1n)
+
+== the frozen 1N machine ==
+e1cd1bb146cfed9b0c3b7e4def3c53ea6f24794a1c0c7246dc94bf0a64ef95ce  phase1n/semantics/abs-machine.k
+bc0b2d91732cb1cb3a0db174bf7b1d3cc545b7974f39b543f6d06691bee990de  phase1n/semantics/srw3closure-j-m4.k
+39e768fef96905aaa7bf370286afb8729f3d4818417dd666e53c603df4862e1a  scripts/make_m4.py
+
+== the 1N proof files (read-only inputs to the 1O audit) ==
+552032152392744df309cbce1349143715af86b93d9fbf952070ad313835748e  phase1n/proofs/n_abs_proofs.k
+d653f828caa8bffe411971df0d3a149b619c51156f5b293990fd22793f9eefc0  phase1n/proofs/n_sim_proofs.k
+e342c80249b4bb0053b08b52b7aee653fecc4672acd93cd458a1c64cec03b756  phase1n/proofs/run_n_abs_proofs.sh
+59e998680b9d354b63b146868bb401e4ac05855fd96be6e4bacbfd5c09144b1d  phase1n/proofs/run_n_sim_proofs.sh
+
+== the 1O derived machines (generated, verified) ==
+9a0ee678e758b3370a373f7565b4f993c1c00b9933f7426608bdc2539496b94e  phase1o/semantics/abs-machine-r.k
+921c2420cfae880d4262c54d87d66a28be80721d8d1301cc1cc81ae90faeb652  phase1o/semantics/abs-machine-weak.k
+5cd07fc1b3e818d243fb833bee182f77dd8108fb9182c1c0744e8b26aa324ddb  phase1o/semantics/abs-machine-weak-r.k
+
+== the 1O proofs + specs + scripts ==
+5860badfd95e7c80ff96b49995136e4a478bdf63e9b6a3b23c07b06d92d6fe7d  phase1o/proofs/n_o_univ.k
+116320df05a54aefaa5714c2e5f6c55347dc2d3860a60873d0893f8f1af19573  phase1o/proofs/n_o_univ_r.k
+52ba93283ac8b14a0dbb717a4d2bdbee119ff329febb79489d0f6b679f61177a  phase1o/proofs/n_o_univ_weak.k
+e6aac96b3c4f74ef91f8ee7dd5f99c24abd0d39071d6f7c79fe82fcb78a74d2d  phase1o/proofs/n_o_univ_weak_r.k
+28915718560e83ad1ba0056e74534a7adae53709d2588527cd38c76b8fe5edcf  phase1o/proofs/n_o_lemmas.k
+f64de1d2f777af11e3157667f9aa20a3d57369b93e184496537921e7a21e6c2e  phase1o/proofs/run_o_univ.sh
+01b45a1c6f6e9cad3eb8454a2f950c6b6ab21ee625e3c2b30ab0315a2d75532c  phase1o/proofs/repro/univ-repro.k
+594db69a4ff8b99bfe98017c96abef86eb836eac920b9beaf8e712cb5c267e46  phase1o/scripts/make_abs_weak.py
+8729e83b41ee156ed2f27b0bdf70e1c10f1db5322c76c37eb585940d653b5cc0  phase1o/scripts/make_abs_r.py
+0f1e71cac0fcb456b868f9a129e70f60779225be94cf2270508db2f63c0f3e1d  phase1o/scripts/make_abs_weak_r.py
+b604ede60fc71fb1a2f84b959eaf9cd758777b6dbb5f5ea80c99c6668526e98b  phase1o/scripts/make_o_lemmas.py
+3cf6c205ebaaae8f4b3080d8841451f90cc145fd108409e43c80b855fa7106f0  phase1o/scripts/summarize_1o.py
+2fd3d8ab2f70b00858c0b59af489ff7c02aaf79702806a37ddb4170ec339cb84  phase1o/scripts/audit_1n_claims.py
+
+== the 1N evidence of record (the audit's object) ==
+4def00b3c809933a300017d3aff4bd72f164c424c0c9d843bd729e3c05d787d4  phase1n/claims-status.csv
+e3a1435880d382669976d2ad4d4225defce518abc6be1d56889ac1bb2ffc48d2  phase1n/claim-classification.csv
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  phase1n/audit/frozen-tree-verification.txt

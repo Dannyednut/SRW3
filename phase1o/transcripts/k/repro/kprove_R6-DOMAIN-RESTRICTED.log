@@ -1,0 +1,56 @@
+#Top
+[Warning] Compiler: Variable 'I' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(51,16,51,17)
+	51 |	  rule step(st(I:Int), bad)  => st(0)         [owise]   // bad at 0
+saturates
+	   .	               ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(89,20,89,21)
+	89 |	  rule okRun(consL(C:Cmd, R:L)) => false [owise]
+	   .	                   ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(89,27,89,28)
+	89 |	  rule okRun(consL(C:Cmd, R:L)) => false [owise]
+	   .	                          ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(102,19,102,20)
+	102 |	    <k> invS(runF(L:L, st(I:Int))) => true </k>
+	    .	                  ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(113,9,113,10)
+	113 |	    <k> L:L => .K ... </k>
+	    .	        ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(126,15,126,16)
+	126 |	    <k> consL(C:Cmd, R:L) => .K ... </k>
+	    .	              ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(126,22,126,23)
+	126 |	    <k> consL(C:Cmd, R:L) => .K ... </k>
+	    .	                     ^
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(140,11,140,12)
+	140 |	    <k> f(C:Cmd) >=Int 0 => true </k>
+	    .	          ^
+[Warning] Compiler: Variable 'L' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3o-work/phase1o/proofs/repro/univ-repro.k)
+	Location(158,9,158,10)
+	158 |	    <k> L:L => .K ... </k>
+	    .	        ^
