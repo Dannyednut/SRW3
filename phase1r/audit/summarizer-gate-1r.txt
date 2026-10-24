@@ -1,0 +1,66 @@
+# 1R K-ladder score (last-wins) — 53 claims listed
+# PROVED                : 11
+# BOUNDED-PROVED        : 7
+# PROVED-EVAL           : 7
+# FAILED-STUCK          : 15
+# FAILED-DECIDER        : 0
+# FAILED                : 0
+# TIMEOUT               : 9
+# SELF-ASSUMED          : 0
+# UNSOUND-CLOSURE       : 1
+# NOT-RUN               : 3
+  1Q-UNIV-MACHINE-Q-1r-repro             ATTEMPT TIMEOUT          attempt
+  1R-BOUND-0-Q                           PASS   BOUNDED-PROVED   bounded
+  1R-BOUND-1-Q                           PASS   BOUNDED-PROVED   bounded
+  1R-BOUND-2-Q                           PASS   BOUNDED-PROVED   bounded
+  1R-BOUND-3-Q                           PASS   BOUNDED-PROVED   bounded
+  1R-BOUND-4-Q                           ATTEMPT TIMEOUT          bounded
+  1R-BOUND-5-Q                           UNATTEMPTED NOT-RUN          bounded
+  1R-BOUND-0-DEST-Q                      PASS   BOUNDED-PROVED   bounded
+  1R-BOUND-1-DEST-Q                      FAIL   TIMEOUT          bounded
+  1R-STEP-ONE-Q                          ATTEMPT TIMEOUT          attempt
+  1R-UNIV-TAG1-Q                         PASS   PROVED           symbol
+  1R-UNIV-TAG0-Q                         ATTEMPT TIMEOUT          attempt
+  1R-UNIV-TAG0-NF-Q                      ATTEMPT TIMEOUT          attempt
+  1R-FOLD-FORM-OPEN-Q                    ATTEMPT FAILED-STUCK     attempt
+  1R-NEG-FOLD-SELF-Q                     ATTEMPT FAILED-STUCK     self-assumption
+  1R-QS-STALL-STEP-Q                     PASS   PROVED           symbol
+  1R-QS-STALL-NONEXEC-Q                  PASS   PROVED-EVAL      eval
+  1R-QS-EMPTY-REJECT-STEP-Q              PASS   PROVED-EVAL      eval
+  1R-QS-RUN-INIT-EXEC-Q                  PASS   PROVED           symbol
+  1R-QS-RUN-HONEST-Q                     PASS   PROVED           symbol
+  1R-UNIV-TAG1-QS                        PASS   PROVED           symbol
+  1R-UNIV-TAG0-NF-QS                     ATTEMPT TIMEOUT          attempt
+  1R-UNIV-TAG0-SYMB-QS                   ATTEMPT NOT-RUN          attempt
+  1R-UNIV-COMPOSED-QS                    PASS   PROVED           symbol
+  1R-T0F-1-Q                             ATTEMPT NOT-RUN          attempt
+  1R-T0F-1-QS-Q                          ATTEMPT TIMEOUT          attempt
+  1R-T0F-2-Q                             ATTEMPT TIMEOUT          attempt
+  1R-T0F-3-Q                             PASS   PROVED-EVAL      eval
+  QT-OKQ-EVAL                            PASS   PROVED-EVAL      eval
+  QT-BOUND-1                             PASS   BOUNDED-PROVED   bounded
+  QT-BOUND-1-UNRESTRICTED                FAIL   FAILED-STUCK     symbol
+  QT-UNIV-UNRESTRICTED                   FAIL   FAILED-STUCK     symbol
+  QT-UNIV-THREADED                       PASS   PROVED           symbol
+  QTS-DOMAIN-FALSE                       PASS   PROVED-EVAL      eval
+  QTS-STALL-STEP                         PASS   PROVED           symbol
+  QTS-BOUND-1                            PASS   BOUNDED-PROVED   bounded
+  QTS-UNIV                               FAIL   FAILED-STUCK     symbol
+  1Q-UNIV-PREFIX-Q                       PASS   PROVED           symbol
+  1Q-STRONG-EMPTY-REJECT-STEP-Q          PASS   PROVED-EVAL      eval
+  Q1F-TOY-UNIV-FORKED                    PASS   PROVED           symbol
+  1Q-DIAG-EQFORM-TRUE                    PASS   PROVED-EVAL      eval
+  1Q-DIAG-EQFORM-FALSE                   FAIL   FAILED-STUCK     symbol
+  1Q-DIAG-FALSE-HYP                      FAIL   FAILED-STUCK     symbol
+  1Q-UNIV-PREFIX-UNPATCHED-Q             HOLE   UNSOUND-CLOSURE  negative-vacuity-probe
+  1Q-NEG-PREFIX-CEX-Q                    FAIL   FAILED-STUCK     symbol
+  1Q-NEG-DEST-Q                          FAIL   FAILED-STUCK     symbol
+  1Q-NEG-WEAK-UNIV-Q                     FAIL   FAILED-STUCK     symbol
+  1Q-WEAK-BREAKING-RUN-Q                 PASS   PROVED           symbol
+  1Q-NEG-WEAK-INV-Q                      FAIL   FAILED-STUCK     symbol
+  1Q-NEG-C3-WEAK-Q                       FAIL   FAILED-STUCK     symbol
+  1Q-WEAK-W2-STEP-EVAL-Q                 ATTEMPT FAILED-STUCK     attempt
+  1Q-NEG-MUT-OMIT-GATEMINT               FAIL   FAILED-STUCK     symbol
+  1Q-NEG-MUT-OMIT-C2                     FAIL   FAILED-STUCK     symbol
+
+# GATE: GREEN (zero alarms, zero incorrect)

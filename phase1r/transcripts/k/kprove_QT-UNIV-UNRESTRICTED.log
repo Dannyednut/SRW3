@@ -1,0 +1,59 @@
+kore-exec: [492294] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1r/proofs/n_r_toy_threaded.k:61:5-64:27
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [494796] Warning (WarnUnexploredBranches):
+    3 branches were still unexplored when the action failed.
+  <toyq>
+    <k>
+      _DotVar2
+    </k>
+    <s>
+      stQ (... tag: 0 , iv: succP ( S1 ) )
+    </s>
+  </toyq>
+#And
+  {
+    C
+  #Equals
+    breakC
+  }
+#And
+  {
+    P
+  #Equals
+    consT ( breakC , nilT )
+  }
+#And
+  {
+    R
+  #Equals
+    nilT
+  }
+#And
+  {
+    S0
+  #Equals
+    0
+  }
+#And
+  {
+    true
+  #Equals
+    isZeroP ( S1 )
+  }
+[Warning] Compiler: Variable 'IV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(94,22,94,24)
+	94 |	  rule tstepQ(stQ(1, IV:PoolCount), openC) => stQ(1, zeroP) // re-open
+accepted (a legal re-tag? NO —
+	   .	                     ^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(145,12,145,13)
+	145 |	  rule <k> C:TCmd => .K ... </k> <s> S:TStQ => S </s> [owise]
+	    .	           ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

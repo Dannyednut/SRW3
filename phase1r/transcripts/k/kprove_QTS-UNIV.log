@@ -1,0 +1,107 @@
+kore-exec: [1525889] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1r/proofs/n_r_toy_stall.k:58:5-61:27
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [1528918] Warning (WarnUnexploredBranches):
+    22 branches were still unexplored when the action failed.
+  #Not ( {
+    C
+  #Equals
+    addC
+  } )
+#And
+  #Not ( {
+    C
+  #Equals
+    breakC
+  } )
+#And
+  #Not ( {
+    C
+  #Equals
+    noopC
+  } )
+#And
+  #Not ( {
+    C
+  #Equals
+    openC
+  } )
+#And
+  #Not ( {
+    C
+  #Equals
+    subC
+  } )
+#And
+  <toyq>
+    <k>
+      _DotVar2
+    </k>
+    <s>
+      stQ (... tag: 0 , iv: succP ( S1 ) )
+    </s>
+  </toyq>
+#And
+  {
+    C0
+  #Equals
+    breakC
+  }
+#And
+  {
+    P
+  #Equals
+    consT ( C , consT ( breakC , nilT ) )
+  }
+#And
+  {
+    R0
+  #Equals
+    nilT
+  }
+#And
+  {
+    R
+  #Equals
+    consT ( breakC , nilT )
+  }
+#And
+  {
+    S0
+  #Equals
+    0
+  }
+#And
+  {
+    true
+  #Equals
+    isZeroP ( S1 )
+  }
+#And
+  {
+    true
+  #Equals
+    okX ( consT ( C , consT ( breakC , nilT ) ) , stQ (... tag: 0 , iv: S1 ) )
+  }
+[Warning] Compiler: Variable 'IV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(94,22,94,24)
+	94 |	  rule tstepQ(stQ(1, IV:PoolCount), openC) => stQ(1, zeroP) // re-open
+accepted (a legal re-tag? NO —
+	   .	                     ^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(145,12,145,13)
+	145 |	  rule <k> C:TCmd => .K ... </k> <s> S:TStQ => S </s> [owise]
+	    .	           ^
+[Warning] Compiler: Variable 'R' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1r/proofs/n_r_toy_stall.k)
+	Location(45,26,45,27)
+	45 |	  rule okX(consT(stallC, R:TPrg), stQ(0, _:PoolCount)) => false
+	   .	                         ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.
