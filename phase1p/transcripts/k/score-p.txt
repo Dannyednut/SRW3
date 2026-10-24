@@ -1,0 +1,30 @@
+# 1P K-ladder score (last-wins) — 110 distinct claims
+# PASS-expected proved      : 76
+# FAIL-expected not-proved  : 16
+# ATTEMPT claims (recorded) : 17
+# SELF-assumed (the hole)   : 1
+# GATE ALARMS               : 0 
+# INCORRECT                 : 0 
+# GATE                      : GREEN
+#
+# THE UNIVERSAL ATTEMPTS (last-wins raw results):
+#   1P-UNIV-MACHINE-T=FAILED(rc=1)
+#   1P-UNIV-PREFIX-T=FAILED(rc=1)
+#   1P-UNIV-MACHINE-TD=FAILED(rc=1)
+#   1P-UNIV-PREFIX-TD=FAILED(rc=1)
+#   1P-UNIV-MACHINE-TDR=FAILED(rc=1)
+#   1P-UNIV-MACHINE-TDRR=FAILED(rc=1)
+#   1P-UNIV-PREFIX-TDRR=FAILED(rc=1)
+#   1P-UNIV-PREFIX-TDR=FAILED(rc=1)
+#   1P-UNIV-MACHINE-TLR=FAILED(rc=1)
+#   1P-UNIV-PREFIX-TLR=FAILED(rc=1)
+#   1P-UNIV-CONS-TDR=FAILED(rc=1)
+#   T1-TOY-TAG-UNIV=FAILED(rc=1)
+#   T2-TOY-CONS=FAILED(rc=1)
+#
+# THE UNIVERSAL THEOREM IS MECHANIZED IFF 1P-UNIV-MACHINE-TDRR (or
+# 1P-UNIV-MACHINE-TLR with the trusted PRESV family) IS PROVED
+# NON-TRIVIALLY.
+# VERDICT: THE UNIVERSAL THEOREM IS NOT MECHANIZED
+# Whatever this file says, the phase disposition follows the raw
+# results and the logs.

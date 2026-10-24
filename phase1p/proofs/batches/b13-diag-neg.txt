@@ -1,0 +1,10 @@
+1P-UNIV-NIL-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_diag_tdr.k|/tmp/p1p-tdr-def|P-DIAG-TDR|PASS|300|
+1P-NEG-WEAK-UNIV-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_weak_t.k|/tmp/p1p-weak-t-def|P-UNIV-WEAK-T-PROOFS|FAIL|300|
+1P-WEAK-BREAKING-RUN-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_weak_t.k|/tmp/p1p-weak-t-def|P-UNIV-WEAK-T-PROOFS|PASS|300|
+1P-NEG-WEAK-INV|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_weak_t.k|/tmp/p1p-weak-t-def|P-UNIV-WEAK-T-PROOFS|FAIL|120|
+1P-NEG-MUT-STALE-COH|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_mut_stale.k|/tmp/p1p-mut-stale-def|P-NEG-MUT-STALE|FAIL|120|
+1P-NEG-MUT-STALE-PRESV|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_mut_stale.k|/tmp/p1p-mut-stale-def|P-NEG-MUT-STALE|FAIL|120|
+1P-NEG-MUT-FLIP-COH|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_mut_flip.k|/tmp/p1p-mut-flip-def|P-NEG-MUT-FLIP|FAIL|120|
+1P-NEG-MUT-FLIP-PRESV|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_mut_flip.k|/tmp/p1p-mut-flip-def|P-NEG-MUT-FLIP|FAIL|120|
+1P-NEG-MUT-FLIP-RUN|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_mut_flip.k|/tmp/p1p-mut-flip-def|P-NEG-MUT-FLIP|FAIL|120|
+1P-NEG-SELF-ASSUME|/home/z/my-project/SRW3/phase1p/proofs/n_p_neg_self.k|/tmp/p1p-tdr-def|P-NEG-SELF|PASS-SELF|120|

@@ -1,0 +1,6 @@
+R3-UNIV-CONS|/home/z/my-project/SRW3/phase1o/proofs/repro/univ-repro.k|/tmp/p1p-baseline-toy-def|UNIV-REPRO-PROOFS|PASS|300|
+R6-DOMAIN-RESTRICTED|/home/z/my-project/SRW3/phase1o/proofs/repro/univ-repro.k|/tmp/p1p-baseline-toy-def|UNIV-REPRO-PROOFS|PASS|300|
+R4-CMD-SPLIT|/home/z/my-project/SRW3/phase1o/proofs/repro/univ-repro.k|/tmp/p1p-baseline-toy-def|UNIV-REPRO-PROOFS|ATTEMPT|300|
+R10-FUNC-DISPATCH-DOMAIN|/home/z/my-project/SRW3/phase1o/proofs/repro/univ-repro.k|/tmp/p1p-baseline-toy-def|UNIV-REPRO-PROOFS|ATTEMPT|300|
+1O-UNIV-MACHINE-R|/home/z/my-project/SRW3/phase1o/proofs/n_o_univ_r.k|/tmp/p1p-baseline-o-r-def|O-UNIV-R-PROOFS|ATTEMPT|300|
+ABS-PRESV-I-INIT-ACCEPT|/home/z/my-project/SRW3/phase1o/proofs/n_o_lemmas.k|/tmp/p1p-baseline-o-r-def|O-LEMMAS|PASS-EVAL|300|

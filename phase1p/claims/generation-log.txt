@@ -1,0 +1,12 @@
+# phase1p r2 generated-asset hashes (final regeneration)
+phase1p/semantics/abs-machine-t.k  sha256=685dce28df0444ff1d975dda7787bd3b46b44d9001aa946141223ef145aaeca2
+phase1p/semantics/abs-machine-td.k  sha256=a9a58b764bba8c30221a2444801d2c2c3479fa956fd1732f47d9876cb583160d
+phase1p/semantics/abs-machine-tdr.k  sha256=cba2d764f30e995783d611d073f9d27f66828af9992d31240d673ed4efc6d7b8
+phase1p/semantics/abs-machine-tdrr.k  sha256=448db6a46101d1f848a7ad364fc07a06cc99a903b4615afc0e5753ca0d8db511
+phase1p/semantics/abs-machine-weak-t.k  sha256=aea309f4fa2f8068730bbd2aeb68a6016df0cd955613dfb607e00ee4f734822a
+phase1p/semantics/abs-machine-weak-td.k  sha256=2a5104837dcdadedbc10cd4ea91f70aacc0f43782728cfe0105e67bc0b4fedf8
+phase1p/semantics/abs-machine-weak-tdr.k  sha256=06950bf3d22fe12f53cd1945aac48ebe5e304b030e9887f73ec05e2d8680dd84
+phase1p/tests/abs-machine-mut-flip.k  sha256=2f76edce398eb77dd786139c3136c77ca5b7f7a94e9b4d67b4bd708208b8d578
+phase1p/tests/abs-machine-mut-stale.k  sha256=1098680529fef89fa9dc2e8f53854c41d876d541d7d7e1e39f89d8fa5c2b7d27
+phase1p/scripts/make_abs_t.py  sha256=104c2256f2ac022457529a44e1644397cd2d01a435f8f7ee24cea4ca4e5d1573
+phase1p/scripts/make_mutants_1p.py  sha256=be3a6c306405ebf2ade0da1f995bb205148fa365c8730e2595b3f37ff12788a9

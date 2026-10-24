@@ -1,0 +1,7 @@
+#Top
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1p/proofs/repro/univ-repro-t.k)
+	Location(154,9,154,10)
+	154 |	    <k> P:TPrg => .K ... </k>
+	    .	        ^

@@ -1,0 +1,6 @@
+1P-UNIV-MACHINE-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|ATTEMPT|240|
+1P-UNIV-PREFIX-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|ATTEMPT|240|
+1P-NEG-DEST-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|FAIL|240|
+1P-RUN-HONEST-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|PASS|240|
+1P-RUN-INIT-EXEC-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|PASS|240|
+1P-NEG-UNSAFE-COMMIT-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_t.k|/tmp/p1p-t-def|P-UNIV-T-PROOFS|FAIL|240|

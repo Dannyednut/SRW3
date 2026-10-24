@@ -1,0 +1,9 @@
+kore-exec: [161262] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/SRW3/phase1p/proofs/repro/univ-repro-t.k:146:5-146:47
+#Top
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1p/proofs/repro/univ-repro-t.k)
+	Location(154,9,154,10)
+	154 |	    <k> P:TPrg => .K ... </k>
+	    .	        ^

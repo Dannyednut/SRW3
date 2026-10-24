@@ -1,0 +1,100 @@
+kore-exec: [548433] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1p/proofs/repro/univ-repro-t.k:126:5-129:26
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [551851] Warning (WarnUnexploredBranches):
+    10 branches were still unexplored when the action failed.
+  #Not ( #Exists S2 . #Exists S3 . {
+      stT (... tag: S2 , iv: S3 )
+    #Equals
+      tstep ( stT (... tag: S0 , iv: S1 ) , subC )
+    }
+  #And
+    {
+      true
+    #Equals
+      S2 <=Int 1
+    }
+  #And
+    {
+      true
+    #Equals
+      S2 ==Int 0 impliesBool S3 ==Int 0
+    }
+  #And
+    {
+      true
+    #Equals
+      S2 ==Int 1 impliesBool S3 >=Int 0
+    }
+  #And
+    {
+      true
+    #Equals
+      S2 >=Int 0
+    } )
+#And
+  #Not ( {
+    true
+  #Equals
+    invT ( tstep ( stT (... tag: S0 , iv: S1 ) , subC ) )
+  } )
+#And
+  <toytag>
+    <k>
+      _DotVar2
+    </k>
+    <s>
+      tstep ( stT (... tag: S0 , iv: S1 ) , subC )
+    </s>
+  </toytag>
+#And
+  {
+    C
+  #Equals
+    subC
+  }
+#And
+  {
+    P
+  #Equals
+    consT ( subC , nilT )
+  }
+#And
+  {
+    R
+  #Equals
+    nilT
+  }
+#And
+  {
+    true
+  #Equals
+    S0 <=Int 1
+  }
+#And
+  {
+    true
+  #Equals
+    S0 ==Int 0 impliesBool S1 ==Int 0
+  }
+#And
+  {
+    true
+  #Equals
+    S0 ==Int 1 impliesBool S1 >=Int 0
+  }
+#And
+  {
+    true
+  #Equals
+    S0 >=Int 0
+  }
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1p/proofs/repro/univ-repro-t.k)
+	Location(154,9,154,10)
+	154 |	    <k> P:TPrg => .K ... </k>
+	    .	        ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

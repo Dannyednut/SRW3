@@ -1,0 +1,5 @@
+1P-PRESV-I-COMMIT-ACCEPT-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_t.k|/tmp/p1p-t-def|P-LEMMAS-T|PASS-EVAL|120|
+1P-PRESV-P-INIT-ACCEPT-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_t.k|/tmp/p1p-t-def|P-LEMMAS-T|PASS-EVAL|120|
+1P-COH-P-INIT-ACCEPT-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_t.k|/tmp/p1p-t-def|P-LEMMAS-T|PASS-EVAL|120|
+1P-TAGSOUND-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_t.k|/tmp/p1p-t-def|P-LEMMAS-T|PASS-EVAL|120|
+1P-ERASE-INIT-ACCEPT-T|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_t.k|/tmp/p1p-t-def|P-LEMMAS-T|PASS-EVAL|120|

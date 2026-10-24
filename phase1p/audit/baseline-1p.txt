@@ -1,0 +1,81 @@
+# SRW3 Phase 1P (r2) — audit/baseline-1p.txt
+# The pre-run audit record of the RECONSTRUCTION.  Written before the ladder
+# ran; the results live in phase1p/transcripts/ and claims/ (never here).
+
+## 0. Reconstruction event
+The Phase 1P r1 working tree (branch phase1p-branch-tag-encoding, session r1)
+was lost to a sandbox reset BEFORE any commit or push:
+  - the workspace reverted to the Phase-1D-era snapshot;
+  - the clone at the 1O freeze was destroyed (filesystem sweep negative for
+    every phase1p filename pattern; the persisted session artifacts contain
+    no phase1p content);
+  - the remote carried no phase1p ref (git ls-remote verified 2026-10-24:
+    the newest branch is phase1o-source-preserved-transitions).
+The r2 tree is a re-derivation from the recorded r1 design summary.  Every
+r2 result comes from FRESH re-execution under the pinned toolchain on the
+fresh clone.  The r1 edit labels E1-E8 are superseded by the r2 edit set
+EA-EH (phase1p/scripts/make_abs_t.py docstring).
+
+## 1. Baseline (re-verified live at r2 start)
+repo:        github.com/Dannyednut/SRW3, clone at
+             cdb55568771d3fd1874741a845f75620b078ee35
+             (= origin/phase1o-source-preserved-transitions; parent
+              f2ee43dc57e879155b7de68399e09a3ca220333e = the 1N checkpoint)
+branch:      phase1p-branch-tag-encoding (created from the commit above)
+worktree:    clean at branch creation (the only changes below are phase1p/
+             additions, the worklog, and the toolchain's shim build
+             artifacts under k/phase1c/shim/ — untracked build outputs of
+             the pinned-recipe rebuild, not semantic edits)
+
+## 2. Toolchain (the pinned recipe scripts/reinstall_toolchain_1m_r3.sh)
+K  v7.1.337 (the pinned jammy deb; extracted, no root)
+z3 4.13.3
+env: source /home/z/my-project/tools/env.sh
+     export LIBRARY_PATH="$TOOLS/extract/syslibs:$LIBRARY_PATH"
+recipe log: phase1p/transcripts/toolchain-rebuild-r2.log (TOOLCHAIN_R3_DONE)
+layout note: the recipe hardcodes the 1M-era repo path /home/z/my-project/
+             srw3-1m; a workspace symlink srw3-1m -> SRW3 satisfies it (no
+             repo file was edited for this).
+
+## 3. Consumed 1O/1N sources (sha256)
+phase1n/semantics/abs-machine.k        e1cd1bb146cfed9b0c3b7e4def3c53ea6f24794a1c0c7246dc94bf0a64ef95ce
+phase1n/semantics/srw3closure-j-m4.k   (untouched; the M4 machine)
+phase1o/semantics/abs-machine-r.k      (untouched; the 1O baseline repro def)
+phase1o/proofs/repro/univ-repro.k      (untouched; the 1O toy baseline)
+phase1o/proofs/n_o_univ_r.k            (untouched; the 1O universal residual form)
+phase1o/proofs/n_o_lemmas.k            (untouched; the 1O PRESV family of record)
+
+## 4. Generated assets (r2; generator = phase1p/scripts/make_abs_t.py,
+##    roundtrip-deterministic, fail-closed; edit set EA-EH)
+(sha256 at generation time — regenerated after the two disclosed generator
+fixes: the tg field rename [tag is a reserved outer-parser token] and the
+missing separating commas; see §5)
+abs-machine-t.k        see claims/generation-log.txt
+abs-machine-td.k
+abs-machine-tdr.k
+abs-machine-weak-t.k
+abs-machine-weak-td.k
+abs-machine-weak-tdr.k
+mutants: phase1p/scripts/make_mutants_1p.py -> tests/abs-machine-mut-{stale,flip}.k
+         (ONE mutant per kompile target — the r1 duplicate-syntax lesson)
+pairwise discipline: T vs TD differ ONLY in the runner section; TD vs TDR
+         differ ONLY in the step section (generator-enforced, exit 1 otherwise)
+
+## 5. Disclosed r2 generator deviations from a naive r1 transcription
+(a) the tagged field is named tg (tag is a reserved token in K v7.1.337's
+    outer parser — kompile rejects `tag:Int` in a syntax production);
+(b) the syntax-production commas are at continuation-line starts (the 1N
+    layout); the first template draft omitted them (kompile-fail-closed);
+(c) the refinement (eraseT/tagStE/branchTag) is stated over the absStE
+    MIRROR sort: SRW3N-ABS cannot be imported into a tagged module without
+    importing the 1N runner rules, which would contaminate the tagged
+    machine's reachability (the same duplicate-syntax rule-conflict class
+    the r1 mutant note records).  The mirror's field correspondence to the
+    1N rule table is generator-verified (make_abs_t.py N1_ROWS check).
+(d) simJ/absStructOf are deliberately not carried (edit EH, disclosed).
+
+## 6. The runner
+phase1p/proofs/run_p_univ.sh — stages K/B/R/L/U/D/N/P, fail-closed, raw
+logs under phase1p/transcripts/k/, the per-claim CSV under claims/ (the
+runner writes transcripts/k/claims-status-p.csv; claims/claims.csv is the
+curated inventory).  Exit 0 iff no ALARM (designed failures are results).

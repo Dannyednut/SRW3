@@ -1,0 +1,6 @@
+1P-UNIV-PREFIX-TDRR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdrr.k|/tmp/p1p-tdrr-def|P-UNIV-TDRR-PROOFS|ATTEMPT|300|
+1P-NEG-DEST-TDRR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdrr.k|/tmp/p1p-tdrr-def|P-UNIV-TDRR-PROOFS|FAIL|240|
+1P-RUN-HONEST-TDRR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdrr.k|/tmp/p1p-tdrr-def|P-UNIV-TDRR-PROOFS|PASS|240|
+1P-RUN-INIT-EXEC-TDRR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdrr.k|/tmp/p1p-tdrr-def|P-UNIV-TDRR-PROOFS|PASS|240|
+1P-NEG-UNSAFE-COMMIT-TDRR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdrr.k|/tmp/p1p-tdrr-def|P-UNIV-TDRR-PROOFS|FAIL|240|
+1P-UNIV-PREFIX-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdr.k|/tmp/p1p-tdr-def|P-UNIV-TDR-PROOFS|ATTEMPT|240|

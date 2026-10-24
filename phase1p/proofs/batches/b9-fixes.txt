@@ -1,0 +1,4 @@
+1P-PRESV-I-GATE-REFUSE-LOW|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_tdr.k|/tmp/p1p-tdr-def|P-LEMMAS-TDR|PASS-EVAL|120|
+1P-COH-I-GATE-REFUSE-LOW|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_tdr.k|/tmp/p1p-tdr-def|P-LEMMAS-TDR|PASS-EVAL|120|
+1P-TAGCOMPLETE-B1|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_tdr.k|/tmp/p1p-tdr-def|P-LEMMAS-TDR|PASS-EVAL|120|
+1P-TAGCOMPLETE-B2|/home/z/my-project/SRW3/phase1p/proofs/n_p_lemmas_tdr.k|/tmp/p1p-tdr-def|P-LEMMAS-TDR|PASS-EVAL|120|

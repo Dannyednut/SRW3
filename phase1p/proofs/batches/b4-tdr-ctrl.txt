@@ -1,0 +1,4 @@
+1P-NEG-DEST-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdr.k|/tmp/p1p-tdr-def|P-UNIV-TDR-PROOFS|FAIL|300|
+1P-RUN-HONEST-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdr.k|/tmp/p1p-tdr-def|P-UNIV-TDR-PROOFS|PASS|300|
+1P-RUN-INIT-EXEC-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdr.k|/tmp/p1p-tdr-def|P-UNIV-TDR-PROOFS|PASS|300|
+1P-NEG-UNSAFE-COMMIT-TDR|/home/z/my-project/SRW3/phase1p/proofs/n_p_univ_tdr.k|/tmp/p1p-tdr-def|P-UNIV-TDR-PROOFS|FAIL|300|
