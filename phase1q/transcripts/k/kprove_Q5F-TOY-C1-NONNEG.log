@@ -1,0 +1,45 @@
+kore-exec: [179507] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k:209:5-209:46
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    true
+  #Equals
+    ctI ( N ) >=Int 0
+  } )
+#And
+  <toyq>
+    <k>
+      ctI ( N ) >=Int 0 ~> .K
+    </k>
+    <s>
+      stQ (... tag: _DotVar2 , iv: _DotVar3 )
+    </s>
+  </toyq>
+[Warning] Compiler: Variable 'IV' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(94,22,94,24)
+	94 |	  rule tstepQ(stQ(1, IV:PoolCount), openC) => stQ(1, zeroP) // re-open
+accepted (a legal re-tag? NO —
+	   .	                     ^~
+[Warning] Compiler: Variable 'C' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(145,12,145,13)
+	145 |	  rule <k> C:TCmd => .K ... </k> <s> S:TStQ => S </s> [owise]
+	    .	           ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(186,9,186,10)
+	186 |	    <k> P:TPrg => .K ... </k>
+	    .	        ^
+[Warning] Compiler: Variable 'N' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1q/proofs/repro/univ-repro-qf.k)
+	Location(209,13,209,14)
+	209 |	    <k> ctI(N:PoolCount) >=Int 0 => true </k>
+	    .	            ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

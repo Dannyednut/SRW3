@@ -1,0 +1,84 @@
+claim_id,expectation,class,source,exit_code,budget_s,note
+Q1-TOY-UNIV-DIRECT,ATTEMPT,attempt,phase1q/proofs/repro/univ-repro-q.k,1,240,"the DIRECT runner diagnostic: the engine does NOT constructor-split the function-argument pool variable (the 1O prediction holds for free constructors); residual = tstepQ(stQ(...),subC) stuck"
+Q2-TOY-CONS,ATTEMPT,attempt,phase1q/proofs/repro/univ-repro-q.k,1,240,"cons-pinned circularity probe, direct form: same wall"
+Q3-TOY-DOMAIN,PASS,eval,phase1q/proofs/repro/univ-repro-q.k,0,240,the domain predicate excludes breakC (evaluation)
+Q4-TOY-MUST-FAIL,FAIL,symbol,phase1q/proofs/repro/univ-repro-q.k,1,240,the unrestricted universal FAILS (the forgery is reachable) — soundness probe as designed
+Q4B-TOY-BREAKING-RUN,PASS,symbol,phase1q/proofs/repro/univ-repro-q.k,0,240,the ground forgery run PROVES (the violation witness)
+Q5-TOY-C1-NONNEG,ATTEMPT,attempt,phase1q/proofs/repro/univ-repro-q.k,1,240,C1 at toy scale: sticks (needs structural induction)
+Q1F-TOY-UNIV-FORKED,PASS,symbol,phase1q/proofs/repro/univ-repro-qf.k,0,240,THE TOY UNIVERSAL PROVED NON-VACUOUSLY (zero WarnTrivialClaim; real rewriting through the constructor fork) — the 1P compound-guard obstruction REMOVED AT TOY SCALE
+Q2F-TOY-CONS,PASS,symbol,phase1q/proofs/repro/univ-repro-qf.k,0,240,circularity self-application closes under the fork (non-vacuous)
+Q3F-TOY-DOMAIN,PASS,eval,phase1q/proofs/repro/univ-repro-qf.k,0,240,domain discipline (evaluation)
+Q4F-TOY-MUST-FAIL,FAIL,symbol,phase1q/proofs/repro/univ-repro-qf.k,1,240,the unrestricted universal FAILS on the forked machine too (soundness)
+Q4FB-TOY-BREAKING-RUN,PASS,symbol,phase1q/proofs/repro/univ-repro-qf.k,0,240,the ground forgery run PROVES on the forked machine
+Q5F-TOY-C1-NONNEG,ATTEMPT,attempt,phase1q/proofs/repro/univ-repro-qf.k,1,240,"C1 at toy scale, forked file: same residual"
+1P-UNIV-MACHINE-TDRR-repro,ATTEMPT,attempt,phase1p/proofs/n_p_univ_tdrr.k,1,300,"THE 1P RESIDUAL REPRODUCED: rc=1 in 12.4s, WarnStuckClaimState at n_p_univ_tdrr.k:29:5-35:34, residual absStepT(absStT(tg:1,...,cntG:AX3,cntE:AX4,...),aCommitJ(aOkT,aOkF)), 26 unexplored branches — the exact 1P-F2 signature"
+1Q-P1-TAG-RANGE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,the tag range from the invariant
+1Q-P1-GENESIS-COH,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,the constructor genesis is coherent
+1Q-P1-ERASE-GENESIS,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,the genesis erases to the exact Int-image genesis
+1Q-C1-NONNEG,ATTEMPT,attempt,phase1q/proofs/n_q_lemmas_q.k,1,200,OBLIGATION C1 GENERAL FORM: STICKS — needs structural induction over PoolCount; the residual is the record; the concrete witnesses below are the mechanized fragment
+1Q-C1-CONCRETE,PASS,bounded,phase1q/proofs/n_q_lemmas_q.k,0,150,BOUNDED: ctI >= 0 at depths 0..5 by evaluation — NOT the general C1
+1Q-PRESV-I-COMMIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row B-SS: structural dec x2 preserves ABSInvQ (no pool requires)
+1Q-PRESV-I-COMMIT-REJECT-ZG,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row A-Z*
+1Q-PRESV-I-COMMIT-REJECT-ZGS,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row A-SZ
+1Q-PRESV-I-COMMIT-REJECT-HI,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row C-SS
+1Q-PRESV-I-COMMIT-REJECT-BITF,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row D-SS
+1Q-PRESV-I-EXEC-MINT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,structural inc on E
+1Q-PRESV-I-EXEC-REFUSE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,
+1Q-PRESV-I-EXEC-SOURCE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,J-A08 refusal
+1Q-PRESV-I-GATE-MINT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,"row B-S (structural inc on G, E kept)"
+1Q-PRESV-I-GATE-MINT-EMPTY,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row A-Z
+1Q-PRESV-I-GATE-REFUSE-S,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,row C-S
+1Q-PRESV-I-INIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,the ONLY legal re-tag; pools reset
+1Q-PRESV-I-INIT-REFUSE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,
+1Q-PRESV-I-EXEC-STALL,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,the tag-0 stall discipline
+1Q-COH-P-INIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,coherence: the re-tag
+1Q-COH-P-INIT-REFUSE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,
+1Q-COH-P-EXEC-STALL,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,
+1Q-COH-I-GATE-MINT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,structural inc keeps coherence
+1Q-COH-I-COMMIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,structural dec keeps coherence
+1Q-COH-I-COMMIT-REJECT-ZG,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,
+1Q-C2-ERASE-INIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2: eraseQ o absStepQ == absStepE o eraseQ at the re-tag
+1Q-C2-ERASE-INIT-REFUSE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2
+1Q-C2-ERASE-EXEC-MINT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2: ctI(succP(E)) unfolds on the constructor-headed term; NO C1 needed
+1Q-C2-ERASE-EXEC-REFUSE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2
+1Q-C2-ERASE-EXEC-SOURCE,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2
+1Q-C2-ERASE-EXEC-STALL,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2
+1Q-C2-ERASE-GATE-MINT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row B-S WITH the disclosed C1-DEP hypothesis countToInt(E0) >=Int 0
+1Q-C2-ERASE-GATE-MINT-NODEP,ATTEMPT,attempt,phase1q/proofs/n_q_lemmas_q.k,1,150,"THE C1-DEPENDENCE MEASURED: the SAME claim without the hypothesis STICKS at the 1P row guard — the C1 dependence of the arithmetic rows is REAL, disclosed, and measured"
+1Q-C2-ERASE-GATE-REFUSE-Z,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row A-Z: the concrete zeroP decides the 1P complement; NO C1 needed
+1Q-C2-ERASE-GATE-REFUSE-S,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row C-S WITH the C1-DEP hypothesis
+1Q-C2-ERASE-COMMIT-ACCEPT,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row B-SS WITH the C1-DEP hypotheses (ctI >= 0 x2); the (x+1)-1 cancellation is z3-exact
+1Q-C2-ERASE-COMMIT-REJECT-ZG,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row A-Z*: NO C1 needed (the G side is concrete zeroP)
+1Q-C2-ERASE-COMMIT-REJECT-ZGS,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row A-SZ: NO C1 needed
+1Q-C2-ERASE-COMMIT-REJECT-HI,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C2 at row C-SS WITH the C1-DEP hypotheses
+1Q-C3-SUCC-IMPLIES-NONZERO,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C3 => direction WITH the C1-DEP hypothesis
+1Q-C3-ZERO-NOT-NONZERO,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C3 zeroP witness: ctI(zeroP)=0 < 1 (concrete)
+1Q-C3-GENERAL-FORM,ATTEMPT,attempt,phase1q/proofs/n_q_lemmas_q.k,1,240,C3 equivalence over a symbolic pool: STICKS — the constructor case split the checker lacks
+1Q-C4-TAGSOUND-B0,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C4: the erased genesis-branch state satisfies the 1P meaning
+1Q-C4-TAGSOUND-B1-SUCC,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C4 tag-1 succP WITH the C1-DEP hypotheses
+1Q-C4-TAGSOUND-B1-ZERO,PASS,eval,phase1q/proofs/n_q_lemmas_q.k,0,150,C4 tag-1 zeroP (evaluation)
+1Q-C5-EXHAUSTIVENESS-ATTEMPT,ATTEMPT,attempt,phase1q/proofs/n_q_lemmas_q.k,1,240,C5 free-constructor exhaustiveness over a symbolic pool: STICKS — the mechanical C5 evidence is the generator's cell-grid check (audit/) + the OMIT mutant control
+1Q-NEG-SELF-ASSUME,PASS,self-assumption,phase1q/proofs/n_q_lemmas_q.k,0,150,"SELF-ASSUMED-NOT-A-PROOF (the 1P PASS-EVAL hole, reproduced deliberately)"
+1Q-UNIV-MACHINE-Q,ATTEMPT,attempt,phase1q/proofs/n_q_univ_q.k,124,560,"THE UNIVERSAL THEOREM, machine form: NOT CLOSED. attempt1 (the 1P-form [owise] domain predicate): rc=1 DecidePredicateUnknown (12 negated constructor equalities with args over the symbolic command) — fixed by EQ-F-prime; attempt2 (560s, the B-S-buggy machine): TIMEOUT (disclosed); the form-of-record attempt: TIMEOUT at the 560s foreground ceiling (log kprove_1Q-UNIV-MACHINE-Q.log); the extended detached attempt: the kore-exec phase ran ~40min at ~83% CPU without terminating (stopped for the record; log kprove_1Q-UNIV-MACHINE-Q-extended.log). The residual is non-terminating exploration of the circularity branch tree — NOT a stuck leaf. The theorem is NOT MECHANIZED; no completion tag."
+1Q-UNIV-PREFIX-Q,PASS,symbol,phase1q/proofs/n_q_univ_q.k,0,300,"THE COMMITTED-PREFIX COROLLARY PROVED NON-VACUOUSLY (zero WarnTrivialClaim, 18s) on the FULL machine WITH the start-tag pin (the form of record); base case discharged by the requires, the step by the tag-preserving rows"
+1Q-NEG-PREFIX-CEX-Q,FAIL,symbol,phase1q/proofs/n_q_univ_q.k,1,300,the PREFIX falsity witness: the refuse-run ends uninitialized (FAILED-STUCK as designed)
+1Q-NEG-WEAK-UNIV-Q,FAIL,symbol,phase1q/proofs/n_q_neg_weak_q.k,1,300,the weak universal FAILS (W1 lands safe=false) — the invariant is load-bearing
+1Q-WEAK-BREAKING-RUN-Q,PASS,symbol,phase1q/proofs/n_q_neg_weak_q.k,0,150,"the ground breaking run PROVES (safe=false reached) — the S4 control, K port"
+1Q-NEG-WEAK-INV-Q,FAIL,symbol,phase1q/proofs/n_q_neg_weak_q.k,1,150,the ground Bool violation witness FAILS as designed
+1Q-NEG-C3-WEAK-Q,FAIL,symbol,phase1q/proofs/n_q_neg_weak_q.k,1,150,the W2 empty-pool accept's erasure is NOT the 1P step (FAILED after the arrow fix; the first draft closed VACUOUSLY through the reject branch — the lesson recorded in the file)
+1Q-WEAK-EMPTY-ACCEPT-RUN-Q,ATTEMPT,attempt,phase1q/proofs/n_q_neg_weak_q.k,124,150,"TIMEOUT (retained; NOT a refutation) — the W2-branch reachability run; the weak machine is NONDETERMINISTIC at the empty-commit state (the identity row and W2 both match), so the ground run explores both; the W2 effect's non-correspondence is PROVED by 1Q-NEG-C3-WEAK-Q"
+1Q-NEG-DEST-Q,FAIL,symbol,phase1q/proofs/n_q_univ_q.k,1,150,destination-sanity control: the final state is not always the genesis (FAILED-STUCK as designed)
+1Q-NEG-UNSAFE-COMMIT-Q,FAIL,symbol,phase1q/proofs/n_q_univ_q.k,124,150,"TIMEOUT (retained; NOT a refutation) — EXACT 1P parity: the 1P ground unsafe-commit controls timed out on the same toolchain (1P-NEG-UNSAFE-COMMIT-{T,TD,TDR,TDRR} rc=124)"
+1Q-NEG-COMMIT-EMPTY-Q,FAIL,symbol,phase1q/proofs/n_q_univ_q.k,124,480,"TIMEOUT (retained; NOT a refutation) — the both-pools-empty commit control; the kore-exec process diagnostic (state R, one full core) is retained in the audit; the reject behavior is separately PROVED at the definition level (1Q-C2-ERASE-COMMIT-REJECT-ZG: the 1P complement fires on the concrete zeroP)"
+1Q-NEG-MUT-STALE-COH,FAIL,symbol,phase1q/proofs/n_q_neg_mut_stale_q.k,1,110,the stale init is incoherent (witnessed)
+1Q-NEG-MUT-STALE-INV,FAIL,symbol,phase1q/proofs/n_q_neg_mut_stale_q.k,1,110,
+1Q-NEG-MUT-FLIP-INIT,FAIL,symbol,phase1q/proofs/n_q_neg_mut_flip_q.k,1,110,the flipped init breaks the invariant
+1Q-NEG-MUT-FLIP-RUN,FAIL,symbol,phase1q/proofs/n_q_neg_mut_flip_q.k,124,110,TIMEOUT (retained; NOT a refutation); the flip is witnessed by 1Q-NEG-MUT-FLIP-INIT
+1Q-NEG-MUT-OMIT-GATEMINT,FAIL,symbol,phase1q/proofs/n_q_neg_mut_omit_q.k,1,110,THE OMITTED CASE IS OBSERVABLE: the gate-mint ground execution fails on the omit mutant
+1Q-NEG-MUT-OMIT-C2,FAIL,symbol,phase1q/proofs/n_q_neg_mut_omit_q.k,1,110,the C2 correspondence breaks at the omitted class — the grid check is load-bearing
+1Q-DIAG-EQFORM-TRUE,PASS,eval,phase1q/proofs/n_q_diag_eqform.k,0,100,the arrow (=> true) ==K form closes on a TRUE equality
+1Q-DIAG-EQFORM-FALSE,FAIL,symbol,phase1q/proofs/n_q_diag_eqform.k,1,100,THE VACUITY GUARD: the arrow ==K form FAILS on a FALSE equality — the form has content; the NO-ARROW form was PROVEN VACUOUS in the first C2 pass (14 claims closed with a false-equality-capable form — re-run with arrows; logs retained)
+1Q-DIAG-FALSE-HYP,FAIL,symbol,phase1q/proofs/n_q_diag_eqform.k,1,100,<k> false => true </k> FAILS — the implication form rejects a false hypothesis (the 1O PASS-EVAL boundary holds here)
+1Q-UNIV-PREFIX-UNPATCHED-Q,HOLE,negative-vacuity-probe,phase1q/proofs/n_q_univ_prefix_unpatched.k,0,300,"THE CIRCULARITY-HOLE EXHIBIT: rc=0 with ZERO WarnTrivialClaim on a SEMANTICALLY FALSE claim (the accessor-only requires constrains nothing; 1Q-NEG-PREFIX-CEX-Q witnesses the falsity) — classified UNSOUND-CLOSURE, never a proof"
+1Q-WEAK-W2-STEP-EVAL-Q,ATTEMPT,attempt,phase1q/proofs/n_q_neg_weak_q.k,1,150,"rc=1 — INFORMATIVE FAILURE: the weak machine is NONDETERMINISTIC at the empty-commit state (the carried identity row A-Z* and the W2 accept row BOTH match), so the single-successor claim legitimately fails; the W2 row itself is the disclosed generated edit (audit/) and its non-correspondence is PROVED by 1Q-NEG-C3-WEAK-Q"
+1Q-STRONG-EMPTY-REJECT-STEP-Q,PASS,eval,phase1q/proofs/n_q_univ_q.k,0,150,"mission control #1 at the definition level: the strong step from BOTH POOLS EMPTY is the deterministic REJECT identity (only A-Z* matches) — N stays 0, pools stay zeroP"

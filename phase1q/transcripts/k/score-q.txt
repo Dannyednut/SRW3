@@ -1,0 +1,95 @@
+# 1Q K-ladder score (last-wins) — 83 claims listed
+# PROVED                : 6
+# PROVED-EVAL           : 46
+# FAILED-STUCK          : 24
+# FAILED-DECIDER        : 0
+# FAILED                : 0
+# TIMEOUT               : 5
+# SELF-ASSUMED          : 1
+# UNSOUND-CLOSURE       : 1
+# NOT-RUN               : 0
+  Q1-TOY-UNIV-DIRECT                 ATTEMPT FAILED-STUCK   attempt
+  Q2-TOY-CONS                        ATTEMPT FAILED-STUCK   attempt
+  Q3-TOY-DOMAIN                      PASS PROVED-EVAL    eval
+  Q4-TOY-MUST-FAIL                   FAIL FAILED-STUCK   symbol
+  Q4B-TOY-BREAKING-RUN               PASS PROVED         symbol
+  Q5-TOY-C1-NONNEG                   ATTEMPT FAILED-STUCK   attempt
+  Q1F-TOY-UNIV-FORKED                PASS PROVED         symbol
+  Q2F-TOY-CONS                       PASS PROVED         symbol
+  Q3F-TOY-DOMAIN                     PASS PROVED-EVAL    eval
+  Q4F-TOY-MUST-FAIL                  FAIL FAILED-STUCK   symbol
+  Q4FB-TOY-BREAKING-RUN              PASS PROVED         symbol
+  Q5F-TOY-C1-NONNEG                  ATTEMPT FAILED-STUCK   attempt
+  1P-UNIV-MACHINE-TDRR-repro         ATTEMPT FAILED-STUCK   attempt
+  1Q-P1-TAG-RANGE                    PASS PROVED-EVAL    eval
+  1Q-P1-GENESIS-COH                  PASS PROVED-EVAL    eval
+  1Q-P1-ERASE-GENESIS                PASS PROVED-EVAL    eval
+  1Q-C1-NONNEG                       ATTEMPT FAILED-STUCK   attempt
+  1Q-C1-CONCRETE                     PASS PROVED-EVAL    bounded
+  1Q-PRESV-I-COMMIT-ACCEPT           PASS PROVED-EVAL    eval
+  1Q-PRESV-I-COMMIT-REJECT-ZG        PASS PROVED-EVAL    eval
+  1Q-PRESV-I-COMMIT-REJECT-ZGS       PASS PROVED-EVAL    eval
+  1Q-PRESV-I-COMMIT-REJECT-HI        PASS PROVED-EVAL    eval
+  1Q-PRESV-I-COMMIT-REJECT-BITF      PASS PROVED-EVAL    eval
+  1Q-PRESV-I-EXEC-MINT               PASS PROVED-EVAL    eval
+  1Q-PRESV-I-EXEC-REFUSE             PASS PROVED-EVAL    eval
+  1Q-PRESV-I-EXEC-SOURCE             PASS PROVED-EVAL    eval
+  1Q-PRESV-I-GATE-MINT               PASS PROVED-EVAL    eval
+  1Q-PRESV-I-GATE-MINT-EMPTY         PASS PROVED-EVAL    eval
+  1Q-PRESV-I-GATE-REFUSE-S           PASS PROVED-EVAL    eval
+  1Q-PRESV-I-INIT-ACCEPT             PASS PROVED-EVAL    eval
+  1Q-PRESV-I-INIT-REFUSE             PASS PROVED-EVAL    eval
+  1Q-PRESV-I-EXEC-STALL              PASS PROVED-EVAL    eval
+  1Q-COH-P-INIT-ACCEPT               PASS PROVED-EVAL    eval
+  1Q-COH-P-INIT-REFUSE               PASS PROVED-EVAL    eval
+  1Q-COH-P-EXEC-STALL                PASS PROVED-EVAL    eval
+  1Q-COH-I-GATE-MINT                 PASS PROVED-EVAL    eval
+  1Q-COH-I-COMMIT-ACCEPT             PASS PROVED-EVAL    eval
+  1Q-COH-I-COMMIT-REJECT-ZG          PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-INIT-ACCEPT            PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-INIT-REFUSE            PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-EXEC-MINT              PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-EXEC-REFUSE            PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-EXEC-SOURCE            PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-EXEC-STALL             PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-GATE-MINT              PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-GATE-MINT-NODEP        ATTEMPT FAILED-STUCK   attempt
+  1Q-C2-ERASE-GATE-REFUSE-Z          PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-GATE-REFUSE-S          PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-COMMIT-ACCEPT          PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-COMMIT-REJECT-ZG       PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-COMMIT-REJECT-ZGS      PASS PROVED-EVAL    eval
+  1Q-C2-ERASE-COMMIT-REJECT-HI       PASS PROVED-EVAL    eval
+  1Q-C3-SUCC-IMPLIES-NONZERO         PASS PROVED-EVAL    eval
+  1Q-C3-ZERO-NOT-NONZERO             PASS PROVED-EVAL    eval
+  1Q-C3-GENERAL-FORM                 ATTEMPT FAILED-STUCK   attempt
+  1Q-C4-TAGSOUND-B0                  PASS PROVED-EVAL    eval
+  1Q-C4-TAGSOUND-B1-SUCC             PASS PROVED-EVAL    eval
+  1Q-C4-TAGSOUND-B1-ZERO             PASS PROVED-EVAL    eval
+  1Q-C5-EXHAUSTIVENESS-ATTEMPT       ATTEMPT FAILED-STUCK   attempt
+  1Q-NEG-SELF-ASSUME                 PASS SELF-ASSUMED   self-assumption
+  1Q-UNIV-MACHINE-Q                  ATTEMPT TIMEOUT        attempt
+  1Q-UNIV-PREFIX-Q                   PASS PROVED         symbol
+  1Q-NEG-PREFIX-CEX-Q                FAIL FAILED-STUCK   symbol
+  1Q-NEG-WEAK-UNIV-Q                 FAIL FAILED-STUCK   symbol
+  1Q-WEAK-BREAKING-RUN-Q             PASS PROVED         symbol
+  1Q-NEG-WEAK-INV-Q                  FAIL FAILED-STUCK   symbol
+  1Q-NEG-C3-WEAK-Q                   FAIL FAILED-STUCK   symbol
+  1Q-WEAK-EMPTY-ACCEPT-RUN-Q         ATTEMPT TIMEOUT        attempt
+  1Q-NEG-DEST-Q                      FAIL FAILED-STUCK   symbol
+  1Q-NEG-UNSAFE-COMMIT-Q             FAIL TIMEOUT        symbol
+  1Q-NEG-COMMIT-EMPTY-Q              FAIL TIMEOUT        symbol
+  1Q-NEG-MUT-STALE-COH               FAIL FAILED-STUCK   symbol
+  1Q-NEG-MUT-STALE-INV               FAIL FAILED-STUCK   symbol
+  1Q-NEG-MUT-FLIP-INIT               FAIL FAILED-STUCK   symbol
+  1Q-NEG-MUT-FLIP-RUN                FAIL TIMEOUT        symbol
+  1Q-NEG-MUT-OMIT-GATEMINT           FAIL FAILED-STUCK   symbol
+  1Q-NEG-MUT-OMIT-C2                 FAIL FAILED-STUCK   symbol
+  1Q-DIAG-EQFORM-TRUE                PASS PROVED-EVAL    eval
+  1Q-DIAG-EQFORM-FALSE               FAIL FAILED-STUCK   symbol
+  1Q-DIAG-FALSE-HYP                  FAIL FAILED-STUCK   symbol
+  1Q-UNIV-PREFIX-UNPATCHED-Q         HOLE UNSOUND-CLOSURE negative-vacuity-probe
+  1Q-WEAK-W2-STEP-EVAL-Q             ATTEMPT FAILED-STUCK   attempt
+  1Q-STRONG-EMPTY-REJECT-STEP-Q      PASS PROVED-EVAL    eval
+
+# GATE: GREEN (zero alarms, zero incorrect)

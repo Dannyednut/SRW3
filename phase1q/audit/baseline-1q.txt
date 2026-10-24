@@ -1,0 +1,113 @@
+# SRW3 Phase 1Q — Audit and Provenance (baseline-1q.txt equivalent)
+
+Generated: 2026-10-24 (the session of record). All paths relative to the
+repository root. Toolchain: K v7.1.337 + z3 4.13.3, rebuilt from the pinned
+recipe `scripts/reinstall_toolchain_1m_r3.sh` (log:
+`/home/z/my-project/toolchain-1q-rebuild.log`, sandbox-side, not committed).
+
+## 1. Repository state at phase start
+
+* Remote: `github.com/Dannyednut/SRW3` (public clone; the seventh sandbox
+  reset had wiped the workspace — the repo was re-cloned fresh).
+* Verified Phase 1P commit: `83dd01571adccb77e51adcf5499c9a2480caaeaf`
+  (subject: "SRW3 Phase 1P (r2 reconstruction): branch-tagged invariants …").
+* Verified Phase 1O parent: `cdb55568771d3fd1874741a845f75620b078ee35`.
+* Descent verified: `git merge-base --is-ancestor cdb5556 83dd015` → OK.
+* `origin/phase1p-branch-tag-encoding` == `83dd015…` (the 1P push of record).
+* Working tree clean at clone; the Phase 1Q branch was created from the
+  verified 1P commit:
+  `git checkout -b phase1q-constructor-pools 83dd01571adccb77e51adcf5499c9a2480caaeaf`.
+* The workspace git bundle `srw3-work.bundle` predates the GitHub workflow
+  (refs main/kevm-changes/phase1-start only) and was NOT used as a source.
+
+## 2. Frozen-artifact integrity
+
+* The Phase 1Q generator verifies the frozen 1P source at every run:
+  `phase1p/semantics/abs-machine-tdrr.k`
+  sha256 = `448db6a46101d1f848a7ad364fc07a06cc99a903b4615afc0e5753ca0d8db511`
+  (printed by `make_abs_q.py` on every invocation).
+* The generator roundtrip was verified twice: re-running `make_abs_q.py`
+  reproduces byte-identical outputs (`cmp` OK; sha256
+  `2e938fcb8939e0efe15e554687947b4dc44ece9a6a843f293799a18204e5383f` for the
+  machine of record).
+* `git status` at audit time: the only new/modified paths are under
+  `phase1q/` and the root `worklog.md` entry. NO phase1n/phase1o/phase1p
+  file is modified. The root `kore-exec.tar.gz` (a 1P-era committed bug
+  report artifact) was accidentally overwritten by a 1Q kprove run and was
+  RESTORED from git (`git checkout -- kore-exec.tar.gz`) before commit.
+
+## 3. The 1P residual reproduction (mission §2)
+
+Command (from the repo root, toolchain env sourced):
+```
+kompile phase1p/semantics/abs-machine-tdrr.k --backend haskell \
+  --main-module SRW3N-ABS-TDRR $INC -o /tmp/p1p-tdrr-def
+kprove phase1p/proofs/n_p_univ_tdrr.k $INC -d /tmp/p1p-tdrr-def \
+  --spec-module P-UNIV-TDRR-PROOFS --claims 1P-UNIV-MACHINE-TDRR
+```
+with `INC="-I $PWD/phase1n/semantics -I $PWD/phase1m/semantics -I $PWD/phase1g/semantics -I $PWD/phase1f/semantics -I $PWD/phase1e/semantics -I $PWD/k/phase1d -I $PWD/k/kevm/kproj-e1e/plugin"`.
+
+Result: rc=1 in 12.44s; `WarnStuckClaimState` at
+`n_p_univ_tdrr.k:29:5-35:34`; the residual is exactly the 1P-F2 signature
+`absStepT(absStT(tg:1, cfgP:true, catP:true, cntG:AX3, cntE:AX4, nSlot:AX5,
+safe:true, diag:AX7), aCommitJ(aOkT, aOkF))` with 26 unexplored branches.
+Log: `phase1q/transcripts/k/kprove_1P-UNIV-MACHINE-TDRR-repro.log`.
+
+## 4. The generation pipeline
+
+`python3 phase1q/scripts/make_abs_q.py` — fail-closed checks (all printed
+on every run):
+* C2: the 8 EB command-syntax lines carried byte-identically from the 1P
+  TDRR source;
+* C3: EXACTLY ONE requires in the step section (the carried incoherent-tag
+  complement) — no pool arithmetic guard survives into the dispatch path;
+* C4: the 8-cell gate/commit constructor grid — each discriminating
+  pattern exactly once (the 1P-F1 lesson, mechanized);
+* C5: no Int-typed pool arithmetic/type anywhere in the step section;
+* the weak/mutant anchors each match exactly once;
+* roundtrip determinism (regeneration byte-identical).
+
+Outputs (sha256 at the generation of record):
+* `phase1q/semantics/abs-machine-q.k`      2e938fcb8939e0efe15e554687947b4dc44ece9a6a843f293799a18204e5383f
+* `phase1q/semantics/abs-machine-weak-q.k` 575f17414052adf1ce4ab1ab85b50733a354fc4533ede19ab897621db8fab68b
+* `phase1q/tests/abs-machine-mut-stale-q.k` a11c95d25141e4c7aab3f654215cfedf42f259a44941c943f6920c78033cd8bb
+* `phase1q/tests/abs-machine-mut-flip-q.k`  60b8050989e002aa5710b5fc4e54ef2572e69e5108969e6aa0870e33b1ca72e8
+* `phase1q/tests/abs-machine-mut-omit-q.k`  b1e775f8f06619e3375858edb32ad403df0e576f89a2488a2aac40726571bbdc
+
+## 5. Disclosed mid-phase corrections (the r2 edits of record)
+
+1. **The B-S gate-mint translation bug** (found by the 1Q-RUN-HONEST-Q
+   hang): the first generated row B-S decremented the E pool
+   (`succP(G), E0`) where the 1P row B increments G and KEEPS E. Fixed to
+   `succP(G), succP(E0)`; the generator's grid pattern updated; the first
+   1Q-UNIV-MACHINE-Q attempt logs (attempt1 = DecidePredicateUnknown;
+   attempt2 = TIMEOUT at 560s) were produced by the BUGGY machine and are
+   retained with that disclosure; every machine-based claim in claims.csv
+   was re-run on the fixed machine of record.
+2. **The ==K claim-form vacuity** (found by the diagnostic pair
+   1Q-DIAG-EQFORM-TRUE/FALSE): the NO-ARROW form `<k> A ==K B </k>` closes
+   REGARDLESS of the equality's truth (the first C2 pass "proved" all 14
+   claims vacuously — logs of that pass were overwritten by the arrow-form
+   re-runs; the vacuity itself is permanently exhibited by the diagnostic
+   pair: TRUE closes, FALSE fails, both with the arrow). Every equality
+   claim of record carries `=> true` (the 1P form).
+3. **The unpatched PREFIX circularity hole**: the first PREFIX draft
+   required only the Bool-VALUED accessor `absCfgPinnedQ(AX)` (constrains
+   nothing) — semantically FALSE, yet closed in 18s with zero
+   WarnTrivialClaim (circularity self-application; base case never
+   discharged). Reproduced permanently as
+   `1Q-UNIV-PREFIX-UNPATCHED-Q` (rc=0, classified UNSOUND-CLOSURE, NEVER a
+   proof); the falsity witnessed by `1Q-NEG-PREFIX-CEX-Q` (rc=1); the form
+   of record pins the start tag (`absCfgPinnedQ(AX) ==K true` and
+   `absTagOfQ(AX) ==Int 1`) and closes genuinely.
+
+## 6. Environment of record
+
+* Sandbox: 2 cores, 4.1 GB RAM (kore-exec working set ~370 MB on the
+  universal attempts; no swap).
+* The kprove frontend (spec symbolic compilation) took ~45 min wall on the
+  full-machine universal claim before the kore-exec proof phase started —
+  the per-claim wall budget is dominated by the frontend for the big
+  claims; the 560s foreground ceiling applies to the whole kprove process.
+* Detached processes survive within a tool session but are reaped between
+  sessions (the 1P lesson, re-verified).
