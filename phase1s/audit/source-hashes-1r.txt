@@ -1,0 +1,12 @@
+# sha256 of record (Phase 1S baseline verification, 2026-10-25T07:40:28Z)
+# repo: Dannyednut/SRW3 @ 29e7cee92acf572fb1094e2db5289dc3f65794d3 (branch phase1s-refinement-coverage = same content)
+1P_TDRR_of_record: 448db6a46101d1f848a7ad364fc07a06cc99a903b4615afc0e5753ca0d8db511  (phase1p/semantics/abs-machine-tdrr.k)
+2e938fcb8939e0efe15e554687947b4dc44ece9a6a843f293799a18204e5383f  phase1q/semantics/abs-machine-q.k
+b526e2997e8f3f0d54fbb0a76ef0e1d718fae9afcffd6610bf383fb99cd3bbec  phase1r/semantics/abs-machine-qs.k
+78e4049aca49697c6bacbeb0900f1f59a7f9855297aeafbb2772ed9732814b55  phase1r/scripts/make_abs_qs.py
+0ceb729be314bdc0a25673c5cea0d61003c4bd40462849957fbfbfc3cea65c61  phase1r/scripts/make_tag0_family_1r.py
+ba764912797678d1aa94f576d2abf893a972ffecece4fc5cb3439394f65d8ef9  phase1r/scripts/summarize_1r.py
+702d26d6487cb6569059f4ad7e88f3b18af6492a2ba208027ffad8d8996d5b5e  phase1r/scripts/verify_grid_1r.py
+528f1bcc7858cb1e03e48266d504b91d20d115ebf75e29ab5efd997cd125363e  phase1r/proofs/n_r_univ_qs.k
+279579540c4c8572a7b003f73f012f35c1211e4b3c67cf887babcc219dbb0354  phase1r/proofs/n_r_qs_battery.k
+454ce06903ecda49efbd2fdfc923948bc28835aa1a780ef86639843dc3017704  phase1r/proofs/run_1r.sh
