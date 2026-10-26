@@ -4,3 +4,11 @@ phase1h/devnet/geth.pid
 __pycache__/
 *.pyc
 phase1h/fixtures/lineage/
+# Phase 1U packaging (examiner follow-up): K kompile output directories are
+# generated artifacts — never commit NEW ones. (Historically committed -out/
+# directories under k/ and phase1*/ are retained as provenance; do not delete.)
+*-out/
+*-out2/
+k_HS/
+k_llvm/
+*.kore

@@ -1,0 +1,871 @@
+kore-exec: [741441] Warning (WarnTrivialClaim):
+    Claim proven without rewriting at: /home/z/my-project/SRW3/proofs/induction_ghost.k:732:5-733:83
+#Top
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(231,48,231,52)
+	231 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(232,42,232,43)
+	232 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(296,32,296,33)
+	296 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(705,18,705,19)
+	705 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(706,38,706,39)
+	706 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(741,68,741,71)
+	741 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(742,19,742,21)
+	742 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(742,29,742,32)
+	742 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(743,19,743,21)
+	743 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(743,29,743,32)
+	743 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(744,19,744,21)
+	744 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(744,29,744,32)
+	744 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(745,34,745,38)
+	745 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(751,14,751,17)
+	751 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(751,25,751,29)
+	751 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(752,15,752,18)
+	752 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(752,26,752,30)
+	752 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(753,19,753,21)
+	753 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(753,29,753,32)
+	753 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(754,12,754,15)
+	754 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(754,30,754,34)
+	754 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(755,14,755,16)
+	755 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(755,27,755,30)
+	755 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(763,68,763,71)
+	763 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(764,19,764,21)
+	764 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(764,29,764,32)
+	764 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(765,19,765,21)
+	765 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(765,29,765,32)
+	765 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(766,19,766,21)
+	766 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(766,29,766,32)
+	766 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(767,34,767,38)
+	767 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(773,14,773,17)
+	773 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(773,25,773,29)
+	773 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(774,15,774,18)
+	774 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(774,26,774,30)
+	774 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(775,19,775,21)
+	775 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(775,29,775,32)
+	775 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(776,12,776,15)
+	776 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(776,30,776,34)
+	776 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(777,14,777,16)
+	777 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(777,27,777,30)
+	777 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable 'XB' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(805,58,805,60)
+	805 |	                stK(appA, 0) |-> XA:Int stK(appB, 0) |-> XB:Int
+[stK(appB, 0) <- V:Int])
+	    .	                                                         ^~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(812,14,812,15)
+	812 |	    <k> ( tB(V:Int) : chkG ) => .K </k>
+	    .	             ^
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(813,68,813,71)
+	813 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(814,19,814,21)
+	814 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(814,29,814,32)
+	814 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(815,19,815,21)
+	815 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(815,29,815,32)
+	815 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(816,19,816,21)
+	816 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(816,29,816,32)
+	816 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(817,34,817,38)
+	817 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(823,14,823,17)
+	823 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(823,25,823,29)
+	823 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(824,15,824,18)
+	824 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(824,26,824,30)
+	824 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(825,19,825,21)
+	825 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(825,29,825,32)
+	825 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(826,12,826,15)
+	826 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(826,30,826,34)
+	826 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(827,14,827,16)
+	827 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(827,27,827,30)
+	827 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(833,14,833,16)
+	833 |	    <k> ( tB(V1:Int) : (tB(V2:Int) : chkG) ) => .K </k>
+	    .	             ^~
+[Warning] Compiler: Variable 'V2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(833,28,833,30)
+	833 |	    <k> ( tB(V1:Int) : (tB(V2:Int) : chkG) ) => .K </k>
+	    .	                           ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(834,68,834,71)
+	834 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(835,19,835,21)
+	835 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(835,29,835,32)
+	835 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(836,19,836,21)
+	836 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(836,29,836,32)
+	836 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(837,19,837,21)
+	837 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(837,29,837,32)
+	837 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(838,34,838,38)
+	838 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(844,14,844,17)
+	844 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(844,25,844,29)
+	844 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(845,15,845,18)
+	845 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(845,26,845,30)
+	845 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(846,19,846,21)
+	846 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(846,29,846,32)
+	846 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(847,12,847,15)
+	847 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(847,30,847,34)
+	847 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(848,14,848,16)
+	848 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(848,27,848,30)
+	848 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(856,14,856,16)
+	856 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(856,24,856,26)
+	856 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	                       ^~
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(879,14,879,16)
+	879 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(879,24,879,26)
+	879 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	                       ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(880,68,880,71)
+	880 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(881,19,881,21)
+	881 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(881,29,881,32)
+	881 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(882,19,882,21)
+	882 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(882,29,882,32)
+	882 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(883,19,883,21)
+	883 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(883,29,883,32)
+	883 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(884,34,884,38)
+	884 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(890,14,890,17)
+	890 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(890,25,890,29)
+	890 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(891,15,891,18)
+	891 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(891,26,891,30)
+	891 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(892,19,892,21)
+	892 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(892,29,892,32)
+	892 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(893,12,893,15)
+	893 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(893,30,893,34)
+	893 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(894,14,894,16)
+	894 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(894,27,894,30)
+	894 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(904,14,904,16)
+	904 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(904,24,904,26)
+	904 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	                       ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(905,68,905,71)
+	905 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(906,19,906,21)
+	906 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(906,29,906,32)
+	906 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(907,19,907,21)
+	907 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(907,29,907,32)
+	907 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(908,19,908,21)
+	908 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(908,29,908,32)
+	908 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(909,34,909,38)
+	909 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(915,14,915,17)
+	915 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(915,25,915,29)
+	915 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(916,15,916,18)
+	916 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(916,26,916,30)
+	916 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(917,19,917,21)
+	917 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(917,29,917,32)
+	917 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(918,12,918,15)
+	918 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(918,30,918,34)
+	918 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(919,14,919,16)
+	919 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(919,27,919,30)
+	919 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(927,14,927,16)
+	927 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(927,24,927,26)
+	927 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	    .	                       ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(928,68,928,71)
+	928 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int =>
+?C2:Map </committed>
+	    .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(929,19,929,21)
+	929 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(929,29,929,32)
+	929 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(930,19,930,21)
+	930 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(930,29,930,32)
+	930 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(931,19,931,21)
+	931 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(931,29,931,32)
+	931 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	    .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(932,34,932,38)
+	932 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(938,14,938,17)
+	938 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(938,25,938,29)
+	938 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	    .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(939,15,939,18)
+	939 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(939,26,939,30)
+	939 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	    .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(940,19,940,21)
+	940 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(940,29,940,32)
+	940 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	    .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(941,12,941,15)
+	941 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(941,30,941,34)
+	941 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	    .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(942,14,942,16)
+	942 |	    <result> R1:String => ?R2:String </result>
+	    .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(942,27,942,30)
+	942 |	    <result> R1:String => ?R2:String </result>
+	    .	                          ^~~

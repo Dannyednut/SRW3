@@ -1,4 +1,4 @@
-kore-exec: [328055] Warning (WarnStuckClaimState):
+kore-exec: [335558] Warning (WarnStuckClaimState):
     The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant.k:46:9-46:64
 Context:
     (InfoReachability) while checking the implication

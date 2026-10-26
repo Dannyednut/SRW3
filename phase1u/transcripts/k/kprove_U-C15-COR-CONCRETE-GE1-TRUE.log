@@ -1,4 +1,4 @@
-kore-exec: [303107] Warning (WarnTrivialClaim):
+kore-exec: [350359] Warning (WarnTrivialClaim):
     Claim proven without rewriting at: /home/z/my-project/SRW3/phase1u/proofs/n_u_c15_corrected.k:60:9-60:58
 #Top
 [Warning] Compiler: Variable 'P' defined but not used. Prefix variable name

@@ -1,0 +1,1 @@
+NEW-t2-reject-then-gate | result="gate-closed" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 | head=rootC | lineageNext=0 | gateopen=false | expect reject then gate-closed; committed unchanged

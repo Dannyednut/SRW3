@@ -1,0 +1,112 @@
+kore-exec: [870015] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/proofs/induction_ghost.k:533:5-548:68
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    _DotVar2
+  #Equals
+    ghostApply ( GW ( appA , 0 , _DotVar2 , V ) , stK (... app: appA , slot: 0 ) |-> V:Int )
+  } )
+#And
+  <srw3>
+    <k>
+      .K
+    </k>
+    <committed>
+      stK (... app: appA , slot: 0 ) |-> V:Int
+    </committed>
+    <prospective>
+      .Map
+    </prospective>
+    <footprint-t>
+      .Set
+    </footprint-t>
+    <footprint-d>
+      .Set
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+    </registry>
+    <policy>
+      _Pol
+    </policy>
+    <gateopen>
+      false
+    </gateopen>
+    <authorities>
+      As
+    </authorities>
+    <polver>
+      1
+    </polver>
+    <actor>
+      appA
+    </actor>
+    <lineage>
+      LN [ N:Int <- lin (... parent: CH , tid: N , auth: auth ( appA ) , polver: 1 , child: commit ( N ) ) ]
+    </lineage>
+    <lineageNext>
+      N +Int 1
+    </lineageNext>
+    <head>
+      commit ( N )
+    </head>
+    <result>
+      "commit"
+    </result>
+    <ghost>
+      ghostApply ( GW ( appA , 0 , _DotVar2 , V ) , stK (... app: appA , slot: 0 ) |-> V:Int )
+    </ghost>
+  </srw3>
+#And
+  {
+    true
+  #Equals
+    V <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    X <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    member ( appA , As )
+  }
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(231,48,231,52)
+	231 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(232,42,232,43)
+	232 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(296,32,296,33)
+	296 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(705,18,705,19)
+	705 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/proofs/induction_ghost.k)
+	Location(706,38,706,39)
+	706 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

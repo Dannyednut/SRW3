@@ -1,0 +1,1 @@
+NEW-t1-mixed-probe-violation | result="reject" | committed=stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1 | head=rootC | lineageNext=0 | gateopen=false | expect probe=false gate=reject (fixed: IOL enforced)

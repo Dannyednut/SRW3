@@ -1,0 +1,1 @@
+NEW-t2-double-begin | result="blocked-begin-open" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 | head=rootC | lineageNext=0 | gateopen=true | expect blocked-begin-open; no commit

@@ -1,0 +1,1 @@
+NEW-t2-double-gate | result="gate-closed" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 | head=commit ( 0 ) | lineageNext=1 | gateopen=false | expect commit then gate-closed; committed=(7,2) intact; lineageNext=1

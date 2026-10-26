@@ -1,0 +1,1 @@
+OLD-t3-policy-mid | result="commit" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 stK (... app: appC , slot: 0 ) |-> 11 | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: trust switch mid-transition admits hidden write)

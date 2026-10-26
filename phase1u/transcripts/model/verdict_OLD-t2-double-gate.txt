@@ -1,0 +1,1 @@
+OLD-t2-double-gate | result="commit" | committed=.Map | head=commit ( 1 ) | lineageNext=2 | gateopen=? | record actual (buggy: second gate commits EMPTY map)

@@ -1,0 +1,1 @@
+NEW-gen-double-begin | result="blocked-begin-open" | committed=stK (... app: appA , slot: 7 ) |-> 5 stK (... app: appB , slot: 3 ) |-> 0 | head=rootC | lineageNext=0 | gateopen=true | expect blocked-begin-open (gen model fixed)

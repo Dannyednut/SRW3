@@ -1,0 +1,1 @@
+NEW-gen-gate-no-begin | result="gate-closed" | committed=stK (... app: appA , slot: 7 ) |-> 5 | head=rootC | lineageNext=0 | gateopen=false | expect gate-closed (gen model fixed)

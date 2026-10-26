@@ -1,0 +1,1 @@
+NEW-t3-registry-mid | result="blocked-registry-mutable" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 | head=rootC | lineageNext=0 | gateopen=true | expect blocked-registry-mutable (mid-transition registry switch refused)

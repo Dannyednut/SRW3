@@ -1,0 +1,1 @@
+NEW-t1-pairwise-ok | result="commit" | committed=stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1 | head=commit ( 0 ) | lineageNext=1 | gateopen=false | expect commit (honest accept preserved)

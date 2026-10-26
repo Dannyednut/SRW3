@@ -1,0 +1,1 @@
+NEW-t2-gate-no-begin | result="gate-closed" | committed=stK (... app: appA , slot: 0 ) |-> 7 | head=rootC | lineageNext=0 | gateopen=false | expect gate-closed; committed={appA->7} intact; lineageNext=0

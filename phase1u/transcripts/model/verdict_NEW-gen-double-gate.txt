@@ -1,0 +1,1 @@
+NEW-gen-double-gate | result="gate-closed" | committed=stK (... app: appA , slot: 7 ) |-> 5 stK (... app: appB , slot: 3 ) |-> 4 | head=commit ( 0 ) | lineageNext=1 | gateopen=false | expect commit then gate-closed (gen model fixed)

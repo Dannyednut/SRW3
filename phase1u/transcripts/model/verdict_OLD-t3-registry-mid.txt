@@ -1,0 +1,1 @@
+OLD-t3-registry-mid | result="commit" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7 | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: negative registry switch admits IAB violation)

@@ -1,0 +1,55 @@
+<srw3>
+  <k>
+    .Srw3Pgm ~> .K
+  </k>
+  <committed>
+    stK (... app: lending , slot: 0 ) |-> 100
+    stK (... app: lending , slot: 1 ) |-> 5
+    stK (... app: oracle , slot: 0 ) |-> 100
+    stK (... app: oracle , slot: 1 ) |-> 1
+  </committed>
+  <prospective>
+    .Map
+  </prospective>
+  <footprint-t>
+    .Set
+  </footprint-t>
+  <footprint-d>
+    .Set
+  </footprint-d>
+  <registry>
+    SetItem ( bareEdge (... apps: SetItem ( lending )
+    SetItem ( oracle ) ) )
+    SetItem ( edge (... inv: IOL , apps: SetItem ( lending )
+    SetItem ( oracle ) ) )
+  </registry>
+  <policy>
+    enforce
+  </policy>
+  <authorities>
+    SetItem ( appA )
+    SetItem ( appB )
+    SetItem ( appC )
+    SetItem ( lending )
+    SetItem ( liq )
+    SetItem ( oracle )
+  </authorities>
+  <polver>
+    1
+  </polver>
+  <actor>
+    lending
+  </actor>
+  <lineage>
+    .Map
+  </lineage>
+  <lineageNext>
+    0
+  </lineageNext>
+  <head>
+    rootC
+  </head>
+  <result>
+    "reject"
+  </result>
+</srw3>

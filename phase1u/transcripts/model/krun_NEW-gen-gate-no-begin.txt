@@ -1,0 +1,70 @@
+<srw3g>
+  <k>
+    .Srw3PgmG ~> .K
+  </k>
+  <committed>
+    stK (... app: appA , slot: 7 ) |-> 5
+  </committed>
+  <prospective>
+    .Map
+  </prospective>
+  <usage-c>
+    .Map
+  </usage-c>
+  <usage-p>
+    .Map
+  </usage-p>
+  <cap>
+    .Map
+  </cap>
+  <parent>
+    .Map
+  </parent>
+  <resmap>
+    stK (... app: appA , slot: 7 ) |-> resP
+    stK (... app: appB , slot: 3 ) |-> resP
+    stK (... app: appC , slot: 0 ) |-> resQ
+    stK (... app: appD , slot: 0 ) |-> resQ
+  </resmap>
+  <footprint-t>
+    .Set
+  </footprint-t>
+  <footprint-d>
+    .Set
+  </footprint-d>
+  <registry>
+    SetItem ( edge (... inv: IA7 , apps: SetItem ( appA ) ) )
+    SetItem ( edge (... inv: IB3 , apps: SetItem ( appB ) ) )
+    SetItem ( edgeR (... inv: IRP , res: SetItem ( resP ) ) )
+  </registry>
+  <policy>
+    enforce
+  </policy>
+  <gateopen>
+    false
+  </gateopen>
+  <authorities>
+    SetItem ( appA )
+    SetItem ( appB )
+    SetItem ( appC )
+    SetItem ( appD )
+  </authorities>
+  <polver>
+    1
+  </polver>
+  <actor>
+    appB
+  </actor>
+  <lineage>
+    .Map
+  </lineage>
+  <lineageNext>
+    0
+  </lineageNext>
+  <head>
+    rootC
+  </head>
+  <result>
+    "gate-closed"
+  </result>
+</srw3g>

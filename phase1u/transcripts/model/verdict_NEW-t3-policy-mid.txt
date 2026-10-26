@@ -1,0 +1,1 @@
+NEW-t3-policy-mid | result="blocked-policy-mutable" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 3 stK (... app: appC , slot: 0 ) |-> 3 | head=rootC | lineageNext=0 | gateopen=true | expect blocked-policy-mutable (mid-transition policy switch refused)
