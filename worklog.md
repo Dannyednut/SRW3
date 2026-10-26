@@ -1994,3 +1994,95 @@ Stage Summary:
   disclosed); the six 15/15 entries are one operation logged six times.
 - Forward-looking task-ID discipline adopted (distinct sub-IDs, invocation
   named in every entry, no reuse).
+
+---
+Task ID: 1U (session close-out)
+Agent: main (Super Z)
+Task: SRW3 Phase 1U — Model Hygiene, Proof Soundness, and Independent Revalidation (branch phase1u-model-hygiene from the verified 1T tip 2247e688).
+
+Work Log:
+- Verified the starting state first (git rev-parse = 2247e688 on
+  phase1t-c12-induction-validation; remote in sync; the default branch
+  confirmed still phase1b). The examiner report file
+  SRW3-Independent-Examiner-Report-v1.2.md is NOT in the repository (all
+  commits x all branches + git grep + API) — disclosed as a traceability
+  gap; every finding was independently re-derived from source and execution.
+- WS-A (the first blocking task): the 1T rule
+  countToInt(succP(P))>=Int I req I>=Int 1 is FALSE (P=zeroP,I=2 rewrites
+  1>=Int 2 to true) — confirmed by inspection, by the Lean falsity twin
+  (rc=1 with the omega counterexample region), and by the concrete
+  evaluation control. EVERY derived rule audited (4/4: proposition, exact
+  K body, justification, admitted-substitution soundness, dependents); the
+  corrected module n_u_migrate_rule.k carries the exact-threshold rule
+  (the 1T module byte-frozen). THE CORRECTED BATTERY RE-CLOSES EVERYTHING:
+  1U-MIGRATE-UNIV-LEANC12-RULE rc=0 14s #Top with NO assumption rules;
+  depth d1/d2 FAIL d3 CLOSES; five corr cells + NODEP strip-state + three
+  preservation cells rc=0; genesis rc=124 560s EMPTY log (never relabeled);
+  DEST-FALSE rc=124 kept TIMEOUT with the DECISIVE control
+  U-C15-COR-SYMB-GE2-TRUE (rc=1 4s). The isolated fixture (mutant vs
+  corrected vs liveness vs [priority]) exposed the toolchain's evaluation
+  order: the folded succP-headed rule is INERT at goal level (unfolding
+  wins; [priority] rejected rc=113) — the mutant's firing window is nil at
+  default priority on this toolchain; its falsity is machine-checked in
+  Lean and by evaluation. The three 1T WarnTrivialClaim rows investigated:
+  lemma-dependent evaluation-mode closures (1S failing analogues + the
+  mechanism-A failures establish non-vacuity), still closing under the
+  CORRECTED rules. Lean helpers: c12_nonneg/c15_succ_ge1/c12_shift_ge0/
+  c12_shift_ge1 rc=0, axioms [propext, Quot.sound], no sorryAx.
+- WS-B (T1): applicable() bareEdge footprint reset REPRODUCED BY EXECUTION
+  on the unmodified 1T tip (pairwiseOnly + IOL violation IMPROPERLY COMMITS
+  lending:=90 with lineage advance); the 2-element mixed registry masked it
+  (order-dependence demonstrated within the old model); FIXED (footprint
+  preserved); applicableGen already correct (verified, no change).
+- WS-C (T2): the re-entrant gate erasure REPRODUCED (double-gate commits
+  the EMPTY map, head 1->2; gate-without-begin commits the EMPTY map from
+  init); FIXED on BOTH layers with the one-shot <gateopen> state (begin
+  opens; accept/reject/reject-auth/wfCheck-block all close; closed-interval
+  gate fails closed touching nothing; repeated begin BLOCKED).
+- WS-E (T3): mid-transition setPolicy(trust) ADMITS a hidden write into
+  COMMITTED state and a mid-transition registry switch commits the IAB
+  violation (both reproduced on the old model); FIXED with the setup-phase
+  discipline (blocked-policy-mutable / blocked-registry-mutable; assumption
+  A5/A7 documented IN the sources; threat model not downgraded — the
+  gate-time guarantee unchanged, the trust now EXPLICIT). T4 documented
+  (docs/research/t4-footprint-granularity.md); packaging register with
+  owners/actions (gitignore extended; licence and tag reconciliation
+  deferred with reasons).
+- Fidelity: the byte-pinned core changed (srw3.k 530->607, srw3gen.k
+  641->690) so proofs/induction_ghost.k + ghost_manifest.json +
+  proofs/gen/* are REGENERATED from the corrected sources (faithfulness
+  571/571 PASS; manifest refrozen slice 37..607 sha dce1dfd9...; verify
+  PASS); slice logic made dynamic with fail-closed assertions; GH claims
+  pin <gateopen> false (pre-begin); PER-CLAIM VERDICTS ALL IDENTICAL TO THE
+  HISTORICAL RECORD (GH-T2/GH-M PROVED; GH-T/GH2-NEG/GH3-NEG/GH4-NEG
+  designed failures); the combined SRW3-CLAIMS batch on the ghost copy is a
+  PRE-EXISTING checker behavior (the OLD artifact fails identically — not a
+  1U regression). Classic demos 13/13 verdict-preserving; Claims 1-4 close
+  on the fixed model with the DISCLOSED gateopen premise (a superseded
+  first attempt retained in the ledger); the negative control still fails.
+- WS-D: D2 — the committed ledger is authoritative (40 unique claim rows /
+  51 attempt rows; the README's 42 and the report prose corrected with
+  self-identifying [1U D2] markers; summarize_1t.py GATE GREEN); D3 — the
+  Task 11 contradiction reconciled by the APPEND-ONLY 1U-D3-ERRATUM (same
+  zip sha256 across entries; canonical unittest 15/15 corroborated by the
+  retained full_matrix.txt; the zero-test row is the non-canonical pytest
+  draft invocation; the exact pytest-side mechanism NOT re-establishable —
+  disclosed; five duplicate 15/15 entries are one operation logged six
+  times; forward-looking task-ID rule adopted); D1 — STATE-OF-RECORD.md +
+  the landing README delivered; the default-branch API switch is BLOCKED
+  ("Resource not accessible by personal access token"; GET confirms
+  phase1b) — the exact manual action documented; S1 NOT reported resolved.
+- Evidence: 37 kprove logs + 21 krun outputs + 4 Lean transcripts +
+  ghost_gen_1u.txt; exit-codes-1u.csv (58 rows) + claims-1u.csv (56 rows /
+  55 unique; superseded attempts retained); summarize_1u.py GATE GREEN
+  (0 alarms). Six commits, reviewable per workstream; worktree clean; the
+  pushed head matches the final local commit.
+
+Stage Summary:
+- The proof environment is SOUNDER: the invalid rule is gone and its
+  replacement is the only body the justifications support; the three model
+  defects are fixed with execution evidence both ways; the fidelity layer
+  survives the remediation with zero classification changes; the record is
+  reconciled. The genesis form, the DEST-FALSE timeout, GH-T, and all
+  Level-III boundaries remain exactly as open as recorded. Verdict:
+  PARTIALLY COMPLETE; no completion tag.
