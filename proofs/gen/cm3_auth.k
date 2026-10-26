@@ -142,6 +142,7 @@ module SRW3G-STATE
                   <footprint-d> .Set </footprint-d>
                   <registry> .Set </registry>
                   <policy> enforce </policy>
+                  <gateopen> false </gateopen>       // T2: one-shot gate interval state (1U)
                   <authorities> .Set </authorities>
                   <polver> 1 </polver>
                   <actor> noOne </actor>
@@ -166,6 +167,7 @@ module SRW3G-STATE
        <parent> M2:Map => M2[Q <- P] </parent>
 
   // Prospective execution begins as a shadow copy over BOTH state components.
+  // T2: a valid begin OPENS the gate interval (one-shot gate state).
   rule <k> begin => .K ... </k>
        <committed> C:Map </committed>
        <prospective> _P:Map => C </prospective>
@@ -173,6 +175,15 @@ module SRW3G-STATE
        <usage-p> _UP:Map => UC </usage-p>
        <footprint-t> _FT:Set => .Set </footprint-t>
        <footprint-d> _FD:Set => .Set </footprint-d>
+       <gateopen> false => true </gateopen>
+
+  // T2: repeated/nested begin while an interval is open is BLOCKED
+  // (fail-closed; cannot bypass or restart the guard mid-transition).
+  rule <k> begin ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-begin-open" </result>
+       <prospective> _P:Map => .Map </prospective>
+       <usage-p> _UP2:Map => .Map </usage-p>
 
   // Declared write: physical-key granular footprint (generalization of the
   // Phase-0 app-granular footprint). Foot(E) = union of per-effect items.
@@ -208,8 +219,18 @@ module SRW3G-STATE
        <footprint-d> FD:Set => FD |Set SetItem(A) </footprint-d>
        <ghost> Gh:Ghost3 => GWU(A, N, Gh) </ghost>   //GHOST:
 
+  // ---- setup (protocol-authored configuration; T3/A5) --------------------
   rule <k> setPolicy(P:Policy) => .K ... </k>
        <policy> _Q:Policy => P </policy>
+       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
+
+  // T3: policy is protocol-authored — a transition may not weaken
+  // enforcement MID-TRANSITION (blocked terminal, fail-closed).
+  rule <k> setPolicy(_:Policy) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-policy-mutable" </result>
+       <prospective> _P:Map => .Map </prospective>
+       <usage-p> _UP:Map => .Map </usage-p>
 endmodule
 
 // =============================================================================
@@ -558,6 +579,15 @@ module SRW3G-GATE
        <authorities> _As:Set
          => SetItem(appA) |Set SetItem(appB) |Set SetItem(appC) |Set SetItem(appD)
        </authorities>
+       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
+
+  // T3 (assumption A5): the obligation registry is protocol-authored — a
+  // transition may not switch registries MID-TRANSITION (fail-closed).
+  rule <k> useRegistryG(_:RegistryKindG) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-registry-mutable" </result>
+       <prospective> _P:Map => .Map </prospective>
+       <usage-p> _UP:Map => .Map </usage-p>
 
   // ---- wfCheck: PHYSICAL effect completeness (Γ* ⊆ Γ̂ at StKey granularity) -
   // Under enforce, the declared physical footprint must cover the true one.
@@ -582,7 +612,10 @@ module SRW3G-GATE
        <result> _R:String => "blocked-effect-incomplete" </result>
        <prospective> _P:Map => .Map </prospective>
        <usage-p> _UP:Map => .Map </usage-p>
+       <gateopen> _GO:Bool => false </gateopen>
     requires notBool subset(FT, FD)
+  // T2: the blocked transition terminates the interval (every path out of a
+  // transition closes the gate interval — no stale-open state survives).
 
   // ---- the commitment gate (STRUCTURE UNCHANGED) ---------------------------
   // ACCEPT: the ONLY rule that updates <committed>/<usage-c>; appends lineage,
@@ -606,6 +639,7 @@ module SRW3G-GATE
        <head> CH:Commitment => commit(N:Int) </head>
        <result> _R:String => "commit" </result>
        <ghost> Gh:Ghost3 => ghostApply3(Gh, UP) </ghost>   //GHOST:
+       <gateopen> true => false </gateopen>
     requires member(Ac, As)
              andBool allHoldG(applicableGen(R, FD, RM), P, UP, CP)
 
@@ -620,6 +654,7 @@ module SRW3G-GATE
        <footprint-d> FD:Set => .Set </footprint-d>
        <result> _R:String => "reject" </result>
        <ghost> Gh:Ghost3 => ghostUndo3(Gh) </ghost>   //GHOST:
+       <gateopen> true => false </gateopen>
     requires notBool allHoldG(applicableGen(R, FD, RM), P, UP, CP)
 
   // REJECT (authorization evidence invalid): obligations hold, actor not in
@@ -636,8 +671,16 @@ module SRW3G-GATE
        <authorities> As:Set </authorities>
        <result> _R:String => "reject-auth" </result>
        <ghost> Gh:Ghost3 => ghostUndo3(Gh) </ghost>   //GHOST:
+       <gateopen> true => false </gateopen>
     requires notBool member(Ac, As)
              andBool allHoldG(applicableGen(R, FD, RM), P, UP, CP)
+
+  // T2: GATE INTERVAL CLOSED — fail-closed gate (the generalized analogue of
+  // the srw3.k fix): a gate command without a valid preceding begin (or a
+  // second gate) cannot touch <committed>/<usage-c>, lineage, or head.
+  rule <k> gate => .K ... </k>
+       <gateopen> false </gateopen>
+       <result> _R:String => "gate-closed" </result>
 endmodule
 
 // =============================================================================
@@ -657,6 +700,12 @@ endmodule
 //   A6. <cap>/<parent> (granted capacity and delegation tree) are external
 //       model inputs for the minimal bounded-delegation topology; the
 //       aggregate obligation is evaluated from them, not asserted.
+//   A7. (Phase 1U, T3) Policy and registry selection are PROTOCOL-AUTHORED
+//       configuration: within an open gate interval the transition cannot
+//       mutate <policy>/<registry> (setPolicy/useRegistryG are setup-phase
+//       commands, blocked mid-transition by the blocked-*-mutable rules).
+//       The one-shot gate state <gateopen> (T2) opens on a valid begin and
+//       closes on every gate path; a closed-interval gate fails closed.
 // =============================================================================
 
 // =============================================================================
@@ -760,6 +809,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -786,6 +836,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -813,6 +864,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appD </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -865,6 +917,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -889,6 +942,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -914,6 +968,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -939,6 +994,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -964,6 +1020,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>

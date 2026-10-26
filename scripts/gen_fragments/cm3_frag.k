@@ -114,6 +114,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -140,6 +141,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -167,6 +169,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appD </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -219,6 +222,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -243,6 +247,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -268,6 +273,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -293,6 +299,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -318,6 +325,7 @@ module SRW3G3-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> authOnlyRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appC </actor>
     <authorities> gAUTH3() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>

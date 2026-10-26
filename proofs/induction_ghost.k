@@ -146,6 +146,7 @@ module SRW3-STATE
                   <footprint-d> .Set </footprint-d>
                   <registry> .Set </registry>        // interaction hypergraph
                   <policy> enforce </policy>
+                  <gateopen> false </gateopen>       // T2: one-shot gate interval state
                   <authorities> .Set </authorities>
                   <polver> 1 </polver>
                   <actor> noOne </actor>
@@ -169,11 +170,20 @@ module SRW3-STATE
 
   // Prospective execution begins as a shadow copy of the committed state:
   // sigma -> sigma_hat over committed sigma (handoff §3, §8).
+  // T2: a valid begin OPENS the gate interval (one-shot gate state).
   rule <k> begin => .K ... </k>
        <committed> C:Map </committed>
        <prospective> _P:Map => C </prospective>
        <footprint-t> _FT:Set => .Set </footprint-t>
        <footprint-d> _FD:Set => .Set </footprint-d>
+       <gateopen> false => true </gateopen>
+
+  // T2: repeated/nested begin while an interval is open is BLOCKED
+  // (fail-closed; cannot bypass or restart the guard mid-transition).
+  rule <k> begin ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-begin-open" </result>
+       <prospective> _P:Map => .Map </prospective>
 
   rule <k> w(I:AppId, S:Int, V:Int) => .K ... </k>
        <prospective> P:Map => P[stK(I, S) <- V] </prospective>
@@ -196,6 +206,15 @@ module SRW3-STATE
 
   rule <k> setPolicy(P:Policy) => .K ... </k>
        <policy> _Q:Policy => P </policy>
+       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
+
+  // T3 (assumption A5): policy is protocol-authored configuration — a
+  // transition may not weaken enforcement MID-TRANSITION.  While a gate
+  // interval is open, setPolicy is BLOCKED (terminal, fail-closed).
+  rule <k> setPolicy(_:Policy) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-policy-mutable" </result>
+       <prospective> _P:Map => .Map </prospective>
 endmodule
 
 // =============================================================================
@@ -277,8 +296,14 @@ module SRW3-CLOSURE
   rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
     => applicable(Es, F)
     requires notBool nonemptyInter(Xs, F)
-  rule applicable(SetItem(bareEdge(_Xs:Set)) Es:Set, _F:Set)
-    => applicable(Es, .Set)   // dependency known, no contract → no obligation
+  // T1 (Phase 1U fix): the 0D rule reset the footprint to .Set here, which
+  // silently dropped every obligation on edges decomposed AFTER a bareEdge
+  // (the exploit: a violating edge placed after a bareEdge is never checked).
+  // The corrected recursion PRESERVES the footprint: bareEdge means "this
+  // dependency carries no contract → no obligation FROM THIS EDGE", not
+  // "stop checking obligations".
+  rule applicable(SetItem(bareEdge(_Xs:Set)) Es:Set, F:Set)
+    => applicable(Es, F)      // dependency known, no contract → no obligation
 
   // ---- obligation conjunction ----
   syntax Bool ::= "allHold" "(" obls:Set "," st:Map ")" [function, total]
@@ -377,6 +402,15 @@ module SRW3-GATE
   rule <k> useRegistry(K2:RegistryKind) => .K ... </k>
        <registry> _R:Set => pickRegistry(K2) </registry>
        <authorities> _As:Set => SetItem(appA) |Set SetItem(appB) |Set SetItem(appC) |Set SetItem(oracle) |Set SetItem(lending) |Set SetItem(liq) </authorities>
+       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
+
+  // T3 (assumption A5): the obligation registry is protocol-authored — a
+  // transition may not switch to an incomplete registry MID-TRANSITION.
+  // While a gate interval is open, useRegistry is BLOCKED (fail-closed).
+  rule <k> useRegistry(_:RegistryKind) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-registry-mutable" </result>
+       <prospective> _P:Map => .Map </prospective>
 
   // ---- wfCheck: effect-completeness enforcement (handoff §12, §19) ----
   // Γ*_P ⊆ Γ̂ must hold for the abstraction to be a sound basis for Affected.
@@ -398,7 +432,10 @@ module SRW3-GATE
        <policy> enforce </policy>
        <result> _R:String => "blocked-effect-incomplete" </result>
        <prospective> _P:Map => .Map </prospective>
+       <gateopen> _GO:Bool => false </gateopen>
     requires notBool subset(FT, FD)
+  // T2: the blocked transition terminates the interval (every path out of a
+  // transition closes the gate interval — no stale-open state survives).
 
   // ---- the commitment gate ------------------------------------------------
   // ACCEPT: every applicable obligation holds on the prospective state and
@@ -419,6 +456,7 @@ module SRW3-GATE
        <head> CH:Commitment => commit(N:Int) </head>
        <result> _R:String => "commit" </result>
        <ghost> Gh:Ghost => ghostApply(Gh, P) </ghost>   // certificate apply at commit  //GHOST:
+       <gateopen> true => false </gateopen>
     requires member(Ac, As) andBool allHold(applicable(R, FD), P)
 
   // REJECT (invariant violated): the prospective state is discarded and the
@@ -430,6 +468,7 @@ module SRW3-GATE
        <footprint-d> FD:Set => .Set </footprint-d>
        <result> _R:String => "reject" </result>
        <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject  //GHOST:
+       <gateopen> true => false </gateopen>
     requires notBool allHold(applicable(R, FD), P)
 
   // REJECT (authorization/lineage evidence invalid): obligations hold but the
@@ -443,7 +482,18 @@ module SRW3-GATE
        <authorities> As:Set </authorities>
        <result> _R:String => "reject-auth" </result>
        <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject-auth  //GHOST:
+       <gateopen> true => false </gateopen>
     requires notBool member(Ac, As) andBool allHold(applicable(R, FD), P)
+
+  // T2: GATE INTERVAL CLOSED — fail-closed gate.  A gate command without a
+  // valid preceding begin (or a SECOND gate in the same interval) cannot
+  // touch <committed>, <lineage>, <lineageNext>, or <head>, and cannot
+  // append a successful commitment record.  This kills the re-entrancy
+  // erasure: after any gate path the interval is closed, so a second gate
+  // reaches only this rule.
+  rule <k> gate => .K ... </k>
+       <gateopen> false </gateopen>
+       <result> _R:String => "gate-closed" </result>
 endmodule
 
 // =============================================================================
@@ -459,6 +509,15 @@ endmodule
 //       authorization evidence checked is authority membership.
 //   A4. Claim-level closure premises are evaluated against the concrete
 //       registry term in each claim (non-vacuous; see report §E).
+//   A5. (Phase 1U, T3) Policy and registry selection are PROTOCOL-AUTHORED
+//       configuration: within an open gate interval (between a valid begin
+//       and its gate) the transition cannot mutate <policy>/<registry> —
+//       setPolicy/useRegistry are setup-phase commands and are BLOCKED
+//       mid-transition (the blocked-*-mutable rules).  The gate-step claims
+//       below pin <gateopen> true </gateopen>: they describe the gate step
+//       of a transition whose interval was opened by a valid begin (the 1U
+//       gate-state discipline, T2).  A wrong or adversarially authored
+//       policy/registry at deployment time is outside the evaluated model.
 // =============================================================================
 
 module SRW3-CLAIMS
@@ -478,6 +537,7 @@ module SRW3-CLAIMS
     <footprint-d> SetItem(appA) => .Set </footprint-d>
     <registry> SetItem(edge(IA, SetItem(appA))) </registry>
     <policy> _Pol:Policy </policy>
+    <gateopen> true => false </gateopen>   // the gate step closes the interval
     <authorities> As:Set </authorities>
     <polver> 1 </polver>
     <actor> appA </actor>
@@ -502,6 +562,7 @@ module SRW3-CLAIMS
     <footprint-d> SetItem(appB) => .Set </footprint-d>
     <registry> completeRegistry() </registry>
     <policy> _Pol:Policy </policy>
+    <gateopen> true => false </gateopen>   // the gate step closes the interval
     <authorities> As:Set </authorities>
     <actor> appB </actor>
     <result> _R:String => "reject" </result>
@@ -522,6 +583,7 @@ module SRW3-CLAIMS
     <footprint-d> SetItem(appB) => .Set </footprint-d>
     <registry> completeRegistry() </registry>
     <policy> _Pol:Policy </policy>
+    <gateopen> true => false </gateopen>   // the gate step closes the interval
     <authorities> As:Set </authorities>
     <polver> 1 </polver>
     <actor> appB </actor>
@@ -549,6 +611,7 @@ module SRW3-CLAIMS
     <footprint-d> SetItem(appB) => .Set </footprint-d>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> true => false </gateopen>   // the gate step closes the interval
     <authorities> As:Set </authorities>
     <polver> 1 </polver>
     <actor> appB </actor>
@@ -572,6 +635,7 @@ module SRW3-CLAIMS
     <footprint-d> SetItem(appB) => .Set </footprint-d>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> true => false </gateopen>   // the gate step closes the interval
     <authorities> As:Set </authorities>
     <actor> appB </actor>
     <result> _R:String => "reject" </result>
@@ -681,6 +745,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -702,6 +767,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -751,6 +817,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -771,6 +838,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -790,6 +858,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     requires X0 <=Int 10 andBool Y0 <=Int 10 andBool X0 +Int Y0 <=Int 10
@@ -815,6 +884,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -839,6 +909,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -861,6 +932,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>

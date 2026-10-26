@@ -1,9 +1,9 @@
 {
   "baseline": {
     "path": "/home/z/my-project/srw3-kevm/k/srw3.k",
-    "slice_start": 24,
-    "slice_end": 530,
-    "sha256": "4586c1cbaaae74a34baeab1778bdf5a98a0cfff56606e63e29a1f5cd9b6b9d46"
+    "slice_start": 37,
+    "slice_end": 607,
+    "sha256": "dce1dfd93852a6e0c6cfebdec0fe29d14b6892b1cf85c52e49b9de9262d84c52"
   },
   "header": {
     "line_count": 57,
@@ -150,11 +150,11 @@
   ],
   "extension": {
     "anchor": "// GHOST EXTENSION MODULES — everything below is NEW (theorem-closure pass).",
-    "line_count": 290,
-    "sha256": "2622554e4353bd955bceee23c565e9f6ff6e891d9cd8f161e0b898170bc5518e"
+    "line_count": 298,
+    "sha256": "2e2bd3567ef429bb34712c73289c7f270fe6c8b4d0b1a96534fc8b78e9952109"
   },
   "artifact": {
     "path": "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k",
-    "sha256": "82d7d8b321d5d0cb6afd3d3fba820247cf389e9eb3011932eae20ada6f2a3e0e"
+    "sha256": "8eee7c52310646410a3b1a4364bb8d036cce06e7294f1e80e59849ecf5ae2335"
   }
 }

@@ -2,8 +2,8 @@
   {
     "file": "proofs/gen/cm2_alias.k",
     "base": "k/srw3gen.k",
-    "base_sha256": "d583ef0c84ba4327ef238a8c4865dd14f7c170c707e1329d22e554f8c7710ce9",
-    "file_sha256": "be34807ca38b0dda18d9a1d846622f64990e9acf302ca247b89b9e71505e6f80",
+    "base_sha256": "01d7b4cd5dd93b1aa3419b38286f94110613deb0703fb5c43df739c1c7e36ebb",
+    "file_sha256": "ad7166cca28ffd98895e0c72e238505d9ca4e338ebc4b053adbd227d34a389ef",
     "marked_insertions": [
       "ghost-syntax-insert",
       "config-ghost-cell",
@@ -17,8 +17,8 @@
   {
     "file": "proofs/gen/cm3_auth.k",
     "base": "k/srw3gen.k",
-    "base_sha256": "d583ef0c84ba4327ef238a8c4865dd14f7c170c707e1329d22e554f8c7710ce9",
-    "file_sha256": "b9a94c83d832f1e72f5aa7d62e944c19946c3edf9eef566276ba2a9722c777a6",
+    "base_sha256": "01d7b4cd5dd93b1aa3419b38286f94110613deb0703fb5c43df739c1c7e36ebb",
+    "file_sha256": "2986b904d7c289222c8e3832e9d232ae1b6e866dac46028522295c991acc470e",
     "marked_insertions": [
       "ghost-syntax-insert",
       "config-ghost-cell",
@@ -32,8 +32,8 @@
   {
     "file": "proofs/gen/gen_full.k",
     "base": "k/srw3gen.k",
-    "base_sha256": "d583ef0c84ba4327ef238a8c4865dd14f7c170c707e1329d22e554f8c7710ce9",
-    "file_sha256": "d2ea107bb4f34681f6249d48f550faf3b346decaca895276bdf2076e31703a6d",
+    "base_sha256": "01d7b4cd5dd93b1aa3419b38286f94110613deb0703fb5c43df739c1c7e36ebb",
+    "file_sha256": "40727b102382ada504bfa4c46beab92e13f3d0104ec911c12e5e80b6eed173d9",
     "marked_insertions": [
       "ghost-syntax-insert",
       "config-ghost-cell",

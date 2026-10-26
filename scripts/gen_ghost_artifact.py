@@ -22,7 +22,21 @@ DST = "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k"
 
 src_lines = open(SRC).read().splitlines()
 # 1-indexed lines 24..530 inclusive -> python slice [23:530]
-BODY = src_lines[23:530]
+# PHASE 1U UPDATE: the slice bounds are located DYNAMICALLY (the 1U model
+# remediation T1/T2/T3 changed the header length and the line count); the
+# copied block is still "modules SRW3-SYNTAX .. SRW3-CLAIMS" = from the
+# 'module SRW3-SYNTAX' line to the end of the file (the claims endmodule).
+try:
+    _START = src_lines.index("module SRW3-SYNTAX")
+except ValueError:
+    sys.exit("FATAL: 'module SRW3-SYNTAX' not found in the source slice layout")
+_BODY = src_lines[_START:]
+# fail-closed: the block must END with the SRW3-CLAIMS endmodule
+while _BODY and _BODY[-1].strip() == "":
+    _BODY.pop()
+if _BODY[-1] != "endmodule":
+    sys.exit("FATAL: the source slice does not end at the claims endmodule")
+BODY = _BODY
 
 def insert_after(lines, anchor, additions, occurrence=1):
     """insert addition lines after the occurrence-th line equal to anchor"""
@@ -253,6 +267,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -274,6 +289,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -323,6 +339,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -343,6 +360,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -362,6 +380,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     requires X0 <=Int 10 andBool Y0 <=Int 10 andBool X0 +Int Y0 <=Int 10
@@ -387,6 +406,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -411,6 +431,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -433,6 +454,7 @@ module SRW3-GHOST-CLAIMS
     <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
     <registry> completeRegistry() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>
     <actor> appB </actor>
     <authorities> gAUTH() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -453,7 +475,7 @@ gen_lines = gen.splitlines()
 kept = [ln for ln in gen_lines if "//GHOST:" not in ln]
 ghost_delta = [ln for ln in gen_lines if "//GHOST:" in ln]
 
-body_src = src_lines[23:530]  # lines 24..530, 1-indexed
+body_src = _BODY  # the dynamically located SRW3-SYNTAX..SRW3-CLAIMS block
 sm = difflib.SequenceMatcher(a=body_src, b=kept, autojunk=False)
 blocks = [b for b in sm.get_matching_blocks() if b.size > 0]
 matched = sum(b.size for b in blocks)

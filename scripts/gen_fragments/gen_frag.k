@@ -184,6 +184,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -216,6 +217,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -282,6 +284,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -310,6 +313,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -343,6 +347,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -374,6 +379,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>
@@ -404,6 +410,7 @@ module SRW3G4-GHOST-CLAIMS
     <footprint-d> F3:Set => ?F4:Set </footprint-d>
     <registry> fullRegistryGen() </registry>
     <policy> enforce </policy>
+    <gateopen> false </gateopen>   //GHOST: (1U T2: pre-begin initial state)
     <actor> appB </actor>
     <authorities> gAUTH4() </authorities>
     <polver> PV1:Int => ?PV2:Int </polver>

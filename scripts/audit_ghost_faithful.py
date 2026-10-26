@@ -20,7 +20,14 @@ art_lines = open(ART).read().splitlines()
 kept = [ln for ln in art_lines if "//GHOST:" not in ln]
 delta = [ln for ln in art_lines if "//GHOST:" in ln]
 
-body_src = src_lines[23:530]  # 1-indexed lines 24..530
+# PHASE 1U: the slice bounds are located dynamically (the 1U model remediation
+# changed the header length/line count); the copied block is still
+# "modules SRW3-SYNTAX .. SRW3-CLAIMS" through end of file.
+_START = src_lines.index("module SRW3-SYNTAX")
+body_src = src_lines[_START:]
+while body_src and body_src[-1].strip() == "":
+    body_src.pop()
+assert body_src[-1] == "endmodule", "slice does not end at claims endmodule"
 sm = difflib.SequenceMatcher(a=body_src, b=kept, autojunk=False)
 blocks = [b for b in sm.get_matching_blocks() if b.size > 0]
 matched = sum(b.size for b in blocks)

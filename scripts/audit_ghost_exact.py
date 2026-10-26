@@ -40,7 +40,13 @@ SRC = "/home/z/my-project/srw3-kevm/k/srw3.k"
 ART = "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k"
 MAN = "/home/z/my-project/srw3-kevm/proofs/ghost_manifest.json"
 
-SLICE_START, SLICE_END = 24, 530          # 1-indexed, inclusive (507 lines)
+# PHASE 1U: slice bounds located dynamically (the 1U model remediation changed
+# the header length/line count); the block is "module SRW3-SYNTAX" .. EOF.
+_slice_src = open(SRC).read().splitlines()
+SLICE_START = _slice_src.index("module SRW3-SYNTAX") + 1
+SLICE_END = len(_slice_src)
+while _slice_src[SLICE_END - 1].strip() == "":
+    SLICE_END -= 1
 EXT_ANCHOR = "// GHOST EXTENSION MODULES — everything below is NEW (theorem-closure pass)."
 MARKER = "//GHOST:"
 
