@@ -231,15 +231,20 @@ never relabeled.
   row, including the failures and the two parse-failure exhibits) and
   `phase1t/audit/lean/transcript_*.txt`.
 - **Exit codes:** `phase1t/claims/exit-codes-1t.csv` (last-wins, as 1S).
-- **Ledger:** `phase1t/claims/claims-1t.csv` — **42 rows**: 12 PROVED or
-  PROVED-derived-lemma closures, 2 PROVED-EXTERNAL (Lean) + 1
-  reproduced-under-assumption + 1 depth-closure, 10 FAILED-STUCK attempts
+- **Ledger:** `phase1t/claims/claims-1t.csv` — **40 unique claim rows**
+  *[count corrected by Phase 1U D2; this report previously said "42 rows"
+  and its prose breakdown did not match the committed CSV — the committed
+  ledger is authoritative, see `phase1u/report/phase1u-final-report.md`
+  §D2]*. The exact committed census (recomputed by the 1U summarizer):
+  12 PROVED or PROVED-derived-lemma closures, 1 PROVED-EXTERNAL (Lean), 1
+  reproduced-under-assumption, 1 depth-closure, 10 FAILED-STUCK attempts
   (incl. the two mechanism-A batteries and the three K-native induction
-  probes), 1 tool-boundary (the attribute rejection), 3 TIMEOUT
-  (destination-false controls ×2 under their harnesses + the genesis form),
-  6 must-FAIL controls that failed correctly, 7 further controls/probes.
-  Same-attempt re-runs are last-wins single rows (the ledger never counts
-  retries as independent theorems).
+  probes), 1 tool-boundary (the attribute rejection), 2 TIMEOUT rows, and
+  12 control rows (the must-FAIL controls that failed correctly, the
+  timeout-discipline controls, and the remaining probes). Same-attempt
+  re-runs are last-wins single rows (the ledger never counts retries as
+  independent theorems); the 51 rows of `exit-codes-1t.csv` retain the
+  append-only attempt history (6 claim IDs have superseded first attempts).
 - **Assumptions and trust dependencies (complete list):** (i) the K
   toolchain v7.1.337 + Z3 4.13.3 (kore checker, SMT ground decisions); (ii)
   the Lean 4.16.0 kernel + core (`propext`, `Quot.sound` only, disclosed by

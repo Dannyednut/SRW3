@@ -1933,3 +1933,64 @@ Stage Summary:
   discharged; the genesis run-form and the Level-III boundaries (no bisimulation,
   no TCB-2 completeness, no concrete-protocol claim) remain open exactly as
   recorded. Verdict: PARTIALLY COMPLETE; no completion tag.
+
+---
+Task ID: 1U-D3-ERRATUM (Task 11 reconciliation; appended by Phase 1U — append-only, no historical entry edited or deleted)
+Agent: main (Super Z)
+Task: Reconcile the contradictory Task ID 11 worklog entries (the zero-test result vs the later 15/15 results for the same recorded baseline hash), per the independent examiner's finding; adopt a forward-looking task-ID rule.
+
+Work Log:
+- INVENTORY OF RECORD (by line in this worklog; nothing edited): "Task ID: 11"
+  appears NINE times plus the properly sub-numbered 11-b and 11-c. The
+  contradictory pair is: (a) the entry "Ingest authoritative baseline ... zip"
+  recording "pytest FIRST: PASSED=0 FAILED=0 (expected 15/15)" against zip
+  sha256 2db8669f8aeddc5bceff762bfd4a4901ddc9cb3f3e6387364e0abe2ac8e62955; and
+  (b) SIX byte-identical entries "Ingest authoritative baseline ... (via Google
+  Drive)" recording "canonical 'make test' (unittest discover): PASSED=15
+  FAILED=0" against the SAME sha256. The remaining pre-ingest entries (the two
+  upload-failure entries and the 13/13 abstract-demo entry) are not
+  contradictory: they record that the zip had not yet been delivered.
+- WHAT THE EVIDENCE ESTABLISHES:
+  (1) The baseline bytes are IDENTICAL across all entries (the same recorded
+      zip sha256) — the discrepancy is a TEST-RUNNER INVOCATION difference,
+      not a change of the artifact under test.
+  (2) The canonical invocation of record is the baseline's own Makefile target:
+      `make test` = `python3 -m unittest discover -s tests -v` from the project
+      root. It ran 15 tests OK. Independently corroborated by the retained
+      audit transcript srw3-kevm/transcripts/audit/full_matrix.txt line 24
+      ("Ran 15 tests in 0.008s") and by every subsequent matrix re-run.
+  (3) The zero-test row self-identifies as "pytest FIRST" — the NON-canonical
+      invocation of the first pipeline draft (the draft's own description says
+      "pytest -v FIRST with --confcutdir isolation"). The ingest pipeline was
+      subsequently corrected to run the canonical unittest invocation FIRST
+      with pytest only as a fallback (scripts/ingest_baseline.sh, the step-3
+      comment "CANONICAL invocation per the baseline's own Makefile").
+- LIMITATION (stated, not guessed): the raw pytest transcript of the zero-test
+  attempt is NOT retained anywhere retrievable, so the precise pytest-side
+  mechanism of the zero collection (collection error vs import-path vs CWD
+  effect of the --confcutdir isolation) CANNOT be re-established from raw
+  evidence. What is established is sufficient for the reconciliation: the
+  zero-test row measures the draft invocation, not the baseline.
+- AUTHORITATIVE RESULT OF RECORD: the baseline SRW3_Phase_0D_Implementation_v1.0.zip
+  (sha256 2db8669f...e62955) passes its own canonical suite 15/15. The
+  canonical result is the FIRST 15/15 entry; the five later byte-identical
+  15/15 entries are accidental duplicate appends of the same completed
+  operation (same sha256, same invocation, same result) — they are retained
+  unmodified and carry no additional information.
+- FORWARD-LOOKING TASK-ID RULE (adopted as of this entry): (i) a task-ID is
+  NEVER reused for a different execution; (ii) reruns/supersessions append a
+  NEW entry with a distinct sub-ID (<base>-r2, -r3, ... or a phase-scoped ID
+  such as 1U-D3) and cross-reference the entry it supersedes; (iii) every
+  execution entry names its exact invocation (command, CWD, runner) so that
+  invocation-level discrepancies are self-identifying; (iv) a result row
+  whose runner differs from the canonical one is labeled as such at entry
+  time. Historical entries are never edited to conform; this erratum is the
+  reconciliation of record.
+
+Stage Summary:
+- Task 11 is reconciled: canonical unittest invocation 15/15 is the
+  authoritative baseline result; the zero-test row is a non-canonical-runner
+  artifact of the first pipeline draft (mechanism not re-establishable —
+  disclosed); the six 15/15 entries are one operation logged six times.
+- Forward-looking task-ID discipline adopted (distinct sub-IDs, invocation
+  named in every entry, no reuse).

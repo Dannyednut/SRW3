@@ -29,8 +29,12 @@ Independent checker: Lean 4.16.0 (pinned, sha256 in the report).
   induction; rc=0; axioms [propext, Quot.sound]), `c12_neg_controls.lean`
   (the falsity controls; rc=1 as designed), both transcripts, sources hashed
   in the report.
-- `claims/claims-1t.csv` — the 1T ledger (42 rows, unique 1T- IDs; historical
-  rows never relabeled).
+- `claims/claims-1t.csv` — the 1T ledger (**40 unique claim rows** — 34 `1T-`
+  IDs + 6 reproduced `1S-` rows; **51 attempt rows** in
+  `claims/exit-codes-1t.csv`, last-wins; historical rows never relabeled).
+  *[Count corrected by Phase 1U workstream D2: this README previously said
+  "42 rows"; the committed ledger is authoritative — see
+  `phase1u/report/phase1u-final-report.md` §D2.]*
 - `claims/exit-codes-1t.csv` — raw exit codes (last-wins).
 - `report/phase1t-final-report.md` — the final report with the five verdicts.
 
