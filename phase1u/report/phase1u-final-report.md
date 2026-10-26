@@ -347,13 +347,18 @@ divergent early archive — both examiner claims CONFIRMED. Remediation
 delivered: `STATE-OF-RECORD.md` (the authoritative pointer: current phase,
 branch, commit, verdict, pins, residuals) and the top-level `README.md`
 (landing page pointing at it, with the phase-branch topology and the
-explicit stale-`phase1b`/archive-`main` labeling). **Default-branch action:**
-the provided PAT is a fine-grained token; the default-branch change was
-attempted via the API and the outcome is recorded in the final-deliverables
-section — if the permission is absent, the exact manual action is: *repo
-Settings → Branches → default branch → `phase1u-model-hygiene`* (the
-validated state of record; never an unvalidated working tree). No
-force-push, no history rewrite, no branch deletion.
+explicit stale-`phase1b`/archive-`main` labeling). **Default-branch action: BLOCKED (with evidence).** The switch was attempted
+via the API (`PATCH /repos/Dannyednut/SRW3`, `{"default_branch":
+"phase1u-model-hygiene"}`) with the provided PAT; the API returned
+**"Resource not accessible by personal access token"** (the fine-grained
+token lacks the Administration write permission), and a follow-up GET
+confirmed the default branch is still `phase1b`. The exact MANUAL action
+still required: *GitHub → Dannyednut/SRW3 → Settings → Branches → default
+branch → `phase1u-model-hygiene`* (the validated state of record; never an
+unvalidated working tree). No force-push, no history rewrite, no branch
+deletion. S1 is NOT reported resolved: the landing surfaces exist at the
+branch of record, but the default VIEW remains `phase1b` until the owner
+performs the manual switch.
 
 ### D2. The Phase 1T ledger count discrepancy — resolved
 
@@ -491,7 +496,7 @@ ghost-fidelity artifacts were REGENERATED from the corrected sources:
 | 8 | T2 independently reproduced and fixed, with double-gate and gate-without-begin controls | `OLD-t2-double-gate` (empty-map commit) / `OLD-t2-gate-no-begin` vs `NEW-t2-*` (gate-closed, state intact) | **VERIFIED** |
 | 9 | The generalized model reviewed for analogous defects | T2 fixed in `srw3gen.k` (verified by inspection + `NEW-gen-*`); `applicableGen` already footprint-preserving (T1 N/A) | **VERIFIED** |
 | 10 | Regression matrix and ghost-fidelity evidence regenerated and passing | 13 classic demos verdict-preserving; fidelity 571/571 PASS + manifest verify PASS; all ghost per-claim verdicts identical to history | **VERIFIED** |
-| 11 | The default-view problem genuinely resolved (or precisely documented) | `STATE-OF-RECORD.md` + `README.md` delivered; default-branch API outcome recorded in the deliverables; manual fallback documented | **VERIFIED** for the surfaces; default-branch switch **BLOCKED** if the PAT lacks admin permission (exact manual action documented) |
+| 11 | The default-view problem genuinely resolved (or precisely documented) | `STATE-OF-RECORD.md` + `README.md` delivered at the branch of record; API attempt BLOCKED ("Resource not accessible by personal access token"; GET confirms default still `phase1b`); exact manual action documented in §D1 | **BLOCKED** (surfaces VERIFIED; the switch itself requires the owner's manual action — precisely documented) |
 | 12 | The state-of-record surface accurate and linked | `STATE-OF-RECORD.md` (branch, commit, pins, residuals) | **VERIFIED** |
 | 13 | The ledger count mismatch fixed and the summarizer passing | §D2; `summarize_1t.py` GATE GREEN; `summarize_1u.py` GATE GREEN (0 alarms) | **VERIFIED** |
 | 14 | Task 11 reconciled through an append-only erratum | `worklog.md` `1U-D3-ERRATUM` (no historical entry edited) | **VERIFIED** |

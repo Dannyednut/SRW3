@@ -4,7 +4,12 @@
 mechanization project.** It exists because the repository's GitHub *default*
 branch has historically pointed at an early phase (`phase1b`), which made the
 current state of the research undiscoverable (independent-examiner finding
-S1, remediated by Phase 1U workstream D1).
+S1). **S1 status after Phase 1U: the landing surfaces are delivered on the
+branch of record; the DEFAULT-BRANCH SWITCH itself is BLOCKED** — the API
+attempt with the provided token returned "Resource not accessible by
+personal access token" (Administration write permission missing) and the
+default branch remains `phase1b`. **Manual action required (repo owner):**
+GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 
 ---
 
