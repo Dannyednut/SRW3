@@ -1,0 +1,13 @@
+phase1t/audit/lean/c12_neg_controls.lean:31:6: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+phase1t/audit/lean/c12_neg_controls.lean:32:18: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≤ 4
+  a ≥ 5
+where
+ a := countToInt p
+ b := countToInt p.succP
+phase1t/audit/lean/c12_neg_controls.lean:41:6: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+phase1t/audit/lean/c12_neg_controls.lean:42:18: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.

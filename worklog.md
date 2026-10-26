@@ -1856,3 +1856,80 @@ Work Log:
 
 Stage Summary:
 - Phase 1R = COMPLETE. The machine-form universal invariant-preservation theorem for arbitrary executable programs over the complete constructor-count machine IS MECHANIZED on the pinned toolchain (1R-UNIV-COMPOSED-QS over the semantics-identical QS variant), non-vacuously and standalone, with the isolation ladder, the bounded-prefix family, the one-step theorem, the full decomposition diagnosis, and the complete negative battery retained. Level III only; the C1/C5 obligations and the concrete-boundary gap remain open exactly as recorded. No completion tag is created for 1N-1Q claims; the 1R result is scoped in report §7.
+
+---
+Task ID: phase1t
+Agent: main (Super Z)
+Task: Phase 1T — C1.2 structural induction and migration-proof validation (no-assumption proof of C1.2; circularity false-closure checks on the conditional migration; assumption-rule removal and downstream re-runs where earned)
+
+Work Log:
+- Recovery first: sandbox reset before the phase; repo re-cloned from
+  Dannyednut/SRW3 (all 24 branches), baseline 7a8118f37550b6050b105ab856e0030d2b700e81
+  verified by git rev-parse, branch phase1t-c12-induction-validation created from it;
+  pinned toolchain rebuilt by scripts/reinstall_toolchain_1m_r3.sh (K v7.1.337 +
+  z3 4.13.3 verified live); SRW3N-REL-S kompile rc=0 31s. Phase 1S files verified at
+  their recorded paths before any run; the C1.2 definitions of record traced to
+  phase1q/semantics/abs-machine-q.k lines 31-32/400-402 (two [constructor]s; two
+  equations; no owise/requires/overlap).
+- Workstream B (C1.2 WITHOUT the assumption) — three fresh K-native probes, all
+  negative, all retained: (1) the [induction] claim attribute — never attempted by
+  any prior phase — is REJECTED by the pinned compiler (Unrecognized attributes,
+  rc=113 parse, 6s; kprove has no induction flag, only --trusted); (2) the
+  [circularity]-marked universal (never attempted for C1.2; 1S's 1S-C1.2-UNIV was a
+  plain claim) FAILED-STUCK rc=1 10s (stuck leaf; self-application; falsity twin
+  also fails — incomplete-not-unsound); (3) the constructor-discriminated circular
+  form (requires P =/=K zeroP) FAILED-STUCK rc=1 10s. The 1O boundary is
+  re-established with stronger evidence.
+- Workstream B fallback route (mission-provided): C1.2 CHECKED by Lean 4.16.0
+  (commit 128a1e6b0a82; archive sha256 54d6cba2...): theorem c12_nonneg :
+  forall p : PoolCount, countToInt p >= 0 by structural induction (base rfl+omega;
+  step IH+omega), kernel-checked, axiom report [propext, Quot.sound] — no sorryAx;
+  falsity controls (>=5; odd) FAIL to elaborate as designed; the exact
+  correspondence argument (free-algebra constructors, the two defining equations
+  verbatim, unbounded-integer predicate, literal-statement claim, trust base) is
+  retained in the .lean header; run + transcripts + sha256s under phase1t/audit/lean/.
+  1T-C12-UNIV-LEAN = PROVED-EXTERNAL. Historical rows never relabeled.
+- Workstream A (conditional migration genuineness) on the rebuilt pinned toolchain:
+  1S-MIGRATE-UNIV-C12ASSUMED reproduces rc=0 12s (1S: 12s); depth ladder d=1/2 FAIL
+  + d=3 CLOSES (the closure needs exactly 3 unrollings — real, non-shallow);
+  false-goal controls INSIDE the C12 harness refuse to close (DEST rc=124 150s
+  TIMEOUT; SAFETY-FALSE rc=1 11s); the weak-machine universal and the OMIT mutant
+  fail as designed (rc=1 12s/11s). GENUINENESS PASSED — no misleading closure
+  anywhere; classification kept PROVED-UNDER-C1.2-ASSUMPTION and additionally
+  VALIDATED under the disclosed assumption.
+- Workstream C (the dependency removal, two mechanisms compared):
+  Mechanism A (--trusted hand-off of the checked claim) DOES NOT WORK — recorded as
+  a precise finding: the trusted claim's rewrite fires but its ensures stays a
+  fresh-variable obligation; the migration residual is UNCHANGED
+  (#Not(countToInt(G0)>=0 and countToInt(E0)>=0), rc=1 13s); all six dropped-
+  condition cells fail; only the two C1.2-independent preservation cells close.
+  Mechanism B (derived-lemma rules — bodies verbatim from the 1S disclosed rules,
+  justification = the Lean certificate, labels 1T-C12-LEAN-RULE[+SHIFT/SHIFT1],
+  1T-C1.5-PROVED-RULE) — THE UNCONDITIONAL UNIVERSAL CLOSES:
+  1T-MIGRATE-UNIV-LEANC12-RULE rc=0 13s with NO assumption rules; genuineness
+  depth 1/2 FAIL; the rule-harness destination-false control does not close
+  (rc=124). The five C12-COND correspondence cells close unconditionally
+  (conditions dropped; the SHIFT1 rule covers the unfolded countToInt(P)+Int 1
+  >=Int 1 guard shapes — the first attempt without it failed and is retained);
+  THE COMMIT-ACCEPT STRIP-STATE RESIDUAL OF RECORD IS DISCHARGED
+  (1T-CORR-NODEP-RULE rc=0 10s); the three preservation cells close (the full
+  ABSInvE chain unconditional). The genesis-grounded form remains TIMEOUT at 560s
+  under BOTH mechanisms (the 1R TAG0-NF phenomenon; empty log; subsumed
+  semantically; never relabeled).
+- Evidence: phase1t/proofs/run_1t.sh (fail-closed runner, stages KD/WSA1-4/WC1-4C);
+  30 kprove logs + 2 Lean transcripts under phase1t/transcripts/k/ and
+  phase1t/audit/lean/; exit-codes-1t.csv (last-wins); claims-1t.csv 40 rows
+  (12 proved/4 proved-derived-lemma/1 PROVED-EXTERNAL/1 reproduced/1 depth-closure/
+  10 FAILED-STUCK/1 tool-boundary/2 TIMEOUT/12 controls — zero relocations);
+  summarize_1t.py GATE GREEN (0 alarms: unique IDs, exit-code consistency,
+  transcript presence, headline invariants incl. the falsity controls).
+
+Stage Summary:
+- C1.2 IS PROVED (kernel-checked structural induction, Lean 4.16.0; the K-native
+  route exhausted with fresh negative evidence and the boundary recorded); the
+  conditional migration is validated under its disclosed assumption; the
+  unconditional migration universal now CLOSES with the derived-lemma dependency
+  disclosed (no assumption rules); the strip-state residual of record is
+  discharged; the genesis run-form and the Level-III boundaries (no bisimulation,
+  no TCB-2 completeness, no concrete-protocol claim) remain open exactly as
+  recorded. Verdict: PARTIALLY COMPLETE; no completion tag.
