@@ -16,6 +16,7 @@ module SRW3-NEGCONTROL
     <footprint-d> SetItem(appB) => .Set </footprint-d>
     <registry> completeRegistry() </registry>
     <policy> _Pol:Policy </policy>
+    <gateopen> true => false </gateopen>
     <authorities> As:Set </authorities>
     <actor> appB </actor>
     <result> _R:String => "commit" </result>
