@@ -1,0 +1,36 @@
+kore-exec: [328055] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant.k:46:9-46:64
+Context:
+    (InfoReachability) while checking the implication
+  #Not ( {
+    true
+  #Equals
+    countToInt ( P ) +Int 1 >=Int 2
+  } )
+#And
+  <uc15>
+    <k>
+      countToInt ( P ) +Int 1 >=Int 2 ~> .K
+    </k>
+  </uc15>
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant.k)
+	Location(42,25,42,26)
+	42 |	  rule countToInt(succP(P:PoolCount)) >=Int I:Int => true requires I
+>=Int 1
+	   .	                        ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant.k)
+	Location(46,30,46,31)
+	46 |	  claim <k> countToInt(succP(P:PoolCount)) >=Int 2 => true </k>
+	   .	                             ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant.k)
+	Location(50,30,50,31)
+	50 |	  claim <k> countToInt(succP(P:PoolCount)) >=Int 1 => true </k>
+	   .	                             ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

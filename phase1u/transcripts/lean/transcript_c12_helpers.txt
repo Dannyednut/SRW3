@@ -1,0 +1,4 @@
+'c12_nonneg' depends on axioms: [propext, Quot.sound]
+'c15_succ_ge1' depends on axioms: [propext, Quot.sound]
+'c12_shift_ge0' depends on axioms: [propext, Quot.sound]
+'c12_shift_ge1' depends on axioms: [propext, Quot.sound]

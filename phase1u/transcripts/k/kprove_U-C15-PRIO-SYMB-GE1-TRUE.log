@@ -1,0 +1,27 @@
+[Error] Compiler: priority attribute is not supported on simplification rules.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant_prio.k)
+	Location(37,8,37,77)
+	37 |	  rule countToInt(succP(P:PoolCount)) >=Int I:Int => true requires I
+>=Int 1
+	   .	      
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant_prio.k)
+	Location(37,25,37,26)
+	37 |	  rule countToInt(succP(P:PoolCount)) >=Int I:Int => true requires I
+>=Int 1
+	   .	                        ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant_prio.k)
+	Location(41,30,41,31)
+	41 |	  claim <k> countToInt(succP(P:PoolCount)) >=Int 2 => true </k>
+	   .	                             ^
+[Warning] Compiler: Variable 'P' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/SRW3/phase1u/proofs/n_u_c15_mutant_prio.k)
+	Location(45,30,45,31)
+	45 |	  claim <k> countToInt(succP(P:PoolCount)) >=Int 1 => true </k>
+	   .	                             ^
+[Error] Compiler: Had 1 structural errors.
