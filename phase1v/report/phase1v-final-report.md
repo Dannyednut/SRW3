@@ -240,10 +240,17 @@ order-independence property beyond it.
 
 ### B4. Clean-checkout acceptance
 
-- Two isolated runs of the complete model regression script from separate
-  fresh workspaces (empty temp state, no shared outputs): **44/44 controls
-  each, logical verdicts IDENTICAL** (`determinism-1v-report.txt`; the only
-  differences are wall-time notes, excluded from the comparison key).
+- **The DEFINITIVE clean-checkout pair:** from a clean isolated worktree of
+  the COMMITTED branch head `c7a0c7b` (no build outputs, no untracked
+  files, no `/tmp/p1u-*` prerequisites present; only the pinned external
+  toolchain), the complete model regression script ran TWICE with
+  independent unique workspaces: **44/44 controls each, every row OK, and
+  the logical verdicts IDENTICAL**
+  (`clean-checkout-b4-report.txt` + the two per-run verdict ledgers
+  `clean-checkout-run{1,2}-verdicts.csv`).
+- Two further isolated runs of the script in the development tree from
+  separate fresh workspaces (empty temp state, no shared outputs) also
+  agreed on all 44 logical verdicts (`determinism-1v-report.txt`).
 - The exact documented Phase 1U command reproduces from a clean checkout via
   `phase1v/tests/run_1u_model_tests_compat.sh` (B4 wrapper): it provisions
   the missing `/tmp/p1u-old-harness` inputs from committed objects with ONE

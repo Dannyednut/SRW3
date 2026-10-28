@@ -1,0 +1,10 @@
+SRW3 Phase 1V — Workstream B4: the DEFINITIVE clean-checkout acceptance pair
+environment: a clean isolated worktree of the COMMITTED branch head c7a0c7b
+(no build outputs, no untracked files; no /tmp/p1u-* prerequisites present;
+only the pinned external toolchain). The complete model regression script
+ran TWICE with independent unique workspaces (/tmp/srw3-1v-b4-run1, -run2),
+staged across foreground invocations (KOM; CFG OWN T1 T2 GEN; CLM).
+rows: run1=44 run2=44 (44 controls each; every row verdict=OK)
+logical verdicts (tag,class,rc,expected,verdict): IDENTICAL
+differences: wall-time notes only (excluded from the comparison key);
+no logical verdict differs between the two clean-checkout runs.
