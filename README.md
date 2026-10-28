@@ -16,9 +16,11 @@ has since switched the default branch to `phase1u-model-hygiene` (verified
 live 2026-10-28)** — the stale-pointer problem is RESOLVED; the note below
 is retained for the historical record. The research lives on the
 append-only phase-branch chain ending at **`phase1u-model-hygiene`**
-(default) with **`phase1v-configuration-ownership`** as the working branch
-under review. `main` is a divergent early-phase archive kept for
-provenance; `phase1b` remains an early-phase snapshot.
+(default) with **`phase1v-configuration-ownership`** delivered as a
+verified transferable bundle (push blocked; see STATE-OF-RECORD) and
+**`phase1w-boundary-audit`** as the working branch under review. `main` is
+a divergent early-phase archive kept for provenance; `phase1b` remains an
+early-phase snapshot.
 
 ## Phase topology (chronological)
 
@@ -31,6 +33,7 @@ provenance; `phase1b` remains an early-phase snapshot.
 | 1T | `phase1t-c12-induction-validation` | C1.2 proved (Lean structural induction); conditional migration validated; unconditional migration closes via disclosed derived rules |
 | 1U | `phase1u-model-hygiene` | proof-rule soundness remediation (the invalid C1.5 generalization), T1/T2/T3 model defects reproduced and fixed, ledger/erratum reconciliation, state-of-record — **the GitHub default branch since the owner's switch (verified live 2026-10-28)** |
 | **1V** | **`phase1v-configuration-ownership`** | **configuration ownership (T3-v2: trusted model configuration, mutation commands removed from the untrusted grammars; F1a/F1b/F2/F3 findings closed), reproducible fail-closed regression runner, state-of-record correction for the default-branch change** |
+| **1W** | **`phase1w-boundary-audit`** | **independent acceptance (the 1V bundle verified, the full 1V test procedure rerun twice from fresh clones — 44/44 + 48/48 identical to history; 13/13 tool negative controls), initialization-boundary closure (the between-transition `init` affordance demonstrated on the pinned 1V model and closed structurally via `$INITSTATE`), reconciled residual register R1–R14** |
 
 Each `phase1X/` directory contains that phase's README, final report
 (fail-closed verdict), claim ledger + exit-code inventory, raw transcripts,

@@ -19,6 +19,13 @@ GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 > branch and the stale-`phase1b` caveat applies to history only. The
 > Phase 1V working branch is deliberately NOT set as default — the owner
 > selects the default after reviewing Phase 1V.]
+>
+> **[1W FOLLOW-UP, 2026-10-28 — no new default-branch claim.** The Phase 1W
+> session had NO GitHub credential (no token in the environment, no `gh`
+> CLI, no credential helper), so the live default-branch state was NOT
+> re-verified this session; the last LIVE verification remains the 1V
+> check above (2026-10-28). The Phase 1W working branch is deliberately
+> NOT set as default, and no default-branch change is requested by 1W.]
 
 ---
 
@@ -26,12 +33,12 @@ GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 
 | Field | Value |
 |---|---|
-| GitHub default branch (live, verified 2026-10-28) | **`phase1u-model-hygiene`** (the owner's switch succeeded) |
+| GitHub default branch (last LIVE verification: 2026-10-28, by Phase 1V) | **`phase1u-model-hygiene`** (the owner's switch succeeded; 1W had no credential and makes no new claim) |
 | Current accepted phase | **Phase 1U — Model Hygiene, Proof Soundness, and Independent Revalidation** (the default branch carries its completed state) |
-| Working phase under development | **Phase 1V — Configuration Ownership and Reproducible Verification** (branch below; NOT the default until the owner chooses) |
-| Branch of record (working) | `phase1v-configuration-ownership` (base = the 1U tip) |
-| Head commit | see `git rev-parse phase1v-configuration-ownership` (the branch head is always authoritative; this file is updated per phase) |
-| Base | Phase 1U tip `8697bd744faee0b17156393fd8f57dd87e51598e` (branch `phase1u-model-hygiene`) |
+| Working phase under development | **Phase 1W — Independent Acceptance, Initialization-Boundary Closure, and Residual Proof Plan** (branch below; NOT the default until the owner chooses) |
+| Branch of record (working) | `phase1w-boundary-audit` (base = the VERIFIED Phase 1V head) |
+| Head commit | see `git rev-parse phase1w-boundary-audit` (the branch head is always authoritative; this file is updated per phase) |
+| Base | Phase 1V head `430f46858168f0477c1296ba9cc895b3f44e89be` (branch `phase1v-configuration-ownership`; INDEPENDENTLY VERIFIED in 1W: bundle sha256 `9c67aad4527483879208aa3607d27b9106ee9736f5ff5b9be33c5a86da1c85b7`, `git bundle verify` OK, complete history, six commits on the 1U tip `8697bd744faee0b17156393fd8f57dd87e51598e`) |
 | Verdict | **PARTIALLY COMPLETE** (see below — the project is never declared complete by a green gate) |
 | Scope | Level III only — the abstract K models and their mechanized proofs. **No** consensus-integration, concrete-Ethereum, or protocol-commitment-boundary claim is made. |
 
@@ -46,11 +53,12 @@ main (archive: divergent early line, ends at an early phase — kept for
  └─ phase1b (historical GitHub default branch — STALE as a pointer, historical only)
      └─ phase1c → phase1d-r1-complete → phase1e → … → phase1n → phase1o
         → phase1p → phase1q → phase1r → phase1s-refinement-coverage
-        → phase1t-c12-induction-validation → phase1u-model-hygiene  ← DEFAULT (verified live 2026-10-28)
-           └─ phase1v-configuration-ownership  ← WORKING (under review)
+        → phase1t-c12-induction-validation → phase1u-model-hygiene  ← DEFAULT (verified live 2026-10-28 by 1V)
+           └─ phase1v-configuration-ownership  ← delivered as the verified bundle (push BLOCKED; see the 1V delivery note)
+              └─ phase1w-boundary-audit  ← WORKING (under review)
 ```
 
-Every phase directory (`phase1n/` … `phase1v/`) carries its own README,
+Every phase directory (`phase1n/` … `phase1w/`) carries its own README,
 final report, claim ledger, exit-code inventory, and raw transcripts.
 
 ## Toolchain pins
@@ -95,6 +103,19 @@ live.
   unguarded `useResMap`/`grant` paths (F1a/F1b) are demonstrated on the
   pinned 1U model and closed on 1V, with asserted adversarial controls
   (`phase1v/tests/`).
+- **Initialization-boundary closure (1W)**: the 1V between-transition
+  `init` seeding affordance (R9) is DEMONSTRATED on the pinned 1V model in
+  every open window and CLOSED STRUCTURALLY — `init` removed from both
+  untrusted grammars; the initial committed state is trusted configuration
+  `$INITSTATE` (A8/A9); NO rule writes `<committed>` except the gate accept
+  rule; a violating harness-supplied baseline is demonstrably VISIBLE and
+  FAILS CLOSED (`phase1w/tests/`).
+- **Independent acceptance (1W)**: the complete Phase 1V test procedure
+  reran TWICE from fresh clones of the verified bundle — 44/44 model
+  controls and 48/48 ghost verdicts per run, identical to each other and
+  to history; the gate/verifier tooling demonstrated to fail closed under
+  13 adversarial negative controls; the 1U compat command reproduced with
+  the 1U exit-code ledger restored bit-identically.
 - **Ghost-fidelity layer**: regenerated from the corrected sources (1U and
   again from the 1V sources); all per-claim verdicts identical to the
   historical record (incl. the ∀n theorem GH-T2/GH-M PROVED and the
@@ -118,8 +139,11 @@ live.
    A5/A7. **Closed by Phase 1V (T3-v2)**: the mutation commands are removed
    and the configuration is protocol-owned (see the 1V report §A); the
    residual that REMAINS is the honesty of the trusted harness itself
-   (a hostile harness is outside the evaluated model) and the disclosed
-   between-transition `init` seeding affordance (follow-up registered).
+   (a hostile harness is outside the evaluated model). **The disclosed
+   between-transition `init` seeding affordance was CLOSED by Phase 1W
+   (R9)**: `init` removed from the grammars, the initial committed state
+   protocol-owned via `$INITSTATE` (A8/A9); the remaining harness-honesty
+   dependency is R10, now covering the initial state as well.
 7. T4: the abstract layers claim effect-completeness at DIFFERENT
    granularities (app-granular vs storage-key-granular) — documented in
    `docs/research/t4-footprint-granularity.md`; no cross-layer equivalence
@@ -130,7 +154,8 @@ live.
    protocol security, consensus integration.
 9. FAILED-STUCK residuals from earlier phases are consolidated in each
    phase's ledger; the 1S/1T/1U/1V ledgers are append-only. The cross-phase
-   index lives at `docs/research/residual-register-1v.md`.
+   index lives at `docs/research/residual-register-1w.md` (carries R1–R14;
+   the 1V index remains as the historical record).
 10. The examiner report file `SRW3-Independent-Examiner-Report-v1.2.md` is
    still absent from the repository; Phase 1V could not archive it because
    the document was not supplied to the session (registered, owner
@@ -146,10 +171,14 @@ source <toolchain root>/env.sh               # K v7.1.337 + z3 4.13.3 (pinned)
 bash phase1u/proofs/run_1u.sh               # the corrected-rule proof battery (1U; unchanged)
 bash phase1v/tests/run_1v_model_tests.sh    # the 1V old-vs-fixed model matrix (fail-closed)
 bash phase1v/tests/run_1u_model_tests_compat.sh   # the 1U runner from a clean checkout
-bash phase1v/proofs/run_1v_ghost.sh         # ghost regeneration + per-claim battery
+bash phase1v/proofs/run_1v_ghost.sh         # ghost regeneration + per-claim battery (1V)
+bash phase1w/tests/run_1w_model_tests.sh    # the 1W initialization-boundary battery (fail-closed)
+bash phase1w/proofs/run_1w_ghost.sh         # ghost regeneration + per-claim battery (1W)
 lean phase1u/audit/lean/c12_helpers.lean    # the helper-lemma development (unchanged)
 python3 phase1v/scripts/build_ledgers_1v.py
 python3 phase1v/scripts/summarize_1v.py     # the fail-closed ledger gate (1V)
+python3 phase1w/scripts/build_ledgers_1w.py
+python3 phase1w/scripts/summarize_1w.py     # the fail-closed ledger gate (1W)
 python3 phase1u/scripts/summarize_1u.py     # the 1U gate (unchanged)
 ```
 

@@ -2205,3 +2205,140 @@ Stage Summary:
   between-transition init affordance, the examiner-report archival, the
   crosswalk, and all Level-III boundaries remain exactly as open as
   recorded. No completion tag.
+
+---
+
+## Phase 1W — Independent Acceptance, Initialization-Boundary Closure, and Residual Proof Plan (2026-10-28, branch phase1w-boundary-audit)
+
+Environment: fresh sandbox (the previous session's working trees gone; the
+toolchain extraction at /tmp/my-project/tools survived; no GitHub
+credential in the environment — every push in this phase is BLOCKED and
+recorded as such). Toolchain pins verified live: K v7.1.337 (kompile
+--version), Z3 4.13.3 (z3 --version), OpenJDK 21.0.12.1. Every command's
+exit status is recorded inline below.
+
+- Sec 0 (start point): located download/srw3-phase1v-branch.bundle
+  (51,758,127 bytes); sha256sum → 9c67aad4527483879208aa3607d27b9106ee9736f
+  5ff5b9be33c5a86da1c85b7 (matches the abbreviated reference 9c67aad4…1c85
+  b7; the reference is abbreviated — full-digest equality is checked
+  against nothing else available; disclosed); git bundle verify (in-clone)
+  → "bundle is okay", ref 430f46858168f0477c1296ba9cc895b3f44e89be →
+  refs/heads/phase1v-configuration-ownership, "records a complete
+  history", sha1. Clone (no history rewrite) → verification repo; HEAD =
+  advertised head; base 8697bd744faee0b17156393fd8f57dd87e51598e resolves
+  and is the direct parent of f70353d; rev-list --count base..HEAD = 6;
+  linear parent chain verified; worktree clean (0 entries); all six
+  commits inspected via diff-tree (f70353d: 2 files; 0c5a0fe: 192;
+  c7a0c7b: 6; 91d5d0b: 4; c790c8c: 2; 430f468: 2). Push: BLOCKED (no
+  credential) — recorded, not claimed.
+- WS-B (independent reproduction): two fresh clones (runA, runB) of the
+  verified head; the complete committed 1V procedure run in each:
+  run_1v_model_tests.sh (staged KOM CFG OWN T1 T2 GEN CLM via the
+  runner's supported RUN_WS_DIR/RUN_APPEND mode) → runA 44/44 OK, runB
+  44/44 OK; diff of (tag,verdict) vs the committed historical ledger:
+  IDENTICAL both runs, and RunA ≡ RunB. kprove claims rc=0 + #Top and
+  negative control rc=1 in both runs. Ghost battery (GEN KOM MAIN
+  GENSPEC) → runA 48/48, runB 48/48, all rc-identical to the historical
+  record; audit_ghost_exact.py verify PASS both runs; regenerated
+  induction_ghost.k byte-identical to the committed artifact (manifest
+  sha fields equal; only absolute path fields differ). build_ledgers_1v.py
+  → 92 rows; summarize_1v.py → GATE GREEN (0 alarms) on BOTH fresh
+  ledgers. Environment deviations disclosed in the report (toolchain root
+  path; staged execution + last-wins dedup after two mid-stage tool-call
+  kills per run; one aborted /dev/shm attempt, 64MB, no evidence relied
+  upon). The 1U compat wrapper: run end-to-end (harness transformation
+  asserted; 5 kompiles rc=0; OLD legs byte-comparable to the 1U record;
+  NEW legs ? = by-design removed-command difference; claims rc=0 #Top;
+  negative control rc=1); phase1u/claims/exit-codes-1u.csv restored
+  BIT-IDENTICALLY afterwards (sha256 ef10f58f…710 verified before/after).
+- WS-D (tool audit + negative controls): scripts/p1w_negprobe.sh (saved
+  artifact) — 13 probes on copied trees: D1 baseline green accepted;
+  D2 duplicated claim row REJECTED; D3 missing transcript REJECTED;
+  D4 exit-code mismatch + unrecognized rc=7 REJECTED; D5 missing expected
+  result REJECTED; D6 count mismatch REJECTED; D7 GH-T relabeled rc 1→0 →
+  RELABELING ALARM + GATE RED (an initial probe-harness bug — $? clobbered
+  by an intermediate grep — was found and fixed; the gate behavior was
+  correct throughout); D8 non-OK verdict row REJECTED; D9 wrong expected
+  cell REJECTED; D10 correct expectation accepted; D11 nondeterministic
+  two-block output REJECTED; D12 stuck-function warning REJECTED; D13
+  duplicate verdict row → builder FATAL. 13/13 PASS. Boundary finding
+  R13 registered (the ghost batch does not pin the expected claim count
+  internally; the invariant is enforced by summarize row-count class +
+  the 48/48 cross-phase comparison; probe D6 demonstrates the rejection).
+- WS-A1/A2 (residual trace + boundary): R9 traced to the exact 1V rules
+  (init seeding rule guarded only by gateopen==false; mid-transition
+  block; every gate path closes the interval); full writer audit of both
+  1V models: exactly two <committed> writers (gate accept + init).
+  Demonstrations on the git-pinned 1V model (sha-pinned
+  069afc5b…fb65): between-transitions direct corruption (appA→999 IS the
+  final committed state), corruption SURVIVING a subsequent reject,
+  after-reject, after-authfail, gen-model variant, pre-begin
+  characterization (by design), mid-transition block reproduction.
+  Smallest justified change (mirrors 1V T3-v2): init REMOVED from both
+  grammars, both rules retired with their syntax, <committed> $INITSTATE
+  declared in both initial configurations, A8/A9 assumptions added
+  (honesty of the harness-supplied initial state = the R10 TCB, recorded
+  not theoremized). Application data NOT frozen: committed state remains
+  legitimately mutable via gate-accepted transitions (two-transition
+  positive control). k/srw3.k and k/srw3gen.k edits applied; both models
+  kompile rc=0; -cINITSTATE Map literals verified.
+- WS-A3/A4 (adversarial battery): phase1w/tests/demos-aff/ (6 programs,
+  before-evidence) + phase1w/tests/demos/ (29 programs: verbatim attacks,
+  carried 1V attacks by reference, translated regressions, positive
+  controls, the bad-baseline TCB control). run_1w_model_tests.sh
+  (fail-closed; every input from committed objects; OLD-1V/OLD-1T models
+  sha-asserted; verify_1w_out.py = byte-identical copy of the audited 1V
+  verifier, sha ebc40c84…). Full battery KOM AFF OWN1 OWN2 T1 T2 GEN1
+  GEN2 CLM → 46 unique controls, ALL OK (rc recorded per row in
+  model-verdicts-1w.csv): init parse-rejected (rc=113, token 'init') at
+  every lifecycle position; carried setPolicy/useRegistry/useResMap/grant
+  still rc=113; trusted seeding/empty-seed/two-transition/reject-recover
+  positive controls commit with asserted cells; bad baseline → reject
+  with the violating value VISIBLE and nothing committed; as-mid and
+  config-immutable blocks carried; T1/T2/GEN translated regressions match
+  the 1V-record outcomes incl. the OLD-1T defect reproductions; Claims
+  1–4 rc=0 #Top (14s) and negative control rc=1 (13s) on the 1W model.
+  (Runner note: stage OWN was split OWN1/OWN2 and GEN split GEN1/GEN2 to
+  fit the 10-minute tool-call budget of this sandbox; the split is part
+  of the committed runner.)
+- WS-A5 (regression continuity, 1W ghost): the semantic core changed →
+  proofs/induction_ghost.k + manifests + proofs/gen/* REGENERATED via
+  run_1w_ghost.sh (path-adjusted derivative of the audited 1V runner;
+  checks byte-identical): audit_ghost_exact.py verify → PASS (exact
+  byte-faithfulness); ALL 48 per-claim verdicts rc-identical to the
+  historical record (GH-T2/GH-M PROVED; GH-T/GH-T2-NEG and generalized
+  NEGs FAILED as designed — re-confirmed on the regenerated artifact).
+- WS-C (register): docs/research/residual-register-1w.md — R1–R12 carried
+  forward (no drops/merges/downgrades), R9 → CLOSED with the structural +
+  adversarial + positive-control evidence and the R10 dependency recorded,
+  R10 extended to $INITSTATE, R13 (ghost-batch claim-count pinning) and
+  R14 (sandbox durability process note) added; each item: identifier,
+  exact claim/scope, status vocabulary, evidence, assumptions, impact,
+  1W change, next action, acceptance criterion.
+- WS-E (ledger + docs): claims-1w.csv (94 rows / 94 unique: 24 control +
+  42 proved + 27 regression + 1 fidelity) + exit-codes-1w.csv (94 rows)
+  + model-verdicts-1w.csv (46 rows) + ghost-verdicts-1w.csv (48 rows);
+  build_ledgers_1w.py; summarize_1w.py GATE GREEN (0 alarms);
+  phase1w/README.md; phase1w/report/phase1w-final-report.md (acceptance
+  table: PASS ×8 criteria; carried TIMEOUT/FAILED-STUCK/BLOCKED/OPEN
+  items unchanged); STATE-OF-RECORD.md + README.md updated append-only
+  (1W follow-up notes; the 1V narratives preserved verbatim; NO new
+  default-branch claim — no credential this session); worklog (this
+  entry). Reviewable commits; no history rewrite; no force-push; no
+  completion tag.
+
+Stage Summary:
+- The Phase 1V delivery is INDEPENDENTLY ACCEPTED: bundle verified
+  cryptographically/structurally, the complete procedure reproduced twice
+  from fresh clones with zero logical deviation, and the gate/verifier
+  tooling demonstrated to fail closed under 13 adversarial probes.
+- The last open initialization affordance (R9) is CLOSED structurally:
+  committed-state mutation by the untrusted program is unrepresentable at
+  every lifecycle position; the boundary is structural, not flag-based;
+  the residual harness-honesty dependency is precisely recorded (A8/A9,
+  R10) with a demonstrating control (bad baseline fails closed, visibly).
+- Verdict: PARTIALLY COMPLETE — the genesis TIMEOUT, GH-T, the combined-
+  batch tool boundary (+R13), the harness-honesty TCB (R10), the
+  examiner-report archival (BLOCKED), the crosswalk, and all Level-III
+  boundaries remain exactly as open as recorded (R1–R14). No completion
+  tag.
