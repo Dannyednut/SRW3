@@ -28,11 +28,22 @@ recomputed evidence), `FAILED` (a designed or discovered failure, retained),
 (out of scope this phase; carried), `BLOCKED` (an external dependency
 prevents the work), `PASS`/`FAIL` (per-criterion acceptance in §F).
 
-**Push status of record (2026-10-28):** no GitHub credential is present in
-this session's environment (no token in the environment, no `gh` CLI, no
-credential helper) — the push of the Phase 1W branch is **BLOCKED**, exactly
-as in Phase 1V; the branch is delivered as a verified transferable bundle
-(see the delivery note in `STATE-OF-RECORD.md`). Not claimed as pushed.
+**Push status of record (2026-10-28):** no write credential is present in
+this session's environment (no token, no `gh` CLI, no credential helper;
+`git push github-origin phase1w-boundary-audit` fails at authentication —
+"could not read Username for 'https://github.com'") — the push of the
+Phase 1W branch is **BLOCKED**, exactly as in Phase 1V; the branch is
+delivered as a verified transferable bundle (see the delivery note in
+`STATE-OF-RECORD.md`). READ-ONLY remote metadata WAS verifiable this
+session (no credential needed): `git ls-remote --symref github-origin
+HEAD` → `ref: refs/heads/phase1u-model-hygiene HEAD` at
+`8697bd744faee0b17156393fd8f57dd87e51598e` — the default branch and its
+commit re-verified LIVE from THIS session, independently corroborating the
+1V API check; the same listing shows `phase1v-configuration-ownership` is
+NOT on the remote (consistent with the 1V BLOCKED record) and
+`phase1t-c12-induction-validation` is at exactly the commit the regression
+runners pin (`2247e68872d7a5f8bd8920db96db3ace290535b2`). Not claimed as
+pushed; landing instructions in STATE-OF-RECORD.
 
 ---
 

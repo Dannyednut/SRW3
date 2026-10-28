@@ -20,12 +20,21 @@ GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 > Phase 1V working branch is deliberately NOT set as default — the owner
 > selects the default after reviewing Phase 1V.]
 >
-> **[1W FOLLOW-UP, 2026-10-28 — no new default-branch claim.** The Phase 1W
-> session had NO GitHub credential (no token in the environment, no `gh`
-> CLI, no credential helper), so the live default-branch state was NOT
-> re-verified this session; the last LIVE verification remains the 1V
-> check above (2026-10-28). The Phase 1W working branch is deliberately
-> NOT set as default, and no default-branch change is requested by 1W.]
+> **[1W FOLLOW-UP, 2026-10-28 — default branch RE-VERIFIED LIVE without a
+> credential.** The Phase 1W session has no GitHub API credential, but
+> `git ls-remote --symref github-origin HEAD` (read-only git protocol)
+> returned `ref: refs/heads/phase1u-model-hygiene HEAD` with HEAD →
+> `8697bd744faee0b17156393fd8f57dd87e51598e`: the default branch IS the
+> Phase 1U branch at the verified 1U tip — independently corroborating the
+> 1V API check from THIS session. The same ls-remote shows
+> `phase1v-configuration-ownership` is NOT on the remote (consistent with
+> the 1V push-BLOCKED record) and `phase1t-c12-induction-validation` is at
+> `2247e68872d7a5f8bd8920db96db3ace290535b2` — the exact OLD-1T commit the
+> regression runners pin. The Phase 1W push remains BLOCKED (authentication:
+> no credential); the branch is delivered as a verified transferable
+> bundle and the owner (or a credentialed session) lands it verbatim with
+> `git push origin phase1w-boundary-audit` — see the delivery note at the
+> end of this file.]
 
 ---
 
@@ -33,10 +42,10 @@ GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 
 | Field | Value |
 |---|---|
-| GitHub default branch (last LIVE verification: 2026-10-28, by Phase 1V) | **`phase1u-model-hygiene`** (the owner's switch succeeded; 1W had no credential and makes no new claim) |
+| GitHub default branch (LIVE, verified 2026-10-28 by BOTH 1V via the API and 1W via `git ls-remote --symref`) | **`phase1u-model-hygiene`** at `8697bd744faee0b17156393fd8f57dd87e51598e` |
 | Current accepted phase | **Phase 1U — Model Hygiene, Proof Soundness, and Independent Revalidation** (the default branch carries its completed state) |
 | Working phase under development | **Phase 1W — Independent Acceptance, Initialization-Boundary Closure, and Residual Proof Plan** (branch below; NOT the default until the owner chooses) |
-| Branch of record (working) | `phase1w-boundary-audit` (base = the VERIFIED Phase 1V head) |
+| Branch of record (working) | `phase1w-boundary-audit` (base = the VERIFIED Phase 1V head; NOT on the remote — the 1V push was BLOCKED; both branches land from the bundles below) |
 | Head commit | see `git rev-parse phase1w-boundary-audit` (the branch head is always authoritative; this file is updated per phase) |
 | Base | Phase 1V head `430f46858168f0477c1296ba9cc895b3f44e89be` (branch `phase1v-configuration-ownership`; INDEPENDENTLY VERIFIED in 1W: bundle sha256 `9c67aad4527483879208aa3607d27b9106ee9736f5ff5b9be33c5a86da1c85b7`, `git bundle verify` OK, complete history, six commits on the 1U tip `8697bd744faee0b17156393fd8f57dd87e51598e`) |
 | Verdict | **PARTIALLY COMPLETE** (see below — the project is never declared complete by a green gate) |
@@ -200,3 +209,32 @@ bundle creation and re-verified below); the owner (or any session holding
 the token) can land it verbatim with
 `git push origin phase1v-configuration-ownership`. The GitHub default
 branch remains the owner-selected `phase1u-model-hygiene`.
+
+## Phase 1W delivery note (2026-10-28)
+
+The Phase 1W branch `phase1w-boundary-audit` is committed locally on the
+INDEPENDENTLY VERIFIED Phase 1V head `430f46858168f0477c1296ba9cc895b3f44e89be`
+(three reviewable work commits — the initialization-boundary closure with its
+adversarial battery and the regenerated ghost layer; the independent-acceptance
+evidence including the two-run reproduction and the 13 negative controls; the
+reconciled register, the phase report, and the documentation — plus this
+delivery-documentation commit; the branch head is always authoritative —
+`git rev-parse phase1w-boundary-audit`; worktree clean; ancestry verified; no
+history rewrite; no force-push; no completion tag). The `git push` to GitHub is
+**BLOCKED in this session** (no credential; authentication fails — recorded,
+not claimed as pushed). The branch of record is delivered as a verified
+transferable bundle at `download/srw3-phase1w-branch.bundle` (the sha256 of
+record is printed at bundle creation in the transfer summary); the owner (or
+any session holding the token) can land BOTH undelivered phase branches
+verbatim:
+
+```sh
+git clone /path/to/srw3-phase1v-branch.bundle /tmp/land-1v && cd /tmp/land-1v
+git push origin phase1v-configuration-ownership        # lands the 1V branch
+git fetch /path/to/srw3-phase1w-branch.bundle phase1w-boundary-audit:phase1w-boundary-audit
+git push origin phase1w-boundary-audit                  # lands the 1W branch
+```
+
+The GitHub default branch remains the owner-selected `phase1u-model-hygiene`
+(re-verified live this session via `git ls-remote --symref`); no default-branch
+change is requested by Phase 1W.
