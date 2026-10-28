@@ -1,0 +1,5 @@
+// W1 OWN (after-evidence, NEW-1W): the maximal IN-GRAMMAR attack (1V
+// alternative-route control carried over) — hidden write; BLOCKED by
+// enforce (blocked-effect-incomplete); policy/registry/authorities AND the
+// committed state unchanged.
+as(appB) , begin , w(appB,0,2) , wH(appC,0,11) , wfCheck , gate

@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_t1_mixed_probe_ok): mixed registry + honest -> commit.
+as(lending) , begin , rd(oracle) , w(lending,0,100) , probeApplicable , wfCheck , gate

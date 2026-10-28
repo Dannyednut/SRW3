@@ -1,0 +1,5 @@
+// W1 OWN (after-evidence, NEW-1W): the 1V F3 runtime block carries over —
+// mid-transition `as` is BLOCKED (blocked-actor-switch-open). Program
+// shape identical to the 1V control; the seeds now come from the trusted
+// harness configuration instead of pre-begin init.
+as(appB) , begin , w(appB,0,2) , as(appA) , wfCheck , gate

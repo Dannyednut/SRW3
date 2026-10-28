@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_t1_probe_only_ok): probe on the honest state.
+as(lending) , begin , rd(oracle) , w(lending,0,100) , probeApplicable

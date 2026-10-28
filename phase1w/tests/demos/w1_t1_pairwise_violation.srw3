@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_t1_pairwise_violation): pairwise registry + violation -> reject.
+as(lending) , begin , rd(oracle) , w(lending,0,90) , wfCheck , gate

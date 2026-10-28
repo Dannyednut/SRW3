@@ -11,12 +11,15 @@
 //   * Every invariant is an EVALUATED equation (evalInv) over state.
 //   * No predicate is assumed true; gate acceptance is decided by computing
 //     all applicable obligations over the prospective state.
-//   * The ONLY rules that ever update <committed> are the accept rule of
-//     `gate` (structural; verified by Claim 2 and by construction) and the
-//     `init` seeding rule — which the 1V model confines to the PRE-BEGIN
-//     scenario-authoring phase (blocked-init-open mid-transition); the
-//     between-transitions reachability of init is disclosed in the 1V
-//     ownership table and registered as a follow-up.
+//   * The ONLY rule that ever updates <committed> is the accept rule of
+//     `gate` (structural; verified by Claim 2 and by construction). The
+//     initial CONTENT of <committed> is trusted configuration ($INITSTATE,
+//     supplied by the trusted harness invocation) — Phase 1W removed the
+//     `init` seeding command from the untrusted grammar, closing the 1V
+//     between-transition initialization affordance (residual R9 of the 1V
+//     register): committed-state mutation is now impossible outside the
+//     gate accept rule at EVERY lifecycle position (before the first
+//     begin, during a transition, and between transitions).
 //   * Explicit abstractions are listed in the ASSUMPTIONS block above the
 //     claims module and mirrored in the report.
 //
@@ -52,11 +55,29 @@
 //     registry, or authorities before the first transition, during one, or
 //     between transitions.
 //   F2/F3 (1V hardening, discovered during the configuration audit):
-//     init (committed-state seeding) and as (actor identity declaration)
-//     are now PRE-BEGIN-ONLY — mid-transition invocations are BLOCKED
-//     terminal (blocked-init-open / blocked-actor-switch-open); between
-//     transitions they remain scenario-authoring affordances (disclosed,
-//     see the 1V ownership table).
+//     as (actor identity declaration) is PRE-BEGIN-ONLY — mid-transition
+//     invocations are BLOCKED terminal (blocked-actor-switch-open); between
+//     transitions the actor re-declaration remains available and is checked
+//     by the gate at commit time (membership evidence), so it is legitimate
+//     mutable protocol state, not configuration.
+//
+// SRW3 PHASE 1W REMEDIATION (branch phase1w-boundary-audit; the 1V files
+// remain in git history verbatim):
+//   R9 closure (Workstream A): the between-transition initialization
+//     affordance is closed STRUCTURALLY, mirroring the 1V T3-v2 pattern —
+//     `init` is REMOVED from the untrusted transition-program grammar
+//     (both rules retired with their syntax: the seeding rule and the
+//     blocked-init-open guard). The initial committed state enters ONLY
+//     through the trusted harness invocation as the configuration variable
+//     $INITSTATE (a Map StKey -> Int). NO rule in the semantics writes
+//     <committed> except the gate accept rule; committed-state mutation by
+//     the untrusted program is UNREPRESENTABLE at every lifecycle position.
+//     Scenario seeding moves into the trusted harness command line
+//     (-cINITSTATE="stK(appA,0) |-> 7 ..."), exactly like $POLICY/$REGISTRY/
+//     $AUTHORITIES in 1V. The residual harness-honesty dependency (the
+//     caller supplies an honest initial state) is the SAME trust boundary
+//     of record as every other configuration item (R10) and is recorded,
+//     not hidden.
 // =============================================================================
 
 module SRW3-SYNTAX
@@ -110,8 +131,11 @@ module SRW3-SYNTAX
   // The untrusted program cannot name them and no rule writes those cells.
   syntax RegistryKind ::= "complete" | "negative" | "pairwiseOnly"
                         | "chainComplete" | "chainNegative"
-  syntax Srw3Cmd ::= "init" "(" app:AppId "," slot:Int "," v:Int ")"
-                   | "as" "(" actor:AppId ")"
+  // Phase 1W: init is GONE from the transition-program grammar (R9 closure;
+  // the initial committed state is trusted configuration $INITSTATE — see
+  // the 1W remediation block above). The untrusted program cannot seed or
+  // mutate committed state in any lifecycle position.
+  syntax Srw3Cmd ::= "as" "(" actor:AppId ")"
                    | "begin"
                    | "w" "(" app:AppId "," slot:Int "," v:Int ")"     // declared write
                    | "wH" "(" app:AppId "," slot:Int "," v:Int ")"    // HIDDEN write (omitted from abstraction)
@@ -137,7 +161,11 @@ module SRW3-STATE
   // the DECLARED footprint (the effect abstraction the gate reasons over).
   configuration <srw3>
                   <k> $PGM:Srw3Pgm </k>
-                  <committed> .Map </committed>      // Map StKey -> Int
+                  <committed> $INITSTATE:Map </committed>
+                             // 1W: PROTOCOL-OWNED initial committed state —
+                             // the trusted harness supplies the seed map; NO
+                             // rule writes this cell except the gate accept
+                             // rule (the commitment boundary). Map StKey -> Int.
                   <prospective> .Map </prospective>  // Map StKey -> Int
                   <footprint-t> .Set </footprint-t>
                   <footprint-d> .Set </footprint-d>
@@ -164,21 +192,11 @@ module SRW3-STATE
   // command rules can fire on the head.
   rule <k> (C:Srw3Cmd , REST:Srw3Pgm) => C ~> REST ... </k>
 
-  // 1V F2: state seeding is PRE-BEGIN-ONLY. init writes <committed>
-  // directly, so an unguarded init reachable mid-transition would corrupt
-  // the committed state outside the gate (on a rejecting transition the
-  // seeded value would survive — a commitment-boundary bypass). Between
-  // transitions init remains a disclosed scenario-authoring affordance
-  // (ownership table, 1V report).
-  rule <k> init(I:AppId, S:Int, V:Int) => .K ... </k>
-       <committed> M:Map => M[stK(I, S) <- V] </committed>
-       <gateopen> false </gateopen>
-
-  // 1V F2: blocked mid-transition (terminal, fail-closed).
-  rule <k> init(_:AppId, _:Int, _:Int) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-init-open" </result>
-       <prospective> _P:Map => .Map </prospective>
+  // Phase 1W: BOTH 1V init rules are RETIRED with their syntax (the seeding
+  // rule and the blocked-init-open guard). There is NO writer of <committed>
+  // in this module anymore — the gate accept rule (SRW3-GATE) is the only
+  // committed-state writer in the entire semantics. See the 1W remediation
+  // block above and A8 below.
 
   // 1V F3: the actor identity is declared BEFORE the transition opens.
   // A mid-transition `as` would let the program swap to an authorized
@@ -535,6 +553,16 @@ endmodule
 //       policy/registry/authority configuration SUPPLIED BY THE HARNESS is
 //       outside the evaluated model (the harness is the trust boundary; the
 //       residual is registered, not hidden).
+//   A8. (Phase 1W, R9 closure) The initial committed state $INITSTATE is
+//       PROTOCOL-OWNED trusted configuration supplied by the trusted harness
+//       invocation. The untrusted transition program cannot seed or mutate
+//       <committed> (init is removed from the grammar; NO rule writes the
+//       cell except the gate accept rule — grep-audited). A hostile harness
+//       supplying a dishonest initial state (e.g. a committed state that
+//       already violates an invariant) is outside the evaluated model: the
+//       gate still evaluates every applicable obligation on every ACCEPTED
+//       transition, but the harness-seeded BASELINE itself is trusted input
+//       (the same TCB of record as $POLICY/$REGISTRY/$AUTHORITIES — R10).
 // =============================================================================
 
 module SRW3-CLAIMS

@@ -1,0 +1,5 @@
+// W1 OWN (after-evidence, NEW-1W) POSITIVE CONTROL: after a REJECTED
+// transition the committed state is intact and a subsequent honest
+// transition commits — the post-reject lifecycle works without any
+// seeding affordance.
+as(appB) , begin , w(appB,0,9) , wfCheck , gate , as(appB) , begin , w(appB,0,2) , wfCheck , gate

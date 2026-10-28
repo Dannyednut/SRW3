@@ -1,0 +1,3 @@
+// W1 OWN (after-evidence, NEW-1W) POSITIVE CONTROL: the empty seed map is
+// the default trusted configuration (EVM-analogue: zeroed storage).
+as(appA) , begin , w(appA,0,1) , wfCheck , gate

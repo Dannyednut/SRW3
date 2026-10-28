@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_gen_double_gate): gen second gate fails closed.
+as(appB) , begin , w(appB,3,4) , wfCheck , gate , gate

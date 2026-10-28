@@ -1,0 +1,4 @@
+// W1 AFF (before-evidence, OLD-1V): init AFTER a rejected transition. The
+// first gate rejects (5+9=14>10); gateopen is false again; init mutates
+// committed appA 5->999 with no gate ever evaluating it.
+init(appA,0,5) , init(appB,0,3) , as(appB) , begin , w(appB,0,9) , wfCheck , gate , init(appA,0,999)

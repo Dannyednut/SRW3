@@ -106,8 +106,11 @@ module SRW3-SYNTAX
   // The untrusted program cannot name them and no rule writes those cells.
   syntax RegistryKind ::= "complete" | "negative" | "pairwiseOnly"
                         | "chainComplete" | "chainNegative"
-  syntax Srw3Cmd ::= "init" "(" app:AppId "," slot:Int "," v:Int ")"
-                   | "as" "(" actor:AppId ")"
+  // Phase 1W: init is GONE from the transition-program grammar (R9 closure;
+  // the initial committed state is trusted configuration $INITSTATE — see
+  // the 1W remediation block above). The untrusted program cannot seed or
+  // mutate committed state in any lifecycle position.
+  syntax Srw3Cmd ::= "as" "(" actor:AppId ")"
                    | "begin"
                    | "w" "(" app:AppId "," slot:Int "," v:Int ")"     // declared write
                    | "wH" "(" app:AppId "," slot:Int "," v:Int ")"    // HIDDEN write (omitted from abstraction)
@@ -146,7 +149,11 @@ module SRW3-STATE
   // the DECLARED footprint (the effect abstraction the gate reasons over).
   configuration <srw3>
                   <k> $PGM:Srw3Pgm </k>
-                  <committed> .Map </committed>      // Map StKey -> Int
+                  <committed> $INITSTATE:Map </committed>
+                             // 1W: PROTOCOL-OWNED initial committed state —
+                             // the trusted harness supplies the seed map; NO
+                             // rule writes this cell except the gate accept
+                             // rule (the commitment boundary). Map StKey -> Int.
                   <prospective> .Map </prospective>  // Map StKey -> Int
                   <footprint-t> .Set </footprint-t>
                   <footprint-d> .Set </footprint-d>
@@ -174,21 +181,11 @@ module SRW3-STATE
   // command rules can fire on the head.
   rule <k> (C:Srw3Cmd , REST:Srw3Pgm) => C ~> REST ... </k>
 
-  // 1V F2: state seeding is PRE-BEGIN-ONLY. init writes <committed>
-  // directly, so an unguarded init reachable mid-transition would corrupt
-  // the committed state outside the gate (on a rejecting transition the
-  // seeded value would survive — a commitment-boundary bypass). Between
-  // transitions init remains a disclosed scenario-authoring affordance
-  // (ownership table, 1V report).
-  rule <k> init(I:AppId, S:Int, V:Int) => .K ... </k>
-       <committed> M:Map => M[stK(I, S) <- V] </committed>
-       <gateopen> false </gateopen>
-
-  // 1V F2: blocked mid-transition (terminal, fail-closed).
-  rule <k> init(_:AppId, _:Int, _:Int) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-init-open" </result>
-       <prospective> _P:Map => .Map </prospective>
+  // Phase 1W: BOTH 1V init rules are RETIRED with their syntax (the seeding
+  // rule and the blocked-init-open guard). There is NO writer of <committed>
+  // in this module anymore — the gate accept rule (SRW3-GATE) is the only
+  // committed-state writer in the entire semantics. See the 1W remediation
+  // block above and A8 below.
 
   // 1V F3: the actor identity is declared BEFORE the transition opens.
   // A mid-transition `as` would let the program swap to an authorized
@@ -549,6 +546,16 @@ endmodule
 //       policy/registry/authority configuration SUPPLIED BY THE HARNESS is
 //       outside the evaluated model (the harness is the trust boundary; the
 //       residual is registered, not hidden).
+//   A8. (Phase 1W, R9 closure) The initial committed state $INITSTATE is
+//       PROTOCOL-OWNED trusted configuration supplied by the trusted harness
+//       invocation. The untrusted transition program cannot seed or mutate
+//       <committed> (init is removed from the grammar; NO rule writes the
+//       cell except the gate accept rule — grep-audited). A hostile harness
+//       supplying a dishonest initial state (e.g. a committed state that
+//       already violates an invariant) is outside the evaluated model: the
+//       gate still evaluates every applicable obligation on every ACCEPTED
+//       transition, but the harness-seeded BASELINE itself is trusted input
+//       (the same TCB of record as $POLICY/$REGISTRY/$AUTHORITIES — R10).
 // =============================================================================
 
 module SRW3-CLAIMS

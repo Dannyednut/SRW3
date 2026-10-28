@@ -1,0 +1,8 @@
+// W1 AFF (before-evidence, OLD-1V): the between-transition corruption
+// SURVIVES a subsequent gate REJECT. Honest commit; init re-seeds appA to
+// 999 between transitions; the next transition is correctly REJECTED
+// (IAB violated on the seeded value) — but the REJECT restores nothing:
+// the seeded 999 REMAINS the committed state. (The mid-transition analogue
+// was the 1V F2 demonstration on OLD-1U; this is the same shape BETWEEN
+// transitions on the FIXED 1V model.)
+init(appA,0,5) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wfCheck , gate , init(appA,0,999) , as(appB) , begin , w(appB,0,2) , wfCheck , gate

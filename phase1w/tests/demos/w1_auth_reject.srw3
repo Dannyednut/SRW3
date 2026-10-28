@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_auth_reject): authority configuration honored (reject-auth).
+as(appB) , begin , w(appB,0,2) , wfCheck , gate

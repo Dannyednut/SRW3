@@ -1,0 +1,6 @@
+// W1 AFF (before-evidence, OLD-1V): the PRE-BEGIN seeding position is the
+// disclosed scenario-authoring affordance itself — every 1V positive
+// control relies on it. Recorded here as the characterization control:
+// pre-begin init is ACCEPTED by design on the 1V model (the exact behavior
+// Phase 1W removes).
+init(appA,0,5) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wfCheck , gate

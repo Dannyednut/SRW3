@@ -1,0 +1,8 @@
+// W1 OWN (after-evidence, NEW-1W) TCB BOUNDARY CONTROL: a VIOLATING
+// harness-supplied baseline (appA=999) is VISIBLE and FAILS CLOSED — the
+// transition over it is REJECTED (IAB evaluated on the seeded baseline),
+// nothing commits, and the violating value stays in <committed> where it
+// was placed (by the trusted caller, not by the untrusted program). The
+// gate cannot LAUNDER a bad baseline silently; the harness-honesty
+// dependency (A8/R10) is precisely the baseline itself.
+as(appB) , begin , w(appB,0,2) , wfCheck , gate

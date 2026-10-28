@@ -1,0 +1,6 @@
+// W1 AFF (before-evidence, OLD-1V): the between-transition initialization
+// affordance — DIRECT ungated committed mutation. After the honest commit,
+// `init` re-seeds committed appA to 999; the value NEVER passes any gate
+// and is the final committed state (an invariant-violating committed state
+// produced without any gate evaluation).
+init(appA,0,5) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wfCheck , gate , init(appA,0,999)

@@ -1,0 +1,5 @@
+// W1 AFF (before-evidence, OLD-1V): init AFTER an authorization failure.
+// authorities={appA}; the honest first transition commits; the second is
+// REJECT-AUTH (actor appB is not an authority); gateopen is false; init
+// mutates committed appA 5->999 ungated.
+init(appA,0,5) , as(appA) , begin , w(appA,0,1) , wfCheck , gate , as(appB) , begin , w(appB,0,1) , wfCheck , gate , init(appA,0,999)

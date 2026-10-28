@@ -1,0 +1,3 @@
+// W1 regression (translation of 1V v1_t1_probe_only_violation):
+// mixed-registry probe on the violating state (allHold=false).
+as(lending) , begin , rd(oracle) , w(lending,0,90) , probeApplicable

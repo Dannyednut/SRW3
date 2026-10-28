@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_t2_double_begin): nested begin blocked.
+as(appB) , begin , w(appB,0,2) , begin , wfCheck , gate

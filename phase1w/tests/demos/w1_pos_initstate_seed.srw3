@@ -1,0 +1,5 @@
+// W1 OWN (after-evidence, NEW-1W) POSITIVE CONTROL: trusted initialization
+// works — the committed seed enters via the TRUSTED harness invocation
+// (-cINITSTATE), the valid transition commits, and the seeded appA value
+// is preserved as legitimate committed state.
+as(appB) , begin , w(appB,0,2) , wfCheck , gate

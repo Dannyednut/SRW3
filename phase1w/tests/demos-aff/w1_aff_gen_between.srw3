@@ -1,0 +1,4 @@
+// W1 AFF (before-evidence, OLD-1V GEN model): the same between-transition
+// initialization affordance in the generalized semantics — honest commit,
+// then init re-seeds committed appA@7 to 999 ungated (IRP-relevant slot).
+init(appA,7,5) , init(appB,3,0) , as(appB) , begin , w(appB,3,4) , wfCheck , gate , init(appA,7,999)

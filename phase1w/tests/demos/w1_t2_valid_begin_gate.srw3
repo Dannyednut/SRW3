@@ -1,0 +1,3 @@
+// W1 regression (translation of 1V v1_t2_valid_begin_gate; seeds via
+// $INITSTATE): valid transition commits under the trusted configuration.
+as(appB) , begin , w(appB,0,2) , wfCheck , gate

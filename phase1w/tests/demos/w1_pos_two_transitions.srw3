@@ -1,0 +1,5 @@
+// W1 OWN (after-evidence, NEW-1W) POSITIVE CONTROL: the legitimate
+// between-transition protocol flow WITHOUT any seeding command — two
+// sequential accepted transitions; committed state flows gate->begin
+// (mutable protocol state), lineage advances twice.
+as(appB) , begin , w(appB,0,2) , wfCheck , gate , as(appB) , begin , w(appB,0,3) , wfCheck , gate

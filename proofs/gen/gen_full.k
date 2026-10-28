@@ -44,11 +44,26 @@
 //     guard at all (reachable mid-transition AND between transitions — the
 //     1V audit findings F1a/F1b, beyond the examiner's setPolicy/useRegistry
 //     lead); the 1V disposition removes the commands entirely.
-//   F2/F3 (1V hardening): init (committed-state seeding) and as (actor
-//     identity declaration) are now PRE-BEGIN-ONLY — mid-transition
-//     invocations are BLOCKED terminal (blocked-init-open /
-//     blocked-actor-switch-open); between transitions they remain
-//     disclosed scenario-authoring affordances (1V ownership table).
+//   F2/F3 (1V hardening): as (actor identity declaration) is PRE-BEGIN-ONLY
+//     — mid-transition invocations are BLOCKED terminal
+//     (blocked-actor-switch-open); between transitions the actor
+//     re-declaration remains available and is checked by the gate at commit
+//     time (membership evidence), so it is legitimate mutable protocol
+//     state, not configuration.
+//
+// SRW3 PHASE 1W REMEDIATION (branch phase1w-boundary-audit; the 1V files
+// remain in git history verbatim):
+//   R9 closure (Workstream A, mirrored from the abstract model): the
+//     between-transition initialization affordance is closed STRUCTURALLY —
+//     `init` is REMOVED from the untrusted transition-program grammar (both
+//     rules retired with their syntax: the seeding rule and the
+//     blocked-init-open guard). The initial committed state enters ONLY
+//     through the trusted harness invocation as the configuration variable
+//     $INITSTATE (a Map StKey -> Int). NO rule in the semantics writes
+//     <committed> except the gate accept rule; committed-state mutation by
+//     the untrusted program is UNREPRESENTABLE at every lifecycle position.
+//     The residual harness-honesty dependency is the SAME trust boundary of
+//     record as every other configuration item (R10) and is recorded in A9.
 // =============================================================================
 
 module SRW3G-SYNTAX
@@ -122,8 +137,10 @@ module SRW3G-SYNTAX
   // Phase 1V: setPolicy/useRegistryG/useResMap/grant are GONE — policy,
   // registry, authorities, the alias table and the capability configuration
   // are trusted model configuration (initial configuration only; see A7).
-  syntax Srw3CmdG ::= "init" "(" app:AppId "," slot:Int "," v:Int ")"
-                    | "as" "(" actor:AppId ")"
+  // Phase 1W: init is GONE from the transition-program grammar (R9 closure;
+  // the initial committed state is trusted configuration $INITSTATE — see
+  // the 1W remediation block above).
+  syntax Srw3CmdG ::= "as" "(" actor:AppId ")"
                     | "begin"
                     | "w" "(" app:AppId "," slot:Int "," v:Int ")"     // declared write
                     | "wH" "(" app:AppId "," slot:Int "," v:Int ")"    // HIDDEN write
@@ -169,7 +186,11 @@ module SRW3G-STATE
   // writes) and AppIds (from reads/consumptions) — one mixed set per side.
   configuration <srw3g>
                   <k> $PGM:Srw3PgmG </k>
-                  <committed> .Map </committed>      // Map StKey -> Int
+                  <committed> $INITSTATE:Map </committed>
+                             // 1W: PROTOCOL-OWNED initial committed state —
+                             // the trusted harness supplies the seed map; NO
+                             // rule writes this cell except the gate accept
+                             // rule (the commitment boundary). Map StKey -> Int.
                   <prospective> .Map </prospective>  // Map StKey -> Int
                   <usage-c> .Map </usage-c>          // Map AppId -> Int (committed usage)
                   <usage-p> .Map </usage-p>          // Map AppId -> Int (prospective usage)
@@ -198,17 +219,10 @@ module SRW3G-STATE
 
   rule <k> (C:Srw3CmdG , REST:Srw3PgmG) => C ~> REST ... </k>
 
-  // 1V F2: state seeding is PRE-BEGIN-ONLY (see srw3.k F2 rationale).
-  rule <k> init(I:AppId, S:Int, V:Int) => .K ... </k>
-       <committed> M:Map => M[stK(I, S) <- V] </committed>
-       <gateopen> false </gateopen>
-
-  // 1V F2: blocked mid-transition (terminal, fail-closed).
-  rule <k> init(_:AppId, _:Int, _:Int) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-init-open" </result>
-       <prospective> _P:Map => .Map </prospective>
-       <usage-p> _UP:Map => .Map </usage-p>
+  // Phase 1W: BOTH 1V init rules are RETIRED with their syntax (the seeding
+  // rule and the blocked-init-open guard). There is NO writer of <committed>
+  // in this module anymore — the gate accept rule (SRW3G-GATE) is the only
+  // committed-state writer in the entire semantics. See A9 below.
 
   // 1V F3: actor identity declared BEFORE the transition opens (see srw3.k).
   rule <k> as(P:AppId) => .K ... </k>
@@ -773,6 +787,13 @@ endmodule
 //       A wrong or adversarially authored configuration SUPPLIED BY THE
 //       HARNESS is outside the evaluated model (the harness is the trust
 //       boundary; the residual is registered, not hidden).
+//   A9. (Phase 1W, R9 closure) The initial committed state $INITSTATE is
+//       PROTOCOL-OWNED trusted configuration supplied by the trusted harness
+//       invocation. The untrusted transition program cannot seed or mutate
+//       <committed> (init is removed from the grammar; NO rule writes the
+//       cell except the gate accept rule — grep-audited). A hostile harness
+//       supplying a dishonest initial state is outside the evaluated model
+//       (the same TCB of record as every other configuration item — R10).
 // =============================================================================
 
 // =============================================================================

@@ -1,0 +1,47 @@
+tag,class,rc,expected,observed,verdict,note
+OLD1V-w1_aff_between_direct,krun,0,commit +cells,OLD1V-w1_aff_between_direct: OK result="commit" cells=3 asserted,OK,BETWEEN transitions init re-seeds committed appA 5->999; the value NEVER passed any gate and IS the final committed state
+OLD1V-w1_aff_between_survives_reject,krun,0,reject +cells,OLD1V-w1_aff_between_survives_reject: OK result="reject" cells=3 asserted,OK,BETWEEN-transitions corruption SURVIVES the subsequent gate REJECT (IAB violated on the seeded value; the reject restores nothing)
+OLD1V-w1_aff_after_reject,krun,0,reject +cells,OLD1V-w1_aff_after_reject: OK result="reject" cells=2 asserted,OK,AFTER a rejected transition init mutates committed appA 5->999 ungated
+OLD1V-w1_aff_after_authfail,krun,0,reject-auth +cells,OLD1V-w1_aff_after_authfail: OK result="reject-auth" cells=2 asserted,OK,AFTER an authorization failure init mutates committed appA 5->999 ungated
+OLD1V-w1_aff_prebegin_by_design,krun,0,commit +cells,OLD1V-w1_aff_prebegin_by_design: OK result="commit" cells=2 asserted,OK,CHARACTERIZATION: pre-begin seeding is the disclosed 1V scenario-authoring affordance (accepted by design; Phase 1W removes it)
+OLD1V-w1_aff_gen_between,krun,0,commit +cells,OLD1V-w1_aff_gen_between: OK result="commit" cells=2 asserted,OK,GEN model: the same between-transition init re-seeds committed appA@7 5->999 ungated
+OLD1V-w1_aff_mid_repro,krun,0,blocked-init-open +cells,OLD1V-w1_aff_mid_repro: OK result="blocked-init-open" cells=2 asserted,OK,1V control reproduced on the pinned 1V model: MID-transition init BLOCKED (blocked-init-open; committed intact)
+NEW1W-w1_atk_init_between,parse-reject,113,rc!=0 + 'init',rc=113 + 'init',OK,unrepresentable at parse time
+NEW1W-w1_atk_init_afterauthfail,parse-reject,113,rc!=0 + 'init',rc=113 + 'init',OK,unrepresentable at parse time
+NEW1W-w1_atk_init_mid,parse-reject,113,rc!=0 + 'init',rc=113 + 'init',OK,unrepresentable at parse time
+NEW1W-v1_atk_policy_prebegin,parse-reject,113,rc!=0 + 'setPolicy',rc=113 + 'setPolicy',OK,unrepresentable at parse time
+NEW1W-v1_atk_registry_between,parse-reject,113,rc!=0 + 'useRegistry',rc=113 + 'useRegistry',OK,unrepresentable at parse time
+NEW1W-v1_atk_gen_useResMap_mid,parse-reject,113,rc!=0 + 'useResMap',rc=113 + 'useResMap',OK,unrepresentable at parse time
+NEW1W-v1_atk_gen_grant_mid,parse-reject,113,rc!=0 + 'grant',rc=113 + 'grant',OK,unrepresentable at parse time
+NEW1W-w1_pos_initstate_seed,krun,0,commit +cells,NEW1W-w1_pos_initstate_seed: OK result="commit" cells=4 asserted,OK,trusted INITSTATE seeding accepted; seeded appA=5 preserved as legitimate committed state
+NEW1W-w1_pos_empty_seed,krun,0,commit +cells,NEW1W-w1_pos_empty_seed: OK result="commit" cells=2 asserted,OK,empty seed map (EVM-analogue zeroed storage) works
+NEW1W-w1_pos_two_transitions,krun,0,commit +cells,NEW1W-w1_pos_two_transitions: OK result="commit" cells=3 asserted,OK,legitimate between-transition flow WITHOUT any seeding command: two accepted transitions, lineage advances twice
+NEW1W-w1_pos_reject_then_recover,krun,0,commit +cells,NEW1W-w1_pos_reject_then_recover: OK result="commit" cells=4 asserted,OK,post-reject lifecycle intact: committed state unchanged by the reject, honest transition commits
+NEW1W-w1_pos_bad_baseline_rejected,krun,0,reject +cells,NEW1W-w1_pos_bad_baseline_rejected: OK result="reject" cells=3 asserted,OK,TCB boundary control: a VIOLATING harness-supplied baseline is VISIBLE and FAILS CLOSED (gate evaluates obligations over the seed; nothing commits)
+NEW1W-w1_atk_as_mid,krun,0,blocked-actor-switch-open +cells,NEW1W-w1_atk_as_mid: OK result="blocked-actor-switch-open" cells=2 asserted,OK,carried 1V F3 block: mid-transition as() refused (would-be identity swap to the only authority)
+NEW1W-w1_atk_config_immutable,krun,0,blocked-effect-incomplete +cells,NEW1W-w1_atk_config_immutable: OK result="blocked-effect-incomplete" cells=5 asserted,OK,carried 1V alternative-route control: maximal in-grammar attack blocked; policy/registry/authorities/committed unchanged
+NEW1W-t1_probe_only_violation,krun,0,"false",NEW1W-t1_probe_only_violation: OK result="false" cells=0 asserted,OK,mixed-registry probe: IOL obligation IS applicable on the violating state (1V-record parity)
+NEW1W-t1_probe_only_ok,krun,0,"true",NEW1W-t1_probe_only_ok: OK result="true" cells=0 asserted,OK,mixed-registry probe: honest state satisfies all applicable obligations (parity)
+NEW1W-t1_mixed_probe_violation,krun,0,reject,NEW1W-t1_mixed_probe_violation: OK result="reject" cells=0 asserted,OK,mixed registry + IOL violation -> reject (parity: bareEdge cannot drop the obligation)
+NEW1W-t1_mixed_probe_ok,krun,0,commit,NEW1W-t1_mixed_probe_ok: OK result="commit" cells=0 asserted,OK,mixed registry + honest transition -> commit preserved (parity)
+NEW1W-t1_pairwise_violation,krun,0,reject,NEW1W-t1_pairwise_violation: OK result="reject" cells=0 asserted,OK,pairwise registry + IOL violation -> reject (parity)
+NEW1W-t1_pairwise_ok,krun,0,commit,NEW1W-t1_pairwise_ok: OK result="commit" cells=0 asserted,OK,pairwise registry + honest transition -> commit preserved (parity)
+OLD1T-t1_mixed_probe_violation,krun,0,reject,OLD1T-t1_mixed_probe_violation: OK result="reject" cells=0 asserted,OK,RECORDED 1U outcome (unchanged): the 2-element mixed probe is decomposition-masked on the OLD model
+OLD1T-t1_probe_only_violation,krun,0,false,OLD1T-t1_probe_only_violation: OK result="false" cells=0 asserted,OK,RECORDED 1U outcome (unchanged): OLD probe=false on THIS 2-element decomposition
+OLD1T-t1_pairwise_violation,krun,0,commit +cells,OLD1T-t1_pairwise_violation: OK result="commit" cells=1 asserted,OK,RECORDED 1U outcome (unchanged): OLD pairwise registry IMPROPERLY COMMITS the IOL violation
+NEW1W-t2_valid_begin_gate,krun,0,commit +cells,NEW1W-t2_valid_begin_gate: OK result="commit" cells=5 asserted,OK,valid transition unchanged under the initialization boundary (parity)
+NEW1W-t2_double_gate,krun,0,gate-closed +cells,NEW1W-t2_double_gate: OK result="gate-closed" cells=3 asserted,OK,second gate fails closed (parity)
+NEW1W-t2_gate_no_begin,krun,0,gate-closed +cells,NEW1W-t2_gate_no_begin: OK result="gate-closed" cells=3 asserted,OK,gate without begin fails closed (parity)
+NEW1W-t2_reject_then_gate,krun,0,gate-closed +cells,NEW1W-t2_reject_then_gate: OK result="gate-closed" cells=2 asserted,OK,reject then second gate: closed; committed intact (parity)
+NEW1W-t2_double_begin,krun,0,blocked-begin-open +cells,NEW1W-t2_double_begin: OK result="blocked-begin-open" cells=2 asserted,OK,nested begin blocked (parity)
+OLD1T-t2_double_gate,krun,0,commit,OLD1T-t2_double_gate: OK result="commit" cells=0 asserted,OK,RECORDED 1U outcome (unchanged): OLD double-gate commits the EMPTY map
+OLD1T-t2_gate_no_begin,krun,0,commit,OLD1T-t2_gate_no_begin: OK result="commit" cells=0 asserted,OK,RECORDED 1U outcome (unchanged): OLD gate-without-begin commits the EMPTY map
+NEW1W-gen_valid,krun,0,commit +cells,NEW1W-gen_valid: OK result="commit" cells=3 asserted,OK,gen honest transition via the trusted boundary (parity)
+NEW1W-gen_alias_violation,krun,0,reject +cells,NEW1W-gen_alias_violation: OK result="reject" cells=2 asserted,OK,gen alias-resource violation REJECTED (parity)
+NEW1W-gen_cap_valid,krun,0,commit +cells,NEW1W-gen_cap_valid: OK result="commit" cells=1 asserted,OK,gen authority consumption within caps commits (parity)
+NEW1W-gen_cap_violation,krun,0,reject +cells,NEW1W-gen_cap_violation: OK result="reject" cells=1 asserted,OK,gen authority consumption beyond cap rejected (parity)
+NEW1W-gen_double_gate,krun,0,gate-closed +cells,NEW1W-gen_double_gate: OK result="gate-closed" cells=2 asserted,OK,gen second gate fails closed (parity)
+NEW1W-gen_gate_no_begin,krun,0,gate-closed +cells,NEW1W-gen_gate_no_begin: OK result="gate-closed" cells=1 asserted,OK,gen gate without begin fails closed (parity)
+NEW1W-gen_double_begin,krun,0,blocked-begin-open +cells,NEW1W-gen_double_begin: OK result="blocked-begin-open" cells=1 asserted,OK,gen nested begin blocked (parity)
+NEW1W-claims-1-4,kprove,0,rc=0 + #Top,rc=0 + #Top,OK,wall=14s
+NEW1W-negative-control,kprove,1,rc=1 (refuted),rc=1,OK,wall=13s

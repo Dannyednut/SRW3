@@ -1,0 +1,2 @@
+// W1 regression (translation of 1V v1_t2_gate_no_begin): gate without begin fails closed.
+as(appB) , gate
