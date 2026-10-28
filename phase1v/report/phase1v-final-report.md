@@ -31,15 +31,18 @@ boundaries, the genesis TIMEOUT, and the earlier FAILED-STUCK residuals
 remain exactly as open as recorded. No completion tag.
 
 **Push status of record (2026-10-28):** the completed branch
-`phase1v-configuration-ownership` is committed locally through `91d5d0b`
-(four reviewable commits on the verified base `8697bd7`; worktree clean;
-ancestry verified). The `git push` is **BLOCKED in this session**: the
-sandbox reset removed the credential the prior phases used (no PAT/token in
-the environment; `git push` fails at authentication) — the outcome is
-recorded here rather than claimed as pushed. The branch is delivered as a
-verified transferable bundle
-(`download/srw3-phase1v-branch.bundle`, sha256 `7eba28ed…2666d557`) and can
-be pushed verbatim by the owner (or by a session holding the token) with
+`phase1v-configuration-ownership` is committed locally (four reviewable
+work commits `f70353d` / `0c5a0fe` / `c7a0c7b` / `91d5d0b` on the verified
+base `8697bd7`, plus the delivery-documentation commits; the branch head is
+always authoritative — `git rev-parse phase1v-configuration-ownership`;
+worktree clean; ancestry verified). The `git push` is **BLOCKED in this
+session**: the sandbox reset removed the credential the prior phases used
+(no PAT/token in the environment; `git push` fails at authentication) — the
+outcome is recorded here rather than claimed as pushed. The branch is
+delivered as a verified transferable bundle
+(`download/srw3-phase1v-branch.bundle`, sha256 of record in
+`STATE-OF-RECORD.md`) and can be pushed verbatim by the owner (or by a
+session holding the token) with
 `git push origin phase1v-configuration-ownership`.
 
 **Disclosed limitation of record:** the examiner document
