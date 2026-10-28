@@ -1,0 +1,5 @@
+manifest frozen: /home/z/my-project/p1w-work/srw3-1w/proofs/ghost_manifest.json
+  baseline slice: lines 83..691 (609 lines, sha256 0d1e18cd7cd07f82...)
+  declared insertions: 7 blocks, 19 lines
+  extension region: 298 lines
+  whole-artifact sha256: 0f2a515bfbd9d2c4fb8c3db782e4faffaf7d47a20e7ada6c5857d9e14d0b9a0c

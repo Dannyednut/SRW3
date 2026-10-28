@@ -1,0 +1,13 @@
+[Error] Inner Parser: Parse error: unexpected token 'setPolicy'.
+	Source(/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_policy_prebegin.srw3)
+	Location(1,1,1,10)
+	1 |	setPolicy(trust) , init(appA,0,7) , init(appB,0,3) , init(appC,0,3) ,
+as(appB) , begin , w(appB,0,2) , wH(appC,0,11) , wfCheck , gate
+	  .	^~~~~~~~~
+[Error] kparse: /tmp/my-project/tools/k/usr/bin/kast --output kore --definition 
+/tmp/p1w-fresh/ws1w/d-new1w 
+/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_policy_prebegin.s
+rw3
+[Error] krun: kparse --definition /tmp/p1w-fresh/ws1w/d-new1w 
+/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_policy_prebegin.s
+rw3

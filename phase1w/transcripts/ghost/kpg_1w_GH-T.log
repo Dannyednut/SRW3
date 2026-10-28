@@ -1,0 +1,163 @@
+kore-exec: [1248120] Warning (WarnStuckClaimState):
+    The configuration's term unifies with the destination's term, but the implication check between the conditions has failed. Location: /tmp/srw3-1v-ghost-YGFWtB/c_GH-T.k:9:5-18:80
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [1253236] Warning (WarnUnexploredBranches):
+    5 branches were still unexplored when the action failed.
+  #Not ( {
+      _Gen9
+    #Equals
+      .Map
+    }
+  #And
+    {
+      _Gen10
+    #Equals
+      .Set
+    }
+  #And
+    {
+      _Gen11
+    #Equals
+      .Set
+    }
+  #And
+    {
+      _Gen16
+    #Equals
+      "reject"
+    } )
+#And
+  <srw3>
+    <k>
+      .K
+    </k>
+    <committed>
+      stK (... app: appA , slot: 0 ) |-> X0:Int
+      stK (... app: appB , slot: 0 ) |-> Y0:Int
+    </committed>
+    <prospective>
+      .Map
+    </prospective>
+    <footprint-t>
+      .Set
+    </footprint-t>
+    <footprint-d>
+      .Set
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+      SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+      SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+    </registry>
+    <policy>
+      enforce
+    </policy>
+    <gateopen>
+      false
+    </gateopen>
+    <authorities>
+      SetItem ( appA )
+      SetItem ( appB )
+      SetItem ( appC )
+    </authorities>
+    <polver>
+      _Gen12
+    </polver>
+    <actor>
+      appB
+    </actor>
+    <lineage>
+      _Gen13
+    </lineage>
+    <lineageNext>
+      _Gen14
+    </lineageNext>
+    <head>
+      _Gen15
+    </head>
+    <result>
+      "reject"
+    </result>
+    <ghost>
+      G ( X0 , Y0 )
+    </ghost>
+  </srw3>
+#And
+  {
+    PG
+  #Equals
+    tB ( V2 ) : PG0
+  }
+#And
+  {
+    false
+  #Equals
+    X0 +Int V1 <=Int 10 andBool V1 <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    X0 +Int Y0 <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    X0 <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    Y0 <=Int 10
+  }
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k)
+	Location(256,48,256,52)
+	256 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k)
+	Location(257,42,257,43)
+	257 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k)
+	Location(321,32,321,33)
+	321 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k)
+	Location(743,18,743,19)
+	743 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k)
+	Location(744,38,744,39)
+	744 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghost-YGFWtB/c_GH-T.k)
+	Location(9,14,9,16)
+	9 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	  .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghost-YGFWtB/c_GH-T.k)
+	Location(9,24,9,26)
+	9 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	  .	                       ^~
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

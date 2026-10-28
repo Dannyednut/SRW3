@@ -1,0 +1,72 @@
+<srw3g>
+  <k>
+    .Srw3PgmG ~> .K
+  </k>
+  <committed>
+    .Map
+  </committed>
+  <prospective>
+    .Map
+  </prospective>
+  <usage-c>
+    appC |-> 6
+  </usage-c>
+  <usage-p>
+    .Map
+  </usage-p>
+  <cap>
+    appB |-> 10
+    appC |-> 6
+    appD |-> 6
+  </cap>
+  <parent>
+    appB |-> appB
+    appC |-> appB
+    appD |-> appB
+  </parent>
+  <resmap>
+    .Map
+  </resmap>
+  <footprint-t>
+    .Set
+  </footprint-t>
+  <footprint-d>
+    .Set
+  </footprint-d>
+  <registry>
+    SetItem ( edgeA (... inv: IAGG , actors: SetItem ( appC )
+    SetItem ( appD ) ) )
+    SetItem ( edgeA (... inv: ICAPC , actors: SetItem ( appC ) ) )
+    SetItem ( edgeA (... inv: ICAPD , actors: SetItem ( appD ) ) )
+  </registry>
+  <policy>
+    enforce
+  </policy>
+  <gateopen>
+    false
+  </gateopen>
+  <authorities>
+    SetItem ( appA )
+    SetItem ( appB )
+    SetItem ( appC )
+    SetItem ( appD )
+  </authorities>
+  <polver>
+    1
+  </polver>
+  <actor>
+    appC
+  </actor>
+  <lineage>
+    0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appC ) , polver: 1 , child: commit ( 0 ) )
+  </lineage>
+  <lineageNext>
+    1
+  </lineageNext>
+  <head>
+    commit ( 0 )
+  </head>
+  <result>
+    "commit"
+  </result>
+</srw3g>

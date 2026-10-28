@@ -1,0 +1,13 @@
+[Error] Inner Parser: Parse error: unexpected token 'grant'.
+	Source(/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_gen_grant_mid.srw3)
+	Location(1,1,1,6)
+	1 |	grant(appB,appB,1000000) , grant(appC,appB,1000000) , as(appC) , begin ,
+consume(appC,1000) , wfCheck , gate
+	  .	^~~~~
+[Error] kparse: /tmp/my-project/tools/k/usr/bin/kast --output kore --definition 
+/tmp/p1w-fresh/ws1w/d-new1w-gen 
+/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_gen_grant_mid.srw
+3
+[Error] krun: kparse --definition /tmp/p1w-fresh/ws1w/d-new1w-gen 
+/home/z/my-project/p1w-work/srw3-1w/phase1v/tests/demos/v1_atk_gen_grant_mid.srw
+3

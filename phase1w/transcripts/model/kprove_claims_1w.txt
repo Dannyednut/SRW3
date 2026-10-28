@@ -1,0 +1,19 @@
+#Top
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(266,48,266,52)
+	266 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(267,42,267,43)
+	267 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(331,32,331,33)
+	331 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^

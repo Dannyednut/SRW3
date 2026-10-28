@@ -1,0 +1,56 @@
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(265,48,265,52)
+	265 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(266,42,266,43)
+	266 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(272,34,272,38)
+	272 |	  rule lookupU(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A ==K
+A2
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(278,36,278,40)
+	278 |	  rule lookupCap(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A
+==K A2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(287,53,287,57)
+	287 |	  rule resolve(stK(A:AppId, S:Int) |-> R:ResourceId REST:Map, K2:StKey)
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(408,35,408,36)
+	408 |	  rule applicableGen(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                  ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(416,36,416,37)
+	416 |	  rule applicableGen(SetItem(edgeR(J:InvId, Rs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/p1w-fresh/ws1w/old1v-gen.k)
+	Location(424,36,424,37)
+	424 |	  rule applicableGen(SetItem(edgeA(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Could not find main syntax module with name
+SRW3G-GATE-SYNTAX in definition.  Use --syntax-module to specify one. Using
+SRW3G-GATE as default.

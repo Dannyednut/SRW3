@@ -1,0 +1,94 @@
+kore-exec: [893993] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /home/z/my-project/p1w-work/srw3-1w/proofs/negative_control.k:11:5-23:55
+Context:
+    (InfoReachability) while checking the implication
+  <srw3>
+    <k>
+      .K
+    </k>
+    <committed>
+      stK (... app: appA , slot: 0 ) |-> X:Int
+      stK (... app: appB , slot: 0 ) |-> Y:Int
+    </committed>
+    <prospective>
+      .Map
+    </prospective>
+    <footprint-t>
+      .Set
+    </footprint-t>
+    <footprint-d>
+      .Set
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+      SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+      SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+    </registry>
+    <policy>
+      _Pol
+    </policy>
+    <gateopen>
+      false
+    </gateopen>
+    <authorities>
+      As
+    </authorities>
+    <polver>
+      _Gen5
+    </polver>
+    <actor>
+      appB
+    </actor>
+    <lineage>
+      _Gen6
+    </lineage>
+    <lineageNext>
+      _Gen7
+    </lineageNext>
+    <head>
+      _Gen8
+    </head>
+    <result>
+      "reject"
+    </result>
+  </srw3>
+#And
+  {
+    false
+  #Equals
+    V <=Int 10 andBool X +Int V <=Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    X +Int V >Int 10
+  }
+#And
+  {
+    true
+  #Equals
+    member ( appB , As )
+  }
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(266,48,266,52)
+	266 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(267,42,267,43)
+	267 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/p1w-work/srw3-1w/k/srw3.k)
+	Location(331,32,331,33)
+	331 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

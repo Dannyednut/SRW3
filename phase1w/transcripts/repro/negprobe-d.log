@@ -1,0 +1,29 @@
+== D1: baseline — pristine tree must pass ==
+  PROBE baseline-green: accepted as expected (rc=0) — PASS
+== D2: duplicated claim row in claims CSV ==
+  PROBE duplicate-claim-id: REJECTED (rc=1) — PASS
+== D3: missing raw transcript (a ghost kpg log removed) ==
+  PROBE missing-transcript: REJECTED (rc=1) — PASS
+== D4: exit-code mismatch (claims vs exit-codes last-wins) ==
+  PROBE exitcode-mismatch+unrecognized-rc: REJECTED (rc=1) — PASS
+== D5: missing expected test result (expectation emptied) ==
+  PROBE missing-expected-result: REJECTED (rc=1) — PASS
+== D6: count mismatch (one exit-codes row dropped) ==
+  PROBE count-mismatch: REJECTED (rc=1) — PASS
+== D7: designed-failure relabeling (GH-T recorded rc=0) ==
+  PROBE relabel-alarm: fired — PASS
+  PROBE relabel-gate-red: REJECTED (rc=1) — PASS
+== D8: verdict ledger with a non-OK row ==
+  PROBE verdict-non-OK: REJECTED (rc=1) — PASS
+== D9: verifier rejects a wrong expected result cell ==
+  PROBE verifier-wrong-expectation: REJECTED (rc=1) — PASS
+== D10: verifier accepts the correct expectation on the same transcript ==
+  PROBE verifier-correct-expectation: accepted as expected (rc=0) — PASS
+== D11: verifier rejects nondeterministic two-block output ==
+  PROBE verifier-nondeterminism: REJECTED (rc=1) — PASS
+== D12: verifier rejects stuck-function warning ==
+  PROBE verifier-stuck-function: REJECTED (rc=1) — PASS
+== D13: build_ledgers FATALs on a duplicated verdict row ==
+  PROBE build-ledgers-duplicate-fatal: REJECTED (rc=1) — PASS
+== RESULT: PASS=14 FAIL=0 ==
+ALL NEGATIVE CONTROLS BEHAVED AS REQUIRED

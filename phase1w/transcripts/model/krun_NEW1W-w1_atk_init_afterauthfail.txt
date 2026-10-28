@@ -1,0 +1,13 @@
+[Error] Inner Parser: Parse error: unexpected token 'init'.
+	Source(/home/z/my-project/p1w-work/srw3-1w/phase1w/tests/demos/w1_atk_init_afterauthfail_verbatim.srw3)
+	Location(5,1,5,5)
+	5 |	init(appA,0,5) , as(appA) , begin , w(appA,0,1) , wfCheck , gate ,
+as(appB) , begin , w(appB,0,1) , wfCheck , gate , init(appA,0,999)
+	  .	^~~~
+[Error] kparse: /tmp/my-project/tools/k/usr/bin/kast --output kore --definition 
+/tmp/p1w-fresh/ws1w/d-new1w 
+/home/z/my-project/p1w-work/srw3-1w/phase1w/tests/demos/w1_atk_init_afterauthfai
+l_verbatim.srw3
+[Error] krun: kparse --definition /tmp/p1w-fresh/ws1w/d-new1w 
+/home/z/my-project/p1w-work/srw3-1w/phase1w/tests/demos/w1_atk_init_afterauthfai
+l_verbatim.srw3

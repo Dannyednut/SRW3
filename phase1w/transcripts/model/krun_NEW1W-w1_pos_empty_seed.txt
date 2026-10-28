@@ -1,0 +1,56 @@
+<srw3>
+  <k>
+    .Srw3Pgm ~> .K
+  </k>
+  <committed>
+    stK (... app: appA , slot: 0 ) |-> 1
+  </committed>
+  <prospective>
+    .Map
+  </prospective>
+  <footprint-t>
+    .Set
+  </footprint-t>
+  <footprint-d>
+    .Set
+  </footprint-d>
+  <registry>
+    SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+    SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+    SetItem ( appB ) ) )
+    SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+    SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+  </registry>
+  <policy>
+    enforce
+  </policy>
+  <gateopen>
+    false
+  </gateopen>
+  <authorities>
+    SetItem ( appA )
+    SetItem ( appB )
+    SetItem ( appC )
+    SetItem ( lending )
+    SetItem ( liq )
+    SetItem ( oracle )
+  </authorities>
+  <polver>
+    1
+  </polver>
+  <actor>
+    appA
+  </actor>
+  <lineage>
+    0 |-> lin (... parent: rootC , tid: 0 , auth: auth ( appA ) , polver: 1 , child: commit ( 0 ) )
+  </lineage>
+  <lineageNext>
+    1
+  </lineageNext>
+  <head>
+    commit ( 0 )
+  </head>
+  <result>
+    "commit"
+  </result>
+</srw3>
