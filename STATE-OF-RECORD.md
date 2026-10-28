@@ -155,3 +155,17 @@ python3 phase1u/scripts/summarize_1u.py     # the 1U gate (unchanged)
 
 No completion tag exists and none may be created while any central
 proof, safety, or fidelity obligation remains unresolved.
+
+## Phase 1V delivery note (2026-10-28)
+
+The Phase 1V branch `phase1v-configuration-ownership` is committed locally
+through `91d5d0b` (four reviewable commits on the verified base `8697bd7`;
+worktree clean; ancestry verified; no history rewrite; no force-push). The
+push to GitHub is BLOCKED in the Phase 1V session (the sandbox reset removed
+the credential; authentication fails) — recorded, not claimed as pushed. The
+branch is delivered as a verified transferable bundle at
+`download/srw3-phase1v-branch.bundle` (sha256 `7eba28edfc705c9bcbbd07a7ec9
+8fdd2f262c3f190b9d3af246322c2666d557`); the owner (or any session holding
+the token) can land it verbatim with
+`git push origin phase1v-configuration-ownership`. The GitHub default
+branch remains the owner-selected `phase1u-model-hygiene`.
