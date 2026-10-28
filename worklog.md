@@ -2086,3 +2086,122 @@ Stage Summary:
   reconciled. The genesis form, the DEST-FALSE timeout, GH-T, and all
   Level-III boundaries remain exactly as open as recorded. Verdict:
   PARTIALLY COMPLETE; no completion tag.
+
+---
+Task ID: 1V (session close-out)
+Agent: main (Super Z)
+Task: SRW3 Phase 1V — Configuration Ownership and Reproducible Verification (branch phase1v-configuration-ownership from the verified 1U tip 8697bd7).
+
+Work Log:
+- Verified the starting state first (git rev-parse = 8697bd7 on
+  phase1u-model-hygiene; remote in sync; the GitHub default branch confirmed
+  LIVE as phase1u-model-hygiene via the API — the owner's switch SUCCEEDED;
+  the 1U BLOCKED record preserved and a dated follow-up appended). The
+  sandbox was fresh: the pinned toolchain re-provisioned (K v7.1.337 jammy
+  deb + z3 4.13.3 trixie + flex/libfl2 + libsecp256k1 + libLLVM-15; recipe =
+  1I-R2 minus the KEVM/plugin pieces 1V does not exercise; toolchain root
+  tools1v/ because the reset left the old root root-owned — documented
+  deviation, same pins, verified live in every stage log).
+- WS-A1 (the residual confirmed by execution on the git-pinned 1U model):
+  pre-begin setPolicy(trust) admits the hidden write into COMMITTED state
+  (appC->11); the same between transitions; useRegistry(negative) pre-begin
+  and between transitions commits the IAB violation (10+10=20). TWO NEW
+  findings beyond the examiner lead: the 1U gen model's useResMap and grant
+  had NO guard at all — mid-transition useResMap(rmNone) wipes the alias
+  table and COMMITS an IRP violation 6+9=15>10; mid-transition grant raises
+  the delegation bounds and COMMITS usage 1000/1001 against the protocol
+  budget 6/10. Mid-transition init corrupts committed state on the reject
+  path (appA 7->999 never gated). as() mid-transition is not exploitable on
+  1U (authorities always the full set) but becomes an authorization-evidence
+  forgery once authorities are configurable (F3).
+- WS-A2/A3 (T3-v2, the structural fix): setPolicy/useRegistry/useRegistryG/
+  useResMap/grant REMOVED from the untrusted transition-program grammars;
+  policy/registry/authorities/resmap/cap/parent enter ONLY through the
+  initial configuration ($POLICY/$REGISTRY/$AUTHORITIES; $RESMAP kind via
+  the new total pickResMap; $CAP/$PARENT) supplied by the trusted harness
+  invocation; NO rule in either semantics writes those cells (writer audit
+  in the report). pickRegistry/pickRegistryG productions moved to the
+  syntax modules (visible to the initial configuration). The 1U blocked-*-=
+  mutable rules retired with their syntax. A5 (srw3.k) / A5-A7 (srw3gen.k)
+  rewritten for the new boundary. init/as made PRE-BEGIN-ONLY
+  (blocked-init-open / blocked-actor-switch-open; between-transition
+  availability DISCLOSED as scenario authoring with a registered follow-up).
+  polver audited: zero writers (protocol constant).
+- BRING-UP INCIDENT (disclosed + made a failure class): a missing
+  pickResMap equation left the initial configuration stuck —
+  WarnFunctionWithoutEvaluators + a NONDETERMINISTIC two-branch output
+  (reject AND commit). Fixed by the total expansion equations; the 1V
+  verifier now fails on BOTH the warning class and multi-branch outputs.
+- WS-A4 (adversarial controls, all asserted): the five removed commands are
+  parse-rejected (rc=113 naming the token) pre-begin, between transitions,
+  and mid-transition; the alternative-route control (maximal in-grammar
+  attack) is blocked by enforce with policy/registry/authorities/committed
+  cells asserted unchanged; the init/as blocks hold with state intact; the
+  authority configuration is honored (reject-auth with authorities={appA}).
+- WS-A5 (reruns): both models recompiled clean; T1 matrix (NEW harness
+  probes + pairwise; OLD-1T recorded outcomes byte-comparable: mixed probe
+  masked->reject, pairwise IMPROPER COMMIT lending->90); T2 battery
+  (fail-closed on NEW; OLD-1T empty-map commits reproduced); GEN battery
+  (alias violation REJECTED under the protocol-owned resmap; cap
+  valid/violation; T2 analogues); SRW3-CLAIMS rc=0 #Top wall=7s (1U record:
+  rc=0 7s — IDENTICAL); negative control rc=1 6s (1U: rc=1 5s). No claim
+  relied on transition-controlled configuration (all claims pin the cells).
+  Ghost artifacts REGENERATED from the 1V sources (exact byte-fidelity
+  PASS; 14 declared //GHOST: lines); ALL 48 per-claim ghost verdicts
+  identical to the historical record (GH-T2/GH-M PROVED; GH-T, GH2-NEG,
+  GH3-NEG, GH4-NEG designed failures). The 1U proof battery is dependency-
+  independent of k/srw3.k (requires phase1s/semantics/rel-machine.k —
+  verified) and is not rerun (1U scoping precedent). The classic 0D demos
+  are byte-frozen pre-1U-grammar artifacts, superseded by the asserted 1V
+  battery (disclosed).
+- WS-B (the runner): phase1v/tests/run_1v_model_tests.sh — every input from
+  committed repository objects (git-show-pinned historical models,
+  sha-asserted; the T1 harness copied byte-identically into a miniature of
+  the repo layout so the relative require resolves to the OLD model — NO
+  transformation); unique mktemp workspace + cleanup trap; compile failures
+  fatal; every expected outcome ASSERTED (result cell, committed state,
+  head, lineageNext, gateopen, policy) via tests/verify_1v_out.py; explicit
+  negative-control handling (parse rejections assert rc+token); stuck-
+  function and multi-branch outputs always fail; nonzero exit on any
+  deviation. TWO isolated clean runs: 44/44 controls each, logical verdicts
+  IDENTICAL (determinism-1v-report.txt). run_1u_model_tests_compat.sh makes
+  the EXACT documented 1U command self-contained from a clean checkout
+  (provisions /tmp/p1u-old-harness from committed objects with ONE
+  require-path transformation, diff-asserted; the 1U runner byte-frozen);
+  the compat demonstration ran TWICE (OLD-model legs byte-comparable;
+  claims rc=0 + neg rc=1 against the 1V model; the 1U ledger + transcripts
+  restored bit-identically, sha-verified; the appended compat rows retained
+  under phase1v/transcripts/model/).
+- WS-C: STATE-OF-RECORD.md + README.md corrected with a DATED follow-up
+  (default branch = phase1u-model-hygiene, verified live 2026-10-28); the
+  1U historical records preserved verbatim; the topology table updated; 1V
+  explicitly NOT set as default.
+- WS-D: the examiner report is NOT supplied to this session — archival
+  BLOCKED on the document itself (registered, owner author/examiner); the
+  consolidated cross-phase residual register delivered
+  (docs/research/residual-register-1v.md: R1-R12 with root-cause class,
+  attempted methods, status, owners); the research crosswalk remains a
+  registered follow-up (no labels invented); T4 unchanged; licence/tag
+  decisions unchanged (owner authority); no completion tag.
+- WS-E: claims-1v.csv (92 rows / 92 unique: 26 control + 42 proved +
+  23 regression + 1 fidelity) + exit-codes-1v.csv (92 rows, last-wins) +
+  machine-readable verdict ledgers (model 44 / ghost 48 rows); build_ledgers
+  _1v.py; summarize_1v.py GATE GREEN (0 alarms: unique IDs, last-wins
+  consistency, transcript presence, closed terminal-state vocabulary
+  {0,1,113,124}, headline invariants, designed-failure relabeling alarm,
+  count match). Worklog appended (this entry). Reviewable commits; no
+  history rewrite; no force-push.
+
+Stage Summary:
+- The configuration boundary is STRUCTURALLY CLOSED: the untrusted
+  transition program cannot name, select, or change policy, registry,
+  authorities, the alias table, or the capability configuration at any
+  stage; every mutation path the 1U model left open is demonstrated on the
+  pinned old model and closed on the new one with asserted controls. The
+  regression gate is reproducible from a clean checkout and fail-closed.
+  The ghost-fidelity layer survives the semantic change with zero
+  classification changes. Verdict: PARTIALLY COMPLETE — the genesis
+  TIMEOUT, GH-T, the checker tool boundary, the harness-trust TCB, the
+  between-transition init affordance, the examiner-report archival, the
+  crosswalk, and all Level-III boundaries remain exactly as open as
+  recorded. No completion tag.

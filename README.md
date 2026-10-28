@@ -10,11 +10,15 @@ Lean 4.16.0 kernel check for the constructor-count induction.
 
 ## What this repository is
 
-The GitHub **default branch (`phase1b`) is a stale pointer** to an early
-phase of the research (independent-examiner finding S1). The research lives
-on the append-only phase-branch chain ending at
-**`phase1u-model-hygiene`**. `main` is a divergent early-phase archive kept
-for provenance. Nothing on those branches reflects the current state.
+The GitHub **default branch** historically pointed at an early phase
+(`phase1b`) — a stale pointer (independent-examiner finding S1). **The owner
+has since switched the default branch to `phase1u-model-hygiene` (verified
+live 2026-10-28)** — the stale-pointer problem is RESOLVED; the note below
+is retained for the historical record. The research lives on the
+append-only phase-branch chain ending at **`phase1u-model-hygiene`**
+(default) with **`phase1v-configuration-ownership`** as the working branch
+under review. `main` is a divergent early-phase archive kept for
+provenance; `phase1b` remains an early-phase snapshot.
 
 ## Phase topology (chronological)
 
@@ -25,7 +29,8 @@ for provenance. Nothing on those branches reflects the current state.
 | 1N–1R | `phase1n-…` → `phase1r-fold-decomposition` | abstract transition simulation; the K-native induction boundary established |
 | 1S | `phase1s-refinement-coverage` | constructor-count refinement + coverage battery; conditional migration |
 | 1T | `phase1t-c12-induction-validation` | C1.2 proved (Lean structural induction); conditional migration validated; unconditional migration closes via disclosed derived rules |
-| **1U** | **`phase1u-model-hygiene`** | **proof-rule soundness remediation (the invalid C1.5 generalization), T1/T2/T3 model defects reproduced and fixed, ledger/erratum reconciliation, state-of-record** |
+| 1U | `phase1u-model-hygiene` | proof-rule soundness remediation (the invalid C1.5 generalization), T1/T2/T3 model defects reproduced and fixed, ledger/erratum reconciliation, state-of-record — **the GitHub default branch since the owner's switch (verified live 2026-10-28)** |
+| **1V** | **`phase1v-configuration-ownership`** | **configuration ownership (T3-v2: trusted model configuration, mutation commands removed from the untrusted grammars; F1a/F1b/F2/F3 findings closed), reproducible fail-closed regression runner, state-of-record correction for the default-branch change** |
 
 Each `phase1X/` directory contains that phase's README, final report
 (fail-closed verdict), claim ledger + exit-code inventory, raw transcripts,
