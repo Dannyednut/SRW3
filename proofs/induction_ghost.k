@@ -101,6 +101,9 @@ module SRW3-SYNTAX
   syntax Policy ::= "enforce" | "trust"
 
   // Transition command language. A transition = begin; reads/writes; wfCheck; gate.
+  // Phase 1V: setPolicy/useRegistry are GONE — policy/registry/authorities
+  // are trusted model configuration (initial configuration only; see A5).
+  // The untrusted program cannot name them and no rule writes those cells.
   syntax RegistryKind ::= "complete" | "negative" | "pairwiseOnly"
                         | "chainComplete" | "chainNegative"
   syntax Srw3Cmd ::= "init" "(" app:AppId "," slot:Int "," v:Int ")"
@@ -112,8 +115,6 @@ module SRW3-SYNTAX
                    | "rdH" "(" app:AppId ")"                    // HIDDEN read (undeclared dependency)
                    | "wfCheck"
                    | "gate"
-                   | "useRegistry" "(" kind:RegistryKind ")"
-                   | "setPolicy" "(" policy:Policy ")"
   syntax Srw3Pgm ::= List{Srw3Cmd,","}
   // ---- invariant-as-data certificate + theorem program grammar (theorem-closure pass) ----
   // G(xa,xb)       certified values of stK(appA,0), stK(appB,0)
@@ -128,6 +129,11 @@ module SRW3-SYNTAX
   syntax Ghost ::= "ghostUndo" "(" Ghost ")" [function, total]   //GHOST:
   syntax Set ::= "gAUTH" "(" ")" [function, total]   //GHOST:
   syntax Bool ::= "safeMin" "(" st:Map ")" [function, total]   //GHOST:
+
+  // Trusted registry selection (1V): the KIND is a configuration variable;
+  // the production is declared HERE (visible to the initial configuration)
+  // while the defining equations live in SRW3-CLOSURE.
+  syntax Set ::= "pickRegistry" "(" kind:RegistryKind ")" [function, total]
 endmodule
 
 // =============================================================================
@@ -144,10 +150,16 @@ module SRW3-STATE
                   <prospective> .Map </prospective>  // Map StKey -> Int
                   <footprint-t> .Set </footprint-t>
                   <footprint-d> .Set </footprint-d>
-                  <registry> .Set </registry>        // interaction hypergraph
-                  <policy> enforce </policy>
+                  <registry> pickRegistry($REGISTRY:RegistryKind) </registry>
+                             // 1V: PROTOCOL-OWNED configuration — the trusted
+                             // harness selects the registry KIND; the model
+                             // expands it. No rule writes this cell.
+                  <policy> $POLICY:Policy </policy>
+                             // 1V: PROTOCOL-OWNED configuration (enforce|trust).
                   <gateopen> false </gateopen>       // T2: one-shot gate interval state
-                  <authorities> .Set </authorities>
+                  <authorities> $AUTHORITIES:Set </authorities>
+                             // 1V: PROTOCOL-OWNED configuration — the authority
+                             // set is supplied by the trusted harness.
                   <polver> 1 </polver>
                   <actor> noOne </actor>
                   <lineage> .Map </lineage>          // Map tid -> LineageRec
@@ -162,11 +174,35 @@ module SRW3-STATE
   // command rules can fire on the head.
   rule <k> (C:Srw3Cmd , REST:Srw3Pgm) => C ~> REST ... </k>
 
+  // 1V F2: state seeding is PRE-BEGIN-ONLY. init writes <committed>
+  // directly, so an unguarded init reachable mid-transition would corrupt
+  // the committed state outside the gate (on a rejecting transition the
+  // seeded value would survive — a commitment-boundary bypass). Between
+  // transitions init remains a disclosed scenario-authoring affordance
+  // (ownership table, 1V report).
   rule <k> init(I:AppId, S:Int, V:Int) => .K ... </k>
        <committed> M:Map => M[stK(I, S) <- V] </committed>
+       <gateopen> false </gateopen>
 
+  // 1V F2: blocked mid-transition (terminal, fail-closed).
+  rule <k> init(_:AppId, _:Int, _:Int) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-init-open" </result>
+       <prospective> _P:Map => .Map </prospective>
+
+  // 1V F3: the actor identity is declared BEFORE the transition opens.
+  // A mid-transition `as` would let the program swap to an authorized
+  // identity at gate time (forged authorization evidence) — with 1V's
+  // configurable authority sets this would bypass reject-auth entirely.
   rule <k> as(P:AppId) => .K ... </k>
        <actor> _A:AppId => P </actor>
+       <gateopen> false </gateopen>
+
+  // 1V F3: blocked mid-transition (terminal, fail-closed).
+  rule <k> as(_:AppId) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-actor-switch-open" </result>
+       <prospective> _P:Map => .Map </prospective>
 
   // Prospective execution begins as a shadow copy of the committed state:
   // sigma -> sigma_hat over committed sigma (handoff §3, §8).
@@ -204,17 +240,9 @@ module SRW3-STATE
   rule <k> rdH(I:AppId) => .K ... </k>
        <footprint-t> FT:Set => FT |Set SetItem(I) </footprint-t>
 
-  rule <k> setPolicy(P:Policy) => .K ... </k>
-       <policy> _Q:Policy => P </policy>
-       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
-
-  // T3 (assumption A5): policy is protocol-authored configuration — a
-  // transition may not weaken enforcement MID-TRANSITION.  While a gate
-  // interval is open, setPolicy is BLOCKED (terminal, fail-closed).
-  rule <k> setPolicy(_:Policy) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-policy-mutable" </result>
-       <prospective> _P:Map => .Map </prospective>
+  // Phase 1V: setPolicy is REMOVED (the command and both of its 1U rules —
+  // the setup-phase rule and the blocked-policy-mutable rule). <policy> has
+  // NO writer in the semantics; it is read by wfCheck only. See A5.
 endmodule
 
 // =============================================================================
@@ -355,7 +383,8 @@ module SRW3-CLOSURE
   rule securityClosedUniv(_R:Set, trust, _U:Set)  => false
 
   // ---- demo registries ----
-  syntax Set ::= "pickRegistry" "(" kind:RegistryKind ")" [function, total]
+  // (the pickRegistry PRODUCTION is declared in SRW3-SYNTAX — 1V: it is
+  // used by the initial configuration; the equations stay here)
   rule pickRegistry(complete)      => completeRegistry()
   rule pickRegistry(negative)      => negativeRegistry()
   rule pickRegistry(pairwiseOnly)  => pairwiseOnlyRegistry()
@@ -398,19 +427,14 @@ endmodule
 module SRW3-GATE
   imports SRW3-CLOSURE
 
-  // ---- registry/authority setup (placed here: needs pickRegistry) --------
-  rule <k> useRegistry(K2:RegistryKind) => .K ... </k>
-       <registry> _R:Set => pickRegistry(K2) </registry>
-       <authorities> _As:Set => SetItem(appA) |Set SetItem(appB) |Set SetItem(appC) |Set SetItem(oracle) |Set SetItem(lending) |Set SetItem(liq) </authorities>
-       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
-
-  // T3 (assumption A5): the obligation registry is protocol-authored — a
-  // transition may not switch to an incomplete registry MID-TRANSITION.
-  // While a gate interval is open, useRegistry is BLOCKED (fail-closed).
-  rule <k> useRegistry(_:RegistryKind) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-registry-mutable" </result>
-       <prospective> _P:Map => .Map </prospective>
+  // Phase 1V: useRegistry is REMOVED (the command and both of its 1U rules).
+  // <registry> and <authorities> have NO writer in the semantics; they are
+  // read by the gate rules only. The registry is configured by the trusted
+  // harness via the initial configuration (pickRegistry($REGISTRY)); the
+  // authority set is likewise trusted configuration ($AUTHORITIES). See A5.
+  // NOTE (1V): the 1U useRegistry rule was also the ONLY writer of
+  // <authorities> (it reset the set to ALL apps on every registry change);
+  // authorities are now independently configured and never mutated.
 
   // ---- wfCheck: effect-completeness enforcement (handoff §12, §19) ----
   // Γ*_P ⊆ Γ̂ must hold for the abstraction to be a sound basis for Affected.
@@ -509,15 +533,22 @@ endmodule
 //       authorization evidence checked is authority membership.
 //   A4. Claim-level closure premises are evaluated against the concrete
 //       registry term in each claim (non-vacuous; see report §E).
-//   A5. (Phase 1U, T3) Policy and registry selection are PROTOCOL-AUTHORED
-//       configuration: within an open gate interval (between a valid begin
-//       and its gate) the transition cannot mutate <policy>/<registry> —
-//       setPolicy/useRegistry are setup-phase commands and are BLOCKED
-//       mid-transition (the blocked-*-mutable rules).  The gate-step claims
-//       below pin <gateopen> true </gateopen>: they describe the gate step
-//       of a transition whose interval was opened by a valid begin (the 1U
+//   A5. (Phase 1V, T3-v2) Policy, registry, and authorities are PROTOCOL-
+//       OWNED trusted model configuration: they enter ONLY through the
+//       initial configuration ($POLICY / $REGISTRY / $AUTHORITIES supplied
+//       by the trusted harness invocation) and NO rule in the semantics
+//       writes those cells (grep-audited; the 1V ownership table).  The
+//       untrusted transition-program grammar cannot name them (setPolicy/
+//       useRegistry are removed), so the transition cannot select or change
+//       policy or registry before the first transition, during one, or
+//       between transitions — a configuration-mutation attempt is
+//       UNREPRESENTABLE (parse-time rejection).  The gate-step claims below
+//       pin <gateopen> true </gateopen>: they describe the gate step of a
+//       transition whose interval was opened by a valid begin (the 1U
 //       gate-state discipline, T2).  A wrong or adversarially authored
-//       policy/registry at deployment time is outside the evaluated model.
+//       policy/registry/authority configuration SUPPLIED BY THE HARNESS is
+//       outside the evaluated model (the harness is the trust boundary; the
+//       residual is registered, not hidden).
 // =============================================================================
 
 module SRW3-CLAIMS

@@ -15,10 +15,13 @@ The script then verifies the faithfulness certificate mechanically:
     subsequence (difflib check, no edit, no reorder).
 It prints the complete ghost delta (the //GHOST: lines) as the encoding record.
 """
-import difflib, sys
+import difflib, sys, os
 
-SRC = "/home/z/my-project/srw3-kevm/k/srw3.k"
-DST = "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k"
+# Phase 1V: repo-relative (the script lives in <repo>/scripts; the old
+# absolute /home/z/my-project/srw3-kevm path died with the sandbox reset).
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(_REPO, "k", "srw3.k")
+DST = os.path.join(_REPO, "proofs", "induction_ghost.k")
 
 src_lines = open(SRC).read().splitlines()
 # 1-indexed lines 24..530 inclusive -> python slice [23:530]

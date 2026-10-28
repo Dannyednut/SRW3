@@ -1,0 +1,45 @@
+tag,class,rc,expected,observed,verdict,note
+OLD1U-p1u_policy_prebegin,krun,0,commit +cells,OLD1U-p1u_policy_prebegin: OK result="commit" cells=1 asserted,OK,policy=trust BEFORE the first begin admits the hidden write (appC->11 COMMITTED)
+OLD1U-p1u_policy_between,krun,0,commit +cells,OLD1U-p1u_policy_between: OK result="commit" cells=1 asserted,OK,policy downgrade BETWEEN transitions admits the hidden write (appC->11 COMMITTED)
+OLD1U-p1u_registry_prebegin,krun,0,commit +cells,OLD1U-p1u_registry_prebegin: OK result="commit" cells=2 asserted,OK,incomplete registry BEFORE begin commits the IAB violation (10+10=20)
+OLD1U-p1u_registry_between,krun,0,commit +cells,OLD1U-p1u_registry_between: OK result="commit" cells=2 asserted,OK,incomplete registry BETWEEN transitions commits the IAB violation
+OLD1U-p1u_init_mid,krun,0,reject +cells,OLD1U-p1u_init_mid: OK result="reject" cells=1 asserted,OK,mid-transition init CORRUPTS committed state on the reject path (appA->999, never gated)
+OLD1U-p1u_resmap_mid,krun,0,commit +cells,OLD1U-p1u_resmap_mid: OK result="commit" cells=2 asserted,OK,MID-TRANSITION useResMap(rmNone) wipes the alias table; IRP 6+9=15>10 COMMITS
+OLD1U-p1u_resmap_prebegin,krun,0,commit +cells,OLD1U-p1u_resmap_prebegin: OK result="commit" cells=2 asserted,OK,empty alias table selected BEFORE begin; IRP 6+9=15>10 COMMITS
+OLD1U-p1u_grant_mid,krun,0,commit +cells,OLD1U-p1u_grant_mid: OK result="commit" cells=1 asserted,OK,MID-TRANSITION grant raises own delegation bounds; usage 1000 COMMITS (budget 6/10)
+OLD1U-p1u_grant_between,krun,0,commit +cells,OLD1U-p1u_grant_between: OK result="commit" cells=1 asserted,OK,grant BETWEEN transitions raises bounds; usage 1001 COMMITS (budget 6/10)
+NEW1V-v1_atk_policy_prebegin,parse-reject,113,rc!=0 + 'setPolicy',rc=113 + 'setPolicy',OK,unrepresentable at parse time
+NEW1V-v1_atk_policy_between,parse-reject,113,rc!=0 + 'setPolicy',rc=113 + 'setPolicy',OK,unrepresentable at parse time
+NEW1V-v1_atk_registry_prebegin,parse-reject,113,rc!=0 + 'useRegistry',rc=113 + 'useRegistry',OK,unrepresentable at parse time
+NEW1V-v1_atk_registry_between,parse-reject,113,rc!=0 + 'useRegistry',rc=113 + 'useRegistry',OK,unrepresentable at parse time
+NEW1V-v1_atk_gen_useResMap_mid,parse-reject,113,rc!=0 + 'useResMap',rc=113 + 'useResMap',OK,unrepresentable at parse time
+NEW1V-v1_atk_gen_grant_mid,parse-reject,113,rc!=0 + 'grant',rc=113 + 'grant',OK,unrepresentable at parse time
+NEW1V-v1_atk_gen_setPolicy_mid,parse-reject,113,rc!=0 + 'setPolicy',rc=113 + 'setPolicy',OK,unrepresentable at parse time
+NEW1V-v1_atk_init_mid,krun,0,blocked-init-open +cells,NEW1V-v1_atk_init_mid: OK result="blocked-init-open" cells=3 asserted,OK,mid-transition init BLOCKED; committed state intact (no 999 corruption)
+NEW1V-v1_atk_as_mid,krun,0,blocked-actor-switch-open +cells,NEW1V-v1_atk_as_mid: OK result="blocked-actor-switch-open" cells=2 asserted,OK,mid-transition as() BLOCKED (would-be identity swap to the only authority is refused)
+NEW1V-v1_atk_config_immutable,krun,0,blocked-effect-incomplete +cells,NEW1V-v1_atk_config_immutable: OK result="blocked-effect-incomplete" cells=5 asserted,OK,maximal in-grammar attack: hidden write BLOCKED by enforce; policy/registry/authorities unchanged
+NEW1V-t1_probe_only_violation,krun,0,"false",NEW1V-t1_probe_only_violation: OK result="false" cells=0 asserted,OK,mixed-registry probe: IOL obligation IS applicable on the violating state (allHold=false)
+NEW1V-t1_probe_only_ok,krun,0,"true",NEW1V-t1_probe_only_ok: OK result="true" cells=0 asserted,OK,mixed-registry probe: honest state satisfies all applicable obligations
+NEW1V-t1_mixed_probe_violation,krun,0,reject,NEW1V-t1_mixed_probe_violation: OK result="reject" cells=0 asserted,OK,mixed registry + IOL violation -> reject (bareEdge cannot drop the obligation)
+NEW1V-t1_mixed_probe_ok,krun,0,commit,NEW1V-t1_mixed_probe_ok: OK result="commit" cells=0 asserted,OK,mixed registry + honest transition -> commit preserved
+NEW1V-t1_pairwise_violation,krun,0,reject,NEW1V-t1_pairwise_violation: OK result="reject" cells=0 asserted,OK,pairwise registry (bareEdge present) + IOL violation -> reject
+NEW1V-t1_pairwise_ok,krun,0,commit,NEW1V-t1_pairwise_ok: OK result="commit" cells=0 asserted,OK,pairwise registry + honest transition -> commit preserved
+OLD1T-t1_mixed_probe_violation,krun,0,reject,OLD1T-t1_mixed_probe_violation: OK result="reject" cells=0 asserted,OK,RECORDED 1U outcome: the 2-element mixed probe is decomposition-masked on the OLD model (rejects anyway)
+OLD1T-t1_probe_only_violation,krun,0,false,OLD1T-t1_probe_only_violation: OK result="false" cells=0 asserted,OK,RECORDED 1U outcome: OLD probe=false = the obligation IS still applicable on THIS 2-element decomposition (masked at gate level -> reject); the pairwise shape below exposes the actual drop
+OLD1T-t1_pairwise_violation,krun,0,commit +cells,OLD1T-t1_pairwise_violation: OK result="commit" cells=1 asserted,OK,RECORDED 1U outcome: OLD pairwise registry IMPROPERLY COMMITS the IOL violation
+NEW1V-t2_valid_begin_gate,krun,0,commit +cells,NEW1V-t2_valid_begin_gate: OK result="commit" cells=5 asserted,OK,valid transition unchanged under the trusted configuration boundary
+NEW1V-t2_double_gate,krun,0,gate-closed +cells,NEW1V-t2_double_gate: OK result="gate-closed" cells=3 asserted,OK,second gate fails closed; committed state intact
+NEW1V-t2_gate_no_begin,krun,0,gate-closed +cells,NEW1V-t2_gate_no_begin: OK result="gate-closed" cells=3 asserted,OK,gate without begin fails closed; nothing committed
+NEW1V-t2_reject_then_gate,krun,0,gate-closed +cells,NEW1V-t2_reject_then_gate: OK result="gate-closed" cells=2 asserted,OK,reject then second gate: closed; committed state intact
+NEW1V-t2_double_begin,krun,0,blocked-begin-open +cells,NEW1V-t2_double_begin: OK result="blocked-begin-open" cells=2 asserted,OK,nested begin blocked
+OLD1T-t2_double_gate,krun,0,commit,OLD1T-t2_double_gate: OK result="commit" cells=0 asserted,OK,RECORDED 1U outcome: OLD double-gate commits the EMPTY map (re-entrancy erasure)
+OLD1T-t2_gate_no_begin,krun,0,commit,OLD1T-t2_gate_no_begin: OK result="commit" cells=0 asserted,OK,RECORDED 1U outcome: OLD gate-without-begin commits the EMPTY map
+NEW1V-gen_valid,krun,0,commit +cells,NEW1V-gen_valid: OK result="commit" cells=3 asserted,OK,gen honest transition via the trusted configuration boundary
+NEW1V-gen_alias_violation,krun,0,reject +cells,NEW1V-gen_alias_violation: OK result="reject" cells=2 asserted,OK,gen alias-resource violation (IRP 6+9=15>10) REJECTED under the protocol-owned resmap
+NEW1V-gen_cap_valid,krun,0,commit +cells,NEW1V-gen_cap_valid: OK result="commit" cells=1 asserted,OK,gen authority consumption within the protocol-owned caps commits (6<=6, 6<=10)
+NEW1V-gen_cap_violation,krun,0,reject +cells,NEW1V-gen_cap_violation: OK result="reject" cells=1 asserted,OK,gen authority consumption beyond the protocol-owned cap rejected (7>6)
+NEW1V-gen_double_gate,krun,0,gate-closed +cells,NEW1V-gen_double_gate: OK result="gate-closed" cells=2 asserted,OK,gen second gate fails closed
+NEW1V-gen_gate_no_begin,krun,0,gate-closed +cells,NEW1V-gen_gate_no_begin: OK result="gate-closed" cells=1 asserted,OK,gen gate without begin fails closed
+NEW1V-gen_double_begin,krun,0,blocked-begin-open +cells,NEW1V-gen_double_begin: OK result="blocked-begin-open" cells=1 asserted,OK,gen nested begin blocked
+NEW1V-claims-1-4,kprove,0,rc=0 + #Top,rc=0 + #Top,OK,wall=7s
+NEW1V-negative-control,kprove,1,rc=1 (refuted),rc=1,OK,wall=6s

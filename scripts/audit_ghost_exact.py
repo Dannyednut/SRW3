@@ -35,10 +35,13 @@ The semantics files are never modified by this script.
 import hashlib
 import json
 import sys
+import os
 
-SRC = "/home/z/my-project/srw3-kevm/k/srw3.k"
-ART = "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k"
-MAN = "/home/z/my-project/srw3-kevm/proofs/ghost_manifest.json"
+# Phase 1V: repo-relative (the script lives in <repo>/scripts).
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(_REPO, "k", "srw3.k")
+ART = os.path.join(_REPO, "proofs", "induction_ghost.k")
+MAN = os.path.join(_REPO, "proofs", "ghost_manifest.json")
 
 # PHASE 1U: slice bounds located dynamically (the 1U model remediation changed
 # the header length/line count); the block is "module SRW3-SYNTAX" .. EOF.

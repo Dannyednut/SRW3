@@ -1,0 +1,12 @@
+[Error] Inner Parser: Parse error: unexpected token 'setPolicy' following token
+','.
+	Source(/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_setPolicy_mid.srw3)
+	Location(1,51,1,60)
+	1 |	init(appA,7,5) , as(appB) , begin , w(appB,3,4) , setPolicy(trust) ,
+wfCheck , gate
+	  .	                                                  ^~~~~~~~~
+[Error] kparse: /home/z/my-project/tools1v/extract/k/usr/bin/kast --output kore 
+--definition /tmp/srw3-1v-run2/d-new1v-gen 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_setPolicy_mid.srw3
+[Error] krun: kparse --definition /tmp/srw3-1v-run2/d-new1v-gen 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_setPolicy_mid.srw3

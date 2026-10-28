@@ -30,6 +30,25 @@
 // Gate structure (mandate Part VI-H):
 //     prospective bundle -> applicable-obligation evaluation -> commit / reject
 //   with applicable obligations = local + interaction + resource + authority.
+//
+// SRW3 PHASE 1V REMEDIATION (branch phase1v-configuration-ownership;
+// Configuration Ownership and Reproducible Verification):
+//   T3-v2 (Workstream A): policy, registry, authorities, the alias table
+//     <resmap> and the capability configuration <cap>/<parent> are TRUSTED
+//     MODEL CONFIGURATION — they enter ONLY through the initial
+//     configuration ($POLICY/$REGISTRYG/$AUTHORITIES/$RESMAP/$CAP/$PARENT
+//     supplied by the trusted harness invocation). setPolicy/useRegistryG/
+//     useResMap/grant are REMOVED from the transition-program grammar: the
+//     untrusted program cannot name them, and NO rule in the semantics
+//     writes those cells. The 1U model left useResMap and grant with NO
+//     guard at all (reachable mid-transition AND between transitions — the
+//     1V audit findings F1a/F1b, beyond the examiner's setPolicy/useRegistry
+//     lead); the 1V disposition removes the commands entirely.
+//   F2/F3 (1V hardening): init (committed-state seeding) and as (actor
+//     identity declaration) are now PRE-BEGIN-ONLY — mid-transition
+//     invocations are BLOCKED terminal (blocked-init-open /
+//     blocked-actor-switch-open); between transitions they remain
+//     disclosed scenario-authoring affordances (1V ownership table).
 // =============================================================================
 
 module SRW3G-SYNTAX
@@ -82,8 +101,17 @@ module SRW3G-SYNTAX
   // Effect-abstraction policy (unchanged semantics; CM7 preserved).
   syntax Policy ::= "enforce" | "trust"
 
-  // Alias-table presets (model input; see ASSUMPTIONS A5).
+  // Alias-table presets (trusted model configuration; see ASSUMPTIONS A5).
   syntax ResMapKind ::= "rmNone" | "rmPQ"
+
+  // Total expansion of the trusted resmap selection (1V: the harness passes
+  // the KIND; the model expands it — no rule writes <resmap>).
+  syntax Map ::= "pickResMap" "(" kind:ResMapKind ")" [function, total]
+
+  // Trusted registry selection (1V): the KIND is a configuration variable;
+  // the production is declared HERE (visible to the initial configuration)
+  // while the defining equations live in SRW3G-CLOSURE.
+  syntax Set ::= "pickRegistryG" "(" kind:RegistryKindG ")" [function, total]
 
   // Generalized registries (see SRW3G-CLOSURE for completeness predicates).
   syntax RegistryKindG ::= "aliasNaive" | "aliasOnly" | "authNaive" | "authOnly"
@@ -91,6 +119,9 @@ module SRW3G-SYNTAX
 
   // Transition command language (generalized finite effect sequences):
   // a transition = begin; (w | wH | rd | rdH | consume)*; wfCheck; gate.
+  // Phase 1V: setPolicy/useRegistryG/useResMap/grant are GONE — policy,
+  // registry, authorities, the alias table and the capability configuration
+  // are trusted model configuration (initial configuration only; see A7).
   syntax Srw3CmdG ::= "init" "(" app:AppId "," slot:Int "," v:Int ")"
                     | "as" "(" actor:AppId ")"
                     | "begin"
@@ -99,12 +130,8 @@ module SRW3G-SYNTAX
                     | "rd" "(" app:AppId ")"                           // declared read dependency
                     | "rdH" "(" app:AppId ")"                          // HIDDEN read
                     | "consume" "(" actor:AppId "," amount:Int ")"     // authority usage (CM3)
-                    | "grant" "(" child:AppId "," parent:AppId "," bound:Int ")"  // setup
                     | "wfCheck"
                     | "gate"
-                    | "useResMap" "(" kind:ResMapKind ")"
-                    | "useRegistryG" "(" kind:RegistryKindG ")"
-                    | "setPolicy" "(" policy:Policy ")"
   syntax Srw3PgmG ::= List{Srw3CmdG,","}
 
   syntax Ghost3 ::= "U2" "(" Int "," Int ")" | "GWU" "(" AppId "," Int "," Ghost3 ")"   //GHOST:
@@ -135,15 +162,20 @@ module SRW3G-STATE
                   <prospective> .Map </prospective>  // Map StKey -> Int
                   <usage-c> .Map </usage-c>          // Map AppId -> Int (committed usage)
                   <usage-p> .Map </usage-p>          // Map AppId -> Int (prospective usage)
-                  <cap> .Map </cap>                  // Map AppId -> Int (granted capacity)
-                  <parent> .Map </parent>            // Map AppId -> AppId (delegation tree)
-                  <resmap> .Map </resmap>            // Map StKey -> ResourceId (alias table)
+                  <cap> $CAP:Map </cap>              // 1V: PROTOCOL-OWNED configuration
+                  <parent> $PARENT:Map </parent>     // 1V: PROTOCOL-OWNED configuration
+                  <resmap> pickResMap($RESMAP:ResMapKind) </resmap>
+                             // 1V: PROTOCOL-OWNED configuration — the alias
+                             // table KIND is selected by the trusted harness.
                   <footprint-t> .Set </footprint-t>
                   <footprint-d> .Set </footprint-d>
-                  <registry> .Set </registry>
-                  <policy> enforce </policy>
+                  <registry> pickRegistryG($REGISTRYG:RegistryKindG) </registry>
+                             // 1V: PROTOCOL-OWNED configuration.
+                  <policy> $POLICY:Policy </policy>
+                             // 1V: PROTOCOL-OWNED configuration (enforce|trust).
                   <gateopen> false </gateopen>       // T2: one-shot gate interval state (1U)
-                  <authorities> .Set </authorities>
+                  <authorities> $AUTHORITIES:Set </authorities>
+                             // 1V: PROTOCOL-OWNED configuration.
                   <polver> 1 </polver>
                   <actor> noOne </actor>
                   <lineage> .Map </lineage>          // Map tid -> LineageRec
@@ -155,16 +187,29 @@ module SRW3G-STATE
 
   rule <k> (C:Srw3CmdG , REST:Srw3PgmG) => C ~> REST ... </k>
 
+  // 1V F2: state seeding is PRE-BEGIN-ONLY (see srw3.k F2 rationale).
   rule <k> init(I:AppId, S:Int, V:Int) => .K ... </k>
        <committed> M:Map => M[stK(I, S) <- V] </committed>
+       <gateopen> false </gateopen>
 
+  // 1V F2: blocked mid-transition (terminal, fail-closed).
+  rule <k> init(_:AppId, _:Int, _:Int) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-init-open" </result>
+       <prospective> _P:Map => .Map </prospective>
+       <usage-p> _UP:Map => .Map </usage-p>
+
+  // 1V F3: actor identity declared BEFORE the transition opens (see srw3.k).
   rule <k> as(P:AppId) => .K ... </k>
        <actor> _A:AppId => P </actor>
+       <gateopen> false </gateopen>
 
-  // Setup (outside any transition): grant capacity B to CHILD under PARENT.
-  rule <k> grant(Q:AppId, P:AppId, B:Int) => .K ... </k>
-       <cap> M:Map => M[Q <- B] </cap>
-       <parent> M2:Map => M2[Q <- P] </parent>
+  // 1V F3: blocked mid-transition (terminal, fail-closed).
+  rule <k> as(_:AppId) ~> _REST:K => .K </k>
+       <gateopen> true </gateopen>
+       <result> _R:String => "blocked-actor-switch-open" </result>
+       <prospective> _P:Map => .Map </prospective>
+       <usage-p> _UP:Map => .Map </usage-p>
 
   // Prospective execution begins as a shadow copy over BOTH state components.
   // T2: a valid begin OPENS the gate interval (one-shot gate state).
@@ -219,18 +264,12 @@ module SRW3G-STATE
        <footprint-d> FD:Set => FD |Set SetItem(A) </footprint-d>
        <ghost> Gh:Ghost3 => GWU(A, N, Gh) </ghost>   //GHOST:
 
-  // ---- setup (protocol-authored configuration; T3/A5) --------------------
-  rule <k> setPolicy(P:Policy) => .K ... </k>
-       <policy> _Q:Policy => P </policy>
-       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
-
-  // T3: policy is protocol-authored — a transition may not weaken
-  // enforcement MID-TRANSITION (blocked terminal, fail-closed).
-  rule <k> setPolicy(_:Policy) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-policy-mutable" </result>
-       <prospective> _P:Map => .Map </prospective>
-       <usage-p> _UP:Map => .Map </usage-p>
+  // Phase 1V: the setup block is REMOVED — setPolicy (both rules),
+  // useResMap (both preset rules), and grant are gone. <policy>, <resmap>,
+  // <cap>, <parent> have NO writer in the semantics; they are read by
+  // wfCheck / the gate / evalInvG only. They are configured by the trusted
+  // harness via the initial configuration (pickResMap($RESMAP), $CAP,
+  // $PARENT). See A7.
 endmodule
 
 // =============================================================================
@@ -552,42 +591,41 @@ module SRW3G-CLOSURE
        |Set SetItem(edgeA(ICAPD, SetItem(appD)))
        |Set SetItem(edgeA(IAGG, SetItem(appC) |Set SetItem(appD)))
 
-  syntax Set ::= "pickRegistryG" "(" kind:RegistryKindG ")" [function, total]
+  // ---- demo registries -----------------------------------------------------
+  // (the pickRegistryG PRODUCTION is declared in SRW3G-SYNTAX — 1V: it is
+  // used by the initial configuration; the equations stay here)
   rule pickRegistryG(aliasNaive) => aliasNaiveRegistry()
   rule pickRegistryG(aliasOnly)  => aliasOnlyRegistry()
   rule pickRegistryG(authNaive)  => authNaiveRegistry()
   rule pickRegistryG(authOnly)   => authOnlyRegistry()
   rule pickRegistryG(fullNaive)  => fullNaiveRegistry()
   rule pickRegistryG(full)       => fullRegistryGen()
+
+  // ---- trusted resmap expansion (1V) ---------------------------------------
+  // The EXACT preset contents of the 1U useResMap rules, now the defining
+  // equations of the configuration-variable expansion. Total: every
+  // ResMapKind has an equation (a missing equation would leave pickResMap
+  // stuck in the initial configuration — observed live during 1V bring-up
+  // as a WarnFunctionWithoutEvaluators nondeterministic two-branch run; the
+  // runner now fails closed on that warning class).
+  rule pickResMap(rmPQ)
+    => stK(appA, 7) |-> resP  stK(appB, 3) |-> resP
+       stK(appC, 0) |-> resQ  stK(appD, 0) |-> resQ
+  rule pickResMap(rmNone) => .Map
 endmodule
 
 // =============================================================================
 module SRW3G-GATE
   imports SRW3G-CLOSURE
 
-  // ---- setup commands ------------------------------------------------------
-  rule <k> useResMap(rmPQ) => .K ... </k>
-       <resmap> _M:Map
-         => stK(appA, 7) |-> resP  stK(appB, 3) |-> resP
-            stK(appC, 0) |-> resQ  stK(appD, 0) |-> resQ
-       </resmap>
-  rule <k> useResMap(rmNone) => .K ... </k>
-       <resmap> _M:Map => .Map </resmap>
-
-  rule <k> useRegistryG(K2:RegistryKindG) => .K ... </k>
-       <registry> _R:Set => pickRegistryG(K2) </registry>
-       <authorities> _As:Set
-         => SetItem(appA) |Set SetItem(appB) |Set SetItem(appC) |Set SetItem(appD)
-       </authorities>
-       <gateopen> false </gateopen>          // T3/A5: setup-phase only (blocked mid-transition below)
-
-  // T3 (assumption A5): the obligation registry is protocol-authored — a
-  // transition may not switch registries MID-TRANSITION (fail-closed).
-  rule <k> useRegistryG(_:RegistryKindG) ~> _REST:K => .K </k>
-       <gateopen> true </gateopen>
-       <result> _R:String => "blocked-registry-mutable" </result>
-       <prospective> _P:Map => .Map </prospective>
-       <usage-p> _UP:Map => .Map </usage-p>
+  // Phase 1V: the setup-command block is REMOVED — useResMap (both preset
+  // rules) and useRegistryG (both rules) are gone. <resmap> and <registry>
+  // have NO writer in the semantics; they are read by applicableGen / the
+  // gate only. Configuration is via the trusted harness (initial
+  // configuration). See A7.
+  // NOTE (1V): the 1U useResMap/useRegistryG rules were the ONLY writers of
+  // <resmap>/<registry>/<authorities>; with useRegistryG gone, authorities
+  // are independently configured and never mutated.
 
   // ---- wfCheck: PHYSICAL effect completeness (Γ* ⊆ Γ̂ at StKey granularity) -
   // Under enforce, the declared physical footprint must cover the true one.
@@ -697,15 +735,32 @@ endmodule
 //       consumes that relation as data and enforces obligations uniformly over
 //       its closure. Classified ASSUMED; a wrong or incomplete resmap is a
 //       modeling error outside the calculus (see report limitations).
+//       (Phase 1V: the resmap VALUE is supplied once by the trusted harness
+//       via the initial configuration — pickResMap($RESMAP) — and NO rule
+//       writes the cell; the 1U useResMap command, which any transition
+//       could invoke at ANY time (no guard at all), is removed.)
 //   A6. <cap>/<parent> (granted capacity and delegation tree) are external
 //       model inputs for the minimal bounded-delegation topology; the
 //       aggregate obligation is evaluated from them, not asserted.
-//   A7. (Phase 1U, T3) Policy and registry selection are PROTOCOL-AUTHORED
-//       configuration: within an open gate interval the transition cannot
-//       mutate <policy>/<registry> (setPolicy/useRegistryG are setup-phase
-//       commands, blocked mid-transition by the blocked-*-mutable rules).
-//       The one-shot gate state <gateopen> (T2) opens on a valid begin and
+//       (Phase 1V: they are supplied once by the trusted harness via the
+//       initial configuration ($CAP/$PARENT) and NO rule writes the cells;
+//       the 1U grant command — reachable mid-transition with NO guard,
+//       letting a transition raise its own delegation bounds — is removed.)
+//   A7. (Phase 1V, T3-v2) Policy, registry, authorities, the alias table,
+//       and the capability configuration are PROTOCOL-OWNED trusted model
+//       configuration: they enter ONLY through the initial configuration
+//       ($POLICY/$REGISTRYG/$AUTHORITIES/$RESMAP/$CAP/$PARENT supplied by
+//       the trusted harness) and NO rule in the semantics writes those
+//       cells. The untrusted transition-program grammar cannot name them
+//       (setPolicy/useRegistryG/useResMap/grant are removed), so the
+//       transition cannot select or change any of them before the first
+//       transition, during one, or between transitions — a configuration-
+//       mutation attempt is UNREPRESENTABLE (parse-time rejection). The
+//       one-shot gate state <gateopen> (T2) opens on a valid begin and
 //       closes on every gate path; a closed-interval gate fails closed.
+//       A wrong or adversarially authored configuration SUPPLIED BY THE
+//       HARNESS is outside the evaluated model (the harness is the trust
+//       boundary; the residual is registered, not hidden).
 // =============================================================================
 
 // =============================================================================

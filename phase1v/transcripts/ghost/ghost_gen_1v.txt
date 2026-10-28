@@ -1,0 +1,21 @@
+/home/z/my-project/srw3-1v/scripts/gen_ghost_artifact.py:119: SyntaxWarning: invalid escape sequence '\ '
+  //   InitialSafe(P, sigma_0) /\ SecurityClosed(P)  ->  forall n. Safe(P, sigma_n)
+written: /home/z/my-project/srw3-1v/proofs/induction_ghost.k (976 lines)
+faithfulness: 602/602 source lines matched in order: PASS
+
+--- complete ghost delta (the ONLY edits to the copied semantics) ---
+//     scripts/audit_ghost_faithful.py); the ONLY edit class is //GHOST:-marked
+  syntax Ghost ::= "G" "(" Int "," Int ")" | "GW" "(" AppId "," Int "," Ghost "," Int ")"   //GHOST:
+  syntax GateRun ::= "chkG" | "chkM" | "tB" "(" Int ")" ":" GateRun   //GHOST:
+  syntax Bool ::= "ghostSafe" "(" Ghost ")" [function, total]   //GHOST:
+  syntax Bool ::= "ghostMatches" "(" Ghost "," st:Map ")" [function, total]   //GHOST:
+  syntax Ghost ::= "ghostApply" "(" Ghost "," st:Map ")" [function, total]   //GHOST:
+  syntax Ghost ::= "ghostUndo" "(" Ghost ")" [function, total]   //GHOST:
+  syntax Set ::= "gAUTH" "(" ")" [function, total]   //GHOST:
+  syntax Bool ::= "safeMin" "(" st:Map ")" [function, total]   //GHOST:
+                  <ghost> G(0, 0) </ghost>   // invariant-as-data certificate  //GHOST:
+       <ghost> Gh:Ghost => GW(I, S, Gh, V) </ghost>   // pending-write record  //GHOST:
+       <ghost> Gh:Ghost => ghostApply(Gh, P) </ghost>   // certificate apply at commit  //GHOST:
+       <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject  //GHOST:
+       <ghost> Gh:Ghost => ghostUndo(Gh) </ghost>   // certificate undo at reject-auth  //GHOST:
+--- 14 //GHOST: lines; all other copied lines byte-identical ---

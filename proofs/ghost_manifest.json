@@ -1,9 +1,9 @@
 {
   "baseline": {
-    "path": "/home/z/my-project/srw3-kevm/k/srw3.k",
-    "slice_start": 37,
-    "slice_end": 607,
-    "sha256": "dce1dfd93852a6e0c6cfebdec0fe29d14b6892b1cf85c52e49b9de9262d84c52"
+    "path": "/home/z/my-project/srw3-1v/k/srw3.k",
+    "slice_start": 62,
+    "slice_end": 663,
+    "sha256": "f683691741183abe221fbadb6925e3b25ec5c787d9a9a009c992f03bf475ba31"
   },
   "header": {
     "line_count": 57,
@@ -154,7 +154,7 @@
     "sha256": "2e2bd3567ef429bb34712c73289c7f270fe6c8b4d0b1a96534fc8b78e9952109"
   },
   "artifact": {
-    "path": "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k",
-    "sha256": "8eee7c52310646410a3b1a4364bb8d036cce06e7294f1e80e59849ecf5ae2335"
+    "path": "/home/z/my-project/srw3-1v/proofs/induction_ghost.k",
+    "sha256": "19bd805a9bef6556470a7a8edbb069612d9d9b0fb1082b6ebc155c71e14231dd"
   }
 }

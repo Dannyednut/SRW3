@@ -4,8 +4,11 @@ Emits /tmp/ghost_claims/c_<LABEL>.k with module SRW3-GC-<LABEL> containing the
 single claim, and prints the label list."""
 import re, os, sys
 
-ART = "/home/z/my-project/srw3-kevm/proofs/induction_ghost.k"
-OUTDIR = "/tmp/ghost_claims"
+# Phase 1V: repo-relative artifact path; per-claim specs go into a UNIQUE
+# temp directory (no shared /tmp state across runs) that the caller removes.
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ART = os.path.join(_REPO, "proofs", "induction_ghost.k")
+OUTDIR = os.environ.get("GHOST_CLAIMS_DIR") or "/tmp/ghost_claims"
 os.makedirs(OUTDIR, exist_ok=True)
 
 text = open(ART).read()

@@ -6,7 +6,9 @@ containing the single claim, and prints the label list."""
 import re, os, sys
 
 art, obsmod, prefix = sys.argv[1], sys.argv[2], sys.argv[3]
-OUTDIR = "/tmp/gen_claims"
+# Phase 1V: optional 4th arg = output dir (unique per run); default preserves
+# the historical /tmp/gen_claims location.
+OUTDIR = sys.argv[4] if len(sys.argv) > 4 else "/tmp/gen_claims"
 os.makedirs(OUTDIR, exist_ok=True)
 
 text = open(art).read()
@@ -20,7 +22,7 @@ chunks = re.findall(
 if not chunks:
     sys.exit("FATAL: no claims extracted")
 labels = []
-relpath = os.path.relpath(art, "/tmp/gen_claims")
+relpath = os.path.relpath(art, OUTDIR)
 for ch in chunks:
     lab = re.search(r"label\(([A-Za-z0-9-]+)\)", ch).group(1)
     labels.append(lab)

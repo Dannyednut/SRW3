@@ -1,0 +1,1 @@
+init(oracle,0,100) , init(oracle,1,1) , init(lending,0,100) , init(lending,1,100) , as(lending) , begin , rd(oracle) , w(lending,0,100) , probeApplicable

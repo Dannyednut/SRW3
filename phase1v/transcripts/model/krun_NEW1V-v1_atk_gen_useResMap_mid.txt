@@ -1,0 +1,13 @@
+[Error] Inner Parser: Parse error: unexpected token 'useResMap' following token
+','.
+	Source(/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_useResMap_mid.srw3)
+	Location(1,68,1,77)
+	1 |	init(appA,7,5) , init(appB,3,0) , as(appB) , begin , w(appA,7,6) ,
+useResMap(rmNone) , w(appB,3,9) , wfCheck , gate
+	  .	                                                                  
+^~~~~~~~~
+[Error] kparse: /home/z/my-project/tools1v/extract/k/usr/bin/kast --output kore 
+--definition /tmp/srw3-1v-run2/d-new1v-gen 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_useResMap_mid.srw3
+[Error] krun: kparse --definition /tmp/srw3-1v-run2/d-new1v-gen 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_gen_useResMap_mid.srw3

@@ -1,0 +1,93 @@
+claim_id,expectation,class,source,exit_code,budget_s,note
+OLD1U-p1u_policy_prebegin,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_policy_prebegin: OK result=""commit"" cells=1 asserted]; policy=trust BEFORE the first begin admits the hidden write (appC->11 COMMITTED)"
+OLD1U-p1u_policy_between,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_policy_between: OK result=""commit"" cells=1 asserted]; policy downgrade BETWEEN transitions admits the hidden write (appC->11 COMMITTED)"
+OLD1U-p1u_registry_prebegin,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_registry_prebegin: OK result=""commit"" cells=2 asserted]; incomplete registry BEFORE begin commits the IAB violation (10+10=20)"
+OLD1U-p1u_registry_between,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_registry_between: OK result=""commit"" cells=2 asserted]; incomplete registry BETWEEN transitions commits the IAB violation"
+OLD1U-p1u_init_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject +cells]; observed [OLD1U-p1u_init_mid: OK result=""reject"" cells=1 asserted]; mid-transition init CORRUPTS committed state on the reject path (appA->999, never gated)"
+OLD1U-p1u_resmap_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_resmap_mid: OK result=""commit"" cells=2 asserted]; MID-TRANSITION useResMap(rmNone) wipes the alias table; IRP 6+9=15>10 COMMITS"
+OLD1U-p1u_resmap_prebegin,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_resmap_prebegin: OK result=""commit"" cells=2 asserted]; empty alias table selected BEFORE begin; IRP 6+9=15>10 COMMITS"
+OLD1U-p1u_grant_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_grant_mid: OK result=""commit"" cells=1 asserted]; MID-TRANSITION grant raises own delegation bounds; usage 1000 COMMITS (budget 6/10)"
+OLD1U-p1u_grant_between,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1U-p1u_grant_between: OK result=""commit"" cells=1 asserted]; grant BETWEEN transitions raises bounds; usage 1001 COMMITS (budget 6/10)"
+NEW1V-v1_atk_policy_prebegin,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'setPolicy']; observed [rc=113 + 'setPolicy']; unrepresentable at parse time
+NEW1V-v1_atk_policy_between,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'setPolicy']; observed [rc=113 + 'setPolicy']; unrepresentable at parse time
+NEW1V-v1_atk_registry_prebegin,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'useRegistry']; observed [rc=113 + 'useRegistry']; unrepresentable at parse time
+NEW1V-v1_atk_registry_between,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'useRegistry']; observed [rc=113 + 'useRegistry']; unrepresentable at parse time
+NEW1V-v1_atk_gen_useResMap_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'useResMap']; observed [rc=113 + 'useResMap']; unrepresentable at parse time
+NEW1V-v1_atk_gen_grant_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'grant']; observed [rc=113 + 'grant']; unrepresentable at parse time
+NEW1V-v1_atk_gen_setPolicy_mid,PASS,control,phase1v/tests/run_1v_model_tests.sh,113,120,parse-reject; expected [rc!=0 + 'setPolicy']; observed [rc=113 + 'setPolicy']; unrepresentable at parse time
+NEW1V-v1_atk_init_mid,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [blocked-init-open +cells]; observed [NEW1V-v1_atk_init_mid: OK result=""blocked-init-open"" cells=3 asserted]; mid-transition init BLOCKED; committed state intact (no 999 corruption)"
+NEW1V-v1_atk_as_mid,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [blocked-actor-switch-open +cells]; observed [NEW1V-v1_atk_as_mid: OK result=""blocked-actor-switch-open"" cells=2 asserted]; mid-transition as() BLOCKED (would-be identity swap to the only authority is refused)"
+NEW1V-v1_atk_config_immutable,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [blocked-effect-incomplete +cells]; observed [NEW1V-v1_atk_config_immutable: OK result=""blocked-effect-incomplete"" cells=5 asserted]; maximal in-grammar attack: hidden write BLOCKED by enforce; policy/registry/authorities unchanged"
+NEW1V-t1_probe_only_violation,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [""false""]; observed [NEW1V-t1_probe_only_violation: OK result=""false"" cells=0 asserted]; mixed-registry probe: IOL obligation IS applicable on the violating state (allHold=false)"
+NEW1V-t1_probe_only_ok,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [""true""]; observed [NEW1V-t1_probe_only_ok: OK result=""true"" cells=0 asserted]; mixed-registry probe: honest state satisfies all applicable obligations"
+NEW1V-t1_mixed_probe_violation,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject]; observed [NEW1V-t1_mixed_probe_violation: OK result=""reject"" cells=0 asserted]; mixed registry + IOL violation -> reject (bareEdge cannot drop the obligation)"
+NEW1V-t1_mixed_probe_ok,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit]; observed [NEW1V-t1_mixed_probe_ok: OK result=""commit"" cells=0 asserted]; mixed registry + honest transition -> commit preserved"
+NEW1V-t1_pairwise_violation,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject]; observed [NEW1V-t1_pairwise_violation: OK result=""reject"" cells=0 asserted]; pairwise registry (bareEdge present) + IOL violation -> reject"
+NEW1V-t1_pairwise_ok,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit]; observed [NEW1V-t1_pairwise_ok: OK result=""commit"" cells=0 asserted]; pairwise registry + honest transition -> commit preserved"
+OLD1T-t1_mixed_probe_violation,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject]; observed [OLD1T-t1_mixed_probe_violation: OK result=""reject"" cells=0 asserted]; RECORDED 1U outcome: the 2-element mixed probe is decomposition-masked on the OLD model (rejects anyway)"
+OLD1T-t1_probe_only_violation,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [false]; observed [OLD1T-t1_probe_only_violation: OK result=""false"" cells=0 asserted]; RECORDED 1U outcome: OLD probe=false = the obligation IS still applicable on THIS 2-element decomposition (masked at gate level -> reject); the pairwise shape below exposes the actual drop"
+OLD1T-t1_pairwise_violation,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [OLD1T-t1_pairwise_violation: OK result=""commit"" cells=1 asserted]; RECORDED 1U outcome: OLD pairwise registry IMPROPERLY COMMITS the IOL violation"
+NEW1V-t2_valid_begin_gate,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [NEW1V-t2_valid_begin_gate: OK result=""commit"" cells=5 asserted]; valid transition unchanged under the trusted configuration boundary"
+NEW1V-t2_double_gate,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [gate-closed +cells]; observed [NEW1V-t2_double_gate: OK result=""gate-closed"" cells=3 asserted]; second gate fails closed; committed state intact"
+NEW1V-t2_gate_no_begin,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [gate-closed +cells]; observed [NEW1V-t2_gate_no_begin: OK result=""gate-closed"" cells=3 asserted]; gate without begin fails closed; nothing committed"
+NEW1V-t2_reject_then_gate,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [gate-closed +cells]; observed [NEW1V-t2_reject_then_gate: OK result=""gate-closed"" cells=2 asserted]; reject then second gate: closed; committed state intact"
+NEW1V-t2_double_begin,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [blocked-begin-open +cells]; observed [NEW1V-t2_double_begin: OK result=""blocked-begin-open"" cells=2 asserted]; nested begin blocked"
+OLD1T-t2_double_gate,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit]; observed [OLD1T-t2_double_gate: OK result=""commit"" cells=0 asserted]; RECORDED 1U outcome: OLD double-gate commits the EMPTY map (re-entrancy erasure)"
+OLD1T-t2_gate_no_begin,PASS,control,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit]; observed [OLD1T-t2_gate_no_begin: OK result=""commit"" cells=0 asserted]; RECORDED 1U outcome: OLD gate-without-begin commits the EMPTY map"
+NEW1V-gen_valid,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [NEW1V-gen_valid: OK result=""commit"" cells=3 asserted]; gen honest transition via the trusted configuration boundary"
+NEW1V-gen_alias_violation,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject +cells]; observed [NEW1V-gen_alias_violation: OK result=""reject"" cells=2 asserted]; gen alias-resource violation (IRP 6+9=15>10) REJECTED under the protocol-owned resmap"
+NEW1V-gen_cap_valid,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [commit +cells]; observed [NEW1V-gen_cap_valid: OK result=""commit"" cells=1 asserted]; gen authority consumption within the protocol-owned caps commits (6<=6, 6<=10)"
+NEW1V-gen_cap_violation,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [reject +cells]; observed [NEW1V-gen_cap_violation: OK result=""reject"" cells=1 asserted]; gen authority consumption beyond the protocol-owned cap rejected (7>6)"
+NEW1V-gen_double_gate,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [gate-closed +cells]; observed [NEW1V-gen_double_gate: OK result=""gate-closed"" cells=2 asserted]; gen second gate fails closed"
+NEW1V-gen_gate_no_begin,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [gate-closed +cells]; observed [NEW1V-gen_gate_no_begin: OK result=""gate-closed"" cells=1 asserted]; gen gate without begin fails closed"
+NEW1V-gen_double_begin,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,"krun; expected [blocked-begin-open +cells]; observed [NEW1V-gen_double_begin: OK result=""blocked-begin-open"" cells=1 asserted]; gen nested begin blocked"
+NEW1V-claims-1-4,PASS,regression,phase1v/tests/run_1v_model_tests.sh,0,120,kprove; expected [rc=0 + #Top]; observed [rc=0 + #Top]; wall=7s
+NEW1V-negative-control,PASS,regression,phase1v/tests/run_1v_model_tests.sh,1,120,kprove; expected [rc=1 (refuted)]; observed [rc=1]; wall=6s
+ghost-exact-fidelity,PASS,fidelity,phase1v/proofs/run_1v_ghost.sh,0,120,fidelity; expected [rc=0 PASS]; observed [rc=0]; audit_ghost_exact.py verify
+ghost-GH-BASE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-A,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-R,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-SOUND-I,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=5s
+ghost-GH-SOUND-F,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GATE-AGREE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-ISO,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-T1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-T,PASS,control,phase1v/proofs/run_1v_ghost.sh,1,120,kprove; expected [rc=1 (FAILED)]; observed [rc=1 #Top=0]; wall=6s
+ghost-GH-T2,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=6s
+ghost-GH-M,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0 #Top=1]; wall=5s
+ghost-GH-T2-NEG,PASS,control,phase1v/proofs/run_1v_ghost.sh,1,120,kprove; expected [rc=1 (FAILED)]; observed [rc=1 #Top=0]; wall=7s
+ghost-SRW3G2-GH2-BASE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-A,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-R,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G2-GH2-A1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-SOUND-I,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G2-GH2-SOUND-F,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G2-GATE2-AGREE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G2-GH2-ISO,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-T1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G2-GH2-T2,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-M,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G2-GH2-NEG,PASS,control,phase1v/proofs/run_1v_ghost.sh,1,120,kprove; expected [rc=1 (FAILED)]; observed [rc=1]; wall=8s
+ghost-SRW3G3-GH3-BASE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G3-GH3-A,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-R,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G3-GH3-A1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-SOUND-I,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G3-GH3-SOUND-F,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G3-GATE3-AGREE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-ISO,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-T1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-T2,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G3-GH3-M,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G3-GH3-NEG,PASS,control,phase1v/proofs/run_1v_ghost.sh,1,120,kprove; expected [rc=1 (FAILED)]; observed [rc=1]; wall=7s
+ghost-SRW3G4-GH4-BASE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G4-GH4-A,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G4-GH4-R,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G4-GH4-SOUND-I,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G4-GH4-SOUND-F,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=7s
+ghost-SRW3G4-GATE4-AGREE,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=6s
+ghost-SRW3G4-GH4-ISO,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G4-GH4-T1,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G4-GH4-T2,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G4-GH4-M,PASS,proved,phase1v/proofs/run_1v_ghost.sh,0,120,kprove; expected [rc=0 (PROVED)]; observed [rc=0]; wall=8s
+ghost-SRW3G4-GH4-NEG,PASS,control,phase1v/proofs/run_1v_ghost.sh,1,120,kprove; expected [rc=1 (FAILED)]; observed [rc=1]; wall=8s

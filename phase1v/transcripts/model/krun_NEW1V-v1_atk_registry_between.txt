@@ -1,0 +1,14 @@
+[Error] Inner Parser: Parse error: unexpected token 'useRegistry' following
+token ','.
+	Source(/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_registry_between.srw3)
+	Location(1,85,1,96)
+	1 |	init(appA,0,7) , init(appB,0,3) , as(appB) , begin , w(appB,0,2) , wfCheck
+, gate , useRegistry(negative) , begin , w(appA,0,10) , w(appB,0,10) , wfCheck
+, gate
+	  .	                                                                          
+         ^~~~~~~~~~~
+[Error] kparse: /home/z/my-project/tools1v/extract/k/usr/bin/kast --output kore 
+--definition /tmp/srw3-1v-run2/d-new1v 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_registry_between.srw3
+[Error] krun: kparse --definition /tmp/srw3-1v-run2/d-new1v 
+/home/z/my-project/srw3-1v/phase1v/tests/demos/v1_atk_registry_between.srw3

@@ -1,0 +1,44 @@
+## SRW3 Phase 1V — 1U compat-wrapper demonstration run (capture 1: KOM stage)
+## date: 2026-10-28T03:34:28Z; toolchain: /bin/bash: line 1: kompile: command not found / z3 4.13.3
+
+[1U-COMPAT] provisioning /tmp/p1u-old-harness from committed repository objects
+[1U-COMPAT] harness transformation verified: only the require path differs
+[1U-COMPAT] exec: bash phase1u/tests/run_1u_model_tests.sh KOM
+[1U-MODEL] kompile OLD (1T tip) srw3.k
+[1U-MODEL]   old rc=0
+[1U-MODEL] kompile NEW srw3.k
+[1U-MODEL]   new rc=0
+[1U-MODEL] kompile NEW srw3gen.k
+[1U-MODEL]   gen rc=0
+[1U-MODEL] kompile NEW T1 harness (requires the NEW srw3.k)
+[1U-MODEL]   harness-new rc=0
+[1U-MODEL] kompile OLD T1 harness (requires the OLD srw3.k copy)
+[1U-MODEL]   harness-old rc=0
+[1U-MODEL] stages done: KOM
+[1U-COMPAT] provisioning /tmp/p1u-old-harness from committed repository objects
+[1U-COMPAT] harness transformation verified: only the require path differs
+[1U-COMPAT] exec: bash phase1u/tests/run_1u_model_tests.sh T1 T2 T3 GEN CLM
+NEW-t1-mixed-probe-violation | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect probe=false gate=reject (fixed: IOL enforced)
+NEW-t1-mixed-probe-ok | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect probe=true gate=commit (honest accept preserved)
+NEW-t1-pairwise-violation | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect reject (IOL edge enforced regardless of bareEdge)
+NEW-t1-pairwise-ok | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect commit (honest accept preserved)
+OLD-t1-mixed-probe-violation | result="reject" | committed=stK (... app: lending , slot: 0 ) |-> 100 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1 | head=rootC | lineageNext=0 | gateopen=? | record actual (buggy: probe may be true = obligation dropped)
+OLD-t1-pairwise-violation | result="commit" | committed=stK (... app: lending , slot: 0 ) |-> 90 stK (... app: lending , slot: 1 ) |-> 5 stK (... app: oracle , slot: 0 ) |-> 100 stK (... app: oracle , slot: 1 ) |-> 1 | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: may improperly commit)
+NEW-t2-double-gate | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect commit then gate-closed; committed=(7,2) intact; lineageNext=1
+NEW-t2-gate-no-begin | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect gate-closed; committed={appA->7} intact; lineageNext=0
+NEW-t2-reject-then-gate | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect reject then gate-closed; committed unchanged
+NEW-t2-double-begin | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect blocked-begin-open; no commit
+NEW-t2-valid-begin-gate | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect commit (normal transition unchanged)
+OLD-t2-double-gate | result="commit" | committed=.Map | head=commit ( 1 ) | lineageNext=2 | gateopen=? | record actual (buggy: second gate commits EMPTY map)
+OLD-t2-gate-no-begin | result="commit" | committed=.Map | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: gate without begin commits EMPTY map)
+NEW-t3-policy-mid | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect blocked-policy-mutable (mid-transition policy switch refused)
+NEW-t3-registry-mid | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect blocked-registry-mutable (mid-transition registry switch refused)
+OLD-t3-policy-mid | result="commit" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 2 stK (... app: appC , slot: 0 ) |-> 11 | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: trust switch mid-transition admits hidden write)
+OLD-t3-registry-mid | result="commit" | committed=stK (... app: appA , slot: 0 ) |-> 7 stK (... app: appB , slot: 0 ) |-> 7 | head=commit ( 0 ) | lineageNext=1 | gateopen=? | record actual (buggy: negative registry switch admits IAB violation)
+NEW-gen-double-gate | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect commit then gate-closed (gen model fixed)
+NEW-gen-gate-no-begin | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect gate-closed (gen model fixed)
+NEW-gen-double-begin | result=? | committed=? | head=? | lineageNext=? | gateopen=? | expect blocked-begin-open (gen model fixed)
+[1U-MODEL] kprove Claims 1-4 + negative control on the FIXED model
+[1U-MODEL]   claims rc=0 (#Top: 1) wall=7s
+[1U-MODEL]   negative control rc=1 (non-zero = correctly fails)
+[1U-MODEL] stages done: T1 T2 T3 GEN CLM

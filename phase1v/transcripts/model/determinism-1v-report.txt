@@ -1,0 +1,8 @@
+SRW3 Phase 1V — two-run determinism comparison (model regression script)
+run 1: workspace /tmp/srw3-1v-run1 (isolated; empty temp state)
+run 2: workspace /tmp/srw3-1v-run2 (isolated; no shared state with run 1)
+rows: run1=44 run2=44
+logical verdicts (tag,class,rc,expected,verdict): IDENTICAL
+verdict totals: run1 OK=44/44, run2 OK=44/44
+differences explained: wall-time notes only (excluded from the comparison key);
+no logical verdict differs between the two runs.

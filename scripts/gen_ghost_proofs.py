@@ -14,9 +14,11 @@ The audit script (audit_ghost_gen.py) independently re-verifies:
 """
 import json, os, hashlib
 
-BASE = "/home/z/my-project/srw3-kevm"
+# Phase 1V: repo-relative (the script lives in <repo>/scripts).
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEM = os.path.join(BASE, "k/srw3gen.k")
 OUTDIR = os.path.join(BASE, "proofs/gen")
+FRAGS = os.path.join(BASE, "scripts/gen_fragments")
 os.makedirs(OUTDIR, exist_ok=True)
 
 sem = open(SEM).read()
@@ -62,7 +64,7 @@ for name, sp in SPECS.items():
     ins = []
     # ghost syntax insert: inside SRW3G-SYNTAX, before its endmodule (the
     # configuration parser in SRW3G-STATE must see the ghost constructors)
-    frag_raw = open(os.path.join("/home/z/my-project/scripts/gen_fragments", sp["frag"])).read()
+    frag_raw = open(os.path.join(FRAGS, sp["frag"])).read()
     frag_syntax, _m, frag_modules = frag_raw.partition("####MODULES####")
     frag_syntax = frag_syntax.replace("####SYNTAX-INSERT####\n", "")
     SYN_ANCHOR = '  syntax Srw3PgmG ::= List{Srw3CmdG,","}\nendmodule'

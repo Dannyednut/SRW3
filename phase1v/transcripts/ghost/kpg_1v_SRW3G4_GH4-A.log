@@ -1,0 +1,196 @@
+#Top
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(293,48,293,52)
+	293 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(294,42,294,43)
+	294 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(300,34,300,38)
+	300 |	  rule lookupU(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A ==K
+A2
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(306,36,306,40)
+	306 |	  rule lookupCap(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A
+==K A2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(315,53,315,57)
+	315 |	  rule resolve(stK(A:AppId, S:Int) |-> R:ResourceId REST:Map, K2:StKey)
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(436,35,436,36)
+	436 |	  rule applicableGen(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                  ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(444,36,444,37)
+	444 |	  rule applicableGen(SetItem(edgeR(J:InvId, Rs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(452,36,452,37)
+	452 |	  rule applicableGen(SetItem(edgeA(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(894,18,894,19)
+	894 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1v/proofs/gen/gen_full.k)
+	Location(895,38,895,39)
+	895 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(10,68,10,71)
+	10 |	                stK(appC, 0) |-> Z3:Int stK(appD, 0) |-> Z4:Int =>
+?C2:Map </committed>
+	   .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(11,19,11,21)
+	11 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	   .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(11,29,11,32)
+	11 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	   .	                            ^~~
+[Warning] Compiler: Variable '?UC2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(12,50,12,54)
+	12 |	    <usage-c> appC |-> U1:Int appD |-> U2:Int => ?UC2:Map </usage-c>
+	   .	                                                 ^~~~
+[Warning] Compiler: Variable 'UP2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(13,15,13,18)
+	13 |	    <usage-p> UP2:Map => ?UP3:Map </usage-p>
+	   .	              ^~~
+[Warning] Compiler: Variable '?UP3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(13,26,13,30)
+	13 |	    <usage-p> UP2:Map => ?UP3:Map </usage-p>
+	   .	                         ^~~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(17,19,17,21)
+	17 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(17,29,17,32)
+	17 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(18,19,18,21)
+	18 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(18,29,18,32)
+	18 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(24,14,24,17)
+	24 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(24,25,24,29)
+	24 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(25,15,25,18)
+	25 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(25,26,25,30)
+	25 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(26,19,26,21)
+	26 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(26,29,26,32)
+	26 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(27,12,27,15)
+	27 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(27,30,27,34)
+	27 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(28,14,28,16)
+	28 |	    <result> R1:String => ?R2:String </result>
+	   .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(28,27,28,30)
+	28 |	    <result> R1:String => ?R2:String </result>
+	   .	                          ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1v-ghostgen-7mMoy4/gen-SRW3G4/SRW3G4_GH4-A.k)
+	Location(29,67,29,71)
+	29 |	    <ghost> GG(X1:Int, X2:Int, Z3:Int, Z4:Int, U1:Int, U2:Int) =>
+?Gh2:Ghost4 </ghost>
+	   .	                                                                  ^~~~
