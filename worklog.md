@@ -2342,3 +2342,46 @@ Stage Summary:
   examiner-report archival (BLOCKED), the crosswalk, and all Level-III
   boundaries remain exactly as open as recorded (R1–R14). No completion
   tag.
+
+Task ID: 1W-PUSH-LANDING (follow-up session, 2026-10-29)
+Agent: Super Z (main)
+Task: land the BLOCKED phase1v/phase1w pushes after owner-supplied credential
+
+Work Log (every command's actual exit status):
+- Prior-session workspace recovered from the preserved snapshot; bundles
+  copied to download/ and re-verified BEFORE any push:
+  sha256sum srw3-phase1v-branch.bundle -> 9c67aad4527483879208aa3607d27b9106
+  ee9736f5ff5b9be33c5a86da1c85b7 (EXACT match to the 1W delivery manifest);
+  sha256sum srw3-phase1w-branch.bundle -> 2cee9b02a92316d490ada96741359e9ca5
+  df354e71e7147899fb06267394eba9 (EXACT match); exit 0 both.
+- git bundle verify (both bundles) -> OK, complete history; exit 0 both.
+- Round-trip clones of both bundles: heads 430f468/19990a5, 0 dirty files.
+- Ancestry: merge-base --is-ancestor 430f468 19990a5 -> exit 0;
+  parent(430f468)=c790c8c; 8697bd7..430f468=6 commits; 430f468..19990a5=4;
+  8697bd7..19990a5=10.
+- Pre-push git ls-remote (credential-free): HEAD symref phase1u-model-hygiene
+  at 8697bd744faee0b17156393fd8f57dd87e51598e; both target branches ABSENT.
+- git push (create-only, no --force) phase1v-configuration-ownership ->
+  [new branch], exit 0; git push phase1w-boundary-audit -> [new branch],
+  exit 0. Token used inline via x-access-token URL; NOT stored in any
+  config, file, or this repository.
+- Post-push git ls-remote: remote heads 430f468/19990a5 EXACT equality with
+  local; HEAD symref unchanged (phase1u-model-hygiene @ 8697bd7).
+- Fresh clone of github.com/Dannyednut/SRW3: both branches checkout clean
+  (0 dirty each); ancestry holds; 8697bd7..19990a5=10 on the GitHub copy;
+  ref delta = exactly the two new branch refs (25->27 branch refs); scratch
+  clone removed after verification.
+- Landing-record file written to download/SRW3-Phase1W-Push-Landing-Record.md
+  (workspace copy; the 2026-10-28 delivery manifest preserved verbatim).
+- Owner instruction "continue using the same PAT for pushes": this
+  documentation-only landing-note commit appended (append-only): in-repo
+  phase1w/report/push-landing-record.md; STATE-OF-RECORD.md dated "Phase 1W
+  push-landing note (2026-10-29)" appended (BLOCKED narrative above it
+  preserved verbatim); README.md dated follow-up block inserted (stale
+  wording retained as the historical record); this worklog entry.
+
+Stage Summary:
+- PUSHED AND REMOTE-VERIFIED: both delivered branch heads are on GitHub
+  bit-identical to the verified bundles; the default branch was NOT
+  changed; no history rewrite; no force-push; no completion tag.
+- Verdict unchanged: PARTIALLY COMPLETE; R1-R14 unchanged by the landing.

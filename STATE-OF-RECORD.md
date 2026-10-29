@@ -238,3 +238,39 @@ git push origin phase1w-boundary-audit                  # lands the 1W branch
 The GitHub default branch remains the owner-selected `phase1u-model-hygiene`
 (re-verified live this session via `git ls-remote --symref`); no default-branch
 change is requested by Phase 1W.
+
+## Phase 1W push-landing note (2026-10-29)
+
+The BLOCKED push status above is superseded, not rewritten: on 2026-10-29 an
+owner-supplied credential landed BOTH undelivered phase branches on GitHub
+exactly as the delivery note instructed. Per-branch evidence (full detail in
+`phase1w/report/push-landing-record.md`):
+
+- Both transferable bundles were re-verified from scratch in the landing
+  session BEFORE any push: sha256 `9c67aad4527483879208aa3607d27b9106ee9736f5ff5b9be33c5a86da1c85b7`
+  (1V) and `2cee9b02a92316d490ada96741359e9ca5df354e71e7147899fb06267394eba9`
+  (1W) — both EXACTLY the digests of record; `git bundle verify` OK (complete
+  history); round-trip clones clean.
+- Pre-push remote state (credential-free `git ls-remote`): default branch
+  `phase1u-model-hygiene` at `8697bd744faee0b17156393fd8f57dd87e51598e`;
+  BOTH phase branches ABSENT — consistent with the BLOCKED record.
+- `git push` (create-only, no `--force`): `phase1v-configuration-ownership`
+  → `[new branch]`, exit 0; `phase1w-boundary-audit` → `[new branch]`, exit 0.
+- Post-push `git ls-remote`: remote heads `430f46858168f0477c1296ba9cc895b3f44e89be`
+  and `19990a53f6d249871509d0a9875a1ac85c3d2b98` — EXACT equality with the
+  delivered heads (the commit ID covers the full object DAG); a fresh GitHub
+  clone checks out both branches clean with identical ancestry
+  (`8697bd7..19990a5` = 10 commits); exactly the two branch refs were added;
+  the default branch was NOT changed.
+- A dated landing-note commit (documentation only: this note, the README
+  follow-up, `phase1w/report/push-landing-record.md`, the worklog entry) was
+  appended on the owner's instruction ("continue using the same PAT for
+  pushes"); the delivered review state `19990a5` remains verbatim-reviewable
+  (`git diff 19990a5..HEAD` is docs-only); no history rewrite; no force-push;
+  no completion tag. The branch head is always authoritative
+  (`git rev-parse phase1w-boundary-audit`).
+
+The verdict remains **PARTIALLY COMPLETE**; the residual register R1–R14 is
+unchanged by the landing. The GitHub default branch remains
+`phase1u-model-hygiene` — selecting the post-review default is the owner's
+call, as before.

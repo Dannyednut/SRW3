@@ -22,6 +22,17 @@ verified transferable bundle (push blocked; see STATE-OF-RECORD) and
 a divergent early-phase archive kept for provenance; `phase1b` remains an
 early-phase snapshot.
 
+> **[Push-landing follow-up, 2026-10-29.]** Both delivered branches are NOW
+> ON GITHUB, landed verbatim from the verified bundles with an
+> owner-supplied credential: `phase1v-configuration-ownership` at
+> `430f46858168f0477c1296ba9cc895b3f44e89be` and `phase1w-boundary-audit` at
+> `19990a53f6d249871509d0a9875a1ac85c3d2b98` (create-only pushes, remote
+> heads verified equal, default branch unchanged). The "push blocked" wording
+> above is the dated 2026-10-28 record and is superseded, not rewritten —
+> full evidence in `phase1w/report/push-landing-record.md` and the dated
+> notes at the end of `STATE-OF-RECORD.md`. A documentation-only landing-note
+> commit sits on top of `19990a5` (`git diff 19990a5..HEAD` is docs-only).
+
 ## Phase topology (chronological)
 
 | Phase | Branch | One-line outcome |
