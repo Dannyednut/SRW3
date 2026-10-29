@@ -1,0 +1,96 @@
+{
+  "_comment": "SRW3 Phase 1X — the PINNED expected ghost-claim inventory. Independently maintained: each label list below was derived by extracting every 'label(...)' token from the COMMITTED claim-specification artifact named in 'artifact' (derivation command recorded per suite in phase1x/claims/INVENTORY-DERIVATION.md, at Phase 1X base commit 34ef2321f2875682bd03adf7eb5f601e256cf7ad). It is NOT copied from split_ghost_claims.py / split_gen_claims.py runtime output and NOT inferred from any ledger row count. The runner (phase1x/proofs/run_1x_ghost.sh) asserts the splitter output equals THIS list before invoking K; the gate (phase1x/scripts/summarize_1x.py) asserts the verdict ledger equals THIS set. Changing a list requires a reviewed commit on a phase branch (append-only history).",
+  "_status_vocabulary": "PROVED (rc=0 + >=1 '#Top' + no prover [Error] + no WarnStuckClaimState) | FAILED-STUCK (rc=1 + WarnStuckClaimState + 'backend terminated' prover error) | FAILED (rc=1 without the stuck signature) | TIMEOUT (rc=124) | NOT RUN (no execution result) | BLOCKED (environment unavailable). Evidence rules: phase1x/report §B; the observed status is the PROVER outcome; 'role' records the claim's design intent orthogonally (a designed negative may legitimately present the stuck signature; it must NEVER present rc=0).",
+  "main": {
+    "artifact": "proofs/induction_ghost.k",
+    "claims_module": "SRW3-GHOST-CLAIMS",
+    "spec_prefix": "SRW3-GC",
+    "splitter": "scripts/split_ghost_claims.py",
+    "tag_prefix": "ghost-",
+    "log_prefix": "kpg_1x_",
+    "labels": [
+      "GH-BASE", "GH-A", "GH-R", "GH-SOUND-I", "GH-SOUND-F", "GATE-AGREE",
+      "GH-ISO", "GH-T1", "GH-T", "GH-T2", "GH-M", "GH-T2-NEG"
+    ],
+    "expected_status": {
+      "GH-BASE": "PROVED", "GH-A": "PROVED", "GH-R": "PROVED",
+      "GH-SOUND-I": "PROVED", "GH-SOUND-F": "PROVED", "GATE-AGREE": "PROVED",
+      "GH-ISO": "PROVED", "GH-T1": "PROVED", "GH-T2": "PROVED", "GH-M": "PROVED",
+      "GH-T": "FAILED-STUCK", "GH-T2-NEG": "FAILED-STUCK"
+    },
+    "role": {
+      "GH-T": "designed minimal-destination probe of the forall-n theorem (register R5); must never close (rc=0) without a reviewed statement change",
+      "GH-T2-NEG": "designed non-vacuity control (the T2 form must NOT be provable without its side condition)"
+    },
+    "extra_rows": [
+      { "tag": "ghost-exact-fidelity", "class": "fidelity", "expected_status": "PROVED", "transcript": "phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt", "role": "the audit_ghost_exact.py byte-faithfulness certificate row (not a splitter label)" }
+    ]
+  },
+  "cm2_alias": {
+    "artifact": "proofs/gen/cm2_alias.k",
+    "obs_module": "SRW3G2",
+    "claims_module": "SRW3G2-GHOST-CLAIMS",
+    "spec_prefix": "SRW3G2-GC",
+    "splitter": "scripts/split_gen_claims.py",
+    "tag_prefix": "ghost-SRW3G2-",
+    "log_prefix": "kpg_1x_SRW3G2_",
+    "labels": [
+      "GH2-BASE", "GH2-A", "GH2-R", "GH2-A1", "GH2-SOUND-I", "GH2-SOUND-F",
+      "GATE2-AGREE", "GH2-ISO", "GH2-T1", "GH2-T2", "GH2-M", "GH2-NEG"
+    ],
+    "expected_status": {
+      "GH2-BASE": "PROVED", "GH2-A": "PROVED", "GH2-R": "PROVED", "GH2-A1": "PROVED",
+      "GH2-SOUND-I": "PROVED", "GH2-SOUND-F": "PROVED", "GATE2-AGREE": "PROVED",
+      "GH2-ISO": "PROVED", "GH2-T1": "PROVED", "GH2-T2": "PROVED", "GH2-M": "PROVED",
+      "GH2-NEG": "FAILED-STUCK"
+    },
+    "role": { "GH2-NEG": "designed negative control (alias violation must not close)" }
+  },
+  "cm3_auth": {
+    "artifact": "proofs/gen/cm3_auth.k",
+    "obs_module": "SRW3G3",
+    "claims_module": "SRW3G3-GHOST-CLAIMS",
+    "spec_prefix": "SRW3G3-GC",
+    "splitter": "scripts/split_gen_claims.py",
+    "tag_prefix": "ghost-SRW3G3-",
+    "log_prefix": "kpg_1x_SRW3G3_",
+    "labels": [
+      "GH3-BASE", "GH3-A", "GH3-R", "GH3-A1", "GH3-SOUND-I", "GH3-SOUND-F",
+      "GATE3-AGREE", "GH3-ISO", "GH3-T1", "GH3-T2", "GH3-M", "GH3-NEG"
+    ],
+    "expected_status": {
+      "GH3-BASE": "PROVED", "GH3-A": "PROVED", "GH3-R": "PROVED", "GH3-A1": "PROVED",
+      "GH3-SOUND-I": "PROVED", "GH3-SOUND-F": "PROVED", "GATE3-AGREE": "PROVED",
+      "GH3-ISO": "PROVED", "GH3-T1": "PROVED", "GH3-T2": "PROVED", "GH3-M": "PROVED",
+      "GH3-NEG": "FAILED-STUCK"
+    },
+    "role": { "GH3-NEG": "designed negative control (authority violation must not close)" }
+  },
+  "gen_full": {
+    "artifact": "proofs/gen/gen_full.k",
+    "obs_module": "SRW3G4",
+    "claims_module": "SRW3G4-GHOST-CLAIMS",
+    "spec_prefix": "SRW3G4-GC",
+    "splitter": "scripts/split_gen_claims.py",
+    "tag_prefix": "ghost-SRW3G4-",
+    "log_prefix": "kpg_1x_SRW3G4_",
+    "labels": [
+      "GH4-BASE", "GH4-A", "GH4-R", "GH4-SOUND-I", "GH4-SOUND-F",
+      "GATE4-AGREE", "GH4-ISO", "GH4-T1", "GH4-T2", "GH4-M", "GH4-NEG"
+    ],
+    "expected_status": {
+      "GH4-BASE": "PROVED", "GH4-A": "PROVED", "GH4-R": "PROVED",
+      "GH4-SOUND-I": "PROVED", "GH4-SOUND-F": "PROVED", "GATE4-AGREE": "PROVED",
+      "GH4-ISO": "PROVED", "GH4-T1": "PROVED", "GH4-T2": "PROVED", "GH4-M": "PROVED",
+      "GH4-NEG": "FAILED-STUCK"
+    },
+    "role": { "GH4-NEG": "designed negative control (multi-write violation must not close)" },
+    "_note": "gen_full deliberately has NO A1 claim: the committed artifact contains 11 labels while cm2_alias/cm3_auth contain 12. This asymmetry is pinned here (a splitter or artifact change in either direction is a REJECTION, not a silent acceptance)."
+  },
+  "ledger_arithmetic": {
+    "ghost_verdict_rows_expected": 48,
+    "ghost_claim_rows_expected": 47,
+    "fidelity_rows_expected": 1,
+    "note": "12 (main) + 12 (cm2_alias) + 12 (cm3_auth) + 11 (gen_full) = 47 claims + 1 fidelity certificate row = 48 ledger rows. The count is DERIVED from this inventory (sum of the label lists + extra_rows), never accepted as a free-standing shared set."
+  }
+}

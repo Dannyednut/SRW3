@@ -1,0 +1,154 @@
+#Top
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x/proofs/induction_ghost.k)
+	Location(256,48,256,52)
+	256 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x/proofs/induction_ghost.k)
+	Location(257,42,257,43)
+	257 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x/proofs/induction_ghost.k)
+	Location(321,32,321,33)
+	321 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x/proofs/induction_ghost.k)
+	Location(743,18,743,19)
+	743 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x/proofs/induction_ghost.k)
+	Location(744,38,744,39)
+	744 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(7,14,7,16)
+	7 |	    <k> ( tB(V1:Int) : (tB(V2:Int) : chkG) ) => .K </k>
+	  .	             ^~
+[Warning] Compiler: Variable 'V2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(7,28,7,30)
+	7 |	    <k> ( tB(V1:Int) : (tB(V2:Int) : chkG) ) => .K </k>
+	  .	                           ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(8,68,8,71)
+	8 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int => ?C2:Map
+</committed>
+	  .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(9,19,9,21)
+	9 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	  .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(9,29,9,32)
+	9 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	  .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(10,19,10,21)
+	10 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(10,29,10,32)
+	10 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(11,19,11,21)
+	11 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(11,29,11,32)
+	11 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(12,34,12,38)
+	12 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	   .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(18,14,18,17)
+	18 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(18,25,18,29)
+	18 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(19,15,19,18)
+	19 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(19,26,19,30)
+	19 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(20,19,20,21)
+	20 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(20,29,20,32)
+	20 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(21,12,21,15)
+	21 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(21,30,21,34)
+	21 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(22,14,22,16)
+	22 |	    <result> R1:String => ?R2:String </result>
+	   .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-cptJck/c_GH-T1.k)
+	Location(22,27,22,30)
+	22 |	    <result> R1:String => ?R2:String </result>
+	   .	                          ^~~

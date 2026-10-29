@@ -21,3 +21,5 @@ k/phase1c/shim/libsecp256k1.so
 .1v-work/
 # Phase 1W session scratch (ghost kompile outputs, experiment workspaces)
 .1w-work/
+# Phase 1X session scratch (ghost kompile outputs, experiment workspaces)
+.1x-work/

@@ -1,6 +1,6 @@
 {
   "baseline": {
-    "path": "/home/z/my-project/p1w-work/srw3-1w/k/srw3.k",
+    "path": "/home/z/my-project/srw3-1x/k/srw3.k",
     "slice_start": 83,
     "slice_end": 691,
     "sha256": "0d1e18cd7cd07f8231632486c43b9d97fb8ba58e90fbb526f7749a9764320676"
@@ -154,7 +154,7 @@
     "sha256": "2e2bd3567ef429bb34712c73289c7f270fe6c8b4d0b1a96534fc8b78e9952109"
   },
   "artifact": {
-    "path": "/home/z/my-project/p1w-work/srw3-1w/proofs/induction_ghost.k",
+    "path": "/home/z/my-project/srw3-1x/proofs/induction_ghost.k",
     "sha256": "0f2a515bfbd9d2c4fb8c3db782e4faffaf7d47a20e7ada6c5857d9e14d0b9a0c"
   }
 }
