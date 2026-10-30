@@ -2385,3 +2385,58 @@ Stage Summary:
   bit-identical to the verified bundles; the default branch was NOT
   changed; no history rewrite; no force-push; no completion tag.
 - Verdict unchanged: PARTIALLY COMPLETE; R1-R14 unchanged by the landing.
+
+## 2026-10-30 — Phase 1X follow-up (the verification workstreams)
+
+Branch phase1x-ghost-runner-hardening, appended on top of the pushed 1X
+implementation+Run A (e70e863). Session entry facts: sandbox recycle had
+destroyed BOTH working clones (dirs left empty; R14 realized again) —
+recovered by fresh clone of the pushed branch; toolchain re-linked from the
+surviving store; K v7.1.337 + Z3 4.13.3 re-verified live.
+
+- ENTRY GATE: git ls-remote (credential-free) — phase1x at e70e863 EXACT
+  (not moved), default phase1u @ 8697bd7 unchanged, 1V @ 430f468 and 1W @
+  34ef232 unchanged (no rewrite); fresh clone clean; ancestry
+  8697bd7 -> 430f468 -> 19990a5 -> 34ef232 -> e70e863 verified
+  (merge-base --is-ancestor x4).
+- WS-A (commit c12d017): summarize_1x.py additions S6-S9 — per-claim STATUS
+  TRIPLE (inventory == ledger-expected == observed) + exit-code
+  compatibility + diagnostic evidence in the observed fields; FOUR-WAY
+  recompute of every kprove transcript via the shared classifier; S8
+  fidelity-certificate independent check; S9 claim-transcript identity
+  (per-claim spec filename). S1-S5 NOT relaxed. Gate re-verified GATE GREEN
+  (0 alarms) on the committed Run A evidence. New regression controls
+  R23-R30 (downgrades x4, stripped stuck diagnostics, removed #Top,
+  injected [Error], swapped-transcript identity).
+- WS-B (commit 9e8e5ad): the suite EXECUTED for real — 31 PASS / 0 FAIL
+  (full log committed). Execution-found suite defects fixed (both make the
+  demonstrations MORE faithful): R12 must replicate the 1W-session
+  invocation conditions (historical runner predates the 1X LD_LIBRARY_PATH
+  set-u guard; historical runner has NO per-invocation ledger truncation —
+  remove the committed 1W ledger in the sandbox first) -> the unmodified
+  34ef232 runner exits 0 with 11/12 claims (DEFECT SHOWN LIVE) and the 1X
+  runner refuses the same stub pre-K (rc=4); R17 alarm shape corrected to
+  MISSING+DUPLICATE (count-preserving substitution with a real tag).
+- WS-C/WS-D (commit 1307545): Run B in an independent fresh clone at
+  9e8e5ad — all stages live (LABELCHECK+GEN regen-immutability OK, KOM,
+  MAIN 12, GENSPEC 12/12/11) -> 48/48 rows; STAGING DISCLOSURE: first
+  staged invocations omitted RUN_APPEND=1 (each truncated the ledger;
+  recovered by re-running the missing stages with RUN_APPEND=1, last-wins
+  dedup = each claim's final execution); comparison via the new committed
+  compare_runs_1x.py: RUNS LOGICALLY IDENTICAL (48/48 tags,
+  12/12/12/11+1); Run A preserved in situ; layout repro/runA + repro/runB
+  (full raw evidence + toolchain versions + digests); FULL sequence in the
+  runB clean checkout (runner -> build -> gate GREEN -> regressions 31/31);
+  evidence-manifest-1x.txt (138 SHA-256 digests, source-commit identity).
+- WS-E/F/G (this commit): phase1x/report/phase1x-final-report.md (SS0-SSG,
+  19-item acceptance table — 19/19 PASS); STATE-OF-RECORD.md + README.md
+  current (1V/1W landed, 1X the newest working branch; 2026-10-28 BLOCKED
+  and 2026-10-29 landing history preserved verbatim; dated 1X follow-up
+  note); docs/research/residual-register-1x.md (R1-R14 carried; R13 CLOSED
+  under the 8-condition gate with executed evidence; R14 updated; GH-T
+  FAILED-STUCK, Genesis TIMEOUT, Level-III open); phase1x/README.md
+  follow-up section; this worklog entry.
+- Pushes (after this commit, append-only fast-forward, no force): remote
+  head verified by credential-free ls-remote after push; the verified head
+  is recorded in the Phase 1X delivery note (final documentation commit).
+- Verdict: PARTIALLY COMPLETE (unchanged); no completion tag.

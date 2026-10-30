@@ -42,11 +42,11 @@ GitHub → Settings → Branches → default branch → `phase1u-model-hygiene`.
 
 | Field | Value |
 |---|---|
-| GitHub default branch (LIVE, verified 2026-10-28 by BOTH 1V via the API and 1W via `git ls-remote --symref`) | **`phase1u-model-hygiene`** at `8697bd744faee0b17156393fd8f57dd87e51598e` |
+| GitHub default branch (LIVE, verified 2026-10-28 by BOTH 1V via the API and 1W via `git ls-remote --symref`; re-verified live 2026-10-30 by the Phase 1X follow-up via credential-free `git ls-remote`) | **`phase1u-model-hygiene`** at `8697bd744faee0b17156393fd8f57dd87e51598e` |
 | Current accepted phase | **Phase 1U — Model Hygiene, Proof Soundness, and Independent Revalidation** (the default branch carries its completed state) |
-| Working phase under development | **Phase 1W — Independent Acceptance, Initialization-Boundary Closure, and Residual Proof Plan** (branch below; NOT the default until the owner chooses) |
-| Branch of record (working) | `phase1w-boundary-audit` (base = the VERIFIED Phase 1V head; NOT on the remote — the 1V push was BLOCKED; both branches land from the bundles below) |
-| Head commit | see `git rev-parse phase1w-boundary-audit` (the branch head is always authoritative; this file is updated per phase) |
+| Working phase under development | **Phase 1X — Ghost-Runner Integrity, Proof-Status Fidelity, and State-of-Record Repair** (branch below; NOT the default until the owner chooses) — including its 2026-10-30 verification follow-up (the per-claim status-fidelity gate, the executed 31-case regression suite, the independent Run B, and the evidence manifest; see the dated note at the end of this file) |
+| Branch of record (working) | `phase1x-ghost-runner-hardening` — ON THE REMOTE at `e70e8634badd0ee5b7de87994751b8e052a3e879` (the 1X implementation + Run A; pushed 2026-10-29 after the 1V/1W landing), with the append-only follow-up commits on top (WS-A…WS-G; the branch head is always authoritative via `git rev-parse`; the verified post-push head is recorded in the Phase 1X delivery note below) |
+| Head commit | see `git rev-parse phase1x-ghost-runner-hardening` (the branch head is always authoritative; this file is updated per phase) |
 | Base | Phase 1V head `430f46858168f0477c1296ba9cc895b3f44e89be` (branch `phase1v-configuration-ownership`; INDEPENDENTLY VERIFIED in 1W: bundle sha256 `9c67aad4527483879208aa3607d27b9106ee9736f5ff5b9be33c5a86da1c85b7`, `git bundle verify` OK, complete history, six commits on the 1U tip `8697bd744faee0b17156393fd8f57dd87e51598e`) |
 | Verdict | **PARTIALLY COMPLETE** (see below — the project is never declared complete by a green gate) |
 | Scope | Level III only — the abstract K models and their mechanized proofs. **No** consensus-integration, concrete-Ethereum, or protocol-commitment-boundary claim is made. |
@@ -62,9 +62,10 @@ main (archive: divergent early line, ends at an early phase — kept for
  └─ phase1b (historical GitHub default branch — STALE as a pointer, historical only)
      └─ phase1c → phase1d-r1-complete → phase1e → … → phase1n → phase1o
         → phase1p → phase1q → phase1r → phase1s-refinement-coverage
-        → phase1t-c12-induction-validation → phase1u-model-hygiene  ← DEFAULT (verified live 2026-10-28 by 1V)
-           └─ phase1v-configuration-ownership  ← delivered as the verified bundle (push BLOCKED; see the 1V delivery note)
-              └─ phase1w-boundary-audit  ← WORKING (under review)
+        → phase1t-c12-induction-validation → phase1u-model-hygiene  ← DEFAULT (verified live 2026-10-28 by 1V; re-verified 2026-10-30 by 1X follow-up)
+           └─ phase1v-configuration-ownership  ← ON GITHUB (landed 2026-10-29 from the verified bundle)
+              └─ phase1w-boundary-audit  ← ON GITHUB (landed 2026-10-29; landing-note commit 34ef232 on top)
+                 └─ phase1x-ghost-runner-hardening  ← WORKING (implementation + Run A at e70e863; follow-up commits appended — see the dated notes)
 ```
 
 Every phase directory (`phase1n/` … `phase1w/`) carries its own README,
@@ -183,6 +184,11 @@ bash phase1v/tests/run_1u_model_tests_compat.sh   # the 1U runner from a clean c
 bash phase1v/proofs/run_1v_ghost.sh         # ghost regeneration + per-claim battery (1V)
 bash phase1w/tests/run_1w_model_tests.sh    # the 1W initialization-boundary battery (fail-closed)
 bash phase1w/proofs/run_1w_ghost.sh         # ghost regeneration + per-claim battery (1W)
+bash phase1x/proofs/run_1x_ghost.sh         # the HARDENED ghost runner (1X: label pinning + status-aware classification)
+python3 phase1x/scripts/build_ledgers_1x.py
+python3 phase1x/scripts/summarize_1x.py     # the strictest gate (1X: S1-S9 incl. the four-way per-claim recompute)
+bash phase1x/tests/run_1x_regressions.sh    # the 31-case adversarial suite (1X, executed 2026-10-30: 31/31)
+python3 phase1x/scripts/compare_runs_1x.py --a <runA.csv> --b <runB.csv>   # the run-pair logical comparison
 lean phase1u/audit/lean/c12_helpers.lean    # the helper-lemma development (unchanged)
 python3 phase1v/scripts/build_ledgers_1v.py
 python3 phase1v/scripts/summarize_1v.py     # the fail-closed ledger gate (1V)
@@ -274,3 +280,51 @@ The verdict remains **PARTIALLY COMPLETE**; the residual register R1–R14 is
 unchanged by the landing. The GitHub default branch remains
 `phase1u-model-hygiene` — selecting the post-review default is the owner's
 call, as before.
+
+## Phase 1X follow-up note (2026-10-30)
+
+The Phase 1X branch `phase1x-ghost-runner-hardening` (implementation +
+Run A committed at `e70e8634badd0ee5b7de87994751b8e052a3e879`, pushed
+2026-10-29 after the 1V/1W landing) received an append-only verification
+follow-up this date, closing the phase mandate's verification workstreams.
+Full record: `phase1x/report/phase1x-final-report.md` (§0–§G, 19-item
+acceptance table) and the worklog. Summary:
+
+- **WS-A** — the gate `summarize_1x.py` now re-derives every ghost claim's
+  status from the RAW evidence: the per-claim STATUS TRIPLE (pinned
+  inventory == ledger expected == observed), exit-code compatibility,
+  diagnostic-evidence support, the FOUR-WAY recompute of every kprove
+  transcript with the shared classifier, an independent fidelity-certificate
+  check, and CLAIM↔TRANSCRIPT IDENTITY binding (per-claim spec filename
+  present in each transcript). S1–S5 (counts, inventories, vocabulary,
+  non-relabelling, last-wins) are NOT relaxed — strictly additive.
+- **WS-B** — the adversarial regression suite EXECUTED for real: 31 PASS /
+  0 FAIL, including the defect reproduced live on the TRUE historical
+  runner (`run_1w_ghost.sh@34ef232` exits 0 with 11/12 claims) and the 1X
+  runner refusing the same input before any K proof. Execution log:
+  `phase1x/transcripts/repro/regressions-1x-followup.log`.
+- **WS-C** — Run B executed 2026-10-30 in an independent clean clone (fresh
+  checkout of the follow-up head): all stages, 48/48 rows; the Run A vs Run
+  B comparison (`phase1x/scripts/compare_runs_1x.py`) is RUNS LOGICALLY
+  IDENTICAL (wall-clock and environment paths excluded by the disclosed
+  path-only drift allowance). Run A preserved in situ; layout
+  `phase1x/transcripts/repro/runA/` and `runB/`.
+- **WS-D** — the FULL sequence (runner → build → gate → regressions)
+  executed in the runB clean checkout; gate GREEN with the hardened checks;
+  full SHA-256 evidence manifest with source-commit identity:
+  `phase1x/transcripts/repro/evidence-manifest-1x.txt` (138 digests).
+- **WS-G** — `docs/research/residual-register-1x.md` carries R1–R14 with no
+  drops/merges/downgrades; **R13 CLOSED** under its 8-condition gate (all
+  satisfied by executed evidence); R14 updated; GH-T remains FAILED-STUCK;
+  the genesis form remains TIMEOUT; Level-III boundaries remain open.
+
+Staging disclosures (R14 discipline): a sandbox recycle destroyed both
+working clones before this follow-up (recovered by fresh clone of the
+pushed branch — working state had been committed); Run B's first staged
+invocations omitted `RUN_APPEND=1` and were recovered by re-running the
+missing stages with the designed last-wins dedup. Both disclosed in the
+report §D. The verdict remains **PARTIALLY COMPLETE**; no completion tag.
+
+The pushes execute immediately after the follow-up commits (append-only,
+fast-forward, no force); the verified remote head is recorded in the Phase
+1X delivery note below.

@@ -55,6 +55,27 @@ artifacts (the inventories are deterministic functions of them) and
 re-execution of the full battery; see the worklog and
 `claims/INVENTORY-DERIVATION.md`. This run's evidence is the recovered Run A.
 
+## Follow-up (2026-10-30) — the verification workstreams closed
+
+Appended ON TOP of `e70e863` as reviewable commits (no history rewrite):
+
+| Path | What it is |
+|---|---|
+| `scripts/summarize_1x.py` (updated) | the gate's WS-A additions S6–S9: per-claim STATUS TRIPLE + exit-code compatibility + diagnostic-evidence support; the FOUR-WAY recompute of every kprove transcript via the shared classifier; the independent fidelity-certificate check; CLAIM↔TRANSCRIPT IDENTITY (per-claim spec filename). S1–S5 NOT relaxed |
+| `tests/run_1x_regressions.sh` (updated) | the WS-A battery R23–R30 (per-claim FAILED-STUCK→FAILED downgrade rejections, stripped stuck diagnostics, removed #Top, injected [Error], swapped-transcript identity substitution) + the executed-suite corrections (R12 invocation-condition fidelity, R17 alarm shape) |
+| `scripts/compare_runs_1x.py` | the Run A vs Run B logical comparison tool (rc + expected + observed STATUS; wall-clock/paths excluded) |
+| `report/phase1x-final-report.md` | the fail-closed final report (§0–§G, 19-item acceptance table — all PASS) |
+| `transcripts/repro/regressions-1x-followup.log` | the executed suite record (31 PASS / 0 FAIL) |
+| `transcripts/repro/runA/`, `runB/` | the reproducibility layout: Run A preserved in situ (copies + README here); Run B = the independent clean-environment execution (full raw evidence) |
+| `transcripts/repro/evidence-manifest-1x.txt` | the WS-D SHA-256 manifest (138 digests) with source-commit identity |
+| `docs/research/residual-register-1x.md` (repo-wide) | R1–R14 carried; **R13 CLOSED** under its 8-condition gate; R14 updated |
+
+Run B (2026-10-30, fresh clone, all stages live) is RUNS LOGICALLY
+IDENTICAL to Run A (48/48; census 12/12/12/11 + 1 fidelity); the full
+sequence (runner → build → gate → regressions) was executed in the runB
+clean checkout. Staging disclosures and every detail:
+`report/phase1x-final-report.md` §D.
+
 ## Reproduce
 
 ```sh
