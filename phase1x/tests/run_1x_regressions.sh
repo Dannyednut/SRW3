@@ -156,7 +156,10 @@ if [ -f "$REPO/phase1x/claims/claims-1x.csv" ] && [ -f "$REPO/phase1x/claims/gho
   [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
   case_result R16-gate-duplicate-row "GATE RED (duplicate)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 duplicate "$GDIR/r16.out" || echo none)"
 
-  # R17 substituted row (right count, wrong identity) → RED (missing+extra)
+  # R17 substituted row (right count, wrong identity) → RED (missing + duplicate):
+  # the substituted tag GH-T2 is itself an EXPECTED tag, so the count-preserving
+  # substitution manifests as MISSING ghost-GH-M + DUPLICATE ghost-GH-T2 — both
+  # named alarms — while a count-only acceptance would have seen 48 rows and passed
   R=$(mkroot r17)
   python3 - "$R" << 'PYEOF'
 import sys
@@ -172,9 +175,9 @@ for ln in lines:
 open(p, "w").write("".join(out))
 PYEOF
   python3 "$SUM" --root "$R" > "$GDIR/r17.out" 2>&1; RC=$?
-  grep -q "MISSING expected claim(s): \['ghost-GH-M'\]" "$GDIR/r17.out" && grep -q "UNEXPECTED claim(s): \['ghost-GH-T2'\]" "$GDIR/r17.out" && REASON=0 || REASON=1
+  grep -q "MISSING expected claim(s): \['ghost-GH-M'\]" "$GDIR/r17.out" && grep -q "duplicate tags: \['ghost-GH-T2'\]" "$GDIR/r17.out" && REASON=0 || REASON=1
   [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
-  case_result R17-gate-substituted-row "GATE RED (identity, not just count)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 -E 'MISSING|UNEXPECTED' "$GDIR/r17.out" || echo none)"
+  case_result R17-gate-substituted-row "GATE RED (identity, not just count: MISSING + DUPLICATE)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 -E 'MISSING|duplicate' "$GDIR/r17.out" || echo none)"
 
   # R18 model ledger count mutation (45 rows) → RED exactly-46
   R=$(mkroot r18); tail -n +2 "$R/phase1x/claims/model-verdicts-1x.csv" | head -n -1 > "$R/m.csv" && head -1 "$R/phase1x/claims/model-verdicts-1x.csv" > "$R/mm.csv" && cat "$R/mm.csv" "$R/m.csv" > "$R/phase1x/claims/model-verdicts-1x.csv"
@@ -344,6 +347,24 @@ s = s.replace('print(" ".join(labels))',
 open(p, "w").write(s)
 PYEOF
   if [ -f "$SB2/phase1w/proofs/run_1w_ghost.sh" ]; then
+    # Replicate the 1W-session invocation conditions faithfully: the historical
+    # runner (34ef232) predates the 1X runner's LD_LIBRARY_PATH set-u guard, and
+    # the 1W session always sourced the toolchain env.sh in the SHELL before
+    # invoking it. Without the pre-source the historical runner dies at the
+    # env.sh source (unbound LD_LIBRARY_PATH under set -u) BEFORE any stage —
+    # an environment artifact, not the claim-count defect under demonstration.
+    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:-}"
+    if   [ -n "${KTOOLS:-}" ] && [ -f "$KTOOLS/env.sh" ]; then source "$KTOOLS/env.sh"
+    elif [ -f /home/z/my-project/tools1v/env.sh ]; then source /home/z/my-project/tools1v/env.sh
+    elif [ -f /home/z/my-project/tools/env.sh ]; then source /home/z/my-project/tools/env.sh
+    else case_result R12-old-runner-weakness "defect demonstration" "NOT RUN (toolchain env.sh unavailable)" "1" "" ; fi
+    if [ -n "${KROOT:-}" ]; then
+    # Fresh-ledger condition (as on a pristine 1W checkout): the historical
+    # runner has NO per-invocation truncation (its record() blindly appends —
+    # the 1X runner truncates once per invocation AND pins per-stage row
+    # counts), so the committed 1W ledger must be removed or the appended
+    # battery would be indistinguishable from history.
+    rm -f "$SB2/phase1w/claims/ghost-verdicts-1w.csv"
     bash "$SB2/phase1w/proofs/run_1w_ghost.sh" KOM MAIN > "$GDIR/r12.out" 2>&1; RC=$?
     ROWS=$(wc -l < "$SB2/phase1w/claims/ghost-verdicts-1w.csv" 2>/dev/null || echo 0)
     GREEN=$(grep -c "ALL GHOST VERDICTS AS EXPECTED" "$GDIR/r12.out" || true)
@@ -362,6 +383,7 @@ PYEOF
     bash "$SB2/phase1x/proofs/run_1x_ghost.sh" LABELCHECK > "$GDIR/r12b.out" 2>&1; RC=$?
     [ $RC -ne 0 ] && OK=0 || OK=1
     case_result R12b-new-runner-same-stub "NEW runner refuses the same input" "rc=$RC" "$OK" "$(grep -m1 'MISSING' "$GDIR/r12b.out" || echo none)"
+    fi   # KROOT available (the R12 toolchain-replication block)
     rm -rf "$SB2"
   else
     case_result R12-old-runner-weakness "defect demonstration" "NOT RUN (historical script unavailable)" "1" ""
