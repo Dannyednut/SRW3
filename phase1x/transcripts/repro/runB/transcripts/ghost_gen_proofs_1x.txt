@@ -1,0 +1,4 @@
+wrote /home/z/my-project/srw3-1x-runB/proofs/gen/cm2_alias.k (1143 lines, insertions: ['ghost-syntax-insert', 'config-ghost-cell', 'w-ghost-hook', 'gate-accept-hook', 'gate-reject-hook', 'gate-reject-auth-hook'])
+wrote /home/z/my-project/srw3-1x-runB/proofs/gen/cm3_auth.k (1110 lines, insertions: ['ghost-syntax-insert', 'config-ghost-cell', 'consume-ghost-hook', 'gate-accept-hook', 'gate-reject-hook', 'gate-reject-auth-hook'])
+wrote /home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k (1197 lines, insertions: ['ghost-syntax-insert', 'config-ghost-cell', 'w-ghost-hook', 'consume-ghost-hook', 'gate-accept-hook', 'gate-reject-hook', 'gate-reject-auth-hook'])
+wrote /home/z/my-project/srw3-1x-runB/proofs/gen/ghost_manifest_gen.json

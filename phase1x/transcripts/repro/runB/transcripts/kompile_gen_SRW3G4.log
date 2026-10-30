@@ -1,0 +1,67 @@
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(307,48,307,52)
+	307 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(308,42,308,43)
+	308 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(314,34,314,38)
+	314 |	  rule lookupU(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A ==K
+A2
+	    .	                                 ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(320,36,320,40)
+	320 |	  rule lookupCap(A:AppId |-> V:Int REST:Map, A2:AppId) => V requires A
+==K A2
+	    .	                                   ^~~~
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(329,53,329,57)
+	329 |	  rule resolve(stK(A:AppId, S:Int) |-> R:ResourceId REST:Map, K2:StKey)
+	    .	                                                    ^~~~
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(450,35,450,36)
+	450 |	  rule applicableGen(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                  ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(458,36,458,37)
+	458 |	  rule applicableGen(SetItem(edgeR(J:InvId, Rs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(466,36,466,37)
+	466 |	  rule applicableGen(SetItem(edgeA(J:InvId, Xs:Set)) Es:Set, F:Set,
+M:Map)
+	    .	                                   ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(915,18,915,19)
+	915 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/gen/gen_full.k)
+	Location(916,38,916,39)
+	916 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^

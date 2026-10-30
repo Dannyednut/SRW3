@@ -1,0 +1,284 @@
+kore-exec: [1213070] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k:8:5-24:72
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [1218633] Warning (WarnUnexploredBranches):
+    4 branches were still unexplored when the action failed.
+  #Not ( #Exists PG0 . #Exists V2 . {
+    PG
+  #Equals
+    tB ( V2 ) : PG0
+  } )
+#And
+  #Not ( #Exists PG0 . #Exists V . {
+    PG
+  #Equals
+    tB ( V ) : PG0
+  } )
+#And
+  #Not ( {
+      PG
+    #Equals
+      chkG
+    }
+  #And
+    {
+      true
+    #Equals
+      X0 +Int Y0 <=Int 10
+    }
+  #And
+    {
+      true
+    #Equals
+      X0 <=Int 10
+    }
+  #And
+    {
+      true
+    #Equals
+      Y0 <=Int 10
+    } )
+#And
+  #Not ( {
+      PG
+    #Equals
+      chkM
+    }
+  #And
+    {
+      true
+    #Equals
+      X0 +Int Y0 <=Int 10
+    }
+  #And
+    {
+      true
+    #Equals
+      X0 <=Int 10
+    }
+  #And
+    {
+      true
+    #Equals
+      Y0 <=Int 10
+    } )
+#And
+  <srw3>
+    <k>
+      PG:GateRun ~> .K
+    </k>
+    <committed>
+      stK (... app: appA , slot: 0 ) |-> X0:Int
+      stK (... app: appB , slot: 0 ) |-> Y0:Int
+    </committed>
+    <prospective>
+      .Map
+    </prospective>
+    <footprint-t>
+      .Set
+    </footprint-t>
+    <footprint-d>
+      .Set
+    </footprint-d>
+    <registry>
+      SetItem ( edge (... inv: IA , apps: SetItem ( appA ) ) )
+      SetItem ( edge (... inv: IAB , apps: SetItem ( appA )
+      SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IB , apps: SetItem ( appB ) ) )
+      SetItem ( edge (... inv: IC , apps: SetItem ( appC ) ) )
+    </registry>
+    <policy>
+      enforce
+    </policy>
+    <gateopen>
+      false
+    </gateopen>
+    <authorities>
+      SetItem ( appA )
+      SetItem ( appB )
+      SetItem ( appC )
+    </authorities>
+    <polver>
+      PV1
+    </polver>
+    <actor>
+      appB
+    </actor>
+    <lineage>
+      LN1
+    </lineage>
+    <lineageNext>
+      N1
+    </lineageNext>
+    <head>
+      CH1
+    </head>
+    <result>
+      "reject"
+    </result>
+    <ghost>
+      G ( X0 , Y0 )
+    </ghost>
+  </srw3>
+#And
+  {
+    false
+  #Equals
+    X0 +Int V1 <=Int 10 andBool V1 <=Int 10
+  }
+[Warning] Compiler: Variable 'REST' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/induction_ghost.k)
+	Location(256,48,256,52)
+	256 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, stK(K, S)) => V
+	    .	                                               ^~~~
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/induction_ghost.k)
+	Location(257,42,257,43)
+	257 |	  rule lookupInt(stK(K:AppId, S:Int) |-> V:Int REST:Map, KEY:StKey)
+	    .	                                         ^
+[Warning] Compiler: Variable 'J' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/induction_ghost.k)
+	Location(321,32,321,33)
+	321 |	  rule applicable(SetItem(edge(J:InvId, Xs:Set)) Es:Set, F:Set)
+	    .	                               ^
+[Warning] Compiler: Variable 'M' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/induction_ghost.k)
+	Location(743,18,743,19)
+	743 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], KEY:StKey) => V
+[simplification]
+	    .	                 ^
+[Warning] Compiler: Variable 'V' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/home/z/my-project/srw3-1x-runB/proofs/induction_ghost.k)
+	Location(744,38,744,39)
+	744 |	  rule lookupInt(M:Map [KEY:StKey <- V:Int], K2:StKey) => lookupInt(M,
+K2)
+	    .	                                     ^
+[Warning] Compiler: Variable 'V1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(8,14,8,16)
+	8 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	  .	             ^~
+[Warning] Compiler: Variable 'PG' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(8,24,8,26)
+	8 |	    <k> ( tB(V1:Int) : PG:GateRun ) => .K </k>
+	  .	                       ^~
+[Warning] Compiler: Variable '?C2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(9,68,9,71)
+	9 |	    <committed> stK(appA, 0) |-> X0:Int stK(appB, 0) |-> Y0:Int => ?C2:Map
+</committed>
+	  .	                                                                   ^~~
+[Warning] Compiler: Variable 'P2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(10,19,10,21)
+	10 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	   .	                  ^~
+[Warning] Compiler: Variable '?P3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(10,29,10,32)
+	10 |	    <prospective> P2:Map => ?P3:Map </prospective>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'F1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(11,19,11,21)
+	11 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(11,29,11,32)
+	11 |	    <footprint-t> F1:Set => ?F2:Set </footprint-t>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'F3' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(12,19,12,21)
+	12 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                  ^~
+[Warning] Compiler: Variable '?F4' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(12,29,12,32)
+	12 |	    <footprint-d> F3:Set => ?F4:Set </footprint-d>
+	   .	                            ^~~
+[Warning] Compiler: Variable '?Gh2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(13,34,13,38)
+	13 |	    <ghost> G(X0:Int, Y0:Int) => ?Gh2:Ghost </ghost>
+	   .	                                 ^~~~
+[Warning] Compiler: Variable 'PV1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(19,14,19,17)
+	19 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	             ^~~
+[Warning] Compiler: Variable '?PV2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(19,25,19,29)
+	19 |	    <polver> PV1:Int => ?PV2:Int </polver>
+	   .	                        ^~~~
+[Warning] Compiler: Variable 'LN1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(20,15,20,18)
+	20 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	              ^~~
+[Warning] Compiler: Variable '?LN2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(20,26,20,30)
+	20 |	    <lineage> LN1:Map => ?LN2:Map </lineage>
+	   .	                         ^~~~
+[Warning] Compiler: Variable 'N1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(21,19,21,21)
+	21 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                  ^~
+[Warning] Compiler: Variable '?N2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(21,29,21,32)
+	21 |	    <lineageNext> N1:Int => ?N2:Int </lineageNext>
+	   .	                            ^~~
+[Warning] Compiler: Variable 'CH1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(22,12,22,15)
+	22 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	           ^~~
+[Warning] Compiler: Variable '?CH2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(22,30,22,34)
+	22 |	    <head> CH1:Commitment => ?CH2:Commitment </head>
+	   .	                             ^~~~
+[Warning] Compiler: Variable 'R1' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(23,14,23,16)
+	23 |	    <result> R1:String => ?R2:String </result>
+	   .	             ^~
+[Warning] Compiler: Variable '?R2' defined but not used. Prefix variable name
+with underscore if this is intentional.
+	Source(/tmp/srw3-1x-ghost-iYc3e1/c_GH-T2-NEG.k)
+	Location(23,27,23,30)
+	23 |	    <result> R1:String => ?R2:String </result>
+	   .	                          ^~~
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

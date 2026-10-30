@@ -1,0 +1,35 @@
+================================================================
+Phase 1X regression suite — 31 PASS / 0 FAIL
+
+PASS  R1-baseline-labels | expected: Accepted (4 suites rc=0) | observed: rc=0 | LABELCHECK OK: suite=main labels=12 (pinned inventory match, no dups, no extras)
+PASS  R2-main-label-omitted | expected: Rejected before proofs (MISSING GH-M) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) 
+PASS  R3-gen-label-omitted | expected: Rejected before proofs (MISSING GH2-A1) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s)
+PASS  R4-duplicate-label | expected: Rejected (NO-DUPLICATE-LABELS) | observed: rc=3 reason=0 | ASSERTION FAILED: NO-DUPLICATE-LABELS: duplicated label(s) ['GH-A']
+PASS  R5-unexpected-label | expected: Rejected (UNEXPECTED) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) ['GH-A']
+PASS  R7-splitter-empty | expected: Rejected (SPLITTER-OUTPUT-EMPTY) | observed: rc=3 reason=0 | ASSERTION FAILED: SPLITTER-OUTPUT-EMPTY (splitter produced no labels — 
+PASS  R8-no-closure-marker | expected: NOT classified PROVED (INVALID-SUCCESS) | observed: status=INVALID-SUCCESS | status=INVALID-SUCCESS top=0 stuck=0 backenderr=0 err=
+PASS  R8b-old-genspec-would-accept | expected: Old 1W check says OK for the same evidence | observed: old-check=OK | run_1w_ghost.sh L138 shape: [ "$E" = "$EXP_RC" ] — 
+PASS  R9-gh-t-stuck-signature | expected: FAILED-STUCK from the fresh diagnostic | observed: status=FAILED-STUCK | status=FAILED-STUCK top=0 stuck=1 backenderr=1 err=1
+PASS  R10-designed-negative-preserved | expected: FAILED-STUCK, never rc=0 | observed: status=FAILED-STUCK | status=FAILED-STUCK top=0 stuck=1 backenderr=1 err=1
+PASS  R11-timeout-classification | expected: TIMEOUT (never proof/success) | observed: status=TIMEOUT | status=TIMEOUT top=0 stuck=0 backenderr=0 err=0 (classifier-level;
+PASS  R15-gate-missing-claim | expected: GATE RED (MISSING ghost-GH-M) | observed: rc=1 reason=0 |   - ghost ledger MISSING expected claim(s): ['ghost-GH-M']
+PASS  R16-gate-duplicate-row | expected: GATE RED (duplicate) | observed: rc=1 reason=0 |   - ghost ledger duplicate tags: ['ghost-GH-M']
+PASS  R17-gate-substituted-row | expected: GATE RED (identity, not just count: MISSING + DUPLICATE) | observed: rc=1 reason=0 |   - ghost ledger duplicate tags: ['ghost-G
+PASS  R18-gate-model-count | expected: GATE RED (exactly 46, shared set forbidden) | observed: rc=1 reason=0 |   - model ledger: 45 rows, exactly 46 required
+PASS  R19-gate-relabel-alarm | expected: GATE RED (RELABELING ALARM) | observed: rc=1 reason=0 |   - ghost-GH-T: designed-failure row closed/rc=0 — RELABELING ALARM
+PASS  R20-gate-exitcode-mismatch | expected: GATE RED (last-wins mismatch + unrecognized rc) | observed: rc=1 reason=0 |   - ghost-GH-BASE: ledger rc=0 != exit-codes last
+PASS  R21-gate-missing-transcript | expected: GATE RED (no transcript) | observed: rc=1 reason=0 |   - NEW1W-claims-1-4: no retained Phase 1X transcript
+PASS  R22-gate-gh-t-status | expected: GATE RED (FAILED-STUCK preserved specifically) | observed: rc=1 reason=0 |   - ghost-GH-T: observed status 'FAILED', the evidence-b
+PASS  R23-neg-downgrade-rejected | expected: GATE RED (ghost-GH-T2-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-GH-T2-NEG: STATUS TR
+PASS  R24-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G2-GH2-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G2-GH2-NEG:
+PASS  R25-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G3-GH3-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G3-GH3-NEG:
+PASS  R26-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G4-GH4-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G4-GH4-NEG:
+PASS  R27-gh-t-log-stripped | expected: GATE RED (stuck diagnostics stripped -> recompute FAILED) | observed: rc=1 reason=0 |   - ghost-GH-T: FOUR-WAY INCONSISTENCY — t
+PASS  R28-success-log-no-top | expected: GATE RED (#Top removed -> INVALID-SUCCESS) | observed: rc=1 reason=0 |   - ghost-GH-A: FOUR-WAY INCONSISTENCY — transcript reco
+PASS  R29-success-log-error-injected | expected: GATE RED ([Error] injected -> INVALID-SUCCESS) | observed: rc=1 reason=0 |   - ghost-GH-A: FOUR-WAY INCONSISTENCY — tra
+PASS  R30-identity-mismatch | expected: GATE RED (swapped transcripts caught by identity, >=2 alarms) | observed: rc=1 identity-alarms=2 |   - ghost-GH-BASE: CLAIM↔TRAN
+PASS  R14-runner-refuses-short-splitter | expected: Runner exits nonzero BEFORE any K proof | observed: rc=4 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expe
+PASS  R13-runner-splitter-failure | expected: Runner fails the stage (SPLITTER-EXIT) | observed: rc=3 reason=0 | [1X-GHOST] ASSERTION FAILED: SPLITTER-EXIT (main suite rc
+PASS  R12-old-runner-weakness | expected: OLD runner exits GREEN with 11/12 claims (defect shown) | observed: rc=0 rows=11 green=1 | unmodified run_1w_ghost.sh @34ef232 +
+PASS  R12b-new-runner-same-stub | expected: NEW runner refuses the same input | observed: rc=4 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) ['GH-M']
+================================================================
