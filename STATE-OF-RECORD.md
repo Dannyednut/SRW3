@@ -328,3 +328,34 @@ report §D. The verdict remains **PARTIALLY COMPLETE**; no completion tag.
 The pushes execute immediately after the follow-up commits (append-only,
 fast-forward, no force); the verified remote head is recorded in the Phase
 1X delivery note below.
+
+## Phase 1X delivery note (2026-10-30)
+
+The Phase 1X follow-up was PUSHED and the remote head was verified
+EXACT-equal by credential-free `git ls-remote` immediately after the push:
+
+- `refs/heads/phase1x-ghost-runner-hardening` →
+  **`dff34c4bdd641dc1cd6c722f0e062769e37a3a3d`** (push output:
+  `e70e863..dff34c4` — a FAST-FORWARD, no force, no history rewrite).
+- The follow-up commit chain on top of the pushed implementation+Run A
+  `e70e8634badd0ee5b7de87994751b8e052a3e879`:
+  `c12d017` (WS-A — the per-claim status-fidelity gate S6–S9 + the
+  regression battery R23–R30), `9e8e5ad` (WS-B — the suite EXECUTED,
+  31/31, incl. the live historical-runner defect demonstration), `1307545`
+  (WS-C+WS-D — Run B in an independent clean environment, RUNS LOGICALLY
+  IDENTICAL, the clean-checkout full sequence, the evidence manifest),
+  `dff34c4` (WS-E/F/G — the final report, the residual register R1–R14
+  with R13 CLOSED under its 8-condition gate, the documentation), and this
+  delivery-note commit. The branch head is always authoritative
+  (`git rev-parse phase1x-ghost-runner-hardening`).
+- Post-push ls-remote cross-check: default branch `phase1u-model-hygiene`
+  → `8697bd744faee0b17156393fd8f57dd87e51598e` (UNCHANGED),
+  `phase1v-configuration-ownership` → `430f46858168f0477c1296ba9cc895b3f44e89be`
+  (UNCHANGED), `phase1w-boundary-audit` →
+  `34ef2321f2875682bd03adf7eb5f601e256cf7ad` (UNCHANGED) — exactly one
+  branch ref moved, by fast-forward only.
+- No completion tag exists or was created. The verdict remains
+  **PARTIALLY COMPLETE**; the open-obligation register is
+  `docs/research/residual-register-1x.md` (R1–R14; R13 CLOSED, all others
+  per their recorded status; GH-T FAILED-STUCK, Genesis TIMEOUT, Level-III
+  boundaries open).
