@@ -36,6 +36,33 @@ or a ghost ledger with 46 rows would have passed that check):
       rc vocabulary {0,1,113,124}; verdict ledgers all-OK; headline
       invariants.
 
+  1X FOLLOW-UP ADDITIONS (WS-A) — none of S1–S5 is relaxed; these are
+  strictly additive per-claim status-fidelity checks:
+
+  S6. PER-CLAIM STATUS TRIPLE: for EVERY ghost row the three status fields
+      must agree exactly — the PINNED inventory expected status
+      (expected-ghost-inventory.json) == the ledger 'expected' column ==
+      the ledger observed 'status=' field. Plus exit-code compatibility
+      (PROVED⇒rc=0, FAILED/FAILED-STUCK⇒rc=1, TIMEOUT⇒rc=124) and
+      diagnostic-evidence support in the observed field itself (a
+      FAILED-STUCK row must carry stuck>=1 AND backenderr>=1; a PROVED
+      row must carry #Top>=1).
+  S7. FOUR-WAY RECOMPUTE: for every ghost kprove row the raw transcript
+      is RE-CLASSIFIED with classify_1x.classify() at the ledger's rc —
+      the recomputed status must equal the recorded status (inventory /
+      runner / recomputed / rc four-way consistency). A transcript whose
+      stuck diagnostics were stripped, whose #Top was removed, or into
+      which [Error] was injected no longer supports the recorded status
+      and FAILS the gate.
+  S8. FIDELITY CERTIFICATE: the ghost-exact-fidelity row is not a kprove
+      row; its certificate (ghost_manifest_verify_1x.txt) must itself
+      carry VERDICT: PASS, zero [FAIL] lines, and the full [PASS] check
+      battery — checked independently, not via the prover classifier.
+  S9. CLAIM↔TRANSCRIPT IDENTITY: every ghost kprove transcript must
+      mention its OWN per-claim spec filename (c_<L>.k / <PRE>_<L>.k) —
+      a transcript belonging to a different claim cannot stand as this
+      claim's evidence even if its classification would match.
+
 Usage: summarize_1x.py [--root DIR]   (default: the Phase 1X repo layout;
       --root is for fixture-based negative controls ONLY — it must point at
       a sandbox copy, never at historical phase data for mutation.)
@@ -48,6 +75,8 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from classify_1x import classify as reclassify  # the ONE classifier, shared with the runner
 DEFAULT_ROOT = os.path.dirname(os.path.dirname(HERE))  # repo root
 CLM_JSON = os.path.join(os.path.dirname(HERE), "claims")
 
@@ -70,13 +99,19 @@ def rd(path):
 def ghost_expected_ids():
     inv = json.load(open(os.path.join(CLM_JSON, "expected-ghost-inventory.json")))
     ids = {}
+    spec_tokens = {}   # tag -> the per-claim spec filename that MUST appear in its transcript
     for suite in ("main", "cm2_alias", "cm3_auth", "gen_full"):
         s = inv[suite]
         for lab in s["labels"]:
-            ids[f"{s['tag_prefix']}{lab}"] = s["expected_status"][lab]
+            tag = f"{s['tag_prefix']}{lab}"
+            ids[tag] = s["expected_status"][lab]
+            spec_tokens[tag] = f"c_{lab}.k" if suite == "main" else f"{s['obs_module']}_{lab}.k"
     for extra in inv["main"]["extra_rows"]:
         ids[extra["tag"]] = extra["expected_status"]
-    return ids
+    return ids, spec_tokens
+
+
+RC_FOR_STATUS = {"PROVED": "0", "FAILED": "1", "FAILED-STUCK": "1", "TIMEOUT": "124"}
 
 
 def model_expected_ids():
@@ -92,7 +127,7 @@ def main():
     CL = os.path.join(ROOT, "phase1x", "claims")
     TR = os.path.join(ROOT, "phase1x", "transcripts")
 
-    gids = ghost_expected_ids()
+    gids, gspec = ghost_expected_ids()
     gcount = len(gids)                       # 48 = 47 claims + 1 fidelity row
     mids, mcount = model_expected_ids()
 
@@ -193,6 +228,81 @@ def main():
                 fails.append(f"ghost-GH-T: observed status {obs_st!r}, the evidence-based classification is FAILED-STUCK (register R5)")
             elif "stuck=0" in observed or "backenderr=0" in observed:
                 fails.append(f"ghost-GH-T: FAILED-STUCK claimed without the stuck signature in observed ({observed!r})")
+        # S6a the per-claim STATUS TRIPLE: inventory == ledger-expected == observed
+        inv_st = gids.get(tag)
+        if inv_st is not None and not (inv_st == st == obs_st):
+            fails.append(f"{tag}: STATUS TRIPLE MISMATCH — inventory expects {inv_st!r}, "
+                         f"ledger expects {st!r}, observed {obs_st!r}")
+        # S6b exit-code compatibility with the expected status
+        want_rc = RC_FOR_STATUS.get(inv_st)
+        if want_rc is not None and rc != want_rc:
+            fails.append(f"{tag}: rc={rc} incompatible with expected status {inv_st!r} "
+                         f"(PROVED⇒0, FAILED/FAILED-STUCK⇒1, TIMEOUT⇒124)")
+        # S6c diagnostic evidence in the observed field itself
+        if inv_st == "FAILED-STUCK":
+            stk = next((t[6:] for t in observed.split() if t.startswith("stuck=")), "0")
+            be = next((t[11:] for t in observed.split() if t.startswith("backenderr=")), "0")
+            if not (stk.isdigit() and int(stk) >= 1 and be.isdigit() and int(be) >= 1):
+                fails.append(f"{tag}: expected FAILED-STUCK but the observed field lacks the "
+                             f"stuck signature (stuck={stk!r} backenderr={be!r} in {observed!r})")
+        if inv_st == "PROVED" and vclass == "kprove":
+            # the certificate row (class fidelity) is evidence-checked by S8, not via #Top
+            top = next((t[5:] for t in observed.split() if t.startswith("#Top=")), "0")
+            if not (top.isdigit() and int(top) >= 1):
+                fails.append(f"{tag}: expected PROVED but the observed field lacks a #Top>=1 count ({observed!r})")
+
+    # --- S7/S9 four-way recompute + claim↔transcript identity (ghost kprove rows)
+    for r in ghost_rows:
+        tag, vclass, rc = r[0], r[1], r[2]
+        observed = r[4] if len(r) > 4 else ""
+        if tag == "ghost-exact-fidelity":
+            continue  # S8 below checks the certificate independently
+        obs_st = ""
+        for tok in observed.split():
+            if tok.startswith("status="):
+                obs_st = tok[7:]
+        base = tag[6:]
+        cands = [os.path.join(TR, "ghost", f"kpg_1x_{base}.log"),
+                 os.path.join(TR, "ghost", f"kpg_1x_{base.replace('-', '_', 1)}.log"),
+                 os.path.join(TR, "ghost", f"kpg_1x_{base.replace('-', '_')}.log")]
+        log = next((c for c in cands if os.path.exists(c)), None)
+        if log is None:
+            # transcript-presence (S5) already fails for this row; still record
+            # that the recompute could not be performed
+            fails.append(f"{tag}: transcript missing — four-way recompute impossible")
+            continue
+        try:
+            rc_i = int(rc)
+        except ValueError:
+            rc_i = None  # TERMINAL_RC check already rejects; classify at rc=None → NOT-RUN
+        rec_st, counts = reclassify(rc_i, log)
+        if rec_st != obs_st:
+            fails.append(f"{tag}: FOUR-WAY INCONSISTENCY — transcript recompute at rc={rc} says "
+                         f"{rec_st} (top={counts['top']} stuck={counts['stuck']} "
+                         f"backenderr={counts['backenderr']} err={counts['err']}), recorded {obs_st!r}")
+        # S9 the transcript must be THIS claim's evidence
+        token = gspec.get(tag)
+        if token:
+            text = open(log, errors="replace").read()
+            if token not in text:
+                fails.append(f"{tag}: CLAIM↔TRANSCRIPT IDENTITY MISMATCH — per-claim spec token "
+                             f"{token!r} absent from {os.path.relpath(log, ROOT)}")
+
+    # --- S8 fidelity row: independent certificate check ----------------------
+    p_cert = os.path.join(TR, "ghost", "ghost_manifest_verify_1x.txt")
+    fid = [r for r in ghost_rows if r[0] == "ghost-exact-fidelity"]
+    if fid:
+        if not os.path.exists(p_cert):
+            fails.append("ghost-exact-fidelity: certificate transcript missing (ghost_manifest_verify_1x.txt)")
+        else:
+            cert = open(p_cert, errors="replace").read()
+            npass, nfail = cert.count("[PASS]"), cert.count("[FAIL]")
+            if "VERDICT: PASS" not in cert:
+                fails.append("ghost-exact-fidelity: certificate lacks 'VERDICT: PASS' — the byte-faithfulness verdict is not established")
+            if nfail != 0:
+                fails.append(f"ghost-exact-fidelity: certificate carries {nfail} [FAIL] line(s)")
+            if npass < 5:
+                fails.append(f"ghost-exact-fidelity: certificate carries only {npass} [PASS] line(s) — the full check battery is not present")
 
     # --- claims ledger integrity (as 1W) -----------------------------------
     by_id = {}

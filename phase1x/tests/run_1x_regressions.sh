@@ -3,7 +3,10 @@
 # SRW3 Phase 1X — the adversarial regression suite (WS-D).
 # phase1x/tests/run_1x_regressions.sh
 #
-# Exercises the 12-case mandate table + the old-runner weakness reproduction.
+# Exercises the 12-case mandate table + the old-runner weakness reproduction
+# + the 1X follow-up status-fidelity battery (designed-negative downgrade
+# rejection for EVERY NEG row, stripped stuck diagnostics, removed #Top,
+# injected [Error], and claim↔transcript identity substitution).
 # Mutation-based cases operate ONLY on sandbox copies (fresh git clones of the
 # committed Phase 1X branch, or temp-dir fixture copies of ledgers/logs) —
 # historical phase1u/1v/1w files and the Phase 1X evidence itself are never
@@ -238,8 +241,64 @@ PYEOF
   grep -q "ghost-GH-T: observed status 'FAILED', the evidence-based classification is FAILED-STUCK" "$GDIR/r22.out" && REASON=0 || REASON=1
   [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
   case_result R22-gate-gh-t-status "GATE RED (FAILED-STUCK preserved specifically)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'FAILED-STUCK' "$GDIR/r22.out" | head -1 || echo none)"
+
+  # ---------------------------------------------------------------- 1X follow-up
+  # WS-A status-fidelity battery: the gate must recompute per-claim statuses
+  # from the RAW transcripts and reject downgrades, stripped diagnostics,
+  # injected errors, and identity substitutions — per claim, not just GH-T.
+  # R23–R26: every designed-negative FAILED-STUCK row downgraded to the
+  # coarse FAILED (observed field rewritten, stuck/backenderr zeroed, rc
+  # kept at 1) is REJECTED by the status-triple AND the four-way recompute.
+  IDX=23
+  for TAG in ghost-GH-T2-NEG ghost-SRW3G2-GH2-NEG ghost-SRW3G3-GH3-NEG ghost-SRW3G4-GH4-NEG; do
+    R=$(mkroot "rd$IDX")
+    sed -i "s|^$TAG,kprove,1,rc=1 (FAILED-STUCK),rc=1 #Top=0 stuck=1 backenderr=1 status=FAILED-STUCK,|$TAG,kprove,1,rc=1 (FAILED-STUCK),rc=1 #Top=0 stuck=0 backenderr=0 status=FAILED,|" "$R/phase1x/claims/ghost-verdicts-1x.csv"
+    python3 "$SUM" --root "$R" > "$GDIR/rd$IDX.out" 2>&1; RC=$?
+    grep -q "STATUS TRIPLE MISMATCH" "$GDIR/rd$IDX.out" && grep -q "FOUR-WAY INCONSISTENCY" "$GDIR/rd$IDX.out" && REASON=0 || REASON=1
+    [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+    case_result "R$IDX-neg-downgrade-rejected" "GATE RED ($TAG FAILED-STUCK->FAILED downgrade rejected)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'TRIPLE MISMATCH' "$GDIR/rd$IDX.out" || echo none)"
+    IDX=$((IDX+1))
+  done
+
+  # R27: the GH-T RAW transcript with the stuck diagnostics stripped can no
+  # longer support the recorded FAILED-STUCK — the gate must refuse it.
+  R=$(mkroot r27)
+  sed -i '/WarnStuckClaimState/d; /backend terminated/d' "$R/phase1x/transcripts/ghost/kpg_1x_GH-T.log"
+  python3 "$SUM" --root "$R" > "$GDIR/r27.out" 2>&1; RC=$?
+  grep -q "FOUR-WAY INCONSISTENCY — transcript recompute at rc=1 says FAILED " "$GDIR/r27.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R27-gh-t-log-stripped "GATE RED (stuck diagnostics stripped -> recompute FAILED)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'FOUR-WAY' "$GDIR/r27.out" || echo none)"
+
+  # R28: a PROVED transcript with #Top removed is INVALID-SUCCESS — refused.
+  R=$(mkroot r28)
+  sed -i 's/#Top//g' "$R/phase1x/transcripts/ghost/kpg_1x_GH-A.log"
+  python3 "$SUM" --root "$R" > "$GDIR/r28.out" 2>&1; RC=$?
+  grep -q "FOUR-WAY INCONSISTENCY — transcript recompute at rc=0 says INVALID-SUCCESS" "$GDIR/r28.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R28-success-log-no-top "GATE RED (#Top removed -> INVALID-SUCCESS)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'FOUR-WAY' "$GDIR/r28.out" || echo none)"
+
+  # R29: a PROVED transcript with an injected [Error] line is refused.
+  R=$(mkroot r29)
+  echo '[Error] injected-by-regression-control' >> "$R/phase1x/transcripts/ghost/kpg_1x_GH-A.log"
+  python3 "$SUM" --root "$R" > "$GDIR/r29.out" 2>&1; RC=$?
+  grep -q "FOUR-WAY INCONSISTENCY — transcript recompute at rc=0 says INVALID-SUCCESS" "$GDIR/r29.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R29-success-log-error-injected "GATE RED ([Error] injected -> INVALID-SUCCESS)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'FOUR-WAY' "$GDIR/r29.out" || echo none)"
+
+  # R30: claim/transcript IDENTITY substitution (GH-A and GH-BASE transcripts
+  # swapped) — classifications would still match, the identity binding must
+  # catch it: each transcript must carry ITS OWN per-claim spec filename.
+  R=$(mkroot r30)
+  cp "$R/phase1x/transcripts/ghost/kpg_1x_GH-A.log" "$GDIR/swap-a.log"
+  cp "$R/phase1x/transcripts/ghost/kpg_1x_GH-BASE.log" "$R/phase1x/transcripts/ghost/kpg_1x_GH-A.log"
+  cp "$GDIR/swap-a.log" "$R/phase1x/transcripts/ghost/kpg_1x_GH-BASE.log"
+  python3 "$SUM" --root "$R" > "$GDIR/r30.out" 2>&1; RC=$?
+  NIDENT=$(grep -c "IDENTITY MISMATCH" "$GDIR/r30.out" || true)
+  [ $RC -ne 0 ] && [ "${NIDENT:-0}" -ge 2 ] && OK=0 || OK=1
+  case_result R30-identity-mismatch "GATE RED (swapped transcripts caught by identity, >=2 alarms)" "rc=$RC identity-alarms=$NIDENT" "$OK" "$(grep -m1 'IDENTITY MISMATCH' "$GDIR/r30.out" || echo none)"
+
 else
-  for C in R15 R16 R17 R18 R19 R20 R21 R22; do
+  for C in R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30; do
     case_result "$C-gate-mutation" "GATE RED (fixture mutation)" "NOT RUN (real ledgers not built yet)" "1" "run after the fresh battery + build_ledgers_1x.py"
   done
 fi
