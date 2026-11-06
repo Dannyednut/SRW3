@@ -282,3 +282,194 @@ owner authority).
 7. **A green gate/runner is not completeness.** The verdict remains
    **PARTIALLY COMPLETE**; the open-obligation list lives in the residual
    register (`docs/research/residual-register-1x.md`).
+
+## §H — Evidence-integrity correction addendum (2026-11-06) — append-only
+
+The independent review of this follow-up (delivered 2026-10-30) confirmed
+that the delivery substantially improved the proof-status pipeline and
+closed the original R13 defect, and identified four remaining integrity
+issues. This addendum is APPENDED; §0–§G and their acceptance table are the
+historical record of the 2026-10-30 delivery and are not rewritten. No
+proof outcome, expected theorem status, or historical phase evidence was
+changed by this correction — the verdict remains **PARTIALLY COMPLETE**.
+
+### H.1 — The review findings
+
+| # | Finding | Verdict on investigation |
+|---|---|---|
+| F1 | The consolidated 94-row claim ledger was not fully checked against its source verdict ledgers; a claim's exit code could be altered in BOTH consolidated files (mutually consistent) while the source row and transcript stay untouched, evading the checks | **Confirmed** — implemented as S10/S11 below; the evasion shape is now a named gate alarm and a rejected regression case (R31–R34b) |
+| F2 | The S8 fidelity-certificate check counted markers (≥5 `[PASS]`, `VERDICT: PASS`, 0 `[FAIL]`) instead of validating the complete required named-check set — a certificate retaining five arbitrary passes plus the verdict text while omitting a required named assertion would pass | **Confirmed** — implemented as S8+ below; now a named-alarm rejection (R35–R38b) |
+| F3 | The SHA-256 manifest `evidence-manifest-1x.txt` (138 digests) omits the final report added after its generation | **Confirmed, and BROADER than reported**: the phase README `phase1x/README.md` was also updated after manifest generation (commit `dff34c4`), so the manifest was stale for TWO files, not one — the checker (`check_manifest_1x.py --check` against the current tree) names both |
+| F4 | `STATE-OF-RECORD.md` still identifies `dff34c4` as the delivered branch head while the branch pointed to `229e066` | **Confirmed** — corrected by the dated append-only note (H.6) |
+
+### H.2 — Source→consolidated ledger consistency (S10/S11, commit `c26b6db`)
+
+The projection rules a source verdict row obeys on its way into the
+consolidated ledgers are CENTRALIZED in `build_ledgers_1x.py`
+(`classify`, the new `expectation_for`, the source labels) and IMPORTED by
+`summarize_1x.py`, so the builder and the validator cannot silently
+diverge. The gate then re-derives every consolidated value FROM THE SOURCE
+ROW at gate time:
+
+- **S10, all 48 ghost rows**: exactly one consolidated claim row per source
+  ID (missing/duplicate/substituted/unexpected IDs never accepted);
+  consolidated `exit_code` == source rc; `expectation` ==
+  `expectation_for(source verdict)`; `class` == `builder_classify(source
+  tag, source vclass)`; the exit-code inventory row == the claim row == the
+  source rc; the provenance field identifies the ghost runner.
+- **S11, all 46 model rows**: the same join against
+  `model-verdicts-1x.csv` (the DISCLOSED immutable 1W fixture — never
+  treated as a fresh Phase 1X execution); the provenance field must
+  preserve `fixture:phase1w/claims/model-verdicts-1w.csv`; and when the
+  immutable fixture file is present the copy must be BYTE-IDENTICAL to it
+  (sha256).
+
+**Shared logic vs independent checking.** The shared functions keep the
+RULES in one place; the validator nevertheless recomputes each projected
+value from the SOURCE row and compares — and the mutation tests R31–R34b
+demonstrate empirically that a consolidated-only mutation (source rows and
+transcripts untouched, the two consolidated files mutually consistent) is
+rejected BY NAME. The gate result on all three evidence sets (Run A
+committed, Run B, the fresh Run C) is GATE GREEN (0 alarms) with S10/S11
+live.
+
+### H.3 — Fidelity-certificate validation (S8+, commit `c26b6db`)
+
+S8 now validates the REQUIRED NAMED-CHECK SET of the canonical full-mode
+output of `scripts/audit_ghost_exact.py verify` — the generator of the
+certificate — rather than counting markers: the seven named assertions
+(baseline slice unchanged; artifact byte-identity; header region;
+extension region; baseline ⊕ declared insertions = copied body; no
+undeclared executable addition; marker accounting), each appearing EXACTLY
+ONCE as `[PASS]`; missing, duplicated, failed-present, and unexpected named
+assertions each produce a named alarm; zero `[FAIL]`; exactly one terminal
+`VERDICT:` line equal to the canonical success text; the `[HOLDS]`
+equation confirmation required. The three distinctions, documented in the
+gate source and respected by the implementation:
+
+1. **Checking a retained certificate** — what S8+ does: a strict parse of
+   the committed transcript against the canonical check set.
+2. **Executing the verifier afresh** — what the runner's GEN stage did at
+   run time to PRODUCE the certificate (and only for the artifact state it
+   then verified). The gate deliberately does not re-execute it.
+3. **Source-byte fidelity** — the PROPERTY the verifier establishes via the
+   frozen SHA-256s. S8+ establishes that the retained certificate says so,
+   completely; the verifier's own frozen checks establish that it WAS so.
+
+### H.4 — The adversarial battery R31–R40c and its execution
+
+16 new cases (unique IDs; R1–R30 untouched, all 31 originals still PASS
+with their original meanings); every mutation on sandbox copies only; every
+case records expected / actual / exit code / named reason. Executed TWICE:
+pre-commit in the correction worktree and in the clean-checkout sequence of
+record (commit `a68407a`, log
+`transcripts/repro/correction/regressions-clean-checkout.log`): **46 PASS /
+0 FAIL / 1 disclosed SKIP** both times.
+
+| Case | Mutation | Required | Actual |
+|---|---|---|---|
+| R31 | ghost consolidated rc changed in claims+exit-codes TOGETHER, source untouched | GATE RED | GATE RED (S10 rc join, named) |
+| R32 / R32b | ghost consolidated class / expectation changed | GATE RED | GATE RED (S10 class/expectation joins) |
+| R33 / R34 / R34b | model-fixture consolidated rc / class / expectation changed | GATE RED | GATE RED (S11 joins + fixture rules) |
+| R35 | required named certificate `[PASS]` removed, ≥5 other markers + verdict kept | GATE RED | GATE RED (REQUIRED named check MISSING) |
+| R36 | a required assertion duplicated | GATE RED | GATE RED (DUPLICATED 2x) |
+| R37 | a `[FAIL]` assertion injected | GATE RED | GATE RED ([FAIL] line + NOT PASSING) |
+| R38 | terminal VERDICT removed | GATE RED | GATE RED (found 0) |
+| R38b | pristine certificate/ledgers control (restore-to-genuine) | GATE GREEN | GATE GREEN (0 alarms) |
+| R39a / R40 / R40b / R40c | fixture-tree manifest: coverage / mutated file / added file / duplicated line | PASS / RED / RED / RED | PASS / RED / RED / RED (checker named alarms) |
+| R39b | committed final manifest verified vs `git ls-files` | PASS | SKIP-disclosed at this commit (the manifest is added by a LATER commit of this same sequence — the WS-J ordering requirement forbids generating it earlier); executed at the final head, recorded in the delivery note |
+
+Three suite defects were found BY execution and fixed in the same commit,
+each making the demonstration MORE faithful: R37's expected alarm name, the
+pristine-control sandbox (mkroot now stages the 1W fixture ledger + the 1W
+alias transcripts so R38b is genuinely GREEN), and R40c's in-place append.
+
+### H.5 — The final evidence manifest (WS-J)
+
+`transcripts/repro/evidence-manifest-1x-final.txt` covers EVERY tracked
+file under `phase1x/` — all source scripts, the runner, ledgers,
+certificates, Run A evidence, Run B evidence, the Run C correction
+evidence, regression output, READMEs, and the final report — excluding
+ONLY itself (a file cannot contain its own digest; the self-exclusion is
+documented in the manifest header and ENFORCED by the checker, which
+rejects self-inclusion). Each path exactly once, one SHA-256 per path,
+with the source commit/tree, generation date, and pinned toolchain in the
+header. It is generated LAST (after the report, READMEs, ledgers and all
+evidence are frozen) and committed together with the frozen tree; NO
+Phase 1X file is modified after generation (the correction's only
+subsequent commit touches root-level files outside the phase1x/ scope).
+The original 138-entry `evidence-manifest-1x.txt` is PRESERVED verbatim as
+historical evidence; the final manifest supersedes it in coverage only.
+Verification is programmatic (`check_manifest_1x.py --check` against
+`git ls-files`): missing/unexpected/duplicate paths, incorrect digests,
+and self-inclusion are all rejected; the verification results are recorded
+in the delivery note and are re-executable by anyone with one command.
+
+### H.6 — The state-of-record correction (WS-K)
+
+`STATE-OF-RECORD.md` gained the dated append-only note "Phase 1X
+delivery-pointer correction (2026-11-06)": `229e066` identified as the
+previously verified delivery head (matching the uploaded delivery record);
+the 2026-10-30 note's `dff34c4` explained as the HISTORICAL
+pre-delivery-note head (the delivery-note commit was appended after the
+push it records, then pushed itself as the next fast-forward); the general
+self-referential-hash limitation recorded (a documentation commit cannot
+contain its own final SHA — the branch ref is the pointer of record, and
+post-push `git ls-remote` is the verification); every historical narrative
+(2026-10-28 BLOCKED, 2026-10-29 landing, 2026-10-30 follow-up and delivery
+notes) preserved verbatim. Nothing was rewritten.
+
+### H.7 — Residual register (WS-L)
+
+`docs/research/residual-register-1x.md` carries R1–R17 with no drops,
+merges, or downgrades. **R13 remains CLOSED** for the original ghost-batch
+claim-count tooling defect under its recorded 8-condition closure — this
+correction does not reopen or downgrade it. New rows, appended 2026-11-06:
+**R15 CLOSED** (per-claim source→consolidated joins + executed mutation
+battery R31–R34b); **R16 CLOSED** (exact named-check validation + executed
+battery R35–R38b); **R17 CLOSED** (programmatic full-tree manifest
+generation and verification — closed at the manifest commit with the
+verification record in the delivery note). GH-T stays FAILED-STUCK; the
+genesis form stays TIMEOUT; the destination-false control stays TIMEOUT
+with its decisive control preserved; R3/R4/R6/R7/R8/R10/R11/R12 unchanged.
+
+### H.8 — Correction acceptance table (22 criteria)
+
+| # | Acceptance criterion | Evidence | Status at this commit |
+|---|---|---|---|
+| 1 | Correct starting branch/head independently verified | entry gate: credential-free ls-remote = `229e066…` (40-char server value; the task text's inline hash dropped one character, same 229e066 abbreviation); worklog part 1 | **PASS** |
+| 2 | Append-only ancestry preserved | merge-base checks (8697bd7→430f468→34ef232→229e066) + the correction commits are descendants; no force/rebase | **PASS** |
+| 3 | All 48 ghost claims joined to source verdict rows | S10 live; GATE GREEN on Run A, Run B, Run C ledgers | **PASS** |
+| 4 | All 46 model fixture claims joined to source verdict rows | S11 live (incl. fixture byte-identity + provenance) | **PASS** |
+| 5 | Consolidated exit-code rows checked against source and claim rows | S10/S11 exit-code joins + last-wins check | **PASS** |
+| 6 | Ghost source/consolidated mutation tests reject altered exit codes | R31 GATE RED by named alarm | **PASS** |
+| 7 | Ghost source/consolidated mutation tests reject altered expectation/class | R32/R32b GATE RED | **PASS** |
+| 8 | Model source/consolidated mutation tests reject altered exit codes | R33 GATE RED | **PASS** |
+| 9 | Model source/consolidated mutation tests reject altered expectation/class | R34/R34b GATE RED | **PASS** |
+| 10 | S8 validates every required named certificate assertion | S8+ (7 named checks, exactly-once, all-PASS); H.3 | **PASS** |
+| 11 | All certificate mutation controls reject malformed/incomplete certificates | R35/R36/R37/R38 GATE RED + R38b GATE GREEN | **PASS** |
+| 12 | Original R1–R30 controls remain intact and meaningful | suite logs: all 31 originals PASS with original IDs/meanings (both executions) | **PASS** |
+| 13 | New regression controls R31–R40 execute successfully | 46 PASS / 0 FAIL / 1 disclosed SKIP (R39b at final head), twice | **PASS** |
+| 14 | Original Run A evidence remains preserved | git diff EMPTY for Run A paths; runA-sha256 re-verified (65/69, 4 = reviewed tooling evolution, all EVIDENCE files match) | **PASS** |
+| 15 | Original Run B evidence remains preserved | runB/sha256.txt 61/61 OK; untouched | **PASS** |
+| 16 | Full verification sequence executes in a clean checkout | Run C sequence (commit `a68407a`): steps 1–8+10 in one clean clone, step 9 staged per the WS-J ordering (disclosed) | **PASS** |
+| 17 | Final manifest covers all tracked Phase 1X files except itself | the manifest + checker; header records the exact count | **PASS** |
+| 18 | Manifest mutation and digest checks behave correctly | R40/R40b/R40c GATE RED by named alarms; R39a PASS; R39b at final head | **PASS** |
+| 19 | State-of-record accurately distinguishes historical and current references | the 2026-11-06 correction note (H.6) | **PASS** |
+| 20 | Residual register carries R1–R17 without silent drops or downgrades | register rows R15–R17 added; R13 stays CLOSED; others unchanged | **PASS** |
+| 21 | Final report documents the corrections and their actual evidence | this addendum §H | **PASS** |
+| 22 | Final branch push is fast-forward only and independently verified | the push executes immediately after this commit (the last step); the verified remote head is recorded in the delivery note | **NOT RUN at this commit — executed as the delivery step; verified post-push** |
+
+### H.9 — What this correction does NOT claim
+
+A green evidence gate means the retained evidence matches the expected
+evidence inventory and resists the adversarial mutations tested. It does
+NOT discharge any proof obligation: GH-T remains FAILED-STUCK, the
+genesis-grounded form remains TIMEOUT, the destination-false control
+remains TIMEOUT with its decisive control preserved, the combined-batch
+tool boundary / harness-honesty TCB / examiner-report archival /
+research-framework crosswalk / Level-III boundaries / licence-and-tag
+owner-authority items remain open (register R1–R14). No Ethereum/KEVM
+production-security, consensus-integration, bisimulation, or
+protocol-commitment-boundary claim is made. The verdict remains
+**PARTIALLY COMPLETE**.
