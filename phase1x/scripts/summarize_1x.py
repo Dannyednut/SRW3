@@ -63,6 +63,41 @@ or a ghost ledger with 46 rows would have passed that check):
       a transcript belonging to a different claim cannot stand as this
       claim's evidence even if its classification would match.
 
+  1X EVIDENCE-INTEGRITY CORRECTION (2026-11-06, WS-H/WS-I) — none of S1–S9
+  is relaxed; these are strictly additive:
+
+  S10. SOURCE→CONSOLIDATED JOIN, GHOST (all 48 rows): every row of the
+      source ledger ghost-verdicts-1x.csv is joined, PER CLAIM, to its
+      consolidated rows — claims-1x.csv and exit-codes-1x.csv must equal
+      the projection of the SOURCE row under the SHARED builder rules
+      (build_ledgers_1x.classify / expectation_for / source labels):
+        - exactly one consolidated claim row per source ID (no missing,
+          duplicate, substituted, or unexpected ID);
+        - consolidated exit_code == source rc;
+        - consolidated expectation == expectation_for(source verdict);
+        - consolidated class == classify(source tag, source class);
+        - the exit-code inventory row == the claim row == the source rc;
+        - the source/provenance field identifies the correct source.
+      A claim whose exit code is altered in BOTH consolidated ledgers while
+      its source verdict row and transcript stay untouched is now REJECTED
+      (previously the two consolidated files could be mutated together and
+      still agree with each other).
+  S11. SOURCE→CONSOLIDATED JOIN, MODEL FIXTURE (all 46 rows): every row of
+      model-verdicts-1x.csv is joined per claim to the consolidated ledgers
+      under the same shared rules, with the fixture provenance preserved:
+      the source field must identify
+      fixture:phase1w/claims/model-verdicts-1w.csv, and when the immutable
+      1W fixture file is present the copy must be BYTE-IDENTICAL to it
+      (sha256). The model fixture is NEVER treated as a fresh Phase 1X
+      execution.
+  S8+ (WS-I). The fidelity certificate check is upgraded from marker
+      COUNTING to the REQUIRED NAMED-CHECK SET: the certificate must carry
+      every named assertion of the canonical full-mode output of
+      scripts/audit_ghost_exact.py verify (exactly once each, all [PASS]),
+      no unexpected named assertions, zero [FAIL], and the exact terminal
+      verdict line. A certificate retaining five arbitrary passes plus the
+      verdict text but missing a required named check is REJECTED.
+
 Usage: summarize_1x.py [--root DIR]   (default: the Phase 1X repo layout;
       --root is for fixture-based negative controls ONLY — it must point at
       a sandbox copy, never at historical phase data for mutation.)
@@ -70,13 +105,20 @@ Prints the class census and GATE GREEN/RED. Level III only.
 """
 import argparse
 import csv
+import hashlib
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from classify_1x import classify as reclassify  # the ONE classifier, shared with the runner
+from build_ledgers_1x import (  # the ONE projection (WS-H): builder == validator rules
+    classify as builder_classify,
+    expectation_for,
+    GHOST_SOURCE, MODEL_SOURCE,
+)
 DEFAULT_ROOT = os.path.dirname(os.path.dirname(HERE))  # repo root
 CLM_JSON = os.path.join(os.path.dirname(HERE), "claims")
 
@@ -112,6 +154,25 @@ def ghost_expected_ids():
 
 
 RC_FOR_STATUS = {"PROVED": "0", "FAILED": "1", "FAILED-STUCK": "1", "TIMEOUT": "124"}
+
+# --- S8+ (WS-I): the REQUIRED NAMED-CHECK SET of the fidelity certificate ---
+# The certificate ghost_manifest_verify_1x.txt is the canonical stdout of
+# `scripts/audit_ghost_exact.py verify` (full, non-structural mode) captured
+# by the runner's GEN stage. Its full-mode battery is EXACTLY these seven
+# named assertions (numeric details normalized — they vary with the frozen
+# manifest's line counts): each must appear EXACTLY ONCE with [PASS]; any
+# [PASS]/[FAIL] line outside this set is a malformed/forged certificate;
+# duplicates are rejected (the verifier never emits a check twice).
+S8_REQUIRED_NAMED = [
+    re.compile(r"baseline slice \(k/srw3\.k lines \d+\.\.\d+\) unchanged since manifest freeze"),
+    re.compile(r"artifact byte-identity vs frozen whole-file sha256"),
+    re.compile(r"header region \(\d+ lines\) byte-identical"),
+    re.compile(r"extension region \(\d+ lines\) byte-identical"),
+    re.compile(r"baseline ⊕ declared insertions = copied body \(byte-exact\)"),
+    re.compile(r"no undeclared executable addition inside the copied body"),
+    re.compile(r"marker accounting: header mentions \+ declared marked lines = total"),
+]
+S8_VERDICT_LINE = "VERDICT: PASS — exact byte-faithfulness established"
 
 
 def model_expected_ids():
@@ -288,21 +349,77 @@ def main():
                 fails.append(f"{tag}: CLAIM↔TRANSCRIPT IDENTITY MISMATCH — per-claim spec token "
                              f"{token!r} absent from {os.path.relpath(log, ROOT)}")
 
-    # --- S8 fidelity row: independent certificate check ----------------------
+    # --- S8 fidelity row: REQUIRED NAMED-CHECK certificate check (WS-I) ------
+    # What this check is — and is NOT (the three things must not be conflated):
+    #   1. CHECKING A RETAINED CERTIFICATE: what S8+ does here — a strict parse
+    #      of the committed transcript ghost_manifest_verify_1x.txt against the
+    #      canonical named-check set of scripts/audit_ghost_exact.py verify.
+    #   2. EXECUTING THE VERIFIER AFRESH: what the runner's GEN stage did at
+    #      run time to PRODUCE the certificate (and only for the artifact
+    #      state it then verified). The gate deliberately does NOT re-execute
+    #      it — the certificate is historical evidence, not a live property.
+    #   3. SOURCE-BYTE FIDELITY: the PROPERTY the verifier itself establishes
+    #      (baseline ⊕ declared insertions = artifact, via frozen SHA-256s).
+    #      S8+ establishes that the retained certificate says so, completely;
+    #      the verifier's own checks (frozen at run time) establish that it
+    #      WAS so. Re-running the verifier against the current tree would be
+    #      a live re-establishment and is outside this gate's scope.
     p_cert = os.path.join(TR, "ghost", "ghost_manifest_verify_1x.txt")
     fid = [r for r in ghost_rows if r[0] == "ghost-exact-fidelity"]
     if fid:
         if not os.path.exists(p_cert):
             fails.append("ghost-exact-fidelity: certificate transcript missing (ghost_manifest_verify_1x.txt)")
         else:
-            cert = open(p_cert, errors="replace").read()
-            npass, nfail = cert.count("[PASS]"), cert.count("[FAIL]")
-            if "VERDICT: PASS" not in cert:
-                fails.append("ghost-exact-fidelity: certificate lacks 'VERDICT: PASS' — the byte-faithfulness verdict is not established")
+            cert_lines = open(p_cert, errors="replace").read().splitlines()
+            nfail = sum(1 for ln in cert_lines if "[FAIL]" in ln)
             if nfail != 0:
                 fails.append(f"ghost-exact-fidelity: certificate carries {nfail} [FAIL] line(s)")
-            if npass < 5:
-                fails.append(f"ghost-exact-fidelity: certificate carries only {npass} [PASS] line(s) — the full check battery is not present")
+            npass_all = sum(1 for ln in cert_lines if re.search(r"\[PASS\]", ln))
+            if npass_all != len(S8_REQUIRED_NAMED):
+                fails.append(f"ghost-exact-fidelity: certificate carries {npass_all} [PASS] line(s), "
+                             f"exactly {len(S8_REQUIRED_NAMED)} required")
+            # named assertions: label = text after '[PASS] '/'[FAIL] ', detail
+            # after the ' — ' separator discarded (labels are the canonical
+            # check names; details are data)
+            named = []   # (result, label)
+            for ln in cert_lines:
+                m = re.match(r"\s*\[(PASS|FAIL)\]\s+(.*)$", ln)
+                if m:
+                    named.append((m.group(1), re.split(r"\s+—\s+", m.group(2), maxsplit=1)[0]))
+            matched = [0] * len(S8_REQUIRED_NAMED)   # [PASS] occurrences
+            failed = [0] * len(S8_REQUIRED_NAMED)     # [FAIL] occurrences
+            for res, lab in named:
+                hit = next((i for i, rx in enumerate(S8_REQUIRED_NAMED) if rx.fullmatch(lab)), None)
+                if hit is None:
+                    fails.append(f"ghost-exact-fidelity: UNEXPECTED named assertion {lab!r} — "
+                                 f"not part of the canonical audit_ghost_exact.py battery "
+                                 f"(malformed/forged certificate)")
+                elif res == "PASS":
+                    matched[hit] += 1
+                else:
+                    failed[hit] += 1
+            for rx, np_, nf in zip(S8_REQUIRED_NAMED, matched, failed):
+                name = rx.pattern[:58]
+                if np_ == 0 and nf == 0:
+                    fails.append(f"ghost-exact-fidelity: REQUIRED named check MISSING: {name}… — "
+                                 "the fidelity battery is incomplete")
+                elif np_ == 0:
+                    fails.append(f"ghost-exact-fidelity: REQUIRED named check NOT PASSING: {name}… — "
+                                 "the assertion is present but not successful")
+                elif np_ > 1:
+                    fails.append(f"ghost-exact-fidelity: named check DUPLICATED ({np_}x): {name}… — "
+                                 "the verifier emits each check exactly once")
+            verdict_lines = [ln for ln in cert_lines if ln.strip().startswith("VERDICT:")]
+            if len(verdict_lines) != 1:
+                fails.append(f"ghost-exact-fidelity: certificate must carry exactly one terminal VERDICT line, "
+                             f"found {len(verdict_lines)}")
+            elif verdict_lines[0].strip() != S8_VERDICT_LINE:
+                fails.append(f"ghost-exact-fidelity: terminal verdict is {verdict_lines[0].strip()!r}, "
+                             f"expected exactly {S8_VERDICT_LINE!r}")
+            if not any("[HOLDS]" in ln for ln in cert_lines):
+                fails.append("ghost-exact-fidelity: certificate lacks the terminal '[HOLDS]' equation confirmation")
+            if any("[DOES NOT HOLD]" in ln for ln in cert_lines):
+                fails.append("ghost-exact-fidelity: certificate carries '[DOES NOT HOLD]'")
 
     # --- claims ledger integrity (as 1W) -----------------------------------
     by_id = {}
@@ -326,6 +443,84 @@ def main():
     for cid in ec_last:
         if cid not in by_id:
             fails.append(f"{cid}: exit-codes row without a claim row")
+
+    # --- S10: SOURCE→CONSOLIDATED JOIN, ghost (all 48 rows, WS-H) -----------
+    # Every consolidated value is re-derived from the SOURCE verdict row via
+    # the SHARED projection rules and compared — the two consolidated files
+    # agreeing with each other is NOT sufficient. (Mutation tests R31/R32
+    # demonstrate the join really recomputes from the source.)
+    claims_by_id_count = {}
+    for r in claims:
+        claims_by_id_count[r["claim_id"]] = claims_by_id_count.get(r["claim_id"], 0) + 1
+    for src in ghost_rows:
+        tag, vclass, rc, expected, observed, verdict = src[0], src[1], src[2], src[3], src[4], src[5]
+        n = claims_by_id_count.get(tag, 0)
+        if n != 1:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED JOIN broken — {n} consolidated claim row(s) "
+                         f"for this source ghost verdict (exactly 1 required; missing/duplicate/"
+                         f"substituted/unexpected IDs are never accepted)")
+            continue
+        crow = by_id[tag]
+        if crow["exit_code"] != rc:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — claims-1x.csv exit_code "
+                         f"{crow['exit_code']!r} != source ghost verdict rc {rc!r}")
+        exp_want = expectation_for(verdict)
+        if crow["expectation"] != exp_want:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — expectation {crow['expectation']!r} "
+                         f"!= source-derived {exp_want!r} (verdict {verdict!r})")
+        cls_want = builder_classify(tag, vclass)
+        if crow["class"] != cls_want:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — class {crow['class']!r} != "
+                         f"builder classification {cls_want!r} (from source vclass {vclass!r})")
+        if crow["source"] != GHOST_SOURCE:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED PROVENANCE — source field {crow['source']!r} "
+                         f"does not identify the ghost runner source")
+        ecrec = ec_last.get(tag)
+        if ecrec is not None and ecrec["exit_code"] != rc:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — exit-codes-1x.csv rc "
+                         f"{ecrec['exit_code']!r} != source ghost verdict rc {rc!r}")
+
+    # --- S11: SOURCE→CONSOLIDATED JOIN, model fixture (all 46 rows, WS-H) ----
+    # The model ledger is a DISCLOSED FIXTURE (the immutable 1W evidence), not
+    # a fresh Phase 1X execution: every consolidated model row must be the
+    # projection of its source fixture row, with the fixture provenance
+    # preserved and — when the immutable source file is present — the copy
+    # byte-identical to it.
+    p_1w_fixture = os.path.join(ROOT, "phase1w", "claims", "model-verdicts-1w.csv")
+    if os.path.exists(p_model) and os.path.exists(p_1w_fixture):
+        h = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
+        if h(p_model) != h(p_1w_fixture):
+            fails.append("model-verdicts-1x.csv is NOT byte-identical to the immutable 1W fixture "
+                         "phase1w/claims/model-verdicts-1w.csv — fixture provenance violated")
+    for src in model_rows:
+        tag, vclass, rc, verdict = src[0], src[1], src[2], src[5]
+        n = claims_by_id_count.get(tag, 0)
+        if n != 1:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED JOIN broken — {n} consolidated claim row(s) "
+                         f"for this source model verdict (exactly 1 required)")
+            continue
+        crow = by_id[tag]
+        if crow["exit_code"] != rc:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — claims-1x.csv exit_code "
+                         f"{crow['exit_code']!r} != immutable fixture verdict rc {rc!r}")
+        exp_want = expectation_for(verdict)
+        if crow["expectation"] != exp_want:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — expectation {crow['expectation']!r} "
+                         f"!= fixture-derived {exp_want!r} (verdict {verdict!r})")
+        cls_want = builder_classify(tag, vclass)
+        if crow["class"] != cls_want:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — class {crow['class']!r} != "
+                         f"builder classification {cls_want!r} (from fixture vclass {vclass!r})")
+        if not crow["source"].startswith("fixture:phase1w/claims/model-verdicts-1w.csv"):
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED PROVENANCE — source field {crow['source']!r} "
+                         f"does not preserve the disclosed 1W fixture provenance")
+        if crow["source"].startswith("phase1x/"):
+            fails.append(f"{tag}: the model fixture row claims a fresh Phase 1X execution — "
+                         "fixture provenance violated (the fixture is NEVER treated as a fresh run)")
+        ecrec = ec_last.get(tag)
+        if ecrec is not None and ecrec["exit_code"] != rc:
+            fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — exit-codes-1x.csv rc "
+                         f"{ecrec['exit_code']!r} != immutable fixture verdict rc {rc!r}")
 
     # transcript presence (Phase 1X paths; fixture-provenance model rows
     # legitimately point at their immutable Phase 1W transcripts — the

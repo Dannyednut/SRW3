@@ -22,6 +22,16 @@ Classification vocabulary: control / regression / proved / fidelity (as 1W).
 Duplicates are FATAL (ledgers must be per-run fresh; last-wins dedup is the
 runner's responsibility via dedup_ledger).
 
+1X EVIDENCE-INTEGRITY CORRECTION (2026-11-06, WS-H): the projection rules a
+source verdict row obeys on its way into the consolidated ledgers are
+CENTRALIZED here and imported by the validator (summarize_1x.py) so the
+builder and the gate cannot silently diverge. The validator nevertheless
+RECOMPUTES every projected value from the SOURCE row at gate time and
+compares it against the consolidated row — the shared function keeps the
+RULES in one place; the MUTATION TESTS (R31–R34) demonstrate the gate
+actually re-derives from the source rather than trusting any shared or
+consolidated value.
+
 Level III only.
 """
 import csv
@@ -54,6 +64,14 @@ def classify(tag: str, vclass: str) -> str:
     return "regression"
 
 
+def expectation_for(verdict: str) -> str:
+    """The consolidated expectation is a pure function of the SOURCE verdict
+    column: 'OK' means the claim behaved as designed (expectation PASS);
+    anything else means it did not (expectation FAIL). Shared by the builder
+    and the gate (WS-H)."""
+    return "PASS" if verdict == "OK" else "FAIL"
+
+
 def budget_for(rc: str) -> str:
     return "124" if rc == "124" else "120"
 
@@ -77,7 +95,7 @@ def main() -> None:
                 raise SystemExit(f"FATAL: duplicate verdict row {tag} (ledgers must be per-run fresh)")
             seen.add(tag)
             cls = classify(tag, vclass)
-            expectation = "PASS" if verdict == "OK" else "FAIL"
+            expectation = expectation_for(verdict)
             claims.append({
                 "claim_id": tag,
                 "expectation": expectation,

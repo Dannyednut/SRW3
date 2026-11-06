@@ -1,17 +1,41 @@
 #!/bin/bash
 # =============================================================================
-# SRW3 Phase 1X — the adversarial regression suite (WS-D).
+# SRW3 Phase 1X — the adversarial regression suite (WS-D + the 2026-11-06
+# evidence-integrity correction battery).
 # phase1x/tests/run_1x_regressions.sh
 #
 # Exercises the 12-case mandate table + the old-runner weakness reproduction
 # + the 1X follow-up status-fidelity battery (designed-negative downgrade
 # rejection for EVERY NEG row, stripped stuck diagnostics, removed #Top,
-# injected [Error], and claim↔transcript identity substitution).
+# injected [Error], and claim↔transcript identity substitution)
+# + the evidence-integrity-correction battery R31–R40c:
+#     R31/R32/R32b  ghost consolidated-ledger mutations (rc; class;
+#                   expectation) rejected by the S10 SOURCE→CONSOLIDATED join
+#                   even when the two consolidated files are MUTATED TOGETHER
+#                   and mutually consistent — the source verdict row and the
+#                   raw transcripts are untouched and the gate still refuses;
+#     R33/R34/R34b  model-fixture consolidated mutations (rc; class;
+#                   expectation) rejected by the S11 join against the
+#                   immutable 1W fixture;
+#     R35–R38b      fidelity-certificate mutations (a required named [PASS]
+#                   removed; a named check duplicated; a [FAIL] injected; the
+#                   terminal VERDICT removed) each rejected by the named-check
+#                   validator, and the PRISTINE certificate still GATE GREEN
+#                   (R38b — the genuine-evidence restore control);
+#     R39a/R39b     final-manifest exactly-once coverage (fixture tree; and
+#                   the committed evidence-manifest-1x-final.txt when present
+#                   at the current head — SKIP-disclosed otherwise);
+#     R40/R40b/R40c the manifest checker DETECTS a file mutated after
+#                   generation (DIGEST MISMATCH), a file added after
+#                   generation (NOT COVERED), and a duplicated manifest line
+#                   (DUPLICATE) — on temporary fixture trees, never on the
+#                   repository's committed evidence.
 # Mutation-based cases operate ONLY on sandbox copies (fresh git clones of the
 # committed Phase 1X branch, or temp-dir fixture copies of ledgers/logs) —
 # historical phase1u/1v/1w files and the Phase 1X evidence itself are never
 # modified. Cases needing the real toolchain are marked; the suite records
-# actual exit codes for every case.
+# actual exit codes for every case. Test IDs R1–R30 keep their original
+# meanings; R31+ are new and unique.
 #
 # Usage: run_1x_regressions.sh [REPO_ROOT] [FRESH_RUN_DIR]
 #   REPO_ROOT     the Phase 1X checkout (default: script's repo)
@@ -28,12 +52,16 @@ REPO=$(cd "${1:-$HERE/../..}" && pwd)
 FRESHRUN=${2:-$REPO}
 cd "$REPO" || exit 1
 
-PASS=0; FAIL=0; RESULTS=""
+PASS=0; FAIL=0; SKIP=0; RESULTS=""
 case_result() { # <id> <expected> <observed> <ok 0|1> <detail>
   if [ "$4" = "0" ]; then PASS=$((PASS+1)); RESULTS="$RESULTS
 PASS  $1 | expected: $2 | observed: $3 | $5";
   else FAIL=$((FAIL+1)); RESULTS="$RESULTS
 FAIL  $1 | expected: $2 | observed: $3 | $5"; fi
+}
+case_skip() { # <id> <expected> <detail>  — disclosed not-runnable at this head
+  SKIP=$((SKIP+1)); RESULTS="$RESULTS
+SKIP  $1 | expected: $2 | observed: NOT RUN (disclosed) | $3";
 }
 CHK=$REPO/phase1x/scripts/check_labels_1x.py
 CLS=$REPO/phase1x/scripts/classify_1x.py
@@ -136,10 +164,25 @@ if [ -f "$REPO/phase1x/claims/claims-1x.csv" ] && [ -f "$REPO/phase1x/claims/gho
     cp "$REPO/phase1x/claims/"*.csv "$R/phase1x/claims/" 2>/dev/null
     cp "$REPO/phase1x/transcripts/ghost/"* "$R/phase1x/transcripts/ghost/" 2>/dev/null
     # model rows are the disclosed 1W fixture: link the ACTUAL 1W transcripts
-    # read-only so the gate's transcript-presence check is exercised honestly
+    # read-only so the gate's transcript-presence check is exercised honestly,
+    # and copy the immutable 1W fixture LEDGER so the S11 byte-identity check
+    # is exercised too (the copy is byte-identical by construction)
     for L in "$REPO"/phase1w/transcripts/model/*; do
       [ -e "$L" ] && ln -s "$L" "$R/phase1x/transcripts/model/$(basename "$L")" 2>/dev/null
     done
+    if [ -f "$REPO/phase1w/claims/model-verdicts-1w.csv" ]; then
+      mkdir -p "$R/phase1w/claims"
+      cp "$REPO/phase1w/claims/model-verdicts-1w.csv" "$R/phase1w/claims/"
+    fi
+    # the 1W fixture ALIAS transcripts (kprove_claims_1w.txt /
+    # kprove_negcontrol_1w.txt) must resolve at the 1W path for the
+    # transcript-presence check — a pristine sandbox is genuinely GREEN
+    if [ -d "$REPO/phase1w/transcripts/model" ]; then
+      mkdir -p "$R/phase1w/transcripts/model"
+      for L in "$REPO"/phase1w/transcripts/model/*; do
+        [ -e "$L" ] && ln -s "$L" "$R/phase1w/transcripts/model/$(basename "$L")" 2>/dev/null
+      done
+    fi
     echo "$R"; }
 
   # R15 ghost ledger missing a claim → RED with MISSING reason
@@ -300,11 +343,179 @@ PYEOF
   [ $RC -ne 0 ] && [ "${NIDENT:-0}" -ge 2 ] && OK=0 || OK=1
   case_result R30-identity-mismatch "GATE RED (swapped transcripts caught by identity, >=2 alarms)" "rc=$RC identity-alarms=$NIDENT" "$OK" "$(grep -m1 'IDENTITY MISMATCH' "$GDIR/r30.out" || echo none)"
 
+  # ---------------------------------------------------------------- 2026-11-06
+  # Evidence-integrity correction battery (WS-H/WS-I/WS-M). R31–R34b mutate
+  # the CONSOLIDATED ledgers TOGETHER (mutually consistent) while the source
+  # verdict ledgers and the raw transcripts stay untouched — the exact shape
+  # the pre-correction gate could not fully reject. R35–R38b mutate the
+  # fidelity certificate. Every mutation lands in its own mkroot sandbox.
+
+  # R31: ghost consolidated exit code changed in BOTH claims-1x.csv AND
+  # exit-codes-1x.csv (mutually consistent) with the SOURCE verdict row and
+  # transcript untouched → the S10 SOURCE→CONSOLIDATED join must reject it.
+  R=$(mkroot r31)
+  sed -i 's/^ghost-GH-BASE,PASS,proved,\(.*\),0,120,/ghost-GH-BASE,PASS,proved,\1,113,120,/' "$R/phase1x/claims/claims-1x.csv"
+  sed -i 's/^ghost-GH-BASE,0,120,/ghost-GH-BASE,113,120,/' "$R/phase1x/claims/exit-codes-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r31.out" 2>&1; RC=$?
+  grep -q "SOURCE→CONSOLIDATED MISMATCH — claims-1x.csv exit_code '113' != source ghost verdict rc '0'" "$GDIR/r31.out" && grep -q "SOURCE→CONSOLIDATED MISMATCH — exit-codes-1x.csv rc '113'" "$GDIR/r31.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R31-ghost-consolidated-rc "GATE RED (rc mutated in both consolidated ledgers; source unchanged — S10 join)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'SOURCE→CONSOLIDATED MISMATCH' "$GDIR/r31.out" || echo none)"
+
+  # R32: ghost consolidated CLASS changed (proved→control on GH-BASE) with a
+  # mutually consistent exit-code ledger → S10 class join rejects.
+  R=$(mkroot r32)
+  sed -i 's/^ghost-GH-BASE,PASS,proved,/ghost-GH-BASE,PASS,control,/' "$R/phase1x/claims/claims-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r32.out" 2>&1; RC=$?
+  grep -q "ghost-GH-BASE: SOURCE→CONSOLIDATED MISMATCH — class 'control' != builder classification 'proved'" "$GDIR/r32.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R32-ghost-consolidated-class "GATE RED (class mutated; builder rule re-derived from the SOURCE row)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 "ghost-GH-BASE: SOURCE→CONSOLIDATED MISMATCH — class" "$GDIR/r32.out" || echo none)"
+
+  # R32b: ghost consolidated EXPECTATION changed (PASS→FAIL on GH-R) → S10
+  # expectation join rejects (expectation = expectation_for(source verdict)).
+  R=$(mkroot r32b)
+  sed -i 's/^ghost-GH-R,PASS,/ghost-GH-R,FAIL,/' "$R/phase1x/claims/claims-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r32b.out" 2>&1; RC=$?
+  grep -q "ghost-GH-R: SOURCE→CONSOLIDATED MISMATCH — expectation 'FAIL' != source-derived 'PASS'" "$GDIR/r32b.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R32b-ghost-consolidated-expectation "GATE RED (expectation mutated; re-derived from the source verdict)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 "ghost-GH-R: SOURCE→CONSOLIDATED MISMATCH — expectation" "$GDIR/r32b.out" || echo none)"
+
+  # R33: model-fixture consolidated exit code changed in BOTH consolidated
+  # ledgers (mutually consistent), immutable fixture row untouched → S11 join.
+  R=$(mkroot r33)
+  python3 - "$R" << 'PYEOF'
+import re, sys
+r = sys.argv[1]
+for rel, sub in (("phase1x/claims/claims-1x.csv",
+                  (r'^(OLD1V-w1_aff_between_direct,PASS,control,"[^"]*",)0,', r'\g<1>1,')),
+                 ("phase1x/claims/exit-codes-1x.csv",
+                  (r'^(OLD1V-w1_aff_between_direct,)0,', r'\g<1>1,'))):
+    p = r + "/" + rel
+    out = [re.sub(sub[0], sub[1], ln) for ln in open(p)]
+    open(p, "w").write("".join(out))
+PYEOF
+  python3 "$SUM" --root "$R" > "$GDIR/r33.out" 2>&1; RC=$?
+  grep -q "OLD1V-w1_aff_between_direct: SOURCE→CONSOLIDATED MISMATCH — claims-1x.csv exit_code '1' != immutable fixture verdict rc '0'" "$GDIR/r33.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R33-model-fixture-rc "GATE RED (fixture rc mutated in both consolidated ledgers; fixture untouched — S11 join)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'immutable fixture verdict rc' "$GDIR/r33.out" || echo none)"
+
+  # R34: model-fixture consolidated CLASS changed (regression→control on a
+  # NEW1W row) with mutually consistent consolidated ledgers → S11 class join.
+  R=$(mkroot r34)
+  sed -i 's/^NEW1W-claims-1-4,PASS,regression,/NEW1W-claims-1-4,PASS,control,/' "$R/phase1x/claims/claims-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r34.out" 2>&1; RC=$?
+  grep -q "NEW1W-claims-1-4: SOURCE→CONSOLIDATED MISMATCH — class 'control' != builder classification 'regression'" "$GDIR/r34.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R34-model-fixture-class "GATE RED (fixture class mutated; builder rule re-derived from the fixture row)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 "NEW1W-claims-1-4: SOURCE→CONSOLIDATED MISMATCH — class" "$GDIR/r34.out" || echo none)"
+
+  # R34b: model-fixture consolidated EXPECTATION changed (PASS→FAIL) → S11
+  # expectation join.
+  R=$(mkroot r34b)
+  sed -i 's/^OLD1V-w1_aff_after_reject,PASS,/OLD1V-w1_aff_after_reject,FAIL,/' "$R/phase1x/claims/claims-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r34b.out" 2>&1; RC=$?
+  grep -q "OLD1V-w1_aff_after_reject: SOURCE→CONSOLIDATED MISMATCH — expectation 'FAIL' != fixture-derived 'PASS'" "$GDIR/r34b.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R34b-model-fixture-expectation "GATE RED (fixture expectation mutated; re-derived from the fixture verdict)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 "OLD1V-w1_aff_after_reject: SOURCE→CONSOLIDATED MISMATCH — expectation" "$GDIR/r34b.out" || echo none)"
+
+  # R35: a REQUIRED named certificate [PASS] assertion removed while 6 other
+  # PASS markers + the terminal VERDICT remain — the old >=5-marker check
+  # would have accepted this; the named-check validator must reject.
+  R=$(mkroot r35)
+  grep -v '^\s*\[PASS\] marker accounting: header mentions' "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt" > "$R/cert.tmp" && mv "$R/cert.tmp" "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt"
+  python3 "$SUM" --root "$R" > "$GDIR/r35.out" 2>&1; RC=$?
+  grep -q "REQUIRED named check MISSING: marker accounting" "$GDIR/r35.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R35-cert-required-check-removed "GATE RED (required named check missing; >=5 generic markers insufficient)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'REQUIRED named check MISSING' "$GDIR/r35.out" || echo none)"
+
+  # R36: a required named assertion DUPLICATED (the verifier emits each check
+  # exactly once — a duplicated line is a forged certificate).
+  R=$(mkroot r36)
+  echo '  [PASS] artifact byte-identity vs frozen whole-file sha256' >> "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt"
+  python3 "$SUM" --root "$R" > "$GDIR/r36.out" 2>&1; RC=$?
+  grep -q "named check DUPLICATED (2x): artifact byte-identity" "$GDIR/r36.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R36-cert-duplicate-assertion "GATE RED (duplicated named assertion)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'DUPLICATED' "$GDIR/r36.out" || echo none)"
+
+  # R37: a [FAIL] assertion INJECTED (a canonical check flipped to FAIL —
+  # fires both the [FAIL] alarm and the MISSING required check).
+  R=$(mkroot r37)
+  sed -i 's/^  \[PASS\] header region (57 lines) byte-identical$/  [FAIL] header region (57 lines) byte-identical/' "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt"
+  python3 "$SUM" --root "$R" > "$GDIR/r37.out" 2>&1; RC=$?
+  grep -q "certificate carries 1 \[FAIL\] line(s)" "$GDIR/r37.out" && grep -q "REQUIRED named check NOT PASSING: header region" "$GDIR/r37.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R37-cert-fail-injected "GATE RED (injected [FAIL] + the required check no longer PASS)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 '\[FAIL\] line' "$GDIR/r37.out" || echo none)"
+
+  # R38: the terminal VERDICT line REMOVED.
+  R=$(mkroot r38)
+  grep -v '^VERDICT:' "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt" > "$R/cert.tmp" && mv "$R/cert.tmp" "$R/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt"
+  python3 "$SUM" --root "$R" > "$GDIR/r38.out" 2>&1; RC=$?
+  grep -q "exactly one terminal VERDICT line, found 0" "$GDIR/r38.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R38-cert-verdict-removed "GATE RED (terminal verdict removed)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'terminal VERDICT' "$GDIR/r38.out" || echo none)"
+
+  # R38b: the PRISTINE certificate (fresh sandbox copy — the mutations above
+  # never touch the genuine evidence) is GATE GREEN with the strengthened
+  # S8+/S10/S11 checks live — the restore-to-genuine control.
+  R=$(mkroot r38b)
+  python3 "$SUM" --root "$R" > "$GDIR/r38b.out" 2>&1; RC=$?
+  grep -q "GATE GREEN (0 alarms)" "$GDIR/r38b.out" && REASON=0 || REASON=1
+  [ $RC -eq 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R38b-gate-green-pristine-control "GATE GREEN (genuine certificate + ledgers under the strengthened gate)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'GATE GREEN' "$GDIR/r38b.out" || echo none)"
+
 else
-  for C in R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30; do
+  for C in R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30 R31 R32 R32b R33 R34 R34b R35 R36 R37 R38 R38b; do
     case_result "$C-gate-mutation" "GATE RED (fixture mutation)" "NOT RUN (real ledgers not built yet)" "1" "run after the fresh battery + build_ledgers_1x.py"
   done
 fi
+
+# ---------------------------------------------------------------- Group 5
+# Final-manifest checks (WS-J). R39a and R40/R40b/R40c run on TEMPORARY
+# FIXTURE TREES (never the repository's committed evidence); R39b verifies
+# the COMMITTED final manifest against this checkout when it exists at the
+# current head (it is added by a later commit of the same correction
+# sequence — until then the case is SKIP-disclosed, never counted as run).
+MFC=$REPO/phase1x/scripts/check_manifest_1x.py
+MFT=$TD/mfix; mkdir -p "$MFT/phase1x/transcripts"
+printf 'alpha\n' > "$MFT/phase1x/alpha.txt"
+printf 'beta\n' > "$MFT/phase1x/beta.txt"
+mkdir -p "$MFT/phase1x/sub"; printf 'gamma\n' > "$MFT/phase1x/sub/gamma.txt"
+FIXMAN="$MFT/phase1x/transcripts/manifest-fixture.txt"
+python3 "$MFC" --generate --root "$MFT" --out "$FIXMAN" > "$GDIR/r39a-gen.out" 2>&1
+python3 "$MFC" --check --root "$MFT" --manifest "$FIXMAN" > "$GDIR/r39a.out" 2>&1; RC=$?
+grep -q "MANIFEST OK" "$GDIR/r39a.out" && REASON=0 || REASON=1
+[ $RC -eq 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+case_result R39a-manifest-fixture-coverage "Fixture manifest covers every file exactly once (MANIFEST OK)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'MANIFEST OK' "$GDIR/r39a.out" || echo none)"
+
+if [ -f "$REPO/phase1x/transcripts/repro/evidence-manifest-1x-final.txt" ]; then
+  python3 "$MFC" --check --root "$REPO" --manifest "$REPO/phase1x/transcripts/repro/evidence-manifest-1x-final.txt" > "$GDIR/r39b.out" 2>&1; RC=$?
+  grep -q "MANIFEST OK" "$GDIR/r39b.out" && REASON=0 || REASON=1
+  [ $RC -eq 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R39b-manifest-committed-coverage "Committed final manifest: full-tree exactly-once coverage, all digests match" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'MANIFEST OK' "$GDIR/r39b.out" || echo none)"
+else
+  case_skip R39b-manifest-committed-coverage "Committed final manifest: full-tree exactly-once coverage" "evidence-manifest-1x-final.txt is added by a LATER commit of this same correction sequence (ordering requirement: no phase1x file changes after generation); executed at the final head — see the delivery note"
+fi
+
+# R40: a listed file MUTATED after generation must be DETECTED.
+printf 'alpha-MUTATED\n' > "$MFT/phase1x/alpha.txt"
+python3 "$MFC" --check --root "$MFT" --manifest "$FIXMAN" > "$GDIR/r40.out" 2>&1; RC=$?
+grep -q "DIGEST MISMATCH (modified after generation): phase1x/alpha.txt" "$GDIR/r40.out" && REASON=0 || REASON=1
+[ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+case_result R40-manifest-mutation-detected "GATE RED (checker detects a file mutated after generation)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'DIGEST MISMATCH' "$GDIR/r40.out" || echo none)"
+
+# R40b: a file ADDED after generation must be DETECTED (coverage, not just digests).
+printf 'sneaky\n' > "$MFT/phase1x/added-after-generation.txt"
+python3 "$MFC" --check --root "$MFT" --manifest "$FIXMAN" > "$GDIR/r40b.out" 2>&1; RC=$?
+grep -q "NOT COVERED (in tree, absent from manifest): phase1x/added-after-generation.txt" "$GDIR/r40b.out" && REASON=0 || REASON=1
+[ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+case_result R40b-manifest-unexpected-path "GATE RED (checker detects a file added after generation)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'NOT COVERED' "$GDIR/r40b.out" || echo none)"
+
+# R40c: a DUPLICATED manifest line must be DETECTED.
+cp "$FIXMAN" "$FIXMAN.bak"
+grep '  phase1x/beta.txt$' "$FIXMAN" > "$FIXMAN.dup" && cat "$FIXMAN.dup" >> "$FIXMAN" && rm -f "$FIXMAN.dup"
+python3 "$MFC" --check --root "$MFT" --manifest "$FIXMAN" > "$GDIR/r40c.out" 2>&1; RC=$?
+grep -q "DUPLICATE path in manifest: phase1x/beta.txt" "$GDIR/r40c.out" && REASON=0 || REASON=1
+[ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+case_result R40c-manifest-duplicate-line "GATE RED (checker detects a duplicated manifest path)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'DUPLICATE path' "$GDIR/r40c.out" || echo none)"
+mv "$FIXMAN.bak" "$FIXMAN"
 
 # ---------------------------------------------------------------- Group 3
 # runner-level cases in a SANDBOX clone (real runner code, mutated inputs)
@@ -395,7 +606,7 @@ else
 fi
 
 echo "================================================================"
-echo "Phase 1X regression suite — $PASS PASS / $FAIL FAIL"
+echo "Phase 1X regression suite — $PASS PASS / $FAIL FAIL / $SKIP SKIP (disclosed)"
 echo -n "$RESULTS" | cut -c1-170
 echo "================================================================"
 [ $FAIL = 0 ] && exit 0 || exit 1
