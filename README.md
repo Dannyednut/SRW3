@@ -49,6 +49,27 @@ top). `main` is a divergent early-phase archive kept for provenance;
 > `phase1x/report/phase1x-final-report.md` and
 > `docs/research/residual-register-1x.md`.
 
+> **[Phase 1X evidence-integrity correction, 2026-11-06.]** The independent
+> review of the follow-up found four integrity gaps, all corrected
+> append-only on the same branch with executed evidence: (1) the gate now
+> joins EVERY consolidated claim row back to its SOURCE verdict row
+> (S10/S11 — the two consolidated ledgers agreeing with each other is no
+> longer sufficient anywhere; the model fixture's byte-identity against the
+> immutable 1W ledger is enforced); (2) the fidelity certificate is
+> validated by its REQUIRED NAMED-CHECK SET (S8+ — not by counting
+> markers); (3) a FINAL full-tree manifest
+> `phase1x/transcripts/repro/evidence-manifest-1x-final.txt` now covers the
+> complete delivered Phase 1X tree (the original 138-entry manifest missed
+> the final report AND the phase README, both updated after its generation;
+> it is preserved verbatim as history); (4) the state-of-record delivery
+> pointer is corrected (the 2026-10-30 note's `dff34c4` is the historical
+> pre-delivery-note head; the delivered head was — and the branch ref
+> remains — authoritative). The adversarial suite is extended to 47 cases
+> (R31–R40c) and executed; residuals R15–R17 registered. No proof outcome
+> changed: GH-T stays FAILED-STUCK, the genesis form stays TIMEOUT, no
+> completion tag, verdict **PARTIALLY COMPLETE**. See the correction
+> addendum in `phase1x/report/phase1x-final-report.md` (§H).
+
 ## Phase topology (chronological)
 
 | Phase | Branch | One-line outcome |
@@ -61,7 +82,7 @@ top). `main` is a divergent early-phase archive kept for provenance;
 | 1U | `phase1u-model-hygiene` | proof-rule soundness remediation (the invalid C1.5 generalization), T1/T2/T3 model defects reproduced and fixed, ledger/erratum reconciliation, state-of-record — **the GitHub default branch since the owner's switch (verified live 2026-10-28)** |
 | **1V** | **`phase1v-configuration-ownership`** | **configuration ownership (T3-v2: trusted model configuration, mutation commands removed from the untrusted grammars; F1a/F1b/F2/F3 findings closed), reproducible fail-closed regression runner, state-of-record correction for the default-branch change** |
 | **1W** | **`phase1w-boundary-audit`** | **independent acceptance (the 1V bundle verified, the full 1V test procedure rerun twice from fresh clones — 44/44 + 48/48 identical to history; 13/13 tool negative controls), initialization-boundary closure (the between-transition `init` affordance demonstrated on the pinned 1V model and closed structurally via `$INITSTATE`), reconciled residual register R1–R14** |
-| **1X** | **`phase1x-ghost-runner-hardening`** | **ghost-runner integrity (R13 closed: the expected label sets pinned and asserted BEFORE any kprove; the defect demonstrated live on the historical runner), proof-status fidelity (the FAILED-STUCK signature enforced per claim; the gate re-derives every status from the raw transcripts — S1–S9), the executed 31-case adversarial suite, the independent Run B (logically identical to Run A), the full evidence manifest** |
+| **1X** | **`phase1x-ghost-runner-hardening`** | **ghost-runner integrity (R13 closed: the expected label sets pinned and asserted BEFORE any kprove; the defect demonstrated live on the historical runner), proof-status fidelity (the FAILED-STUCK signature enforced per claim; the gate re-derives every status from the raw transcripts — S1–S9), the executed 31-case adversarial suite, the independent Run B (logically identical to Run A), the full evidence manifest — then the 2026-11-06 evidence-integrity correction: source→consolidated ledger joins (S10/S11), named-check certificate validation (S8+), the final full-tree manifest, the 47-case suite (R31–R40c), residuals R15–R17** |
 
 Each `phase1X/` directory contains that phase's README, final report
 (fail-closed verdict), claim ledger + exit-code inventory, raw transcripts,

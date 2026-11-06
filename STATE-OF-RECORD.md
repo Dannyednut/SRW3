@@ -359,3 +359,48 @@ EXACT-equal by credential-free `git ls-remote` immediately after the push:
   `docs/research/residual-register-1x.md` (R1–R14; R13 CLOSED, all others
   per their recorded status; GH-T FAILED-STUCK, Genesis TIMEOUT, Level-III
   boundaries open).
+
+## Phase 1X delivery-pointer correction (2026-11-06) — append-only
+
+The independent review of the 2026-10-30 follow-up found that this file, in
+its "Phase 1X delivery note (2026-10-30)" above, still names
+`dff34c4bdd641dc1cd6c722f0e062769e37a3a3d` as the verified Phase 1X branch
+head, while the delivered branch actually pointed one commit further. This
+dated correction is APPENDED; every historical entry above (the 2026-10-28
+BLOCKED record, the 2026-10-29 landing note, the 2026-10-30 follow-up note
+and delivery note) is preserved verbatim and is not rewritten.
+
+- **The previously verified delivery head is
+  `229e06687c0ef17437ba74bf8a1720490cfa5931`.** The delivery-note commit
+  itself (titled "the delivery note of record") was appended AFTER the push
+  it records: it documents the `e70e863..dff34c4` fast-forward, and was then
+  itself pushed as the next fast-forward (`dff34c4..229e066`). The `dff34c4`
+  reference in the delivery note is therefore HISTORICAL — correct for the
+  push it describes, superseded by the delivery-note commit that carries it.
+- **Self-referential-hash limitation (general, not specific to this
+  correction):** a documentation commit can never contain its own final
+  commit SHA, so any head recorded inside the repository is at best the
+  pre-delivery-note head. The branch reference itself is the source of
+  truth for the current head at any time
+  (`git ls-remote https://github.com/Dannyednut/SRW3.git
+  phase1x-ghost-runner-hardening`); recorded SHA-bearing notes are
+  historical evidence, never the pointer of record.
+- **Verified pre-correction state (2026-11-06, credential-free
+  `git ls-remote`):** `phase1x-ghost-runner-hardening` at
+  `229e06687c0ef17437ba74bf8a1720490cfa5931` — matching the uploaded
+  delivery record; default branch `phase1u-model-hygiene` at `8697bd7`
+  (UNCHANGED); `phase1v-configuration-ownership` at `430f468` and
+  `phase1w-boundary-audit` at `34ef232` (UNCHANGED — 1U/1V/1W not
+  rewritten); no completion tag exists. The same session's entry gate
+  confirmed `229e066` is a descendant of `34ef232` (1W), `430f468` (1V) and
+  `8697bd7` (1U) by merge-base checks on a fresh clone.
+- The evidence-integrity correction that follows (source→consolidated
+  ledger joins S10/S11, the S8 named-check certificate validation, the
+  R31–R40c adversarial battery, the final full-tree evidence manifest, and
+  this correction) is appended to `phase1x-ghost-runner-hardening` as
+  additional reviewable commits, fast-forward only. The head AFTER that
+  push is recorded — post-push, by `git ls-remote` — in the correction
+  delivery note appended below and in the worklog; as stated above, the
+  branch ref remains the authoritative pointer.
+- No completion tag was created. The verdict remains **PARTIALLY
+  COMPLETE**.

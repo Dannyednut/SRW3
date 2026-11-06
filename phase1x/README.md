@@ -76,6 +76,24 @@ sequence (runner → build → gate → regressions) was executed in the runB
 clean checkout. Staging disclosures and every detail:
 `report/phase1x-final-report.md` §D.
 
+## Evidence-integrity correction (2026-11-06) — append-only
+
+The independent review of the follow-up found four integrity gaps; all are
+corrected ON THIS BRANCH as reviewable commits, with executed evidence:
+
+| Change | Where |
+|---|---|
+| S10/S11 SOURCE→CONSOLIDATED joins: every one of the 48 ghost + 46 model-fixture consolidated rows is re-derived from its SOURCE verdict row (exactly-one-row join; rc; expectation; class via the SHARED builder rules in `scripts/build_ledgers_1x.py`; exit-code inventory row; provenance). The two consolidated files agreeing with each other is no longer sufficient anywhere | `scripts/summarize_1x.py` (updated), `scripts/build_ledgers_1x.py` (updated: `expectation_for` centralized) |
+| The model fixture's byte-identity against the immutable 1W ledger is enforced at gate time; fixture rows can never carry fresh-execution provenance | `scripts/summarize_1x.py` (S11) |
+| S8+ fidelity-certificate validation: the certificate must carry the REQUIRED NAMED-CHECK SET of `scripts/audit_ghost_exact.py verify` full-mode output — 7 named assertions, each EXACTLY ONCE as [PASS]; missing/duplicated/failed-present/unexpected named checks, any [FAIL], a missing or wrong terminal VERDICT, and a missing [HOLDS] are all rejected by name. The three distinctions (retained-certificate check / afresh verifier execution / source-byte fidelity) are documented in the gate and the report addendum | `scripts/summarize_1x.py` (S8+) |
+| The adversarial suite is extended R31–R40c (16 new cases: consolidated-ledger mutations rejected via the source join; certificate mutations; final-manifest coverage and mutation detection). R1–R30 are UNCHANGED (31/31 still PASS). A disclosed-SKIP class ensures a not-runnable control is never counted as run | `tests/run_1x_regressions.sh` (updated) |
+| `scripts/check_manifest_1x.py`: generates and programmatically verifies the FINAL full-tree evidence manifest against `git ls-files` — rejects missing/unexpected/duplicate paths, incorrect digests (files modified after generation), and self-inclusion | `scripts/check_manifest_1x.py` (new) |
+| FINAL full-tree manifest `transcripts/repro/evidence-manifest-1x-final.txt`: covers EVERY tracked file under `phase1x/` except itself (self-exclusion documented in its header). The original 138-entry `evidence-manifest-1x.txt` is PRESERVED verbatim as historical evidence — the review found it missed not only the final report but also this README (both were updated after its generation) | `transcripts/repro/evidence-manifest-1x-final.txt` |
+| Correction addendum §H (review findings, corrections, test results, manifest scope, acceptance table) appended to the report — the original §0–§G and its 19-item table are untouched | `report/phase1x-final-report.md` |
+
+Residuals **R15–R17** are registered in `docs/research/residual-register-1x.md`
+(append-only; R13 stays CLOSED, R1–R14 otherwise untouched).
+
 ## Reproduce
 
 ```sh

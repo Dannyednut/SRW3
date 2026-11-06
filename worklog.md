@@ -2440,3 +2440,61 @@ surviving store; K v7.1.337 + Z3 4.13.3 re-verified live.
   head verified by credential-free ls-remote after push; the verified head
   is recorded in the Phase 1X delivery note (final documentation commit).
 - Verdict: PARTIALLY COMPLETE (unchanged); no completion tag.
+
+---
+Task ID: 1X-CORR
+Agent: main (Super Z)
+Task: SRW3 Phase 1X — Evidence Integrity Correction (WS-H..WS-O, 2026-11-06)
+
+Work Log:
+- Entry gate (all verified live): credential-free git ls-remote — remote
+  branch phase1x-ghost-runner-hardening at 229e06687c0ef17437ba74bf8a1720490cfa5931
+  (the spec's inline hash dropped one character: 39 chars; the 40-char
+  server-side value with abbreviation 229e066 is authoritative); default
+  branch phase1u-model-hygiene @ 8697bd7 UNCHANGED; 1V @ 430f468 and 1W @
+  34ef232 UNCHANGED; no completion tag (11 tags, all <= phase1k); fresh
+  clone srw3-1x-correction, worktree clean; ancestry 8697bd7 -> 430f468 ->
+  34ef232 -> 229e066 verified by merge-base; toolchain re-verified after the
+  sandbox recycle (K v7.1.337, Z3 4.13.3; /home/z/my-project/tools links
+  rebuilt to /tmp/my-project/tools — the R14 lesson, disclosed).
+- WS-H implemented (commit c26b6db): build_ledgers_1x.py centralizes the
+  projection rules (classify, new expectation_for, source labels);
+  summarize_1x.py imports them and adds S10 (all 48 ghost rows joined to
+  ghost-verdicts-1x.csv: exactly-one consolidated row, rc, expectation,
+  class, exit-codes row, provenance) and S11 (all 46 model rows joined to
+  model-verdicts-1x.csv + fixture-provenance preserved + byte-identity vs
+  the immutable 1W ledger when present). The consolidated files agreeing
+  with each other is no longer sufficient anywhere.
+- WS-I implemented (same commit): S8 upgraded from marker counting to the
+  REQUIRED NAMED-CHECK SET of audit_ghost_exact.py verify full-mode output
+  (7 named assertions, each exactly once as [PASS]; missing/duplicated/
+  failed-present/unexpected rejected; exactly one terminal VERDICT line ==
+  the canonical text; [HOLDS] required). Retained-certificate vs afresh-
+  verifier vs source-byte-fidelity distinctions documented.
+- WS-M implemented (same commit): suite extended with R31-R34b (consolidated
+  mutations rejected via the source join), R35-R38b (certificate mutations +
+  pristine GATE GREEN control), R39a/R39b/R40/R40b/R40c (check_manifest_1x.py
+  fixture coverage + committed-manifest check [SKIP-disclosed until its
+  commit] + mutation/added-file/duplicate detection). R1-R30 untouched.
+  check_manifest_1x.py added (generate/check modes, git ls-files or os.walk,
+  self-exclusion enforced).
+- Validation BEFORE commit: gate GATE GREEN (0 alarms) on the committed Run A
+  evidence with S8+/S10/S11 live; suite 46 PASS / 0 FAIL / 1 SKIP (R39b
+  disclosed — the final manifest is added by a later commit of this same
+  sequence per the WS-J ordering requirement). Three execution-found suite
+  defects fixed (R37 expected-alarm name; mkroot needed the 1W alias
+  transcripts for a genuinely GREEN pristine control; R40c grep in-place
+  append), all making the demonstrations MORE faithful.
+- WS-K: dated append-only correction added to STATE-OF-RECORD.md (229e066
+  identified as the previously verified delivery head; dff34c4 explained as
+  the historical pre-delivery-note head; self-referential-hash limitation
+  recorded; branch ref declared the authoritative pointer; all historical
+  narratives preserved verbatim).
+- Root README.md + phase1x/README.md: dated correction blockquote/section,
+  1X topology row extended, final manifest + new validation controls
+  identified. THIS worklog entry is part 1; part 2 (execution + push record)
+  follows after the sequence of record.
+- Next (same session): the clean-checkout verification sequence (clone of
+  C2), the correction evidence commit, the final full-tree manifest +
+  register R17 closure, push, post-push ls-remote verification, delivery
+  note. Verdict stays PARTIALLY COMPLETE; no completion tag.
