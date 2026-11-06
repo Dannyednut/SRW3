@@ -404,3 +404,57 @@ and delivery note) is preserved verbatim and is not rewritten.
   branch ref remains the authoritative pointer.
 - No completion tag was created. The verdict remains **PARTIALLY
   COMPLETE**.
+
+## Phase 1X evidence-integrity correction delivery note (2026-11-06)
+
+The correction was PUSHED and the remote head verified EXACT-equal by
+credential-free `git ls-remote` immediately after the push:
+
+- Push output: `229e066..b9fd80d  phase1x-ghost-runner-hardening` — a
+  FAST-FORWARD; no force, no rebase, no history rewrite. Push-time
+  cross-check: default branch `phase1u-model-hygiene` @ `8697bd7`
+  (UNCHANGED), `phase1v-configuration-ownership` @ `430f468` (UNCHANGED),
+  `phase1w-boundary-audit` @ `34ef232` (UNCHANGED) — exactly one branch ref
+  moved. Remote tags: 11, all historical (≤ phase1k) — **no completion tag
+  created**. The verdict remains **PARTIALLY COMPLETE**.
+- The correction commit chain (all descendants of `229e066`):
+  `c26b6db` (WS-H+WS-I+WS-M — the S10/S11 source→consolidated joins with
+  centralized projection rules, the S8+ required-named-check certificate
+  validation, the R31–R40c battery, `check_manifest_1x.py`),
+  `50af992` (WS-K + WS-O part 1 — the dated STATE-OF-RECORD correction,
+  READMEs, worklog part 1), `a68407a` (WS-N + WS-L — the clean-checkout
+  sequence of record "Run C" with its evidence under
+  `phase1x/transcripts/repro/correction/`, the register rows R15/R16
+  CLOSED + R17 opened), `b9fd80d` (WS-O + WS-J + WS-L(R17) — the report
+  addendum §H with the 22-item correction acceptance table, the FINAL
+  full-tree manifest `evidence-manifest-1x-final.txt` generated LAST over
+  the frozen tree, R17 CLOSED). Per the self-referential-hash limitation
+  recorded above, the branch ref is the pointer of record for any later
+  append (the delivery/worklog notes).
+- **Verified remote head after this push:
+  `b9fd80dc1b67c8748f4695a19f912e7adb16a411`.**
+- **Final-head verification of record** (a FRESH GitHub clone of
+  `phase1x-ghost-runner-hardening` at `b9fd80d`, worktree clean):
+  enhanced gate GATE GREEN (0 alarms) with S1–S11 live; the FULL suite
+  R1–R40c: **47 PASS / 0 FAIL / 0 disclosed SKIP** — including R39b
+  (the committed final manifest verified against `git ls-files`:
+  MANIFEST OK — 215 paths, exactly-once coverage, all digests match,
+  self-exclusion enforced); Run A/B preservation: `git diff 229e066..b9fd80d`
+  EMPTY for `phase1x/transcripts/ghost` + `phase1x/claims` and runB digests
+  61/61 OK; Run A vs Run B: RUNS LOGICALLY IDENTICAL; Run C (the
+  clean-checkout sequence of record, commit `a68407a`) compared to both:
+  RUNS LOGICALLY IDENTICAL (all comparisons logical-verdict fields only).
+- **Actual regression totals across the correction:** 46 PASS / 0 FAIL /
+  1 disclosed SKIP (twice: pre-commit and in the Run C clean checkout —
+  R39b disclosed pending the manifest commit) and 47 PASS / 0 FAIL /
+  0 SKIP at the final pushed head. **Manifest file count:** 215 covered
+  paths (+ the manifest itself, self-excluded). **Toolchain:** K v7.1.337,
+  Z3 4.13.3 (captured in `phase1x/transcripts/repro/correction/toolchain-versions.txt`).
+  **Blocked/not-run items:** none — every planned check executed; R39b's
+  two pre-manifest executions are disclosed SKIPs by the WS-J ordering
+  requirement, not gaps.
+- R15/R16/R17 are CLOSED in `docs/research/residual-register-1x.md` with
+  executed evidence; R1–R14 carried unchanged (R13 stays CLOSED for the
+  original tooling defect); GH-T FAILED-STUCK; Genesis TIMEOUT;
+  destination-false TIMEOUT (decisive control preserved); Level-III and
+  owner-authority items open. **Verdict: PARTIALLY COMPLETE.**

@@ -2498,3 +2498,28 @@ Work Log:
   C2), the correction evidence commit, the final full-tree manifest +
   register R17 closure, push, post-push ls-remote verification, delivery
   note. Verdict stays PARTIALLY COMPLETE; no completion tag.
+- 1X-CORR part 2 (execution + push record, 2026-11-06): clean-checkout
+  sequence of record "Run C" in a fresh clone at 50af992 (all steps; staging
+  disclosures: the wrapper ceiling after LABELCHECK+GEN completed, the KOM
+  invocation without RUN_APPEND truncating the ledger — the Run B slip class
+  — and the recovery call's own plain-GEN slip before the correct
+  RUN_APPEND=1 re-runs; all recovered by the designed last-wins dedup;
+  completed ledger exactly 48 rows): 48/48 ghost rows as expected, build
+  94 rows, enhanced gate GATE GREEN on the fresh ledgers, full suite
+  46/0/1-SKIP, Run A/B preservation verified (git diff empty for evidence
+  paths; runA digests 65/69 with the 4 = reviewed tooling evolution, all
+  EVIDENCE files match; runB 61/61), A-vs-B-vs-C all RUNS LOGICALLY
+  IDENTICAL. Commits: c26b6db (WS-H/I/M), 50af992 (WS-K/O-1), a68407a
+  (WS-N/L evidence + register R15/R16 CLOSED, R17 opened), b9fd80d (report
+  addendum §H + FINAL manifest evidence-manifest-1x-final.txt [215 paths,
+  generated last, MANIFEST OK pre- and post-staging] + R17 CLOSED). Push
+  229e066..b9fd80d FAST-FORWARD, remote head verified EXACT-equal
+  (b9fd80dc1b67c8748f4695a19f912e7adb16a411); 1U/1V/1W unchanged; no
+  completion tag (11 historical tags). Final-head verification of record in
+  a fresh GitHub clone at b9fd80d: gate GATE GREEN; suite 47 PASS / 0 FAIL /
+  0 SKIP (R39b = committed manifest MANIFEST OK); preservation + comparison
+  + manifest checks all green; worktree clean. Acceptance: 21/22 PASS with
+  in-repo evidence, item 22 (the push itself) verified by the post-push
+  ls-remote recorded in the delivery note. Verdict: PARTIALLY COMPLETE;
+  R15-R17 CLOSED; R1-R14 unchanged (R13 stays CLOSED); GH-T FAILED-STUCK,
+  Genesis TIMEOUT.
