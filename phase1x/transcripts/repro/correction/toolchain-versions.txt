@@ -1,0 +1,6 @@
+# Toolchain of record — Phase 1X correction clean-checkout sequence (2026-11-06)
+K: K version:    v7.1.337 Build date:   Thu Jun 18 12:59:56 UTC 2026 
+Z3: Z3 version 4.13.3 - 64 bit
+java: openjdk version "21.0.13" 2026-10-20
+python: Python 3.12.16
+host: Linux 5.10.134-013.15.kangaroo.al8.x86_64 x86_64 GNU/Linux

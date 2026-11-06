@@ -1,0 +1,108 @@
+=== Phase 1X correction — clean-checkout verification sequence of record ===
+date-utc: 2026-11-06T10:33:46Z
+clone-source: /home/z/my-project/srw3-1x-correction (fresh clone, no hardlinks)
+head: 50af992e43eacd01240391fc0e63dd3f994f12db
+dirty-files-at-start: 0
+step-10a clean-worktree-at-start: PASS
+--- step 6: Run A preservation check (committed evidence in situ) ---
+git diff --stat 229e066..HEAD -- phase1x/transcripts/ghost phase1x/claims:
+(empty above = Run A ledgers/transcripts byte-unchanged since 229e066)
+runA-sha256 re-verification:
+0
+runA-ghost-verdicts vs runA copy identical:
+DIFFER
+--- step 7: Run B preservation check ---
+0
+--- (sha256 -c OK counts above; expected 12 runA / 6 runB entries) ---
+--- step 6: Run A preservation check (corrected anchoring) ---
+[git] diff 229e066..HEAD for Run A paths (must be empty):
+[git] (empty = in-situ preservation confirmed at this head)
+[digest] sha256sum -c phase1x/transcripts/repro/runA/sha256.txt (repo-root anchored):
+rc=1 ; 0 OK / 69 failed
+[copy] committed ledger == runA convenience copy:
+IDENTICAL
+--- step 7: Run B preservation check ---
+rc=0 ; 61 OK / 0 failed
+[digest] sha256sum -c runA-sha256.txt anchored at phase1x/ (correction of the previous attempt):
+rc=0 ; 65 OK / 4 failed
+[interpretation] the 4 digest mismatches are ALL tooling files legitimately evolved by reviewed commits AFTER Run A was executed at e70e863:
+  phase1x/README.md            <- dff34c4 (follow-up section) + 50af992 (correction section)
+  phase1x/scripts/summarize_1x.py   <- c12d017 (S6-S9) + c26b6db (S8+/S10/S11)
+  phase1x/scripts/build_ledgers_1x.py <- c26b6db (expectation_for centralization)
+  phase1x/tests/run_1x_regressions.sh <- 9e8e5ad (suite corrections) + c26b6db (R31-R40c)
+[interpretation] ALL 65 Run A EVIDENCE files (48 kpg transcripts, 4 kompile logs, 4 GEN outputs incl. the fidelity certificate, all claims/*.csv) match their Run A digests EXACTLY — Run A evidence is preserved in situ.
+step 6 Run A preservation: PASS (evidence byte-preserved; tooling evolved by the reviewed commits listed above)
+step 7 Run B preservation: PASS (61/61 digests OK, runB/ untouched)
+--- step 8: Run A vs Run B logical comparison (committed comparator, re-executed) ---
+suite census (common): {'main': 12, 'cm2_alias': 12, 'cm3_auth': 12, 'gen_full': 11, 'fidelity': 1}
+compared fields per claim: rc, expected, observed STATUS (wall-clock and environment paths excluded by design)
+
+RUNS LOGICALLY IDENTICAL
+comparator rc=0
+--- toolchain of record ---
+K: v7.1.337
+Z3: 4.13.3
+java: openjdk version "21.0.13" 2026-10-20
+python: Python 3.12.16
+--- step 1: full label/inventory checks + step 2a: GEN (runner stages LABELCHECK GEN) ---
+invocation: bash phase1x/proofs/run_1x_ghost.sh LABELCHECK GEN (fresh ledger, no RUN_APPEND)
+runner rc=0 wall=5s
+wrote /home/z/my-project/srw3-1x-verify/proofs/gen/gen_full.k (1197 lines, insertions: ['ghost-syntax-insert', 'config-ghost-cell', 'w-ghost-hook', 'consume-ghost-hook', 'gate-accept-hook', 'gate-reject-hook', 'gate-reject-auth-hook'])
+wrote /home/z/my-project/srw3-1x-verify/proofs/gen/ghost_manifest_gen.json
+[1X-GHOST]   regen-immutability OK: regenerated artifacts byte-identical; manifest drift confined to path fields
+[1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+[1X-GHOST] REMINDER: a green runner is not a completeness claim — open obligations remain (verdict PARTIALLY COMPLETE)
+ledger rows: 1
+[stage record] LABELCHECK+GEN: completed per its log (ALL GHOST VERDICTS AS EXPECTED; regen-immutability OK); the tool-call wrapper hit its 300s ceiling after the runner's work was done (R14 infrastructure note, disclosed); ledger = 1 fidelity row as designed
+--- step 2b: KOM (ghost definition kompile) ---
+runner rc=0 wall=30s: [1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+--- step 2c: MAIN (12-claim battery, RUN_APPEND=1) ---
+runner rc=0 wall=157s
+1
+[1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+[1X-GHOST] REMINDER: a green runner is not a completeness claim — open obligations remain (verdict PARTIALLY COMPLETE)
+ledger rows now: 12
+[staging disclosure] the KOM invocation omitted RUN_APPEND=1 and truncated the ledger (the same slip class as Run B's first staging, disclosed in the 1X report §D); recovery: re-run GEN with RUN_APPEND=1 — the designed last-wins dedup retains each tag's final execution
+GEN re-run (RUN_APPEND=1) rc=0
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+[1X-GHOST] REMINDER: a green runner is not a completeness claim — open obligations remain (verdict PARTIALLY COMPLETE)
+ledger rows now: 2 (expect 13: fidelity + 12 main)
+[staging disclosure 2] the recovery call itself first invoked GEN without RUN_APPEND (operator slip), truncating the 12 main rows; recovered by re-running MAIN with RUN_APPEND=1 — last-wins dedup; every invocation in the remainder of the sequence carries RUN_APPEND=1 explicitly
+MAIN re-run (RUN_APPEND=1) rc=0
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+ledger rows now: 13 (expect 13)
+--- step 2d: GENSPEC cm2_alias (RUN_APPEND=1) ---
+rc=0 wall=204s; [1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv [1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary) 
+ledger rows: 25 (expect 25)
+--- step 2e: GENSPEC cm3_auth (RUN_APPEND=1) ---
+rc=0 wall=204s; [1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv [1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary) 
+ledger rows: 37 (expect 37)
+--- step 2f: GENSPEC gen_full (RUN_APPEND=1) — completes the 48-row battery ---
+rc=0 wall=202s; [1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv [1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary) 
+ledger rows: 48 (expect 48)
+--- step 3: ledger construction (build_ledgers_1x.py on the fresh battery) ---
+claims-1x.csv: 94 rows (46 fixture-model + 48 fresh-1X-ghost); exit-codes-1x.csv: 94 rows
+rc=0
+--- step 4: enhanced summarizer (S1-S11 live) on the FRESH ledgers ---
+rows=94 unique-claims=94 (ghost=48/48 model=46/46)
+  control: 24
+  fidelity: 1
+  proved: 42
+  regression: 27
+GATE GREEN (0 alarms)
+REMINDER: GATE GREEN asserts the EVIDENCE matches the expected verdict inventory; it is NOT a completeness claim (PARTIALLY COMPLETE).
+gate rc=0
+--- step 5: full adversarial suite R1-R40c in the clean checkout ---
+suite rc=0
+Phase 1X regression suite — 46 PASS / 0 FAIL / 1 SKIP (disclosed)
+--- step 8 (cont.): the fresh clean-checkout execution ('Run C') compared to Run A and Run B ---
+
+RUNS LOGICALLY IDENTICAL
+A-vs-C rc=0
+
+RUNS LOGICALLY IDENTICAL
+B-vs-C rc=0
+--- step 10b: clean-worktree note ---
+the runner intentionally wrote fresh evidence into the throwaway clone's worktree (as Run B did); the REPOSITORY's committed evidence is untouched (verified: the export copies to NEW files only, and the main-clone diff checks that follow prove no committed evidence path is modified by this correction)

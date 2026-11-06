@@ -1,0 +1,7 @@
+rows=94 unique-claims=94 (ghost=48/48 model=46/46)
+  control: 24
+  fidelity: 1
+  proved: 42
+  regression: 27
+GATE GREEN (0 alarms)
+REMINDER: GATE GREEN asserts the EVIDENCE matches the expected verdict inventory; it is NOT a completeness claim (PARTIALLY COMPLETE).

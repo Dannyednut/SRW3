@@ -1,0 +1,8 @@
+[1X-GHOST] stage GENSPEC: generalized per-claim batteries (cm2_alias)
+LABELCHECK OK: suite=cm2_alias labels=12 (pinned inventory match, no dups, no extras)
+[1X-GHOST]   SRW3G2 claims: GH2-BASE GH2-A GH2-R GH2-A1 GH2-SOUND-I GH2-SOUND-F GATE2-AGREE GH2-ISO GH2-T1 GH2-T2 GH2-M GH2-NEG
+[1X-GHOST]   skipping cm3_auth (GS_SUITES='cm2_alias')
+[1X-GHOST]   skipping gen_full (GS_SUITES='cm2_alias')
+[1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+[1X-GHOST] REMINDER: a green runner is not a completeness claim — open obligations remain (verdict PARTIALLY COMPLETE)

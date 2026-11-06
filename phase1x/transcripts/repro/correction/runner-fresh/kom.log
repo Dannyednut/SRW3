@@ -1,0 +1,5 @@
+[1X-GHOST] stage KOM: kompile the ghost definition
+[1X-GHOST]   ghost definition compiled
+[1X-GHOST] ghost battery done: /home/z/my-project/srw3-1x-verify/phase1x/claims/ghost-verdicts-1x.csv
+[1X-GHOST] ALL GHOST VERDICTS AS EXPECTED (statuses classified per the 1X vocabulary)
+[1X-GHOST] REMINDER: a green runner is not a completeness claim — open obligations remain (verdict PARTIALLY COMPLETE)

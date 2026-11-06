@@ -1,0 +1,5 @@
+tags: A=48 B=48 common=48
+suite census (common): {'main': 12, 'cm2_alias': 12, 'cm3_auth': 12, 'gen_full': 11, 'fidelity': 1}
+compared fields per claim: rc, expected, observed STATUS (wall-clock and environment paths excluded by design)
+
+RUNS LOGICALLY IDENTICAL
