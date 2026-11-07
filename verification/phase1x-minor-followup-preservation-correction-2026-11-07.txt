@@ -1,0 +1,684 @@
+====================================================================
+SRW3 PHASE 1X — SUPPLEMENTAL PRESERVATION-RECORD CORRECTION
+====================================================================
+Artifact          : verification/phase1x-minor-followup-preservation-correction-2026-11-07.txt
+Repository        : Dannyednut/SRW3
+Branch            : phase1x-ghost-runner-hardening
+Supplements       : verification/phase1x-minor-followup-final-head-2026-11-06.txt
+                    (the original final-head artifact — PRESERVED VERBATIM, byte-for-byte;
+                    its sha256 as of this verification:
+                    2d7caf34c4d0893ecf09e76e5f453c3e7604e629b8cb2c1593bda20d5a67f07f)
+Tested HEAD       : eafb7655a46453ac529d6326a014f2007cd54cc7
+                    (the live remote branch head at the time of this session,
+                    verified by credential-free `git ls-remote` BEFORE any edit:
+                    refs/heads/phase1x-ghost-runner-hardening = eafb7655a46453ac529d6326a014f2007cd54cc7)
+Corrected BASE    : 229e06687c0ef17437ba74bf8a1720490cfa5931
+                    (the exact 40-character predecessor SHA of record — the
+                    Phase 1X delivery-note-of-record commit
+                    "SRW3 Phase 1X: the delivery note of record …", committed
+                    2026-10-30T16:55:43+0000; `git rev-parse` resolves it to
+                    itself; `git cat-file -e <SHA>{commit}` exits 0)
+Execution date    : 2026-11-07T16:07:50Z (UTC) — supplemental verification performed 2026-11-07
+Tool versions     : git version 2.47.3; python 3.12.16
+                    (git-only documentation repair: no K proof battery executed,
+                    no Z3 invocation, no proof evidence regenerated)
+Nature            : documentation and verification-evidence correction ONLY.
+                    NO file under phase1x/ is modified by the repair commit;
+                    the final evidence manifest scope is untouched.
+
+--------------------------------------------------------------------
+SECTION B. ROOT-CAUSE EXPLANATION
+--------------------------------------------------------------------
+
+The original final-head artifact
+(verification/phase1x-minor-followup-final-head-2026-11-06.txt) recorded its
+step 1 ancestry check and step 10a evidence-preservation diff with a
+MALFORMED predecessor SHA literal:
+
+  malformed literal used by the original artifact : 229e06687c0ef17437ba4bf8a1720490cfa5931   (39 characters — NOT a valid full Git commit SHA)
+  corrected 40-character predecessor SHA          : 229e06687c0ef17437ba74bf8a1720490cfa5931   (40 characters)
+
+Because the 39-character literal is not resolvable, BOTH original commands
+failed:
+
+  * the ancestry check failed with `fatal: Not a valid object name
+    229e06687c0ef17437ba4bf8a1720490cfa5931` followed by `ANCESTRY ALARM (229e066)`; and
+  * the evidence-preservation diff failed with `fatal: bad revision
+    '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD'`; the captured script then printed
+    `diff line count: 0 (EMPTY — Run A evidence untouched …)`.
+
+The two original failed-command transcripts are PRESERVED in the original
+artifact and are quoted verbatim in the blocks below. They are NOT valid
+evidence of a successful ancestry check and NOT valid evidence of an
+unchanged tree: a Git command that fails with `bad revision` produces no
+diff output regardless of the tree state, so "0 diff lines" after a fatal
+error carries no preservation information. The original artifact's step 10a
+interpretation ("EMPTY — Run A evidence untouched") was therefore UNSOUND as
+recorded, even though — as this supplement establishes by actually
+executing the checks — the underlying preservation fact happens to hold.
+The original ancestry ALARM was likewise an artifact of the malformed
+literal, not a genuine topology failure.
+
+Original step-1 ancestry block, quoted verbatim from the preserved artifact:
+
+--- BEGIN QUOTE (verification/phase1x-minor-followup-final-head-2026-11-06.txt, step 1) ---
+step 1. branch ancestry and remote references
+  ancestry OK: e2722bee (reported starting head) is an ancestor of 5042385
+fatal: Not a valid object name 229e06687c0ef17437ba4bf8a1720490cfa5931
+  ANCESTRY ALARM (229e066)
+  commit chain 229e066..HEAD:
+fatal: ambiguous argument '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+--- END QUOTE ---
+
+Original step-10a block, quoted verbatim from the preserved artifact:
+
+--- BEGIN QUOTE (verification/phase1x-minor-followup-final-head-2026-11-06.txt, step 10a) ---
+step 10. Run A / Run B / Run C evidence preservation
+  10a. git diff 229e066..HEAD -- phase1x/transcripts/ghost phase1x/claims (Run A evidence paths; must be EMPTY):
+fatal: bad revision '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD'
+      diff line count: 0 (EMPTY — Run A evidence untouched through this pass)
+  10b. Run A digest anchor phase1x/transcripts/repro/runA-sha256.txt (69 digests, anchored at phase1x/):
+--- END QUOTE ---
+
+--------------------------------------------------------------------
+SECTION C. CORRECTED ANCESTRY VERIFICATION (WS-W)
+--------------------------------------------------------------------
+
+Executed in a fresh clone of the live remote branch head at
+eafb7655a46453ac529d6326a014f2007cd54cc7 (clean worktree: `git status --porcelain` = 0 entries).
+
+Complete captured section (commands, raw output, exit codes):
+
+--- BEGIN CAPTURED OUTPUT ---
+====================================================================
+SECTION W: corrected ancestry verification (WS-W)
+====================================================================
+$ git rev-parse HEAD
+eafb7655a46453ac529d6326a014f2007cd54cc7
+HEAD_RC=0
+
+$ git cat-file -e 229e06687c0ef17437ba74bf8a1720490cfa5931^{commit}   # BASE = 229e06687c0ef17437ba74bf8a1720490cfa5931 (40 chars)
+CATFILE_RC=0
+
+$ git rev-parse 229e06687c0ef17437ba74bf8a1720490cfa5931
+229e06687c0ef17437ba74bf8a1720490cfa5931
+REVPARSE_BASE_RC=0
+
+$ git merge-base --is-ancestor 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD
+ANCESTRY_RC=0
+
+--- context: the malformed 39-character SHA used by the original artifact ---
+malformed literal : 229e06687c0ef17437ba4bf8a1720490cfa5931
+length of malformed literal: 39 bytes
+length of corrected literal : 40 bytes
+$ git cat-file -e 229e06687c0ef17437ba4bf8a1720490cfa5931^{commit}   # reproduces the original failure
+fatal: Not a valid object name 229e06687c0ef17437ba4bf8a1720490cfa5931^{commit}
+CATFILE_MALFORMED_RC=128
+
+--- additional historical ancestry relationships (all vs current HEAD) ---
+-- phase1u-model-hygiene remote head: 8697bd744faee0b17156393fd8f57dd87e51598e
+   cat-file rc=0
+   merge-base --is-ancestor rc=0 (0 = ancestor)
+-- phase1v-configuration-ownership remote head: 430f46858168f0477c1296ba9cc895b3f44e89be
+   cat-file rc=0
+   merge-base --is-ancestor rc=0 (0 = ancestor)
+-- phase1w-boundary-audit remote head: 34ef2321f2875682bd03adf7eb5f601e256cf7ad
+   cat-file rc=0
+   merge-base --is-ancestor rc=0 (0 = ancestor)
+-- previous 1X delivery head per prior record: e2722bee4d5732565a7d838e1739d46067f7e77d
+   cat-file rc=0
+   merge-base --is-ancestor rc=0 (0 = ancestor)
+-- 1X minor-hardening tested SHA per original artifact: 504238593a2b9ab843dfb5942198d8a43284fbc1
+   cat-file rc=0
+   merge-base --is-ancestor rc=0 (0 = ancestor)
+--- END CAPTURED OUTPUT ---
+
+Interpretation (each line bound to the executed exit code above):
+
+  * `git cat-file -e 229e06687c0ef17437ba74bf8a1720490cfa5931^{commit}` exited 0 — the corrected
+    40-character predecessor SHA is a valid Git commit object.
+  * `git rev-parse 229e06687c0ef17437ba74bf8a1720490cfa5931` printed the SHA back exactly —
+    the literal is a full, unabbreviated object name.
+  * `git merge-base --is-ancestor 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD`
+    exited 0 — 229e06687c0ef17437ba74bf8a1720490cfa5931 IS an ancestor of the tested HEAD eafb7655a46453ac529d6326a014f2007cd54cc7.
+  * ANCESTRY VERIFIED (exit code 0), for the exact 40-character SHA.
+  * The malformed 39-character literal is reproduced failing with
+    `fatal: Not a valid object name` and exit code 128 — this reproduces,
+    and thereby explains, the original artifact's step-1 failure.
+  * Additional historical ancestry relationships, all verified against the
+    tested HEAD with `git merge-base --is-ancestor` exit code 0:
+      - phase1u-model-hygiene remote head 8697bd744faee0b17156393fd8f57dd87e51598e — ancestor
+      - phase1v-configuration-ownership remote head 430f46858168f0477c1296ba9cc895b3f44e89be — ancestor
+      - phase1w-boundary-audit remote head 34ef2321f2875682bd03adf7eb5f601e256cf7ad — ancestor
+      - previous Phase 1X delivery head e2722bee4d5732565a7d838e1739d46067f7e77d — ancestor
+      - 1X minor-hardening tested SHA (original artifact) 504238593a2b9ab843dfb5942198d8a43284fbc1 — ancestor
+
+Correction note: the previous Phase 1X delivery heads verified as ancestors
+are e2722bee4d5732565a7d838e1739d46067f7e77d (the evidence-integrity
+correction delivery head) and 504238593a2b9ab843dfb5942198d8a43284fbc1 (the tested
+SHA of the original minor-hardening final-head artifact). Both exited 0 on
+`git merge-base --is-ancestor`.
+
+  * The corrected ancestry is ALSO verified against the ORIGINAL artifact's
+    own tested HEAD 504238593a2b9ab843dfb5942198d8a43284fbc1:
+    `git merge-base --is-ancestor 229e06687c0ef17437ba74bf8a1720490cfa5931 504238593a2b9ab843dfb5942198d8a43284fbc1` exited 0
+    (captured in the supplemental block below) — i.e. the check the original
+    artifact INTENDED to record genuinely passes at the exact head the
+    original artifact tested.
+
+--------------------------------------------------------------------
+SECTION D. CORRECTED RUN A PRESERVATION VERIFICATION (WS-X)
+--------------------------------------------------------------------
+
+Complete captured section (commands, raw output, exit codes):
+
+--- BEGIN CAPTURED OUTPUT ---
+SECTION X1: corrected Run A preservation diff (WS-X)
+====================================================================
+$ git diff --name-status 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD -- phase1x/transcripts/ghost phase1x/claims
+NAMEDIFF_RC=0
+
+$ git diff --quiet 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD -- phase1x/transcripts/ghost phase1x/claims
+QUIETDIFF_RC=0   (0 = no differences; 1 = differences exist; >1 = git error)
+
+--- counts of tracked evidence files at HEAD under the two paths ---
+$ git ls-files -- phase1x/transcripts/ghost phase1x/claims | wc -l
+62
+--- END CAPTURED OUTPUT ---
+
+Supplemental block — the identical diff additionally executed against the
+ORIGINAL artifact's own tested HEAD:
+
+--- BEGIN CAPTURED OUTPUT ---
+=== supplemental: same checks against the ORIGINAL artifact's tested HEAD 504238593a2b9ab843dfb5942198d8a43284fbc1 ===
+ANCESTRY_VS_5042385_RC=0
+QUIETDIFF_VS_5042385_RC=0
+0
+--- END CAPTURED OUTPUT ---
+
+Interpretation:
+
+  * `git diff --name-status 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD --
+    phase1x/transcripts/ghost phase1x/claims` produced NO output lines and
+    exited 0 — no file under either Run A evidence path differs between the
+    predecessor commit and the tested HEAD.
+  * `git diff --quiet 229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD --
+    phase1x/transcripts/ghost phase1x/claims` exited 0. Per the exit-code
+    contract (0 = no differences; 1 = differences exist; >1 = Git command
+    error), exit code 0 is a GENUINE no-differences result — unlike the
+    original artifact's failed `git diff` (fatal: bad revision), which
+    produced no output because the COMMAND FAILED, not because the trees
+    agreed.
+  * The same no-differences result holds against the original artifact's
+    tested HEAD 504238593a2b9ab843dfb5942198d8a43284fbc1 (quiet exit 0; name-status 0 lines).
+  * The two Run A evidence paths hold 62 tracked files at the tested HEAD
+    (55 under phase1x/transcripts/ghost, 7 under phase1x/claims — every one
+    of them covered by the digest anchor verified in Section E).
+
+--------------------------------------------------------------------
+SECTION E. RUN A DIGEST VERIFICATION (WS-X)
+--------------------------------------------------------------------
+
+Anchor of record: phase1x/transcripts/repro/runA-sha256.txt (69 digest
+entries, paths relative to phase1x/, generated with Run A). Every entry was
+independently re-digested from the tested HEAD worktree with sha256 and
+compared. No Run A file, transcript, ledger or the anchor itself was
+modified by this repair.
+
+Complete captured section (per-entry MATCH/MISMATCH lines and totals):
+
+--- BEGIN CAPTURED OUTPUT ---
+SECTION X2: Run A digest anchor revalidation (WS-X)
+  anchor: phase1x/transcripts/repro/runA-sha256.txt (anchored at phase1x/)
+====================================================================
+MISMATCH line 1: README.md
+         expected ebb3c37d9f11d425d800bc0730c5aa2ea7ce7821b9b996f6b2fe700c40bb4066
+         actual   40e7ee5c3cef6079a135fcc630a0e3d736f2fbeaa4bb7ef82aef8797298ff1e2
+MATCH    line 2: claims/INVENTORY-DERIVATION.md
+MATCH    line 3: claims/claims-1x.csv
+MATCH    line 4: claims/exit-codes-1x.csv
+MATCH    line 5: claims/expected-ghost-inventory.json
+MATCH    line 6: claims/expected-model-inventory.json
+MATCH    line 7: claims/ghost-verdicts-1x.csv
+MATCH    line 8: claims/model-verdicts-1x.csv
+MATCH    line 9: proofs/run_1x_ghost.sh
+MISMATCH line 10: scripts/build_ledgers_1x.py
+         expected 527a30742e458e6cf8bcaed6871e2e42aed0e46039f419ce7dc8829392a11ad2
+         actual   e410fce150afad470c3bbc1aef3373bf731d8dfececccfde2ef95890beedf593
+MATCH    line 11: scripts/check_labels_1x.py
+MATCH    line 12: scripts/classify_1x.py
+MISMATCH line 13: scripts/summarize_1x.py
+         expected 5be6d0e0642fe39143ec8a81098a3729880d0886e9194876ea4e970718078c89
+         actual   a04659b862e412c433d9dd4ae767a73eb729d3fb6e949fae92be8451c582de74
+MISMATCH line 14: tests/run_1x_regressions.sh
+         expected 385c1d80f0d542ba986464f08696281b37d4b0867ac01d49b4dbf809c9f904c3
+         actual   55bdbbb6ee93ba998516e74ab3e9e7f5ee85923157c4843f78e4f682e10f78cf
+MATCH    line 15: transcripts/ghost/ghost_gen_1x.txt
+MATCH    line 16: transcripts/ghost/ghost_gen_proofs_1x.txt
+MATCH    line 17: transcripts/ghost/ghost_manifest_freeze_1x.txt
+MATCH    line 18: transcripts/ghost/ghost_manifest_verify_1x.txt
+MATCH    line 19: transcripts/ghost/kompile_gen_SRW3G2.log
+MATCH    line 20: transcripts/ghost/kompile_gen_SRW3G3.log
+MATCH    line 21: transcripts/ghost/kompile_gen_SRW3G4.log
+MATCH    line 22: transcripts/ghost/kompile_ghost_1x.log
+MATCH    line 23: transcripts/ghost/kpg_1x_GATE-AGREE.log
+MATCH    line 24: transcripts/ghost/kpg_1x_GH-A.log
+MATCH    line 25: transcripts/ghost/kpg_1x_GH-BASE.log
+MATCH    line 26: transcripts/ghost/kpg_1x_GH-ISO.log
+MATCH    line 27: transcripts/ghost/kpg_1x_GH-M.log
+MATCH    line 28: transcripts/ghost/kpg_1x_GH-R.log
+MATCH    line 29: transcripts/ghost/kpg_1x_GH-SOUND-F.log
+MATCH    line 30: transcripts/ghost/kpg_1x_GH-SOUND-I.log
+MATCH    line 31: transcripts/ghost/kpg_1x_GH-T.log
+MATCH    line 32: transcripts/ghost/kpg_1x_GH-T1.log
+MATCH    line 33: transcripts/ghost/kpg_1x_GH-T2-NEG.log
+MATCH    line 34: transcripts/ghost/kpg_1x_GH-T2.log
+MATCH    line 35: transcripts/ghost/kpg_1x_SRW3G2_GATE2-AGREE.log
+MATCH    line 36: transcripts/ghost/kpg_1x_SRW3G2_GH2-A.log
+MATCH    line 37: transcripts/ghost/kpg_1x_SRW3G2_GH2-A1.log
+MATCH    line 38: transcripts/ghost/kpg_1x_SRW3G2_GH2-BASE.log
+MATCH    line 39: transcripts/ghost/kpg_1x_SRW3G2_GH2-ISO.log
+MATCH    line 40: transcripts/ghost/kpg_1x_SRW3G2_GH2-M.log
+MATCH    line 41: transcripts/ghost/kpg_1x_SRW3G2_GH2-NEG.log
+MATCH    line 42: transcripts/ghost/kpg_1x_SRW3G2_GH2-R.log
+MATCH    line 43: transcripts/ghost/kpg_1x_SRW3G2_GH2-SOUND-F.log
+MATCH    line 44: transcripts/ghost/kpg_1x_SRW3G2_GH2-SOUND-I.log
+MATCH    line 45: transcripts/ghost/kpg_1x_SRW3G2_GH2-T1.log
+MATCH    line 46: transcripts/ghost/kpg_1x_SRW3G2_GH2-T2.log
+MATCH    line 47: transcripts/ghost/kpg_1x_SRW3G3_GATE3-AGREE.log
+MATCH    line 48: transcripts/ghost/kpg_1x_SRW3G3_GH3-A.log
+MATCH    line 49: transcripts/ghost/kpg_1x_SRW3G3_GH3-A1.log
+MATCH    line 50: transcripts/ghost/kpg_1x_SRW3G3_GH3-BASE.log
+MATCH    line 51: transcripts/ghost/kpg_1x_SRW3G3_GH3-ISO.log
+MATCH    line 52: transcripts/ghost/kpg_1x_SRW3G3_GH3-M.log
+MATCH    line 53: transcripts/ghost/kpg_1x_SRW3G3_GH3-NEG.log
+MATCH    line 54: transcripts/ghost/kpg_1x_SRW3G3_GH3-R.log
+MATCH    line 55: transcripts/ghost/kpg_1x_SRW3G3_GH3-SOUND-F.log
+MATCH    line 56: transcripts/ghost/kpg_1x_SRW3G3_GH3-SOUND-I.log
+MATCH    line 57: transcripts/ghost/kpg_1x_SRW3G3_GH3-T1.log
+MATCH    line 58: transcripts/ghost/kpg_1x_SRW3G3_GH3-T2.log
+MATCH    line 59: transcripts/ghost/kpg_1x_SRW3G4_GATE4-AGREE.log
+MATCH    line 60: transcripts/ghost/kpg_1x_SRW3G4_GH4-A.log
+MATCH    line 61: transcripts/ghost/kpg_1x_SRW3G4_GH4-BASE.log
+MATCH    line 62: transcripts/ghost/kpg_1x_SRW3G4_GH4-ISO.log
+MATCH    line 63: transcripts/ghost/kpg_1x_SRW3G4_GH4-M.log
+MATCH    line 64: transcripts/ghost/kpg_1x_SRW3G4_GH4-NEG.log
+MATCH    line 65: transcripts/ghost/kpg_1x_SRW3G4_GH4-R.log
+MATCH    line 66: transcripts/ghost/kpg_1x_SRW3G4_GH4-SOUND-F.log
+MATCH    line 67: transcripts/ghost/kpg_1x_SRW3G4_GH4-SOUND-I.log
+MATCH    line 68: transcripts/ghost/kpg_1x_SRW3G4_GH4-T1.log
+MATCH    line 69: transcripts/ghost/kpg_1x_SRW3G4_GH4-T2.log
+TOTAL 69 | MATCH 65 | MISMATCH 4 | MISSING 0
+MISMATCHED-FILES:
+  line 1: README.md
+  line 10: scripts/build_ledgers_1x.py
+  line 13: scripts/summarize_1x.py
+  line 14: tests/run_1x_regressions.sh
+RUNA_DIGEST_RC=1
+--- END CAPTURED OUTPUT ---
+
+Result summary:
+
+  * Entries in the anchor            : 69
+  * Matching entries                 : 65
+  * Mismatching entries              : 4
+  * Missing entries                  : 0
+  * The EXACTLY FOUR mismatching entries (all tooling files evolved by
+    reviewed, separately committed Phase 1X work AFTER Run A — the four
+    tooling paths documented by the original record):
+      1. README.md
+         expected ebb3c37d9f11d425d800bc0730c5aa2ea7ce7821b9b996f6b2fe700c40bb4066
+         actual   40e7ee5c3cef6079a135fcc630a0e3d736f2fbeaa4bb7ef82aef8797298ff1e2
+      2. scripts/build_ledgers_1x.py
+         expected 527a30742e458e6cf8bcaed6871e2e42aed0e46039f419ce7dc8829392a11ad2
+         actual   e410fce150afad470c3bbc1aef3373bf731d8dfececccfde2ef95890beedf593
+      3. scripts/summarize_1x.py
+         expected 5be6d0e0642fe39143ec8a81098a3729880d0886e9194876ea4e970718078c89
+         actual   a04659b862e412c433d9dd4ae767a73eb729d3fb6e949fae92be8451c582de74
+      4. tests/run_1x_regressions.sh
+         expected 385c1d80f0d542ba986464f08696281b37d4b0867ac01d49b4dbf809c9f904c3
+         actual   55bdbbb6ee93ba998516e74ab3e9e7f5ee85923157c4843f78e4f682e10f78cf
+  * These four are the ONLY mismatches: every ORIGINAL Run A EVIDENCE file
+    (all 7 claims/ files, all 55 transcripts/ghost/ files, and
+    proofs/run_1x_ghost.sh) matches its retained digest exactly. The four
+    tooling-file evolutions are the documented, reviewed changes (commits
+    that adapted the runner scripts and README during Phase 1X hardening);
+    no evidence file was substituted, reordered, or lost.
+
+--------------------------------------------------------------------
+SECTION F. RUN B AND RUN C DIGEST VERIFICATION (WS-X)
+--------------------------------------------------------------------
+
+Run B anchor: phase1x/transcripts/repro/runB/sha256.txt (61 digest entries
+after excluding its 3 header comment lines; paths relative to repro/runB/;
+the anchor self-excludes). Complete captured section:
+
+--- BEGIN CAPTURED OUTPUT ---
+SECTION X3: Run B digest anchor revalidation (WS-X)
+  anchor: phase1x/transcripts/repro/runB/sha256.txt (anchored at repro/runB/)
+====================================================================
+MATCH    line 4: COMPARISON-runA-vs-runB.txt
+MATCH    line 5: claims-1x.csv
+MATCH    line 6: exit-codes-1x.csv
+MATCH    line 7: ghost-verdicts-1x.csv
+MATCH    line 8: regressions-from-runB-checkout.log
+MATCH    line 9: toolchain-versions.txt
+MATCH    line 10: transcripts/ghost_gen_1x.txt
+MATCH    line 11: transcripts/ghost_gen_proofs_1x.txt
+MATCH    line 12: transcripts/ghost_manifest_freeze_1x.txt
+MATCH    line 13: transcripts/ghost_manifest_verify_1x.txt
+MATCH    line 14: transcripts/kompile_gen_SRW3G2.log
+MATCH    line 15: transcripts/kompile_gen_SRW3G3.log
+MATCH    line 16: transcripts/kompile_gen_SRW3G4.log
+MATCH    line 17: transcripts/kompile_ghost_1x.log
+MATCH    line 18: transcripts/kpg_1x_GATE-AGREE.log
+MATCH    line 19: transcripts/kpg_1x_GH-A.log
+MATCH    line 20: transcripts/kpg_1x_GH-BASE.log
+MATCH    line 21: transcripts/kpg_1x_GH-ISO.log
+MATCH    line 22: transcripts/kpg_1x_GH-M.log
+MATCH    line 23: transcripts/kpg_1x_GH-R.log
+MATCH    line 24: transcripts/kpg_1x_GH-SOUND-F.log
+MATCH    line 25: transcripts/kpg_1x_GH-SOUND-I.log
+MATCH    line 26: transcripts/kpg_1x_GH-T.log
+MATCH    line 27: transcripts/kpg_1x_GH-T1.log
+MATCH    line 28: transcripts/kpg_1x_GH-T2-NEG.log
+MATCH    line 29: transcripts/kpg_1x_GH-T2.log
+MATCH    line 30: transcripts/kpg_1x_SRW3G2_GATE2-AGREE.log
+MATCH    line 31: transcripts/kpg_1x_SRW3G2_GH2-A.log
+MATCH    line 32: transcripts/kpg_1x_SRW3G2_GH2-A1.log
+MATCH    line 33: transcripts/kpg_1x_SRW3G2_GH2-BASE.log
+MATCH    line 34: transcripts/kpg_1x_SRW3G2_GH2-ISO.log
+MATCH    line 35: transcripts/kpg_1x_SRW3G2_GH2-M.log
+MATCH    line 36: transcripts/kpg_1x_SRW3G2_GH2-NEG.log
+MATCH    line 37: transcripts/kpg_1x_SRW3G2_GH2-R.log
+MATCH    line 38: transcripts/kpg_1x_SRW3G2_GH2-SOUND-F.log
+MATCH    line 39: transcripts/kpg_1x_SRW3G2_GH2-SOUND-I.log
+MATCH    line 40: transcripts/kpg_1x_SRW3G2_GH2-T1.log
+MATCH    line 41: transcripts/kpg_1x_SRW3G2_GH2-T2.log
+MATCH    line 42: transcripts/kpg_1x_SRW3G3_GATE3-AGREE.log
+MATCH    line 43: transcripts/kpg_1x_SRW3G3_GH3-A.log
+MATCH    line 44: transcripts/kpg_1x_SRW3G3_GH3-A1.log
+MATCH    line 45: transcripts/kpg_1x_SRW3G3_GH3-BASE.log
+MATCH    line 46: transcripts/kpg_1x_SRW3G3_GH3-ISO.log
+MATCH    line 47: transcripts/kpg_1x_SRW3G3_GH3-M.log
+MATCH    line 48: transcripts/kpg_1x_SRW3G3_GH3-NEG.log
+MATCH    line 49: transcripts/kpg_1x_SRW3G3_GH3-R.log
+MATCH    line 50: transcripts/kpg_1x_SRW3G3_GH3-SOUND-F.log
+MATCH    line 51: transcripts/kpg_1x_SRW3G3_GH3-SOUND-I.log
+MATCH    line 52: transcripts/kpg_1x_SRW3G3_GH3-T1.log
+MATCH    line 53: transcripts/kpg_1x_SRW3G3_GH3-T2.log
+MATCH    line 54: transcripts/kpg_1x_SRW3G4_GATE4-AGREE.log
+MATCH    line 55: transcripts/kpg_1x_SRW3G4_GH4-A.log
+MATCH    line 56: transcripts/kpg_1x_SRW3G4_GH4-BASE.log
+MATCH    line 57: transcripts/kpg_1x_SRW3G4_GH4-ISO.log
+MATCH    line 58: transcripts/kpg_1x_SRW3G4_GH4-M.log
+MATCH    line 59: transcripts/kpg_1x_SRW3G4_GH4-NEG.log
+MATCH    line 60: transcripts/kpg_1x_SRW3G4_GH4-R.log
+MATCH    line 61: transcripts/kpg_1x_SRW3G4_GH4-SOUND-F.log
+MATCH    line 62: transcripts/kpg_1x_SRW3G4_GH4-SOUND-I.log
+MATCH    line 63: transcripts/kpg_1x_SRW3G4_GH4-T1.log
+MATCH    line 64: transcripts/kpg_1x_SRW3G4_GH4-T2.log
+TOTAL 61 | MATCH 61 | MISMATCH 0 | MISSING 0
+RUNB_DIGEST_RC=0
+--- END CAPTURED OUTPUT ---
+
+Run C anchor (the clean-checkout sequence of record):
+phase1x/transcripts/repro/correction/sha256.txt (72 digest entries; paths
+relative to repro/correction/, './' prefixes normalized for lookup only).
+Complete captured section:
+
+--- BEGIN CAPTURED OUTPUT ---
+SECTION X4: Run C digest anchor revalidation (WS-X)
+  anchor: phase1x/transcripts/repro/correction/sha256.txt (anchored at repro/correction/)
+====================================================================
+MATCH    line 1: ./COMPARISON-runC-vs-runA-runB.txt
+MATCH    line 2: ./SEQUENCE.log
+MATCH    line 3: ./build-ledgers.out
+MATCH    line 4: ./gate-clean-checkout.txt
+MATCH    line 5: ./regressions-clean-checkout.log
+MATCH    line 6: ./runner-fresh/claims-1x.csv
+MATCH    line 7: ./runner-fresh/exit-codes-1x.csv
+MATCH    line 8: ./runner-fresh/gen-recovery.log
+MATCH    line 9: ./runner-fresh/ghost-verdicts-1x.csv
+MATCH    line 10: ./runner-fresh/kom.log
+MATCH    line 11: ./runner-fresh/labelcheck-gen.log
+MATCH    line 12: ./runner-fresh/main-first-invocation.log
+MATCH    line 13: ./runner-fresh/main-recovery.log
+MATCH    line 14: ./runner-fresh/stage-gs-cm2.log
+MATCH    line 15: ./runner-fresh/stage-gs-cm3.log
+MATCH    line 16: ./runner-fresh/stage-gs-g4.log
+MATCH    line 17: ./runner-fresh/transcripts/ghost_gen_1x.txt
+MATCH    line 18: ./runner-fresh/transcripts/ghost_gen_proofs_1x.txt
+MATCH    line 19: ./runner-fresh/transcripts/ghost_manifest_freeze_1x.txt
+MATCH    line 20: ./runner-fresh/transcripts/ghost_manifest_verify_1x.txt
+MATCH    line 21: ./runner-fresh/transcripts/kompile_gen_SRW3G2.log
+MATCH    line 22: ./runner-fresh/transcripts/kompile_gen_SRW3G3.log
+MATCH    line 23: ./runner-fresh/transcripts/kompile_gen_SRW3G4.log
+MATCH    line 24: ./runner-fresh/transcripts/kompile_ghost_1x.log
+MATCH    line 25: ./runner-fresh/transcripts/kpg_1x_GATE-AGREE.log
+MATCH    line 26: ./runner-fresh/transcripts/kpg_1x_GH-A.log
+MATCH    line 27: ./runner-fresh/transcripts/kpg_1x_GH-BASE.log
+MATCH    line 28: ./runner-fresh/transcripts/kpg_1x_GH-ISO.log
+MATCH    line 29: ./runner-fresh/transcripts/kpg_1x_GH-M.log
+MATCH    line 30: ./runner-fresh/transcripts/kpg_1x_GH-R.log
+MATCH    line 31: ./runner-fresh/transcripts/kpg_1x_GH-SOUND-F.log
+MATCH    line 32: ./runner-fresh/transcripts/kpg_1x_GH-SOUND-I.log
+MATCH    line 33: ./runner-fresh/transcripts/kpg_1x_GH-T.log
+MATCH    line 34: ./runner-fresh/transcripts/kpg_1x_GH-T1.log
+MATCH    line 35: ./runner-fresh/transcripts/kpg_1x_GH-T2-NEG.log
+MATCH    line 36: ./runner-fresh/transcripts/kpg_1x_GH-T2.log
+MATCH    line 37: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GATE2-AGREE.log
+MATCH    line 38: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-A.log
+MATCH    line 39: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-A1.log
+MATCH    line 40: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-BASE.log
+MATCH    line 41: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-ISO.log
+MATCH    line 42: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-M.log
+MATCH    line 43: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-NEG.log
+MATCH    line 44: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-R.log
+MATCH    line 45: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-SOUND-F.log
+MATCH    line 46: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-SOUND-I.log
+MATCH    line 47: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-T1.log
+MATCH    line 48: ./runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-T2.log
+MATCH    line 49: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GATE3-AGREE.log
+MATCH    line 50: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-A.log
+MATCH    line 51: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-A1.log
+MATCH    line 52: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-BASE.log
+MATCH    line 53: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-ISO.log
+MATCH    line 54: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-M.log
+MATCH    line 55: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-NEG.log
+MATCH    line 56: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-R.log
+MATCH    line 57: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-SOUND-F.log
+MATCH    line 58: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-SOUND-I.log
+MATCH    line 59: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-T1.log
+MATCH    line 60: ./runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-T2.log
+MATCH    line 61: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GATE4-AGREE.log
+MATCH    line 62: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-A.log
+MATCH    line 63: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-BASE.log
+MATCH    line 64: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-ISO.log
+MATCH    line 65: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-M.log
+MATCH    line 66: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-NEG.log
+MATCH    line 67: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-R.log
+MATCH    line 68: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-SOUND-F.log
+MATCH    line 69: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-SOUND-I.log
+MATCH    line 70: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-T1.log
+MATCH    line 71: ./runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-T2.log
+MATCH    line 72: ./toolchain-versions.txt
+TOTAL 72 | MATCH 72 | MISMATCH 0 | MISSING 0
+RUNC_DIGEST_RC=0
+--- END CAPTURED OUTPUT ---
+
+Result summary:
+
+  * Run B : 61 entries — 61 match, 0 mismatch, 0 missing (61/61).
+  * Run C : 72 entries — 72 match, 0 mismatch, 0 missing (72/72).
+  * Both revalidations were executed fresh in this session; the previously
+    reported totals (Run B 61/61, Run C 72/72) are CONFIRMED by execution.
+
+--------------------------------------------------------------------
+SECTION G. FINAL INTERPRETATION
+--------------------------------------------------------------------
+
+The four things this record distinguishes:
+
+  1. The ORIGINAL malformed verification attempt (preserved verbatim in
+     verification/phase1x-minor-followup-final-head-2026-11-06.txt): its
+     step-1 ancestry check and step-10a diff BOTH failed because the
+     predecessor SHA literal was 39 characters; the recorded `ANCESTRY
+     ALARM` was an artifact of that literal, and the recorded
+     "diff line count: 0 (EMPTY — Run A evidence untouched)" was an
+     unsound reading of a FAILED command. Those blocks are historical
+     record now; they are NOT evidence that any check succeeded.
+
+  2. The NEW valid ancestry verification (this artifact, Section C): with
+     the exact 40-character SHA 229e06687c0ef17437ba74bf8a1720490cfa5931,
+     `git cat-file -e` exits 0 and `git merge-base --is-ancestor` exits 0
+     against the tested HEAD eafb7655a46453ac529d6326a014f2007cd54cc7 and also against the
+     original artifact's tested HEAD 504238593a2b9ab843dfb5942198d8a43284fbc1. Ancestry is
+     GENUINELY verified — not retrospectively re-labelled: the exit codes
+     above come from commands executed in this session.
+
+  3. The NEW valid evidence-preservation verification (this artifact,
+     Sections D/E/F): `git diff --quiet` over the Run A evidence paths
+     exits 0 (a real no-differences result from a successful command),
+     the Run A anchor revalidates 65/69 with the four mismatches being
+     EXACTLY the documented tooling-file evolutions and every Run A
+     evidence file matching, and Run B (61/61) and Run C (72/72)
+     revalidate completely. The preservation FACT the original artifact
+     asserted without valid support is now supported by executed evidence.
+
+  4. The RETAINED HISTORICAL PROOF EVIDENCE: unchanged throughout. No
+     file under phase1x/ — including all Run A/B/C evidence, the final
+     evidence manifest and every ledger/transcript/certificate — was
+     touched by this repair (the repair commit's diff over phase1x/ is
+     empty; see the scope check below). The gate/regression results of
+     the original artifact (51 PASS / 0 FAIL / 0 SKIP, GATE GREEN,
+     MANIFEST OK) remain the record of that battery; this supplement does
+     not re-run, re-grade, or replace them.
+
+The new artifact SUPPLEMENTS the historical record; it does not erase it.
+No previously failed command is claimed to have succeeded retrospectively.
+
+Scope validation captured in the same session (SECTION AA excerpt). READING
+NOTE: the `git diff --name-only 229e06687c0ef17437ba74bf8a1720490cfa5931..HEAD -- phase1x/` listing below (81
+paths: 76 additions + 5 modifications) is the CUMULATIVE Phase 1X evolution
+between the Run A anchor commit 229e06687c0ef17437ba74bf8a1720490cfa5931 and the tested HEAD —
+i.e. the files added or changed by the REVIEWED, separately committed
+correction and hardening work recorded on this branch (the Run B and Run C
+evidence trees, the report addendum, the regenerated final manifest, and
+the five tooling/report modifications). It is included as CONTEXT. The two
+Run A evidence directories are ABSENT from that listing, independently
+confirming Section D. The scope assertion that matters for THIS repair is
+narrower and is verified at commit time: the repair commit's own diff over
+phase1x/ is EMPTY (its parent is eafb7655a46453ac529d6326a014f2007cd54cc7; nothing under
+phase1x/ is staged, modified, or deleted by the repair — see the
+state-of-record note and the worklog entry, which record the executed
+`git diff --name-only <parent>..<repair-commit> -- phase1x/` result and
+treat the branch reference as the pointer of record):
+
+--- BEGIN CAPTURED OUTPUT (pre-commit excerpt) ---
+SECTION AA: pre-commit scope validation (WS-AA inputs)
+====================================================================
+$ git status --porcelain
+PORCELAIN_ENTRIES=0
+
+$ git diff --name-only 229e06687c0ef17437ba74bf8a1720490cfa5931..HEAD -- phase1x/
+phase1x/README.md
+phase1x/report/phase1x-final-report.md
+phase1x/scripts/build_ledgers_1x.py
+phase1x/scripts/check_manifest_1x.py
+phase1x/scripts/summarize_1x.py
+phase1x/tests/run_1x_regressions.sh
+phase1x/transcripts/repro/correction/COMPARISON-runC-vs-runA-runB.txt
+phase1x/transcripts/repro/correction/README.md
+phase1x/transcripts/repro/correction/SEQUENCE.log
+phase1x/transcripts/repro/correction/build-ledgers.out
+phase1x/transcripts/repro/correction/gate-clean-checkout.txt
+phase1x/transcripts/repro/correction/regressions-clean-checkout.log
+phase1x/transcripts/repro/correction/runner-fresh/claims-1x.csv
+phase1x/transcripts/repro/correction/runner-fresh/exit-codes-1x.csv
+phase1x/transcripts/repro/correction/runner-fresh/gen-recovery.log
+phase1x/transcripts/repro/correction/runner-fresh/ghost-verdicts-1x.csv
+phase1x/transcripts/repro/correction/runner-fresh/kom.log
+phase1x/transcripts/repro/correction/runner-fresh/labelcheck-gen.log
+phase1x/transcripts/repro/correction/runner-fresh/main-first-invocation.log
+phase1x/transcripts/repro/correction/runner-fresh/main-recovery.log
+phase1x/transcripts/repro/correction/runner-fresh/stage-gs-cm2.log
+phase1x/transcripts/repro/correction/runner-fresh/stage-gs-cm3.log
+phase1x/transcripts/repro/correction/runner-fresh/stage-gs-g4.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/ghost_gen_1x.txt
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/ghost_gen_proofs_1x.txt
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/ghost_manifest_freeze_1x.txt
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/ghost_manifest_verify_1x.txt
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kompile_gen_SRW3G2.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kompile_gen_SRW3G3.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kompile_gen_SRW3G4.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kompile_ghost_1x.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GATE-AGREE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-A.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-BASE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-ISO.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-M.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-R.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-SOUND-F.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-SOUND-I.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-T.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-T1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-T2-NEG.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_GH-T2.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GATE2-AGREE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-A.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-A1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-BASE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-ISO.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-M.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-NEG.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-R.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-SOUND-F.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-SOUND-I.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-T1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G2_GH2-T2.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GATE3-AGREE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-A.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-A1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-BASE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-ISO.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-M.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-NEG.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-R.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-SOUND-F.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-SOUND-I.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-T1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G3_GH3-T2.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GATE4-AGREE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-A.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-BASE.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-ISO.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-M.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-NEG.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-R.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-SOUND-F.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-SOUND-I.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-T1.log
+phase1x/transcripts/repro/correction/runner-fresh/transcripts/kpg_1x_SRW3G4_GH4-T2.log
+phase1x/transcripts/repro/correction/sha256.txt
+phase1x/transcripts/repro/correction/toolchain-versions.txt
+phase1x/transcripts/repro/evidence-manifest-1x-final.txt
+PHASE1X_DIFF_BETWEEN_BASE_AND_HEAD_RC=0 (line count: 81)
+
+$ python3 phase1x/scripts/check_manifest_1x.py --check --root . --manifest phase1x/transcripts/repro/evidence-manifest-1x-final.txt
+manifest: phase1x/transcripts/repro/evidence-manifest-1x-final.txt (215 listed paths, 12 header/comment lines, tree enumeration: git ls-files (tracked) over 216 files)
+MANIFEST OK — 215 paths, exactly-once coverage, all digests match; self-exclusion of phase1x/transcripts/repro/evidence-manifest-1x-final.txt enforced
+MANIFEST_RC=0
+--- END CAPTURED OUTPUT ---
+
+Verdict: PARTIALLY COMPLETE (unchanged). This repair makes NO new theorem,
+proof-closure, production-Ethereum-security, or protocol-level security
+claim. It corrects a verification record so that the ancestry and
+evidence-preservation statements in the Phase 1X documentation are backed
+by commands that actually succeeded.
+====================================================================
+END OF SUPPLEMENTAL ARTIFACT
+====================================================================

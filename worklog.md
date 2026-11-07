@@ -2606,3 +2606,102 @@ Work Log:
   (outside phase1x/). This artifact commit is the delivery note of record;
   its own remote-head verification is recorded by the operator immediately
   after its push (branch-ref-is-pointer discipline).
+
+---
+Task ID: 1X-REPAIR
+Agent: main (Super Z)
+Task: SRW3 Phase 1X — Final Verification Record Repair (WS-W..WS-AA, 2026-11-07)
+
+Work Log:
+- Entry gate (all verified live): credential-free git ls-remote — remote
+  branch phase1x-ghost-runner-hardening at
+  eafb7655a46453ac529d6326a014f2007cd54cc7 (exactly the reported starting
+  head; the branch had NOT moved since the 1X-MINOR delivery); the starting
+  head is the branch head itself (merge-base --is-ancestor exit 0); the
+  corrected 40-character predecessor SHA
+  229e06687c0ef17437ba74bf8a1720490cfa5931 EXISTS (git cat-file -e exit 0,
+  the 2026-10-30 delivery-note-of-record commit); default branch
+  phase1u-model-hygiene @ 8697bd7 UNCHANGED, main @ 6601242 UNCHANGED,
+  phase1v @ 430f468 UNCHANGED, phase1w @ 34ef232 UNCHANGED; remote tags all
+  historical — NO completion tag; fresh clean clone created (full history;
+  sparse WORKTREE limited to phase1x/ + verification/ + root docs because
+  the full 822 MB / 10,584-file tree cannot be checked out inside this
+  session's time ceiling — ancestry/diff/digest checks are unaffected:
+  git object DB is complete, and every digest-checked file is materialized;
+  git status --porcelain = 0 entries before any edit). Read of the original
+  artifact verification/phase1x-minor-followup-final-head-2026-11-06.txt
+  confirmed the defect verbatim: step 1 `fatal: Not a valid object name
+  229e06687c0ef17437ba4bf8a1720490cfa5931` + `ANCESTRY ALARM (229e066)`
+  (the literal is 39 chars) and step 10a `fatal: bad revision
+  '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD'` followed by
+  `diff line count: 0 (EMPTY — Run A evidence untouched …)` — a failed
+  command mis-read as an empty diff.
+- WS-W (corrected ancestry): with the exact 40-character SHA
+  229e06687c0ef17437ba74bf8a1720490cfa5931 at tested HEAD eafb765:
+  git cat-file -e <SHA>^{commit} exit 0; git rev-parse <SHA> resolves to
+  itself; git merge-base --is-ancestor <SHA> HEAD exit 0 — ANCESTRY
+  VERIFIED. The malformed 39-char literal reproduced failing (exit 128),
+  explaining the original alarm. Also exit 0: <SHA> vs the original
+  artifact's own tested head 504238593a2b9ab843dfb5942198d8a43284fbc1; and
+  the remote heads 8697bd7 (1U), 430f468 (1V), 34ef232 (1W), e2722bee
+  (previous 1X delivery head), 5042385 — each an ancestor of the tested
+  HEAD (merge-base exit 0 each).
+- WS-X (corrected Run A preservation): git diff --name-status <SHA> HEAD --
+  phase1x/transcripts/ghost phase1x/claims → NO output lines, exit 0;
+  git diff --quiet <same args> → exit 0 (0 = no differences per the
+  exit-code contract; 62 tracked evidence files under the two paths; the
+  same diff vs 5042385 also exit 0 / 0 lines). Run A digest anchor
+  runA-sha256.txt re-digested entry-by-entry: TOTAL 69 | MATCH 65 |
+  MISMATCH 4 | MISSING 0 — the four mismatches EXACTLY the documented
+  tooling files (README.md, scripts/build_ledgers_1x.py,
+  scripts/summarize_1x.py, tests/run_1x_regressions.sh, each with expected
+  vs actual sha256 recorded); every Run A EVIDENCE file (7 claims/ + 55
+  transcripts/ghost/ + proofs/run_1x_ghost.sh) matches its retained
+  digest. Run B anchor revalidated: 61/61, 0 mismatch, 0 missing (exit 0).
+  Run C anchor revalidated: 72/72, 0 mismatch, 0 missing (exit 0). No Run
+  A/B/C file, transcript, ledger, or digest anchor modified.
+- WS-Y (supplemental artifact):
+  verification/phase1x-minor-followup-preservation-correction-2026-11-07.txt
+  created (root-level, OUTSIDE phase1x/): identification; root-cause
+  (39-char literal; the original failed blocks QUOTED VERBATIM — the
+  original artifact itself is preserved byte-for-byte, sha256
+  2d7caf34c4d0893ecf09e76e5f453c3e7604e629b8cb2c1593bda20d5a67f07f as of
+  this verification); corrected ancestry section with raw outputs and exit
+  codes; corrected Run A preservation section (name-status output, --quiet
+  exit code, exit-code contract); Run A digest section (per-entry
+  MATCH/MISMATCH + totals); Run B/C sections; the four-way final
+  interpretation (original malformed attempt / new valid ancestry
+  verification / new valid preservation verification / retained historical
+  evidence) — a 2026-11-07 supplement, NOT part of the historical
+  execution; no failed command claimed to have succeeded retrospectively.
+- WS-Z: STATE-OF-RECORD.md gains the dated 'Phase 1X final
+  verification-record repair (2026-11-07) — append-only' section (defect,
+  preservation discipline, corrected results, artifact location, repair
+  commit + branch-ref-is-pointer discipline); ALL previous delivery notes
+  preserved verbatim. This worklog entry is the matching factual record.
+- WS-AA (pre-commit validation): corrected predecessor is a valid commit
+  (exit 0); ancestry exit 0; Run A evidence diff exit 0; the four Run A
+  tooling mismatches are exactly the documented files; every Run A evidence
+  digest matches; Run B 61/61 and Run C 72/72; NO phase1x/ file modified
+  (worktree shows ONLY the three intended root-level paths:
+  verification/phase1x-minor-followup-preservation-correction-2026-11-07.txt
+  new + STATE-OF-RECORD.md + worklog.md appended); the final manifest still
+  validates at the tested HEAD (check_manifest_1x.py --check exit 0:
+  MANIFEST OK — 215 paths, exactly-once coverage, all digests match,
+  self-exclusion enforced); the original artifact not overwritten (byte
+  count + sha256 unchanged). The 51-case regression suite and proof
+  evidence intentionally NOT re-run (documentation-only repair).
+- Commit + push: ONE append-only documentation/evidence commit ('SRW3
+  Phase 1X: correct final preservation verification record') containing
+  ONLY the three root-level files above — git diff --name-only
+  <parent>..<commit> -- phase1x/ verified EMPTY before the push; push
+  FAST-FORWARD only (no force, no reset, no rebase, no history rewrite);
+  remote head verified EXACT-equal by credential-free git ls-remote
+  immediately after the push; 1U/1V/1W/main re-checked UNCHANGED; no new
+  completion tag (branch-ref-is-pointer: this entry cannot contain this
+  commit's own final SHA).
+- Verdict: PARTIALLY COMPLETE. No new theorem, proof closure, production
+  Ethereum security claim, or protocol-level security claim is made by
+  this repair; R18/R19 stay CLOSED; R1-R17 unchanged; GH-T FAILED-STUCK,
+  Genesis TIMEOUT, destination-false TIMEOUT with the decisive control
+  preserved.

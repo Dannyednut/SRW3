@@ -540,3 +540,81 @@ credential-free `git ls-remote` immediately after the push:
   pointer of record and the post-push `ls-remote` verification of THIS
   commit follows the same pattern as every previous delivery (verified
   immediately after the push of this commit and recorded in the worklog).
+
+## Phase 1X final verification-record repair (2026-11-07) — append-only
+
+- **Scope:** documentation and verification-evidence correction ONLY. No
+  file under `phase1x/` is modified (the final evidence-manifest scope is
+  untouched); no proof evidence is re-executed; no regression suite is
+  re-run and no K execution is claimed. All previous delivery notes above
+  are preserved verbatim. Verdict stays **PARTIALLY COMPLETE**.
+- **Defect of record:** the final-head artifact committed by the previous
+  pass (`verification/phase1x-minor-followup-final-head-2026-11-06.txt`)
+  carried a MALFORMED 39-character predecessor SHA literal
+  (`229e06687c0ef17437ba4bf8a1720490cfa5931`) into BOTH its step-1 ancestry
+  check and its step-10a evidence-preservation diff. Both Git commands
+  FAILED (`fatal: Not a valid object name …` and
+  `fatal: bad revision '…..HEAD'`). The recorded `ANCESTRY ALARM
+  (229e066)` and the recorded `diff line count: 0 (EMPTY — Run A evidence
+  untouched)` are therefore artifacts of the malformed literal: a failed
+  `git diff` that prints no output is NOT evidence of an unchanged tree,
+  and the alarm reflected the unresolvable literal, not the repository
+  topology.
+- **Preservation discipline:** the original artifact is preserved VERBATIM
+  — not rewritten, not deleted (its sha256 as of this verification:
+  `2d7caf34c4d0893ecf09e76e5f453c3e7604e629b8cb2c1593bda20d5a67f07f`).
+  The original failed blocks remain in it as historical record and are
+  quoted verbatim in the supplemental artifact.
+- **Corrected verification (executed 2026-11-07 in a fresh clean clone of
+  the live remote head `eafb7655a46453ac529d6326a014f2007cd54cc7`;
+  `git status --porcelain` = 0 entries before any edit):**
+  - with the exact 40-character predecessor SHA
+    `229e06687c0ef17437ba74bf8a1720490cfa5931` (the 2026-10-30
+    delivery-note-of-record commit): `git cat-file -e <SHA>^{commit}`
+    exit 0; `git rev-parse <SHA>` resolves to itself;
+    `git merge-base --is-ancestor <SHA> HEAD` exit 0 — ANCESTRY VERIFIED
+    (exit code 0). Also exit 0 against the original artifact's own tested
+    head `5042385`, and the remote heads of phase1u (`8697bd7`), phase1v
+    (`430f468`), phase1w (`34ef232`), the previous 1X delivery head
+    `e2722bee` and `5042385` are each verified ancestors of the tested
+    HEAD (exit 0 each).
+  - Run A evidence preservation: `git diff --name-status
+    229e06687c0ef17437ba74bf8a1720490cfa5931 HEAD --
+    phase1x/transcripts/ghost phase1x/claims` — NO output lines, exit 0;
+    `git diff --quiet <same args>` exit 0 (a genuine no-differences result
+    from a SUCCESSFUL command; 62 tracked evidence files under the two
+    paths). The identical diff also exits 0 against the original
+    artifact's tested head `5042385`.
+  - Run A digest anchor `phase1x/transcripts/repro/runA-sha256.txt`
+    re-digested entry-by-entry: 69 entries — 65 match, 4 mismatch,
+    0 missing; the four mismatches are EXACTLY the documented tooling
+    files (`README.md`, `scripts/build_ledgers_1x.py`,
+    `scripts/summarize_1x.py`, `tests/run_1x_regressions.sh`); every Run A
+    EVIDENCE file (7 `claims/` files, all 55 `transcripts/ghost/` files,
+    `proofs/run_1x_ghost.sh`) matches its retained digest.
+  - Run B digest anchor (`runB/sha256.txt`): 61 entries — 61/61 match,
+    0 mismatch, 0 missing. Run C digest anchor
+    (`correction/sha256.txt`): 72 entries — 72/72 match, 0 mismatch,
+    0 missing. Both revalidated by execution in this session.
+  - Final evidence manifest re-checked at the tested HEAD: MANIFEST OK —
+    215 paths, exactly-once coverage, all digests match, self-exclusion
+    enforced (check exit 0).
+- **Supplemental artifact of record:**
+  `verification/phase1x-minor-followup-preservation-correction-2026-11-07.txt`
+  (root-level, OUTSIDE `phase1x/`) — the complete captured command
+  outputs and exit codes, the verbatim quotes of the two original failed
+  blocks, and the four-way interpretation: (1) the original malformed
+  attempt (preserved, not valid evidence of success), (2) the new valid
+  ancestry verification, (3) the new valid evidence-preservation
+  verification, (4) the retained historical proof evidence. It is a
+  2026-11-07 supplement and is NOT part of the historical execution it
+  corrects; no previously failed command is claimed to have succeeded
+  retrospectively.
+- **Repair commit:** this commit — append-only (this note, the matching
+  worklog entry, the supplemental artifact; nothing else), parent
+  `eafb7655a46453ac529d6326a014f2007cd54cc7`, its diff over `phase1x/`
+  EMPTY by construction and verified before the push. The final remote
+  delivery head is verified by credential-free `git ls-remote`
+  immediately after the push of this commit and recorded in the worklog
+  (branch-ref-is-pointer discipline, as in every previous delivery).
+  **Verdict: PARTIALLY COMPLETE.**
