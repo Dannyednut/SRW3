@@ -22,6 +22,20 @@
 #                   terminal VERDICT removed) each rejected by the named-check
 #                   validator, and the PRISTINE certificate still GATE GREEN
 #                   (R38b — the genuine-evidence restore control);
+#     R41–R44      the 2026-11-07 minor-hardening battery (WS-P/WS-Q/WS-R):
+#                   the ORIGINAL immutable 1W fixture removed from the sandbox
+#                   (R41 — mandatory-dependency alarm, never a silent skip);
+#                   the ORIGINAL 1W fixture modified while the Phase 1X copy
+#                   stays byte-identical (R42 — unconditional byte-identity);
+#                   the consolidated model provenance carrying a correct
+#                   prefix plus unexpected trailing text (R43 — exact
+#                   MODEL_SOURCE equality); the certificate's fidelity
+#                   equation substituted by unrelated text that still carries
+#                   '[HOLDS]' with the seven named [PASS] assertions and the
+#                   terminal VERDICT preserved (R44 — the '[HOLDS]' marker is
+#                   bound to the actual fidelity equation, equation-confirmation
+#                   mismatch), plus R38b re-proving the PRISTINE certificate
+#                   still passes under the strengthened S8++ validator;
 #     R39a/R39b     final-manifest exactly-once coverage (fixture tree; and
 #                   the committed evidence-manifest-1x-final.txt when present
 #                   at the current head — SKIP-disclosed otherwise);
@@ -163,25 +177,37 @@ if [ -f "$REPO/phase1x/claims/claims-1x.csv" ] && [ -f "$REPO/phase1x/claims/gho
     R=$TD/$1; mkdir -p "$R/phase1x/claims" "$R/phase1x/transcripts/ghost" "$R/phase1x/transcripts/model"
     cp "$REPO/phase1x/claims/"*.csv "$R/phase1x/claims/" 2>/dev/null
     cp "$REPO/phase1x/transcripts/ghost/"* "$R/phase1x/transcripts/ghost/" 2>/dev/null
-    # model rows are the disclosed 1W fixture: link the ACTUAL 1W transcripts
-    # read-only so the gate's transcript-presence check is exercised honestly,
-    # and copy the immutable 1W fixture LEDGER so the S11 byte-identity check
-    # is exercised too (the copy is byte-identical by construction)
-    for L in "$REPO"/phase1w/transcripts/model/*; do
-      [ -e "$L" ] && ln -s "$L" "$R/phase1x/transcripts/model/$(basename "$L")" 2>/dev/null
-    done
-    if [ -f "$REPO/phase1w/claims/model-verdicts-1w.csv" ]; then
-      mkdir -p "$R/phase1w/claims"
-      cp "$REPO/phase1w/claims/model-verdicts-1w.csv" "$R/phase1w/claims/"
+    # model rows are the disclosed 1W fixture: stage the ACTUAL 1W transcripts
+    # so the gate's transcript-presence check is exercised honestly, and copy
+    # the immutable 1W fixture LEDGER so the S11 byte-identity check is
+    # exercised too (the copy is byte-identical by construction).
+    # 2026-11-07 execution notes: (a) symlink creation is POLICY-BLOCKED in
+    # the hardened execution sandbox of this session (every `ln -s` is denied
+    # by the environment), so the staging uses plain COPIES of the same
+    # committed files — semantically identical for the gate (it checks
+    # presence and content, never inode type); the sandbox still holds exactly
+    # the committed evidence, nothing substituted. (b) the staging is ONE cp
+    # process per target directory (not a per-file shell loop): with the K
+    # toolchain env sourced, every forked process pays a dynamic-linker scan
+    # of the LD_LIBRARY_PATH directories, which made the per-file loop ~30s
+    # per sandbox; a single multi-argument cp is robust in both environments
+    # and semantically identical.
+    cp "$REPO"/phase1w/transcripts/model/* "$R/phase1x/transcripts/model/" 2>/dev/null
+    # WS-Q: the ORIGINAL immutable Phase 1W fixture ledger is a MANDATORY part
+    # of every sandbox — the S11 byte-identity check is unconditional, so the
+    # helper copies the ACTUAL committed 1W file (never the 1X copy in its
+    # place) into every fixture root and fails LOUDLY if it is absent.
+    mkdir -p "$R/phase1w/claims"
+    if ! cp "$REPO/phase1w/claims/model-verdicts-1w.csv" "$R/phase1w/claims/model-verdicts-1w.csv" 2>/dev/null; then
+      echo "MKROOT-ERROR: the committed immutable 1W fixture phase1w/claims/model-verdicts-1w.csv is missing from $REPO — the mandatory S11 dependency cannot be staged" >&2
     fi
     # the 1W fixture ALIAS transcripts (kprove_claims_1w.txt /
     # kprove_negcontrol_1w.txt) must resolve at the 1W path for the
     # transcript-presence check — a pristine sandbox is genuinely GREEN
+    # (staged as copies; see the 2026-11-07 execution notes above)
     if [ -d "$REPO/phase1w/transcripts/model" ]; then
       mkdir -p "$R/phase1w/transcripts/model"
-      for L in "$REPO"/phase1w/transcripts/model/*; do
-        [ -e "$L" ] && ln -s "$L" "$R/phase1w/transcripts/model/$(basename "$L")" 2>/dev/null
-      done
+      cp "$REPO"/phase1w/transcripts/model/* "$R/phase1w/transcripts/model/" 2>/dev/null
     fi
     echo "$R"; }
 
@@ -454,15 +480,74 @@ PYEOF
 
   # R38b: the PRISTINE certificate (fresh sandbox copy — the mutations above
   # never touch the genuine evidence) is GATE GREEN with the strengthened
-  # S8+/S10/S11 checks live — the restore-to-genuine control.
+  # S8+/S10/S11 checks live — the restore-to-genuine control. Under the
+  # S8++ equation binding (WS-R) this control additionally proves the genuine
+  # certificate's two-line equation confirmation parses and passes (the WS-Q
+  # positive control for the strengthened validator).
   R=$(mkroot r38b)
   python3 "$SUM" --root "$R" > "$GDIR/r38b.out" 2>&1; RC=$?
   grep -q "GATE GREEN (0 alarms)" "$GDIR/r38b.out" && REASON=0 || REASON=1
   [ $RC -eq 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
   case_result R38b-gate-green-pristine-control "GATE GREEN (genuine certificate + ledgers under the strengthened gate)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'GATE GREEN' "$GDIR/r38b.out" || echo none)"
 
+  # ---------------------------------------------------------- 2026-11-07
+  # Minor-hardening battery (WS-P/WS-Q/WS-R). R41–R43 target the S11 fixture
+  # dependency; R44 targets the S8++ equation binding. Every mutation lands
+  # in its own mkroot sandbox; each case asserts its NAMED alarm, never a
+  # bare nonzero rc.
+
+  # R41: the ORIGINAL immutable 1W model fixture REMOVED from the sandbox
+  # (the Phase 1X copy retained) → GATE RED with the named mandatory-
+  # dependency alarm — the byte-identity check is never silently skipped.
+  R=$(mkroot r41); rm -f "$R/phase1w/claims/model-verdicts-1w.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r41.out" 2>&1; RC=$?
+  grep -q "model-verdicts-1w.csv MISSING — the ORIGINAL immutable Phase 1W model fixture is a mandatory gate dependency" "$GDIR/r41.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R41-1w-fixture-missing "GATE RED (original immutable 1W fixture missing — mandatory dependency, no silent skip)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'model-verdicts-1w.csv MISSING' "$GDIR/r41.out" || echo none)"
+
+  # R42: the ORIGINAL 1W fixture MODIFIED while the Phase 1X copy stays
+  # byte-identical → the UNCONDITIONAL byte-identity comparison rejects.
+  R=$(mkroot r42); printf 'tag,class,rc,expected,observed,verdict,note\nMUTATED-FIXTURE-ROW,junk\n' >> "$R/phase1w/claims/model-verdicts-1w.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r42.out" 2>&1; RC=$?
+  grep -q "model-verdicts-1x.csv is NOT byte-identical to the immutable 1W fixture" "$GDIR/r42.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R42-1w-fixture-modified "GATE RED (original fixture modified; byte-identity mismatch)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'NOT byte-identical' "$GDIR/r42.out" || echo none)"
+
+  # R43: the consolidated model provenance carrying the CORRECT prefix plus
+  # unexpected trailing text (the exact shape the previous startswith()
+  # comparison accepted) → the exact MODEL_SOURCE equality rejects.
+  R=$(mkroot r43)
+  sed -i 's|,"fixture:phase1w/claims/model-verdicts-1w.csv (1W evidence, immutable)",|,"fixture:phase1w/claims/model-verdicts-1w.csv (1W evidence, immutable) UNEXPECTED-TRAILING",|' "$R/phase1x/claims/claims-1x.csv"
+  python3 "$SUM" --root "$R" > "$GDIR/r43.out" 2>&1; RC=$?
+  grep -q "!= the exact MODEL_SOURCE" "$GDIR/r43.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R43-model-provenance-trailing "GATE RED (correct prefix + trailing text rejected — exact MODEL_SOURCE equality)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'exact MODEL_SOURCE' "$GDIR/r43.out" || echo none)"
+
+  # R44: the certificate's fidelity equation REPLACED by unrelated text that
+  # still carries '[HOLDS]' (the seven named [PASS] assertions and the
+  # terminal VERDICT preserved) — the exact shape the previous
+  # any('[HOLDS]' in line) test accepted. The S8++ binding must reject it
+  # with the named equation-confirmation mismatch.
+  R=$(mkroot r44)
+  python3 - "$R" << 'PYEOF'
+import sys
+p = sys.argv[1] + "/phase1x/transcripts/ghost/ghost_manifest_verify_1x.txt"
+lines = open(p).read().splitlines(True)
+out = [ln for ln in lines
+       if not (ln.strip().startswith("equation:") or ln.strip().startswith("="))]
+for i, ln in enumerate(out):
+    if ln.strip().startswith("VERDICT:"):
+        out.insert(i + 1, "  equation: the ghost marker census reconciled across regions [HOLDS]\n")
+        break
+open(p, "w").write("".join(out))
+PYEOF
+  python3 "$SUM" --root "$R" > "$GDIR/r44.out" 2>&1; RC=$?
+  grep -q "EQUATION CONFIRMATION MISMATCH" "$GDIR/r44.out" && REASON=0 || REASON=1
+  [ $RC -ne 0 ] && [ $REASON = 0 ] && OK=0 || OK=1
+  case_result R44-equation-substituted-holds "GATE RED (unrelated '[HOLDS]' text cannot satisfy the check — equation confirmation mismatch)" "rc=$RC reason=$REASON" "$OK" "$(grep -m1 'EQUATION CONFIRMATION MISMATCH' "$GDIR/r44.out" || echo none)"
+
 else
-  for C in R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30 R31 R32 R32b R33 R34 R34b R35 R36 R37 R38 R38b; do
+  for C in R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30 R31 R32 R32b R33 R34 R34b R35 R36 R37 R38 R38b R41 R42 R43 R44; do
     case_result "$C-gate-mutation" "GATE RED (fixture mutation)" "NOT RUN (real ledgers not built yet)" "1" "run after the fresh battery + build_ledgers_1x.py"
   done
 fi

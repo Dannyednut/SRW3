@@ -85,10 +85,15 @@ or a ghost ledger with 46 rows would have passed that check):
   S11. SOURCE→CONSOLIDATED JOIN, MODEL FIXTURE (all 46 rows): every row of
       model-verdicts-1x.csv is joined per claim to the consolidated ledgers
       under the same shared rules, with the fixture provenance preserved:
-      the source field must identify
-      fixture:phase1w/claims/model-verdicts-1w.csv, and when the immutable
-      1W fixture file is present the copy must be BYTE-IDENTICAL to it
-      (sha256). The model fixture is NEVER treated as a fresh Phase 1X
+      the source field must be EXACTLY EQUAL to the builder's canonical
+      MODEL_SOURCE constant (exact string equality — a correct prefix with
+      unexpected trailing content, truncated provenance, or a fresh-Phase-1X
+      value is rejected), and the ORIGINAL immutable 1W fixture file
+      phase1w/claims/model-verdicts-1w.csv is a MANDATORY dependency: the
+      gate rejects execution when either the Phase 1X copy or the original
+      fixture is missing, and the copy must be BYTE-IDENTICAL to the
+      original (sha256) — the byte-identity comparison is never silently
+      skipped. The model fixture is NEVER treated as a fresh Phase 1X
       execution.
   S8+ (WS-I). The fidelity certificate check is upgraded from marker
       COUNTING to the REQUIRED NAMED-CHECK SET: the certificate must carry
@@ -97,6 +102,18 @@ or a ghost ledger with 46 rows would have passed that check):
       no unexpected named assertions, zero [FAIL], and the exact terminal
       verdict line. A certificate retaining five arbitrary passes plus the
       verdict text but missing a required named check is REJECTED.
+  S8++ (2026-11-07 minor hardening, WS-R). The '[HOLDS]' confirmation is
+      bound to the ACTUAL fidelity equation the canonical verifier emits:
+      the certificate must carry exactly one 'equation:' confirmation whose
+      whitespace-normalized text equals the expected
+      'baseline_semantics + exactly_declared_ghost_additions =
+      ghost_instrumented_semantics [HOLDS]' (the verifier may format it
+      across two lines; the parser rejoins the continuation). '[HOLDS]'
+      attached to unrelated text, a missing, duplicated, truncated or
+      substituted equation, or a stray '[HOLDS]' line elsewhere in the
+      certificate are all REJECTED — an unrelated '[HOLDS]' line can never
+      satisfy the check (the verifier emits the equation and its marker
+      exactly once).
 
 Usage: summarize_1x.py [--root DIR]   (default: the Phase 1X repo layout;
       --root is for fixture-based negative controls ONLY — it must point at
@@ -173,6 +190,15 @@ S8_REQUIRED_NAMED = [
     re.compile(r"marker accounting: header mentions \+ declared marked lines = total"),
 ]
 S8_VERDICT_LINE = "VERDICT: PASS — exact byte-faithfulness established"
+# --- S8++ (WS-R, 2026-11-07): the fidelity equation the canonical verifier
+# prints (scripts/audit_ghost_exact.py, emit order fixed) — the certificate
+# must affirm THIS equation, with '[HOLDS]' attached to it:
+#   equation: baseline_semantics + exactly_declared_ghost_additions
+#              = ghost_instrumented_semantics  [HOLDS]
+# (two physical lines in the canonical output; whitespace-normalized for the
+# semantic comparison — normalization affects parsing only, never the content)
+S8_EQ_FULL = ("baseline_semantics + exactly_declared_ghost_additions"
+              " = ghost_instrumented_semantics [HOLDS]")
 
 
 def model_expected_ids():
@@ -416,8 +442,33 @@ def main():
             elif verdict_lines[0].strip() != S8_VERDICT_LINE:
                 fails.append(f"ghost-exact-fidelity: terminal verdict is {verdict_lines[0].strip()!r}, "
                              f"expected exactly {S8_VERDICT_LINE!r}")
-            if not any("[HOLDS]" in ln for ln in cert_lines):
-                fails.append("ghost-exact-fidelity: certificate lacks the terminal '[HOLDS]' equation confirmation")
+            # WS-R (2026-11-07): bind '[HOLDS]' to the ACTUAL fidelity equation.
+            # The canonical verifier emits exactly one 'equation:' confirmation
+            # (possibly formatted across two physical lines — the RHS line
+            # begins with '=' and directly follows the 'equation:' line) and
+            # exactly one '[HOLDS]' marker, attached to that equation. An
+            # unrelated line containing '[HOLDS]' cannot satisfy this check.
+            eq_idx = [i for i, ln in enumerate(cert_lines)
+                      if ln.strip().startswith("equation:")]
+            eq_text = None
+            if len(eq_idx) != 1:
+                state = "MISSING" if not eq_idx else f"DUPLICATED ({len(eq_idx)}x)"
+                fails.append(f"ghost-exact-fidelity: equation confirmation {state} — the canonical "
+                             "verifier emits the fidelity equation exactly once")
+            else:
+                i0 = eq_idx[0]
+                eq_text = " ".join(cert_lines[i0].strip().split("equation:", 1)[1].split())
+                if i0 + 1 < len(cert_lines) and cert_lines[i0 + 1].strip().startswith("="):
+                    eq_text += " " + " ".join(cert_lines[i0 + 1].split())
+                if eq_text != S8_EQ_FULL:
+                    fails.append(f"ghost-exact-fidelity: EQUATION CONFIRMATION MISMATCH — the equation "
+                                 f"confirmation reads {eq_text!r}, expected exactly {S8_EQ_FULL!r}")
+            n_holds = sum(1 for ln in cert_lines if "[HOLDS]" in ln)
+            holds_attached = (eq_text is not None and "[HOLDS]" in eq_text)
+            if n_holds != 1 or not holds_attached:
+                fails.append(f"ghost-exact-fidelity: the '[HOLDS]' confirmation must appear exactly once "
+                             f"and be attached to the expected fidelity equation (found {n_holds} "
+                             "'[HOLDS]' line(s); an unrelated '[HOLDS]' line cannot satisfy the check)")
             if any("[DOES NOT HOLD]" in ln for ln in cert_lines):
                 fails.append("ghost-exact-fidelity: certificate carries '[DOES NOT HOLD]'")
 
@@ -480,13 +531,23 @@ def main():
             fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — exit-codes-1x.csv rc "
                          f"{ecrec['exit_code']!r} != source ghost verdict rc {rc!r}")
 
-    # --- S11: SOURCE→CONSOLIDATED JOIN, model fixture (all 46 rows, WS-H) ----
+    # --- S11: SOURCE→CONSOLIDATED JOIN, model fixture (all 46 rows, WS-H;
+    #     WS-P 2026-11-07 hardening) ------------------------------------------
     # The model ledger is a DISCLOSED FIXTURE (the immutable 1W evidence), not
     # a fresh Phase 1X execution: every consolidated model row must be the
     # projection of its source fixture row, with the fixture provenance
-    # preserved and — when the immutable source file is present — the copy
-    # byte-identical to it.
+    # preserved exactly and the copy byte-identical to it. WS-P: the ORIGINAL
+    # immutable 1W fixture is a MANDATORY dependency — the gate rejects
+    # execution when either file is missing, and the byte-identity comparison
+    # is UNCONDITIONAL (never silently skipped).
     p_1w_fixture = os.path.join(ROOT, "phase1w", "claims", "model-verdicts-1w.csv")
+    if not os.path.exists(p_model):
+        fails.append("phase1x/claims/model-verdicts-1x.csv MISSING — the Phase 1X model fixture "
+                     "ledger is a mandatory gate input")
+    if not os.path.exists(p_1w_fixture):
+        fails.append("phase1w/claims/model-verdicts-1w.csv MISSING — the ORIGINAL immutable Phase 1W "
+                     "model fixture is a mandatory gate dependency; the S11 byte-identity check "
+                     "is never silently skipped")
     if os.path.exists(p_model) and os.path.exists(p_1w_fixture):
         h = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
         if h(p_model) != h(p_1w_fixture):
@@ -511,12 +572,16 @@ def main():
         if crow["class"] != cls_want:
             fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — class {crow['class']!r} != "
                          f"builder classification {cls_want!r} (from fixture vclass {vclass!r})")
-        if not crow["source"].startswith("fixture:phase1w/claims/model-verdicts-1w.csv"):
+        # WS-P (2026-11-07): EXACT equality against the builder's canonical
+        # constant — a correct prefix with unexpected trailing content,
+        # truncated provenance, a fresh-Phase-1X value, or any other
+        # unexpected provenance string is rejected by the single comparison
+        # below (it strictly subsumes the previous prefix check).
+        if crow["source"] != MODEL_SOURCE:
             fails.append(f"{tag}: SOURCE→CONSOLIDATED PROVENANCE — source field {crow['source']!r} "
-                         f"does not preserve the disclosed 1W fixture provenance")
-        if crow["source"].startswith("phase1x/"):
-            fails.append(f"{tag}: the model fixture row claims a fresh Phase 1X execution — "
-                         "fixture provenance violated (the fixture is NEVER treated as a fresh run)")
+                         f"!= the exact MODEL_SOURCE {MODEL_SOURCE!r} (exact equality required; "
+                         "prefix matches, truncations, trailing additions and fresh-1X provenance "
+                         "values are all rejected — the fixture is NEVER treated as a fresh run)")
         ecrec = ec_last.get(tag)
         if ecrec is not None and ecrec["exit_code"] != rc:
             fails.append(f"{tag}: SOURCE→CONSOLIDATED MISMATCH — exit-codes-1x.csv rc "
