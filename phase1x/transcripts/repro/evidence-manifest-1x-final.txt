@@ -1,7 +1,7 @@
 # SRW3 Phase 1X — FINAL full-tree evidence SHA-256 manifest (WS-J)
-# Generated: 2026-11-06T11:05:37Z
+# Generated: 2026-11-07T11:41:52Z
 # Branch: phase1x-ghost-runner-hardening
-# Source commit/tree: a68407a7781827f17dfa506104c11039f18f0bd1 (digests generated against THIS tree)
+# Source commit/tree: 383e7d4d7c7b06a84cdb70e46e8344cdb30e4a66 (digests generated against THIS tree)
 # Scope: every file under phase1x/ (215 files, enumerated via git ls-files (tracked))
 # Toolchain pinned for the recorded executions: K v7.1.337, Z3 4.13.3 (pinned)
 # Self-exclusion: this manifest cannot contain its own digest — it is the
@@ -25,8 +25,8 @@ e410fce150afad470c3bbc1aef3373bf731d8dfececccfde2ef95890beedf593  phase1x/script
 ddfe2072a2aa7fcff571fbbdfb4cdd1857677623f7eddb14312ec5dfacd37328  phase1x/scripts/check_manifest_1x.py
 859431c27072704d39b08286dccf442a8268c468546194752a9705c8357abc0b  phase1x/scripts/classify_1x.py
 7f22bc1dc3a989c0f0ef75096cbd32ff9ba20f8684b28c3575385989eaa42521  phase1x/scripts/compare_runs_1x.py
-d218626a3e22c90201c99277b25aaeec5278e8dccc52ac72a6d944c62c7d3bc7  phase1x/scripts/summarize_1x.py
-9318940ffb8866aed96c65bb12ded9cbe3d70c8727c62e10f8c041e2404064e9  phase1x/tests/run_1x_regressions.sh
+a04659b862e412c433d9dd4ae767a73eb729d3fb6e949fae92be8451c582de74  phase1x/scripts/summarize_1x.py
+55bdbbb6ee93ba998516e74ab3e9e7f5ee85923157c4843f78e4f682e10f78cf  phase1x/tests/run_1x_regressions.sh
 965915039ea97ae907e8179aba8db6ec793a47f7cda74a36d3e2f797caa718db  phase1x/transcripts/ghost/ghost_gen_1x.txt
 53bfc1d8a41aea6eec96dc488bf364a2563cae69c46624bc3c533513696968c9  phase1x/transcripts/ghost/ghost_gen_proofs_1x.txt
 efebe4572c3b9c1acc985107631615aa66661fbb9651e7681b9b7222e8af9e4b  phase1x/transcripts/ghost/ghost_manifest_freeze_1x.txt
