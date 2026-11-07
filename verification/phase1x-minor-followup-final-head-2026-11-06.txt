@@ -1,0 +1,201 @@
+====================================================================
+SRW3 PHASE 1X MINOR HARDENING — FINAL-HEAD REGRESSION EVIDENCE OF RECORD
+====================================================================
+Artifact          : verification/phase1x-minor-followup-final-head-2026-11-06.txt
+Repository        : Dannyednut/SRW3
+Branch            : phase1x-ghost-runner-hardening
+Exact tested SHA  : 504238593a2b9ab843dfb5942198d8a43284fbc1
+                    (the pushed remote head: push e2722be..5042385, a
+                    fast-forward — no force-push, no rebase, no history
+                    rewrite — and the remote branch SHA verified EXACT-equal
+                    by credential-free `git ls-remote` immediately after the
+                    push; the battery below ran in a FRESH CLEAN CLONE of
+                    that pushed head, `git status --porcelain` = 0 entries)
+Test command      : bash phase1x/tests/run_1x_regressions.sh
+                    (step 5-8 of the complete WS-V battery captured below;
+                    REPO_ROOT = the clean clone itself, i.e. the in-tree
+                    Run A evidence; FRESHRUN default)
+Execution window  : battery 2026-11-07T11:54:23Z (suite start) .. 2026-11-07T11:57:25Z (suite finish), UTC
+                    (full battery incl. gate/manifest/preservation steps
+                    captured in the same session at the same commit)
+Toolchain         : K v7.1.337 + Z3 4.13.3 (pinned; captured live in
+                    step 0b of the battery output below; the R12 K battery
+                    inside the suite self-provisions this env and executed
+                    live — rc=0 rows=11 green=1, the old-runner defect
+                    reproduction)
+Totals of record  : 51 PASS / 0 FAIL / 0 SKIP (disclosed)
+                    suite process exit code: 0
+Gate              : GATE GREEN (0 alarms) — enhanced S1-S11 gate incl. the
+                    S8++ equation binding (WS-R) and the mandatory-fixture /
+                    exact-provenance S11 (WS-P), against the genuine
+                    committed Run A evidence; 48 ghost + 46 model rows
+                    accepted; the genuine Phase 1W fixture byte-identical
+                    (cmp IDENTICAL, sha256 a91f059f… both copies)
+Manifest          : MANIFEST OK — evidence-manifest-1x-final.txt (215 paths,
+                    exactly-once coverage, all digests match,
+                    self-exclusion enforced) at the tested SHA
+Individual tests  : the complete per-case PASS/FAIL/SKIP table with expected
+                    vs observed and named reasons is IN the captured output
+                    below (all 51 cases listed by ID)
+Scope disclosure  : this battery adds NO K proof battery and regenerates NO
+                    proof evidence — the existing Run A / Run B / Run C
+                    evidence is VERIFIED, never re-executed (step 10 of the
+                    battery: git diff 229e066..5042385 EMPTY for
+                    phase1x/transcripts/ghost + phase1x/claims; runA anchor
+                    65/69 with the mismatches EXACTLY the four tooling files
+                    evolved by reviewed commits [README.md,
+                    scripts/build_ledgers_1x.py, scripts/summarize_1x.py,
+                    tests/run_1x_regressions.sh]; runB anchor 61/61; Run C
+                    anchor 72/72)
+Self-reference    : this artifact is added by the NEXT commit of the sequence
+                    (a file cannot contain its own digest; the tested SHA
+                    above is the pointer of record). It lives OUTSIDE
+                    phase1x/, so the final-manifest scope is unaffected; the
+                    commits after the tested SHA touch NO file under
+                    phase1x/ (verifiable:
+                    `git diff 5042385..<this-artifact-commit> -- phase1x` is
+                    EMPTY). Verdict: PARTIALLY COMPLETE.
+
+--- BEGIN COMPLETE CAPTURED OUTPUT (stdout+stderr, unmodified) ---
+==================================================================
+SRW3 Phase 1X minor hardening — FINAL-HEAD VERIFICATION OF RECORD
+==================================================================
+step 0. identification
+  repository      : Dannyednut/SRW3
+  branch          : phase1x-ghost-runner-hardening
+  tested commit   : 504238593a2b9ab843dfb5942198d8a43284fbc1
+  clone worktree  : 0 modified paths (clean checkout)
+  execution date  : 2026-11-07T11:54:19Z
+  verification    : fresh clone of the pushed remote head (credential-free git clone + ls-remote cross-checked by the operator session)
+
+step 0b. toolchain (pinned versions used by the recorded evidence;
+         the K battery inside case R12 self-provisions this env)
+K version:    v7.1.337
+Z3 version 4.13.3 - 64 bit
+
+step 1. branch ancestry and remote references
+  ancestry OK: e2722bee (reported starting head) is an ancestor of 5042385
+fatal: Not a valid object name 229e06687c0ef17437ba4bf8a1720490cfa5931
+  ANCESTRY ALARM (229e066)
+  commit chain 229e066..HEAD:
+fatal: ambiguous argument '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+step 2. the enhanced S1-S11 gate (incl. S8++/WS-P) against the committed source evidence
+rows=94 unique-claims=94 (ghost=48/48 model=46/46)
+  control: 24
+  fidelity: 1
+  proved: 42
+  regression: 27
+GATE GREEN (0 alarms)
+REMINDER: GATE GREEN asserts the EVIDENCE matches the expected verdict inventory; it is NOT a completeness claim (PARTIALLY COMPLETE).
+  gate exit code: 0
+
+step 3. row counts (48 ghost + 46 model accepted)
+  rows=94 unique-claims=94 (ghost=48/48 model=46/46)
+
+step 4. genuine Phase 1W model fixture present and byte-identical
+  a91f059f26252bbdabe9d7b0b0653218f047f2dae5706da17e729e39483a6aed  phase1w/claims/model-verdicts-1w.csv
+  a91f059f26252bbdabe9d7b0b0653218f047f2dae5706da17e729e39483a6aed  phase1x/claims/model-verdicts-1x.csv
+  byte-identity: IDENTICAL
+
+step 5+6+7+8. the COMPLETE regression suite R1-R44 (includes R41-R44, the
+               pristine S8 control R38b, and R39b = the committed final manifest)
+               command: bash phase1x/tests/run_1x_regressions.sh
+               started 2026-11-07T11:54:23Z
+================================================================
+Phase 1X regression suite — 51 PASS / 0 FAIL / 0 SKIP (disclosed)
+
+PASS  R1-baseline-labels | expected: Accepted (4 suites rc=0) | observed: rc=0 | LABELCHECK OK: suite=main labels=12 (pinned inventory match, no dups, no extras)
+PASS  R2-main-label-omitted | expected: Rejected before proofs (MISSING GH-M) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) 
+PASS  R3-gen-label-omitted | expected: Rejected before proofs (MISSING GH2-A1) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s)
+PASS  R4-duplicate-label | expected: Rejected (NO-DUPLICATE-LABELS) | observed: rc=3 reason=0 | ASSERTION FAILED: NO-DUPLICATE-LABELS: duplicated label(s) ['GH-A']
+PASS  R5-unexpected-label | expected: Rejected (UNEXPECTED) | observed: rc=3 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) ['GH-A']
+PASS  R7-splitter-empty | expected: Rejected (SPLITTER-OUTPUT-EMPTY) | observed: rc=3 reason=0 | ASSERTION FAILED: SPLITTER-OUTPUT-EMPTY (splitter produced no labels — 
+PASS  R8-no-closure-marker | expected: NOT classified PROVED (INVALID-SUCCESS) | observed: status=INVALID-SUCCESS | status=INVALID-SUCCESS top=0 stuck=0 backenderr=0 err=
+PASS  R8b-old-genspec-would-accept | expected: Old 1W check says OK for the same evidence | observed: old-check=OK | run_1w_ghost.sh L138 shape: [ "$E" = "$EXP_RC" ] — 
+PASS  R9-gh-t-stuck-signature | expected: FAILED-STUCK from the fresh diagnostic | observed: status=FAILED-STUCK | status=FAILED-STUCK top=0 stuck=1 backenderr=1 err=1
+PASS  R10-designed-negative-preserved | expected: FAILED-STUCK, never rc=0 | observed: status=FAILED-STUCK | status=FAILED-STUCK top=0 stuck=1 backenderr=1 err=1
+PASS  R11-timeout-classification | expected: TIMEOUT (never proof/success) | observed: status=TIMEOUT | status=TIMEOUT top=0 stuck=0 backenderr=0 err=0 (classifier-level;
+PASS  R15-gate-missing-claim | expected: GATE RED (MISSING ghost-GH-M) | observed: rc=1 reason=0 |   - ghost ledger MISSING expected claim(s): ['ghost-GH-M']
+PASS  R16-gate-duplicate-row | expected: GATE RED (duplicate) | observed: rc=1 reason=0 |   - ghost ledger duplicate tags: ['ghost-GH-M']
+PASS  R17-gate-substituted-row | expected: GATE RED (identity, not just count: MISSING + DUPLICATE) | observed: rc=1 reason=0 |   - ghost ledger duplicate tags: ['ghost-G
+PASS  R18-gate-model-count | expected: GATE RED (exactly 46, shared set forbidden) | observed: rc=1 reason=0 |   - model ledger: 45 rows, exactly 46 required
+PASS  R19-gate-relabel-alarm | expected: GATE RED (RELABELING ALARM) | observed: rc=1 reason=0 |   - ghost-GH-T: designed-failure row closed/rc=0 — RELABELING ALARM
+PASS  R20-gate-exitcode-mismatch | expected: GATE RED (last-wins mismatch + unrecognized rc) | observed: rc=1 reason=0 |   - ghost-GH-BASE: ledger rc=0 != exit-codes last
+PASS  R21-gate-missing-transcript | expected: GATE RED (no transcript) | observed: rc=1 reason=0 |   - ghost-GH-BASE: no retained Phase 1X transcript
+PASS  R22-gate-gh-t-status | expected: GATE RED (FAILED-STUCK preserved specifically) | observed: rc=1 reason=0 |   - ghost-GH-T: observed status 'FAILED', the evidence-b
+PASS  R23-neg-downgrade-rejected | expected: GATE RED (ghost-GH-T2-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-GH-T2-NEG: STATUS TR
+PASS  R24-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G2-GH2-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G2-GH2-NEG:
+PASS  R25-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G3-GH3-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G3-GH3-NEG:
+PASS  R26-neg-downgrade-rejected | expected: GATE RED (ghost-SRW3G4-GH4-NEG FAILED-STUCK->FAILED downgrade rejected) | observed: rc=1 reason=0 |   - ghost-SRW3G4-GH4-NEG:
+PASS  R27-gh-t-log-stripped | expected: GATE RED (stuck diagnostics stripped -> recompute FAILED) | observed: rc=1 reason=0 |   - ghost-GH-T: FOUR-WAY INCONSISTENCY — t
+PASS  R28-success-log-no-top | expected: GATE RED (#Top removed -> INVALID-SUCCESS) | observed: rc=1 reason=0 |   - ghost-GH-A: FOUR-WAY INCONSISTENCY — transcript reco
+PASS  R29-success-log-error-injected | expected: GATE RED ([Error] injected -> INVALID-SUCCESS) | observed: rc=1 reason=0 |   - ghost-GH-A: FOUR-WAY INCONSISTENCY — tra
+PASS  R30-identity-mismatch | expected: GATE RED (swapped transcripts caught by identity, >=2 alarms) | observed: rc=1 identity-alarms=2 |   - ghost-GH-BASE: CLAIM↔TRAN
+PASS  R31-ghost-consolidated-rc | expected: GATE RED (rc mutated in both consolidated ledgers; source unchanged — S10 join) | observed: rc=1 reason=0 |   - ghost-GH-BAS
+PASS  R32-ghost-consolidated-class | expected: GATE RED (class mutated; builder rule re-derived from the SOURCE row) | observed: rc=1 reason=0 |   - ghost-GH-BASE: SOURCE
+PASS  R32b-ghost-consolidated-expectation | expected: GATE RED (expectation mutated; re-derived from the source verdict) | observed: rc=1 reason=0 |   - ghost-GH-R: SOURC
+PASS  R33-model-fixture-rc | expected: GATE RED (fixture rc mutated in both consolidated ledgers; fixture untouched — S11 join) | observed: rc=1 reason=0 |   - OLD1V-w1
+PASS  R34-model-fixture-class | expected: GATE RED (fixture class mutated; builder rule re-derived from the fixture row) | observed: rc=1 reason=0 |   - NEW1W-claims-1-4:
+PASS  R34b-model-fixture-expectation | expected: GATE RED (fixture expectation mutated; re-derived from the fixture verdict) | observed: rc=1 reason=0 |   - OLD1V-w1_aff_
+PASS  R35-cert-required-check-removed | expected: GATE RED (required named check missing; >=5 generic markers insufficient) | observed: rc=1 reason=0 |   - ghost-exact-fi
+PASS  R36-cert-duplicate-assertion | expected: GATE RED (duplicated named assertion) | observed: rc=1 reason=0 |   - ghost-exact-fidelity: named check DUPLICATED (2x): ar
+PASS  R37-cert-fail-injected | expected: GATE RED (injected [FAIL] + the required check no longer PASS) | observed: rc=1 reason=0 |   - ghost-exact-fidelity: certificate 
+PASS  R38-cert-verdict-removed | expected: GATE RED (terminal verdict removed) | observed: rc=1 reason=0 |   - ghost-exact-fidelity: certificate must carry exactly one te
+PASS  R38b-gate-green-pristine-control | expected: GATE GREEN (genuine certificate + ledgers under the strengthened gate) | observed: rc=0 reason=0 | GATE GREEN (0 alarms
+PASS  R41-1w-fixture-missing | expected: GATE RED (original immutable 1W fixture missing — mandatory dependency, no silent skip) | observed: rc=1 reason=0 |   - phase1w
+PASS  R42-1w-fixture-modified | expected: GATE RED (original fixture modified; byte-identity mismatch) | observed: rc=1 reason=0 |   - model-verdicts-1x.csv is NOT byte-i
+PASS  R43-model-provenance-trailing | expected: GATE RED (correct prefix + trailing text rejected — exact MODEL_SOURCE equality) | observed: rc=1 reason=0 |   - OLD1V-w
+PASS  R44-equation-substituted-holds | expected: GATE RED (unrelated '[HOLDS]' text cannot satisfy the check — equation confirmation mismatch) | observed: rc=1 reason=0
+PASS  R39a-manifest-fixture-coverage | expected: Fixture manifest covers every file exactly once (MANIFEST OK) | observed: rc=0 reason=0 | MANIFEST OK — 3 paths, exactl
+PASS  R39b-manifest-committed-coverage | expected: Committed final manifest: full-tree exactly-once coverage, all digests match | observed: rc=0 reason=0 | MANIFEST OK �
+PASS  R40-manifest-mutation-detected | expected: GATE RED (checker detects a file mutated after generation) | observed: rc=1 reason=0 |   - DIGEST MISMATCH (modified afte
+PASS  R40b-manifest-unexpected-path | expected: GATE RED (checker detects a file added after generation) | observed: rc=1 reason=0 |   - NOT COVERED (in tree, absent from
+PASS  R40c-manifest-duplicate-line | expected: GATE RED (checker detects a duplicated manifest path) | observed: rc=1 reason=0 |   - DUPLICATE path in manifest: phase1x/b
+PASS  R14-runner-refuses-short-splitter | expected: Runner exits nonzero BEFORE any K proof | observed: rc=4 reason=0 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expe
+PASS  R13-runner-splitter-failure | expected: Runner fails the stage (SPLITTER-EXIT) | observed: rc=3 reason=0 | [1X-GHOST] ASSERTION FAILED: SPLITTER-EXIT (main suite rc
+PASS  R12-old-runner-weakness | expected: OLD runner exits GREEN with 11/12 claims (defect shown) | observed: rc=0 rows=11 green=1 | unmodified run_1w_ghost.sh @34ef232 +
+PASS  R12b-new-runner-same-stub | expected: NEW runner refuses the same input | observed: rc=4 | ASSERTION FAILED: EXACT-SET-EQUALITY: MISSING expected label(s) ['GH-M']
+================================================================
+               finished 2026-11-07T11:57:25Z
+  SUITE PROCESS EXIT CODE: 0
+
+step 9. the final manifest verified explicitly
+manifest: phase1x/transcripts/repro/evidence-manifest-1x-final.txt (215 listed paths, 12 header/comment lines, tree enumeration: git ls-files (tracked) over 216 files)
+MANIFEST OK — 215 paths, exactly-once coverage, all digests match; self-exclusion of phase1x/transcripts/repro/evidence-manifest-1x-final.txt enforced
+  manifest check exit code: 0
+
+step 10. Run A / Run B / Run C evidence preservation
+  10a. git diff 229e066..HEAD -- phase1x/transcripts/ghost phase1x/claims (Run A evidence paths; must be EMPTY):
+fatal: bad revision '229e06687c0ef17437ba4bf8a1720490cfa5931..HEAD'
+      diff line count: 0 (EMPTY — Run A evidence untouched through this pass)
+  10b. Run A digest anchor phase1x/transcripts/repro/runA-sha256.txt (69 digests, anchored at phase1x/):
+      match: 65/69; mismatches: 4
+      DIGEST: README.md
+      DIGEST: scripts/build_ledgers_1x.py
+      DIGEST: scripts/summarize_1x.py
+      DIGEST: tests/run_1x_regressions.sh
+  10c. Run B digest anchor phase1x/transcripts/repro/runB/sha256.txt (anchored at repro/runB/):
+      match: 61/61; mismatches: 0
+  10d. Run C (clean-checkout sequence of record) digest anchor phase1x/transcripts/repro/correction/sha256.txt (anchored at correction/):
+      match: 72/72; mismatches: 0
+
+step 11. clean checkout / clean worktree
+  git status --porcelain: 0 entries (0 = clean)
+  HEAD is the pushed remote head: 504238593a2b9ab843dfb5942198d8a43284fbc1
+
+step 12. summary of expected vs actual
+  (the per-case PASS/FAIL/SKIP table above IS the individual-test record;
+   the summary line 'Phase 1X regression suite — N PASS / 0 FAIL / 0 SKIP'
+   and SUITE PROCESS EXIT CODE above are the totals of record)
+==================================================================
+END OF FINAL-HEAD VERIFICATION BATTERY
+==================================================================
+--- END COMPLETE CAPTURED OUTPUT ---
+
+Battery process exit code: 0
+====================================================================
+END OF ARTIFACT
+====================================================================

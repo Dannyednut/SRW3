@@ -504,3 +504,39 @@ credential-free `git ls-remote` immediately after the push:
   **Verdict: PARTIALLY COMPLETE.** The push-verification record of this
   pass follows in the delivery note (append-only; see the next entry
   below once delivered).
+
+### Phase 1X minor-hardening pass — delivery note of record (2026-11-07)
+
+- **Push of record:** commits `383e7d4` (WS-P+WS-Q+WS-R code and tests),
+  `ad9e927` (WS-U — the regenerated final manifest ONLY), `5042385`
+  (WS-S — register R18/R19, worklog, correction note, this note) PUSHED to
+  `phase1x-ghost-runner-hardening`; push output `e2722be..5042385`, a
+  FAST-FORWARD — no force-push, no rebase, no history rewrite; the remote
+  branch SHA verified EXACT-equal (`504238593a2b9ab843dfb5942198d8a43284fbc1`)
+  by credential-free `git ls-remote` immediately after the push.
+- **Post-push cross-check:** default branch `phase1u-model-hygiene` @
+  `8697bd7` UNCHANGED; `main` @ `6601242` UNCHANGED; `phase1v` @ `430f468`
+  UNCHANGED; `phase1w` @ `34ef232` UNCHANGED — exactly one branch ref moved,
+  by fast-forward only; remote tags all historical — NO completion tag.
+- **Final-head verification of record:** a fresh clean clone of the pushed
+  head `5042385` (worktree clean, 0 entries) — enhanced gate GATE GREEN
+  (0 alarms; 48 ghost + 46 model rows accepted; the genuine Phase 1W model
+  fixture byte-identical, sha256 `a91f059f…` both copies); the COMPLETE
+  regression suite R1–R44: **51 PASS / 0 FAIL / 0 disclosed SKIP** (suite
+  process exit code 0), including R39b (committed final manifest MANIFEST
+  OK — 215 paths, exactly-once coverage, all digests match, self-exclusion
+  enforced), R41–R44 (the new named-alarm cases) and R38b (pristine
+  S8 certificate GATE GREEN under the strengthened validator); manifest
+  check exit code 0; Run A/B/C preservation verified in the same battery
+  (git diff `229e066..5042385` EMPTY for the Run A evidence paths; runA
+  anchor 65/69 with the mismatches EXACTLY the four tooling files evolved
+  by reviewed commits; runB 61/61; Run C 72/72). The COMPLETE captured
+  battery output is committed as
+  `verification/phase1x-minor-followup-final-head-2026-11-06.txt`
+  (outside `phase1x/` — the final-manifest scope is unaffected; no
+  `phase1x/` file changes after the manifest commit `ad9e927`).
+- **Self-referential-hash limitation respected:** this delivery-note
+  commit cannot contain its own final SHA; the branch reference is the
+  pointer of record and the post-push `ls-remote` verification of THIS
+  commit follows the same pattern as every previous delivery (verified
+  immediately after the push of this commit and recorded in the worklog).
