@@ -458,3 +458,49 @@ credential-free `git ls-remote` immediately after the push:
   original tooling defect); GH-T FAILED-STUCK; Genesis TIMEOUT;
   destination-false TIMEOUT (decisive control preserved); Level-III and
   owner-authority items open. **Verdict: PARTIALLY COMPLETE.**
+
+## Phase 1X minor-hardening pass (2026-11-07)
+
+- **Scope (WS-P..WS-U):** the two minor validator weaknesses left by the
+  2026-11-06 independent review of the evidence-integrity correction, plus
+  final-head regression-evidence preservation and the manifest regeneration
+  required by the code changes. This is a minor validator-hardening
+  correction, NOT a new proof phase; no theorem, proof outcome, verdict row,
+  transcript, ledger, or Run A/B/C evidence changed.
+- **Finding A closed (R18):** the S11 immutable-fixture check is now
+  MANDATORY (missing original `phase1w/claims/model-verdicts-1w.csv` or
+  missing `phase1x/claims/model-verdicts-1x.csv` = named GATE RED; the
+  byte-identity comparison is unconditional) and the consolidated model
+  provenance is compared by EXACT equality against the builder's
+  `MODEL_SOURCE` constant (implemented in commit `383e7d4`; executed
+  regressions R41–R43 with their named expected alarms).
+- **Finding B closed (R19):** the S8 `[HOLDS]` confirmation is bound to the
+  ACTUAL fidelity equation (`baseline_semantics +
+  exactly_declared_ghost_additions = ghost_instrumented_semantics
+  [HOLDS]`, the exact emission of `scripts/audit_ghost_exact.py verify`,
+  canonical two-line format handled): exactly one `equation:` confirmation,
+  exactly one `[HOLDS]` line attached inside it; unrelated `[HOLDS]` text
+  cannot satisfy the check (implemented in commit `383e7d4`; executed
+  regression R44; the pristine certificate remains GATE GREEN — R38b).
+- **Manifest regeneration (WS-U, two-commit ordering):** commit 1 =
+  `383e7d4` (code and tests ONLY), commit 2 = `ad9e927` (the regenerated
+  `phase1x/transcripts/repro/evidence-manifest-1x-final.txt` ONLY, header
+  Source commit/tree = `383e7d4d7c7b06a84cdb70e46e8344cdb30e4a66`; 215
+  covered paths = every tracked `phase1x/` file except the manifest itself;
+  MANIFEST OK pre- and post-commit). No `phase1x/` file changes after the
+  manifest commit — documentation and verification artifacts live outside
+  the manifest scope.
+- **Regression evidence at the manifest head `ad9e927`:** full suite
+  R1–R44 = **51 PASS / 0 FAIL / 0 disclosed SKIP**, including R39b (the
+  committed final manifest verified: MANIFEST OK — 215 paths,
+  exactly-once coverage, all digests match, self-exclusion enforced),
+  R41–R44 (the new named-alarm cases) and R38b (pristine-certificate
+  GATE GREEN under the strengthened S8++ validator). Toolchain: K
+  v7.1.337, Z3 4.13.3 (the R12 old-runner reproduction executed live).
+- R18/R19 are CLOSED in `docs/research/residual-register-1x.md` with
+  executed evidence; R1–R17 carried unchanged (R13 stays CLOSED); GH-T
+  FAILED-STUCK; Genesis TIMEOUT; destination-false TIMEOUT (decisive
+  control preserved); Level-III and owner-authority items open.
+  **Verdict: PARTIALLY COMPLETE.** The push-verification record of this
+  pass follows in the delivery note (append-only; see the next entry
+  below once delivered).

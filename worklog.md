@@ -2523,3 +2523,73 @@ Work Log:
   ls-remote recorded in the delivery note. Verdict: PARTIALLY COMPLETE;
   R15-R17 CLOSED; R1-R14 unchanged (R13 stays CLOSED); GH-T FAILED-STUCK,
   Genesis TIMEOUT.
+
+---
+Task ID: 1X-MINOR
+Agent: main (Super Z)
+Task: SRW3 Phase 1X — Final Minor Hardening (WS-P..WS-U, 2026-11-07)
+
+Work Log:
+- Entry gate (all verified live): credential-free git ls-remote — remote
+  branch phase1x-ghost-runner-hardening at e2722bee4d5732565a7d838e1739d46067f7e77d
+  (exactly the reported starting head; the branch had NOT moved); branch name
+  confirmed; the starting head is the branch head itself (trivially an
+  ancestor, merge-base --is-ancestor executed); default branch
+  phase1u-model-hygiene @ 8697bd7 UNCHANGED, phase1v @ 430f468 UNCHANGED,
+  phase1w @ 34ef232 UNCHANGED; remote tags all historical — NO completion tag;
+  fresh clean clone created and inspected (summarize_1x.py,
+  build_ledgers_1x.py, check_manifest_1x.py, run_1x_regressions.sh,
+  ghost_manifest_verify_1x.txt, evidence-manifest-1x-final.txt,
+  residual-register-1x.md, STATE-OF-RECORD.md).
+- WS-P (S11, summarize_1x.py): the ORIGINAL immutable 1W fixture
+  phase1w/claims/model-verdicts-1w.csv made a MANDATORY gate dependency —
+  missing either fixture file is a named GATE RED alarm; byte-identity
+  comparison UNCONDITIONAL; model provenance compared by EXACT equality
+  against the builder's MODEL_SOURCE constant (the previous startswith()
+  accepted correct-prefix-plus-trailing-text); build_ledgers_1x.py
+  projection rules untouched; S10/S11 joins preserved (WS-P 3.3).
+- WS-R (S8++, summarize_1x.py): '[HOLDS]' bound to the ACTUAL fidelity
+  equation — exactly one 'equation:' confirmation whose whitespace-normalized
+  text (canonical two-line format rejoined) equals the exact emission of
+  scripts/audit_ghost_exact.py verify; exactly one '[HOLDS]' line in the
+  certificate, attached inside that equation; missing/duplicated/substituted
+  equations and stray '[HOLDS]' lines all fail closed with named alarms.
+  The expected equation established from the canonical verifier source and
+  the genuine certificate (baseline_semantics +
+  exactly_declared_ghost_additions = ghost_instrumented_semantics [HOLDS]).
+- WS-Q (run_1x_regressions.sh): mkroot stages the ORIGINAL 1W fixture
+  UNCONDITIONALLY into every sandbox (MKROOT-ERROR loudly if absent) and the
+  four new cases R41-R44 assert their NAMED expected alarms (mandatory
+  fixture missing / byte-identity mismatch / exact MODEL_SOURCE mismatch /
+  EQUATION CONFIRMATION MISMATCH); R38b stays GATE GREEN as the pristine
+  positive control; R1-R40c untouched.
+- Execution-environment adaptations (disclosed in the code comments and the
+  commit message): (a) symlink creation is policy-blocked in this session's
+  sandbox (every ln -s denied), so sandbox 1W-transcript staging uses plain
+  copies of the same committed files (gate semantics unchanged — it checks
+  presence/content, never inode type); (b) mkroot staging is one
+  multi-argument cp per target directory because with the K toolchain env
+  sourced every forked process pays a dynamic-linker LD_LIBRARY_PATH scan
+  (~0.3s/exec) that made the per-file loop ~30s per sandbox — the single cp
+  is robust in both environments; neither adaptation alters any expected
+  result, alarm name, or case meaning.
+- Pre-commit verification: enhanced gate on the genuine committed Run A
+  evidence GATE GREEN (0 alarms; 48 ghost + 46 model rows accepted; the
+  genuine 1W fixture present and byte-identical, sha256 a91f059f...);
+  manual adversarial probes of the strengthened validator all fail closed
+  with the named alarm (stray [HOLDS] / duplicated equation / removed
+  equation / substituted equation with [HOLDS]).
+- Commits: 383e7d4 (WS-P+WS-Q+WS-R code and tests), ad9e927 (WS-U — the
+  FINAL manifest evidence-manifest-1x-final.txt REGENERATED over the
+  committed code/test tree, header Source commit/tree = 383e7d4..., 215
+  covered paths, self-exclusion enforced, MANIFEST OK pre- and
+  post-commit). Suite at ad9e927: 51 PASS / 0 FAIL / 0 SKIP (R39b executes
+  against the regenerated committed manifest: MANIFEST OK; R41-R44 all
+  PASS with their named outcomes; R38b GATE GREEN; R12 old-runner
+  reproduction PASS). Docs commit follows (this entry + the register
+  R18/R19 rows + the correction note + the state-of-record note — all
+  outside phase1x/ so no Phase 1X file changes after the manifest commit).
+- Verdict: PARTIALLY COMPLETE; R18/R19 CLOSED with executed evidence;
+  R1-R17 unchanged (R13 stays CLOSED); GH-T FAILED-STUCK, Genesis TIMEOUT,
+  destination-false TIMEOUT with the decisive control preserved; no proof
+  outcome changed by this pass.
